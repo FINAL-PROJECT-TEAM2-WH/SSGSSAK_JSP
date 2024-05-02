@@ -1,4 +1,4 @@
-package days06.mvc.command;
+package member.command;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.util.ConnectionProvider;
-import com.util.DBConn;
 
-import days06.mvc.domain.BoardDTO;
-import days06.mvc.domain.PageDTO;
-import days06.mvc.persistence.BoardDAOImpl;
+import member.domain.BoardDTO;
+import member.domain.PageDTO;
+import member.persistence.BoardDAOImpl;
 
 public class ListHandler implements CommandHandler {
 

@@ -1,6 +1,4 @@
-package days06.mvc.domain;
-
-import java.util.Date;
+package member.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

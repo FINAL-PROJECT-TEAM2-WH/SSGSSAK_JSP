@@ -1,4 +1,4 @@
-package days06.mvc.domain;
+package member.domain;
 
 import java.util.Date;
 

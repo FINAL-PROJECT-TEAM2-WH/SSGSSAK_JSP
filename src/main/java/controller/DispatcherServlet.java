@@ -1,9 +1,7 @@
-package days06.mvc.controller;
+package controller;
 
-import java.io.BufferedInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -13,13 +11,11 @@ import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import days06.mvc.command.CommandHandler;
+import member.command.CommandHandler;
 
 /* @WebServlet("/DispatcherServlet") */ // web.xml 에 등록할거임 
 public class DispatcherServlet extends HttpServlet {

@@ -1,4 +1,4 @@
-package days06.mvc.command;
+package member.command;
 
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.util.ConnectionProvider;
 
-import days06.mvc.persistence.BoardDAOImpl;
+import member.persistence.BoardDAOImpl;
 
 
 public class DeleteHandler implements CommandHandler {

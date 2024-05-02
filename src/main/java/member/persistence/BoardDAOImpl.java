@@ -1,4 +1,4 @@
-package days06.mvc.persistence;
+package member.persistence;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import days06.mvc.domain.BoardDTO;
+import member.domain.BoardDTO;
 
 public class BoardDAOImpl implements BoardDAO {
 
