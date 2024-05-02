@@ -13,7 +13,7 @@
 	
 
 
-<!--  auth 뒤에 쿼리가 붙으면 다른 페이지로 이동시켜줘야됨.  -->
+
 
 
 
@@ -165,7 +165,7 @@
             mbrLoginId       : '',
             mbrLoginId2      : '',
             mbrcoId          : '000000',
-            ckWhere          : 'ssg_ggbr',
+            ckWhere          : 's_ggbr',
             dmId             : '',
             emSaleStrNo      : '2439',
             trSaleStrNo      : '2483',
@@ -276,7 +276,7 @@
     var UserInfo = {
         isLoginYn : 'false'=='true'?'Y':'N',
         mbrTypeCd : '',
-        ckWhere : 'ssg_ggbr'
+        ckWhere : 's_ggbr'
     };
 
     var mobile = {
@@ -340,42 +340,103 @@
 <div id="category" class="category"></div>
 			<div id="container"  class="cmmyssg_wrap" >
 				
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_iconset.css?v=20240424"/>
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/join.css?v=20240424"/>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/lazyload.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.cookie.js"></script>
 
-<div id="content" data-reactingV2-key="00183_000000950|t00000|1">
-    <div class="member_join">
-        <div class="join_type">
-            <div class="join_title_wrap">
-                <div class="title_area">
-                    <h3 class="mb_tit"> 믿고 사는 즐거움<br>
-                        <span class="logo_ssg_com">SSG.COM</span>에 오신 것을<br> 환영합니다
-                    </h3>
-                </div>
-            </div>
-            <div class="join_cts_wrap">
-                <div class="mb_cont">
-                    <div class="btns_area btns_fixed">
-                        <div class="btn_cts">
-                            <a href="<%= contextPath %>/member/join/auth.da?type=all" class="btn_type01" data-reactingV2-key="00183_000000950|t00060|1">
-                                <strong>개인회원</strong>
-                                <span>본인인증 또는 SNS 인증 후 가입</span>
-                            </a>
-                            <a href="<%= contextPath %>/member/join/cooperation/auth.jsp" class="btn_type02" data-reactingV2-key="00183_000000950|t00060|2">
-                                <strong>사업자회원</strong>
-                                <span>사업자번호 인증 후 가입</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- //contents -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content" class="cmem_ct_join">
+    <div class="cmem_header">
+        <div class="cmem_header_tit"
+             data-reactingV2-key="00183_000000837|t00000|1">
+            <h2>신세계포인트 통합회원 가입</h2>
+            
         </div>
     </div>
+    <div class="cmem_cont">
+        
+
+        <div class="cmem_sec ">
+            <div class="cmem_subtit">
+                <h3>본인 인증</h3>
+            </div>
+            <p class="cmem_subtit_txt">자주 사용하시는 인증 수단으로 본인인증을 진행해주세요.</p>
+            <div class="cmem_certi_area ty_big">
+                <div class="cmem_certi">
+					<span class="cmem_certi_item">
+						<a href="javascript:void(0);" onclick="selfCert.open('20');" class="cmem_certi_phone" data-reactingV2-key='00183_000000837|t00060|1' title="새창열림">휴대폰 인증</a>
+					</span>
+                    <span class="cmem_certi_item">
+					<a href="javascript:void(0);" onclick="selfCert.open('50');" class="cmem_certi_card" data-reactingV2-key='00183_000000837|t00060|2' title="새창열림">신용/체크카드 인증</a>
+					</span>
+                </div>
+                <ul class="cmem_certi_notice">
+                    <li>법인폰 사용자는 법인폰 개인인증 서비스 신청 후 휴대폰 인증을 하실 수 있습니다.</li>
+                    <li>본인인증이 잘 되지 않으시면 본인인증기관 고객센터로 문의 해주세요.<br><em>NICE평가정보(주) 고객센터 : 1600-1522<br>코리아크레딧뷰로(주) 고객센터 : 02-708-1000</em></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+            <div class="cmem_sec">
+                <div class="cmem_subtit">
+                    <h3>B2E 회원사 임직원 인증</h3>
+                </div>
+                <p class="cmem_subtit_txt">SSG.COM에 사전 등록된 B2E 회원사의 임직원이신 경우 임직원 인증을 진행해주세요.</p>
+                <div class="cmem_btnarea">
+                    <button type="button" class="cmem_join_btn cmem_btn_white" onclick="location.href='/member/join/b2eMbrConfirm.ssg';" data-reactingV2-key='00183_000000837|t00060|3'><span>임직원 인증하기</span></button>
+                </div>
+            </div>
+        
+    
+
 </div>
+
+<form id="callbackForm" method="POST" action="/member/join/authResult.ssg">
+    <input type="hidden" name="selfCertTokenId" value="">
+    
+    
+    <input type="hidden" name="bothJoinYn" value="">
+    <input type="hidden" name="retUrl" value="">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="//sui.ssgcdn.com/ui/member/js/certification/selfCert.js?v=20180711"></script>
+
+
+
+
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.js"></script>
@@ -498,15 +559,15 @@ $(function(){
 </script><script type="text/javascript">
     try {
         var _dl = {
-            "pcid" 				: "17132588089110623122291"
-            , "fsid" 			: "scuetx01650i02n6vg05"
+            "pcid" 				: "17129766189179881431225"
+            , "fsid" 			: "scv8kr3h3o6211n6vg03"
             , "siteno"		    : "1001" // #443767 siteno 하드코딩 요청
             , "tarea" 			: ""
             , "log_type_flag" 	: "t"
             , "memberid" 		: ""
             , "ga"				: "00"
             , "mbrgrdcd"		: ""
-            , "ckwhere"		    : "ssg_ggbr"
+            , "ckwhere"		    : "s_ggbr"
             , "bkwhere"		    : ""
         };
 
@@ -559,6 +620,100 @@ $(function(){
         });
     } catch (e) {}
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    +function (a, p, P, b, y) {
+        a.braze = {};
+        a.brazeQueue = [];
+        for (var s = "BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags".split(" "), i = 0; i < s.length; i++) {
+            for (var m = s[i], k = a.braze, l = m.split("."), j = 0; j < l.length - 1; j++) k = k[l[j]];
+            k[l[j]] = (new Function("return function " + m.replace(/\./g, "_") + "(){window.brazeQueue.push(arguments); return true}"))()
+        }
+        window.braze.getCachedContentCards = function () {
+            return new window.braze.ContentCards
+        };
+        window.braze.getCachedFeed = function () {
+            return new window.braze.Feed
+        };
+        window.braze.getUser = function () {
+            return new window.braze.User
+        };
+        window.braze.getFeatureFlag = function () {
+            return new window.braze.FeatureFlag
+        };
+        (y = p.createElement(P)).type = 'text/javascript';
+        y.src = 'https://js.appboycdn.com/web-sdk/4.6/braze.min.js';
+        y.async = 1;
+        (b = p.getElementsByTagName(P)[0]).parentNode.insertBefore(y, b)
+    }(window, document, 'script');
+</script>
+
+<script type="text/javascript">
+    try {
+        let initialized = braze.initialize('4a23e2c2-9255-4dd0-97c0-64c0e4036eb5', {
+            baseUrl: 'sdk.iad-05.braze.com',
+            enableLogging: false
+        });
+
+        if (initialized) {
+            let external_id = "";
+
+            // 적용 순위 : 마케팅식별키 > PCID
+            let mktgSvcMbrId = '';
+            if (mktgSvcMbrId) {
+                external_id = mktgSvcMbrId;
+            } else if ($.cookie && $.cookie('PCID')) {
+                external_id = $.cookie('PCID');
+            }
+
+            if (external_id) {
+                braze.changeUser(external_id);
+            }
+
+            braze.automaticallyShowInAppMessages();
+            braze.openSession();
+        }
+    } catch (e) {
+
+    }
+</script>
+
+
 <script type="text/javascript">
     try {
         var reactingV2MapUtil = (function () {
@@ -810,27 +965,17 @@ $(function(){
     }
 </script>
 
+
+
 <script type="text/javascript" defer="defer">
-    document.title = '회원가입 > 회원 유형 선택, 믿고 사는 즐거움 SSG.COM';
-    $(document).ready(function () {
-        function btnFixed() {
-            var winH = $(window).height();
-            var bodyH = $('body').outerHeight();
+    document.title = '회원가입 > 통합회원가입, 믿고 사는 즐거움 SSG.COM';
 
-            if (bodyH > winH) {
-                $(".member_join").removeClass("btm_space");
-                $(".member_join .btns_area").removeClass("btns_fixed");
-            } else {
-                $(".member_join .btns_area").addClass("btns_fixed");
-                $(".member_join").addClass("btm_space");
-            }
-        }
-
-        $(window).on("resize", btnFixed);
-
-        btnFixed();
-    });
+    function certComplete(token) {
+        $('#callbackForm').find('input[name="selfCertTokenId"]').val(token);
+        $('#callbackForm').submit();
+    }
 </script>
+
 </div>
 		<!-- footer -->
 	<div id="footer" class="common_footer common_footer_ssg common_footer_v2 react-area notranslate">
@@ -1022,16 +1167,5 @@ $(function(){
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/shrtc_keyword.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/srch.ac.mdl.js?v=20240424"></script>
 
-<script>
-/* $(function ()  {
-	let queryString = location.search;
-	if (queryString) {
-		let url = location.protocol + "//" + '/member/join/auth.jsp';
-		loaction.href= url + '?type=all';
-	}
-}) */
-</script>
 </body>
 </html>
-
-

@@ -328,7 +328,7 @@
             </div>
             <div class="cmem_cont">
                 <div class="cmem_sec">
-                    <form method="post" id="loginForm" action="/member/loginRetry.ssg" onsubmit="return false;">
+                    <form method="post" id="loginForm" action="<%=contextPath %>/member/loginPage_new_Form.da">
                         
                         <div class="cmem_inpgrp ty_id">
                             <div class="cmem_txt">
@@ -351,7 +351,7 @@
 					</span>
                         </div>
                         <div class="cmem_btnarea">
-                            <button type="submit" class="cmem_btn cmem_btn_ornge" onclick="loginModel.login();" id="loginBtn"><span>로그인</span></button>
+                            <button type="submit" class="cmem_btn cmem_btn_ornge" id="loginBtn"><span>로그인</span></button>
                         </div>
                         <ul class="cmem_sns_login notranslate">
                             <li>
@@ -604,7 +604,7 @@ $(function(){
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
     var loginMsg = {
         "mbrNm": "이름을 입력해주세요."
@@ -631,9 +631,9 @@ $(function(){
         , login: function () {
             var self = this;
             
-
+		
             $.ajax({
-                url: this.urlPrefix + "/login/process.ssg"
+                url: this.urlPrefix + "/login/process.da"
                 , method: "post"
                 , data: {
                     mbrLoginId: $("#memberLogin input[name=mbrLoginId]").val()
@@ -918,7 +918,7 @@ $(function(){
         }
     }
 </script>
-
+ -->
 
 
 <script type="text/javascript">
