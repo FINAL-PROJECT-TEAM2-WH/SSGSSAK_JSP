@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>SSGSSAK</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>    
+  </welcome-file-list>
+
+  <servlet>
+    <description>MVC</description>
+    <description>컨트롤러 역할</description>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>controller.DispatcherServlet</servlet-class>
+    <init-param>
+    <description>URL 과 Handler 등록 파일 경로</description>
+    <param-name>path</param-name>
+    <param-value>/WEB-INF/commandHandler.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup> <!-- 이거 서버에 바로 올릴거니 ? 1번 순번  -->
+  </servlet>
+</web-app>
+
+
+
+
+
+
