@@ -1,17 +1,15 @@
-package days06.mvc.command;
+package member.command;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.util.ConnectionProvider;
-import com.util.DBConn;
 
-import days04.board.domain.BoardDTO;
-import days04.board.persistence.BoardDAOImpl;
+import member.domain.BoardDTO;
+import member.persistence.BoardDAOImpl;
 
 public class WriteHandler implements CommandHandler {
 

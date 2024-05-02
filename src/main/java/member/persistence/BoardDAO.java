@@ -1,9 +1,9 @@
-package days06.mvc.persistence;
+package member.persistence;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import days06.mvc.domain.BoardDTO;
+import member.domain.BoardDTO;
 
 public interface BoardDAO {
 	// 1. 게시글에 목록을 조회 + 페이징 처리 X
