@@ -3264,5 +3264,5 @@ $(function(){
         }
     };
 </script>
-<!-- footer include 삽입 -->
+<!-- footer -->
     <%@ include file="../footer.jsp" %>
