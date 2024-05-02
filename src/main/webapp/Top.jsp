@@ -614,7 +614,7 @@
                         	})
                         	
                         	$('#joinBtn').on('click', function () {	
-                        		location.href = "<%=contextPath%>/member/join/auth.da";
+                        		location.href = "<%=contextPath%>/member/join/auth.do";
                         	})
                         </script>
                     <script type="text/javascript">

@@ -328,7 +328,7 @@
             </div>
             <div class="cmem_cont">
                 <div class="cmem_sec">
-                    <form method="post" id="loginForm" action="<%=contextPath %>/member/loginPage_new_Form.da">
+                    <form method="post" id="loginForm" action="<%=contextPath %>/member/loginPage_new_Form.do">
                         
                         <div class="cmem_inpgrp ty_id">
                             <div class="cmem_txt">
