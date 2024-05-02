@@ -3,5 +3,4 @@
 <%
 	String contextPath =  request.getContextPath();
 	request.setCharacterEncoding("UTF-8"); //post 방식으로 요청 시 
-
 %>

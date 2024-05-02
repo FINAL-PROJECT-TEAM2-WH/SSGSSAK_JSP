@@ -10,6 +10,20 @@
     <welcome-file>default.jsp</welcome-file>    
   </welcome-file-list>
 
+
+  <servlet>
+    <description>MVC</description>
+    <description>컨트롤러 역할</description>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>controller.DispatcherServlet</servlet-class>
+    <init-param>
+    <description>URL 과 Handler 등록 파일 경로</description>
+    <param-name>path</param-name>
+    <param-value>/WEB-INF/commandHandler.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup> <!-- 이거 서버에 바로 올릴거니 ? 1번 순번  -->
+  </servlet>
+
   <jsp-config>
   <jsp-property-group>
   	<url-pattern>/</url-pattern>
@@ -17,6 +31,7 @@
   	<!-- <include-prelude>/WEB-INF/inc/footer.jspf</include-prelude> -->
   </jsp-property-group>
   </jsp-config>
+
 </web-app>
 
 
