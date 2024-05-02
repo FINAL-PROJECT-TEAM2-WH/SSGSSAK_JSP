@@ -360,11 +360,11 @@
                 <div class="mb_cont">
                     <div class="btns_area btns_fixed">
                         <div class="btn_cts">
-                            <a href="/member/join/auth.ssg?type=all" class="btn_type01" data-reactingV2-key="00183_000000950|t00060|1">
+                            <a href="<%= contextPath %>/member/join/auth.ssg?type=all" class="btn_type01" data-reactingV2-key="00183_000000950|t00060|1">
                                 <strong>개인회원</strong>
                                 <span>본인인증 또는 SNS 인증 후 가입</span>
                             </a>
-                            <a href="/member/join/corporation/auth.ssg" class="btn_type02" data-reactingV2-key="00183_000000950|t00060|2">
+                            <a href="<%= contextPath %>/member/join/cooperation/auth.jsp" class="btn_type02" data-reactingV2-key="00183_000000950|t00060|2">
                                 <strong>사업자회원</strong>
                                 <span>사업자번호 인증 후 가입</span>
                             </a>

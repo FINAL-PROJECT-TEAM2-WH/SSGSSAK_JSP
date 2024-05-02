@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% String contextPath = request.getContextPath(); %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -2244,7 +2245,7 @@ $(function(){
 
 
 <script type="text/javascript">
-    var originSite = "https://www.ssg.com";
+    var originSite = "<%= contextPath %>/mainPage.jsp";
 
     $(document).ready(function () {
         try {
