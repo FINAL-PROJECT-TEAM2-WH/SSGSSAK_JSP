@@ -3264,5 +3264,7 @@ $(function(){
         }
     };
 </script>
-<!-- footer -->
+<<<<<<<
+<!-- footer asdgasgd-->
+
     <%@ include file="../footer.jsp" %>
