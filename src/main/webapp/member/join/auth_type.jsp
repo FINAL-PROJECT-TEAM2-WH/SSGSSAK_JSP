@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
@@ -13,7 +12,7 @@
 	
 
 
-<!--  auth 뒤에 쿼리가 붙으면 다른 페이지로 이동시켜줘야됨.  -->
+
 
 
 
@@ -165,7 +164,7 @@
             mbrLoginId       : '',
             mbrLoginId2      : '',
             mbrcoId          : '000000',
-            ckWhere          : 'ssg_ggbr',
+            ckWhere          : 's_ggbr',
             dmId             : '',
             emSaleStrNo      : '2439',
             trSaleStrNo      : '2483',
@@ -276,7 +275,7 @@
     var UserInfo = {
         isLoginYn : 'false'=='true'?'Y':'N',
         mbrTypeCd : '',
-        ckWhere : 'ssg_ggbr'
+        ckWhere : 's_ggbr'
     };
 
     var mobile = {
@@ -340,42 +339,113 @@
 <div id="category" class="category"></div>
 			<div id="container"  class="cmmyssg_wrap" >
 				
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_iconset.css?v=20240424"/>
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/join.css?v=20240424"/>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/lazyload.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.cookie.js"></script>
 
-<div id="content" data-reactingV2-key="00183_000000950|t00000|1">
-    <div class="member_join">
-        <div class="join_type">
-            <div class="join_title_wrap">
-                <div class="title_area">
-                    <h3 class="mb_tit"> 믿고 사는 즐거움<br>
-                        <span class="logo_ssg_com">SSG.COM</span>에 오신 것을<br> 환영합니다
-                    </h3>
-                </div>
-            </div>
-            <div class="join_cts_wrap">
-                <div class="mb_cont">
-                    <div class="btns_area btns_fixed">
-                        <div class="btn_cts">
-                            <a href="<%= contextPath %>/member/join/auth.do?type=all" class="btn_type01" data-reactingV2-key="00183_000000950|t00060|1">
-                                <strong>개인회원</strong>
-                                <span>본인인증 또는 SNS 인증 후 가입</span>
-                            </a>
-                            <a href="<%= contextPath %>/member/join/cooperation/auth.jsp" class="btn_type02" data-reactingV2-key="00183_000000950|t00060|2">
-                                <strong>사업자회원</strong>
-                                <span>사업자번호 인증 후 가입</span>
-                            </a>
-                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content" class="cmem_ct_join">
+    <div class="cmem_header">
+        <div class="cmem_header_tit">
+            <h2>회원가입</h2>
+        </div>
+        <div class="cmem_join_desc">
+            <p class="cmem_join_desc_tit">믿고 사는 즐거움<br>SSG.COM에 오신것을 환영합니다.</p>
+        </div>
+    </div>
+    <div class="cmem_cont">
+        
+            
+                <div class="cmem_sec" data-reactingV2-key="00183_000000734|t00000|1">
+                    <div class="cmem_subtit">
+                        <h3>신세계포인트 통합회원</h3>
+                    </div>
+                    <p class="cmem_subtit_txt">신세계 유니버스 클럽 3개월 무료체험이 제공됩니다. 매월 제공되는 쿠폰 받으시고 알뜰하게 쇼핑하세요!</p>
+                    <p class="cmem_subtit_txt"> * 멤버십은 3개월 후 자동 해지 됩니다.</p>
+                    <ul class="cmem_join_benefit v2">
+                        <li>
+                            <span class="sp_cmem_join cmem_join_asset_03"></span>
+                            <div class="cmem_benefit_txt">
+                                <p>멤버십 신규 가입 축하<br> 1만원 할인 쿠폰</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="sp_cmem_join cmem_join_asset_01"></span>
+                            <div class="cmem_benefit_txt">
+                                <p>매월 전상품<br> 7% 할인 쿠폰</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="sp_cmem_join cmem_join_asset_02"></span>
+                            <div class="cmem_benefit_txt">
+                                <p>매월 전상품<br> 5% 할인 쿠폰</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cmem_btnarea ty_join">
+                        <button type="button" class="cmem_join_btn cmem_btn_black_alpha20" data-reactingV2-key="00183_000000734|t00060|1" onclick="location.href='<%=contextPath%>/member/join/auth.do?mbrTypeCd=10'"><span>통합회원만 가입하기</span></button>
+                        <button type="button" class="cmem_join_btn cmem_btn_primary" data-reactingV2-key="00183_000000734|t00060|2" onclick="location.href='/member/join/auth.ssg?mbrTypeCd=10&bothJoinYn=Y'"><span>멤버십 혜택 받고 통합회원 가입하기</span></button>
                     </div>
                 </div>
+            
+            
+        
+        <div class="cmem_sec ty_info" data-reactingV2-key="00183_000000735|t00000|1">
+            <div class="cmem_subtit">
+                <h3>간편회원</h3>
             </div>
-            <!-- //contents -->
+            <p class="cmem_subtit_txt">자주 사용하는 SNS 또는 이메일주소 아이디로 간편하게 가입하실 수 있습니다.</p>
+            <div class="cmem_join_sns_wrap">
+                <ul class="cmem_join_sns">
+                    <li>
+                        <a href="/member/join/formEmail.ssg" data-reactingV2-key="00183_000000735|t00060|1">
+                                <span class="ico_area">
+                                    <span class="sp_cmem_sns cmem_ico_email2"></span>
+                                </span>
+                            <span class="cmem_sns_name">이메일</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="snsLogin.naver('join');" class="snsLogin" name="snsLogin" data-reactingV2-key="00183_000000735|t00060|2">
+                                <span class="ico_area">
+                                    <span class="sp_cmem_sns cmem_ico_naver2"></span>
+                                </span>
+                            <span class="cmem_sns_name">네이버</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="snsLogin.kakao('join');" class="snsLogin" name="snsLogin" data-reactingV2-key="00183_000000735|t00060|3">
+                                <span class="ico_area">
+                                    <span class="sp_cmem_sns cmem_ico_kakao2"></span>
+                                </span>
+                            <span class="cmem_sns_name">카카오</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="snsLogin.apple('join');" class="snsLogin" name="snsLogin" data-reactingV2-key="00183_000000735|t00060|4">
+                                <span class="ico_area">
+                                    <span class="sp_cmem_sns cmem_ico_apple2"></span>
+                                </span>
+                            <span class="cmem_sns_name">애플</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.js"></script>
@@ -498,15 +568,15 @@ $(function(){
 </script><script type="text/javascript">
     try {
         var _dl = {
-            "pcid" 				: "17132588089110623122291"
-            , "fsid" 			: "scuetx01650i02n6vg05"
+            "pcid" 				: "17129766189179881431225"
+            , "fsid" 			: "scv8kr3h3o6211n6vg03"
             , "siteno"		    : "1001" // #443767 siteno 하드코딩 요청
             , "tarea" 			: ""
             , "log_type_flag" 	: "t"
             , "memberid" 		: ""
             , "ga"				: "00"
             , "mbrgrdcd"		: ""
-            , "ckwhere"		    : "ssg_ggbr"
+            , "ckwhere"		    : "s_ggbr"
             , "bkwhere"		    : ""
         };
 
@@ -559,6 +629,460 @@ $(function(){
         });
     } catch (e) {}
 </script>
+
+
+
+
+<script type="text/javascript">
+
+    var loginMsg = {
+        "mbrNm": "이름을 입력해주세요."
+        , "mbrLoginId": "아이디 또는 이메일 주소를 입력해주세요."
+        , "pwd": "비밀번호를 입력해주세요."
+        , "emailId": "이메일을 입력해주세요."
+        , "emailDomNm": "이메일을 입력해주세요."
+        , "orderNo": "주문번호를 입력해주세요."
+        , 'agree': '약관에 동의하셔야 서비스를 이용하실 수 있습니다.'
+        , 'entity': '정보를 입력해주세요.'
+        , "keepId": "개인정보보호를 위해 개인 PC에서만 사용하세요."
+        , 'personalinfo': '개인정보 수집이용에 동의하셔야 서비스를 이용하실 수 있습니다.'
+    };
+
+    var loginModel = {
+        retUrl: ""
+        , ref: ""            
+        , retURL: ""            
+        , originSite: ""    
+        , flow: ""            
+        , loginType: ""    
+        , urlPrefix: ""
+        
+        , login: function () {
+            var self = this;
+            
+
+            $.ajax({
+                url: this.urlPrefix + "/login/process.ssg"
+                , method: "post"
+                , data: {
+                    mbrLoginId: $("#memberLogin input[name=mbrLoginId]").val()
+                    , password: $("#memberLogin input[name=password]").val()
+                    , loginCertCode: $("#memberLogin input[name=loginCertCode]").val()
+                    , PCID: "17129766189179881431225"
+                    , loginDvicId: $("#memberLogin input[name=loginDvicId]").val()
+                }
+                , beforeSend: function () {
+                    $(".warning_message, .cmem_warning_message").remove();
+                    if (!navigator.cookieEnabled) {
+                        alert("쿠키 사용이 차단되어있어 로그인이 실패하였습니다. 브라우저 설정에서 쿠키 차단을 해제하신 후 로그인을 다시 시도해주세요.");
+                        return false;
+                    }
+
+                    var id = $("#memberLogin input[name=mbrLoginId]");
+                    var pw = $("#memberLogin input[name=password]");
+
+                    if ($("#memberLogin #keep_id").is(":checked")) {
+                        $.cookie("keepId", "Y", {"expires": 7, "path": "/"});
+                        $.cookie("mbrLoginId", id.val(), {"expires": 7, "path": "/"});
+                    } else {
+                        $.cookie("keepId", null, {"path": "/"});
+                        $.cookie("mbrLoginId", null, {"path": "/"});
+                    }
+
+                    if (id.val() == '') {
+                        alert(loginMsg["mbrLoginId"]);
+                        id.focus();
+                        return false;
+                    }
+
+                    if (pw.val() == '') {
+                        alert(loginMsg["pwd"]);
+                        pw.focus();
+                        return false;
+                    }
+
+                    // 버튼 중복 클릭 방지
+                    $("#memberLogin #loginBtn").attr('disabled', true);
+                    return true;
+                }
+                , success: function (result) {
+                    $(".warning_message, .cmem_warning_message").remove();
+                    self.processAfterLogin(result);
+                }
+                , error: function (result) {
+                    try {
+                        alert($.parseJSON(result.responseText).errorMsg);
+                    } catch (E) {
+                        alert("네트워크 연결이 불안정하거나 로그인 반복 요청이 있어 로그인이 실패하였습니다.");
+                    }
+                    // 버튼 중복 클릭 방지 해제
+                    $("#memberLogin #loginBtn").attr('disabled', false);
+                }
+            });
+        }
+        
+        , noMemberLogin: function () {
+            var self = this;
+            $.ajax({
+                url: "/member/loginByNomember.ssg"
+                , method: "post"
+                , data: {
+                    mbrNm: $("#orderForm input[name='mbrNm']").val()
+                    , tel1: $("#orderForm select[name='tel1']").val()
+                    , tel2: $("#orderForm input[name='tel2']").val()
+                    , tel3: $("#orderForm input[name='tel3']").val()
+                    , emailId: $("#orderForm input[name='emailId']").val()
+                    , emailDomNm: $("#orderForm input[name='emailDomNm']").val()
+                }
+                , beforeSend: function () {
+                    $(".warning_message").remove();
+                    var checkMsg = "";
+                    
+                    $("#nonmember_name_02").each(function () {
+                        var val = fnReturnNotSpecialChar($(this).val());
+                        $(this).val(val.substring(0, 20));
+                    });
+
+                    $("#place_order input[type=text]").each(function () {
+                        if ($(this).val() == "") {
+                            checkMsg = warningTemplate(loginMsg['entity']);
+                            $(this).focus();
+                            return false;
+                        }
+                    });
+
+                    if (checkMsg != "") {
+                        $("#place_order .bn_ar").before(checkMsg);
+                        return false;
+                    }
+
+                    $("#place_order input[type=checkbox]").each(function () {
+                        if (!this.checked) {
+                            checkMsg = warningTemplate(loginMsg['personalinfo']);
+                            return false;
+                        }
+                    });
+
+                    if (checkMsg != "") {
+                        $("#place_order .bn_ar").before(checkMsg);
+                        return false;
+                    }
+
+                    return true;
+                }, success: function (result) {
+                    $(".warning_message").remove();
+                    if (result.resultCode == 'SUCCESS') {
+                        $('.dimmed, .layer_pop').show();
+                    } else {
+                        $("#place_order .bn_ar").before(warningTemplate(result.resultMsg));
+                    }
+                }, error: function (result) {
+                    $("#place_order .button_area").before(warningTemplate($.parseJSON(result.responseText).errorMsg));
+
+                }
+            });
+        }
+        
+        , noMemberOrder: function () {
+            var self = this;
+            $.ajax({
+                url: "/member/checkOrder.ssg"
+                , method: "post"
+                , data: {
+                    mbrNm: $("#checkOrderForm input[name='mbrNm']").val()
+                    , emailId: $("#checkOrderForm input[name='emailId']").val()
+                    , emailDomNm: $("#checkOrderForm input[name='emailDomNm']").val()
+                    , orderNo: $("#checkOrderForm input[name='orderNo']").val()
+                }
+                , beforeSend: function () {
+                    $(".warning_message").remove();
+                    var checkMsg = "";
+                    $("#checkOrderForm input[type=text]").each(function () {
+                        if ($(this).val() == "") {
+                            checkMsg = warningTemplate(loginMsg[$(this).attr("name")]);
+                            $("#checkOrderForm .fieldset > .bn_ar").before(checkMsg);
+                            $(this).focus();
+                            return false;
+                        }
+                    });
+                    if (checkMsg != "") {
+                        return false;
+                    }
+                }
+                , success: function (result) {
+                    $(".warning_message").remove();
+                    if (result.resultCode == 'SUCCESS') {
+                        if (self.originSite) {
+                            var payUrl = 'http://pay.ssg.com' + "/myssg/orderList.ssg";
+                            location.href = unescape(self.originSite) + '/comm/popup/sslCallback.ssg?retURL=' + escape(payUrl);
+                        } else {
+                            location.href = 'https://pay.ssg.com' + "/myssg/orderList.ssg";
+                        }
+                    } else {
+                        $("#checkOrderForm .fieldset > .bn_ar").before(warningTemplate(result.resultMsg));
+                        var orderNo = $("#checkOrderForm input[name=orderNo]");
+                        orderNo.val("");
+                        orderNo.focus();
+                    }
+                }
+                , error: function (result) {
+                    $("#checkOrderForm .fieldset > .bn_ar").before(warningTemplate($.parseJSON(result.responseText).errorMsg));
+                }
+            });
+        }
+        
+        , processAfterLogin: function (result) {
+            var self = this;
+            if (result.resultCode === "SUCCESS") {
+
+                
+                if (self.flow == "auth") {
+                    
+                    if (this.loginType === "self") {
+                        document.location.replace("/member/checkAdult.ssg?retURL=" + unescape(self.retUrl));
+                    } else {
+                        if (window.opener !== null) {
+                            document.location.replace("/member/popup/popupCheckAdult.ssg?retURL=" + unescape(self.retUrl));
+                        } else {
+                            document.location.replace("/member/checkAdult.ssg?retURL=" + unescape(self.retUrl));
+                        }
+                    }
+                    return;
+                }
+
+                
+                if (self.loginType === "self") {
+                    var openerUrl = location.href;
+                    if (self.retUrl !== "") {
+                        location.href = unescape(self.retUrl);
+                    } else if (openerUrl.indexOf('/member') > -1 && openerUrl.indexOf('thehowdy.ssg.com') > -1) {
+                        location.href = 'http://thehowdy.ssg.com';
+                    } else if (openerUrl.indexOf('/member') > -1) {
+                        location.href = 'http://www.ssg.com';
+                    } else {
+                        location.reload(true);
+                    }
+                    return;
+                }
+
+                var popupParam = new Array()
+                if (self.ref) {
+                    popupParam.push("retURL=" + self.ref);
+                }
+
+                if (self.originSite) {
+                    location.href = unescape(self.originSite) + "/comm/popup/sslCallback.ssg?" + popupParam.join("&");
+                } else {
+                    window.open("/comm/popup/sslCallback.ssg?" + popupParam.join("&"), "SSG_POPUP", 'toolbar=no,menubar=no,location=no,scrollbars=no,status=no,left=100,top=100,resizable=no,width=354,height=444');
+                }
+
+            } else {
+                if (result.resultCode == 'FDS_ABUS_TARGET') {
+                    if (window.opener) {
+                        window.opener.location.href = result.result;
+                        window.close();
+                    }
+                    location.href = result.result;
+                    return;
+                }
+                
+                if (result.action === "PAGE_RELOAD") {
+                    if (result.resultMsg) {
+                        alert(result.resultMsg.replaceAll("\\n", "\n"));
+                    }
+                    document.location.reload(true);
+                    return;
+                }
+                if (result.action === "PAGE_MOVE") {
+                    if (result.resultMsg) {
+                        alert(result.resultMsg.replaceAll("\\n", "\n"));
+                    }
+                    if (self.originSite) {    
+                        if ('') {
+                            location.href = unescape(originSite) + "/comm/popup/sslCallback.ssg?retURL=" + escape(result.actionUrl + "&retURL=" + '');
+                            return;
+                        }
+                        location.href = unescape(originSite) + "/comm/popup/sslCallback.ssg?retURL=" + escape(result.actionUrl);
+                    } else { 
+                        if ('') {
+                            location.href = result.actionUrl + "&retURL=" + '';
+                            return;
+                        }
+                        location.href = result.actionUrl;
+                    }
+                    return;
+                }
+                // 버튼 중복 클릭 방지 해제
+                $("#memberLogin #loginBtn").attr('disabled', false);
+
+
+                alert(result.resultMsg);
+                $("#memberLogin input[name=password]").val('').focus();
+            }
+        }
+        
+        , callbackAfterLogin: function () {
+            if (this.retUrl) {
+                document.location.replace(unescape(this.retUrl));
+                return;
+            }
+
+            document.location.reload(true);
+        }
+        
+        , callbackAfterSns: function () {
+            var self = this;
+            $(".warning_message").remove();
+            $.ajax({
+                url: "/sns/login/process.ssg"
+                , type: "POST"
+                , contentType: "application/json"
+                , success: function (result) {
+                    self.processAfterLogin(result);
+                }
+                , error: function (jqXhr, status, error) {
+                    alert("SNS 연동을 취소하셨거나 오류가 발생했습니다.(2)");
+                }
+            });
+        }
+    }
+</script>
+
+
+
+<script type="text/javascript">
+
+    var snsLogin = {
+        naver: function (linkType, retURL) {
+            var url = "/sns/naver/oAuth.ssg?linkType=" + linkType;
+            if (linkType === 'login' && retURL) {
+                url = url + "&retURL=" + encodeURIComponent(retURL);
+            }
+            var win = window.open(url, "snsPopup", "titlebar=1, resizable=1, scrollbars=yes, width=500, height=650");
+            win.focus();
+        }
+        , kakao: function (linkType, retURL) {
+            var url = "/sns/kakao/oAuth.ssg?linkType=" + linkType;
+            if (linkType === 'login' && retURL) {
+                url = url + "&retURL=" + encodeURIComponent(retURL);
+            }
+            var win = window.open(url, "snsPopup", "titlebar=1, resizable=1, scrollbars=yes, width=600, height=650");
+            win.focus();
+        }
+        , apple: function (linkType, retURL) {
+            var url = "/sns/apple/oAuth.ssg?linkType=" + linkType;
+            if (linkType === 'login' && retURL) {
+                url = url + "&retURL=" + encodeURIComponent(retURL);
+            }
+            var win = window.open(url, "snsPopup", "titlebar=1, resizable=1, scrollbars=yes, width=700, height=680");
+            win.focus();
+        }
+        , toss: function (linkType, retURL) {
+            var url = "/sns/toss/oAuth.ssg?linkType=" + linkType;
+            if (linkType === 'login' && retURL) {
+                url = url + "&retURL=" + encodeURIComponent(retURL);
+            }
+            var win = window.open(url, "snsPopup", "titlebar=1, resizable=1, scrollbars=yes, width=700, height=680");
+            win.focus();
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    +function (a, p, P, b, y) {
+        a.braze = {};
+        a.brazeQueue = [];
+        for (var s = "BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags".split(" "), i = 0; i < s.length; i++) {
+            for (var m = s[i], k = a.braze, l = m.split("."), j = 0; j < l.length - 1; j++) k = k[l[j]];
+            k[l[j]] = (new Function("return function " + m.replace(/\./g, "_") + "(){window.brazeQueue.push(arguments); return true}"))()
+        }
+        window.braze.getCachedContentCards = function () {
+            return new window.braze.ContentCards
+        };
+        window.braze.getCachedFeed = function () {
+            return new window.braze.Feed
+        };
+        window.braze.getUser = function () {
+            return new window.braze.User
+        };
+        window.braze.getFeatureFlag = function () {
+            return new window.braze.FeatureFlag
+        };
+        (y = p.createElement(P)).type = 'text/javascript';
+        y.src = 'https://js.appboycdn.com/web-sdk/4.6/braze.min.js';
+        y.async = 1;
+        (b = p.getElementsByTagName(P)[0]).parentNode.insertBefore(y, b)
+    }(window, document, 'script');
+</script>
+
+<script type="text/javascript">
+    try {
+        let initialized = braze.initialize('4a23e2c2-9255-4dd0-97c0-64c0e4036eb5', {
+            baseUrl: 'sdk.iad-05.braze.com',
+            enableLogging: false
+        });
+
+        if (initialized) {
+            let external_id = "";
+
+            // 적용 순위 : 마케팅식별키 > PCID
+            let mktgSvcMbrId = '';
+            if (mktgSvcMbrId) {
+                external_id = mktgSvcMbrId;
+            } else if ($.cookie && $.cookie('PCID')) {
+                external_id = $.cookie('PCID');
+            }
+
+            if (external_id) {
+                braze.changeUser(external_id);
+            }
+
+            braze.automaticallyShowInAppMessages();
+            braze.openSession();
+        }
+    } catch (e) {
+
+    }
+</script>
+
+
 <script type="text/javascript">
     try {
         var reactingV2MapUtil = (function () {
@@ -810,228 +1334,16 @@ $(function(){
     }
 </script>
 
+
 <script type="text/javascript" defer="defer">
-    document.title = '회원가입 > 회원 유형 선택, 믿고 사는 즐거움 SSG.COM';
-    $(document).ready(function () {
-        function btnFixed() {
-            var winH = $(window).height();
-            var bodyH = $('body').outerHeight();
+    document.title = '회원가입 > 개인회원가입, 믿고 사는 즐거움 SSG.COM';
 
-            if (bodyH > winH) {
-                $(".member_join").removeClass("btm_space");
-                $(".member_join .btns_area").removeClass("btns_fixed");
-            } else {
-                $(".member_join .btns_area").addClass("btns_fixed");
-                $(".member_join").addClass("btm_space");
-            }
-        }
+    
 
-        $(window).on("resize", btnFixed);
-
-        btnFixed();
-    });
+    function snsCallback() {
+        loginModel.callbackAfterSns();
+    }
 </script>
 </div>
 		<!-- footer -->
-	<div id="footer" class="common_footer common_footer_ssg common_footer_v2 react-area notranslate">
-    <div class="service_support">
-        <div class="f_inner">
-            <h2 class="blind">정책 및 약관 메뉴</h2>
-            <ul class="support_txt">
-                <li><a href="https://company.ssg.com" target="_blank" title="새창 열림"><span>회사소개</span></a></li>
-<li><a href="https://member.ssg.com/comm/privacy/intgInfo.ssg?site=small"><strong>개인정보처리방침</strong></a></li>
-<li><a href="https://member.ssg.com/policies/terms.ssg?site=small"><span>이용약관</span></a></li>
-<li><a href="https://member.ssg.com/policies/youthProtection.ssg"><span>청소년 보호방침</span></a></li>
-<li><a href="https://ipr.ssgadm.com" target="_blank" title="새창 열림"><span>지식재산권센터</span></a></li>
-<li><a href="https://partners.ssgadm.com" target="_blank" title="새창 열림"><span>입점상담</span></a></li>
-<li><a href="https://ad.ssgadm.com" target="_blank" title="새창 열림"><strong>광고신청</strong></a></li>
-</ul>
-            <div class="support_site">
-        <div class="family_link" id="_footer-partners-site">
-            <h2><a href="#partners_site" class="btn ui_toggle">판매자서비스<span class="sel_arrow">&nbsp;</span></a></h2>
-            <dl id="partners_site">
-            <dt class="no_tit"><span class="blind">판매자가입</span></dt>
-            <dd><a href="https://partners.ssgadm.com" target="_blank" title="새창 열림">쓱파트너스</a></dd>
-            <dd><a href="https://po.ssgadm.com" target="_blank" title="새창 열림">파트너오피스</a></dd>
-            <dd><a href="https://ad.ssgadm.com" target="_blank" title="새창 열림">판매자광고센터</a></dd>
-            <dd><a href="https://adhome.ssgadm.com" target="_blank" title="새창 열림">SSG.COM 광고</a></dd>
-            </dl>
-            </div>
-        <div class="family_link" id="_footer-family-site">
-            <h2><a href="#family_site" class="btn ui_toggle">FAMILY SITE<span class="sel_arrow">&nbsp;</span></a></h2>
-            <dl id="family_site">
-                <dt class="no_tit"><span class="blind">신세계그룹</span></dt>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계그룹" href="http://www.ssgblog.com" target="_blank" title="새창 열림">신세계그룹</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계포인트" href="http://www.shinsegaepoint.com" target="_blank" title="새창 열림">신세계포인트</a></dd>
-
-                <dt><span class="txt">RETAIL</span></dt>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계백화점" href="http://www.shinsegae.com" target="_blank" title="새창 열림">신세계백화점</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|이마트" href="http://store.emart.com" target="_blank" title="새창 열림">이마트</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|이마트 트레이더스" href="http://store.traders.co.kr" target="_blank" title="새창 열림">이마트 트레이더스</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|이마트 에브리데이" href="http://www.emarteveryday.co.kr" target="_blank" title="새창 열림">이마트 에브리데이</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|이마트24" href="http://www.emart24.co.kr" target="_blank" title="새창 열림">이마트24</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계TV쇼핑" href="http://www.shinsegaetvshopping.com" target="_blank" title="새창 열림">신세계TV쇼핑</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|프리미엄아울렛" href="http://www.premiumoutlets.co.kr" target="_blank" title="새창 열림">프리미엄 아울렛</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|스타필드" href="http://www.starfield.co.kr" target="_blank" title="새창 열림">스타필드</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계면세점(명동)" href="http://www.ssgdfm.com" target="_blank" title="새창 열림">신세계면세점(명동)</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계면세점(부산)" href="http://www.ssgdfs.com" target="_blank" title="새창 열림">신세계면세점(부산)</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계인터내셔날" href="http://www.sikorea.co.kr" target="_blank" title="새창 열림">신세계인터내셔날</a></dd>
-
-                <dt><span class="txt">FOOD</span></dt>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계푸트" href="http://www.shinsegaefood.com" target="_blank" title="새창 열림">신세계푸드</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계L&B" href="http://www.shinsegae-lnb.com" target="_blank" title="새창 열림">신세계 L&B</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|스타벅스커피 코리아" href="http://www.istarbucks.co.kr" target="_blank" title="새창 열림">스타벅스커피 코리아</a></dd>
-
-                <dt><span class="txt">LEISURE</span></dt>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|조선호텔앤리조트" href="https://www.josunhotel.com/intro.do" target="_blank" title="새창 열림">조선호텔앤리조트</a></dd>
-
-                <dt><span class="txt">INFRASTRUCTURE</span></dt>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계건설" href="http://www.shinsegae-enc.com" target="_blank" title="새창 열림">신세계건설</a></dd>
-                <dd><a class="clickable" data-react-tarea="신몰공통|푸터|Familysite|신세계아이앤씨" href="http://www.sinc.co.kr" target="_blank" title="새창 열림">신세계아이앤씨</a></dd>
-            </dl>
-        </div>
-    </div>
-</div>
-    </div>
-    <div class="cmfooter_corp_wrap">
-        <div class="cmfooter_corp_row">
-            <div class="cmfooter_corp_in">
-                <div class="cmfooter_corp_info">
-                    <dl class="cmfooter_corp_mall react-area">
-        <dt>(주) 에스에스지닷컴</dt>
-        <dd class="cmfooter_corp_cs">
-            <p>
-                <span class="blind">고객센터</span><em class="cmfooter_cs_tel">1577-3419</em><em class="tx_en">(Korean only)</em><em class="tx_zh">(Korean only)</em>
-                    <a href="https://www.ssg.com/customer/main.ssg?aplSiteNo=6005" class="cmfooter_corp_btn clickable" data-react-tarea="푸터|CS문의|전화문의전_클릭" target="_blank" title="새창 열림">전화문의 전 클릭</a>
-                    <a href="javascript:void(0);" class="cmfooter_corp_btn _cstalk_open_pc hide_gl clickable" data-react-tarea="푸터|CS문의|1:1고객센터톡_클릭" title="새창 열림">1:1 고객센터톡</a>
-                <strong class="cmfooter_corp_tx">고객센터/전자금융거래분쟁처리</strong>
-                <em class="hide_ko show_gl"><a href="https://www.ssg.com/customer/counselForm.ssg" class="cmfooter_corp_btn" target="_blank" title="새창 열림"><em class="tx_en">Contact us in English</em><em class="tx_zh">Contact us in English</em></a></em>
-            </p>
-        </dd>
-        <dd class="cmfooter_corp_txarea">
-            <div class="cmfooter_corp_txwrap">
-                <p>
-                    <span class="cmfooter_corp_tx">대표자: 이인영</span>
-                    <span class="cmfooter_corp_tx">서울특별시 강남구 테헤란로 231</span>
-                    <span class="cmfooter_corp_tx">사업자등록번호: 870-88-01143</span>
-                    <span class="cmfooter_corp_tx">통신판매업 신고번호: 제2022-서울강남-03751호</span>
-                </p>
-                <p>
-                    <span class="cmfooter_corp_tx">개인정보보호책임자: 김우진</span>
-                    <span class="cmfooter_corp_tx">Fax: 02-2068-7118</span>
-                    <span class="cmfooter_corp_tx">ssg@ssg.com</span>
-                </p>
-            </div>
-        </dd>
-        <dd class="cmfooter_corp_btnarea">
-            <a href="#" class="cmfooter_corp_btn" title="새창 열림" onclick="window.open('https://www.ftc.go.kr/bizCommPop.do?wrkr_no=8708801143', 'bizCommPop', 'scrollbars=yes,width=750, height=700;'); return false;">사업자 정보확인</a>
-            <a href="https://member.ssg.com/policies/consumerDispute.ssg" class="cmfooter_corp_btn" target="_blank" title="새창 열림">소비자분쟁해결기준</a>
-        </dd>
-    </dl>
-</div>
-
-                <div class="cmfooter_corp_rgt translate">
-                    <div class="cmfooter_sns">
-                        <strong class="cmfooter_sns_tit">SSG.COM</strong>
-                        <a href="https://www.facebook.com/ssgcom/" class="cmfooter_sns_fb sp_cmfooter_sns clickable" data-react-tarea="SSG공통|푸터|SNS" target="_blank" title="새창 열림"><span class="blind">SSG 페이스북</span></a>
-                        <a href="https://www.instagram.com/ssg.com_official/" class="cmfooter_sns_ig sp_cmfooter_sns clickable" data-react-tarea="SSG공통|푸터|SNS" target="_blank" title="새창 열림"><span class="blind">SSG 인스타그램</span></a>
-                    </div>
-                    <div class="cmfooter_app">
-                        <p class="cmfooter_app_ssg">
-                            <span class="cmfooter_app_lft">
-                                <strong class="cmfooter_app_tit">모바일 앱으로 만나세요</strong>
-                            </span>
-                            <span class="cmfooter_app_qrcode sp_cmfooter"><span class="blind">QR코드</span></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="cmfooter_corp_row2">
-            <div class="cmfooter_corp_in">
-                <div class="cmfooter_corp_hosting">
-                    <p>
-                        <span class="cmfooter_corp_tx"><strong>SSG.COM 호스팅서비스 사업자 : (주)에스에스지닷컴</strong></span>
-                    </p>
-                </div>
-                <div class="cmfooter_mark">
-                    <ul>
-                        <li class="cmfooter_mark_kolsa">
-        <a href="https://kolsa.or.kr/%ed%9a%8c%ec%9b%90%ec%82%ac-%ed%98%84%ed%99%a9/?category1=%EC%A0%95%ED%9A%8C%EC%9B%90&mod=list&pageid=1" class="cmf_mark_kolsa" target="_blank" title="새창 열림">
-            <span class="cmfooter_mark_ico sp_cmfooter"></span>
-            <span class="cmfooter_mark_txt">
-                한국온라인쇼핑협회<br>정회원사</span>
-        </a>
-    </li>
-    <li class="cmfooter_mark_risk">
-        <span class="cmfooter_mark_ico sp_cmfooter">
-            <span class="blind">위해상품차단시스템 운영매장</span>
-        </span>
-    </li>
-    <li class="cmfooter_mark_sgi2">
-        <span class="cmfooter_mark_txt"><strong class="cmfooter_mark_tit">우리은행 채무지급보증 안내</strong><br>당사는 고객님이 현금 결제한 금액에 대해 우리은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다.</span>
-        <a href="#" onclick="window.open('https://www.ssg.com/comm/popupWooriService.ssg', 'commWooriPop', 'scrollbars=yes,width=595,height=841,resizable=yes'); return false;" class="cmfooter_corp_btn" target="_blank" title="새창 열림">서비스 가입사실 확인</a>
-    </li>
-</ul>
-                </div>
-                <div class="cmfooter_corp_notice">
-        <p> ㈜에스에스지닷컴은 SSG.COM 실시간 항공권 서비스의 통신판매중개자로서 거래 당사자가 아니며, 입점 판매사가 등록한 상품 정보 및 거래에 대해 책임을 지지 않습니다.</p>
-        <p>㈜에스에스지닷컴 사이트의 상품/판매자/쇼핑정보, 컨텐츠, UI 등에 대한 무단 복제, 전송, 배포, 스크래핑 등의 행위는 저작권법, 콘텐츠사업 진흥법 등에 의하여 엄격히 금지됩니다. <a href="#" onclick="window.open('https://www.ssg.com/comm/popupContentsLaw.ssg', 'commContentsLawPop', 'scrollbars=yes,width=488,height=313;'); return false;" target="_blank" class="cmfooter_corp_arr_link">콘텐츠 산업 진흥법에따른 표시</a></p>
-    </div>
-</div>
-        </div>
-    </div>
-    <div class="mobile_version" style="display:none" id="_moveToMobileVer">
-        <a href="javascript:appBroswer('http://m.ssg.com','mo');" class="btn_def">모바일 버전으로 가기</a>
-    </div>
-</div>
-
-<div id="myssgLayer"></div>
-<script type="text/javascript">
-//르노삼성 고객센터 전화번호 변경
-
-    $(document).ready(function(){
-
-        if ( $.cookie('usePCmode') == 'Y' ) {
-            $('#_moveToMobileVer').show();
-        }
-
-        // 르노삼성 고객센터 전화번호 변경
-        if (settings.UserInfo.isLoginYn == "Y" && settings.UserInfo.mbrcoId == "0000000048") {
-            $("#footer .cmf_cs_tel").text('02-6098-1811');
-        }
-    });
-</script>
-    <script type="text/javascript" src="https://sui.ssgcdn.com/ui/ssg/js/affiliate/wiselog_makePCookie.js"></script>
-<script type="text/javascript"> 
-    var Nethru_domain  = Nethru_getDomain();
-    var Nethru_ssgDomain  = "member";
-    if ( Nethru_GetCookie("SSGDOMAIN") ){
-        ;
-    }else{
-        Nethru_SetCookie("SSGDOMAIN",Nethru_ssgDomain,null,"/",Nethru_domain);
-    }
-    Nethru_makePersistentCookie("PCID",10,"/",Nethru_domain);
-    Nethru_makePersistentCookie1("RC",10,"/",Nethru_domain);
-</script>
-</div>
-
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/history.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.tmpl.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/rplc_keyword.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/shrtc_keyword.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/srch.ac.mdl.js?v=20240424"></script>
-
-<script>
-/* $(function ()  {
-	let queryString = location.search;
-	if (queryString) {
-		let url = location.protocol + "//" + '/member/join/auth.jsp';
-		loaction.href= url + '?type=all';
-	}
-}) */
-</script>
-</body>
-</html>
-
-
+<%@include file="../../footer.jsp" %>
