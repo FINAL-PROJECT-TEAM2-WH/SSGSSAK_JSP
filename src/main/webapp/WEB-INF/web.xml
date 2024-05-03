@@ -10,7 +10,6 @@
     <welcome-file>default.jsp</welcome-file>    
   </welcome-file-list>
 
-
   <servlet>
     <description>MVC</description>
     <description>컨트롤러 역할</description>
