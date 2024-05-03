@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-          <% String contextPath = request.getContextPath(); %>
+         <% String contextPath = request.getContextPath(); %> 
+         
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/sentry.bundle.min.js" crossorigin="anonymous"></script>
 <meta property="og:url" content="https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB" />
 <meta property="og:image" content="https://sui.ssgcdn.com/ui/common/img/sns/ssg.png" />
@@ -613,7 +614,7 @@
                         	})
                         	
                         	$('#joinBtn').on('click', function () {	
-                        		location.href = "<%=contextPath%>/member/join/auth.jsp";
+                        		location.href = "<%=contextPath%>/member/join/auth.do";
                         	})
                         </script>
                     <script type="text/javascript">

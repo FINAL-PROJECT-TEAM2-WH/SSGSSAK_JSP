@@ -10,6 +10,18 @@
     <welcome-file>default.jsp</welcome-file>    
   </welcome-file-list>
 
+
+<filter>
+<description>인코딩 필터</description>
+<filter-name>characterEncodingFilter</filter-name>
+<filter-class>com.filter.CharacterEncodingFilter</filter-class>
+<init-param>
+<description>인코딩 초기값</description>
+<param-name>encoding</param-name>
+<param-value>UTF-8</param-value>
+</init-param>
+</filter>
+
   <servlet>
     <description>MVC</description>
     <description>컨트롤러 역할</description>
@@ -22,6 +34,10 @@
     </init-param>
     <load-on-startup>1</load-on-startup> <!-- 이거 서버에 바로 올릴거니 ? 1번 순번  -->
   </servlet>
+  <servlet-mapping>
+<servlet-name>dispatcher</servlet-name>
+<url-pattern>*.do</url-pattern>
+</servlet-mapping>
 
   <jsp-config>
   <jsp-property-group>
