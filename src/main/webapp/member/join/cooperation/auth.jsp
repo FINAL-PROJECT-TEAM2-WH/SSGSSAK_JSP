@@ -457,72 +457,9 @@
                                 <div class="cmjump_totalrank_cont">
                                     <ul class="cmjump_rank_lst bx_slide">
                                         <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+10325&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 10325">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%9b%8c%ed%84%b0%ec%a0%80%ea%b7%b8&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|워터저그">
                                                     <span class="cmjump_rank_num">1.</span>
-                                                    <span class="cmjump_rank_tx">레고 10325</span>
-                                                    <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+%eb%b0%94%ec%9d%b4%ed%82%b9&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 바이킹">
-                                                    <span class="cmjump_rank_num">2.</span>
-                                                    <span class="cmjump_rank_tx">레고 바이킹</span>
-                                                    <span class="cmjump_rank_state cmjump_rank_same">
-                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+21343&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 21343">
-                                                    <span class="cmjump_rank_num">3.</span>
-                                                    <span class="cmjump_rank_tx">레고 21343</span>
-                                                    <span class="cmjump_rank_state cmjump_rank_down">
-                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue"></i><span class="blind">하락</span></span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%ed%82%a4%ec%97%98&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|키엘">
-                                                    <span class="cmjump_rank_num">4.</span>
-                                                    <span class="cmjump_rank_tx">키엘</span>
-                                                    <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%b9%b4%eb%84%a4%ec%9d%b4%ec%85%98&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|카네이션">
-                                                    <span class="cmjump_rank_num">5.</span>
-                                                    <span class="cmjump_rank_tx">카네이션</span>
-                                                    <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 ">
-                                                    <span class="cmjump_rank_num">6.</span>
-                                                    <span class="cmjump_rank_tx">레고 </span>
-                                                    <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%b2%a0%eb%b2%a0%eb%93%9c%ed%94%bc%eb%85%b8+%ec%8b%a0%ec%83%81&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|베베드피노 신상">
-                                                    <span class="cmjump_rank_num">7.</span>
-                                                    <span class="cmjump_rank_tx">베베드피노 신상</span>
-                                                    <span class="cmjump_rank_state cmjump_rank_same">
-                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%8a%a4%ed%83%a0%eb%a6%ac&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|스탠리">
-                                                    <span class="cmjump_rank_num">8.</span>
-                                                    <span class="cmjump_rank_tx">스탠리</span>
+                                                    <span class="cmjump_rank_tx">워터저그</span>
                                                     <span class="cmjump_rank_state cmjump_rank_up">
                                                 <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
                                                     </span>
@@ -530,7 +467,7 @@
                                             </li>
                                         <li class="cmjump_rank_item">
                                                 <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%9d%bc%eb%b9%84%ec%95%99&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|라비앙">
-                                                    <span class="cmjump_rank_num">9.</span>
+                                                    <span class="cmjump_rank_num">2.</span>
                                                     <span class="cmjump_rank_tx">라비앙</span>
                                                     <span class="cmjump_rank_state cmjump_rank_down">
                                                 <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue"></i><span class="blind">하락</span></span>
@@ -538,11 +475,74 @@
                                                 </a>
                                             </li>
                                         <li class="cmjump_rank_item">
-                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%83%89%eb%a9%b4&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|냉면">
-                                                    <span class="cmjump_rank_num">10.</span>
-                                                    <span class="cmjump_rank_tx">냉면</span>
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=ps5&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|ps5">
+                                                    <span class="cmjump_rank_num">3.</span>
+                                                    <span class="cmjump_rank_tx">ps5</span>
+                                                    <span class="cmjump_rank_state cmjump_rank_same">
+                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        <li class="cmjump_rank_item">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%8b%8c%ed%85%90%eb%8f%84&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|닌텐도">
+                                                    <span class="cmjump_rank_num">4.</span>
+                                                    <span class="cmjump_rank_tx">닌텐도</span>
                                                     <span class="cmjump_rank_state cmjump_rank_up">
                                                 <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        <li class="cmjump_rank_item">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%8b%a4%ec%9d%b4%ec%8a%a8+%ec%97%90%ec%96%b4%eb%9e%a9&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|다이슨 에어랩">
+                                                    <span class="cmjump_rank_num">5.</span>
+                                                    <span class="cmjump_rank_tx">다이슨 에어랩</span>
+                                                    <span class="cmjump_rank_state cmjump_rank_up">
+                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        <li class="cmjump_rank_item">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고">
+                                                    <span class="cmjump_rank_num">6.</span>
+                                                    <span class="cmjump_rank_tx">레고</span>
+                                                    <span class="cmjump_rank_state cmjump_rank_same">
+                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        <li class="cmjump_rank_item">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0%ec%8a%a4%ed%83%80%ec%9b%8c%ec%a6%88&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고스타워즈">
+                                                    <span class="cmjump_rank_num">7.</span>
+                                                    <span class="cmjump_rank_tx">레고스타워즈</span>
+                                                    <span class="cmjump_rank_state cmjump_rank_same">
+                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        <li class="cmjump_rank_item">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%a0%9d%ec%8b%9c%eb%af%b9%ec%8a%a4&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|젝시믹스">
+                                                    <span class="cmjump_rank_num">8.</span>
+                                                    <span class="cmjump_rank_tx">젝시믹스</span>
+                                                    <span class="cmjump_rank_state cmjump_rank_up">
+                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        <li class="cmjump_rank_item">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%94%94%ec%98%ac&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|디올">
+                                                    <span class="cmjump_rank_num">9.</span>
+                                                    <span class="cmjump_rank_tx">디올</span>
+                                                    <span class="cmjump_rank_state cmjump_rank_up">
+                                                <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        <li class="cmjump_rank_item">
+                                                <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%97%90%ec%96%b4%ec%bb%a8&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|에어컨">
+                                                    <span class="cmjump_rank_num">10.</span>
+                                                    <span class="cmjump_rank_tx">에어컨</span>
+                                                    <span class="cmjump_rank_state cmjump_rank_same">
+                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
                                                     </span>
                                                 </a>
                                             </li>
@@ -564,28 +564,19 @@
                                         <div class="cmjump_lyr_panel on" role="tabpanel">
                                             <ul class="cmjump_rank_lst">
                                                 <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+10325&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 10325">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%9b%8c%ed%84%b0%ec%a0%80%ea%b7%b8&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|워터저그">
                                                             <span class="cmjump_rank_num">1.</span>
-                                                            <span class="cmjump_rank_tx">레고 10325</span>
+                                                            <span class="cmjump_rank_tx">워터저그</span>
                                                             <span class="cmjump_rank_state cmjump_rank_up">
-                                                    <span class="cmjump_rank_count">6</span>
+                                                    <span class="cmjump_rank_count">2</span>
                                                             <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
                                                         </span>
                                                         </a>
                                                     </li>
                                                 <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+%eb%b0%94%ec%9d%b4%ed%82%b9&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 바이킹">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%9d%bc%eb%b9%84%ec%95%99&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|라비앙">
                                                             <span class="cmjump_rank_num">2.</span>
-                                                            <span class="cmjump_rank_tx">레고 바이킹</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_same">
-                                                    <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
-                                                        </span>
-                                                        </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+21343&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 21343">
-                                                            <span class="cmjump_rank_num">3.</span>
-                                                            <span class="cmjump_rank_tx">레고 21343</span>
+                                                            <span class="cmjump_rank_tx">라비앙</span>
                                                             <span class="cmjump_rank_state cmjump_rank_down">
                                                     <span class="cmjump_rank_count">1</span>
                                                             <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue"></i><span class="blind">하락</span></span>
@@ -593,48 +584,66 @@
                                                         </a>
                                                     </li>
                                                 <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ed%82%a4%ec%97%98&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|키엘">
-                                                            <span class="cmjump_rank_num">4.</span>
-                                                            <span class="cmjump_rank_tx">키엘</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                    <span class="cmjump_rank_count">10</span>
-                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                        </span>
-                                                        </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%b9%b4%eb%84%a4%ec%9d%b4%ec%85%98&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|카네이션">
-                                                            <span class="cmjump_rank_num">5.</span>
-                                                            <span class="cmjump_rank_tx">카네이션</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                    <span class="cmjump_rank_count">3</span>
-                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                        </span>
-                                                        </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0+&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고 ">
-                                                            <span class="cmjump_rank_num">6.</span>
-                                                            <span class="cmjump_rank_tx">레고 </span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                    <span class="cmjump_rank_count">4</span>
-                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                        </span>
-                                                        </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%b2%a0%eb%b2%a0%eb%93%9c%ed%94%bc%eb%85%b8+%ec%8b%a0%ec%83%81&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|베베드피노 신상">
-                                                            <span class="cmjump_rank_num">7.</span>
-                                                            <span class="cmjump_rank_tx">베베드피노 신상</span>
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=ps5&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|ps5">
+                                                            <span class="cmjump_rank_num">3.</span>
+                                                            <span class="cmjump_rank_tx">ps5</span>
                                                             <span class="cmjump_rank_state cmjump_rank_same">
                                                     <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
                                                         </span>
                                                         </a>
                                                     </li>
                                                 <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%8a%a4%ed%83%a0%eb%a6%ac&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|스탠리">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%8b%8c%ed%85%90%eb%8f%84&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|닌텐도">
+                                                            <span class="cmjump_rank_num">4.</span>
+                                                            <span class="cmjump_rank_tx">닌텐도</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_up">
+                                                    <span class="cmjump_rank_count">2</span>
+                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                        </span>
+                                                        </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%8b%a4%ec%9d%b4%ec%8a%a8+%ec%97%90%ec%96%b4%eb%9e%a9&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|다이슨 에어랩">
+                                                            <span class="cmjump_rank_num">5.</span>
+                                                            <span class="cmjump_rank_tx">다이슨 에어랩</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_up">
+                                                    <span class="cmjump_rank_count">6</span>
+                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                        </span>
+                                                        </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고">
+                                                            <span class="cmjump_rank_num">6.</span>
+                                                            <span class="cmjump_rank_tx">레고</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_same">
+                                                    <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                        </span>
+                                                        </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0%ec%8a%a4%ed%83%80%ec%9b%8c%ec%a6%88&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고스타워즈">
+                                                            <span class="cmjump_rank_num">7.</span>
+                                                            <span class="cmjump_rank_tx">레고스타워즈</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_same">
+                                                    <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                        </span>
+                                                        </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%a0%9d%ec%8b%9c%eb%af%b9%ec%8a%a4&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|젝시믹스">
                                                             <span class="cmjump_rank_num">8.</span>
-                                                            <span class="cmjump_rank_tx">스탠리</span>
+                                                            <span class="cmjump_rank_tx">젝시믹스</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_up">
+                                                    <span class="cmjump_rank_count">1</span>
+                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                        </span>
+                                                        </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%94%94%ec%98%ac&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|디올">
+                                                            <span class="cmjump_rank_num">9.</span>
+                                                            <span class="cmjump_rank_tx">디올</span>
                                                             <span class="cmjump_rank_state cmjump_rank_up">
                                                     <span class="cmjump_rank_count">3</span>
                                                             <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
@@ -642,22 +651,11 @@
                                                         </a>
                                                     </li>
                                                 <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%9d%bc%eb%b9%84%ec%95%99&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|라비앙">
-                                                            <span class="cmjump_rank_num">9.</span>
-                                                            <span class="cmjump_rank_tx">라비앙</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_down">
-                                                    <span class="cmjump_rank_count">2</span>
-                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue"></i><span class="blind">하락</span></span>
-                                                        </span>
-                                                        </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%83%89%eb%a9%b4&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|냉면">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%97%90%ec%96%b4%ec%bb%a8&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|에어컨">
                                                             <span class="cmjump_rank_num">10.</span>
-                                                            <span class="cmjump_rank_tx">냉면</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                    <span class="cmjump_rank_count">4</span>
-                                                            <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                            <span class="cmjump_rank_tx">에어컨</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_same">
+                                                    <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
                                                         </span>
                                                         </a>
                                                     </li>
@@ -666,96 +664,95 @@
                                         <div class="cmjump_lyr_panel" role="tabpanel">
                                             <ul class="cmjump_rank_lst">
                                                 <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%88%98%eb%b0%95&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|수박">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%b2%84%ec%bc%84%ec%8a%a4%ed%83%81&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|버켄스탁">
                                                             <span class="cmjump_rank_num">11.</span>
-                                                            <span class="cmjump_rank_tx">수박</span>
+                                                            <span class="cmjump_rank_tx">버켄스탁</span>
                                                             <span class="cmjump_rank_state cmjump_rank_up">
                                                 <span class="cmjump_rank_count">1</span>
                                                         <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a0%88%ea%b3%a0%ec%8a%a4%ed%83%80%ec%9b%8c%ec%a6%88&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|레고스타워즈">
-                                                            <span class="cmjump_rank_num">12.</span>
-                                                            <span class="cmjump_rank_tx">레고스타워즈</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_count">5</span>
-                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%95%88%ec%84%b1%ed%83%95%eb%a9%b4&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|안성탕면">
-                                                            <span class="cmjump_rank_num">13.</span>
-                                                            <span class="cmjump_rank_tx">안성탕면</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_count">2</span>
-                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ed%8a%b8%eb%a6%bd%ed%8a%b8%eb%9e%a9&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|트립트랩">
-                                                            <span class="cmjump_rank_num">14.</span>
-                                                            <span class="cmjump_rank_tx">트립트랩</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_count">4</span>
-                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%97%90%ec%8a%a4%ed%8b%b0%eb%a1%9c%eb%8d%94+%ea%b0%88%ec%83%89%eb%b3%91&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|에스티로더 갈색병">
-                                                            <span class="cmjump_rank_num">15.</span>
-                                                            <span class="cmjump_rank_tx">에스티로더 갈색병</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_count">1</span>
-                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%84%a0%ed%92%8d%ea%b8%b0&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|선풍기">
-                                                            <span class="cmjump_rank_num">16.</span>
-                                                            <span class="cmjump_rank_tx">선풍기</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_same">
-                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
-                                                    </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ea%b3%a0%ec%b6%94&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|고추">
-                                                            <span class="cmjump_rank_num">17.</span>
-                                                            <span class="cmjump_rank_tx">고추</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_up">
-                                                <span class="cmjump_rank_count">3</span>
-                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
-                                                    </a>
-                                                    </li>
-                                                <li class="cmjump_rank_item">
-                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%a0%95%ea%b4%80%ec%9e%a5&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|정관장">
-                                                            <span class="cmjump_rank_num">18.</span>
-                                                            <span class="cmjump_rank_tx">정관장</span>
-                                                            <span class="cmjump_rank_state cmjump_rank_same">
-                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
                                                     </a>
                                                     </li>
                                                 <li class="cmjump_rank_item">
                                                         <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%97%90%ec%8a%a4%ed%8b%b0%eb%a1%9c%eb%8d%94&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|에스티로더">
-                                                            <span class="cmjump_rank_num">19.</span>
+                                                            <span class="cmjump_rank_num">12.</span>
                                                             <span class="cmjump_rank_tx">에스티로더</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_up">
+                                                <span class="cmjump_rank_count">1</span>
+                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%9d%b4%ec%86%9d&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|이솝">
+                                                            <span class="cmjump_rank_num">13.</span>
+                                                            <span class="cmjump_rank_tx">이솝</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_up">
+                                                <span class="cmjump_rank_count">1</span>
+                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ed%94%84%eb%a0%88%ec%89%ac&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|프레쉬">
+                                                            <span class="cmjump_rank_num">14.</span>
+                                                            <span class="cmjump_rank_tx">프레쉬</span>
                                                             <span class="cmjump_rank_state cmjump_rank_same">
                                                 <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
                                                     </a>
                                                     </li>
                                                 <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ed%97%ac%eb%a0%8c%ec%b9%b4%eb%af%bc%ec%8a%a4%ed%82%a4&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|헬렌카민스키">
+                                                            <span class="cmjump_rank_num">15.</span>
+                                                            <span class="cmjump_rank_tx">헬렌카민스키</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_up">
+                                                <span class="cmjump_rank_count">1</span>
+                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
                                                         <a href="https://www.ssg.com/search.ssg?target=all&query=%ed%97%ac%eb%a0%8c%ec%b9%b4%eb%af%bc%ec%8a%a4%ed%82%a4%eb%b9%84%ec%95%99%ec%b9%b4&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|헬렌카민스키비앙카">
-                                                            <span class="cmjump_rank_num">20.</span>
+                                                            <span class="cmjump_rank_num">16.</span>
                                                             <span class="cmjump_rank_tx">헬렌카민스키비앙카</span>
                                                             <span class="cmjump_rank_state cmjump_rank_up">
                                                 <span class="cmjump_rank_count">1</span>
                                                         <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
                                                     </a>
                                                     </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%b8%94%eb%a3%a8%eb%8f%85%eb%b2%a0%ec%9d%b4%eb%b9%84&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|블루독베이비">
+                                                            <span class="cmjump_rank_num">17.</span>
+                                                            <span class="cmjump_rank_tx">블루독베이비</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_up">
+                                                <span class="cmjump_rank_count">1</span>
+                                                        <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+                                                    </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%ec%88%98%eb%b0%95&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|수박">
+                                                            <span class="cmjump_rank_num">18.</span>
+                                                            <span class="cmjump_rank_tx">수박</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_same">
+                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                    </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=mlb+%ed%82%a4%ec%a6%88&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|mlb 키즈">
+                                                            <span class="cmjump_rank_num">19.</span>
+                                                            <span class="cmjump_rank_tx">mlb 키즈</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_same">
+                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                    </a>
+                                                    </li>
+                                                <li class="cmjump_rank_item">
+                                                        <a href="https://www.ssg.com/search.ssg?target=all&query=%eb%a1%9d%ec%8b%9c%eb%95%85&src_area=item_list" class="cmjump_rank_link clickable" data-react-tarea="몰공통|GNB|급상승검색어_클릭|록시땅">
+                                                            <span class="cmjump_rank_num">20.</span>
+                                                            <span class="cmjump_rank_tx">록시땅</span>
+                                                            <span class="cmjump_rank_state cmjump_rank_same">
+                                                <span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>
+                                                    </a>
+                                                    </li>
                                                 </ul>
                                         </div>
                                     </div>
-                                    <div class="cmjump_keyword_info">2024-05-02 13:00 기준</div>
+                                    <div class="cmjump_keyword_info">2024-05-02 16:00 기준</div>
                                 </div>
                             </div>
                         </div>
@@ -939,35 +936,84 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 
 
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_iconset.css?v=20240424"/>
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/join.css?v=20240424"/>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/lazyload.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.cookie.js"></script>
 
-<div id="content" data-reactingV2-key="00183_000000950|t00000|1">
+
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_iconset.css?v=20240424"/>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/mnodr.css?v=20240424"/>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/join.css?v=20240424"/>
+
+<div id="content" data-reactingV2-key="00183_000000951|t00000|1">
     <div class="member_join">
-        <div class="join_type">
+        <div class="join_biz_agree">
+            <!-- header -->
             <div class="join_title_wrap">
                 <div class="title_area">
-                    <h3 class="mb_tit"> 믿고 사는 즐거움<br>
-                        <span class="logo_ssg_com">SSG.COM</span>에 오신 것을<br> 환영합니다
-                    </h3>
+                    <h2 class="top_tit">사업자 회원가입</h2>
+                    <h3 class="mb_tit"> 회원가입 동의하고<br> 사업자번호를 입력해주세요 </h3>
                 </div>
             </div>
+            <!-- //header -->
+            <!-- contents -->
             <div class="join_cts_wrap">
                 <div class="mb_cont">
-                    <div class="btns_area btns_fixed">
-                        <div class="btn_cts">
-                            <a href="/member/join/auth.ssg?type=all" class="btn_type01" data-reactingV2-key="00183_000000950|t00060|1">
-                                <strong>개인회원</strong>
-                                <span>본인인증 또는 SNS 인증 후 가입</span>
-                            </a>
-                            <a href="/member/join/corporation/auth.ssg" class="btn_type02" data-reactingV2-key="00183_000000950|t00060|2">
-                                <strong>사업자회원</strong>
-                                <span>사업자번호 인증 후 가입</span>
-                            </a>
+                    <div class="agree_section" id="agree_section">
+                        <div class="cts_area">
+                            <div class="chk_box chk_all">
+                                <input type="checkbox" class="chk_inp" id="agree_all"/>
+                                <label for="agree_all" class="chk_lbl">
+                                    <span>전체선택</span>
+                                </label>
+                            </div>
+                            <ul class="chk_list">
+                                <li class="chk_box ty_more">
+                                    <input type="checkbox" class="chk_inp" id="agree01" data-terms="Y"/>
+                                    <label for="agree01" class="chk_lbl"><span>(필수) SSG.COM 이용약관</span></label>
+                                    <a class="btn_more" href="javascript:viewPolicyPopup('M100001');"><span class="blind">약관보기</span></a>
+                                </li>
+                                <li class="chk_box ty_more">
+                                    <input type="checkbox" class="chk_inp" id="agree02" data-terms="Y"/>
+                                    <label for="agree02" class="chk_lbl"><span>(필수) SSG.COM 개인정보 수집 및 이용 동의</span></label>
+                                    <a class="btn_more" href="javascript:viewPolicyPopup('M300003');"><span class="blind">약관보기</span></a>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
+                    <div class="form_section">
+                        <div class="cts_area">
+                            <form>
+                                <div class="form_item form_text bizno">
+                                    <label for="bizno">사업자번호</label>
+                                    <div class="inp_type_txt">
+                                        <div class="inp_box">
+                                            <input type="number" class="inp_txt" id="bizno" maxlength="10" oninput="numberMaxLength(this);" value="" placeholder="사업자번호"/> <!-- 입력오류시 class : error -->
+                                            <button type="button" class="btn_del" aria-label="사업자번호 입력 내용 전체 삭제"></button>
+                                        </div>
+                                        <!-- <button type="button" class="btn_option">옵션버튼</button> -->
+                                    </div>
+                                    <div class="helper_txt">
+                                        <span class="txt default">사업자번호 10자리를 입력해주세요</span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="mb_notice">
+                                <div class="mb_notice_em">
+                                    <i class="icon circle_information"></i>
+                                    <span>타인의 사업자번호로 가입하는 경우 서비스 이용이 제한될 수 있습니다.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- btns 하단 고정 -->
+                    <div class="btns_area btns_fixed btns_full">
+                        <!-- btn_full : 100% -->
+                        <div class="btn_cts">
+                            <button class="btn_default" id="btnBizAuth" data-reactingV2-key="00183_000000951|t00060|1"><span>사업자 번호 확인하기</span></button>
+                        </div>
+                        <!-- [ btn type - Guide ] -->
+                        <!-- <button class="btn_default"><span>기본 버튼</span></button> -->
+                        <!-- <button class="btn_default" disabled><span>비활성화 버튼</span></button> -->
+                        <!-- <button class="btn_line"><span>라인 버튼</span></button> -->
+                        <!-- <button class="btn_text btn_full"><span>텍스트 버튼</span></button> -->
                     </div>
                 </div>
             </div>
@@ -975,6 +1021,13 @@ function setCommonGnbCookie(name, value, expiredays) {
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/comm/js/memberJs.ssg"></script>
+
+<form id="joinCorportionForm" method="POST" action="/member/join/corporation/regist.ssg">
+    <input type="hidden" name="bizno">
+    <input type="hidden" name="bizNm">
+</form>
+
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.js"></script>
@@ -1504,8 +1557,12 @@ $(function(){
 </script>
 
 <script type="text/javascript" defer="defer">
-    document.title = '회원가입 > 회원 유형 선택, 믿고 사는 즐거움 SSG.COM';
     $(document).ready(function () {
+        document.title = '회원가입 > 사업자회원가입 > 가입 동의, 믿고 사는 즐거움 SSG.COM';
+        $(document).on("keypress", "input:not(textarea)", function (event) {
+            return event.keyCode != 13;
+        });
+
         function btnFixed() {
             var winH = $(window).height();
             var bodyH = $('body').outerHeight();
@@ -1520,9 +1577,135 @@ $(function(){
         }
 
         $(window).on("resize", btnFixed);
-
         btnFixed();
     });
+
+    function numberMaxLength(object) {
+        if (object.value.length > object.maxLength) {
+            object.value = object.value.slice(0, object.maxLength);
+        }
+    }
+
+    $(function () {
+        //input label 노출
+        $(".inp_type_txt input").on("propertychange change keyup paste input focusin", function () {
+            var oldVal;
+            var current = $(this);
+            var currentVal = $(this).val();
+
+            if (currentVal.length != 0) {
+                $(current).parents('.form_item').addClass('labelOn focus');
+            } else {
+                $(current).parents('.form_item').removeClass('labelOn focus');
+            }
+
+            oldVal = currentVal;
+        }).on("focusout", function (e) {
+            $(this).parents('.form_item').removeClass('focus');
+        });
+
+        //input 입력 내용 삭제
+        $('.btn_del').on('click mousedown', function () {
+            $(this).siblings('.inp_txt').val("").focus().parents('.form_item').removeClass('labelOn focus');
+        });
+
+        // faq
+        $(".faq_list .faq_q").on('click', function () {
+            if ($(this).hasClass("active")) {
+                $(this).attr('aria-expanded', 'false').removeClass("active");
+                $(this).next('.faq_a').addClass("close");
+            } else {
+                $(this).attr('aria-expanded', 'true').addClass("active");
+                $(this).next('.faq_a').removeClass("close");
+            }
+        });
+    });
+
+    var terms = $("#agree_section").find("input[type='checkbox']").not("#agree_all");
+    $("#agree_all").click(function () {
+        terms.prop("checked", this.checked);
+    });
+
+    
+    terms.click(function () {
+        if (terms.length == $("#content").find("input[type='checkbox']:checked").not("#agree_all").length) {
+            $("#agree_all").prop("checked", true);
+        } else {
+            $("#agree_all").prop("checked", false);
+        }
+    });
+
+    function viewPolicy(site) {
+        popupWin("/member/join/privacy.ssg?site=" + site, "privacy_policy", 780, 600, "yes", "no");
+    }
+
+    function viewPolicyPopup(mbrOperScrnId) {
+        popupWin("/policies/termPopup.ssg?mbrOperScrnId=" + mbrOperScrnId, "terms", 780, 600, "yes", "no");
+    }
+
+    function validateData() {
+        // 필수 약관 벨리데이션
+        var isPass = true;
+        $("input[data-terms='Y']").each(function () {
+            if (!this.checked) {
+                var msg = "{0}에 동의해주세요.";
+                msg = msg.replace("{0}", $(this).next().text());
+                alert(msg);
+                $(this).focus();
+                isPass = false;
+                return false;
+            }
+        });
+
+        if (!isPass) {
+            return false;
+        }
+
+        // 사업자등록번호 벨리데이션
+        if (!$("#bizno").val().isBiznum()) {
+            alert("사업자등록번호를 정확하게 입력해주세요.");
+            $("#bizno").focus();
+            return false;
+        }
+        return true;
+    }
+
+    $("#btnBizAuth").click(function (e) {
+        e.preventDefault();
+        if (validateData()) {
+            $.ajax({
+                url: "/member/join/corporation/validation.ssg"
+                , data: {
+                    "bizno": $("#bizno").val()
+                }
+                , type: "POST"
+                , async: false
+                , beforeSubmit: function () {
+                    loadingIndicator.show();
+                }
+                , success: function (result) {
+                    loadingIndicator.hide();
+                    if (result.resultCode == "EXIST_MBR") {
+                        document.location.replace("/member/join/corporation/existing-member.ssg");
+                        return;
+                    }
+                    if (result.resultCode == "0000") {
+                        $('#joinCorportionForm').find('input[name="bizno"]').val($("#bizno").val());
+                        $('#joinCorportionForm').find('input[name="bizNm"]').val(result.result.bizNm);
+                        $("#joinCorportionForm").submit();
+                        return;
+                    }
+                    alert(result.resultMsg);
+                }
+                ,
+                error: function (jqXhr, status, error) {
+                    loadingIndicator.hide();
+                    alert('조회 오류\n' + jqXhr.responseText + error);
+                }
+            });
+        }
+    });
+
 </script>
 </div>
 		<!-- footer -->

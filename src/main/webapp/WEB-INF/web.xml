@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>SSGSSAK</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>    
+  </welcome-file-list>
+
+
+<filter>
+<description>인코딩 필터</description>
+<filter-name>characterEncodingFilter</filter-name>
+<filter-class>com.filter.CharacterEncodingFilter</filter-class>
+<init-param>
+<description>인코딩 초기값</description>
+<param-name>encoding</param-name>
+<param-value>UTF-8</param-value>
+</init-param>
+</filter>
+
+  <servlet>
+    <description>MVC</description>
+    <description>컨트롤러 역할</description>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>controller.DispatcherServlet</servlet-class>
+    <init-param>
+    <description>URL 과 Handler 등록 파일 경로</description>
+    <param-name>path</param-name>
+    <param-value>/WEB-INF/commandHandler.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup> <!-- 이거 서버에 바로 올릴거니 ? 1번 순번  -->
+  </servlet>
+  <servlet-mapping>
+<servlet-name>dispatcher</servlet-name>
+<url-pattern>*.do</url-pattern>
+</servlet-mapping>
+
+  <jsp-config>
+  <jsp-property-group>
+  	<url-pattern>/</url-pattern>
+  	<include-prelude>/WEB-INF/inc/include.jspf</include-prelude>
+  	<!-- <include-prelude>/WEB-INF/inc/footer.jspf</include-prelude> -->
+  </jsp-property-group>
+  </jsp-config>
+  
+  <servlet>
+        <servlet-name>jsp</servlet-name>
+        <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+        <init-param>
+            <param-name>mappedfile</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </servlet>
+
+</web-app>
+
+
+
+
+
+

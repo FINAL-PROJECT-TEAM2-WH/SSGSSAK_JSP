@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+         <% String contextPath = request.getContextPath(); %> 
+         
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/sentry.bundle.min.js" crossorigin="anonymous"></script>
 <meta property="og:url" content="https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB" />
 <meta property="og:image" content="https://sui.ssgcdn.com/ui/common/img/sns/ssg.png" />
@@ -75,20 +77,20 @@
                             <div class="ssg_mall_menu_container" aria-hidden="true" tabindex="-1" data-react-tarea-cd="00042_000000090">
                                 <ul class="ssg_mall_menu_list">
                                     <li class="ssg_mall_menu_item ssg_mall_menu_item_ssg is-active" data-react-unit-type="text" data-react-unit-text='[{"type":"text","value":"SSG"}]'>
-                                        <a href="https://www.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|SSG_클릭" data-react-tarea-dtl-cd="t00060" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
+                                        <a href="<%= contextPath %>/mainPage.jsp" class="clickable" data-react-tarea="공통|몰이동_레이어|SSG_클릭" data-react-tarea-dtl-cd="t00060" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
                                             <span class="blind">SSG.COM</span>
                                         </a>
                                     </li>
                                     <li class="ssg_mall_menu_item ssg_mall_menu_item_emart" data-react-unit-type="text" data-react-unit-text='[{"type":"text","value":"이마트몰"}]'>
-                                        <a href="https://emart.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|이마트몰_클릭" data-react-tarea-dtl-cd="t00060">
+                                        <a href="<%= contextPath %>/mainPage.jsp" class="clickable" data-react-tarea="공통|몰이동_레이어|이마트몰_클릭" data-react-tarea-dtl-cd="t00060">
                                             <span class="blind">이마트몰</span>
                                         </a>
                                     </li>
                                     <li class="ssg_mall_menu_item" data-react-unit-type="text" data-react-unit-text='[{"type":"text","value":"신세계몰"}]'>
-                                        <a href="https://shinsegaemall.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|신세계몰_클릭" data-react-tarea-dtl-cd="t00060">신세계몰</a>
+                                        <a href="<%= contextPath %>/mainPage.jsp" class="clickable" data-react-tarea="공통|몰이동_레이어|신세계몰_클릭" data-react-tarea-dtl-cd="t00060">신세계몰</a>
                                     </li>
                                     <li class="ssg_mall_menu_item" data-react-unit-type="text" data-react-unit-text='[{"type":"text","value":"신세계백화점"}]'>
-                                        <a href="https://department.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|신세계백화점_클릭" data-react-tarea-dtl-cd="t00060">신세계백화점</a>
+                                        <a href="<%= contextPath %>/mainPage.jsp" class="clickable" data-react-tarea="공통|몰이동_레이어|신세계백화점_클릭" data-react-tarea-dtl-cd="t00060">신세계백화점</a>
                                     </li>
                                 </ul>
                             </div>
@@ -557,11 +559,13 @@
                     <ul class="gnb_util" id="util_right">
                         <li id="gnbUserInfoArea" class="gnb_tx_user notranslate gnbUserInfoArea" style="display:none;"><a href="javascript:void(0);"></a></li>
                         <li id="loginBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|로그인" href="#" onclick="" title="새창 열림">로그인</a></li>
-                        <li id="joinBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|회원가입" href="javascript:fn_joinSite('https://member.ssg.com/member/join/auth.ssg')">회원가입</a></li>
+                        <li id="joinBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|회원가입" href="#">회원가입</a></li>
                         <li id="logoutBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|로그아웃" href="#" onclick="logout('', 'gnb=logout');return false;">로그아웃</a></li>
-                        <li><a class="clickable" data-react-tarea="몰공통|GNB|고객센터" href="javascript:goCustomer();">고객센터</a></li>
+                        <li><a class="clickable" data-react-tarea="몰공통|GNB|고객센터" href="<%= contextPath %>/customer/main.jsp;">고객센터</a></li>
                     </ul>
                 </div>
+                
+                <!-- 서블릿에서 filter로 걸러서 회원 로그인 하게끔 만들어야함.  -->
                 <div class="gnb_renew_menu">
                     <ul class="gnb_menu" data-react-tarea-cd="00042_000000090">
                         <li>
@@ -602,11 +606,15 @@
                             </a>
                         </li>
                         </ul>
-                        <% String contextPath = request.getContextPath(); %>
+                  
                         <script>
                         	$('#loginBtn').on('click', function () {
                         		
-                        		window.open("<%=contextPath%>/loginPage_new_Form.jsp",'loginPage','_blank');
+                        		window.open("<%=contextPath%>/member/loginPage_new_Form.jsp",'loginPage','_blank');
+                        	})
+                        	
+                        	$('#joinBtn').on('click', function () {	
+                        		location.href = "<%=contextPath%>/member/join/auth.do";
                         	})
                         </script>
                     <script type="text/javascript">
@@ -689,12 +697,15 @@
 <script type="text/javascript">
 
 function setCommonGnbCookie(name, value, expiredays) {
+	
+	console.log(name)
     //name:useGnbAdvert, value:Y
     //$.cookie(name, value, {expires: expiredays, path: '/', domain: '.ssg.com'});
     
     var strCookie = name + "=" + encodeURIComponent(value);
+    console.log(strCookie);
     strCookie += "; path=/";
-    strCookie += "; domain=.ssg.com";
+    strCookie += "; domain=.mainPage.jsp";
     if( typeof expiredays === "number" )
     {
         var todayDate = new Date();
