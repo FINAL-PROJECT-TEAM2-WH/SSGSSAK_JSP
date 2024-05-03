@@ -94,7 +94,7 @@ public class DispatcherServlet extends HttpServlet {
 		CommandHandler comHandler = this.commandHandlerMap.get(requestURI);
 		
 		String view = null ; 
-		try {
+		try {		
 			view = comHandler.process(request, response);
 			
 		} catch (Exception e) {
