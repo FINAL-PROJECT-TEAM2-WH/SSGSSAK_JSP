@@ -56,7 +56,25 @@
         </init-param>
     </servlet>
 
-</web-app>
+<!-- 
+	<servlet>
+   <servlet-name>dispatcherServlet4</servlet-name>
+   <servlet-class>controller.DispatcherServlet</servlet-class>
+   <init-param>
+      <description>매핑 properties</description>
+      <param-name>path</param-name>
+      <param-value>/WEB-INF/commandHandlerProd.properties</param-value>
+   </init-param>
+   <load-on-startup>1</load-on-startup>
+   </servlet>
+   
+   <servlet-mapping>
+      <servlet-name>dispatcherServlet4</servlet-name>
+      <url-pattern>*.dc</url-pattern>
+   </servlet-mapping>   
+
+ -->
+ </web-app>
 
 
 
