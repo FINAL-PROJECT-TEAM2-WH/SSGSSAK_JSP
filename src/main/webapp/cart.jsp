@@ -28,7 +28,7 @@
  		n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
 	})(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
 	DD_RUM.onReady(function() {
-		DD_RUM.init({
+		DD_RUM.init({ 
 		    clientToken: 'pubac24b901ad56e749ee6c07bb375b8882',
 		    applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6',
 			site: 'datadoghq.com',

@@ -32,7 +32,7 @@
                    class="ssghero_titlnk clickable"
                    data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|최정 홈런"
                    data-react-tarea-dtl-cd="t00001"
-                >
+                > 
                     <h3 class="ssghero_titmain">최정 홈런 468 기념 이벤트</h3>
                     <div class="ssghero_titsub">SSG.COM이 468만원을 쏜다!</div>
                 </a>
