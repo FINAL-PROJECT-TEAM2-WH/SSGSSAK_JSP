@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class MemberDTO {
-	private String id;
+	private int id;
 	private String email;
 	private String address;
 	private String phoneNum;
