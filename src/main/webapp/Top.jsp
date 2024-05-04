@@ -1,4 +1,3 @@
-<%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
          <% String contextPath = request.getContextPath(); %> 
@@ -559,9 +558,9 @@
                     <div class="gnb_mmbrs ty_universe" id="gnbMbrspText_universe" style="display: none" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"멤버십영역"}]' data-react-unit-id=""></div>
                     <ul class="gnb_util" id="util_right">
                         <li id="gnbUserInfoArea" class="gnb_tx_user notranslate gnbUserInfoArea" style="display:none;"><a href="javascript:void(0);"></a></li>
-                        <li id="loginBtn" style="display:none;"><a id="login_a_tag" class="clickable" data-react-tarea="몰공통|GNB|로그인" href="#" onclick="" title="새창 열림">로그인</a></li>
-                        <li id="joinBtn" style="display:none;"><a id="regi_a_tag" class="clickable" data-react-tarea="몰공통|GNB|회원가입" href="#">회원가입</a></li>
-                        <li id="logoutBtn" style="display:none;"><a id="logout_a_tag" class="clickable" data-react-tarea="몰공통|GNB|로그아웃" href="#">로그아웃</a></li>
+                        <li id="loginBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|로그인" href="#" onclick="" title="새창 열림">로그인</a></li>
+                        <li id="joinBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|회원가입" href="#">회원가입</a></li>
+                        <li id="logoutBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|로그아웃" href="#" onclick="logout('', 'gnb=logout');return false;">로그아웃</a></li>
                         <li><a class="clickable" data-react-tarea="몰공통|GNB|고객센터" href="<%= contextPath %>/customer/main.jsp;">고객센터</a></li>
                     </ul>
                 </div>
@@ -609,9 +608,14 @@
                         </ul>
                   
                         <script>
+                        	$('#loginBtn').on('click', function () {
+                        		
+                        		window.open("<%=contextPath%>/member/loginPage_new_Form.jsp",'loginPage','_blank');
+                        	})
                         	
-                        	
-                        	
+                        	$('#joinBtn').on('click', function () {	
+                        		location.href = "<%=contextPath%>/member/join/auth.do";
+                        	})
                         </script>
                     <script type="text/javascript">
                         var loginYn  = 'N';
@@ -714,44 +718,3 @@ function setCommonGnbCookie(name, value, expiredays) {
 }
 
 </script>
-<%
- 	MemberDTO dto = (MemberDTO)session.getValue("auth");
- 	String id = "";
-	if ( dto != null) {
- 		%>
-<script>
-
-	// 로그인 돼있을 시에는 기존에 로그아웃, 회원가입 버튼을 안 보이게 만들고 , logout 버튼을 활성화 시켜야함. 
-	// logout 버튼을 누르면 세션에서 로그아웃 되는 코딩까지 만들어야함. 
-	$(function () {
-
-		let id = '<%= dto.getId()  %>';
-		let name = '<%= dto.getName() %>';
-		$('#login_a_tag').text(name + '님 반갑습니다!');
-		$('#regi_a_tag').css('display','none');
-		$('#logoutBtn').css('display','block');
-
-	});
-	$('#logoutBtn').on('click', function () {
-		location.href = location.protocol + '<%= contextPath %>' + "/member/logout.do";
-	});
-	
-	
-</script>
- 		<% 
- 	} else {
-%> 
-<script>
-$('#loginBtn').on('click', function () {
-	window.open("<%=contextPath%>/member/loginPage_new_Form.jsp",'loginPage','width=750,height=590,left=500,top=300','resizable=no','_blank');
-});
-
-
-$('#joinBtn').on('click', function () {	
-	location.href = "<%=contextPath%>/member/join/auth.do";
-});
-</script>
-
-<% 
-}
-%>
