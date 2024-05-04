@@ -1,4 +1,3 @@
-<%@page import="com.util.SessionConst"%>
 <%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -2370,9 +2369,9 @@ $('#loginBtn').on('click', function () {
         },
         error: function (xhr, status, error) {
             console.error("오류 - 상태: ", status, " 메시지: ", error);
-            alert('오류: ' + error);
+            //alert('오류: ' + error);
             
-            alert('제대로 된 값을 넣어주세요.')
+            alert('아이디와 비밀번호가 다릅니다.')
             
             window.location.reload();
         }

@@ -1,5 +1,4 @@
 <%@page import="java.net.URLDecoder"%>
-<%@page import="com.util.SessionManager"%> 
 <%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

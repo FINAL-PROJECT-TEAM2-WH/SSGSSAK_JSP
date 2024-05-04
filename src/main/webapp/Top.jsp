@@ -1,5 +1,4 @@
 <%@page import="com.util.Cookies"%>
-<%@page import="com.util.SessionConst"%>
 <%@page import="java.net.http.HttpRequest"%>
 <%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
