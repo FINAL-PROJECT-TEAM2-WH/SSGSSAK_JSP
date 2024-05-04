@@ -1,3 +1,4 @@
+<%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% String contextPath = request.getContextPath(); %>
@@ -328,7 +329,7 @@
             </div>
             <div class="cmem_cont">
                 <div class="cmem_sec">
-                    <form method="post" id="loginForm" action="<%=contextPath %>/member/loginPage_new_Form.do">
+                    <form method="post" id="loginForm" <%-- action="<%=contextPath %>/member/loginPage_new_Form.do" --%> >
                         
                         <div class="cmem_inpgrp ty_id">
                             <div class="cmem_txt">
@@ -2244,7 +2245,7 @@ $(function(){
 </script>
 
 
-<script type="text/javascript">
+<%-- <script type="text/javascript">
     var originSite = "<%= contextPath %>/mainPage.jsp";
 
     $(document).ready(function () {
@@ -2292,7 +2293,7 @@ $(function(){
         location.href = '/member/popup/popupNonMemberLogin.ssg?originSite=' + escape(originSite) + '&t=' + tab;
     }
 
-    $(function () {
+    /* $(function () {
         
         var originSite = "https://www.ssg.com";
         var retURL = "https://www.ssg.com/?ckwhere=ssg_ggbr&amp;_a1_kad=18e3b5163515e1&amp;_a1_site=ssg&amp;gad_source=1&amp;gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB";
@@ -2345,7 +2346,25 @@ $(function(){
                     $(this).find('input').focus();
                 }
             });
-    });
+    }); */
+</script> --%>
+<script>
+ $('#loginBtn').on('click', function () {
+	 let params = $('form').serialize();
+	 $.ajax({
+		url:'<%=contextPath%>/member/loginPage_new_Form.do'
+		,dataType:'json'
+		,type:'POST'
+		,data:params
+		,cache:false
+		,success: function (data){
+			alert(data.id);
+		},error:function () {
+			alert('에러');
+		}
+	 })
+	 
+ });
 </script>
 </div>
 </body>

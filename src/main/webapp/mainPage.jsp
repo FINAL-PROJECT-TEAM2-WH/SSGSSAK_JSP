@@ -1,3 +1,6 @@
+<%@page import="java.net.URLDecoder"%>
+<%@page import="com.util.SessionManager"%>
+<%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -8317,7 +8320,7 @@ deferredObj.done(function() {
                                     if(skyTalkHandler.timer) {
                                         clearInterval(skyTalkHandler.timer);
                                         skyTalkHandler.timer = null;
-                                    }
+                           	         }
                                     return;
                             }
                         }
@@ -8340,5 +8343,5 @@ deferredObj.done(function() {
             //do nothing
         }
     };
-</script>
+    
 <%@ include file="footer.jsp" %>
