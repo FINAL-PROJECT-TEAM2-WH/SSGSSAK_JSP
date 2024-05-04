@@ -11,7 +11,7 @@
             <div class="cmctg_total" aria-hidden="true">
                 <div class="cmctg_dimmed"></div>
                 <div class="cmctg_cont">
-                    <ul class="cmctg_list" role="menubar">
+                    <ul class="cmctg_list" role="menubar"> 
                         <li class="cmctg_top_mn" data-ctg-code="5410000001">
                                 <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|패션의류">
                                     <span class="cmctg_lnk_txt">패션의류</span>

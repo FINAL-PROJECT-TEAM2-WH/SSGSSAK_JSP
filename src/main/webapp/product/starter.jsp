@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<a style="border: thick  border-style: window;"  href="/SSGSSAK/product/product.dc?productcode=1000026532717">헤어크림 사세요</a>
+</body>
+</html>
+
