@@ -7,8 +7,14 @@ public class Couponhandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("여기옴");
-		return null;
+		String method = request.getMethod();
+		if (method.equals("GET")) {
+			return "/pay/coupon.jsp";
+		} else {
+			System.out.println("post 옴");
+			return null;
+		}
+		
 	}
 
 }

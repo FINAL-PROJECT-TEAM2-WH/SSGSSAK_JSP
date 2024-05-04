@@ -1166,16 +1166,21 @@ function setCommonGnbCookie(name, value, expiredays) {
                                           <i class="sm"><span class="blind">신세계몰</span></i><i class="sd"><span class="blind">신세계백화점</span></i><i class="mnchicor"><span class="blind">CHICOR</span></i><i class="outlet"><span class="blind">프리미엄 아울렛</span></i></span>
                                     </div>
                                 <div class="comp_coupon_download">
+                                <form id="coupon1" action="${pageContext.request.contextPath }/pay/coupon.do" method="post">
                                 <button id="couponbtn" type="button" class="comp_coupon_btndown" >
-                                <script>
-                                 $("#couponbtn").on("click",function(){
-                                	 location.href = "${pageContext.request.contextPath}/pay/coupon.do";
-                                 })
-                                </script>
+                                
+                                
                                     <span>쿠폰 다운받기</span>
                                     <span>-기간 내 ID당 1장 발급 가능-</span>
                                 </button>
+                                
+                                </form>
                             </div>
+                            <script>
+                            	$("#couponbtn").on("click",function(){
+                            		$("#coupon1").submit();
+                            	})
+                            </script>
                             <div class="comp_coupon_area">
                                     <div class="comp_coupon_soldout">
                                         <p class="comp_coupon_soldout_title">선착순 쿠폰</p>
