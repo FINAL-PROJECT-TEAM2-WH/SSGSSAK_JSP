@@ -27,16 +27,25 @@ public class Couponhandler implements CommandHandler{
 			String id = (String) session.getAttribute("auth");
 			int couponnum =Integer.parseInt(request.getParameter("couponnum"));
 			int result = 0 ;
+			int dupli = 0 ;
 			JSONObject jo = new JSONObject();
 			JSONArray ja = new JSONArray();
 			CouponImpl ci = new CouponImpl(conn);
 			JSONObject jo2 = new JSONObject();
+			dupli = ci.isduplicoupon(id, couponnum);
+			if (dupli==0) {
+				result = ci.issue(id, couponnum);
+				jo2.put("success", result);
+				ja.add(jo2);
+				jo.put("coupon", ja);
+				response.getWriter().write(jo.toString());
+			} else {
+				jo2.put("success", result);
+				ja.add(jo2);
+				jo.put("coupon", ja);
+				response.getWriter().write(jo.toString());
+			}
 			
-			result = ci.issue(id, couponnum);
-			jo2.put("success", result);
-			ja.add(jo2);
-			jo.put("coupon", ja);
-			response.getWriter().write(jo.toString());
 			return null;
 		}
 		
