@@ -1167,6 +1167,7 @@ function setCommonGnbCookie(name, value, expiredays) {
                                     </div>
                                 <div class="comp_coupon_download">
                                 <form id="coupon1" action="${pageContext.request.contextPath }/pay/coupon.do" method="post">
+                                <input type="hidden" value="11"/>
                                 <button id="couponbtn" type="button" class="comp_coupon_btndown" >
                                 
                                 
@@ -1178,7 +1179,21 @@ function setCommonGnbCookie(name, value, expiredays) {
                             </div>
                             <script>
                             	$("#couponbtn").on("click",function(){
-                            		$("#coupon1").submit();
+                            		$.ajax({
+                            			url : "${pageContext.request.contextPath}/pay/coupon.do",
+                            			dataType : "JSON",
+                            			type : "POST",
+                            			data : { couponnum : 11},
+                            			cache : false,
+                            			success : function(data){
+                            				if (data.coupon[0].success == 1) {
+												alert("쿠폰 발급 완료");
+											} else {
+												alert("쿠폰 발급 실패");
+											}
+                            			} 
+                            			
+                            		})
                             	})
                             </script>
                             <div class="comp_coupon_area">
