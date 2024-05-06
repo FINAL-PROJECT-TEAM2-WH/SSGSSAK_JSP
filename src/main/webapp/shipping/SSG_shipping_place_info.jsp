@@ -907,7 +907,6 @@ function setCommonGnbCookie(name, value, expiredays) {
                 callProtocal = "https://";
                 callUrl = settings.domain.domain;
             }
-
             $.ajax({
                 url : callProtocal + callUrl + "/myssg/comm/ajaxCheckB2eSpouse.ssg",
                 async : false,
