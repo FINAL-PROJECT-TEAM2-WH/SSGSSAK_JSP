@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <html lang="ko">
 <head>
 <script src="https://analytics.emforce.co.kr/conversion/v5/analytics.js"
@@ -3694,7 +3695,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										alt="시코르">
 								</span> <span class="official_brand_txt">믿고 사는 즐거움, SSG<strong
 										class="official_brand_tit">신세계 공식 시코르</strong></span>
-								<div class="official_brand_view_item">
+									<div class="official_brand_view_item">
 										<span>바로가기</span>
 									</div>
 								</a>
@@ -3822,14 +3823,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</span>
 
 									<div class="ssg-tooltip-wrap cdtl_ly_wrap">
-										<a href="javascript:void(0);" class="ssg-tooltip cdtl_tooltip"
-											data-tooltip-options="{'trigger':'click'}"
-											data-react-unit-type="text"
-											data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;공유하기&quot;}]">
-											<span class="ico_share clickable"
-											data-react-tarea-dtl-cd="t00060"
-											data-react-tarea="상품상세|기본정보|공유하기">&nbsp;</span>
-										</a>
+										
 										<div class="ssg-tooltip-layer cdtl_ly_cont">
 											<strong class="layer_tit">공유하기</strong>
 											<ul class="layer_sns" id="cm_sns">
@@ -4211,7 +4205,7 @@ function setCommonGnbCookie(name, value, expiredays) {
             }
         });
     </script>
-							
+
 									<div class="cdtl_banner clickable"
 										data-react-tarea="상품상세|기본정보|상단 마케팅 띠배너 구좌|유니버스 클럽 오픈">
 										<a

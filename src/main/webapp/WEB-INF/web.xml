@@ -21,7 +21,7 @@
 <param-value>UTF-8</param-value>
 </init-param>
 </filter>
-
+<!-- 
   <servlet>
     <description>MVC</description>
     <description>컨트롤러 역할</description>
@@ -32,12 +32,28 @@
     <param-name>path</param-name>
     <param-value>/WEB-INF/commandHandler.properties</param-value>
     </init-param>
-    <load-on-startup>1</load-on-startup> <!-- 이거 서버에 바로 올릴거니 ? 1번 순번  -->
+    <load-on-startup>1</load-on-startup> 이거 서버에 바로 올릴거니 ? 1번 순번 
   </servlet>
   <servlet-mapping>
 <servlet-name>dispatcher</servlet-name>
 <url-pattern>*.do</url-pattern>
 </servlet-mapping>
+ -->
+	<servlet>
+   <servlet-name>dispatcherServlet4</servlet-name>
+   <servlet-class>controller.DispatcherServlet</servlet-class>
+   <init-param>
+      <description>매핑 properties</description>
+      <param-name>path</param-name>
+      <param-value>/WEB-INF/commandHandlerProd.properties</param-value>
+   </init-param>
+   <load-on-startup>1</load-on-startup>
+   </servlet>
+   
+   <servlet-mapping>
+      <servlet-name>dispatcherServlet4</servlet-name>
+      <url-pattern>*.dc</url-pattern>
+   </servlet-mapping>   
 
   <jsp-config>
   <jsp-property-group>
@@ -56,24 +72,12 @@
         </init-param>
     </servlet>
 
-<!-- 
-	<servlet>
-   <servlet-name>dispatcherServlet4</servlet-name>
-   <servlet-class>controller.DispatcherServlet</servlet-class>
-   <init-param>
-      <description>매핑 properties</description>
-      <param-name>path</param-name>
-      <param-value>/WEB-INF/commandHandlerProd.properties</param-value>
-   </init-param>
-   <load-on-startup>1</load-on-startup>
-   </servlet>
-   
-   <servlet-mapping>
-      <servlet-name>dispatcherServlet4</servlet-name>
-      <url-pattern>*.dc</url-pattern>
-   </servlet-mapping>   
 
- -->
+
+
+
+
+
  </web-app>
 
 

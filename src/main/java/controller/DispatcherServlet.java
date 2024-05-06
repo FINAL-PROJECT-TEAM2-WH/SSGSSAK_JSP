@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import member.command.CommandHandler;
+//import member.command.CommandHandler;
+import product.command.CommandHandler;
+
 
 /* @WebServlet("/DispatcherServlet") */ // web.xml 에 등록할거임 
 public class DispatcherServlet extends HttpServlet {
@@ -38,10 +40,11 @@ public class DispatcherServlet extends HttpServlet {
 		String realPath = this.getServletContext().getRealPath(path);
 		// application 은 jsp 4가지 내장 객체라 사용되지만 
 		// java에서는 안댐 
-		/*
-		 * 
-		 * System.out.println(realPath);
-		 */
+		System.out.println(path);
+		System.out.println(realPath);
+		///WEB-INF/commandHandler.properties
+		//C:\E\Class\PROJECTSPACE\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SSGSSAK\WEB-INF\commandHandler.properties
+		
 		
 		Properties prop = new Properties();
 		try (FileReader reader = new FileReader(realPath);){
@@ -89,7 +92,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		int beginIdx = request.getContextPath().length();
 		requestURI = requestURI.substring(beginIdx);
-//		System.out.println(requestURI);
+		System.out.println(requestURI);
 		
 		//[M]VC
 		CommandHandler comHandler = this.commandHandlerMap.get(requestURI);
