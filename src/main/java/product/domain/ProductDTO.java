@@ -1,5 +1,7 @@
 package product.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,5 +30,5 @@ public class ProductDTO {
     private String updateDay ;
     private int stock;
 
-	
+    private List<ProductImgDTO> images;
 }
