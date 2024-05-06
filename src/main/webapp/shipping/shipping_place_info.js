@@ -54,4 +54,29 @@
     	 popupKey: 'popup1'
     });
 }
+
+$("#shippingPlaceInsert").on("click", function(){
+		//alert("click했다~~");
+		var datas = {
+				addrnick : $("#shpplocAntnmNm").val()
+			,	receiveMem : $("#rcptpeNm").val()
+			,	tel : $("#hpno1 option:selected").val() +"-"+ $("#hpno2").val() +"-"+ $("#hpno3").val()
+			,	postNum : $("#postNum").val()
+			, 	roadAddress : $("#roadAddress").val()
+			,   jibunAddress : $("#jibunAddress").val()
+			,   detailAddress : $("#detailAddress").val()
+		}
+		//alert( datas );
+		$.ajax({
+			type: "POST",
+			url : "/shipping/shippingPlace/insert.do",
+			data : datas,
+			success : function(res){
+				alert(res.code);
+			},
+			error : function(){
+				alert("통신 실패~")
+			}
+		})
+	})
  

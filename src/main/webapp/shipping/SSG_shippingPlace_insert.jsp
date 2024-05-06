@@ -1,4 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%-- <%
+	HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
+	String memid = null;
+	if (session != null && memSession.getAttribute("memid") != null) {
+		memid = (String) memSession.getAttribute("memid");
+	} else {
+	    // 여기는 로그인 페이지로 다시 이동
+	    response.sendRedirect("/member/login.jsp");
+	}
+%> --%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
@@ -441,7 +451,6 @@ function execDaumPostcode() {
                 document.getElementById("extraAddress").value = '';
             }
 
-
             var guideTextBox = document.getElementById("guide");
             // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
             if(data.autoRoadAddress) {
@@ -468,6 +477,9 @@ function execDaumPostcode() {
 	$("#shippingPlaceInsert").on("click", function(){
 		//alert("click했다~~");
 		var datas = {
+				// 여기서 회원 id 값도 같이 넘기기
+			//  memid : ${ param.memid }
+			//	memid : memid
 				addrnick : $("#shpplocAntnmNm").val()
 			,	receiveMem : $("#rcptpeNm").val()
 			,	tel : $("#hpno1 option:selected").val() +"-"+ $("#hpno2").val() +"-"+ $("#hpno3").val()
@@ -476,24 +488,20 @@ function execDaumPostcode() {
 			,   jibunAddress : $("#jibunAddress").val()
 			,   detailAddress : $("#detailAddress").val()
 		}
-		alert( datas );
 		$.ajax({
 			type: "POST",
 			url : "/shipping/shippingPlace/insert.do",
 			data : datas,
 			success : function(res){
-				alert(res.code);
+				console(res.code);
 			},
 			error : function(){
-				alert("통신 실패~")
+				console("통신 실패~")
 			}
-			
 		})
-
-		
-		
 	})
 </script>
+
 <script>
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
