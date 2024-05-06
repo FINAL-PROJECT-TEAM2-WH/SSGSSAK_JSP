@@ -29,7 +29,7 @@
             protocol:'https://',
             
             domain:'member.ssg.com',
-             
+            
             sfcDomain : 'member.sfcmall.com',
             
             ssg : 'www.ssg.com',
@@ -2349,22 +2349,36 @@ $(function(){
     }); */
 </script> --%>
 <script>
- $('#loginBtn').on('click', function () {
-	 let params = $('form').serialize();
-	 $.ajax({
-		url:'<%=contextPath%>/member/loginPage_new_Form.do'
-		,dataType:'json'
-		,type:'POST'
-		,data:params
-		,cache:false
-		,success: function (data){
-			alert(data.id);
-		},error:function () {
-			alert('에러');
-		}
-	 })
-	 
- });
+$('#loginBtn').on('click', function () {
+    let params = $('form').serialize();
+    $.ajax({
+        url: '<%=contextPath%>/member/login.do',
+        dataType: 'json',
+        type: 'POST',
+        data: params,
+        cache: false,
+        success: function (data) {
+            if (data) {
+            	var parent = window.opener;    
+            	parent.location.reload();
+            	window.close();  
+            	
+            } else {
+                alert('받은 데이터가 유효하지 않습니다.');
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("오류 - 상태: ", status, " 메시지: ", error);
+            //alert('오류: ' + error);
+            
+            alert('아이디와 비밀번호가 다릅니다.')
+            
+            window.location.reload();
+        }
+    });
+   /*  parent.location.reload(); */
+});
+
 </script>
 </div>
 </body>

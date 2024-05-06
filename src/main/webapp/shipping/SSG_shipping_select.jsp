@@ -256,7 +256,7 @@
     };
     //]]>
 </script>
-<%@ include file="Top.jsp"%>
+<%@ include file="SSG_shipping_select_top.jsp"%>
 <!-- MYSSG UI 변경 대응 -->
 	<hr>
 	<div id="container" class="case_new delivery_report">
