@@ -165,9 +165,6 @@
                         <li class="gnb_mall_item" data-react-unit-type="text" data-react-unit-text='[{"type":"text","value":"신세계백화점"}]'>
                             <a href="https://department.ssg.com" class="gnb_mall_link clickable" data-react-tarea="공통|몰이동_레이어|신세계백화점_클릭" data-react-tarea-dtl-cd="t00060">신세계백화점</a>
                         </li>
-                      </ul>
-                            </div>
-                        </li>
                         </ul>
                 </div>
                 <!-- //몰이동-->
@@ -214,6 +211,16 @@
                                 <span class="cmnoti_push" id="mbrCartCntInfo" style="display:none;">
                                     <span class="blind">장바구니에 담긴 상품 수</span>
                                     <span class="cmnoti_num" id="mbrCartCntSpan"></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"최근본"}]'>
+                            <a href="#" onclick="javascript:historySsg.getHistoryList()" class="btn_history js_history_open clickable" data-react-tarea="공통|GNB|최근본_클릭" data-react-tarea-dtl-cd="t00060">
+                                <i class="icon ty_sm icon_eye" id="icon_eye" aria-hidden="true"></i>
+                                <span class="blind">최근본 상품</span>
+                                <!-- [D] 가장 최근에 본 상품 이미지 노출시 -->
+                                <span class="gnb_util_thumb" id="gnb_util_thumb" style="display:none">
+                                    <img id="gnb_util_thumb_img" alt="{{ 상품 이미지명 }}" loading="lazy">
                                 </span>
                             </a>
                         </li>
