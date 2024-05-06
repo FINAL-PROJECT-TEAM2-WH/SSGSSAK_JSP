@@ -937,7 +937,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 					회원의 지번 주소 : ~~~~ <br>
 				</p>
 	</div>
-
 	<div id="del01" class="section data_tbl content active">
 		<table border="1" class="data_table">
 			<caption></caption>
@@ -983,6 +982,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					</td>
 					<td>010-9110-1878</td>
 					<td>
+						<!-- 기본 배송지 수정 팝업 띄우기 -->
 						<a href="javascript:fn_modify('5430097');" class="btn_cs ty4">
 							<span>수정</span>
 						</a>
@@ -1021,7 +1021,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 		</table>
 		<div class="go_cancel">
 			<!-- 새배송지 추가 화면으로 이동 newShippingWrite.do -->
-			<a href="배송지 추가로 이동" class="btn_cs ty3"><span style="">새 배송지 추가</span></a>
+			<button onclick="openSPIPopup()" class="btn_cs ty3"><span style="">새 배송지 추가</span></button>
 		</div>
 		<div class="paginate notranslate">
             <strong title="현재위치">1</strong>
@@ -1044,7 +1044,20 @@ function setCommonGnbCookie(name, value, expiredays) {
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
+<script>
+	function openSPIPopup(){
+		  var popupURL = "SSG_shippingPlace_insert.jsp";
+		  
+		  const width = 600;
+		  const height = 600;
 
+		  let left = (document.body.offsetWidth / 2) - (width / 2.5);
+		  let tops = (document.body.offsetHeight / 2) - (height / 2.5);
+		  
+		  const popup = window.open(popupURL, 'SIPPopup', `width=\${width}, height=\${height}, left=\${left}, top=${tops}`);
+		  
+	}
+</script>
 <script>
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -1145,7 +1158,6 @@ $(function(){
             async: true
         }
     });
-    
 });
 </script><script type="text/javascript">
     try {
@@ -1178,8 +1190,7 @@ $(function(){
                         _satellite.track("tracking_log", _dl);
                     }
                 });
-            };
-
+            }; 
             var analytics_sp = "N"
             if (analytics_sp === "Y") {
                 doScript();
