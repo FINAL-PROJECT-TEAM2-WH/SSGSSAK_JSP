@@ -67,9 +67,9 @@
             protocol:'https://',
             
             domain:'member.ssg.com',
-             
+            
             sfcDomain : 'member.sfcmall.com',
-              
+            
             ssg : 'www.ssg.com',
             mssg : 'm.ssg.com',
             mallac : 'auto.ssglog.com:9095',
