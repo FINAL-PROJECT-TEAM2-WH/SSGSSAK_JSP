@@ -8733,6 +8733,7 @@ deferredObj.done(function() {
                                         skyTalkHandler.timer = null;
                                     }
                                     return;
+                                    
                             }
                         }
 

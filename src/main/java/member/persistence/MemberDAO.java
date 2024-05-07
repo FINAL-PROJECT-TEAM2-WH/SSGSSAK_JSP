@@ -9,4 +9,7 @@ public interface MemberDAO {
 	
 	public MemberDTO login (String id, String passwd) throws SQLException ;
 	
+	public int updateLoginYN(String id);
+	
+	public int logOut(String id) ;
 }
