@@ -3,6 +3,7 @@ package shipping.persistence;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.util.JdbcUtil;
 
@@ -35,8 +36,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		ShippingPlaceInfoDAOImpl daoImpl = ShippingPlaceInfoDAOImpl.getInstance();
 		try {
 			rowCount = daoImpl.defaultShippingUpdate(conn, memid);
-			
-System.out.println(conn);			
+					
 			String sql = " INSERT INTO shippingPlaceInformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
 					+ " VALUES ( seqshipplaceinfo.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			
@@ -100,6 +100,71 @@ System.out.println(conn);
 		JdbcUtil.close(pstmt);
 		return rowCount;
 	}
+
+	@Override
+	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoList(Connection conn, String memid) throws Exception {
+		ShippingPlaceInfoDTO spidto = null;
+		ArrayList<ShippingPlaceInfoDTO> spidtoList = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		long id = 0;
+		String addressnick = null;
+		String receivemem = null;
+		String roadaddress = null;
+		String jibunaddress = null;
+		String detailaddress = null;
+		String tel = null;
+		String postnum = null;
+		String defaultshipping = null;
+		
+		try {
+			String sql = "SELECT id, memid, addressnick, receivemem, roadaddress, jibunaddress, detailaddress, tel, postnum, defaultshipping "
+					+ "FROM shippingPlaceInformation  "
+					+ "WHERE memid = ? "
+					+ "ORDER BY id DESC ";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) {
+				spidtoList = new ArrayList<ShippingPlaceInfoDTO>();
+				
+				do {
+					
+					id = rs.getLong("id");
+					addressnick = rs.getString("addressnick");
+					receivemem = rs.getString("receivemem");
+					roadaddress = rs.getString("roadaddress");
+					jibunaddress = rs.getString("detailaddress");
+					tel = rs.getString("tel");
+					postnum = rs.getString("postnum");
+					defaultshipping = rs.getString("defaultshipping");
+					
+					spidto = new ShippingPlaceInfoDTO().builder()
+							.id(id)
+							.addressnick(addressnick)
+							.receiveMem(receivemem)
+							.roadAddress(roadaddress)
+							.jibunAddress(jibunaddress)
+							.tel(tel)
+							.postnum(postnum)
+							.defaultShipping(defaultshipping)
+							.build();
+					
+					spidtoList.add(spidto);
+				} while (rs.next());
+			}
+		}catch (Exception e){
+			System.out.println("배송 메시지 list 메서드에서 오류~~");
+		}
+		JdbcUtil.close(rs);
+		JdbcUtil.close(pstmt);
+		return spidtoList;
+	}
+	
+	
 	
 
 }

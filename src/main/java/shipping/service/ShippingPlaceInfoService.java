@@ -1,6 +1,7 @@
 package shipping.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
@@ -40,6 +41,20 @@ public class ShippingPlaceInfoService {
 		}
 		JdbcUtil.close(conn);
 		return rowCount;
+	}
+	
+	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoList(String memid){
+		Connection conn = null;
+		ArrayList<ShippingPlaceInfoDTO> list = null;
+		try {
+			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+			list = dao.shippingPlaceInfoList(conn, memid);
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(">> ShippingPlaceInfoService에서 list 메서드 오류~~");
+		}
+		JdbcUtil.close(conn);
+		return list;
 	}
 	
 }

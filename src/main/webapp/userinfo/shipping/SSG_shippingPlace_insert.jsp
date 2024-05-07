@@ -2,7 +2,7 @@
 <%
 	HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 	String memid = null;
-	if (session != null && memSession.getAttribute("auth") != null) {
+	if (memSession != null && memSession.getAttribute("auth") != null) {
 		memid = (String) memSession.getAttribute("auth");
 	} else {
 	    // 여기는 로그인 페이지로 다시 이동
