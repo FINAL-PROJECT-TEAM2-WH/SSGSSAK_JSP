@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
@@ -165,8 +164,8 @@
             mbrcoId          : '000000',
             ckWhere          : 'direct_ssg',
             dmId             : '',
-            emSaleStrNo      : '2022',
-            trSaleStrNo      : '2478',
+            emSaleStrNo      : '2439',
+            trSaleStrNo      : '2483',
             gmSaleStrNo      : '2449',
             gmSaleStrYn      : 'Y',
             emRsvtShppPsblYn : 'Y',
@@ -174,7 +173,7 @@
             sessionId : '',
             ip : '',
             shpplocMod : 'MY',
-            shpplocModKey : '4108067',
+            shpplocModKey : '5367225',
             cartNm : '장바구니',
             mbrspMbrDivCd : '',
             mbrspJoinSiteCd : '',
@@ -334,21 +333,18 @@
     var emergencyItemIds = "";
 //]]>
 </script>
-<%@ include file="../Top.jsp" %>
-<div id="category" class="category"></div>
-			<div id="container"  class="cmmyssg_wrap" >
-				
-<div id="memberLogin">
-    <input type="hidden" name="loginCertCode" value="MJAUc6lwlx7PQ5C9ZxkGcTKbHZ11nzytD7U8vkptBFDU2T4oePxUkUf1H-628j3-">
-    <input type="hidden" id="loginDvicId" name="loginDvicId" value="">
 
+<%@include file="../Top.jsp" %>
+
+<div id="category" class="category"></div>
+			<div id="container"  class="cmmyssg_wrap" >				
     <div id="content" class="cmem_ct_login">
         <div class="cmem_header">
             <div class="cmem_header_tit">
                 <h2><span class="notranslate">로그인</span></h2>
             </div>
         </div>
-        <form id="login_form" method="post" onsubmit="return false;">
+        <form id="login_form" method="post" action="<%=contextPath%>/member/login.do">
             <div class="cmem_cont">
                 <div class="cmem_sec">
                     
@@ -373,7 +369,7 @@
 				</span>
                     </div>
                     <div class="cmem_btnarea">
-                        <button type="submit" class="cmem_btn cmem_btn_ornge" onclick="loginModel.login();" id="loginBtn"><span>로그인</span></button>
+                        <button type="submit" class="cmem_btn cmem_btn_ornge" id="loginBtn_Full"><span>로그인</span></button>
                     </div>
                     <ul class="cmem_sns_login notranslate">
                         <li>
@@ -557,7 +553,7 @@ $(function(){
     try {
         var _dl = {
             "pcid" 				: "17132588089110623122291"
-            , "fsid" 			: "sd3de201650i02n6vg08"
+            , "fsid" 			: "sd3rbe01650i02n6vg07"
             , "siteno"		    : "1001" // #443767 siteno 하드코딩 요청
             , "tarea" 			: ""
             , "log_type_flag" 	: "t"
@@ -2264,69 +2260,42 @@ $(function(){
 </script>
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        try {
-            FingerprintJS.load()
-                .then(fp => fp.get())
-                .then(result => {
-                    $("#loginDvicId").val(result.visitorId);
-                })
-        } catch (error) {
-        }
-    })
+<script>
 
-    
-
-    function loginCallBack() {
-        loginModel.callbackAfterLogin();
-    }
-
-    
-
-    function snsCallback() {
-        loginModel.callbackAfterSns();
-    }
-
-    
-
-    function nonMemberLogin(tab) {
-        var originSite = location.protocol + "//" + location.hostname;
-        window.open('/member/popup/popupNonMemberLogin.ssg?originSite=' + escape(originSite) + '&t=' + tab, 'SSG_POPUP', 'toolbar=no,menubar=no,location=no,scrollbars=no,status=no,left=100,top=100,resizable=no,width=590,height=690')
-    }
+function getContextPath() {
+return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+}
 
 
-    $(function () {
-        
-        loginModel.retUrl = "https%3A%2F%2Fwww.ssg.com%2Fmyssg%2Fmain.ssg%3Fgnb%3Dmyssg" || 'http://www.ssg.com';
-        loginModel.flow = "";
-        loginModel.loginType = "self";
+let contextPath = getContextPath();
+$('#loginBtn_Full').on('click', function () {
+   /*  let params = $('#login_form').serialize().submit(); */
+	 let params = $('form').serialize();
+	    $.ajax({
+	        url: '<%=contextPath%>/member/loginAjax.do',
+	        dataType: 'json',
+	        type: 'POST',
+	        data: params,
+	        cache: false,
+	        success: function (data) {
+	            if (data) {
+	            	location.href=`\${contextPath}/mainPage.jsp`;             	
+	            } else {
+	                alert('받은 데이터가 유효하지 않습니다.');
+	            }
+	        },
+	        error: function (xhr, status, error) {
+	            console.error("오류 - 상태: ", status, " 메시지: ", error);
+	            //alert('오류: ' + error);
+	            
+	            alert('아이디와 비밀번호가 다릅니다.')
+	            
+	            window.location.reload();
+	        }
+	    });
+});
 
-        $("#keep_id").change(function () {
-            if ($(this).prop("checked")) alert('개인정보보호를 위해 개인 PC에서만 사용하세요.');
-        });
-
-        // 쿠키 처리
-        if ($.cookie("keepId") == "Y") {
-            $("#keep_id").prop("checked", true);
-            $("#memberLogin input[name=mbrLoginId]").val($.cookie("mbrLoginId"));
-            $("input[name=password]").focus();
-        }
-
-        $('.cmem_txt')
-            .filter(function () {
-                return $(this).find('label').length > 0;
-            })
-            .on({
-                'click': function (e) {
-                    e.preventDefault();
-                    $(this).find('input').focus();
-                }
-            });
-        // 로그인 아이디 입력 시 기본 영어로 설정
-        // $('#mem_id').css("ime-mode", "inactive");
-    });
 </script>
-</div>
+
 		<!-- footer -->
 <%@ include file="../footer.jsp" %>

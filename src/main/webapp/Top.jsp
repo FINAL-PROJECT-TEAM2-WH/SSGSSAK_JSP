@@ -572,13 +572,13 @@
                 <div class="gnb_renew_menu">
                     <ul class="gnb_menu" data-react-tarea-cd="00042_000000090">
                         <li>
-                            <a href="https://www.ssg.com/myssg/myClip/main.ssg?attnDivCd=10&gnb=myclip" class="btn_like clickable" data-react-tarea="몰공통|GNB|MY_MY클립" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
+                            <a href="<%= contextPath %>/member/login.do" class="btn_like clickable" data-react-tarea="몰공통|GNB|MY_MY클립" >
                                 <i class="icon ty_sm icon_heart" aria-hidden="true"></i>
                                 <span class="blind">좋아요</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.ssg.com/myssg/main.ssg?gnb=myssg" class="btn_myssg clickable" data-react-tarea="몰공통|GNB|MY_MYSSG" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
+                            <a href="<%= contextPath %>/member/login.do" class="btn_myssg clickable" data-react-tarea="몰공통|GNB|MY_MYSSG" >
                                 <i class="icon ty_sm icon_person" aria-hidden="true"></i>
                                 <span class="blind">MY SSG</span>
                             </a>
@@ -743,7 +743,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 %> 
 <script>
 $('#loginBtn').on('click', function () {
-	window.open("<%=contextPath%>/member/login.do",'loginPage','width=750,height=590,left=500,top=300','resizable=no','_blank');
+	window.open("<%=contextPath%>/member/login/popup.do",'loginPage','width=750,height=590,left=500,top=300','resizable=no','_blank');
 });
 
 $('#joinBtn').on('click', function () {	
