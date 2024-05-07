@@ -15,9 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import member.command.CommandHandler;
-import product.command.CommandHandler;
-
 
 /* @WebServlet("/DispatcherServlet") */ // web.xml 에 등록할거임 
 public class DispatcherServlet extends HttpServlet {
@@ -81,7 +78,6 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void destroy() {
 		super.destroy();
-		
 	}
 
 
