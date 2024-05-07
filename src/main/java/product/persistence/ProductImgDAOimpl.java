@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.util.JdbcUtil;
+
 import product.domain.ProductImgDTO;
 
 public class ProductImgDAOimpl implements ProductImgDAO{
@@ -18,8 +20,7 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 	
 	
 	
-	public ProductImgDAOimpl(Connection conn) {
-		
+	public ProductImgDAOimpl(Connection conn) {	
 		this.conn = conn;
 	}
 
@@ -47,12 +48,14 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			System.out.println(productId);
 			pstmt.setString(1, productId);
 			rs=pstmt.executeQuery();
 			while (rs.next()) {
 				ProductImgDTO image = new ProductImgDTO().builder()
 									.id(rs.getString("id"))
-									.productId(rs.getString("productImg"))
+									.productId(rs.getString("productId"))
 									.imgUrl(rs.getString("imgUrl"))
 									.imgContent(rs.getString("imgContent"))
 									.build();
@@ -62,9 +65,9 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 			e.printStackTrace();
 		}finally {
 			try {
-				rs.close();
-				pstmt.close();
-				
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+				JdbcUtil.close(conn);
 			} catch (Exception e2) {
 				System.out.println("닫기실패");
 			}

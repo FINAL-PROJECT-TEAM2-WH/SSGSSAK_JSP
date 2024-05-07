@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
 
-import member.command.CommandHandler;
+import controller.CommandHandler;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import pay.persistence.CouponImpl;
