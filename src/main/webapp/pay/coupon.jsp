@@ -380,6 +380,7 @@
 </script>
 
 
+<<<<<<< HEAD
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/sentry.bundle.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="body_ssg body_renew body_wide body_wide_ctn">
@@ -964,6 +965,65 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 </script>
 <div id="wrap">
+=======
+                if (initialized) {
+
+                    braze.automaticallyShowInAppMessages();
+
+                    
+                            if ($.cookie && $.cookie('PCID')) {
+                                braze.changeUser($.cookie('PCID'));
+                            }
+                        
+
+                    // braze.openSession();
+                }
+            }
+
+            return {
+                logCustomEvent: function (eventName, data = {}) {
+                    if (!initialized) {
+                        console.warn('braze is not initialized.');
+                        return;
+                    }
+                    braze.logCustomEvent(eventName, data);
+                }
+            };
+        })();
+    }
+</script>
+
+<script type="text/javascript">
+        try {
+           (function(h,o,u,n,d) {
+               h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+               d=o.createElement(u);d.async=1;d.src=n
+               n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+           })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
+           DD_RUM.onReady(function() {
+               DD_RUM.init({
+                   clientToken: 'pubac24b901ad56e749ee6c07bb375b8882',
+                   applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6',
+                   site: 'datadoghq.com',
+                   service: 'ssg-ssgmall-webapp',
+                   env: 'prod',
+                   sessionSampleRate: 0.01,
+                   sessionReplaySampleRate: 0,
+                   trackUserInteractions: true,
+                   trackResources: true,
+                   trackLongTasks: true,
+                   defaultPrivacyLevel: 'mask-user-input',
+                   trackInteractions: true,
+                   trackSessionAcrossSubdomains: true,
+                   enableExperimentalFeatures: ['clickmap']
+               });
+               DD_RUM.startSessionReplayRecording();
+           })
+        } catch(e) {}
+    </script>
+    <%@include file="/Top.jsp"  %>
+ <div id="wrap">
+>>>>>>> 311d4c3af985a5b0a6822adc113cf81739d69734
     <div id="container">
         <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/promotion/css/template.css?v=20240424">
 <div id="content" class="content_primary content_event" style="min-height: 1100px;">

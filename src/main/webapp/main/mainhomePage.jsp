@@ -9266,4 +9266,4 @@ deferredObj.done(function() {
         }
     };
 </script>
-<%@ include file="/footer.jsp" %>
+<%@ include file="../footer.jsp" %>
