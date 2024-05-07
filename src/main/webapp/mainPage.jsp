@@ -1,5 +1,3 @@
-<%@page import="java.net.URLDecoder"%>
-<%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -104,31 +102,7 @@
                 'https://sui.ssgcdn.com' : '//sui.ssgcdn.com',
             jsPath : '//sui.ssgcdn.com/ui/ssg/js'
         },
-        /* siteno : {
-            emall : '6001',
-            traders : '6002',
-            small : '6004',
-            scom : '6005',
-            sdept : '6009',
-            howdy : '6100',
-            thehowdy : '6101',
-            tv : '6200',
-            sivillage : '6300',
-            starfield : '6400',
-            premiumoutlets : '7008',
-            morning : '7009',
-            deptfood : '7010',
-            casamia : '7011',
-            chicor : '7012',
-            trip : '7013',
-            openmarket : '7014',
-            starbucks : '7015',
-            grocery : '7018'
-        }, */
-       /*  sitenm : {
-    6005: 'SSG.COM', 6004: '신세계몰', 6009: '신세계백화점', 7018: '이마트몰', 6001: '이마트몰', 6002: '트레이더스', 7009: '새벽배송', 7011: '까사미아', 7012: 'CHICOR', 6100: 'howdy', 6200: '신세계라이브쇼핑', 6300: 'S.I.VILLAGE', 7008: '프리미엄아울렛', 7013: '여행', 6400: '스타필드'
-    }, */
-   /*  curr_siteno : '6005', */
+       
         mediaCd : '10',
         loginPath : 'http://member.ssg.com/member/login.ssg',
         // 모바일 여부
@@ -324,7 +298,7 @@
 var agent = navigator.userAgent.toLowerCase();
 
 if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
-    // ie skip
+	// ie skip
 } else {
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -720,9 +694,176 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     
 </script>
 <!-- 메인 레이어팝업 (e) -->
-	<%@include file="mainBanner.jsp" %>
-    <%@include file="secondBanner.jsp" %>
-<div class="main_ssgday" id="main_ssgday" style="display:none"></div>
+
+    <div id="container" >
+        <div id="content" class="display_main react-area" data-globalid="main_banr">
+    <div class="cmmain_sec_swiper">
+        <div class="ssghero_swiper" id="_ssghero_swiper" data-react-tarea-cd="00052_000000098">
+        <div class="swiper-container">
+            <ul class="swiper-wrapper" id="_ssghero_swiper_wrapper">
+                <li class="swiper-slide">
+                        <div class="ssghero_slide_col" data-areaid="main_banr" data-impyn="N">
+    <div class="ssghero_panel">
+        <div class="ssghero_imgbx "
+             data-react-unit-type="banr"
+             data-react-unit-id="2003589588"
+             data-react-unit-text=""
+             
+        >
+            <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013232" class="ssghero_imglink clickable" data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|5/6~12 아울렛 슈퍼위크" data-react-tarea-dtl-cd="t00001" tabindex="-1">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050316181748282022820302_828.jpg&amp;w=620&amp;h=400&amp;edit=c&amp;t=a5d79b0859406da868dae52f5b56fbabaaafa32d" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050316181748282022820302_828.jpg&amp;w=1240&amp;h=800&amp;edit=c&amp;t=7304a939bdf51634e4a02c7ab3a0d7665130c896 2x" alt="5/6~12 아울렛 슈퍼위크" loading="lazy">
+                            </a>
+               
+        </div>
+        <div class="ssghero_tit"
+                 data-react-unit-type="banr"
+                 data-react-unit-id="2003589588"
+                 data-react-unit-text=""
+            >
+                <a href="이벤트사이트 링크 "
+                   class="ssghero_titlnk clickable"
+                   data-react-tarea-cd-old="이벤트 클릭"
+                   data-react-tarea-dtl-cd="t00001"
+                >
+                    <h3 class="ssghero_titmain">5월 아울렛 슈퍼위크</h3>
+                    <div class="ssghero_titsub">5월 아울렛 슈퍼위크</div>
+                </a>
+            </div>
+        </div>
+</div><div class="ssghero_slide_col" data-areaid="main_banr" data-impyn="N">
+    <div class="ssghero_panel">
+        <div class="ssghero_imgbx "
+             data-react-unit-type="banr"
+             data-react-unit-id="2003591158"
+             data-react-unit-text=""
+             
+        >
+            <a href="이벤트사이트 링크"
+               class="ssghero_imglink clickable"
+               data-react-tarea-cd-old="이벤트 클릭2"
+               data-react-tarea-dtl-cd="t00001"
+            >
+                <img src="이미지파일 " srcset="이미지 파일2x" alt="이벤트2" loading="lazy">
+                </a>
+        </div>
+
+        <div class="ssghero_tit"
+        data-react-unit-type="banr"
+        data-react-unit-id="2003594170"
+        data-react-unit-text=""
+   >
+       <a href="쿠폰 이벤트"
+          class="ssghero_titlnk clickable"
+          data-react-tarea-cd-old="이벤트클릭3"
+          data-react-tarea-dtl-cd="t00001"
+       >
+           <h3 class="ssghero_titmain">이벤트2</h3>
+           
+           <div class="ssghero_titsub">이벤트2</div>
+       </a>
+   </div>
+</div>
+</div></li>
+       <li class="swiper-slide">
+               <div class="ssghero_slide_col" data-areaid="main_banr" data-impyn="N">
+<div class="ssghero_panel">
+<div class="ssghero_imgbx "
+    data-react-unit-type="banr"
+    data-react-unit-id="2003594172"
+    data-react-unit-text=""
+    
+>
+   <a href="이벤트사이트링크"
+      class="ssghero_imglink clickable"
+      data-react-tarea-cd-old="이벤트클릭3"
+      data-react-tarea-dtl-cd="t00001"
+   >
+       <img src="이벤트이미지" srcset="이벤트이미지 2x" alt="이벤트 클릭3" loading="lazy">
+                   </a>
+</div>
+<div class="ssghero_tit"
+        data-react-unit-type="banr"
+        data-react-unit-id="2003594172"
+        data-react-unit-text=""
+   >
+       <a href="이벤트 사이트"
+          class="ssghero_titlnk clickable"
+          data-react-tarea-cd-old="이벤트클릭4"
+          data-react-tarea-dtl-cd="t00001"
+       >
+           <h3 class="ssghero_titmain">이벤트3</h3>
+           <div class="ssghero_titsub">이벤트3</div>
+       </a>
+   </div>
+</div>
+</div><div class="ssghero_slide_col" data-areaid="main_banr" data-impyn="N">
+<div class="ssghero_panel">
+<div class="ssghero_imgbx "
+    data-react-unit-type="banr"
+    data-react-unit-id="2003594373"
+    data-react-unit-text=""
+    
+>
+   <a href="이벤트사이트 클릭"
+      class="ssghero_imglink clickable"
+      data-react-tarea-cd-old="이벤트5"
+      data-react-tarea-dtl-cd="t00001"
+   >
+       <img src="이벤트이미지" srcset="이벤트이미지 2x" alt="이벤트5" loading="lazy">
+                   </a>
+</div>
+<div class="ssghero_tit"
+        data-react-unit-type="banr"
+        data-react-unit-id="2003594373"
+        data-react-unit-text=""
+   >
+       <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013103"
+          class="ssghero_titlnk clickable"
+          data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|5/1~9 이달의 미식 피크닉"
+          data-react-tarea-dtl-cd="t00001"
+       >
+           <h3 class="ssghero_titmain">이벤트4</h3>
+           <div class="ssghero_titsub">이벤트4</div>
+       </a>
+   </div>
+</div>
+</div></li>
+                </ul>
+            <div class="cmmain_slider_ctrls"
+                     data-react-unit-type="text"
+                     data-react-unit-id=""
+                     data-react-unit-text='[{"type":"tarea_addt_val","value":"이미지_좌/우버튼"}'
+                >
+                    <button type="button"
+                            class="slider_ctrl_btn slider_ctrl_prev clickable"
+                            data-react-tarea="메인매장|메인배너|좌우버튼"
+                            data-react-tarea-dtl-cd="t00060"
+                    ><i class="icon ty_xs icon_chevron_left"><span class="blind">이전 배너 보기</span></i></button>
+                    <div class="slider_ctrl_pager">
+                        <span class="blind">현재 배너</span>
+                        <span class="slider_page_current">1</span>
+                        <span class="slider_page_separator" aria-hidden="true">/</span>
+                        <span class="blind">전체 배너</span>
+                        <span class="slider_page_total">05</span>
+                    </div>
+                    <button type="button"
+                            class="slider_ctrl_btn slider_ctrl_next clickable"
+                            data-react-tarea="메인매장|메인배너|좌우버튼"
+                            data-react-tarea-dtl-cd="t00060"
+                    ><i class="icon ty_xs icon_chevron_right"><span class="blind">다음 배너 보기</span></i></button>
+                    <button type="button"
+                            class="slider_ctrl_btn slider_ctrl_auto autoplay clickable"
+                            data-react-tarea="메인매장|메인배너|일시정지/재생버튼"
+                            data-react-tarea-dtl-cd="t00060"
+                    >
+                        <i class="icon ty_xs icon_caret_up"><span class="blind">배너 자동재생 하기</span></i>
+                        <i class="icon ty_xs icon_pause"><span class="blind">배너 자동재생 멈추기</span></i>
+                    </button>
+                </div>
+            </div>
+    </div>
+</div>
+    <div id="ajaxMainMemberShipBanner" style="display:none"></div><div class="main_ssgday" id="main_ssgday" style="display:none"></div>
     <input type="hidden" value="7">
 <!-- 그룹사 프로모션 -->
     <div class="cmmain_sec_brandstore" id="group-promotion" data-react-tarea-cd="00052_000000495">
@@ -731,13 +872,13 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         </div>
         <div class="cmmain_tabwrap js_cmmain_tabwrap" data-tabname="brandstore">
             <ul class="cmmain_tablist ty_txtmenu js_cmmain_tablist">
-                <li role="presentation" class="on"
+                <li role="presentation" class=""
                         data-react-unit-type="text"
                         data-react-unit-text='[{"type":"text","value":"까사미아"}]'>
                         <button type="button"
                                 class="cmmain_tab js_cmmain_tab clickable"
                                 role="tab"
-                                aria-selected="true"
+                                aria-selected="false"
                                 data-react-tarea-dtl-cd="t00014"
                         >까사미아</button>
                     </li>
@@ -751,13 +892,13 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                                 data-react-tarea-dtl-cd="t00014"
                         >STARBUCKS</button>
                     </li>
-                <li role="presentation" class=""
+                <li role="presentation" class="on"
                         data-react-unit-type="text"
                         data-react-unit-text='[{"type":"text","value":"CHICOR"}]'>
                         <button type="button"
                                 class="cmmain_tab js_cmmain_tab clickable"
                                 role="tab"
-                                aria-selected="false"
+                                aria-selected="true"
                                 data-react-tarea-dtl-cd="t00014"
                         >CHICOR</button>
                     </li>
@@ -803,7 +944,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     </li>
                 </ul>
             <div class="cmmain_tabcont">
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel on">
+                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel ">
                         <div class="cmmain_brandstore_banner">
                             <div class="cmmain_brandstore_img">
                                 <img src="//sui.ssgcdn.com/cmpt/banner/202401/2024011009560771555043463604_500.jpg" alt="까사미아" loading="lazy">
@@ -843,7 +984,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000275667918"
+     data-react-unit-id="1000578851524"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -854,134 +995,38 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000275667918","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/18/79/66/item/1000275667918_i1_550.jpg","lwst_sellprc":303050,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000578851524","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/24/15/85/item/1000578851524_i1_550.jpg","lwst_sellprc":2160000,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/dealItemView.ssg?itemId=1000275667918&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[Made by GUUD] 까사미아 콜라보레이션 특별 혜택_1000275667918" data-info="1000275667918" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000578851524&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리_1000578851524" data-info="1000578851524" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/18/79/66/item/1000275667918_i1_550.jpg, //sitem.ssgcdn.com/18/79/66/item/1000275667918_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/18/79/66/item/1000275667918_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[Made by GUUD] 까사미아 콜라보레이션 특별 혜택"  loading="lazy">
-                </a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000275667918&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000275667918" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[Made by GUUD] 까사미아 콜라보레이션 특별 혜택"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000275667918" data-idx="1" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[Made by GUUD] 까사미아 콜라보레이션 특별 혜택" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000275667918&siteNo=7011&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000275667918","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="7011">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000275667918">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[Made by GUUD] 까사미아 콜라보레이션 특별 혜택">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/18/79/66/item/1000275667918_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000275667918" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="mncasamia"><span class="blind">까사미아</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <a href="/item/dealItemView.ssg?itemId=1000275667918&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[Made by GUUD] 까사미아 콜라보레이션 특별 혜택"
-            data-info="1000275667918" data-index="1" data-position="view" data-unit="img">
-                <em class="tx_ko">[Made by GUUD] 까사미아 콜라보레이션 특별 혜택</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">303,050</em>
-                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦303,050)</div>
-                </div>
-            <div class="org_price_wrap">
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:88.0%"><span class="blind">별점 4.45점</span></span>
-            </div>
-            <span class="rate_tx">(<em>138</em>개)</span>
-        </div>
-    </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000205041847"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000205041847","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/47/18/04/item/1000205041847_i1_550.jpg","lwst_sellprc":303050,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000205041847&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트_1000205041847" data-info="1000205041847" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/47/18/04/item/1000205041847_i1_550.jpg, //sitem.ssgcdn.com/47/18/04/item/1000205041847_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/47/18/04/item/1000205041847_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/47/18/04/item/1000205041847_i2_550.jpg, //sitem.ssgcdn.com/47/18/04/item/1000205041847_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/47/18/04/item/1000205041847_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/24/15/85/item/1000578851524_i1_550.jpg, //sitem.ssgcdn.com/24/15/85/item/1000578851524_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/24/15/85/item/1000578851524_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/24/15/85/item/1000578851524_i2_550.jpg, //sitem.ssgcdn.com/24/15/85/item/1000578851524_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/24/15/85/item/1000578851524_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리" aria-hidden="true" loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>5<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>20<em class="per">%</em></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000205041847&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000205041847" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000578851524&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000578851524" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000205041847" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000205041847&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000205041847","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00001","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
+                            data-info="1000578851524" data-idx="1" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000578851524&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000578851524","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00001","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="7011">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000205041847">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000578851524">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00001">
-                <input type="hidden" name="notiTitle" value="[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/47/18/04/item/1000205041847_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/24/15/85/item/1000578851524_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000205041847" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000578851524" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -1008,23 +1053,23 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 </div>
     <div class="cunit_md notranslate">
         <div class="title">
-        <a href="/item/itemView.ssg?itemId=1000205041847&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트"
-            data-info="1000205041847" data-index="2" data-position="view" data-unit="img">
-                <em class="tx_ko">[made by GUUD] 일상고백  다온 아쿠아텍스 3인 소파 세트</em>
+        <a href="/item/itemView.ssg?itemId=1000578851524&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리"
+            data-info="1000578851524" data-index="1" data-position="view" data-unit="img">
+                <em class="tx_ko">[S머니5%추가][비밀혜택가]캄포클래식 3인소파_아이보리</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">303,050</em>
+                    <em class="ssg_price">2,160,000</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦303,050)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦2,160,000)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
                     <span class="blind">판매가</span>
-                    <em class="ssg_price">319,000</em>
+                    <em class="ssg_price">2,700,000</em>
                     <span class="ssg_tx">원</span>
                 </div>
             <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
@@ -1032,123 +1077,20 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="ly_dtl_price price-tooltip-layer">
                         <dl class="org">
                         <dt>판매가</dt>
-                                <dd>319,000</dd>
+                                <dd>2,700,000</dd>
                             </dl>
                     <dl class="dis">
-                        <dt>쿠폰</dt><dd>15,950원</dd>
+                        <dt>쿠폰</dt><dd>540,000원</dd>
                         </dl>
                     <dl class="sum">
                             <dt>최적가</dt>
-                            <dd>303,050</dd>
+                            <dd>2,160,000</dd>
                         </dl>
                     </div>
                 </div>
             </div>
             </div>
     <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:92.0%"><span class="blind">별점 4.67점</span></span>
-            </div>
-            <span class="rate_tx">(<em>67</em>개)</span>
-        </div>
-    </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000337646883"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000337646883","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/83/68/64/item/1000337646883_i1_550.jpg","lwst_sellprc":790000,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000337646883&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|onion 리켓 와이드서랍장_1000337646883" data-info="1000337646883" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/83/68/64/item/1000337646883_i1_550.jpg, //sitem.ssgcdn.com/83/68/64/item/1000337646883_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/83/68/64/item/1000337646883_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="onion 리켓 와이드서랍장"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/83/68/64/item/1000337646883_i2_550.jpg, //sitem.ssgcdn.com/83/68/64/item/1000337646883_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/83/68/64/item/1000337646883_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="onion 리켓 와이드서랍장" aria-hidden="true" loading="lazy">
-                </a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000337646883&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000337646883" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|onion 리켓 와이드서랍장"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000337646883" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|onion 리켓 와이드서랍장" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000337646883&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000337646883","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00001","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="7011">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000337646883">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00001">
-                <input type="hidden" name="notiTitle" value="onion 리켓 와이드서랍장">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/83/68/64/item/1000337646883_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000337646883" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="mncasamia"><span class="blind">까사미아</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <a href="/item/itemView.ssg?itemId=1000337646883&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|onion 리켓 와이드서랍장"
-            data-info="1000337646883" data-index="3" data-position="view" data-unit="img">
-                <em class="tx_ko">onion 리켓 와이드서랍장</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">790,000</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦790,000)</div>
-                </div>
-            <div class="org_price_wrap">
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
-            </div>
-            <span class="rate_tx">(<em>2</em>개)</span>
-        </div>
     </div>
     <div class="cunit_bene">
         <div class="spt_deiv">
@@ -1156,225 +1098,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <span>무료배송</span>
                     </div>
             </div>
-        </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000576619893"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000576619893","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/93/98/61/item/1000576619893_i1_550.jpg","lwst_sellprc":490000,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/dealItemView.ssg?itemId=1000576619893&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[비밀혜택 S머니적립] 까사미아BEST 소파/침대/식탁 外_1000576619893" data-info="1000576619893" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/93/98/61/item/1000576619893_i1_550.jpg, //sitem.ssgcdn.com/93/98/61/item/1000576619893_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/93/98/61/item/1000576619893_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[비밀혜택 S머니적립] 까사미아BEST 소파/침대/식탁 外"  loading="lazy">
-                </a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000576619893&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000576619893" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[비밀혜택 S머니적립] 까사미아BEST 소파/침대/식탁 外"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000576619893" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[비밀혜택 S머니적립] 까사미아BEST 소파/침대/식탁 外" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000576619893&siteNo=7011&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000576619893","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="7011">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000576619893">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[비밀혜택 S머니적립] 까사미아BEST 소파/침대/식탁 外">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/93/98/61/item/1000576619893_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000576619893" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="mncasamia"><span class="blind">까사미아</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <a href="/item/dealItemView.ssg?itemId=1000576619893&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[비밀혜택 S머니적립] 까사미아BEST 소파/침대/식탁 外"
-            data-info="1000576619893" data-index="4" data-position="view" data-unit="img">
-                <em class="tx_ko">[비밀혜택 S머니적립] 까사미아BEST 소파/침대/식탁 外</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">490,000</em>
-                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦490,000)</div>
+        <div class="cunit_bene_lst">
+        <span>SSG MONEY 5% 적립</span>
                 </div>
-            <div class="org_price_wrap">
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:90.0%"><span class="blind">별점 4.5점</span></span>
-            </div>
-            <span class="rate_tx">(<em>2</em>개)</span>
-        </div>
-    </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000039776261"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000039776261","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/61/62/77/item/1000039776261_i1_550.jpg","lwst_sellprc":722000,"usabl_inv_qty":605,"brand_id":"3000025066"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000039776261&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜_1000039776261" data-info="1000039776261" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/61/62/77/item/1000039776261_i1_550.jpg, //sitem.ssgcdn.com/61/62/77/item/1000039776261_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/61/62/77/item/1000039776261_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/61/62/77/item/1000039776261_i2_550.jpg, //sitem.ssgcdn.com/61/62/77/item/1000039776261_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/61/62/77/item/1000039776261_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>5<em class="per">%</em></span>
-            </div>
-<div class="cm_bdg_c">
-                </div>
-            </a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000039776261&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000039776261" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000039776261" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000039776261&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000039776261","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00001","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="7011">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000039776261">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00001">
-                <input type="hidden" name="notiTitle" value="[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/61/62/77/item/1000039776261_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000039776261" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="mncasamia"><span class="blind">까사미아</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <a href="/item/itemView.ssg?itemId=1000039776261&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜"
-            data-info="1000039776261" data-index="5" data-position="view" data-unit="img">
-                <em class="tx_ko">[made by GUUD] 까사미아 x 바이노만  코모도 1인 리클라이너 카멜</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">722,000</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦722,000)</div>
-                </div>
-            <div class="org_price_wrap">
-            <div class="org_price">
-                    <span class="blind">판매가</span>
-                    <em class="ssg_price">760,000</em>
-                    <span class="ssg_tx">원</span>
-                </div>
-            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
-                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
-                    <div class="ly_dtl_price price-tooltip-layer">
-                        <dl class="org">
-                        <dt>판매가</dt>
-                                <dd>760,000</dd>
-                            </dl>
-                    <dl class="dis">
-                        <dt>쿠폰</dt><dd>38,000원</dd>
-                        </dl>
-                    <dl class="sum">
-                            <dt>최적가</dt>
-                            <dd>722,000</dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:92.0%"><span class="blind">별점 4.67점</span></span>
-            </div>
-            <span class="rate_tx">(<em>12</em>개)</span>
-        </div>
     </div>
     </div>
 </li>
@@ -1399,16 +1125,16 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         </div>
     <div class="thmb">
         <a href="/item/itemView.ssg?itemId=1000036037671&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|캄포 클래식 4인 카우치소파 IV_1000036037671" data-info="1000036037671" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|캄포 클래식 4인 카우치소파 IV_1000036037671" data-info="1000036037671" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
             <img srcset="//sitem.ssgcdn.com/71/76/03/item/1000036037671_i1_550.jpg, //sitem.ssgcdn.com/71/76/03/item/1000036037671_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/71/76/03/item/1000036037671_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="캄포 클래식 4인 카우치소파 IV"  loading="lazy">
                 </a>
         <div class="exp_area notranslate">
         <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000036037671&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000036037671" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|캄포 클래식 4인 카우치소파 IV"><span class="blind">새창보기</span></a>
+                    data-info="1000036037671" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|캄포 클래식 4인 카우치소파 IV"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000036037671" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|캄포 클래식 4인 카우치소파 IV" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                            data-info="1000036037671" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|캄포 클래식 4인 카우치소파 IV" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
                 <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000036037671&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000036037671","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
@@ -1449,7 +1175,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <a href="/item/itemView.ssg?itemId=1000036037671&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|캄포 클래식 4인 카우치소파 IV"
-            data-info="1000036037671" data-index="6" data-position="view" data-unit="img">
+            data-info="1000036037671" data-index="2" data-position="view" data-unit="img">
                 <em class="tx_ko">캄포 클래식 4인 카우치소파 IV</em>
             </a>
         </div>
@@ -1482,6 +1208,509 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_tag v2 hide_gl">
     <a href="/search.ssg?src_area=listtag&query=%23%eb%aa%a8%eb%8d%98" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_태그|캄포 클래식 4인 카우치소파 IV" class="clickable" data-info="1000036037671" data-index="0" data-position="tag" data-tagnm="모던">#모던</a>
     <a href="/search.ssg?src_area=listtag&query=%23%ed%98%bc%ec%88%98" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_태그|캄포 클래식 4인 카우치소파 IV" class="clickable" data-info="1000036037671" data-index="1" data-position="tag" data-tagnm="혼수">#혼수</a>
+    </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000578851566"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000578851566","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/66/15/85/item/1000578851566_i1_550.jpg","lwst_sellprc":2992000,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000578851566&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리_1000578851566" data-info="1000578851566" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/66/15/85/item/1000578851566_i1_550.jpg, //sitem.ssgcdn.com/66/15/85/item/1000578851566_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/66/15/85/item/1000578851566_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/66/15/85/item/1000578851566_i2_550.jpg, //sitem.ssgcdn.com/66/15/85/item/1000578851566_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/66/15/85/item/1000578851566_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>20<em class="per">%</em></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000578851566&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000578851566" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000578851566" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000578851566&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000578851566","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00001","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="7011">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000578851566">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00001">
+                <input type="hidden" name="notiTitle" value="[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/66/15/85/item/1000578851566_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000578851566" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="mncasamia"><span class="blind">까사미아</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <a href="/item/itemView.ssg?itemId=1000578851566&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리"
+            data-info="1000578851566" data-index="3" data-position="view" data-unit="img">
+                <em class="tx_ko">[S머니5%추가][비밀혜택가]캄포클래식 4인소파_아이보리</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">2,992,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦2,992,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">3,740,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>3,740,000</dd>
+                            </dl>
+                    <dl class="dis">
+                        <dt>쿠폰</dt><dd>748,000원</dd>
+                        </dl>
+                    <dl class="sum">
+                            <dt>최적가</dt>
+                            <dd>2,992,000</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_app">
+    </div>
+    <div class="cunit_bene">
+        <div class="spt_deiv">
+            <div class="tx_deiv">
+                <span>무료배송</span>
+                    </div>
+            </div>
+        <div class="cunit_bene_lst">
+        <span>SSG MONEY 5% 적립</span>
+                </div>
+    </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000578851550"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000578851550","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/50/15/85/item/1000578851550_i1_550.jpg","lwst_sellprc":752000,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000578851550&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리_1000578851550" data-info="1000578851550" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/50/15/85/item/1000578851550_i1_550.jpg, //sitem.ssgcdn.com/50/15/85/item/1000578851550_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/50/15/85/item/1000578851550_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/50/15/85/item/1000578851550_i2_550.jpg, //sitem.ssgcdn.com/50/15/85/item/1000578851550_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/50/15/85/item/1000578851550_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>20<em class="per">%</em></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000578851550&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000578851550" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000578851550" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000578851550&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000578851550","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00001","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="7011">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000578851550">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00001">
+                <input type="hidden" name="notiTitle" value="[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/50/15/85/item/1000578851550_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000578851550" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="mncasamia"><span class="blind">까사미아</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <a href="/item/itemView.ssg?itemId=1000578851550&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리"
+            data-info="1000578851550" data-index="4" data-position="view" data-unit="img">
+                <em class="tx_ko">[S머니5%추가][비밀혜택가]캄포슬림 모듈소파 암리스_아이보리</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">752,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦752,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">940,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>940,000</dd>
+                            </dl>
+                    <dl class="dis">
+                        <dt>쿠폰</dt><dd>188,000원</dd>
+                        </dl>
+                    <dl class="sum">
+                            <dt>최적가</dt>
+                            <dd>752,000</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_app">
+    </div>
+    <div class="cunit_bene">
+        <div class="spt_deiv">
+            <div class="tx_deiv">
+                <span>무료배송</span>
+                    </div>
+            </div>
+        <div class="cunit_bene_lst">
+        <span>SSG MONEY 5% 적립</span>
+                </div>
+    </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000049307025"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000049307025","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/25/70/30/item/1000049307025_i1_550.jpg","lwst_sellprc":1431000,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000049307025&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|보에 3인소파_1000049307025" data-info="1000049307025" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/25/70/30/item/1000049307025_i1_550.jpg, //sitem.ssgcdn.com/25/70/30/item/1000049307025_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/25/70/30/item/1000049307025_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="보에 3인소파"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/25/70/30/item/1000049307025_i2_550.jpg, //sitem.ssgcdn.com/25/70/30/item/1000049307025_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/25/70/30/item/1000049307025_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="보에 3인소파" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>10<em class="per">%</em></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000049307025&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000049307025" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|보에 3인소파"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000049307025" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|보에 3인소파" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000049307025&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000049307025","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="7011">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000049307025">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="보에 3인소파">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/25/70/30/item/1000049307025_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000049307025" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="mncasamia"><span class="blind">까사미아</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <a href="/item/itemView.ssg?itemId=1000049307025&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|보에 3인소파"
+            data-info="1000049307025" data-index="5" data-position="view" data-unit="img">
+                <em class="tx_ko">보에 3인소파</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">1,431,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦1,431,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">1,590,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>1,590,000</dd>
+                            </dl>
+                    <dl class="dis">
+                        <dt>쿠폰</dt><dd>159,000원</dd>
+                        </dl>
+                    <dl class="sum">
+                            <dt>최적가</dt>
+                            <dd>1,431,000</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:96.0%"><span class="blind">별점 4.8점</span></span>
+            </div>
+            <span class="rate_tx">(<em>15</em>개)</span>
+        </div>
+    </div>
+    <div class="cunit_bene">
+        <div class="spt_deiv">
+            <div class="tx_deiv">
+                <span>무료배송</span>
+                    </div>
+            </div>
+        </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000578851478"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000578851478","shpp_type_dtl_cd":"14","item_img_url":"https://sitem.ssgcdn.com/78/14/85/item/1000578851478_i1_550.jpg","lwst_sellprc":1312000,"usabl_inv_qty":99999,"brand_id":"3000025066"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000578851478&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리_1000578851478" data-info="1000578851478" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/78/14/85/item/1000578851478_i1_550.jpg, //sitem.ssgcdn.com/78/14/85/item/1000578851478_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/78/14/85/item/1000578851478_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/78/14/85/item/1000578851478_i2_550.jpg, //sitem.ssgcdn.com/78/14/85/item/1000578851478_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/78/14/85/item/1000578851478_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>20<em class="per">%</em></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000578851478&siteNo=7011&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000578851478" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000578851478" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000578851478&siteNo=7011&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"14","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000578851478","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7011","useForcedSsg":"N","cartPsblType":"","uitemId":"00001","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="7011">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000578851478">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00001">
+                <input type="hidden" name="notiTitle" value="[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/78/14/85/item/1000578851478_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000578851478" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="mncasamia"><span class="blind">까사미아</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <a href="/item/itemView.ssg?itemId=1000578851478&siteNo=7011&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리"
+            data-info="1000578851478" data-index="6" data-position="view" data-unit="img">
+                <em class="tx_ko">[S머니5%추가][비밀혜택가]캄포베이직2 3인소파_아이보리</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">1,312,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦1,312,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">1,640,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>1,640,000</dd>
+                            </dl>
+                    <dl class="dis">
+                        <dt>쿠폰</dt><dd>328,000원</dd>
+                        </dl>
+                    <dl class="sum">
+                            <dt>최적가</dt>
+                            <dd>1,312,000</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_app">
+    </div>
+    <div class="cunit_bene">
+        <div class="spt_deiv">
+            <div class="tx_deiv">
+                <span>무료배송</span>
+                    </div>
+            </div>
+        <div class="cunit_bene_lst">
+        <span>SSG MONEY 5% 적립</span>
+                </div>
     </div>
     </div>
 </li>
@@ -1547,7 +1776,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000576805201","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/01/52/80/item/1000576805201_i1_550.jpg","lwst_sellprc":20000,"usabl_inv_qty":108,"brand_id":"2000016468"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000576805201","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/01/52/80/item/1000576805201_i1_550.jpg","lwst_sellprc":20000,"usabl_inv_qty":111,"brand_id":"2000016468"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -1643,7 +1872,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000576803727","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/27/37/80/item/1000576803727_i1_550.jpg","lwst_sellprc":19000,"usabl_inv_qty":158,"brand_id":"2000016468"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000576803727","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/27/37/80/item/1000576803727_i1_550.jpg","lwst_sellprc":19000,"usabl_inv_qty":166,"brand_id":"2000016468"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -1739,7 +1968,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000576802730","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/30/27/80/item/1000576802730_i1_550.jpg","lwst_sellprc":18000,"usabl_inv_qty":36,"brand_id":"2000016468"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000576802730","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/30/27/80/item/1000576802730_i1_550.jpg","lwst_sellprc":18000,"usabl_inv_qty":42,"brand_id":"2000016468"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -1835,7 +2064,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000573643682","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/82/36/64/item/1000573643682_i1_550.jpg","lwst_sellprc":25000,"usabl_inv_qty":19,"brand_id":"2000016468"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000573643682","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/82/36/64/item/1000573643682_i1_550.jpg","lwst_sellprc":25000,"usabl_inv_qty":20,"brand_id":"2000016468"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -1910,7 +2139,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <div class="rate_bg">
                 <span style="width:100.0%"><span class="blind">별점 5점</span></span>
             </div>
-            <span class="rate_tx">(<em>4</em>개)</span>
+            <span class="rate_tx">(<em>3</em>개)</span>
         </div>
     </div>
     </div>
@@ -2118,15 +2347,15 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                             >STARBUCKS 바로가기</a>
                         </div>
                     </div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel ">
+                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel on">
                         <div class="cmmain_brandstore_banner">
                             <div class="cmmain_brandstore_img">
-                                <img src="//sui.ssgcdn.com/cmpt/banner/202404/2024042615162200910383795138_237.jpg" alt="5월 시코르" loading="lazy">
+                                <img src="//sui.ssgcdn.com/cmpt/banner/202305/2023050915104515135131920613_701.jpg" alt="시코르" loading="lazy">
                             </div>
                             <div class="cmmain_brandstore_cont"
                                  data-react-unit-type="banr"
-                                 data-react-unit-id="2003593891"
-                                 data-react-unit-text='[{"type":"text","value":"5월 시코르"}]'>
+                                 data-react-unit-id="2003317479"
+                                 data-react-unit-text='[{"type":"text","value":"시코르 (비전시금지)"}]'>
                                 <a href="https://chicor.family.ssg.com" class="cmmain_brandstore_link clickable"
                                    data-react-tarea-dtl-cd="t00001"
                                 >
@@ -2134,8 +2363,8 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                                         <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022112914015925208320823832_497.png&w=476&h=145&edit=c&t=96ec0e0cba9f83c856677e690eef72fd12ee585f" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202211/2022112914015925208320823832_497.png&w=952&h=290&edit=c&t=a6232387fa21040b3963651ffadf7af5ff3bee41 2x" alt="시코르" loading="lazy">
                                     </div>
                                     <div class="cmmain_brandstore_tit">
-                                        <span class="cmmain_brandstore_tittx">뷰티풀 라운지, 시코르</span>
-                                        <span class="cmmain_brandstore_tittx">기프트세트 부터 정품증정세트,이득템 까지!</span>
+                                        <span class="cmmain_brandstore_tittx">신세계백화점이 감각적인 안목으로 엄선한</span>
+                                        <span class="cmmain_brandstore_tittx">뷰티 컬렉션이 있는 뷰티 스페셜티 스토어</span>
                                     </div>
                                 </a>
                             </div>
@@ -2158,7 +2387,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000033540086"
+     data-react-unit-id="1000264732370"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -2169,38 +2398,38 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000033540086","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/86/00/54/item/1000033540086_i1_550.jpg","lwst_sellprc":92000,"usabl_inv_qty":28,"brand_id":"2000012463"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000264732370","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg","lwst_sellprc":38250,"usabl_inv_qty":7382,"brand_id":"3000011781"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000033540086&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)_1000033540086" data-info="1000033540086" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)_1000264732370" data-info="1000264732370" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/86/00/54/item/1000033540086_i1_550.jpg, //sitem.ssgcdn.com/86/00/54/item/1000033540086_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/86/00/54/item/1000033540086_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)"  loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg, //sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i2_550.jpg, //sitem.ssgcdn.com/70/23/73/item/1000264732370_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)" aria-hidden="true" loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <i class="badge badge_ssgsale_coupon_shape" aria-label="쓱세일 쿠폰"></i>
-            <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000033540086&siteNo=7012&salestrNo=1004" class="blank clickable"  target="_blank"
-                    data-info="1000033540086" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004" class="blank clickable"  target="_blank"
+                    data-info="1000264732370" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000033540086" data-idx="1" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000033540086&siteNo=7012&salestrNo=1004","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"21","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000033540086","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1004","msgItemDetail":""}</span>
+                            data-info="1000264732370" data-idx="1" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000264732370","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1004","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="7012">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000033540086">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000264732370">
                 <input type="hidden" name="attnTgtIdnfNo2" value="1004">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/86/00/54/item/1000033540086_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000033540086" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000264732370" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -2228,25 +2457,25 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">르네휘테르</em>
+                <em class="tx_ko">정샘물</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000033540086&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)"
-            data-info="1000033540086" data-index="1" data-position="view" data-unit="img">
-                <em class="tx_ko">포티샤 두피&amp;모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)</em>
+        <a href="/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)"
+            data-info="1000264732370" data-index="1" data-position="view" data-unit="img">
+                <em class="tx_ko">에센셜 스킨 누더 쿠션(리필 포함)(핑크퍼프2개+누더파운데이션5ml 증정)</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">92,000</em>
+                    <em class="ssg_price">38,250</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦92,000)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦38,250)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
                     <span class="blind">판매가</span>
-                    <em class="ssg_price">120,000</em>
+                    <em class="ssg_price">45,000</em>
                     <span class="ssg_tx">원</span>
                 </div>
             <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
@@ -2254,15 +2483,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="ly_dtl_price price-tooltip-layer">
                         <dl class="org">
                         <dt>판매가</dt>
-                                <dd>120,000</dd>
+                                <dd>45,000</dd>
                             </dl>
                     <dl class="dis">
-                        <dt>쿠폰</dt><dd>18,000원</dd>
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>10,000원</dd>
+                        <dt>쿠폰</dt><dd>6,750원</dd>
                         </dl>
                     <dl class="sum">
                             <dt>최적가</dt>
-                            <dd>92,000</dd>
+                            <dd>38,250</dd>
                         </dl>
                     </div>
                 </div>
@@ -2271,20 +2499,10 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:96.0%"><span class="blind">별점 4.88점</span></span>
+                <span style="width:96.0%"><span class="blind">별점 4.8점</span></span>
             </div>
-            <span class="rate_tx">(<em>810</em>개)</span>
+            <span class="rate_tx">(<em>311</em>개)</span>
         </div>
-    </div>
-    <div class="cunit_bene">
-        <div class="spt_deiv">
-            </div>
-        <div class="cunit_bene_lst">
-        </div>
-    </div>
-    <div class="cunit_tag v2 hide_gl">
-    <a href="/search.ssg?src_area=listtag&query=%23%ea%b3%bc%ec%9d%bc%ed%96%a5" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_태그|포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)" class="clickable" data-info="1000033540086" data-index="0" data-position="tag" data-tagnm="과일향">#과일향</a>
-    <a href="/search.ssg?src_area=listtag&query=%23%eb%af%bc%ea%b0%90%ec%84%b1%ed%94%bc%eb%b6%80%ec%9a%a9" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_태그|포티샤 두피&모발강화 샴푸 600ml 듀오(+포티샤샴푸200ml증정)" class="clickable" data-info="1000033540086" data-index="1" data-position="tag" data-tagnm="민감성피부용">#민감성피부용</a>
     </div>
     </div>
 </li>
@@ -2293,7 +2511,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000256814255"
+     data-react-unit-id="1000586908766"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -2304,39 +2522,38 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000256814255","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg","lwst_sellprc":95400,"usabl_inv_qty":497,"brand_id":"2010024537"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000586908766","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/66/87/90/item/1000586908766_i1_550.jpg","lwst_sellprc":158100,"usabl_inv_qty":35,"brand_id":"2010024537"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[5월] 시몽 테르미크 150ml 듀오 세트_1000256814255" data-info="1000256814255" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000586908766&siteNo=7012&salestrNo=1020" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[SSG상품권 1만원 증정] 시몽 테르미크 150ml 트리오 세트_1000586908766" data-info="1000586908766" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg, //sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[5월] 시몽 테르미크 150ml 듀오 세트"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i2_550.jpg, //sitem.ssgcdn.com/55/42/81/item/1000256814255_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[5월] 시몽 테르미크 150ml 듀오 세트" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/66/87/90/item/1000586908766_i1_550.jpg, //sitem.ssgcdn.com/66/87/90/item/1000586908766_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/66/87/90/item/1000586908766_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[SSG상품권 1만원 증정] 시몽 테르미크 150ml 트리오 세트"  loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <i class="badge badge_ssgsale_coupon_shape" aria-label="쓱세일 쿠폰"></i>
-            <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
+            <span class="di_gift"><span class="blind">사은품</span></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020" class="blank clickable"  target="_blank"
-                    data-info="1000256814255" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[5월] 시몽 테르미크 150ml 듀오 세트"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000586908766&siteNo=7012&salestrNo=1020" class="blank clickable"  target="_blank"
+                    data-info="1000586908766" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[SSG상품권 1만원 증정] 시몽 테르미크 150ml 트리오 세트"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000256814255" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[5월] 시몽 테르미크 150ml 듀오 세트" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"21","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000256814255","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1020","msgItemDetail":""}</span>
+                            data-info="1000586908766" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[SSG상품권 1만원 증정] 시몽 테르미크 150ml 트리오 세트" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000586908766&siteNo=7012&salestrNo=1020","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"21","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000586908766","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"frebie","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1020","msgItemDetail":"이 상품은 사은품이 있는 상품 입니다.\n상품상세에서 사은품을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="7012">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000256814255">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000586908766">
                 <input type="hidden" name="attnTgtIdnfNo2" value="1020">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[5월] 시몽 테르미크 150ml 듀오 세트">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="[SSG상품권 1만원 증정] 시몽 테르미크 150ml 트리오 세트">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/66/87/90/item/1000586908766_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000256814255" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000586908766" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -2366,23 +2583,23 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <strong class="brd">
                 <em class="tx_ko">케라스타즈</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[5월] 시몽 테르미크 150ml 듀오 세트"
-            data-info="1000256814255" data-index="2" data-position="view" data-unit="img">
-                <em class="tx_ko">[5월] 시몽 테르미크 150ml 듀오 세트</em>
+        <a href="/item/itemView.ssg?itemId=1000586908766&siteNo=7012&salestrNo=1020" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[SSG상품권 1만원 증정] 시몽 테르미크 150ml 트리오 세트"
+            data-info="1000586908766" data-index="2" data-position="view" data-unit="img">
+                <em class="tx_ko">[SSG상품권 1만원 증정] 시몽 테르미크 150ml 트리오 세트</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">95,400</em>
+                    <em class="ssg_price">158,100</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦95,400)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦158,100)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
                     <span class="blind">판매가</span>
-                    <em class="ssg_price">124,000</em>
+                    <em class="ssg_price">186,000</em>
                     <span class="ssg_tx">원</span>
                 </div>
             <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
@@ -2390,15 +2607,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="ly_dtl_price price-tooltip-layer">
                         <dl class="org">
                         <dt>판매가</dt>
-                                <dd>124,000</dd>
+                                <dd>186,000</dd>
                             </dl>
                     <dl class="dis">
-                        <dt>쿠폰</dt><dd>18,600원</dd>
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>10,000원</dd>
+                        <dt>쿠폰</dt><dd>27,900원</dd>
                         </dl>
                     <dl class="sum">
                             <dt>최적가</dt>
-                            <dd>95,400</dd>
+                            <dd>158,100</dd>
                         </dl>
                     </div>
                 </div>
@@ -2407,15 +2623,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:96.0%"><span class="blind">별점 4.87점</span></span>
+                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
             </div>
-            <span class="rate_tx">(<em>444</em>개)</span>
-        </div>
-    </div>
-    <div class="cunit_bene">
-        <div class="spt_deiv">
-            </div>
-        <div class="cunit_bene_lst">
+            <span class="rate_tx">(<em>4</em>개)</span>
         </div>
     </div>
     </div>
@@ -2436,7 +2646,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000026532717","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_550.jpg","lwst_sellprc":50220,"usabl_inv_qty":437,"brand_id":"2010024537"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000026532717","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_550.jpg","lwst_sellprc":55800,"usabl_inv_qty":57,"brand_id":"2010024537"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -2446,8 +2656,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <img srcset="//sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_550.jpg, //sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="시몽 테르미크 150ml [No.1 헤어에센스-손상모발용]"  loading="lazy">
                 <img srcset="//sitem.ssgcdn.com/17/27/53/item/1000026532717_i2_550.jpg, //sitem.ssgcdn.com/17/27/53/item/1000026532717_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/17/27/53/item/1000026532717_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="시몽 테르미크 150ml [No.1 헤어에센스-손상모발용]" aria-hidden="true" loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <i class="badge badge_ssgsale_coupon_shape" aria-label="쓱세일 쿠폰"></i>
-            <span class="di_coupon"><span class="blind">쿠폰포함</span>10<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>10<em class="per">%</em></span>
             </div>
 </a>
         <div class="exp_area notranslate">
@@ -2507,9 +2716,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">50,220</em>
+                    <em class="ssg_price">55,800</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦50,220)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦55,800)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
@@ -2526,11 +2735,10 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                             </dl>
                     <dl class="dis">
                         <dt>쿠폰</dt><dd>6,200원</dd>
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>5,580원</dd>
                         </dl>
                     <dl class="sum">
                             <dt>최적가</dt>
-                            <dd>50,220</dd>
+                            <dd>55,800</dd>
                         </dl>
                     </div>
                 </div>
@@ -2541,7 +2749,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <div class="rate_bg">
                 <span style="width:96.0%"><span class="blind">별점 4.84점</span></span>
             </div>
-            <span class="rate_tx">(<em>1,537</em>개)</span>
+            <span class="rate_tx">(<em>1,532</em>개)</span>
         </div>
     </div>
     <div class="cunit_tag v2 hide_gl">
@@ -2555,7 +2763,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000264732370"
+     data-react-unit-id="1000256814255"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -2566,39 +2774,38 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000264732370","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg","lwst_sellprc":38250,"usabl_inv_qty":7310,"brand_id":"3000011781"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000256814255","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg","lwst_sellprc":105400,"usabl_inv_qty":49,"brand_id":"2010024537"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)_1000264732370" data-info="1000264732370" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트_1000256814255" data-info="1000256814255" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg, //sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i2_550.jpg, //sitem.ssgcdn.com/70/23/73/item/1000264732370_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg, //sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i2_550.jpg, //sitem.ssgcdn.com/55/42/81/item/1000256814255_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트" aria-hidden="true" loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <i class="badge badge_ssgsale_coupon_shape" aria-label="쓱세일 쿠폰"></i>
-            <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004" class="blank clickable"  target="_blank"
-                    data-info="1000264732370" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020" class="blank clickable"  target="_blank"
+                    data-info="1000256814255" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000264732370" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000264732370","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1004","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000256814255" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"21","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000256814255","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1020","msgItemDetail":""}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="7012">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000264732370">
-                <input type="hidden" name="attnTgtIdnfNo2" value="1004">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000256814255">
+                <input type="hidden" name="attnTgtIdnfNo2" value="1020">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/70/23/73/item/1000264732370_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/55/42/81/item/1000256814255_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000264732370" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000256814255" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -2626,25 +2833,25 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">정샘물</em>
+                <em class="tx_ko">케라스타즈</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000264732370&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)"
-            data-info="1000264732370" data-index="4" data-position="view" data-unit="img">
-                <em class="tx_ko">에센셜 스킨 누더 쿠션(리필 포함)(누더컨실러미니+캡슐선5ml 증정)</em>
+        <a href="/item/itemView.ssg?itemId=1000256814255&siteNo=7012&salestrNo=1020" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트"
+            data-info="1000256814255" data-index="4" data-position="view" data-unit="img">
+                <em class="tx_ko">[4월/엘릭서 얼팀 15ml *3 증정]시몽 테르미크 150ml 듀오 세트</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">38,250</em>
+                    <em class="ssg_price">105,400</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦38,250)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦105,400)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
                     <span class="blind">판매가</span>
-                    <em class="ssg_price">45,000</em>
+                    <em class="ssg_price">124,000</em>
                     <span class="ssg_tx">원</span>
                 </div>
             <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
@@ -2652,14 +2859,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="ly_dtl_price price-tooltip-layer">
                         <dl class="org">
                         <dt>판매가</dt>
-                                <dd>45,000</dd>
+                                <dd>124,000</dd>
                             </dl>
                     <dl class="dis">
-                        <dt>쿠폰</dt><dd>6,750원</dd>
+                        <dt>쿠폰</dt><dd>18,600원</dd>
                         </dl>
                     <dl class="sum">
                             <dt>최적가</dt>
-                            <dd>38,250</dd>
+                            <dd>105,400</dd>
                         </dl>
                     </div>
                 </div>
@@ -2668,9 +2875,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:96.0%"><span class="blind">별점 4.8점</span></span>
+                <span style="width:96.0%"><span class="blind">별점 4.87점</span></span>
             </div>
-            <span class="rate_tx">(<em>313</em>개)</span>
+            <span class="rate_tx">(<em>441</em>개)</span>
         </div>
     </div>
     </div>
@@ -2680,7 +2887,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000040553930"
+     data-react-unit-id="1000585193041"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -2691,38 +2898,37 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000040553930","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/30/39/55/item/1000040553930_i1_550.jpg","lwst_sellprc":102200,"usabl_inv_qty":13,"brand_id":"2000012463"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000585193041","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/41/30/19/item/1000585193041_i1_550.jpg","lwst_sellprc":102000,"usabl_inv_qty":47,"brand_id":"2000012463"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000040553930&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|트리파직 앰플 샴푸 600ml 듀오(+트리파직샴푸200ml증정)_1000040553930" data-info="1000040553930" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000585193041&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[1만원 상품권] 포티샤 두피&모발강화 샴푸 600ml 듀오(+스몰브러쉬,150ml증정)_1000585193041" data-info="1000585193041" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/30/39/55/item/1000040553930_i1_550.jpg, //sitem.ssgcdn.com/30/39/55/item/1000040553930_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/30/39/55/item/1000040553930_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="트리파직 앰플 샴푸 600ml 듀오(+트리파직샴푸200ml증정)"  loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/41/30/19/item/1000585193041_i1_550.jpg, //sitem.ssgcdn.com/41/30/19/item/1000585193041_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/41/30/19/item/1000585193041_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[1만원 상품권] 포티샤 두피&모발강화 샴푸 600ml 듀오(+스몰브러쉬,150ml증정)"  loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <i class="badge badge_ssgsale_coupon_shape" aria-label="쓱세일 쿠폰"></i>
-            <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>15<em class="per">%</em></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000040553930&siteNo=7012&salestrNo=1004" class="blank clickable"  target="_blank"
-                    data-info="1000040553930" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|트리파직 앰플 샴푸 600ml 듀오(+트리파직샴푸200ml증정)"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000585193041&siteNo=7012&salestrNo=1004" class="blank clickable"  target="_blank"
+                    data-info="1000585193041" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[1만원 상품권] 포티샤 두피&모발강화 샴푸 600ml 듀오(+스몰브러쉬,150ml증정)"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000040553930" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|트리파직 앰플 샴푸 600ml 듀오(+트리파직샴푸200ml증정)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000040553930&siteNo=7012&salestrNo=1004","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"21","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000040553930","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1004","msgItemDetail":""}</span>
+                            data-info="1000585193041" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[1만원 상품권] 포티샤 두피&모발강화 샴푸 600ml 듀오(+스몰브러쉬,150ml증정)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000585193041&siteNo=7012&salestrNo=1004","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"21","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000585193041","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1004","msgItemDetail":""}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="7012">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000040553930">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000585193041">
                 <input type="hidden" name="attnTgtIdnfNo2" value="1004">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="트리파직 앰플 샴푸 600ml 듀오(+트리파직샴푸200ml증정)">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/30/39/55/item/1000040553930_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="[1만원 상품권] 포티샤 두피&모발강화 샴푸 600ml 듀오(+스몰브러쉬,150ml증정)">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/41/30/19/item/1000585193041_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000040553930" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000585193041" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -2752,23 +2958,23 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <strong class="brd">
                 <em class="tx_ko">르네휘테르</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000040553930&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|트리파직 앰플 샴푸 600ml 듀오(+트리파직샴푸200ml증정)"
-            data-info="1000040553930" data-index="5" data-position="view" data-unit="img">
-                <em class="tx_ko">트리파직 앰플 샴푸 600ml 듀오(+트리파직샴푸200ml증정)</em>
+        <a href="/item/itemView.ssg?itemId=1000585193041&siteNo=7012&salestrNo=1004" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[1만원 상품권] 포티샤 두피&모발강화 샴푸 600ml 듀오(+스몰브러쉬,150ml증정)"
+            data-info="1000585193041" data-index="5" data-position="view" data-unit="img">
+                <em class="tx_ko">[1만원 상품권] 포티샤 두피&amp;모발강화 샴푸 600ml 듀오(+스몰브러쉬,150ml증정)</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">102,200</em>
+                    <em class="ssg_price">102,000</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦102,200)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦102,000)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
                     <span class="blind">판매가</span>
-                    <em class="ssg_price">132,000</em>
+                    <em class="ssg_price">120,000</em>
                     <span class="ssg_tx">원</span>
                 </div>
             <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
@@ -2776,15 +2982,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="ly_dtl_price price-tooltip-layer">
                         <dl class="org">
                         <dt>판매가</dt>
-                                <dd>132,000</dd>
+                                <dd>120,000</dd>
                             </dl>
                     <dl class="dis">
-                        <dt>쿠폰</dt><dd>19,800원</dd>
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>10,000원</dd>
+                        <dt>쿠폰</dt><dd>18,000원</dd>
                         </dl>
                     <dl class="sum">
                             <dt>최적가</dt>
-                            <dd>102,200</dd>
+                            <dd>102,000</dd>
                         </dl>
                     </div>
                 </div>
@@ -2793,15 +2998,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:96.0%"><span class="blind">별점 4.89점</span></span>
+                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
             </div>
-            <span class="rate_tx">(<em>357</em>개)</span>
-        </div>
-    </div>
-    <div class="cunit_bene">
-        <div class="spt_deiv">
-            </div>
-        <div class="cunit_bene_lst">
+            <span class="rate_tx">(<em>2</em>개)</span>
         </div>
     </div>
     </div>
@@ -2811,7 +3010,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000593104744"
+     data-react-unit-id="1000510400355"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -2822,35 +3021,39 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000593104744","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/44/47/10/item/1000593104744_i1_550.jpg","lwst_sellprc":54000,"usabl_inv_qty":63,"brand_id":"3000025946"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000510400355","shpp_type_dtl_cd":"21","item_img_url":"https://sitem.ssgcdn.com/55/03/40/item/1000510400355_i1_550.jpg","lwst_sellprc":98100,"usabl_inv_qty":608,"brand_id":"3000064650"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000593104744&siteNo=7012&salestrNo=1027" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)_1000593104744" data-info="1000593104744" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000510400355&siteNo=7012&salestrNo=1019" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|Midnight 오 드 퍼퓸(50ml)_1000510400355" data-info="1000510400355" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/44/47/10/item/1000593104744_i1_550.jpg, //sitem.ssgcdn.com/44/47/10/item/1000593104744_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/44/47/10/item/1000593104744_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/44/47/10/item/1000593104744_i2_550.jpg, //sitem.ssgcdn.com/44/47/10/item/1000593104744_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/44/47/10/item/1000593104744_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)" aria-hidden="true" loading="lazy">
-                </a>
+            <img srcset="//sitem.ssgcdn.com/55/03/40/item/1000510400355_i1_550.jpg, //sitem.ssgcdn.com/55/03/40/item/1000510400355_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/55/03/40/item/1000510400355_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="Midnight 오 드 퍼퓸(50ml)"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/55/03/40/item/1000510400355_i2_550.jpg, //sitem.ssgcdn.com/55/03/40/item/1000510400355_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/55/03/40/item/1000510400355_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="Midnight 오 드 퍼퓸(50ml)" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>10<em class="per">%</em></span>
+            <span class="di_gift"><span class="blind">사은품</span></span>
+            </div>
+</a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000593104744&siteNo=7012&salestrNo=1027" class="blank clickable"  target="_blank"
-                    data-info="1000593104744" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000510400355&siteNo=7012&salestrNo=1019" class="blank clickable"  target="_blank"
+                    data-info="1000510400355" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|Midnight 오 드 퍼퓸(50ml)"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000593104744" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000593104744&siteNo=7012&salestrNo=1027","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000593104744","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1027","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000510400355" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|Midnight 오 드 퍼퓸(50ml)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000510400355&siteNo=7012&salestrNo=1019","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"21","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000510400355","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7012","useForcedSsg":"N","cartPsblType":"frebie","uitemId":"00000","infloSiteNo":"6005","salestrNo":"1019","msgItemDetail":"이 상품은 사은품이 있는 상품 입니다.\n상품상세에서 사은품을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="7012">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000593104744">
-                <input type="hidden" name="attnTgtIdnfNo2" value="1027">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000510400355">
+                <input type="hidden" name="attnTgtIdnfNo2" value="1019">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/44/47/10/item/1000593104744_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="Midnight 오 드 퍼퓸(50ml)">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/55/03/40/item/1000510400355_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000593104744" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000510400355" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -2878,26 +3081,55 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">아워글래스</em>
+                <em class="tx_ko">SW19</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000593104744&siteNo=7012&salestrNo=1027" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)"
-            data-info="1000593104744" data-index="6" data-position="view" data-unit="img">
-                <em class="tx_ko">[CHICOR X 아워글래스] 팬텀 글로시밤 기획 (+3종 증정)</em>
+        <a href="/item/itemView.ssg?itemId=1000510400355&siteNo=7012&salestrNo=1019" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|Midnight 오 드 퍼퓸(50ml)"
+            data-info="1000510400355" data-index="6" data-position="view" data-unit="img">
+                <em class="tx_ko">Midnight 오 드 퍼퓸(50ml)</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
-        <div class="opt_origin_price">최초출시가 <em class="ssg_price">54,000</em>원</div>
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">54,000</em>
+                    <em class="ssg_price">98,100</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦54,000)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦98,100)</div>
                 </div>
             <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">109,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>109,000</dd>
+                            </dl>
+                    <dl class="dis">
+                        <dt>쿠폰</dt><dd>10,900원</dd>
+                        </dl>
+                    <dl class="sum">
+                            <dt>최적가</dt>
+                            <dd>98,100</dd>
+                        </dl>
+                    </div>
+                </div>
             </div>
             </div>
+    <div class="cunit_prw">
+            <div class="unit">(10ml당:19,620원)</div>
+                </div>
     <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:88.0%"><span class="blind">별점 4.45점</span></span>
+            </div>
+            <span class="rate_tx">(<em>20</em>개)</span>
+        </div>
     </div>
     </div>
 </li>
@@ -2963,7 +3195,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000430894284","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/84/42/89/item/1000430894284_i1_550.jpg","lwst_sellprc":1549800,"usabl_inv_qty":227,"brand_id":"3000063794"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000430894284","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/84/42/89/item/1000430894284_i1_550.jpg","lwst_sellprc":1549800,"usabl_inv_qty":229,"brand_id":"3000063794"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -3093,7 +3325,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000430894242","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/42/42/89/item/1000430894242_i1_550.jpg","lwst_sellprc":1385800,"usabl_inv_qty":272,"brand_id":"3000063794"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000430894242","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/42/42/89/item/1000430894242_i1_550.jpg","lwst_sellprc":1385800,"usabl_inv_qty":273,"brand_id":"3000063794"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -3212,7 +3444,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000564795419"
+     data-react-unit-id="1000537658272"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -3223,273 +3455,34 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000564795419","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/19/54/79/item/1000564795419_i1_550.jpg","lwst_sellprc":53956,"usabl_inv_qty":70265,"brand_id":"3000063794"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000537658272","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/72/82/65/item/1000537658272_i1_550.jpg","lwst_sellprc":37600,"usabl_inv_qty":340,"brand_id":"2000001446"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000564795419&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지_1000564795419" data-info="1000564795419" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000537658272&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[크록스 정품] 클래식 크러시 공용슬리퍼 207670-100_1000537658272" data-info="1000537658272" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/19/54/79/item/1000564795419_i1_550.jpg, //sitem.ssgcdn.com/19/54/79/item/1000564795419_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/19/54/79/item/1000564795419_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/19/54/79/item/1000564795419_i2_550.jpg, //sitem.ssgcdn.com/19/54/79/item/1000564795419_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/19/54/79/item/1000564795419_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>22<em class="per">%</em></span>
-            </div>
-<div class="cm_bdg_c">
-                </div>
-            </a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000564795419&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000564795419" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000564795419" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000564795419&siteNo=6200&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000564795419","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="6200">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000564795419">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/19/54/79/item/1000564795419_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000564795419" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="tv"><span class="blind">신세계라이브쇼핑</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <a href="/item/itemView.ssg?itemId=1000564795419&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지"
-            data-info="1000564795419" data-index="3" data-position="view" data-unit="img">
-                <em class="tx_ko">[TINTON] 틴톤 꽃 립스틱 총 4개 + 크리스탈 립스틱 + 아가타 토트백 패키지</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">53,956</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦53,956)</div>
-                </div>
-            <div class="org_price_wrap">
-            <div class="org_price">
-                    <span class="blind">판매가</span>
-                    <em class="ssg_price">69,900</em>
-                    <span class="ssg_tx">원</span>
-                </div>
-            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
-                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
-                    <div class="ly_dtl_price price-tooltip-layer">
-                        <dl class="org">
-                        <dt>판매가</dt>
-                                <dd>69,900</dd>
-                            </dl>
-                    <dl class="dis">
-                        <dt>쿠폰</dt><dd>11,883원</dd>
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>4,061원</dd>
-                        </dl>
-                    <dl class="sum">
-                            <dt>최적가</dt>
-                            <dd>53,956</dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.75점</span></span>
-            </div>
-            <span class="rate_tx">(<em>4</em>개)</span>
-        </div>
-    </div>
-    <div class="cunit_bene">
-        <div class="spt_deiv">
-            <div class="tx_deiv">
-                <span>무료배송</span>
-                    </div>
-            </div>
-        </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000582035713"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000582035713","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/13/57/03/item/1000582035713_i1_550.jpg","lwst_sellprc":139000,"usabl_inv_qty":111,"brand_id":"2000006059"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000582035713&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|24년]여성 스케쳐스 맥스쿠셔닝 워킹화_1000582035713" data-info="1000582035713" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/13/57/03/item/1000582035713_i1_550.jpg, //sitem.ssgcdn.com/13/57/03/item/1000582035713_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/13/57/03/item/1000582035713_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="24년]여성 스케쳐스 맥스쿠셔닝 워킹화"  loading="lazy">
-                <div class="cm_bdg_c">
-                </div>
-            </a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000582035713&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000582035713" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|24년]여성 스케쳐스 맥스쿠셔닝 워킹화"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000582035713" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|24년]여성 스케쳐스 맥스쿠셔닝 워킹화" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000582035713&siteNo=6200&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000582035713","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="6200">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000582035713">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="24년]여성 스케쳐스 맥스쿠셔닝 워킹화">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/13/57/03/item/1000582035713_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000582035713" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="tv"><span class="blind">신세계라이브쇼핑</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <strong class="brd">
-                <em class="tx_ko">스케쳐스</em>
-            </strong>
-        <a href="/item/itemView.ssg?itemId=1000582035713&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|24년]여성 스케쳐스 맥스쿠셔닝 워킹화"
-            data-info="1000582035713" data-index="4" data-position="view" data-unit="img">
-                <em class="tx_ko">24년]여성 스케쳐스 맥스쿠셔닝 워킹화</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">139,000</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦139,000)</div>
-                </div>
-            <div class="org_price_wrap">
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
-            </div>
-            <span class="rate_tx">(<em>3</em>개)</span>
-        </div>
-    </div>
-    <div class="cunit_bene">
-        <div class="spt_deiv">
-            <div class="tx_deiv">
-                <span>무료배송</span>
-                    </div>
-            </div>
-        </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000075798586"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000075798586","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/86/85/79/item/1000075798586_i1_550.jpg","lwst_sellprc":150000,"usabl_inv_qty":267,"brand_id":"2000020652"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000075798586&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|홍삼톤 (50ml*60포)+쇼핑백_1000075798586" data-info="1000075798586" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/86/85/79/item/1000075798586_i1_550.jpg, //sitem.ssgcdn.com/86/85/79/item/1000075798586_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/86/85/79/item/1000075798586_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="홍삼톤 (50ml*60포)+쇼핑백"  loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/72/82/65/item/1000537658272_i1_550.jpg, //sitem.ssgcdn.com/72/82/65/item/1000537658272_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/72/82/65/item/1000537658272_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[크록스 정품] 클래식 크러시 공용슬리퍼 207670-100"  loading="lazy">
                 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000075798586&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000075798586" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|홍삼톤 (50ml*60포)+쇼핑백"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000537658272&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000537658272" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[크록스 정품] 클래식 크러시 공용슬리퍼 207670-100"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000075798586" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|홍삼톤 (50ml*60포)+쇼핑백" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000075798586&siteNo=6200&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000075798586","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":""}</span>
+                            data-info="1000537658272" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[크록스 정품] 클래식 크러시 공용슬리퍼 207670-100" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000537658272&siteNo=6200&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000537658272","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6200">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000075798586">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000537658272">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="홍삼톤 (50ml*60포)+쇼핑백">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/86/85/79/item/1000075798586_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="[크록스 정품] 클래식 크러시 공용슬리퍼 207670-100">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/72/82/65/item/1000537658272_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000075798586" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000537658272" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -3517,20 +3510,20 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">정관장</em>
+                <em class="tx_ko">크록스</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000075798586&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|홍삼톤 (50ml*60포)+쇼핑백"
-            data-info="1000075798586" data-index="5" data-position="view" data-unit="img">
-                <em class="tx_ko">홍삼톤 (50ml*60포)+쇼핑백</em>
+        <a href="/item/itemView.ssg?itemId=1000537658272&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[크록스 정품] 클래식 크러시 공용슬리퍼 207670-100"
+            data-info="1000537658272" data-index="3" data-position="view" data-unit="img">
+                <em class="tx_ko">[크록스 정품] 클래식 크러시 공용슬리퍼 207670-100</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">150,000</em>
+                    <em class="ssg_price">37,600</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦150,000)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦37,600)</div>
                 </div>
             <div class="org_price_wrap">
             </div>
@@ -3538,9 +3531,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
+                <span style="width:92.0%"><span class="blind">별점 4.6점</span></span>
             </div>
-            <span class="rate_tx">(<em>8</em>개)</span>
+            <span class="rate_tx">(<em>5</em>개)</span>
         </div>
     </div>
     <div class="cunit_bene">
@@ -3557,7 +3550,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000580074982"
+     data-react-unit-id="1000572270535"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -3568,37 +3561,133 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000580074982","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/82/49/07/item/1000580074982_i1_550.jpg","lwst_sellprc":119000,"usabl_inv_qty":599,"brand_id":"2000006059"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000572270535","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/35/05/27/item/1000572270535_i1_550.jpg","lwst_sellprc":20710,"usabl_inv_qty":2739,"brand_id":"3000063794"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000580074982&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|24년]여성 스케쳐스 아치핏 디럭스 슬립온_1000580074982" data-info="1000580074982" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/dealItemView.ssg?itemId=1000572270535&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|베네플러스 특가 SALE!_1000572270535" data-info="1000572270535" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/82/49/07/item/1000580074982_i1_550.jpg, //sitem.ssgcdn.com/82/49/07/item/1000580074982_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/82/49/07/item/1000580074982_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="24년]여성 스케쳐스 아치핏 디럭스 슬립온"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/82/49/07/item/1000580074982_i2_550.jpg, //sitem.ssgcdn.com/82/49/07/item/1000580074982_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/82/49/07/item/1000580074982_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="24년]여성 스케쳐스 아치핏 디럭스 슬립온" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_c">
-                </div>
-            </a>
+            <img srcset="//sitem.ssgcdn.com/35/05/27/item/1000572270535_i1_550.jpg, //sitem.ssgcdn.com/35/05/27/item/1000572270535_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/35/05/27/item/1000572270535_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="베네플러스 특가 SALE!"  loading="lazy">
+                </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000580074982&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000580074982" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|24년]여성 스케쳐스 아치핏 디럭스 슬립온"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000572270535&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000572270535" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|베네플러스 특가 SALE!"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000580074982" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|24년]여성 스케쳐스 아치핏 디럭스 슬립온" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000580074982&siteNo=6200&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000580074982","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000572270535" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|베네플러스 특가 SALE!" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000572270535&siteNo=6200&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000572270535","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6200">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000580074982">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000572270535">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="24년]여성 스케쳐스 아치핏 디럭스 슬립온">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/82/49/07/item/1000580074982_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="베네플러스 특가 SALE!">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/35/05/27/item/1000572270535_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000580074982" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000572270535" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="tv"><span class="blind">신세계라이브쇼핑</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <a href="/item/dealItemView.ssg?itemId=1000572270535&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|베네플러스 특가 SALE!"
+            data-info="1000572270535" data-index="4" data-position="view" data-unit="img">
+                <em class="tx_ko">베네플러스 특가 SALE!</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">20,710</em>
+                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦20,710)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+            </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:96.0%"><span class="blind">별점 4.85점</span></span>
+            </div>
+            <span class="rate_tx">(<em>52</em>개)</span>
+        </div>
+    <div class="buying">
+            <em>590</em>개 구매중
+        </div>
+    </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000570412924"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000570412924","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/24/29/41/item/1000570412924_i1_550.jpg","lwst_sellprc":80100,"usabl_inv_qty":9991,"brand_id":"2000014910"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/dealItemView.ssg?itemId=1000570412924&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|24SS 에디티드/블루핏/브이컷/여유 할인전_1000570412924" data-info="1000570412924" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/24/29/41/item/1000570412924_i1_550.jpg, //sitem.ssgcdn.com/24/29/41/item/1000570412924_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/24/29/41/item/1000570412924_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="24SS 에디티드/블루핏/브이컷/여유 할인전"  loading="lazy">
+                </a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000570412924&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000570412924" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|24SS 에디티드/블루핏/브이컷/여유 할인전"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000570412924" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|24SS 에디티드/블루핏/브이컷/여유 할인전" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000570412924&siteNo=6200&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000570412924","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6200">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000570412924">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="24SS 에디티드/블루핏/브이컷/여유 할인전">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/24/29/41/item/1000570412924_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000570412924" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -3626,20 +3715,20 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">스케쳐스</em>
+                <em class="tx_ko">블루핏</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000580074982&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|24년]여성 스케쳐스 아치핏 디럭스 슬립온"
-            data-info="1000580074982" data-index="6" data-position="view" data-unit="img">
-                <em class="tx_ko">24년]여성 스케쳐스 아치핏 디럭스 슬립온</em>
+        <a href="/item/dealItemView.ssg?itemId=1000570412924&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|24SS 에디티드/블루핏/브이컷/여유 할인전"
+            data-info="1000570412924" data-index="5" data-position="view" data-unit="img">
+                <em class="tx_ko">24SS 에디티드/블루핏/브이컷/여유 할인전</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">119,000</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦119,000)</div>
+                    <em class="ssg_price">80,100</em>
+                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦80,100)</div>
                 </div>
             <div class="org_price_wrap">
             </div>
@@ -3647,18 +3736,107 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:86.0%"><span class="blind">별점 4.33점</span></span>
+                <span style="width:90.0%"><span class="blind">별점 4.57점</span></span>
             </div>
-            <span class="rate_tx">(<em>6</em>개)</span>
+            <span class="rate_tx">(<em>126</em>개)</span>
+        </div>
+    <div class="buying">
+            <em>1,785</em>개 구매중
         </div>
     </div>
-    <div class="cunit_bene">
-        <div class="spt_deiv">
-            <div class="tx_deiv">
-                <span>무료배송</span>
-                    </div>
-            </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000052981269"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000052981269","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/69/12/98/item/1000052981269_i1_550.jpg","lwst_sellprc":2460000,"usabl_inv_qty":11985,"brand_id":"2010032011"}'>
+    <div class="prod_top">
         </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000052981269&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|순금 면체인 팔찌 18.75g 24K 기본형_1000052981269" data-info="1000052981269" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/69/12/98/item/1000052981269_i1_550.jpg, //sitem.ssgcdn.com/69/12/98/item/1000052981269_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/69/12/98/item/1000052981269_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="순금 면체인 팔찌 18.75g 24K 기본형"  loading="lazy">
+                </a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000052981269&siteNo=6200&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000052981269" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|순금 면체인 팔찌 18.75g 24K 기본형"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000052981269" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|순금 면체인 팔찌 18.75g 24K 기본형" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"40","itemLnkd":"/item/itemView.ssg?itemId=1000052981269&siteNo=6200&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000052981269","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6200","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6200">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000052981269">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="순금 면체인 팔찌 18.75g 24K 기본형">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/69/12/98/item/1000052981269_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000052981269" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="tv"><span class="blind">신세계라이브쇼핑</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">골드모아</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000052981269&siteNo=6200&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|순금 면체인 팔찌 18.75g 24K 기본형"
+            data-info="1000052981269" data-index="6" data-position="view" data-unit="img">
+                <em class="tx_ko">순금 면체인 팔찌 18.75g 24K 기본형</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">2,460,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦2,460,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+            </div>
+    <div class="cunit_app">
+    </div>
     </div>
 </li>
                                     </ul>
@@ -3712,7 +3890,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000563057849"
+     data-react-unit-id="1000591344312"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -3723,35 +3901,35 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000563057849","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/49/78/05/item/1000563057849_i1_550.jpg","lwst_sellprc":49900,"usabl_inv_qty":440,"brand_id":"3000006197"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000591344312","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg","lwst_sellprc":29900,"usabl_inv_qty":3762,"brand_id":"3000006197"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000563057849&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 클라우드 다운필 배색 숏 점퍼 J103401007056_1000563057849" data-info="1000563057849" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|23 S/S 파자마 세트 + 로그인시 25%_1000591344312" data-info="1000591344312" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/49/78/05/item/1000563057849_i1_550.jpg, //sitem.ssgcdn.com/49/78/05/item/1000563057849_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/49/78/05/item/1000563057849_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="여 클라우드 다운필 배색 숏 점퍼 J103401007056"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/49/78/05/item/1000563057849_i2_550.jpg, //sitem.ssgcdn.com/49/78/05/item/1000563057849_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/49/78/05/item/1000563057849_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="여 클라우드 다운필 배색 숏 점퍼 J103401007056" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg, //sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="23 S/S 파자마 세트 + 로그인시 25%"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i2_550.jpg, //sitem.ssgcdn.com/12/43/34/item/1000591344312_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="23 S/S 파자마 세트 + 로그인시 25%" aria-hidden="true" loading="lazy">
                 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000563057849&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000563057849" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|여 클라우드 다운필 배색 숏 점퍼 J103401007056"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000591344312" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|23 S/S 파자마 세트 + 로그인시 25%"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000563057849" data-idx="1" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|여 클라우드 다운필 배색 숏 점퍼 J103401007056" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000563057849&siteNo=6300&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000563057849","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000591344312" data-idx="1" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|23 S/S 파자마 세트 + 로그인시 25%" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000591344312","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6300">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000563057849">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000591344312">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="여 클라우드 다운필 배색 숏 점퍼 J103401007056">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/49/78/05/item/1000563057849_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="23 S/S 파자마 세트 + 로그인시 25%">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000563057849" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000591344312" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -3781,19 +3959,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <strong class="brd">
                 <em class="tx_ko">JAJU</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000563057849&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 클라우드 다운필 배색 숏 점퍼 J103401007056"
-            data-info="1000563057849" data-index="1" data-position="view" data-unit="img">
-                <em class="tx_ko">여 클라우드 다운필 배색 숏 점퍼 J103401007056</em>
+        <a href="/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|23 S/S 파자마 세트 + 로그인시 25%"
+            data-info="1000591344312" data-index="1" data-position="view" data-unit="img">
+                <em class="tx_ko">23 S/S 파자마 세트 + 로그인시 25%</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
-        <div class="opt_origin_price">최초출시가 <em class="ssg_price">79,900</em>원</div>
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">49,900</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦49,900)</div>
+                    <em class="ssg_price">29,900</em>
+                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦29,900)</div>
                 </div>
             <div class="org_price_wrap">
             </div>
@@ -3801,9 +3978,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.71점</span></span>
+                <span style="width:94.0%"><span class="blind">별점 4.73점</span></span>
             </div>
-            <span class="rate_tx">(<em>24</em>개)</span>
+            <span class="rate_tx">(<em>359</em>개)</span>
         </div>
     </div>
     </div>
@@ -3813,7 +3990,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000557518156"
+     data-react-unit-id="1000030690743"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -3824,35 +4001,34 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000557518156","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg","lwst_sellprc":49900,"usabl_inv_qty":489,"brand_id":"3000006197"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000030690743","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/43/07/69/item/1000030690743_i1_550.jpg","lwst_sellprc":33750,"usabl_inv_qty":405,"brand_id":"3000012873"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 브이넥 버튼 자켓 J103301022071_1000557518156" data-info="1000557518156" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/dealItemView.ssg?itemId=1000030690743&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|SUMMER BEST+아울렛 혜택가_1000030690743" data-info="1000030690743" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg, //sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="여 브이넥 버튼 자켓 J103301022071"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i2_550.jpg, //sitem.ssgcdn.com/56/81/51/item/1000557518156_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="여 브이넥 버튼 자켓 J103301022071" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/43/07/69/item/1000030690743_i1_550.jpg, //sitem.ssgcdn.com/43/07/69/item/1000030690743_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/43/07/69/item/1000030690743_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="SUMMER BEST+아울렛 혜택가"  loading="lazy">
                 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000557518156" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|여 브이넥 버튼 자켓 J103301022071"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000030690743&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000030690743" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|SUMMER BEST+아울렛 혜택가"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000557518156" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|여 브이넥 버튼 자켓 J103301022071" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000557518156","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000030690743" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|SUMMER BEST+아울렛 혜택가" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000030690743&siteNo=6300&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000030690743","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6300">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000557518156">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000030690743">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="여 브이넥 버튼 자켓 J103301022071">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="SUMMER BEST+아울렛 혜택가">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/43/07/69/item/1000030690743_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000557518156" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000030690743" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -3880,21 +4056,20 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">JAJU</em>
+                <em class="tx_ko">STUDIO TOMBOY</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 브이넥 버튼 자켓 J103301022071"
-            data-info="1000557518156" data-index="2" data-position="view" data-unit="img">
-                <em class="tx_ko">여 브이넥 버튼 자켓 J103301022071</em>
+        <a href="/item/dealItemView.ssg?itemId=1000030690743&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|SUMMER BEST+아울렛 혜택가"
+            data-info="1000030690743" data-index="2" data-position="view" data-unit="img">
+                <em class="tx_ko">SUMMER BEST+아울렛 혜택가</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
-        <div class="opt_origin_price">최초출시가 <em class="ssg_price">89,900</em>원</div>
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">49,900</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦49,900)</div>
+                    <em class="ssg_price">33,750</em>
+                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦33,750)</div>
                 </div>
             <div class="org_price_wrap">
             </div>
@@ -3902,9 +4077,12 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:92.0%"><span class="blind">별점 4.67점</span></span>
+                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
             </div>
-            <span class="rate_tx">(<em>12</em>개)</span>
+            <span class="rate_tx">(<em>2</em>개)</span>
+        </div>
+    <div class="buying">
+            <em>27</em>개 구매중
         </div>
     </div>
     </div>
@@ -3925,7 +4103,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000554936578","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/78/65/93/item/1000554936578_i1_550.jpg","lwst_sellprc":49900,"usabl_inv_qty":132,"brand_id":"3000006197"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000554936578","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/78/65/93/item/1000554936578_i1_550.jpg","lwst_sellprc":49900,"usabl_inv_qty":191,"brand_id":"3000006197"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -4005,7 +4183,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <div class="rate_bg">
                 <span style="width:100.0%"><span class="blind">별점 5점</span></span>
             </div>
-            <span class="rate_tx">(<em>8</em>개)</span>
+            <span class="rate_tx">(<em>7</em>개)</span>
         </div>
     </div>
     </div>
@@ -4015,7 +4193,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000591344312"
+     data-react-unit-id="1000557518156"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -4026,35 +4204,35 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000591344312","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg","lwst_sellprc":29900,"usabl_inv_qty":2857,"brand_id":"3000006197"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000557518156","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg","lwst_sellprc":49900,"usabl_inv_qty":473,"brand_id":"3000006197"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|23 S/S 파자마 세트 + 로그인시 최대 15%_1000591344312" data-info="1000591344312" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 브이넥 버튼 자켓 J103301022071_1000557518156" data-info="1000557518156" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg, //sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="23 S/S 파자마 세트 + 로그인시 최대 15%"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i2_550.jpg, //sitem.ssgcdn.com/12/43/34/item/1000591344312_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="23 S/S 파자마 세트 + 로그인시 최대 15%" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg, //sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="여 브이넥 버튼 자켓 J103301022071"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i2_550.jpg, //sitem.ssgcdn.com/56/81/51/item/1000557518156_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="여 브이넥 버튼 자켓 J103301022071" aria-hidden="true" loading="lazy">
                 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000591344312" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|23 S/S 파자마 세트 + 로그인시 최대 15%"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000557518156" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|여 브이넥 버튼 자켓 J103301022071"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000591344312" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|23 S/S 파자마 세트 + 로그인시 최대 15%" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000591344312","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000557518156" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|여 브이넥 버튼 자켓 J103301022071" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000557518156","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6300">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000591344312">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000557518156">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="23 S/S 파자마 세트 + 로그인시 최대 15%">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/12/43/34/item/1000591344312_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="여 브이넥 버튼 자켓 J103301022071">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/56/81/51/item/1000557518156_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000591344312" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000557518156" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -4084,18 +4262,19 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <strong class="brd">
                 <em class="tx_ko">JAJU</em>
             </strong>
-        <a href="/item/dealItemView.ssg?itemId=1000591344312&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|23 S/S 파자마 세트 + 로그인시 최대 15%"
-            data-info="1000591344312" data-index="4" data-position="view" data-unit="img">
-                <em class="tx_ko">23 S/S 파자마 세트 + 로그인시 최대 15%</em>
+        <a href="/item/itemView.ssg?itemId=1000557518156&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 브이넥 버튼 자켓 J103301022071"
+            data-info="1000557518156" data-index="4" data-position="view" data-unit="img">
+                <em class="tx_ko">여 브이넥 버튼 자켓 J103301022071</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
+        <div class="opt_origin_price">최초출시가 <em class="ssg_price">89,900</em>원</div>
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">29,900</em>
-                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦29,900)</div>
+                    <em class="ssg_price">49,900</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦49,900)</div>
                 </div>
             <div class="org_price_wrap">
             </div>
@@ -4103,9 +4282,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.75점</span></span>
+                <span style="width:96.0%"><span class="blind">별점 4.89점</span></span>
             </div>
-            <span class="rate_tx">(<em>407</em>개)</span>
+            <span class="rate_tx">(<em>9</em>개)</span>
         </div>
     </div>
     </div>
@@ -4126,7 +4305,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000538138767","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/67/87/13/item/1000538138767_i1_550.jpg","lwst_sellprc":29900,"usabl_inv_qty":1264,"brand_id":"3000006197"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000538138767","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/67/87/13/item/1000538138767_i1_550.jpg","lwst_sellprc":29900,"usabl_inv_qty":1975,"brand_id":"3000006197"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -4204,9 +4383,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.78점</span></span>
+                <span style="width:94.0%"><span class="blind">별점 4.77점</span></span>
             </div>
-            <span class="rate_tx">(<em>49</em>개)</span>
+            <span class="rate_tx">(<em>43</em>개)</span>
         </div>
     </div>
     </div>
@@ -4216,7 +4395,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000552317327"
+     data-react-unit-id="1000585617860"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -4227,35 +4406,35 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000552317327","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/27/73/31/item/1000552317327_i1_550.jpg","lwst_sellprc":29900,"usabl_inv_qty":48,"brand_id":"3000006197"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000585617860","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/60/78/61/item/1000585617860_i1_550.jpg","lwst_sellprc":39900,"usabl_inv_qty":24,"brand_id":"3000006197"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000552317327&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 7부 루즈핏 오픈 카라 셔츠 J113303005006_1000552317327" data-info="1000552317327" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000585617860&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 사각사각 풀 스커트 J124202201099_1000585617860" data-info="1000585617860" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/27/73/31/item/1000552317327_i1_550.jpg, //sitem.ssgcdn.com/27/73/31/item/1000552317327_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/27/73/31/item/1000552317327_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="여 7부 루즈핏 오픈 카라 셔츠 J113303005006"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/27/73/31/item/1000552317327_i2_550.jpg, //sitem.ssgcdn.com/27/73/31/item/1000552317327_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/27/73/31/item/1000552317327_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="여 7부 루즈핏 오픈 카라 셔츠 J113303005006" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/60/78/61/item/1000585617860_i1_550.jpg, //sitem.ssgcdn.com/60/78/61/item/1000585617860_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/60/78/61/item/1000585617860_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="여 사각사각 풀 스커트 J124202201099"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/60/78/61/item/1000585617860_i2_550.jpg, //sitem.ssgcdn.com/60/78/61/item/1000585617860_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/60/78/61/item/1000585617860_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="여 사각사각 풀 스커트 J124202201099" aria-hidden="true" loading="lazy">
                 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000552317327&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000552317327" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|여 7부 루즈핏 오픈 카라 셔츠 J113303005006"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000585617860&siteNo=6300&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000585617860" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|여 사각사각 풀 스커트 J124202201099"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000552317327" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|여 7부 루즈핏 오픈 카라 셔츠 J113303005006" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000552317327&siteNo=6300&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000552317327","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000585617860" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|여 사각사각 풀 스커트 J124202201099" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000585617860&siteNo=6300&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000585617860","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6300","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6300">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000552317327">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000585617860">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="여 7부 루즈핏 오픈 카라 셔츠 J113303005006">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/27/73/31/item/1000552317327_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="여 사각사각 풀 스커트 J124202201099">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/60/78/61/item/1000585617860_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000552317327" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000585617860" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -4285,9 +4464,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <strong class="brd">
                 <em class="tx_ko">JAJU</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000552317327&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 7부 루즈핏 오픈 카라 셔츠 J113303005006"
-            data-info="1000552317327" data-index="6" data-position="view" data-unit="img">
-                <em class="tx_ko">여 7부 루즈핏 오픈 카라 셔츠 J113303005006</em>
+        <a href="/item/itemView.ssg?itemId=1000585617860&siteNo=6300&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|여 사각사각 풀 스커트 J124202201099"
+            data-info="1000585617860" data-index="6" data-position="view" data-unit="img">
+                <em class="tx_ko">여 사각사각 풀 스커트 J124202201099</em>
             </a>
         </div>
     </div>
@@ -4295,9 +4474,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <div class="opt_origin_price">최초출시가 <em class="ssg_price">39,900</em>원</div>
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">29,900</em>
+                    <em class="ssg_price">39,900</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦29,900)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦39,900)</div>
                 </div>
             <div class="org_price_wrap">
             </div>
@@ -4307,7 +4486,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <div class="rate_bg">
                 <span style="width:100.0%"><span class="blind">별점 5점</span></span>
             </div>
-            <span class="rate_tx">(<em>12</em>개)</span>
+            <span class="rate_tx">(<em>2</em>개)</span>
         </div>
     </div>
     </div>
@@ -4493,7 +4672,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000582382833","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/33/28/38/item/1000582382833_i1_550.jpg","lwst_sellprc":32500,"usabl_inv_qty":20,"brand_id":"2000007146"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000582382833","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/33/28/38/item/1000582382833_i1_550.jpg","lwst_sellprc":32500,"usabl_inv_qty":29,"brand_id":"2000007146"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -4595,7 +4774,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="1000565628895"
+     data-react-unit-id="1000581102629"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -4606,38 +4785,38 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000565628895","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg","lwst_sellprc":29000,"usabl_inv_qty":41,"brand_id":"2000007146"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000581102629","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/29/26/10/item/1000581102629_i1_550.jpg","lwst_sellprc":72500,"usabl_inv_qty":49,"brand_id":"2000007146"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)_1000565628895" data-info="1000565628895" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=1000581102629&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)_1000581102629" data-info="1000581102629" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg, //sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i2_550.jpg, //sitem.ssgcdn.com/95/88/62/item/1000565628895_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)" aria-hidden="true" loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/29/26/10/item/1000581102629_i1_550.jpg, //sitem.ssgcdn.com/29/26/10/item/1000581102629_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/29/26/10/item/1000581102629_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/29/26/10/item/1000581102629_i2_550.jpg, //sitem.ssgcdn.com/29/26/10/item/1000581102629_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/29/26/10/item/1000581102629_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)" aria-hidden="true" loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_sale"><span class="blind">세일</span>61<em class="per">%</em></span>
+        <span class="di_sale"><span class="blind">세일</span>50<em class="per">%</em></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000565628895" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000581102629&siteNo=7008&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000581102629" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000565628895" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000565628895","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7008","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+                            data-info="1000581102629" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000581102629&siteNo=7008&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000581102629","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7008","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="7008">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000565628895">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000581102629">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg">
+                <input type="hidden" name="notiTitle" value="(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/29/26/10/item/1000581102629_i1_550.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000565628895" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000581102629" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -4667,23 +4846,23 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <strong class="brd">
                 <em class="tx_ko">반스</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)"
-            data-info="1000565628895" data-index="3" data-position="view" data-unit="img">
-                <em class="tx_ko">[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)</em>
+        <a href="/item/itemView.ssg?itemId=1000581102629&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)"
+            data-info="1000581102629" data-index="3" data-position="view" data-unit="img">
+                <em class="tx_ko">(남여공용) Amzn 트레일헤드 (Amzn Trailhead)(VN0A7TO2BKP)</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">29,000</em>
+                    <em class="ssg_price">72,500</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦29,000)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦72,500)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
                     <span class="blind">판매가</span>
-                    <em class="ssg_price">75,000</em>
+                    <em class="ssg_price">145,000</em>
                     <span class="ssg_tx">원</span>
                 </div>
             <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
@@ -4691,239 +4870,15 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="ly_dtl_price price-tooltip-layer">
                         <dl class="org">
                         <dt>판매가</dt>
-                                <dd>75,000</dd>
+                                <dd>145,000</dd>
                                 <dt>세일가</dt>
-                                <dd>29,000</dd>
+                                <dd>72,500</dd>
                             </dl>
                     </div>
                 </div>
             </div>
             </div>
     <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.79점</span></span>
-            </div>
-            <span class="rate_tx">(<em>14</em>개)</span>
-        </div>
-    </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000567741071"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000567741071","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg","lwst_sellprc":132300,"usabl_inv_qty":22,"brand_id":"2000003807"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|남성 린넨 스트라이프 셔츠 CH726E-53GO_1000567741071" data-info="1000567741071" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg, //sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="남성 린넨 스트라이프 셔츠 CH726E-53GO"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i2_550.jpg, //sitem.ssgcdn.com/71/10/74/item/1000567741071_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="남성 린넨 스트라이프 셔츠 CH726E-53GO" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_sale"><span class="blind">세일</span>30<em class="per">%</em></span>
-            </div>
-</a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000567741071" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|남성 린넨 스트라이프 셔츠 CH726E-53GO"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000567741071" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|남성 린넨 스트라이프 셔츠 CH726E-53GO" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000567741071","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7008","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="7008">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000567741071">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="남성 린넨 스트라이프 셔츠 CH726E-53GO">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000567741071" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="outlet"><span class="blind">프리미엄 아울렛</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <strong class="brd">
-                <em class="tx_ko">라코스테</em>
-            </strong>
-        <a href="/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|남성 린넨 스트라이프 셔츠 CH726E-53GO"
-            data-info="1000567741071" data-index="4" data-position="view" data-unit="img">
-                <em class="tx_ko">남성 린넨 스트라이프 셔츠 CH726E-53GO</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">132,300</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦132,300)</div>
-                </div>
-            <div class="org_price_wrap">
-            <div class="org_price">
-                    <span class="blind">판매가</span>
-                    <em class="ssg_price">189,000</em>
-                    <span class="ssg_tx">원</span>
-                </div>
-            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
-                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
-                    <div class="ly_dtl_price price-tooltip-layer">
-                        <dl class="org">
-                        <dt>판매가</dt>
-                                <dd>189,000</dd>
-                                <dt>세일가</dt>
-                                <dd>132,300</dd>
-                            </dl>
-                    </div>
-                </div>
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
-            </div>
-            <span class="rate_tx">(<em>1</em>개)</span>
-        </div>
-    </div>
-    </div>
-</li>
-                                    <li class="cunit_t180">
-                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000230564837"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000230564837","shpp_type_dtl_cd":"98","item_img_url":"https://sitem.ssgcdn.com/37/48/56/item/1000230564837_i1_550.jpg","lwst_sellprc":67600,"usabl_inv_qty":18,"brand_id":"2000003807"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/dealItemView.ssg?itemId=1000230564837&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] 아울렛 단독 특가 BEST_1000230564837" data-info="1000230564837" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/37/48/56/item/1000230564837_i1_550.jpg, //sitem.ssgcdn.com/37/48/56/item/1000230564837_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/37/48/56/item/1000230564837_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[시흥점] 아울렛 단독 특가 BEST"  loading="lazy">
-                </a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/dealItemView.ssg?itemId=1000230564837&siteNo=7008&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000230564837" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[시흥점] 아울렛 단독 특가 BEST"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000230564837" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[시흥점] 아울렛 단독 특가 BEST" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"N","itemChrctDivCd":"10","itemLnkd":"/item/dealItemView.ssg?itemId=1000230564837&siteNo=7008&salestrNo=6005","giftBtnMsg":"선물하기 불가 상품 입니다.","bothSsgMorningShppYn":"N","shppTypeDtlCd":"98","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000230564837","dealItemYn":"Y","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7008","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="7008">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000230564837">
-                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
-                <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[시흥점] 아울렛 단독 특가 BEST">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/37/48/56/item/1000230564837_i1_550.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000230564837" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="outlet"><span class="blind">프리미엄 아울렛</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <strong class="brd">
-                <em class="tx_ko">라코스테</em>
-            </strong>
-        <a href="/item/dealItemView.ssg?itemId=1000230564837&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] 아울렛 단독 특가 BEST"
-            data-info="1000230564837" data-index="5" data-position="view" data-unit="img">
-                <em class="tx_ko">[시흥점] 아울렛 단독 특가 BEST</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">67,600</em>
-                    <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦67,600)</div>
-                </div>
-            <div class="org_price_wrap">
-            </div>
-            </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.7점</span></span>
-            </div>
-            <span class="rate_tx">(<em>40</em>개)</span>
-        </div>
     </div>
     </div>
 </li>
@@ -4943,21 +4898,21 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000530053337","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/37/33/05/item/1000530053337_i1_550.jpg","lwst_sellprc":65400,"usabl_inv_qty":4,"brand_id":"2011000934"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000530053337","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/37/33/05/item/1000530053337_i1_550.jpg","lwst_sellprc":65400,"usabl_inv_qty":2,"brand_id":"2011000934"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
         <a href="/item/itemView.ssg?itemId=1000530053337&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"
-             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS_1000530053337" data-info="1000530053337" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS_1000530053337" data-info="1000530053337" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
             <img srcset="//sitem.ssgcdn.com/37/33/05/item/1000530053337_i1_550.jpg, //sitem.ssgcdn.com/37/33/05/item/1000530053337_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/37/33/05/item/1000530053337_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS"  loading="lazy">
                 </a>
         <div class="exp_area notranslate">
         <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000530053337&siteNo=7008&salestrNo=6005" class="blank clickable"  target="_blank"
-                    data-info="1000530053337" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS"><span class="blind">새창보기</span></a>
+                    data-info="1000530053337" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000530053337" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                            data-info="1000530053337" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
                 <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000530053337&siteNo=7008&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000530053337","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7008","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
@@ -5001,7 +4956,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <em class="tx_ko">내셔널지오그래픽</em>
             </strong>
         <a href="/item/itemView.ssg?itemId=1000530053337&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS"
-            data-info="1000530053337" data-index="6" data-position="view" data-unit="img">
+            data-info="1000530053337" data-index="4" data-position="view" data-unit="img">
                 <em class="tx_ko">[시흥점] N221UPT070 남여공용 디머 우븐 TRAINING SET L/PANTS</em>
             </a>
         </div>
@@ -5022,6 +4977,244 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <span style="width:92.0%"><span class="blind">별점 4.66점</span></span>
             </div>
             <span class="rate_tx">(<em>56</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000565628895"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000565628895","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg","lwst_sellprc":29000,"usabl_inv_qty":48,"brand_id":"2000007146"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)_1000565628895" data-info="1000565628895" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg, //sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i2_550.jpg, //sitem.ssgcdn.com/95/88/62/item/1000565628895_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_sale"><span class="blind">세일</span>61<em class="per">%</em></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000565628895" data-index="5" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000565628895" data-idx="5" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000565628895","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7008","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="7008">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000565628895">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/95/88/62/item/1000565628895_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000565628895" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="outlet"><span class="blind">프리미엄 아울렛</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">반스</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000565628895&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)"
+            data-info="1000565628895" data-index="5" data-position="view" data-unit="img">
+                <em class="tx_ko">[시흥점] 남여공용 스니커즈 클래식 슬립온  린넨 (블랙) (VN0A7Q5DBMA)</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">29,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦29,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">75,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>75,000</dd>
+                                <dt>세일가</dt>
+                                <dd>29,000</dd>
+                            </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:94.0%"><span class="blind">별점 4.77점</span></span>
+            </div>
+            <span class="rate_tx">(<em>13</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                                    <li class="cunit_t180">
+                                            <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000567741071"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000567741071","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg","lwst_sellprc":132300,"usabl_inv_qty":36,"brand_id":"2000003807"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"
+             data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|남성 린넨 스트라이프 셔츠 CH726E-53GO_1000567741071" data-info="1000567741071" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg, //sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="남성 린넨 스트라이프 셔츠 CH726E-53GO"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i2_550.jpg, //sitem.ssgcdn.com/71/10/74/item/1000567741071_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="남성 린넨 스트라이프 셔츠 CH726E-53GO" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_sale"><span class="blind">세일</span>30<em class="per">%</em></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005" class="blank clickable"  target="_blank"
+                    data-info="1000567741071" data-index="6" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|남성 린넨 스트라이프 셔츠 CH726E-53GO"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000567741071" data-idx="6" data-position="cart" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_장바구니|남성 린넨 스트라이프 셔츠 CH726E-53GO" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":null,"giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"22","goItemDetailYn":"Y","drctPurchYn":"N","itemId":"1000567741071","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"7008","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"6005","msgItemDetail":"이 상품은 옵션이 있는 상품 입니다.\n상품상세에서 옵션을 선택해주세요."}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="7008">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000567741071">
+                <input type="hidden" name="attnTgtIdnfNo2" value="6005">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="남성 린넨 스트라이프 셔츠 CH726E-53GO">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/71/10/74/item/1000567741071_i1_550.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_좋아요|_1000567741071" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="outlet"><span class="blind">프리미엄 아울렛</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">라코스테</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000567741071&siteNo=7008&salestrNo=6005" target="_self"  class="clickable"  data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_클릭|남성 린넨 스트라이프 셔츠 CH726E-53GO"
+            data-info="1000567741071" data-index="6" data-position="view" data-unit="img">
+                <em class="tx_ko">남성 린넨 스트라이프 셔츠 CH726E-53GO</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">132,300</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦132,300)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">189,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>189,000</dd>
+                                <dt>세일가</dt>
+                                <dd>132,300</dd>
+                            </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
+            </div>
+            <span class="rate_tx">(<em>1</em>개)</span>
         </div>
     </div>
     </div>
@@ -5091,7 +5284,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000293942172","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/72/21/94/item/1000293942172_i1_550.jpg","lwst_sellprc":112100,"usabl_inv_qty":8,"brand_id":"2000015857"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000293942172","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/72/21/94/item/1000293942172_i1_550.jpg","lwst_sellprc":118000,"usabl_inv_qty":8,"brand_id":"2000015857"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -5100,10 +5293,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 
             <img srcset="//sitem.ssgcdn.com/72/21/94/item/1000293942172_i1_550.jpg, //sitem.ssgcdn.com/72/21/94/item/1000293942172_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/72/21/94/item/1000293942172_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Minquiers 18] ASJM2414326-201_SC"  loading="lazy">
                 <img srcset="//sitem.ssgcdn.com/72/21/94/item/1000293942172_i2_550.jpg, //sitem.ssgcdn.com/72/21/94/item/1000293942172_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/72/21/94/item/1000293942172_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Minquiers 18] ASJM2414326-201_SC" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>5<em class="per">%</em></span>
-            </div>
-</a>
+                </a>
         <div class="exp_area notranslate">
         <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000293942172&siteNo=6004&salestrNo=6005" class="blank clickable"  target="_blank"
                     data-info="1000293942172" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[플랫폼 플레이스][세인트제임스][정품][Minquiers 18] ASJM2414326-201_SC"><span class="blind">새창보기</span></a>
@@ -5160,32 +5350,11 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">112,100</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦112,100)</div>
-                </div>
-            <div class="org_price_wrap">
-            <div class="org_price">
-                    <span class="blind">판매가</span>
                     <em class="ssg_price">118,000</em>
                     <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦118,000)</div>
                 </div>
-            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
-                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
-                    <div class="ly_dtl_price price-tooltip-layer">
-                        <dl class="org">
-                        <dt>판매가</dt>
-                                <dd>118,000</dd>
-                            </dl>
-                    <dl class="dis">
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>5,900원</dd>
-                        </dl>
-                    <dl class="sum">
-                            <dt>최적가</dt>
-                            <dd>112,100</dd>
-                        </dl>
-                    </div>
-                </div>
+            <div class="org_price_wrap">
             </div>
             </div>
     <div class="cunit_app">
@@ -5214,7 +5383,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000236396628","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/28/66/39/item/1000236396628_i1_550.jpg","lwst_sellprc":112100,"usabl_inv_qty":10,"brand_id":"2000015857"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000236396628","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/28/66/39/item/1000236396628_i1_550.jpg","lwst_sellprc":118000,"usabl_inv_qty":10,"brand_id":"2000015857"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -5223,10 +5392,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 
             <img srcset="//sitem.ssgcdn.com/28/66/39/item/1000236396628_i1_550.jpg, //sitem.ssgcdn.com/28/66/39/item/1000236396628_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/28/66/39/item/1000236396628_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Minquiers 18] ASJM2234326-0MM_SC"  loading="lazy">
                 <img srcset="//sitem.ssgcdn.com/28/66/39/item/1000236396628_i2_550.jpg, //sitem.ssgcdn.com/28/66/39/item/1000236396628_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/28/66/39/item/1000236396628_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Minquiers 18] ASJM2234326-0MM_SC" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>5<em class="per">%</em></span>
-            </div>
-</a>
+                </a>
         <div class="exp_area notranslate">
         <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000236396628&siteNo=6004&salestrNo=6005" class="blank clickable"  target="_blank"
                     data-info="1000236396628" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[플랫폼 플레이스][세인트제임스][정품][Minquiers 18] ASJM2234326-0MM_SC"><span class="blind">새창보기</span></a>
@@ -5283,32 +5449,11 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">112,100</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦112,100)</div>
-                </div>
-            <div class="org_price_wrap">
-            <div class="org_price">
-                    <span class="blind">판매가</span>
                     <em class="ssg_price">118,000</em>
                     <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦118,000)</div>
                 </div>
-            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
-                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
-                    <div class="ly_dtl_price price-tooltip-layer">
-                        <dl class="org">
-                        <dt>판매가</dt>
-                                <dd>118,000</dd>
-                            </dl>
-                    <dl class="dis">
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>5,900원</dd>
-                        </dl>
-                    <dl class="sum">
-                            <dt>최적가</dt>
-                            <dd>112,100</dd>
-                        </dl>
-                    </div>
-                </div>
+            <div class="org_price_wrap">
             </div>
             </div>
     <div class="cunit_app">
@@ -5337,7 +5482,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000187837570","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/70/75/83/item/1000187837570_i1_550.jpg","lwst_sellprc":131100,"usabl_inv_qty":28,"brand_id":"2000015857"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000187837570","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/70/75/83/item/1000187837570_i1_550.jpg","lwst_sellprc":138000,"usabl_inv_qty":28,"brand_id":"2000015857"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -5346,10 +5491,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 
             <img srcset="//sitem.ssgcdn.com/70/75/83/item/1000187837570_i1_550.jpg, //sitem.ssgcdn.com/70/75/83/item/1000187837570_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/70/75/83/item/1000187837570_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Guildo U Elbow Patches티셔츠]ASJU2012644-002"  loading="lazy">
                 <img srcset="//sitem.ssgcdn.com/70/75/83/item/1000187837570_i2_550.jpg, //sitem.ssgcdn.com/70/75/83/item/1000187837570_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/70/75/83/item/1000187837570_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Guildo U Elbow Patches티셔츠]ASJU2012644-002" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>5<em class="per">%</em></span>
-            </div>
-</a>
+                </a>
         <div class="exp_area notranslate">
         <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000187837570&siteNo=6004&salestrNo=6005" class="blank clickable"  target="_blank"
                     data-info="1000187837570" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[플랫폼 플레이스][세인트제임스][정품][Guildo U Elbow Patches티셔츠]ASJU2012644-002"><span class="blind">새창보기</span></a>
@@ -5406,32 +5548,11 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">131,100</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦131,100)</div>
-                </div>
-            <div class="org_price_wrap">
-            <div class="org_price">
-                    <span class="blind">판매가</span>
                     <em class="ssg_price">138,000</em>
                     <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦138,000)</div>
                 </div>
-            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
-                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
-                    <div class="ly_dtl_price price-tooltip-layer">
-                        <dl class="org">
-                        <dt>판매가</dt>
-                                <dd>138,000</dd>
-                            </dl>
-                    <dl class="dis">
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>6,900원</dd>
-                        </dl>
-                    <dl class="sum">
-                            <dt>최적가</dt>
-                            <dd>131,100</dd>
-                        </dl>
-                    </div>
-                </div>
+            <div class="org_price_wrap">
             </div>
             </div>
     <div class="cunit_app">
@@ -5460,7 +5581,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000187905976","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/76/59/90/item/1000187905976_i1_550.jpg","lwst_sellprc":131100,"usabl_inv_qty":28,"brand_id":"2000015857"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000187905976","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/76/59/90/item/1000187905976_i1_550.jpg","lwst_sellprc":138000,"usabl_inv_qty":29,"brand_id":"2000015857"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -5469,10 +5590,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 
             <img srcset="//sitem.ssgcdn.com/76/59/90/item/1000187905976_i1_550.jpg, //sitem.ssgcdn.com/76/59/90/item/1000187905976_i1_1100.jpg 2x" src="//sitem.ssgcdn.com/76/59/90/item/1000187905976_i1_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Guildo Elbow Patch]ASJU2211388-050_SC"  loading="lazy">
                 <img srcset="//sitem.ssgcdn.com/76/59/90/item/1000187905976_i2_550.jpg, //sitem.ssgcdn.com/76/59/90/item/1000187905976_i2_1100.jpg 2x" src="//sitem.ssgcdn.com/76/59/90/item/1000187905976_i2_550.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i2" width="180" height="180" alt="[플랫폼 플레이스][세인트제임스][정품][Guildo Elbow Patch]ASJU2211388-050_SC" aria-hidden="true" loading="lazy">
-                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>5<em class="per">%</em></span>
-            </div>
-</a>
+                </a>
         <div class="exp_area notranslate">
         <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000187905976&siteNo=6004&salestrNo=6005" class="blank clickable"  target="_blank"
                     data-info="1000187905976" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|그룹사안내구좌|상품_클릭|상품_새창보기|[플랫폼 플레이스][세인트제임스][정품][Guildo Elbow Patch]ASJU2211388-050_SC"><span class="blind">새창보기</span></a>
@@ -5529,32 +5647,11 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">131,100</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦131,100)</div>
-                </div>
-            <div class="org_price_wrap">
-            <div class="org_price">
-                    <span class="blind">판매가</span>
                     <em class="ssg_price">138,000</em>
                     <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦138,000)</div>
                 </div>
-            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
-                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
-                    <div class="ly_dtl_price price-tooltip-layer">
-                        <dl class="org">
-                        <dt>판매가</dt>
-                                <dd>138,000</dd>
-                            </dl>
-                    <dl class="dis">
-                        <dt>SSG MONEY 할인쿠폰</dt><dd>6,900원</dd>
-                        </dl>
-                    <dl class="sum">
-                            <dt>최적가</dt>
-                            <dd>131,100</dd>
-                        </dl>
-                    </div>
-                </div>
+            <div class="org_price_wrap">
             </div>
             </div>
     <div class="cunit_app">
@@ -5583,7 +5680,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000582874853","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/53/48/87/item/1000582874853_i1_550.jpg","lwst_sellprc":109000,"usabl_inv_qty":11,"brand_id":"3000023943"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000582874853","shpp_type_dtl_cd":"22","item_img_url":"https://sitem.ssgcdn.com/53/48/87/item/1000582874853_i1_550.jpg","lwst_sellprc":109000,"usabl_inv_qty":13,"brand_id":"3000023943"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
@@ -5805,6 +5902,8 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 </div>
         </div>
     </div>
+    <!--------------------------------------------------------------------------------------------------------------------------------------->
+    
     <!-- //그룹사 프로모션 -->
 <div class="cmmain_sec_quick" data-react-tarea-cd="00052_000000917">
         <ul class="cmmain_quick_list ty_category">
@@ -5975,7 +6074,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="2097001787724"
+     data-react-unit-id="2097001878361"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -5986,38 +6085,43 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001787724","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/24/77/78/item/2097001787724_i1_290.jpg","lwst_sellprc":1360,"usabl_inv_qty":1137,"brand_id":"2000010371"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001878361","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/61/83/87/item/2097001878361_i1_290.jpg","lwst_sellprc":19980,"usabl_inv_qty":75,"brand_id":"9999999999"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=2097001787724&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"
-             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|먹태깡 청양마요맛 60g_2097001787724" data-info="2097001787724" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="javascript:checkAdult('/item/itemView.ssg?itemId=2097001878361&siteNo=6001&salestrNo=2569');" target="_self"  class="clickable"
+             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|[SSG단독] SSG랜더스 제주누보 프리미엄패키지 논알콜 맥주(355ml*6캔)_2097001878361" data-info="2097001878361" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/24/77/78/item/2097001787724_i1_290.jpg, //sitem.ssgcdn.com/24/77/78/item/2097001787724_i1_580.jpg 2x" src="//sitem.ssgcdn.com/24/77/78/item/2097001787724_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="먹태깡 청양마요맛 60g"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/24/77/78/item/2097001787724_i2_290.jpg, //sitem.ssgcdn.com/24/77/78/item/2097001787724_i2_580.jpg 2x" src="//sitem.ssgcdn.com/24/77/78/item/2097001787724_i2_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="먹태깡 청양마요맛 60g" aria-hidden="true" loading="lazy">
-                <div class="deiv_bdg notranslate" aria-label="배송방법">
+            <img srcset="//sitem.ssgcdn.com/61/83/87/item/2097001878361_i1_290.jpg, //sitem.ssgcdn.com/61/83/87/item/2097001878361_i1_580.jpg 2x" src="//sitem.ssgcdn.com/61/83/87/item/2097001878361_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="[SSG단독] SSG랜더스 제주누보 프리미엄패키지 논알콜 맥주(355ml*6캔)" >
+                    <span class="adult19_img_pc ty_overlay"><span class="blind">19세 이상만 구매가능해요</span></span>
+                <img srcset="//sitem.ssgcdn.com/61/83/87/item/2097001878361_i2_290.jpg, //sitem.ssgcdn.com/61/83/87/item/2097001878361_i2_580.jpg 2x" src="//sitem.ssgcdn.com/61/83/87/item/2097001878361_i2_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="[SSG단독] SSG랜더스 제주누보 프리미엄패키지 논알콜 맥주(355ml*6캔)" aria-hidden="true">
+                    <span class="adult19_img_pc ty_overlay"><span class="blind">19세 이상만 구매가능해요</span></span>
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <i class="badge badge_ssg_food_shape" aria-label="미식관"></i>
+            <span class="di_gift"><span class="blind">사은품</span></span>
+            </div>
+<div class="deiv_bdg notranslate" aria-label="배송방법">
     <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=2097001787724&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
-                    data-info="2097001787724" data-index="1" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|먹태깡 청양마요맛 60g"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="javascript:void(0)" class="blank clickable" onclick="checkAdult(); return false;"
+                    data-info="2097001878361" data-index="1" data-position="pop" data-unit="img"><span class="blind">새창보기</span></a>
 
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="2097001787724" data-idx="1" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|먹태깡 청양마요맛 60g" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001787724&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001787724","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
-            <span class="cmlike _js_cmlike interestIt">
+            <a href="javascript:void(0)" class="cart" role="button" onclick="checkAdult(); return false;"
+                            data-info="2097001878361" data-index="1" data-position="cart" data-react-tarea-dtl-cd="t00002"><span class="blind">장바구니</span></a>
+                <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6001">
-                <input type="hidden" name="attnTgtIdnfNo1" value="2097001787724">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001878361">
                 <input type="hidden" name="attnTgtIdnfNo2" value="2569">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="먹태깡 청양마요맛 60g">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/24/77/78/item/2097001787724_i1_290.jpg">
+                <input type="hidden" name="notiTitle" value="[SSG단독] SSG랜더스 제주누보 프리미엄패키지 논알콜 맥주(355ml*6캔)">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/61/83/87/item/2097001878361_i1_290.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001787724" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001878361" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -6044,31 +6148,31 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 </div>
     <div class="cunit_md notranslate">
         <div class="title">
-        <strong class="brd">
-                <em class="tx_ko">농심</em>
-            </strong>
-        <a href="/item/itemView.ssg?itemId=2097001787724&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|먹태깡 청양마요맛 60g"
-            data-info="2097001787724" data-index="1" data-position="view" data-unit="img">
-                <em class="tx_ko">먹태깡 청양마요맛 60g</em>
+        <a href="javascript:checkAdult('/item/itemView.ssg?itemId=2097001878361&siteNo=6001&salestrNo=2569');" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|[SSG단독] SSG랜더스 제주누보 프리미엄패키지 논알콜 맥주(355ml*6캔)"
+            data-info="2097001878361" data-index="1" data-position="view" data-unit="img">
+                <em class="tx_ko">[SSG단독] SSG랜더스 제주누보 프리미엄패키지 논알콜 맥주(355ml*6캔)</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">1,360</em>
+                    <em class="ssg_price">19,980</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦1,360)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦19,980)</div>
                 </div>
             <div class="org_price_wrap">
             </div>
             </div>
+    <div class="cunit_prw">
+            <div class="unit">(100ml당:939원)</div>
+                </div>
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.73점</span></span>
+                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
             </div>
-            <span class="rate_tx">(<em>3,092</em>개)</span>
+            <span class="rate_tx">(<em>5</em>개)</span>
         </div>
     </div>
     </div>
@@ -6078,7 +6182,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
-     data-react-unit-id="2097001718384"
+     data-react-unit-id="2097001772638"
      data-react-unit-inx="0"
      data-react-mdl-info=""
      data-react-advert-yn ="N"
@@ -6089,40 +6193,41 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001718384","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/84/83/71/item/2097001718384_i1_290.jpg","lwst_sellprc":79200,"usabl_inv_qty":11,"brand_id":"2000024800"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001772638","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/38/26/77/item/2097001772638_i1_290.jpg","lwst_sellprc":24320,"usabl_inv_qty":722,"brand_id":"3000061682"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=2097001718384&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"
-             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|[쓱1DAY]헤라 블랙 쿠션 디럭스 21N1 (15g*3)_2097001718384" data-info="2097001718384" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        <a href="/item/itemView.ssg?itemId=2097001772638&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"
+             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3챔버 고농축 캡슐세제 세탁세제 실속형 50개입 전참시 브라이언 방송 세제_2097001772638" data-info="2097001772638" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/84/83/71/item/2097001718384_i1_290.jpg, //sitem.ssgcdn.com/84/83/71/item/2097001718384_i1_580.jpg 2x" src="//sitem.ssgcdn.com/84/83/71/item/2097001718384_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="[쓱1DAY]헤라 블랙 쿠션 디럭스 21N1 (15g*3)"  loading="lazy">
+            <img srcset="//sitem.ssgcdn.com/38/26/77/item/2097001772638_i1_290.jpg, //sitem.ssgcdn.com/38/26/77/item/2097001772638_i1_580.jpg 2x" src="//sitem.ssgcdn.com/38/26/77/item/2097001772638_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="3챔버 고농축 캡슐세제 세탁세제 실속형 50개입 전참시 브라이언 방송 세제"  loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>10<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>20<em class="per">%</em></span>
+            <span class="di_plus">1<em>+1</em></span>
             </div>
 <div class="deiv_bdg notranslate" aria-label="배송방법">
     <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=2097001718384&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
-                    data-info="2097001718384" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|[쓱1DAY]헤라 블랙 쿠션 디럭스 21N1 (15g*3)"><span class="blind">새창보기</span></a>
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=2097001772638&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                    data-info="2097001772638" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|3챔버 고농축 캡슐세제 세탁세제 실속형 50개입 전참시 브라이언 방송 세제"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="2097001718384" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|[쓱1DAY]헤라 블랙 쿠션 디럭스 21N1 (15g*3)" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001718384&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001718384","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+                            data-info="2097001772638" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|3챔버 고농축 캡슐세제 세탁세제 실속형 50개입 전참시 브라이언 방송 세제" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001772638&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001772638","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6001">
-                <input type="hidden" name="attnTgtIdnfNo1" value="2097001718384">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001772638">
                 <input type="hidden" name="attnTgtIdnfNo2" value="2569">
                 <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="[쓱1DAY]헤라 블랙 쿠션 디럭스 21N1 (15g*3)">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/84/83/71/item/2097001718384_i1_290.jpg">
+                <input type="hidden" name="notiTitle" value="3챔버 고농축 캡슐세제 세탁세제 실속형 50개입 전참시 브라이언 방송 세제">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/38/26/77/item/2097001772638_i1_290.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001718384" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001772638" data-react-tarea-dtl-cd="t00003" >
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -6150,25 +6255,25 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">헤라</em>
+                <em class="tx_ko">아이앤어스</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=2097001718384&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|[쓱1DAY]헤라 블랙 쿠션 디럭스 21N1 (15g*3)"
-            data-info="2097001718384" data-index="2" data-position="view" data-unit="img">
-                <em class="tx_ko">[쓱1DAY]헤라 블랙 쿠션 디럭스 21N1 (15g*3)</em>
+        <a href="/item/itemView.ssg?itemId=2097001772638&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3챔버 고농축 캡슐세제 세탁세제 실속형 50개입 전참시 브라이언 방송 세제"
+            data-info="2097001772638" data-index="2" data-position="view" data-unit="img">
+                <em class="tx_ko">3챔버 고농축 캡슐세제 세탁세제 실속형 50개입 전참시 브라이언 방송 세제</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">79,200</em>
+                    <em class="ssg_price">24,320</em>
                     <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦79,200)</div>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦24,320)</div>
                 </div>
             <div class="org_price_wrap">
             <div class="org_price">
                     <span class="blind">판매가</span>
-                    <em class="ssg_price">88,000</em>
+                    <em class="ssg_price">30,400</em>
                     <span class="ssg_tx">원</span>
                 </div>
             <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
@@ -6176,14 +6281,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="ly_dtl_price price-tooltip-layer">
                         <dl class="org">
                         <dt>판매가</dt>
-                                <dd>88,000</dd>
+                                <dd>30,400</dd>
                             </dl>
                     <dl class="dis">
-                        <dt>쿠폰</dt><dd>8,800원</dd>
+                        <dt>쿠폰</dt><dd>6,080원</dd>
                         </dl>
                     <dl class="sum">
                             <dt>최적가</dt>
-                            <dd>79,200</dd>
+                            <dd>24,320</dd>
                         </dl>
                     </div>
                 </div>
@@ -6192,121 +6297,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:94.0%"><span class="blind">별점 4.7점</span></span>
-            </div>
-            <span class="rate_tx">(<em>27</em>개)</span>
-        </div>
-    </div>
-    <div class="cunit_bene">
-        <div class="spt_deiv">
-            </div>
-        <div class="cunit_bene_lst">
-        </div>
-    </div>
-    </div>
-</li>
-                <li class="cunit_t290">
-                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
-     data-react-unit-type="item"
-     data-observable-item = "true"
-     data-react-unit-id="1000544937242"
-     data-react-unit-inx="0"
-     data-react-mdl-info=""
-     data-react-advert-yn ="N"
-     data-react-advert-bid-id=""
-     data-react-advert-tgt-id=""
-     data-react-advert-bilng-type-cd=""
-     data-react-advert-kind-cd=""
-     data-react-advert-extens-tery-div-cd=""
-     data-react-advert-advert-acct-grp-id=""
-     data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000544937242","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg","lwst_sellprc":10580,"usabl_inv_qty":1498,"brand_id":"1010100108"}'>
-    <div class="prod_top">
-        </div>
-    <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"
-             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤_1000544937242" data-info="1000544937242" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
-
-            <img srcset="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg, //sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_580.jpg 2x" src="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="3겹 화장지 33M X 30롤"  loading="lazy">
-                <img srcset="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i2_290.jpg, //sitem.ssgcdn.com/42/72/93/item/1000544937242_i2_580.jpg 2x" src="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i2_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="3겹 화장지 33M X 30롤" aria-hidden="true" loading="lazy">
-                <div class="deiv_bdg notranslate" aria-label="배송방법">
-    <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
-            </div>
-</a>
-        <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
-                    data-info="1000544937242" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|3겹 화장지 33M X 30롤"><span class="blind">새창보기</span></a>
-
-            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="1000544937242" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|3겹 화장지 33M X 30롤" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
-                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000544937242","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
-            <span class="cmlike _js_cmlike interestIt">
-                <input type="hidden" name="attnDivCd" value="10">
-                <input type="hidden" name="attnDivDtlCd" value="10">
-                <input type="hidden" name="siteNo" value="6001">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000544937242">
-                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
-                <input type="hidden" name="uitemId" value="00000">
-                <input type="hidden" name="notiTitle" value="3겹 화장지 33M X 30롤">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg">
-                <input type="hidden" name="checked" value="N">
-                <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_1000544937242" data-react-tarea-dtl-cd="t00003" >
-                    <span class="cmlike_ico">
-                        <i class="cmlike_primary_s"></i>
-                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
-                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
-                    </span>
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-    </div><div class="cunit_info">
-    <div class="cunit_tp">
-        <span class="cm_mall_ic ty_rect_s notranslate">
-    <i class="em"><span class="blind">이마트</span></i>
-    <!-- ssg 푸드마켓  -->
-        </span>
-<div class="dp_dv">
-
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
-    </div>
-</div>
-    <div class="cunit_md notranslate">
-        <div class="title">
-        <strong class="brd">
-                <em class="tx_ko">노브랜드</em>
-            </strong>
-        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤"
-            data-info="1000544937242" data-index="3" data-position="view" data-unit="img">
-                <em class="tx_ko">3겹 화장지 33M X 30롤</em>
-            </a>
-        </div>
-    </div>
-    <div class="cunit_price">
-        <div class="opt_price">
-                    <span class="blind">할인적용가</span>
-                    <em class="ssg_price">10,580</em>
-                    <span class="ssg_tx">원</span>
-                    <div class="ssg_price_ko show_gl hide_ko">(￦10,580)</div>
-                </div>
-            <div class="org_price_wrap">
-            </div>
-            </div>
-    <div class="cunit_prw">
-            <div class="unit">(10m당:107원)</div>
-                </div>
-    <div class="cunit_app">
-    <div class="rating">
-            <div class="rate_bg">
                 <span style="width:96.0%"><span class="blind">별점 4.82점</span></span>
             </div>
-            <span class="rate_tx">(<em>545</em>개)</span>
+            <span class="rate_tx">(<em>448</em>개)</span>
         </div>
     </div>
     </div>
@@ -6327,12 +6320,12 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
      data-react-advert-extens-tery-div-cd=""
      data-react-advert-advert-acct-grp-id=""
      data-react-unit-text=''
-     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001814277","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg","lwst_sellprc":48000,"usabl_inv_qty":796,"brand_id":"3000022153"}'>
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001814277","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg","lwst_sellprc":48000,"usabl_inv_qty":1106,"brand_id":"3000022153"}'>
     <div class="prod_top">
         </div>
     <div class="thmb">
         <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"
-             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg_2097001814277" data-info="2097001814277" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg_2097001814277" data-info="2097001814277" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
             <img srcset="//sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg, //sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_580.jpg 2x" src="//sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="NEW 캐츠랑 전연령 점보 업그레이드 20kg"  loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
@@ -6344,10 +6337,10 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 </a>
         <div class="exp_area notranslate">
         <div class="util_bx"> <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
-                    data-info="2097001814277" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|NEW 캐츠랑 전연령 점보 업그레이드 20kg"><span class="blind">새창보기</span></a>
+                    data-info="2097001814277" data-index="3" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|NEW 캐츠랑 전연령 점보 업그레이드 20kg"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
-                            data-info="2097001814277" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|NEW 캐츠랑 전연령 점보 업그레이드 20kg" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                            data-info="2097001814277" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|NEW 캐츠랑 전연령 점보 업그레이드 20kg" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
                 <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001814277","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
             <span class="cmlike _js_cmlike interestIt">
                 <input type="hidden" name="attnDivCd" value="10">
@@ -6391,7 +6384,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <em class="tx_ko">캐츠랑</em>
             </strong>
         <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg"
-            data-info="2097001814277" data-index="4" data-position="view" data-unit="img">
+            data-info="2097001814277" data-index="3" data-position="view" data-unit="img">
                 <em class="tx_ko">NEW 캐츠랑 전연령 점보 업그레이드 20kg</em>
             </a>
         </div>
@@ -6433,9 +6426,115 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:98.0%"><span class="blind">별점 4.9점</span></span>
+                <span style="width:98.0%"><span class="blind">별점 4.94점</span></span>
             </div>
-            <span class="rate_tx">(<em>40</em>개)</span>
+            <span class="rate_tx">(<em>32</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000544937242"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000544937242","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg","lwst_sellprc":10580,"usabl_inv_qty":1099,"brand_id":"1010100108"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"
+             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤_1000544937242" data-info="1000544937242" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg, //sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_580.jpg 2x" src="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="3겹 화장지 33M X 30롤"  loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i2_290.jpg, //sitem.ssgcdn.com/42/72/93/item/1000544937242_i2_580.jpg 2x" src="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i2_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="3겹 화장지 33M X 30롤" aria-hidden="true" loading="lazy">
+                <div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                    data-info="1000544937242" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|3겹 화장지 33M X 30롤"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000544937242" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|3겹 화장지 33M X 30롤" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000544937242","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000544937242">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="3겹 화장지 33M X 30롤">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_1000544937242" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="em"><span class="blind">이마트</span></i>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">노브랜드</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤"
+            data-info="1000544937242" data-index="4" data-position="view" data-unit="img">
+                <em class="tx_ko">3겹 화장지 33M X 30롤</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">10,580</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦10,580)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+            </div>
+    <div class="cunit_prw">
+            <div class="unit">(10m당:107원)</div>
+                </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:96.0%"><span class="blind">별점 4.81점</span></span>
+            </div>
+            <span class="rate_tx">(<em>507</em>개)</span>
         </div>
     </div>
     </div>
@@ -6447,187 +6546,1493 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <a href="https://www.ssg.com/service/oneday/dvstore.ssg" class="cmmain_more_btn btn_moreview clickable" data-react-tarea-dtl-cd="t00026">매장 바로가기</a>
             </div>
         </div>
-<!-- //쓱1DAY배송 상품 구좌 --><div class="cmmain_sec_popular" id="category-best" data-react-tarea-cd="00052_000000539">
+
+
+        <!-- 구현할것들 -->
+
+
+        <!-- 식품 -->
+<input type="hidden" name="titleBannerExist" value="true">
+<input type="hidden" name="titleBannerMainTitleExist" value="true">
+<input type="hidden" name="itemsExist" value="true">
+<div class="cmmain_sec_oneday" data-react-tarea-cd="00052_000000748">
         <div class="cmmain_heading">
-            <h2 class="cmmain_heading_tit">인기상품 카테고리별로 만나요</h2>
+            <h2 class="cmmain_heading_tit">의류</h2>
+            </div>
+        <div class="cmmain_banner" data-react-unit-type="banr" data-react-unit-id="2003434953" data-react-unit-text='[{"type":"text","value":"배너명"}]'>
+                <a href="https://www.ssg.com/service/oneday/dvstore.ssg" class="clickable" data-react-tarea-dtl-cd="t00001">
+                </a>
+            </div>
+        <div class="cmmain_cunit_items">
+            <!-- 공통상품유닛 -->
+            <ul class="cunit_thmb_lst">
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="2097001878361"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001878361","shpp_type_dtl_cd":"18","item_img_url":"링크이동","lwst_sellprc":19980,"usabl_inv_qty":75,"brand_id":"9999999999"}'>
+    <div class="prod_top">
         </div>
-        <div class="cmmain_tabwrap js_cmmain_tabwrap" data-tabname="popular">
-            <ul class="cmmain_tablist ty_txtmenu js_cmmain_tablist">
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"패션"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|패션"
-                                data-corner-set-id="7200747312"
-                                data-react-tarea-dtl-cd="t00014"
-                        >패션</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"잡화"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|잡화"
-                                data-corner-set-id="7200747313"
-                                data-react-tarea-dtl-cd="t00014"
-                        >잡화</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"명품"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|명품"
-                                data-corner-set-id="7200891452"
-                                data-react-tarea-dtl-cd="t00014"
-                        >명품</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"뷰티"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|뷰티"
-                                data-corner-set-id="7200747314"
-                                data-react-tarea-dtl-cd="t00014"
-                        >뷰티</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"스포츠/레저"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|스포츠/레저"
-                                data-corner-set-id="7200747315"
-                                data-react-tarea-dtl-cd="t00014"
-                        >스포츠/레저</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"생활/주방"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|생활/주방"
-                                data-corner-set-id="7200747316"
-                                data-react-tarea-dtl-cd="t00014"
-                        >생활/주방</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"가구/인테리어"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|가구/인테리어"
-                                data-corner-set-id="7200747317"
-                                data-react-tarea-dtl-cd="t00014"
-                        >가구/인테리어</button>
-                    </li>
-                <li role="presentation" class="on"
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"유아동"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="true"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|유아동"
-                                data-corner-set-id="7200747318"
-                                data-react-tarea-dtl-cd="t00014"
-                        >유아동</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"디지털/렌탈"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|디지털/렌탈"
-                                data-corner-set-id="7200747319"
-                                data-react-tarea-dtl-cd="t00014"
-                        >디지털/렌탈</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"e쿠폰/문구/도서"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|e쿠폰/문구/도서"
-                                data-corner-set-id="7200747320"
-                                data-react-tarea-dtl-cd="t00014"
-                        >e쿠폰/문구/도서</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"신선식품"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|신선식품"
-                                data-corner-set-id="7200747321"
-                                data-react-tarea-dtl-cd="t00014"
-                        >신선식품</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="text"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"가공/건강식품"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-react-tarea-cd-old="메인매장|카테고리인기상품|카테고리탭_클릭|가공/건강식품"
-                                data-corner-set-id="7200747322"
-                                data-react-tarea-dtl-cd="t00014"
-                        >가공/건강식품</button>
-                    </li>
-                </ul>
-            <div class="cmmain_tabcont">
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data on"></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                </div>
+    <div class="thmb">
+        <a href="" target="_self"  class="clickable"
+             data-react-tarea="상품 정보" data-info="2097001878361" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/76/50/14/item/1000542145076_i1_290.jpg, //sitem.ssgcdn.com/76/50/14/item/1000542145076_i1_580.jpg 2x"src="//sitem.ssgcdn.com/76/50/14/item/1000542145076_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="상품이름" >
+           
+                <img srcset="//sitem.ssgcdn.com/76/50/14/item/1000542145076_i2_290.jpg, //sitem.ssgcdn.com/76/50/14/item/1000542145076_i2_580.jpg 2x" src="//sitem.ssgcdn.com/76/50/14/item/1000542145076_i2_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=232&amp;h=232&amp;t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'" class="i2" width="232" height="232" alt="여성 릴렉스핏 리넨 셔츠(WMPOSHTNDO20437410)" aria-hidden="true" loading="lazy">
+                    <!-- <span class="adult19_img_pc ty_overlay"><span class="blind">의류 종류</span></span> -->
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+                    <!-- 미식관 -->
+        <!-- <i class="badge badge_ssg_food_shape" aria-label="미식관"></i> -->
+        <!-- 사은품 -->
+            <!-- <span class="di_gift"><span class="blind">사은품</span></span> -->
+            </div>
+            <!-- 쓱 배송 -->
+<!-- <div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+            </div> -->
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="javascript:void(0)" class="blank clickable" onclick="checkAdult(); return false;"
+                    data-info="2097001878361" data-index="1" data-position="pop" data-unit="img"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart" role="button" onclick="checkAdult(); return false;"
+                            data-info="2097001878361" data-index="1" data-position="cart" data-react-tarea-dtl-cd="t00002"><span class="blind">장바구니</span></a>
+                <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001878361">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="폴로셔츠">
+                <input type="hidden" name="notiImgPath" value="이미지 넣는곳">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001878361" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
         </div>
     </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+        <!-- 신세계백화점 스티커 -->
+    <span class="blind">신세계백화점</span>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <a href="/item/itemView.ssg?itemId=1000542145076&amp;siteNo=6009&amp;salestrNo=1004&amp;tlidSrchWd=폴로&amp;srchPgNo=1&amp;src_area=ssglist" target="_self" class="clickable" data-info="1000542145076" data-index="0" data-position="view" data-unit="img">
+                <em class="tx_ko">여성 릴렉스핏 리넨 셔츠(WMPOSHTNDO20437410)</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">239,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦239,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+            </div>
+    <div class="cunit_prw">
+        <!-- 100ml 당 금액 적는곳 -->
+            <!-- <div class="unit"></div>
+                </div> -->
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+
+                <span style="width:98.0%"><span class="blind">별점 4.9점</span></span>
+            </div>
+            <!-- 댓글 개수 -->
+            <span class="rate_tx">(<em>21</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="2097001772638"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001772638","shpp_type_dtl_cd":"18","item_img_url":"동찬이 상품(의류)2","lwst_sellprc":24320,"usabl_inv_qty":722,"brand_id":"3000061682"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+       <a href="/item/itemView.ssg?itemId=1000587706328&amp;siteNo=6009&amp;salestrNo=1024&amp;tlidSrchWd=바버&amp;srchPgNo=1&amp;src_area=ssglist" target="_self" class="clickable" data-info="1000587706328" data-index="0" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/28/63/70/item/1000587706328_i1_290.jpg, //sitem.ssgcdn.com/28/63/70/item/1000587706328_i1_580.jpg 2x" src="//sitem.ssgcdn.com/28/63/70/item/1000587706328_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=232&amp;h=232&amp;t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'" class="i1" width="232" height="232" alt="[24SS][선출시][Barbour] 남성 아이보리 애쉬비 샤워프루프 자켓 URJU4E002I2" loading="lazy">
+                </a>
+
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000587706328&amp;siteNo=6009&amp;salestrNo=1024&amp;tlidSrchWd=바버&amp;srchPgNo=1&amp;src_area=ssglist" class="blank clickable" target="_blank" data-info="1000587706328" data-index="0" data-position="pop" data-unit="img"><span class="blind">새창보기</span></a><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="2097001772638" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="동찬이 상품(의류)1" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001772638&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001772638","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001772638">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="동찬이 상품(의류)2">
+                <input type="hidden" name="notiImgPath" value="동찬이 상품(의류)2">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001772638" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <!-- 이마트표시 -->
+       <span class="blind">신세계백화점</span>
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">바버</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000587706328&amp;siteNo=6009&amp;salestrNo=1024&amp;tlidSrchWd=바버&amp;srchPgNo=1&amp;src_area=ssglist" target="_self" class="clickable" data-info="1000587706328" data-index="0" data-position="view" data-unit="img">
+                <em class="tx_ko">[24SS][선출시][Barbour] 남성 아이보리 애쉬비 샤워프루프 자켓 URJU4E002I2</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">429,000</em>
+                    <span class="ssg_tx">원</span>
+                 	<div class="ssg_price_ko show_gl hide_ko">(￦429,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            
+            <div class="cunit_app">
+    </div>
+    <div class="cunit_bene">
+        <div class="spt_deiv">
+            <span class="magicpick_w">
+            <button class="btn_magicpick" data-api="/comm/ajaxPickupSalestrNm.ssg" data-item-id="1000587706328" data-tooltip-content="#magicPickupTt" data-react-tarea-dtl-cd="t00005"><span class="tx">매장픽업 가능점포</span></button>
+            </span>
+        </div>
+        </div>
+        </div>
+       
+</li>
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="2097001814277"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001814277","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg","lwst_sellprc":48000,"usabl_inv_qty":1106,"brand_id":"3000022153"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="동찬이 상품(의류)3" target="_self"  class="clickable"
+             data-react-tarea="동찬이 상품(의류)1" data-info="2097001814277" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="/동찬이 상품(의류)3, //동찬이 상품(의류)3 2x" src="상품링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="NEW 캐츠랑 전연령 점보 업그레이드 20kg"  loading="lazy">
+            <!-- 스티커 -->
+                <!-- <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_enuri"><span class="blind">에누리</span>17<em class="per">%</em></span>
+            </div>
+<div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+            </div> -->
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                    data-info="2097001814277" data-index="3" data-position="pop" data-unit="img" data-react-tarea="동찬이 상품(의류)3"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="2097001814277" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|NEW 캐츠랑 전연령 점보 업그레이드 20kg" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001814277","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001814277">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="동찬이 상품(의류)3">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001814277" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <!-- <i class="em"><span class="blind">이마트</span></i> -->
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">동찬이 상품(의류)3</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg"
+            data-info="2097001814277" data-index="3" data-position="view" data-unit="img">
+                <em class="tx_ko">동찬이 상품(의류)3</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">48,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦48,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">58,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>58,000</dd>
+                            </dl>
+                    <dl class="dis">
+                        <dt>에누리</dt><dd>10,000원</dd>
+                        </dl>
+                    <dl class="sum">
+                            <dt>최적가</dt>
+                            <dd>48,000</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_prw">
+            <div class="unit">(1kg당:2,400원)</div>
+                </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:98.0%"><span class="blind">별점 4.94점</span></span>
+            </div>
+            <span class="rate_tx">(<em>32</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000544937242"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000544937242","shpp_type_dtl_cd":"18","item_img_url":"","lwst_sellprc":10580,"usabl_inv_qty":1099,"brand_id":"1010100108"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="" target="_self"  class="clickable"
+             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤_1000544937242" data-info="1000544937242" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="이미지4, //두번째 이미지2x" src="//이미지 링크" onerror="this.onerror=null;this.src='https:이미지 링크" class="i1" width="290" height="290" alt="3겹 화장지 33M X 30롤"  loading="lazy">
+                <img srcset="이미지링크 2x" src="/이미지링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="3겹 화장지 33M X 30롤" aria-hidden="true" loading="lazy">
+                <div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                    data-info="1000544937242" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|3겹 화장지 33M X 30롤"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000544937242" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="동찬이 상품 4" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000544937242","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000544937242">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="상품4">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_1000544937242" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <!-- <i class="em"><span class="blind">이마트</span></i> -->
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">브랜드</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤"
+            data-info="1000544937242" data-index="4" data-position="view" data-unit="img">
+                <em class="tx_ko">상품4</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">가격</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦10,580)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+            </div>
+    <div class="cunit_prw">
+            <div class="unit">(10m당:107원)</div>
+                </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:96.0%"><span class="blind">별점 4.81점</span></span>
+            </div>
+            <span class="rate_tx">(<em>507</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                </ul>
+            <!-- //공통상품유닛 -->
+        </div>
+        <div class="cmmain_more" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text=''>
+                <a href="의류 페이지 이동" class="cmmain_more_btn btn_moreview clickable" data-react-tarea-dtl-cd="t00026">매장 바로가기</a>
+            </div>
+        </div>
+        
+        
+        
+                <!-- 식품 -->
+<input type="hidden" name="titleBannerExist" value="true">
+<input type="hidden" name="titleBannerMainTitleExist" value="true">
+<input type="hidden" name="itemsExist" value="true">
+<div class="cmmain_sec_oneday" data-react-tarea-cd="00052_000000748">
+        <div class="cmmain_heading">
+            <h2 class="cmmain_heading_tit">식품</h2>
+            </div>
+        <div class="cmmain_banner" data-react-unit-type="banr" data-react-unit-id="2003434953" data-react-unit-text='[{"type":"text","value":"배너명"}]'>
+                <a href="https://www.ssg.com/service/oneday/dvstore.ssg" class="clickable" data-react-tarea-dtl-cd="t00001">
+                </a>
+            </div>
+        <div class="cmmain_cunit_items">
+            <!-- 공통상품유닛 -->
+            <ul class="cunit_thmb_lst">
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="2097001878361"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001878361","shpp_type_dtl_cd":"18","item_img_url":"링크이동","lwst_sellprc":19980,"usabl_inv_qty":75,"brand_id":"9999999999"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+       <a href="/item/itemView.ssg?itemId=1000020640119&amp;siteNo=6001&amp;salestrNo=2037" target="_self" class="clickable" data-react-tarea="통합_자주구매|재구매베스트_상품_목록|상품_클릭|그릴 닭가슴살 140g_1000020640119" data-info="1000020640119" data-index="5" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/19/01/64/item/1000020640119_i1_290.jpg, //sitem.ssgcdn.com/19/01/64/item/1000020640119_i1_580.jpg 2x" src="//sitem.ssgcdn.com/19/01/64/item/1000020640119_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=290&amp;h=290&amp;t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="그릴 닭가슴살 140g" loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/19/01/64/item/1000020640119_i2_290.jpg, //sitem.ssgcdn.com/19/01/64/item/1000020640119_i2_580.jpg 2x" src="//sitem.ssgcdn.com/19/01/64/item/1000020640119_i2_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=290&amp;h=290&amp;t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="그릴 닭가슴살 140g" aria-hidden="true" loading="lazy">
+                <div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv"><span class="blind">쓱-배송</span></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="javascript:void(0)" class="blank clickable" onclick="checkAdult(); return false;"
+                    data-info="2097001878361" data-index="1" data-position="pop" data-unit="img"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart" role="button" onclick="checkAdult(); return false;"
+                            data-info="2097001878361" data-index="1" data-position="cart" data-react-tarea-dtl-cd="t00002"><span class="blind">장바구니</span></a>
+                <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001878361">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="닭가슴살">
+                <input type="hidden" name="notiImgPath" value="이미지 넣는곳">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001878361" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+        <!-- 이마트 스티커 -->
+    <!-- <i class="em"><span class="blind">이마트</span></i> -->
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">노브랜드</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000020640119&amp;siteNo=6001&amp;salestrNo=2037" target="_self" class="clickable" data-react-tarea="통합_자주구매|재구매베스트_상품_목록|상품_클릭|그릴 닭가슴살 140g" data-info="1000020640119" data-index="5" data-position="view" data-unit="img">
+                <em class="tx_ko">그릴 닭가슴살 140g</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+      <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">2,380</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦2,380)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+            </div>
+            </div>
+        <!-- 100ml 당 금액 적는곳 -->
+            <!-- <div class="unit"></div>
+                </div> -->
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+
+                <span style="width:100.0%"><span class="blind">별점 5점</span></span>
+            </div>
+            <!-- 댓글 개수 -->
+            <span class="rate_tx">(<em>40202</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="2097001772638"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001772638","shpp_type_dtl_cd":"18","item_img_url":"동찬이 상품(의류)2","lwst_sellprc":24320,"usabl_inv_qty":722,"brand_id":"3000061682"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+       <a href="/item/itemView.ssg?itemId=0000008333648&amp;siteNo=6001&amp;salestrNo=2037" target="_self" class="clickable" data-react-tarea="이마트몰쓱배송|카테고리인기상품|상품_클릭|신라면 5입 600g (120gx5입)_0000008333648" data-info="0000008333648" data-index="6" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="//sitem.ssgcdn.com/48/36/33/item/0000008333648_i1_290.jpg, //sitem.ssgcdn.com/48/36/33/item/0000008333648_i1_580.jpg 2x" src="//sitem.ssgcdn.com/48/36/33/item/0000008333648_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=290&amp;h=290&amp;t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="신라면 5입 600g (120gx5입)" loading="lazy">
+                <img srcset="//sitem.ssgcdn.com/48/36/33/item/0000008333648_i2_290.jpg, //sitem.ssgcdn.com/48/36/33/item/0000008333648_i2_580.jpg 2x" src="//sitem.ssgcdn.com/48/36/33/item/0000008333648_i2_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=290&amp;h=290&amp;t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="신라면 5입 600g (120gx5입)" aria-hidden="true" loading="lazy">
+                <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+            </div>
+<div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv"><span class="blind">쓱-배송</span></span>
+            </div>
+<div class="cm_bdg_c">
+                </div>
+            </a>
+<div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_better"><span class="blind">다다익선</span></span>
+            </div>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="동찬이 상품(의류)2" class="blank clickable"  target="_blank"
+                    data-info="2097001772638" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메동찬이 상품(의류)2 "><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="2097001772638" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="동찬이 상품(의류)1" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001772638&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001772638","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001772638">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="동찬이 상품(의류)2">
+                <input type="hidden" name="notiImgPath" value="동찬이 상품(의류)2">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001772638" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <!-- 이마트표시 -->
+        <!-- <span class="cm_mall_ic ty_rect_s notranslate">
+    <i class="em"><span class="blind">이마트</span></i> -->
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+               <em class="tx_ko">신라면 5입 600g (120gx5입)</em>
+            </strong>
+        <a href="동찬이 상품(의류)2" target="_self"  class="clickable"  data-react-tarea="신라면 5입 600g"
+            data-info="2097001772638" data-index="2" data-position="view" data-unit="img">
+                <em class="tx_ko">신라면 5입 600g</em>
+            </a>
+        </div>
+    </div>
+   <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">3,900</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦3,900)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+        
+         
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">세일 전 가격</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+                <div class="cunit_prw">
+            <div class="unit">(1개당:780원)</div>
+                </div>
+           
+     </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:96.0%"><span class="blind">별점 4.82점</span></span>
+            </div>
+            <span class="rate_tx">(<em>453,378</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="2097001814277"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001814277","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg","lwst_sellprc":48000,"usabl_inv_qty":1106,"brand_id":"3000022153"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="동찬이 상품(의류)3" target="_self"  class="clickable"
+             data-react-tarea="동찬이 상품(의류)1" data-info="2097001814277" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="/동찬이 상품(의류)3, //동찬이 상품(의류)3 2x" src="상품링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="NEW 캐츠랑 전연령 점보 업그레이드 20kg"  loading="lazy">
+            <!-- 스티커 -->
+                <!-- <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+        <span class="di_enuri"><span class="blind">에누리</span>17<em class="per">%</em></span>
+            </div>
+<div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+            </div> -->
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                    data-info="2097001814277" data-index="3" data-position="pop" data-unit="img" data-react-tarea="동찬이 상품(의류)3"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="2097001814277" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|NEW 캐츠랑 전연령 점보 업그레이드 20kg" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001814277","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="2097001814277">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="동찬이 상품(의류)3">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001814277" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <!-- <i class="em"><span class="blind">이마트</span></i> -->
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">동찬이 상품(의류)3</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg"
+            data-info="2097001814277" data-index="3" data-position="view" data-unit="img">
+                <em class="tx_ko">동찬이 상품(의류)3</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">48,000</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦48,000)</div>
+                </div>
+            <div class="org_price_wrap">
+            <div class="org_price">
+                    <span class="blind">판매가</span>
+                    <em class="ssg_price">58,000</em>
+                    <span class="ssg_tx">원</span>
+                </div>
+            <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                    <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                    <div class="ly_dtl_price price-tooltip-layer">
+                        <dl class="org">
+                        <dt>판매가</dt>
+                                <dd>58,000</dd>
+                            </dl>
+                    <dl class="dis">
+                        <dt>에누리</dt><dd>10,000원</dd>
+                        </dl>
+                    <dl class="sum">
+                            <dt>최적가</dt>
+                            <dd>48,000</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="cunit_prw">
+            <div class="unit">(1kg당:2,400원)</div>
+                </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:98.0%"><span class="blind">별점 4.94점</span></span>
+            </div>
+            <span class="rate_tx">(<em>32</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                <li class="cunit_t290">
+                        <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+<div class="cunit_prod "
+     data-react-unit-type="item"
+     data-observable-item = "true"
+     data-react-unit-id="1000544937242"
+     data-react-unit-inx="0"
+     data-react-mdl-info=""
+     data-react-advert-yn ="N"
+     data-react-advert-bid-id=""
+     data-react-advert-tgt-id=""
+     data-react-advert-bilng-type-cd=""
+     data-react-advert-kind-cd=""
+     data-react-advert-extens-tery-div-cd=""
+     data-react-advert-advert-acct-grp-id=""
+     data-react-unit-text=''
+     data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000544937242","shpp_type_dtl_cd":"18","item_img_url":"","lwst_sellprc":10580,"usabl_inv_qty":1099,"brand_id":"1010100108"}'>
+    <div class="prod_top">
+        </div>
+    <div class="thmb">
+        <a href="" target="_self"  class="clickable"
+             data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤_1000544937242" data-info="1000544937242" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+
+            <img srcset="이미지4, //두번째 이미지2x" src="//이미지 링크" onerror="this.onerror=null;this.src='https:이미지 링크" class="i1" width="290" height="290" alt="3겹 화장지 33M X 30롤"  loading="lazy">
+                <img srcset="이미지링크 2x" src="/이미지링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="3겹 화장지 33M X 30롤" aria-hidden="true" loading="lazy">
+                <div class="deiv_bdg notranslate" aria-label="배송방법">
+    <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+            </div>
+</a>
+        <div class="exp_area notranslate">
+        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                    data-info="1000544937242" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|3겹 화장지 33M X 30롤"><span class="blind">새창보기</span></a>
+
+            <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                            data-info="1000544937242" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="동찬이 상품 4" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000544937242","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+            <span class="cmlike _js_cmlike interestIt">
+                <input type="hidden" name="attnDivCd" value="10">
+                <input type="hidden" name="attnDivDtlCd" value="10">
+                <input type="hidden" name="siteNo" value="6001">
+                <input type="hidden" name="attnTgtIdnfNo1" value="1000544937242">
+                <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                <input type="hidden" name="uitemId" value="00000">
+                <input type="hidden" name="notiTitle" value="상품4">
+                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg">
+                <input type="hidden" name="checked" value="N">
+                <input type="hidden" name="useForcedSsgYn" value="N">
+                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_1000544937242" data-react-tarea-dtl-cd="t00003" >
+                    <span class="cmlike_ico">
+                        <i class="cmlike_primary_s"></i>
+                        <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                        <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                    </span>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+    </div><div class="cunit_info">
+    <div class="cunit_tp">
+        <span class="cm_mall_ic ty_rect_s notranslate">
+    <!-- <i class="em"><span class="blind">이마트</span></i> -->
+    <!-- ssg 푸드마켓  -->
+        </span>
+<div class="dp_dv">
+
+    <!-- 선물포장 -->
+    <!-- 신선보장 -->
+    <!-- 품질보장 -->
+    <!-- SSG설치 -->
+    </div>
+</div>
+    <div class="cunit_md notranslate">
+        <div class="title">
+        <strong class="brd">
+                <em class="tx_ko">브랜드</em>
+            </strong>
+        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤"
+            data-info="1000544937242" data-index="4" data-position="view" data-unit="img">
+                <em class="tx_ko">상품4</em>
+            </a>
+        </div>
+    </div>
+    <div class="cunit_price">
+        <div class="opt_price">
+                    <span class="blind">할인적용가</span>
+                    <em class="ssg_price">가격</em>
+                    <span class="ssg_tx">원</span>
+                    <div class="ssg_price_ko show_gl hide_ko">(￦10,580)</div>
+                </div>
+            <div class="org_price_wrap">
+            </div>
+            </div>
+    <div class="cunit_prw">
+            <div class="unit">(10m당:107원)</div>
+                </div>
+    <div class="cunit_app">
+    <div class="rating">
+            <div class="rate_bg">
+                <span style="width:96.0%"><span class="blind">별점 4.81점</span></span>
+            </div>
+            <span class="rate_tx">(<em>507</em>개)</span>
+        </div>
+    </div>
+    </div>
+</li>
+                </ul>
+            <!-- //공통상품유닛 -->
+        </div>
+        <div class="cmmain_more" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text=''>
+                <a href="의류 페이지 이동" class="cmmain_more_btn btn_moreview clickable" data-react-tarea-dtl-cd="t00026">매장 바로가기</a>
+            </div>
+        </div>
+        <!-- 식품 -->
+        <input type="hidden" name="titleBannerExist" value="true">
+        <input type="hidden" name="titleBannerMainTitleExist" value="true">
+        <input type="hidden" name="itemsExist" value="true">
+        <div class="cmmain_sec_oneday" data-react-tarea-cd="00052_000000748">
+                <div class="cmmain_heading">
+                    <h2 class="cmmain_heading_tit">가전</h2>
+                    </div>
+                <div class="cmmain_banner" data-react-unit-type="banr" data-react-unit-id="2003434953" data-react-unit-text='[{"type":"text","value":"배너명"}]'>
+                        <a href="https://www.ssg.com/service/oneday/dvstore.ssg" class="clickable" data-react-tarea-dtl-cd="t00001">
+                        </a>
+                    </div>
+                <div class="cmmain_cunit_items">
+                    <!-- 공통상품유닛 -->
+                    <ul class="cunit_thmb_lst">
+                        <li class="cunit_t290">
+                                <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+        <div class="cunit_prod "
+             data-react-unit-type="item"
+             data-observable-item = "true"
+             data-react-unit-id="2097001878361"
+             data-react-unit-inx="0"
+             data-react-mdl-info=""
+             data-react-advert-yn ="N"
+             data-react-advert-bid-id=""
+             data-react-advert-tgt-id=""
+             data-react-advert-bilng-type-cd=""
+             data-react-advert-kind-cd=""
+             data-react-advert-extens-tery-div-cd=""
+             data-react-advert-advert-acct-grp-id=""
+             data-react-unit-text=''
+             data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001878361","shpp_type_dtl_cd":"18","item_img_url":"링크이동","lwst_sellprc":19980,"usabl_inv_qty":75,"brand_id":"9999999999"}'>
+            <div class="prod_top">
+                </div>
+            <div class="thmb">
+                <a href="" target="_self"  class="clickable"
+                     data-react-tarea="상품 정보" data-info="2097001878361" data-index="1" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        
+                    <img srcset="동찬이 상품(의류)1", "동찬이 상품(의류)1 2x" src="상품페이지링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="상품이름" >
+                    <!-- 19세 딱지 -->
+                            <!-- <span class="adult19_img_pc ty_overlay"><span class="blind">19세 이상만 구매가능해요</span></span> -->
+                        <img srcset="동찬이 상품(의류)1" src="상품페이지링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="상품이름" aria-hidden="true">
+                         <!-- 19세 딱지 -->
+                            <!-- <span class="adult19_img_pc ty_overlay"><span class="blind">의류 종류</span></span> -->
+                        <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+                            <!-- 미식관 -->
+                <!-- <i class="badge badge_ssg_food_shape" aria-label="미식관"></i> -->
+                <!-- 사은품 -->
+                    <!-- <span class="di_gift"><span class="blind">사은품</span></span> -->
+                    </div>
+                    <!-- 쓱 배송 -->
+        <!-- <div class="deiv_bdg notranslate" aria-label="배송방법">
+            <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+                    </div> -->
+        </a>
+                <div class="exp_area notranslate">
+                <div class="util_bx"> <a href="javascript:void(0)" class="blank clickable" onclick="checkAdult(); return false;"
+                            data-info="2097001878361" data-index="1" data-position="pop" data-unit="img"><span class="blind">새창보기</span></a>
+        
+                    <a href="javascript:void(0)" class="cart" role="button" onclick="checkAdult(); return false;"
+                                    data-info="2097001878361" data-index="1" data-position="cart" data-react-tarea-dtl-cd="t00002"><span class="blind">장바구니</span></a>
+                        <span class="cmlike _js_cmlike interestIt">
+                        <input type="hidden" name="attnDivCd" value="10">
+                        <input type="hidden" name="attnDivDtlCd" value="10">
+                        <input type="hidden" name="siteNo" value="6001">
+                        <input type="hidden" name="attnTgtIdnfNo1" value="2097001878361">
+                        <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                        <input type="hidden" name="uitemId" value="00000">
+                        <input type="hidden" name="notiTitle" value="동찬이 상품1(의류)">
+                        <input type="hidden" name="notiImgPath" value="이미지 넣는곳">
+                        <input type="hidden" name="checked" value="N">
+                        <input type="hidden" name="useForcedSsgYn" value="N">
+                        <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001878361" data-react-tarea-dtl-cd="t00003" >
+                            <span class="cmlike_ico">
+                                <i class="cmlike_primary_s"></i>
+                                <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                                <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+            </div><div class="cunit_info">
+            <div class="cunit_tp">
+                <span class="cm_mall_ic ty_rect_s notranslate">
+                <!-- 이마트 스티커 -->
+            <!-- <i class="em"><span class="blind">이마트</span></i> -->
+            <!-- ssg 푸드마켓  -->
+                </span>
+        <div class="dp_dv">
+        
+            <!-- 선물포장 -->
+            <!-- 신선보장 -->
+            <!-- 품질보장 -->
+            <!-- SSG설치 -->
+            </div>
+        </div>
+            <div class="cunit_md notranslate">
+                <div class="title">
+                <a href="스크립트 url" target="_self"  class="clickable"  data-react-tarea="동찬이 상품1"
+                    data-info="2097001878361" data-index="1" data-position="view" data-unit="img">
+                        <em class="tx_ko">동찬이 상품(가전)1</em>
+                    </a>
+                </div>
+            </div>
+            <div class="cunit_price">
+                <div class="opt_price">
+                            <span class="blind">할인적용가</span>
+                            <em class="ssg_price">가격 넣는곳</em>
+                            <span class="ssg_tx">원</span>
+                            <div class="ssg_price_ko show_gl hide_ko">(가격입니다)</div>
+                        </div>
+                    <div class="org_price_wrap">
+                    </div>
+                    </div>
+            <div class="cunit_prw">
+                <!-- 100ml 당 금액 적는곳 -->
+                    <!-- <div class="unit"></div>
+                        </div> -->
+            <div class="cunit_app">
+            <div class="rating">
+                    <div class="rate_bg">
+        
+                        <span style="width:100.0%"><span class="blind">별점 5점</span></span>
+                    </div>
+                    <!-- 댓글 개수 -->
+                    <span class="rate_tx">(<em>28</em>개)</span>
+                </div>
+            </div>
+            </div>
+        </li>
+                        <li class="cunit_t290">
+                                <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+        <div class="cunit_prod "
+             data-react-unit-type="item"
+             data-observable-item = "true"
+             data-react-unit-id="2097001772638"
+             data-react-unit-inx="0"
+             data-react-mdl-info=""
+             data-react-advert-yn ="N"
+             data-react-advert-bid-id=""
+             data-react-advert-tgt-id=""
+             data-react-advert-bilng-type-cd=""
+             data-react-advert-kind-cd=""
+             data-react-advert-extens-tery-div-cd=""
+             data-react-advert-advert-acct-grp-id=""
+             data-react-unit-text=''
+             data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001772638","shpp_type_dtl_cd":"18","item_img_url":"동찬이 상품(의류)2","lwst_sellprc":24320,"usabl_inv_qty":722,"brand_id":"3000061682"}'>
+            <div class="prod_top">
+                </div>
+            <div class="thmb">
+                <a href="동찬이 상품(가전)2" target="_self"  class="clickable"
+                     data-react-tarea="상품2" data-info="2097001772638" data-index="2" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        
+                    <img srcset="동찬이 상품(가전))2, //동찬이 상품(가전)2 2x" src="상품이미지" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="동찬이 상품(의류)2"  loading="lazy">
+                        <!-- <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+                <span class="di_coupon"><span class="blind">쿠폰포함</span>20<em class="per">%</em></span>
+                    <span class="di_plus">1<em>+1</em></span>
+                    </div>
+        <div class="deiv_bdg notranslate" aria-label="배송방법">
+            <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+                    </div> -->
+        </a>
+                <div class="exp_area notranslate">
+                <div class="util_bx"> <a href="동찬이 상품(의류)2" class="blank clickable"  target="_blank"
+                            data-info="2097001772638" data-index="2" data-position="pop" data-unit="img" data-react-tarea="메동찬이 상품(의류)2 "><span class="blind">새창보기</span></a>
+        
+                    <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                                    data-info="2097001772638" data-idx="2" data-position="cart" data-unit="img" data-react-tarea="동찬이 상품(의류)1" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                        <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001772638&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001772638","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+                    <span class="cmlike _js_cmlike interestIt">
+                        <input type="hidden" name="attnDivCd" value="10">
+                        <input type="hidden" name="attnDivDtlCd" value="10">
+                        <input type="hidden" name="siteNo" value="6001">
+                        <input type="hidden" name="attnTgtIdnfNo1" value="2097001772638">
+                        <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                        <input type="hidden" name="uitemId" value="00000">
+                        <input type="hidden" name="notiTitle" value="동찬이 상품(가전)2">
+                        <input type="hidden" name="notiImgPath" value="동찬이 상품(가전)2">
+                        <input type="hidden" name="checked" value="N">
+                        <input type="hidden" name="useForcedSsgYn" value="N">
+                        <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001772638" data-react-tarea-dtl-cd="t00003" >
+                            <span class="cmlike_ico">
+                                <i class="cmlike_primary_s"></i>
+                                <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                                <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+            </div><div class="cunit_info">
+            <div class="cunit_tp">
+                <!-- 이마트표시 -->
+                <!-- <span class="cm_mall_ic ty_rect_s notranslate">
+            <i class="em"><span class="blind">이마트</span></i> -->
+            <!-- ssg 푸드마켓  -->
+                </span>
+        <div class="dp_dv">
+        
+            <!-- 선물포장 -->
+            <!-- 신선보장 -->
+            <!-- 품질보장 -->
+            <!-- SSG설치 -->
+            </div>
+        </div>
+            <div class="cunit_md notranslate">
+                <div class="title">
+                <strong class="brd">
+                        <em class="tx_ko">동찬이 상품(가전)2</em>
+                    </strong>
+                <a href="동찬이 상품(의류)2" target="_self"  class="clickable"  data-react-tarea="동찬이 상품(의류)2 제목"
+                    data-info="2097001772638" data-index="2" data-position="view" data-unit="img">
+                        <em class="tx_ko">동찬이 상품(가전)2 제목</em>
+                    </a>
+                </div>
+            </div>
+            <div class="cunit_price">
+                <div class="opt_price">
+                            <span class="blind">할인적용가</span>
+                            <em class="ssg_price">가격</em>
+                            <span class="ssg_tx">원</span>
+                            <div class="ssg_price_ko show_gl hide_ko">가격</div>
+                        </div>
+                    <div class="org_price_wrap">
+                    <div class="org_price">
+                            <span class="blind">판매가</span>
+                            <em class="ssg_price">세일 전 가격</em>
+                            <span class="ssg_tx">원</span>
+                        </div>
+                    <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                            <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                            <div class="ly_dtl_price price-tooltip-layer">
+                                <dl class="org">
+                                <dt>판매가</dt>
+                                        <dd>30,400</dd>
+                                    </dl>
+                            <dl class="dis">
+                                <dt>쿠폰</dt><dd>6,080원</dd>
+                                </dl>
+                            <dl class="sum">
+                                    <dt>최적가</dt>
+                                    <dd>24,320</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            <div class="cunit_app">
+            <div class="rating">
+                    <div class="rate_bg">
+                        <span style="width:96.0%"><span class="blind">별점 4.82점</span></span>
+                    </div>
+                    <span class="rate_tx">(<em>448</em>개)</span>
+                </div>
+            </div>
+            </div>
+        </li>
+                        <li class="cunit_t290">
+                                <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+        <div class="cunit_prod "
+             data-react-unit-type="item"
+             data-observable-item = "true"
+             data-react-unit-id="2097001814277"
+             data-react-unit-inx="0"
+             data-react-mdl-info=""
+             data-react-advert-yn ="N"
+             data-react-advert-bid-id=""
+             data-react-advert-tgt-id=""
+             data-react-advert-bilng-type-cd=""
+             data-react-advert-kind-cd=""
+             data-react-advert-extens-tery-div-cd=""
+             data-react-advert-advert-acct-grp-id=""
+             data-react-unit-text=''
+             data-react-mkt-info='{"sell_stat_cd":true,"item_id":"2097001814277","shpp_type_dtl_cd":"18","item_img_url":"https://sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg","lwst_sellprc":48000,"usabl_inv_qty":1106,"brand_id":"3000022153"}'>
+            <div class="prod_top">
+                </div>
+            <div class="thmb">
+                <a href="동찬이 상품(의류)3" target="_self"  class="clickable"
+                     data-react-tarea="동찬이 상품(의류)1" data-info="2097001814277" data-index="3" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        
+                    <img srcset="/동찬이 상품(의류)3, //동찬이 상품(의류)3 2x" src="상품링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="NEW 캐츠랑 전연령 점보 업그레이드 20kg"  loading="lazy">
+                    <!-- 스티커 -->
+                        <!-- <div class="cm_bdg_v2 notranslate" aria-label="혜택">
+                <span class="di_enuri"><span class="blind">에누리</span>17<em class="per">%</em></span>
+                    </div>
+        <div class="deiv_bdg notranslate" aria-label="배송방법">
+            <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+                    </div> -->
+        </a>
+                <div class="exp_area notranslate">
+                <div class="util_bx"> <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                            data-info="2097001814277" data-index="3" data-position="pop" data-unit="img" data-react-tarea="동찬이 상품(의류)3"><span class="blind">새창보기</span></a>
+        
+                    <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                                    data-info="2097001814277" data-idx="3" data-position="cart" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_장바구니|NEW 캐츠랑 전연령 점보 업그레이드 20kg" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                        <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"2097001814277","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+                    <span class="cmlike _js_cmlike interestIt">
+                        <input type="hidden" name="attnDivCd" value="10">
+                        <input type="hidden" name="attnDivDtlCd" value="10">
+                        <input type="hidden" name="siteNo" value="6001">
+                        <input type="hidden" name="attnTgtIdnfNo1" value="2097001814277">
+                        <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                        <input type="hidden" name="uitemId" value="00000">
+                        <input type="hidden" name="notiTitle" value="동찬이 상품(의류)3">
+                        <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg">
+                        <input type="hidden" name="checked" value="N">
+                        <input type="hidden" name="useForcedSsgYn" value="N">
+                        <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001814277" data-react-tarea-dtl-cd="t00003" >
+                            <span class="cmlike_ico">
+                                <i class="cmlike_primary_s"></i>
+                                <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                                <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+            </div><div class="cunit_info">
+            <div class="cunit_tp">
+                <span class="cm_mall_ic ty_rect_s notranslate">
+            <!-- <i class="em"><span class="blind">이마트</span></i> -->
+            <!-- ssg 푸드마켓  -->
+                </span>
+        <div class="dp_dv">
+        
+            <!-- 선물포장 -->
+            <!-- 신선보장 -->
+            <!-- 품질보장 -->
+            <!-- SSG설치 -->
+            </div>
+        </div>
+            <div class="cunit_md notranslate">
+                <div class="title">
+                <strong class="brd">
+                        <em class="tx_ko">동찬이 상품(의류)3</em>
+                    </strong>
+                <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg"
+                    data-info="2097001814277" data-index="3" data-position="view" data-unit="img">
+                        <em class="tx_ko">동찬이 상품(의류)3</em>
+                    </a>
+                </div>
+            </div>
+            <div class="cunit_price">
+                <div class="opt_price">
+                            <span class="blind">할인적용가</span>
+                            <em class="ssg_price">48,000</em>
+                            <span class="ssg_tx">원</span>
+                            <div class="ssg_price_ko show_gl hide_ko">(￦48,000)</div>
+                        </div>
+                    <div class="org_price_wrap">
+                    <div class="org_price">
+                            <span class="blind">판매가</span>
+                            <em class="ssg_price">58,000</em>
+                            <span class="ssg_tx">원</span>
+                        </div>
+                    <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                            <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                            <div class="ly_dtl_price price-tooltip-layer">
+                                <dl class="org">
+                                <dt>판매가</dt>
+                                        <dd>58,000</dd>
+                                    </dl>
+                            <dl class="dis">
+                                <dt>에누리</dt><dd>10,000원</dd>
+                                </dl>
+                            <dl class="sum">
+                                    <dt>최적가</dt>
+                                    <dd>48,000</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            <div class="cunit_prw">
+                    <div class="unit">(1kg당:2,400원)</div>
+                        </div>
+            <div class="cunit_app">
+            <div class="rating">
+                    <div class="rate_bg">
+                        <span style="width:98.0%"><span class="blind">별점 4.94점</span></span>
+                    </div>
+                    <span class="rate_tx">(<em>32</em>개)</span>
+                </div>
+            </div>
+            </div>
+        </li>
+                        <li class="cunit_t290">
+                                <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+        <div class="cunit_prod "
+             data-react-unit-type="item"
+             data-observable-item = "true"
+             data-react-unit-id="1000544937242"
+             data-react-unit-inx="0"
+             data-react-mdl-info=""
+             data-react-advert-yn ="N"
+             data-react-advert-bid-id=""
+             data-react-advert-tgt-id=""
+             data-react-advert-bilng-type-cd=""
+             data-react-advert-kind-cd=""
+             data-react-advert-extens-tery-div-cd=""
+             data-react-advert-advert-acct-grp-id=""
+             data-react-unit-text=''
+             data-react-mkt-info='{"sell_stat_cd":true,"item_id":"1000544937242","shpp_type_dtl_cd":"18","item_img_url":"","lwst_sellprc":10580,"usabl_inv_qty":1099,"brand_id":"1010100108"}'>
+            <div class="prod_top">
+                </div>
+            <div class="thmb">
+                <a href="" target="_self"  class="clickable"
+                     data-react-tarea="" data-info="1000544937242" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+        
+                    <img srcset="이미지4, //두번째 이미지2x" src="//이미지 링크" onerror="this.onerror=null;this.src='https:이미지 링크" class="i1" width="290" height="290" alt="3겹 화장지 33M X 30롤"  loading="lazy">
+                        <img srcset="이미지링크 2x" src="/이미지링크" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i2" width="290" height="290" alt="3겹 화장지 33M X 30롤" aria-hidden="true" loading="lazy">
+                        <div class="deiv_bdg notranslate" aria-label="배송방법">
+            <span class="ssgdeliv_oneday"><span class="blind">쓱1DAY배송</span></span>
+                    </div>
+        </a>
+                <div class="exp_area notranslate">
+                <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+                            data-info="1000544937242" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|3겹 화장지 33M X 30롤"><span class="blind">새창보기</span></a>
+        
+                    <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
+                                    data-info="1000544937242" data-idx="4" data-position="cart" data-unit="img" data-react-tarea="동찬이 상품 4" data-react-tarea-dtl-cd="t00002" ><span class="blind">장바구니</span></a>
+                        <span style="display:none" class="disp_cart_data" data-cart-type="10" data-cart-inflo-site-no="6005" data-cart-ordqty="1">{"advertBidId":"","giftBtnShowType":"","bsplItemDivCd":"70","giftBtnActType":"Y","itemChrctDivCd":"10","itemLnkd":"/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569","giftBtnMsg":"","bothSsgMorningShppYn":"N","shppTypeDtlCd":"18","goItemDetailYn":"N","drctPurchYn":"N","itemId":"1000544937242","dealItemYn":"N","advertExtensTeryDivCd":"","cleaningLabYn":"N","siteNo":"6001","useForcedSsg":"N","cartPsblType":"","uitemId":"00000","infloSiteNo":"6005","salestrNo":"2569","msgItemDetail":""}</span>
+                    <span class="cmlike _js_cmlike interestIt">
+                        <input type="hidden" name="attnDivCd" value="10">
+                        <input type="hidden" name="attnDivDtlCd" value="10">
+                        <input type="hidden" name="siteNo" value="6001">
+                        <input type="hidden" name="attnTgtIdnfNo1" value="1000544937242">
+                        <input type="hidden" name="attnTgtIdnfNo2" value="2569">
+                        <input type="hidden" name="uitemId" value="00000">
+                        <input type="hidden" name="notiTitle" value="상품4">
+                        <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg">
+                        <input type="hidden" name="checked" value="N">
+                        <input type="hidden" name="useForcedSsgYn" value="N">
+                        <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_1000544937242" data-react-tarea-dtl-cd="t00003" >
+                            <span class="cmlike_ico">
+                                <i class="cmlike_primary_s"></i>
+                                <span class="sr_off"><span class="blind">관심상품 취소</span></span>
+                                <span class="sr_on"><span class="blind">관심상품 등록</span></span>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+            </div><div class="cunit_info">
+            <div class="cunit_tp">
+                <span class="cm_mall_ic ty_rect_s notranslate">
+</span>
+  <div class="cunit_md notranslate">
+                <div class="title">
+                <strong class="brd">
+                        <em class="tx_ko">동찬이 상품(의류)3</em>
+                    </strong>
+                <a href="/item/itemView.ssg?itemId=2097001814277&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg"
+                    data-info="2097001814277" data-index="3" data-position="view" data-unit="img">
+                        <em class="tx_ko">동찬이 상품(의류)3</em>
+                    </a>
+                </div>
+            </div>
+            <div class="cunit_price">
+                <div class="opt_price">
+                            <span class="blind">할인적용가</span>
+                            <em class="ssg_price">48,000</em>
+                            <span class="ssg_tx">원</span>
+                            <div class="ssg_price_ko show_gl hide_ko">(￦48,000)</div>
+                        </div>
+                    <div class="org_price_wrap">
+                    <div class="org_price">
+                            <span class="blind">판매가</span>
+                            <em class="ssg_price">58,000</em>
+                            <span class="ssg_tx">원</span>
+                        </div>
+                    <div class="dtl_price_wrap price-tooltip-wrap hide_gl">
+                            <button class="btn_price price-tooltip"><span class="blind">가격 상세보기</span></button>
+                            <div class="ly_dtl_price price-tooltip-layer">
+                                <dl class="org">
+                                <dt>판매가</dt>
+                                        <dd>58,000</dd>
+                                    </dl>
+                            <dl class="dis">
+                                <dt>에누리</dt><dd>10,000원</dd>
+                                </dl>
+                            <dl class="sum">
+                                    <dt>최적가</dt>
+                                    <dd>48,000</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            <div class="cunit_prw">
+                    <div class="unit">(1kg당:2,400원)</div>
+                        </div>
+            <div class="cunit_app">
+            <div class="rating">
+                    <div class="rate_bg">
+                        <span style="width:98.0%"><span class="blind">별점 4.94점</span></span>
+                    </div>
+                    <span class="rate_tx">(<em>32</em>개)</span>
+                </div>
+            </div>
+            </div>
+        </li>
+                        <li class="cunit_t290">
+</div>
+       
+        </a>
+        </li>
+                        </ul>
+                    <!-- //공통상품유닛 -->
+                </div>
+                <div class="cmmain_more" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text=''>
+                        <a href="의류 페이지 이동" class="cmmain_more_btn btn_moreview clickable" data-react-tarea-dtl-cd="t00026">매장 바로가기</a>
+                    </div>
+                </div>
+
 <div class="cmmain_sec_news" data-react-tarea-cd="00052_000000916">
-    <div class="cmmain_heading">
+    <div class="cmmain_heading">   
         <h2 class="cmmain_heading_tit">오늘의 새로운 소식</h2>
     </div>
     <div class="cmmain_grid">
@@ -6654,19 +8059,19 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cmplan_unit cmmain_mgz"
         
          data-react-unit-type="shpg_mgz"
-         data-react-unit-id="7000003824"
+         data-react-unit-id="7000003812"
          data-react-unit-text=""
     >
-        <a class="cmplan_link clickable" href="/contents/lifeMagazine.ssg?shpgMgzId=7000003824" data-react-tarea="메인매장|오늘의소식|라이프매거진_클릭|수앤진골드 TOP 4 순금 브랜드의 금테크 아이템을 소" data-react-tarea-dtl-cd="t00084">
+        <a class="cmplan_link clickable" href="/contents/lifeMagazine.ssg?shpgMgzId=7000003812" data-react-tarea="메인매장|오늘의소식|라이프매거진_클릭|에피그램 24 S/S  SEASON BEST ITEM" data-react-tarea-dtl-cd="t00084">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042514093360422451921345_450.jpg&w=400&h=240&edit=c&t=b42e801bae7259642f5d43727b8733543d9d5c56" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042514093360422451921345_450.jpg&w=800&h=480&edit=c&t=516a655392e89850b9e9b53b570b49630b86cd62 2x" alt="수앤진골드" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202403/2024032808244652155364328536_289.jpg&w=400&h=240&edit=c&t=e3dd27bbdc05a31eb7fb2daf5077041eae195e37" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202403/2024032808244652155364328536_289.jpg&w=800&h=480&edit=c&t=9a387bb39e1cc5a318740a9492fe846260825c45 2x" alt="epigram" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#라이프매거진</span>
                     </div>
-                <em class="cmplan_tit">SSG BEST GOLD BRAND 4</em>
-                <em class="cmplan_tit">가정의 달 맞이 골드바/순금쥬얼리 기프트 추천</em>
+                <em class="cmplan_tit">epigram 24 SPRING/ SUMMER</em>
+                <em class="cmplan_tit">24S/S 40만원 이상 구매시 캠핑테이블 증정</em>
                 </div>
             </a>
 
@@ -6675,75 +8080,75 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     <div class="cmmain_keyword_in">
                         <h3 class="cmmain_keyword_tit">지금 많이 검색하는 키워드</h3>
                         <ul class="cmmain_keyword_list">
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"레고 10325"}]'>
-                                    <a href="/search.ssg?target=all&query=레고 10325&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"골드키위"}]'>
+                                    <a href="/search.ssg?target=all&query=골드키위&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|레고 10325"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|골드키위"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >레고 10325</a>
+                                    >골드키위</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"레고 바이킹"}]'>
-                                    <a href="/search.ssg?target=all&query=레고 바이킹&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"초고추장"}]'>
+                                    <a href="/search.ssg?target=all&query=초고추장&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|레고 바이킹"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|초고추장"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >레고 바이킹</a>
+                                    >초고추장</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"레고 21343"}]'>
-                                    <a href="/search.ssg?target=all&query=레고 21343&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"여성샌들"}]'>
+                                    <a href="/search.ssg?target=all&query=여성샌들&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|레고 21343"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|여성샌들"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >레고 21343</a>
+                                    >여성샌들</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"키엘"}]'>
-                                    <a href="/search.ssg?target=all&query=키엘&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"블라우스"}]'>
+                                    <a href="/search.ssg?target=all&query=블라우스&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|키엘"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|블라우스"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >키엘</a>
+                                    >블라우스</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"카네이션"}]'>
-                                    <a href="/search.ssg?target=all&query=카네이션&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"돈까스"}]'>
+                                    <a href="/search.ssg?target=all&query=돈까스&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|카네이션"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|돈까스"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >카네이션</a>
+                                    >돈까스</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"레고"}]'>
-                                    <a href="/search.ssg?target=all&query=레고&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"초코파이"}]'>
+                                    <a href="/search.ssg?target=all&query=초코파이&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|레고"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|초코파이"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >레고</a>
+                                    >초코파이</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"베베드피노 신상"}]'>
-                                    <a href="/search.ssg?target=all&query=베베드피노 신상&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"수박"}]'>
+                                    <a href="/search.ssg?target=all&query=수박&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|베베드피노 신상"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|수박"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >베베드피노 신상</a>
+                                    >수박</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"스탠리"}]'>
-                                    <a href="/search.ssg?target=all&query=스탠리&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"쌈채소"}]'>
+                                    <a href="/search.ssg?target=all&query=쌈채소&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|스탠리"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|쌈채소"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >스탠리</a>
+                                    >쌈채소</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"라비앙"}]'>
-                                    <a href="/search.ssg?target=all&query=라비앙&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"플레인요거트"}]'>
+                                    <a href="/search.ssg?target=all&query=플레인요거트&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|라비앙"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|플레인요거트"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >라비앙</a>
+                                    >플레인요거트</a>
                                 </li>
-                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"냉면"}]'>
-                                    <a href="/search.ssg?target=all&query=냉면&src_area=main"
+                            <li class="notranslate" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"냉동새우"}]'>
+                                    <a href="/search.ssg?target=all&query=냉동새우&src_area=main"
                                        class="cmmain_keyword_item clickable"
-                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|냉면"
+                                       data-react-tarea="메인매장|오늘의소식|키워드_클릭|냉동새우"
                                        data-react-tarea-dtl-cd="t00060"
-                                    >냉면</a>
+                                    >냉동새우</a>
                                 </li>
                             </ul>
                     </div>
@@ -6753,18 +8158,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <div class="cmplan_unit "
         
          data-react-unit-type="banr"
-         data-react-unit-id="2002614992"
+         data-react-unit-id="2003449287"
          data-react-unit-text=""
     >
         <a class="cmplan_link clickable" href="" data-react-tarea="메인매장|오늘의소식|배너_클릭|" data-react-tarea-dtl-cd="t00001">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042515122021828890355889_148.jpg&w=400&h=240&edit=c&t=18eecc0461cea604c40de30f3f443b08d7df8e92" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042515122021828890355889_148.jpg&w=800&h=480&edit=c&t=a92edb7f2a7e1892d85b9439b09bc8a2cc98bf33 2x" alt="금주의 추천상품! 지금 행사중인 이마트 점포상품  " class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202308/2023080218081277889862213096_919.jpg&w=400&h=240&edit=c&t=0b24c27bec06569166a94f7edd3307f77f233d54" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202308/2023080218081277889862213096_919.jpg&w=800&h=480&edit=c&t=ae22305e2b57c5a3b0c8c53a080e5ea64af1c901 2x" alt="같이 사면 더 할인! 장바구니 채워가세요! 장보기 필수 채소/축산 外" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#이마트몰 점포행사</span>
                     </div>
-                <em class="cmplan_tit">금주의 추천상품!</em>
+                <em class="cmplan_tit">같이 사면 더 할인!</em>
                 </div>
             </a>
 
@@ -6776,7 +8181,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <img class="cmmain_deal_img" src="//sitem.ssgcdn.com/51/49/00/item/1000050004951_i1_300.jpg" srcset="//sitem.ssgcdn.com/51/49/00/item/1000050004951_i1_600.jpg 2x" alt="워시콤보 포토상품평이벤트" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=300&h=300&t=d142c2696e00434abf53625345271a498f9694a0'">
             </div>
             <div class="cmmain_deal_tit">
-                <p>의류가전 특가전</p>
+                <p>의류가전 추천</p>
                                 <p>~13% 할인</p>
                                 </div>
             <div class="cmmain_deal_pricebx">
@@ -6792,18 +8197,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cmplan_unit "
         
          data-react-unit-type="pnshop"
-         data-react-unit-id="4010061109"
+         data-react-unit-id="6000441038"
          data-react-unit-text=""
     >
-        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=4010061109" data-react-tarea="메인매장|오늘의소식|기획전_클릭|대한민국 두유 브랜드 모음" data-react-tarea-dtl-cd="t00051">
+        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=6000441038" data-react-tarea="메인매장|오늘의소식|기획전_클릭|([대상웰라이프]) 뉴케어 기획전 BEST" data-react-tarea-dtl-cd="t00051">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/201508/20150824140140_946.jpg&w=400&h=240&edit=c&t=4a18fceea8400aa1e5428c88f25a355116529697" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/201508/20150824140140_946.jpg&w=800&h=480&edit=c&t=d0ff977f27d79661f1c3fd2d023e8a7776bc9f35 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202207/2022070110401692589355465045_357.jpg&w=400&h=240&edit=c&t=b432f7a5127d6d8e64b55c4358dc221c22c47395" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202207/2022070110401692589355465045_357.jpg&w=800&h=480&edit=c&t=d0feb6cb9939c045261e74e4a9d92fc89515c096 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#기획전</span>
                     </div>
-                <em class="cmplan_tit">고소고소~고소한</em>
+                <em class="cmplan_tit">[대상웰라이프] 뉴케어 영양식</em>
                 </div>
             </a>
 
@@ -6813,18 +8218,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <div class="cmplan_unit "
         
          data-react-unit-type="prom"
-         data-react-unit-id="1000000013077"
+         data-react-unit-id="1000000013066"
          data-react-unit-text=""
     >
-        <a class="cmplan_link clickable" href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013077&domainSiteNo=6005" data-react-tarea="메인매장|오늘의소식|이벤트_클릭|토이 스토리 I 타이니탄" data-react-tarea-dtl-cd="t00052">
+        <a class="cmplan_link clickable" href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013066&domainSiteNo=6005" data-react-tarea="메인매장|오늘의소식|이벤트_클릭|웅진 쓱배송 구매왕" data-react-tarea-dtl-cd="t00052">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202404/45446607213129060.jpg&w=400&h=240&edit=c&t=6056df914f6edc40295bd45c76c5eeb585722fe2" srcset="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202404/45446607213129060.jpg&w=800&h=480&edit=c&t=ee5ff7288befa610be89bbbb5fb0094323d4bc8f 2x" alt="Toy Story｜TinyTAN with SHINSEGAE" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202404/44911935343403463.png&w=400&h=240&edit=c&t=5b8de36dce4a6e9bb1645005b9509af386373105" srcset="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202404/44911935343403463.png&w=800&h=480&edit=c&t=cfcbdf8fadfeae3119724ad861320d8302535d15 2x" alt="웅진 경품 추첨" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#이벤트</span>
                     </div>
-                <em class="cmplan_tit">토이 스토리 I 타이니탄</em>
+                <em class="cmplan_tit">웅진 쓱배송 구매왕</em>
                 </div>
             </a>
 
@@ -6832,36 +8237,36 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cmplan_unit "
         
          data-react-unit-type="banr"
-         data-react-unit-id="2003428163"
+         data-react-unit-id="2002606695"
          data-react-unit-text=""
     >
         <a class="cmplan_link clickable" href="" data-react-tarea="메인매장|오늘의소식|배너_클릭|" data-react-tarea-dtl-cd="t00001">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202001/2020013011435354932816566281_586.jpg&w=400&h=240&edit=c&t=9334c89254d7ff4ce9ebf89b48b01486a104aae7" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202001/2020013011435354932816566281_586.jpg&w=800&h=480&edit=c&t=b6a0fd8e2e322e46589334fbee2a27878eb68d13 2x" alt="이번주 채소 행사 한눈에  " class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024041819121083513428863342_18.jpg&w=400&h=240&edit=c&t=e8953064dcc459b13e9456e2051399e191ffee42" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024041819121083513428863342_18.jpg&w=800&h=480&edit=c&t=004ee0822d7cc518d9d56db7e31ac8d737bc0ebd 2x" alt="금주의 추천상품 지금 행사중인 이마트 점포상품  " class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#이마트몰 점포행사</span>
                     </div>
-                <em class="cmplan_tit">이번주 채소 행사</em>
+                <em class="cmplan_tit">금주의 추천상품</em>
                 </div>
             </a>
 
         </div>
-<div class="cmmain_deal cmmain_deal_obj" data-react-unit-type="item" data-react-unit-id="1000553779799" data-react-unit-text="">
-        <a class="cmmain_deal_link clickable" href="/service/specialMain.ssg?tabDivCd=obanjang#myclick_1000553779799" data-react-tarea="메인매장|오늘의소식|오반장상품_클릭|한우 등심, 제육볶음, 토마토등~50%" data-react-tarea-dtl-cd="t00001">
+<div class="cmmain_deal cmmain_deal_obj" data-react-unit-type="item" data-react-unit-id="1000548041644" data-react-unit-text="">
+        <a class="cmmain_deal_link clickable" href="/service/specialMain.ssg?tabDivCd=obanjang#myclick_1000548041644" data-react-tarea="메인매장|오늘의소식|오반장상품_클릭|샤브샤브용 채소~20%" data-react-tarea-dtl-cd="t00001">
             <em class="cmmain_deal_ico"><span class="blind">오반장</span></em>
             <div class="cmmain_deal_imgbx">
-                <img class="cmmain_deal_img" src="//sitem.ssgcdn.com/99/97/77/item/1000553779799_i1_300.jpg" srcset="//sitem.ssgcdn.com/99/97/77/item/1000553779799_i1_600.jpg 2x" alt="한우 등심, 제육볶음, 토마토등~50%" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=300&h=300&t=d142c2696e00434abf53625345271a498f9694a0'">
+                <img class="cmmain_deal_img" src="//sitem.ssgcdn.com/44/16/04/item/1000548041644_i1_300.jpg" srcset="//sitem.ssgcdn.com/44/16/04/item/1000548041644_i1_600.jpg 2x" alt="샤브샤브용 채소~20%" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=300&h=300&t=d142c2696e00434abf53625345271a498f9694a0'">
             </div>
             <div class="cmmain_deal_tit">
-                <p>한우등심, 제육볶음등</p>
-                        <p>신선식품~50%</p>
+                <p>샤브샤브용</p>
+                        <p>모둠채소 등~20%</p>
                         </div>
             <div class="cmmain_deal_pricebx">
                 <p class="cmmain_deal_optprice">
                     <span class="blind">할인적용가</span>
-                    <em class="cmmain_deal_price">19,700</em>
+                    <em class="cmmain_deal_price">4,480</em>
                     <span class="cmmain_deal_pricetx">원</span>
                     <span class="cmmain_deal_pricebar">~</span>
                     </p>
@@ -6870,351 +8275,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     </div>
 </div>
     </div>
-</div><div id="ajaxMainMemberShipItem" style="display:none"></div><div class="newmall_area" style="display: none;"></div><!-- 특가상품 -->
-    <div class="cmmain_sec_deal" data-react-tarea-cd="00052_000000114">
-            <div class="cmmain_heading">
-                <h2 class="cmmain_heading_tit">놓치면 후회하는 특가 상품</h2>
-            </div>
-            <div class="cmmain_tabwrap js_cmmain_tabwrap" data-tabname="deal">
-                <ul class="cmmain_tablist ty_txtmenu js_cmmain_tablist">
-                    <li role="presentation" class="on"
-                            data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"전체보기"}]'>
-                            <button type="button" class="cmmain_tab js_cmmain_tab clickable" onclick="ajaxGetDealItemList(this);" role="tab"
-                                    aria-selected="true" data-deal-type="all"
-                                    data-react-tarea-cd-old="메인매장|특가|탭_클릭|전체보기"
-                                    data-react-tarea-dtl-cd="t00014">전체보기</button>
-                        </li>
-                    <li role="presentation" 
-                            data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"이마트 오반장"}]'>
-                            <button type="button" class="cmmain_tab js_cmmain_tab clickable" onclick="ajaxGetDealItemList(this);" role="tab"
-                                    aria-selected="true" data-deal-type="obanjang"
-                                    data-react-tarea-cd-old="메인매장|특가|탭_클릭|이마트 오반장"
-                                    data-react-tarea-dtl-cd="t00014">이마트 오반장</button>
-                        </li>
-                    <li role="presentation" 
-                            data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"쓱-특가"}]'>
-                            <button type="button" class="cmmain_tab js_cmmain_tab clickable" onclick="ajaxGetDealItemList(this);" role="tab"
-                                    aria-selected="true" data-deal-type="happy"
-                                    data-react-tarea-cd-old="메인매장|특가|탭_클릭|쓱-특가"
-                                    data-react-tarea-dtl-cd="t00014">쓱-특가</button>
-                        </li>
-                    <li role="presentation" 
-                            data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"마감세일"}]'>
-                            <button type="button" class="cmmain_tab js_cmmain_tab clickable" onclick="ajaxGetDealItemList(this);" role="tab"
-                                    aria-selected="true" data-deal-type="closing"
-                                    data-react-tarea-cd-old="메인매장|특가|탭_클릭|마감세일"
-                                    data-react-tarea-dtl-cd="t00014">마감세일</button>
-                        </li>
-                    <li role="presentation" 
-                            data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"전단행사"}]'>
-                            <button type="button" class="cmmain_tab js_cmmain_tab clickable" onclick="ajaxGetDealItemList(this);" role="tab"
-                                    aria-selected="true" data-deal-type="flyer"
-                                    data-react-tarea-cd-old="메인매장|특가|탭_클릭|전단행사"
-                                    data-react-tarea-dtl-cd="t00014">전단행사</button>
-                        </li>
-                    <li role="presentation" 
-                            data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"하나 더 사은품"}]'>
-                            <button type="button" class="cmmain_tab js_cmmain_tab clickable" onclick="ajaxGetDealItemList(this);" role="tab"
-                                    aria-selected="true" data-deal-type="plusone"
-                                    data-react-tarea-cd-old="메인매장|특가|탭_클릭|하나 더 사은품"
-                                    data-react-tarea-dtl-cd="t00014">하나 더 사은품</button>
-                        </li>
-                    <li role="presentation" 
-                            data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"백화점 세일중"}]'>
-                            <button type="button" class="cmmain_tab js_cmmain_tab clickable" onclick="ajaxGetDealItemList(this);" role="tab"
-                                    aria-selected="true" data-deal-type="dept"
-                                    data-react-tarea-cd-old="메인매장|특가|탭_클릭|백화점 세일중"
-                                    data-react-tarea-dtl-cd="t00014">백화점 세일중</button>
-                        </li>
-                    </ul>
-                <div class="cmmain_tabcont">
-                    <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel on">
-                        <!-- 데이터 없는 경우 -->
-        <div class="cmmain_cunit_items">
-            <ul class="cunit_thmb_lst" data-areaid="item_list">
-                <div class="cm_empty">
-                    <p class="cm_empty_tx">곧 상품이 등록될 예정입니다.</p>
-                    <p class="cm_empty_tx">조금만 기다려주세요!</p>
-                </div>
-            </ul>
-        </div>
-    </div>
-                </div>
-            </div>
-        </div>
-    <!-- // 특가상품 -->
-    <input type="hidden" name="fn:length(banners)" value="13">
+</div>
+<div id="ajaxMainMemberShipItem" style="display:none"></div><div class="newmall_area" style="display: none;"></div><!-- 특가상품 -->
 
-<div class="cmmain_sec_gift ty_renew">
-    <div class="cmmain_heading">
-        <h2 class="cmmain_heading_tit">특별한 날은 SSG 선물하기와 함께해요</h2>
-    </div>
-    <div class="cmmain_tabwrap js_cmmain_tabwrap" data-tabname="gift">
-        <ul class="cmmain_tablist ty_imgmenu js_cmmain_tablist">
-            <li role="presentation" class="on">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202404/2024041712424509435577946557_565.png" alt="어린이 선물" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000767098"}' onclick="mainGiftThemeService.getItems()">어린이 선물</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915421931513911415391_572.png" alt="생일/축하" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000766399"}' onclick="mainGiftThemeService.getItems()">생일/축하</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915423081319780925978_27.png" alt="맛있는선물" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000766397"}' onclick="mainGiftThemeService.getItems()">맛있는선물</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915423856794883673588_571.png" alt="결혼/집들이" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000757556"}' onclick="mainGiftThemeService.getItems()">결혼/집들이</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915425082728997916899_627.png" alt="응원/위로" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000766398"}' onclick="mainGiftThemeService.getItems()">응원/위로</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915405917824314126431_132.png" alt="뷰티" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000757472"}' onclick="mainGiftThemeService.getItems()">뷰티</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915410873551028869102_188.png" alt="럭셔리선물" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000757555"}' onclick="mainGiftThemeService.getItems()">럭셔리선물</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915411675496702913770_156.png" alt="유아동" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000757559"}' onclick="mainGiftThemeService.getItems()">유아동</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915413008534220867422_375.png" alt="건강/회복" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000757558"}' onclick="mainGiftThemeService.getItems()">건강/회복</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915414352169672960077_403.png" alt="디지털/가전" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000757557"}' onclick="mainGiftThemeService.getItems()">디지털/가전</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915415248058804310980_46.png" alt="골프/레저" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000766395"}' onclick="mainGiftThemeService.getItems()">골프/레저</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915420287259005609900_236.png" alt="모바일기프트" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000766396"}' onclick="mainGiftThemeService.getItems()">모바일기프트</button>
-                </li>
-            <li role="presentation" class="">
-                    <span class="cmmain_tabimg">
-                        <img src="//sui.ssgcdn.com/cmpt/banner/202311/2023110915420987993947373494_660.png" alt="백화점선물" loading="lazy">
-                    </span>
-                    <button type="button" class="cmmain_tab js_cmmain_tab" role="tab" aria-selected="true" data-options='{"cornerId": "7000757553"}' onclick="mainGiftThemeService.getItems()">백화점선물</button>
-                </li>
-            </ul>
-        <div class="cmmain_tabcont">
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data on"></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-            </div>
-    </div>
-</div><div class="cmmain_sec_ranking" id="main-ranking" data-react-tarea-cd="00052_000000380">
-    <div class="cmmain_heading">
-        <h2 class="cmmain_heading_tit">지금 인기 있는 상품이에요</h2>
-    </div>
-    <div class="cmmain_tabwrap js_cmmain_tabwrap" data-tabname="ranking">
-        <ul class="cmmain_tablist ty_txtmenu js_cmmain_tablist">
-            <li role="presentation" class="on"
-                data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"전체 베스트"}]'>
-                <button type="button"
-                        class="cmmain_tab js_cmmain_tab clickable"
-                        role="tab"
-                        aria-selected="true"
-                        data-corner-id="7000502308"
-                        data-display-category-id="5000016005"
-                        data-react-tarea-cd-old="메인매장|랭킹|탭_클릭|전체랭킹"
-                        data-react-tarea-dtl-cd="t00014"
-                >전체 베스트</button>
-            </li>
-            <li role="presentation"
-                data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"실시간인기"}]'>
-                <button type="button"
-                        class="cmmain_tab js_cmmain_tab clickable"
-                        role="tab"
-                        aria-selected="false"
-                        data-react-tarea-cd-old="메인매장|랭킹|탭_클릭|실시간인기"
-                >실시간인기</button>
-            </li>
-            <li role="presentation"
-                data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"장보기 상품"}]'>
-                <button type="button"
-                        class="cmmain_tab js_cmmain_tab clickable"
-                        role="tab"
-                        aria-selected="false"
-                        data-corner-id="7000502219"
-                        data-display-category-id="6000142657"
-                        data-react-tarea-cd-old="메인매장|랭킹|탭_클릭|장보기 상품"
-                        data-react-tarea-dtl-cd="t00014"
-                >장보기 상품</button>
-            </li>
-            <li role="presentation"
-                data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"백화점 상품"}]'>
-                <button type="button"
-                        class="cmmain_tab js_cmmain_tab clickable"
-                        role="tab"
-                        aria-selected="false"
-                        data-corner-id="7000502220"
-                        data-display-category-id="6000142981"
-                        data-react-tarea-cd-old="메인매장|랭킹|탭_클릭|백화점 상품"
-                        data-react-tarea-dtl-cd="t00014"
-                >백화점 상품</button>
-            </li>
-            <li role="presentation"
-                data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"고객리뷰"}]'>
-                <button type="button"
-                        class="cmmain_tab js_cmmain_tab clickable"
-                        role="tab"
-                        aria-selected="false"
-                        data-corner-id="7000502221"
-                        data-display-category-id="5000016005"
-                        data-react-tarea-cd-old="메인매장|랭킹|탭_클릭|고객리뷰"
-                        data-react-tarea-dtl-cd="t00014"
-                >고객리뷰</button>
-            </li>
-        </ul>
-        <div class="cmmain_tabcont">
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data on"></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data"></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data"></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data"></div>
-            <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data"></div>
-        </div>
-    </div>
-</div><div class="cmmain_sec_store" id="special-shop">
-        <div class="cmmain_heading">
-            <h2 class="cmmain_heading_tit">믿고 사는 SSG 공식스토어</h2>
-        </div>
-        <div class="cmmain_tabwrap js_cmmain_tabwrap" data-tabname="official_brand">
-            <ul class="cmmain_tablist ty_txtmenu js_cmmain_tablist" data-react-tarea-cd="00052_000000542">
-                <li role="presentation" class="on"
-                        data-react-unit-type="disp_ctg"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"전체"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="true"
-                                data-spcshop-disptype-cd="ALL"
-                                data-react-tarea-dtl-cd="t00054"
-                        >전체</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="disp_ctg"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"패션"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-spcshop-disptype-cd="01"
-                                data-react-tarea-dtl-cd="t00054"
-                        >패션</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="disp_ctg"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"뷰티&잡화"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-spcshop-disptype-cd="02"
-                                data-react-tarea-dtl-cd="t00054"
-                        >뷰티&잡화</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="disp_ctg"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"스포츠&레저"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-spcshop-disptype-cd="03"
-                                data-react-tarea-dtl-cd="t00054"
-                        >스포츠&레저</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="disp_ctg"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"디지털&라이프"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-spcshop-disptype-cd="04"
-                                data-react-tarea-dtl-cd="t00054"
-                        >디지털&라이프</button>
-                    </li>
-                <li role="presentation" class=""
-                        data-react-unit-type="disp_ctg"
-                        data-react-unit-id=""
-                        data-react-unit-text='[{"type":"text","value":"푸드"}]'>
-                        <button type="button"
-                                class="cmmain_tab js_cmmain_tab clickable"
-                                role="tab"
-                                aria-selected="false"
-                                data-spcshop-disptype-cd="05"
-                                data-react-tarea-dtl-cd="t00054"
-                        >푸드</button>
-                    </li>
-                </ul>
-            <div class="cmmain_tabcont">
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data on"></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                <div role="tabpanel" class="cmmain_tabpanel js_cmmain_tabpanel js_loading_data "></div>
-                </div>
-        </div>
-        <div class="cmmain_more"
-             data-react-tarea-cd="00052_000000543"
-             data-react-unit-type="text"
-             data-react-unit-id=""
-             data-react-unit-text='[{"type":"tarea_addt_val","value":"null"}]'>
-            <a href="/special/index.ssg" class="cmmain_more_btn btn_moreview clickable"
-               data-react-tarea-dtl-cd="t00041">공식스토어 전체보기</a>
-        </div>
-    </div>
 <div class="newmall_area" style="display: none;"></div><div class="newmall_area" style="display: none;"></div><div class="newmall_area" style="display: none;"></div><div class="cmmain_sec_mndmoon" id="mondayMoon" data-react-tarea-cd="00052_000000547"></div><div class="newmall_area" style="display: none;"></div><div class="cmmain_sec_plan">
         <div class="cmmain_heading">
             <h2 class="cmmain_heading_tit">기획전 베스트</h2>
@@ -7224,18 +8287,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <div class="cmplan_unit "
         
          data-react-unit-type="pnshop"
-         data-react-unit-id="6000044131"
+         data-react-unit-id="6000458339"
          data-react-unit-text=""
     >
-        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=6000044131" data-react-tarea="메인매장|기획전베스트|기획전_클릭|[GUCCI] 구찌선물제안" data-react-tarea-dtl-cd="t00051">
+        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=6000458339" data-react-tarea="메인매장|기획전베스트|기획전_클릭|페라가모 발레리나 플랫" data-react-tarea-dtl-cd="t00051">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202402/2024022916033551410890263089_605.jpg&w=400&h=240&edit=c&t=340766b6128e171b484ba6415da4557d48dbd157" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202402/2024022916033551410890263089_605.jpg&w=800&h=480&edit=c&t=1d56a7676ec7cf8a1b79c467527ad624953cfd23 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042512064666856859933785_188.jpg&w=400&h=240&edit=c&t=37a1377d30335f1bc5ba9d5fe198bd685c406228" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042512064666856859933785_188.jpg&w=800&h=480&edit=c&t=ab346d4fabc00eb246bfb6302e00ad3be03af8b7 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#기획전</span>
                     </div>
-                <em class="cmplan_tit">[GUCCI] 공식 온라인 스토어</em>
+                <em class="cmplan_tit">페라가모 발레리나 플랫</em>
                 </div>
             </a>
 
@@ -7283,18 +8346,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cmplan_unit "
         
          data-react-unit-type="pnshop"
-         data-react-unit-id="6000131503"
+         data-react-unit-id="6000125592"
          data-react-unit-text=""
     >
-        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=6000131503" data-react-tarea="메인매장|기획전베스트|기획전_클릭|금주의 추천상품" data-react-tarea-dtl-cd="t00051">
+        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=6000125592" data-react-tarea="메인매장|기획전베스트|기획전_클릭|금주의 추천상품" data-react-tarea-dtl-cd="t00051">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042515122021828890355889_148.jpg&w=400&h=240&edit=c&t=18eecc0461cea604c40de30f3f443b08d7df8e92" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042515122021828890355889_148.jpg&w=800&h=480&edit=c&t=a92edb7f2a7e1892d85b9439b09bc8a2cc98bf33 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024041819121083513428863342_18.jpg&w=400&h=240&edit=c&t=e8953064dcc459b13e9456e2051399e191ffee42" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024041819121083513428863342_18.jpg&w=800&h=480&edit=c&t=004ee0822d7cc518d9d56db7e31ac8d737bc0ebd 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=240&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#기획전</span>
                     </div>
-                <em class="cmplan_tit">금주의 추천상품!</em>
+                <em class="cmplan_tit">금주의 추천상품</em>
                 </div>
             </a>
 
@@ -7323,18 +8386,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <div class="cmplan_unit "
         
          data-react-unit-type="pnshop"
-         data-react-unit-id="6000371963"
+         data-react-unit-id="6000362414"
          data-react-unit-text=""
     >
-        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=6000371963" data-react-tarea="메인매장|기획전베스트|기획전_클릭|다이슨 기프트 에디션" data-react-tarea-dtl-cd="t00051">
+        <a class="cmplan_link clickable" href="https://www.ssg.com/plan/planShop.ssg?dispCmptId=6000362414" data-react-tarea="메인매장|기획전베스트|기획전_클릭|MacBook Pro M3" data-react-tarea-dtl-cd="t00051">
             <div class="cmplan_imgbx">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024043008503492329081892908_761.jpg&w=400&h=400&edit=c&t=1288c5556dce53afc8821f8a8467b34bc1ccbdf6" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024043008503492329081892908_761.jpg&w=800&h=800&edit=c&t=1f5079ba02220206da3b734d6aca1364919e50a1 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=400&edit=c'">
+                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024041710075240537451225745_717.jpg&w=400&h=400&edit=c&t=35e0f1a1bb99fec1fad6891041a2b2d2918ac732" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024041710075240537451225745_717.jpg&w=800&h=800&edit=c&t=2882446fd884a16488527084747713e248282101 2x" alt="" class="cmplan_img" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/service/@750x452.jpg&w=400&h=400&edit=c'">
             </div>
             <div class="cmplan_detailbx">
                 <div class="cmplan_tagarea">
                         <span class="cmplan_tag">#기획전</span>
                     </div>
-                <em class="cmplan_tit">다양한 스타일링이 가능한</em>
+                <em class="cmplan_tit">MacBook Air M3</em>
                 </div>
             </a>
 
@@ -7342,147 +8405,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 </div>
                 </div>
     </div>
-<!-- 광고 기획전 -->
-    <div class="cmmain_sec_ad"></div>
-    <!-- //광고 기획전-->
-    <div class="newmall_area" style="display: none;"></div><div class="newmall_area" style="display: none;"></div><!-- 클립 -->
-    <div class="cmmain_sec_myclip" id="main_clipArea" style="display:none"></div>
-    <!-- //클립 -->
-</div>
 
-<div class="ssgmain_sitemap_sec">
-    <h2 class="blind">사이트맵</h2>
-<div class="ssgmain_sitemap react-area">
-	<dl class="ssgmain_sitemap_list">
-		<dt class="ssgmain_sitemap_tit">신세계브랜드</dt>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://shinsegaemall.ssg.com">
-				신세계몰</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://department.ssg.com">
-				신세계백화점</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://emart.ssg.com">
-				이마트몰</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://casamia.family.ssg.com">
-				까사미아</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://starbucks.family.ssg.com">
-				STARBUCKS
-			</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://chicor.family.ssg.com">
-				CHICOR</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://live.family.ssg.com">
-				신세계라이브쇼핑</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://triip.ssg.com">
-				여행
-			</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://si.family.ssg.com">
-				S.I.VILLAGE</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://starfield.ssg.com">
-				스타필드</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="https://premiumoutlets.family.ssg.com">
-				프리미엄 아울렛</a>
-		</dd>
-	</dl>
-	<dl class="ssgmain_sitemap_list">
-		<dt class="ssgmain_sitemap_tit">SSG.COM 서비스매장</dt>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/service/specialMain.ssg?tabDivCd=obanjang">
-				오반장</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/service/specialMain.ssg?tabDivCd=happy">
-				쓱-특가</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/service/gift/main.ssg">
-				선물하기</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/service/bestMain.ssg">
-				베스트</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/service/newarrival.ssg">
-				신상품</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/event/eventMain.ssg">
-				이벤트&쿠폰</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/plan/index.ssg">
-				기획전</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/special/index.ssg">
-				공식스토어</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/contents/lifeMagazineMain.ssg">
-				라이프매거진</a>
-		</dd>
-		<dd class="ssgmain_sitemap_item notranslate">
-			<a class="ssgmain_sitemap_link" href="/service/bizMain.ssg ">
-				SSG.COM Biz.
-			</a>
-		</dd>
-	</dl>
-	<dl class="ssgmain_sitemap_list">
-		<dt class="ssgmain_sitemap_tit">BEST 공식스토어</dt>
-		<dd class="ssgmain_sitemap_item"><a href="https://emart.ssg.com/specialStore/nobrand/main.ssg" class="ssgmain_sitemap_link">노브랜드</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://emart.ssg.com/specialStore/ssgpeacock/main.ssg" class="ssgmain_sitemap_link">피코크</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://shinsegaemall.ssg.com/special/gucci/main.ssg" class="ssgmain_sitemap_link">GUCCI</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://department.ssg.com/special/chanelMain.ssg" class="ssgmain_sitemap_link">CHANEL</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://jaju.blossom.ssg.com" class="ssgmain_sitemap_link">JAJU</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://ralph-lauren.blossom.ssg.com" class="ssgmain_sitemap_link">랄프 로렌</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://lululemonkorea.blossom.ssg.com" class="ssgmain_sitemap_link">룰루레몬</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://shinsegaemall.ssg.com/specialStore/hm/main.ssg" class="ssgmain_sitemap_link">H&M</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://shinsegaemall.ssg.com/specialStore/massimodutti/main.ssg" class="ssgmain_sitemap_link">MASSIMO DUTTI</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://apple.blossom.ssg.com" class="ssgmain_sitemap_link">애플</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://premiumoutlets.family.ssg.com" class="ssgmain_sitemap_link">프리미엄아울렛</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="https://starbucks.family.ssg.com" class="ssgmain_sitemap_link">스타벅스</a></dd>
-		</dl>
-	<dl class="ssgmain_sitemap_list">
-		<dt class="ssgmain_sitemap_tit">스마트 쇼핑팁</dt>
-		<dd class="ssgmain_sitemap_item"><a class="ssgmain_sitemap_link" href="/event/birthdayCpn.ssg">생일쿠폰</a></dd>
-		<dd class="ssgmain_sitemap_item"><a class="ssgmain_sitemap_link" href="http://www.shinsegae.com/shinsegaePoint_d/pointInfo/pointSystem.jsp" target="_blank">신세계포인트</a></dd>
-		<dd class="ssgmain_sitemap_item"><a class="ssgmain_sitemap_link" href="http://www.shinsegae.com/certificate_d/ticket/ticketInfo.jsp" target="_blank">신세계상품권</a></dd>
-		<dd class="ssgmain_sitemap_item"><a class="ssgmain_sitemap_link" href="https://www.ssgpay.com" target="_blank">SSGPAY</a></dd>
-	</dl>
-	<dl class="ssgmain_sitemap_list">
-		<dt class="ssgmain_sitemap_tit">고객센터</dt>
-		<dd class="ssgmain_sitemap_item"><a href="/customer/main.ssg" class="ssgmain_sitemap_link clickable" data-react-tarea="푸터메뉴바|푸터메뉴바고객센터|자주찾는질문_클릭">자주 찾는 질문</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="/customer/counselForm.ssg" class="ssgmain_sitemap_link clickable" data-react-tarea="푸터메뉴바|푸터메뉴바고객센터|1:1이메일상담_클릭">1:1 이메일상담</a></dd>
-		<dd class="ssgmain_sitemap_item"><a href="/customer/main.ssg" class="ssgmain_sitemap_btn clickable" data-react-tarea="푸터메뉴바|푸터메뉴바고객센터|고객센터메인_클릭">고객센터 메인</a></dd>
-	</dl>
-	<dl class="ssgmain_sitemap_list">
-		<dt class="ssgmain_sitemap_tit">공지사항</dt>
-		<dd class="ssgmain_sitemap_item"><a class="ssgmain_sitemap_link" href="/customer/noticeList.ssg?siteNo=6005&bbsId=1&postngId=1215593704&postTeryIdnfNo=6005#1215593704_6005_">UBPAY 결제서비스 종료 안내</a></dd>
-		<dd class="ssgmain_sitemap_item"><a class="ssgmain_sitemap_link" href="/customer/noticeList.ssg?siteNo=6005&bbsId=1&postngId=1212330270&postTeryIdnfNo=6005#1212330270_6005_">SSG.COM 사칭 문자 주의 안내</a></dd>
-		<dd class="ssgmain_sitemap_item"><a class="ssgmain_sitemap_btn" href="/customer/noticeList.ssg?siteNo=6005">공지사항 더보기</a></dd>
-	</dl>
-</div>
-</div>
-<hr/>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/commonUtil.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/event.js?v=20240424"></script>
@@ -8083,28 +9006,28 @@ deferredObj.done(function() {
                     <ul class="swiper-wrapper">
                         <li class="swiper-slide">
                                 <div class="ssgcard_item ty_card_bi08">
-                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013188" class="ssgcard_item_link">
+                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013029" class="ssgcard_item_link">
                                         <div class="ssgcard_img">
                                             <img src="https://sui.ssgcdn.com/ui/ssg/img/common/card/card_bi08.svg" alt="현대카드" loading="lazy">
                                         </div>
                                         <div class="ssgcard_info">
                                             <span class="ssgcard_name">현대카드</span>
                                             <span class="ssgcard_rate">SSGPAY</span>
-                                            <span class="ssgcard_discount">7% 청구할인</span>
+                                            <span class="ssgcard_discount">5% 청구할인</span>
                                         </div>
                                     </a>
                                 </div>
                             </li>
                         <li class="swiper-slide">
                                 <div class="ssgcard_item ty_card_bi02">
-                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013186" class="ssgcard_item_link">
+                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000012955" class="ssgcard_item_link">
                                         <div class="ssgcard_img">
                                             <img src="https://sui.ssgcdn.com/ui/ssg/img/common/card/card_bi02.svg" alt="KB국민카드" loading="lazy">
                                         </div>
                                         <div class="ssgcard_info">
                                             <span class="ssgcard_name">KB국민카드</span>
-                                            <span class="ssgcard_rate">뷰티쓱세일</span>
-                                            <span class="ssgcard_discount">8% 청구할인</span>
+                                            <span class="ssgcard_rate">SIV&middot;W컨셉</span>
+                                            <span class="ssgcard_discount">10% 청구할인</span>
                                         </div>
                                     </a>
                                 </div>
@@ -8299,7 +9222,7 @@ deferredObj.done(function() {
         init: function() {
             $('#span_ssgCs .btn_talk').on('click', function() {
                 talkNavigator.goCsTalk();
-            }); 
+            });
 
             
         },
@@ -8319,7 +9242,7 @@ deferredObj.done(function() {
                                     if(skyTalkHandler.timer) {
                                         clearInterval(skyTalkHandler.timer);
                                         skyTalkHandler.timer = null;
-                           	         }
+                                    }
                                     return;
                             }
                         }
@@ -8342,5 +9265,5 @@ deferredObj.done(function() {
             //do nothing
         }
     };
-    
-<%@ include file="footer.jsp" %>
+</script>
+<%@ include file="/footer.jsp" %>
