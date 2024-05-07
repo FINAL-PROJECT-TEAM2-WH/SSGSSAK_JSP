@@ -14,9 +14,6 @@
 
 
 <!--  auth 뒤에 쿼리가 붙으면 다른 페이지로 이동시켜줘야됨.  -->
-
-
-
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/main.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" />

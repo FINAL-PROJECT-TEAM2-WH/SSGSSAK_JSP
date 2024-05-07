@@ -1,25 +1,62 @@
-<%@page import="member.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% String contextPath = request.getContextPath(); %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
-<meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>
- 로그인, 믿고 사는 즐거움 SSG.COM</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="shortcut icon" type="image/x-icon" href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
+	<title class="notranslate">
+		로그인, 믿고 사는 즐거움 SSG.COM</title>
+
+	
 
 
 
 
 
 
-
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/common/layout.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/popup.css?v=20240424" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/mem.css?v=20240424" />
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
+
+	<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'GA4_dataLayer', 'GTM-PWBFGRL');</script>
+	<script type="text/javascript">
+        window.GA4_dataLayer = window.GA4_dataLayer || [];
+
+        function gtmPush() {
+            GA4_dataLayer.push(arguments);
+        }
+	</script>
+
+	</head>
+<body class="body_wide">
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWBFGRL"
+	        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<div id="skip">
+	<h2>스킵 네비게이션</h2>
+	<ul>
+		<li><a href="#content" onclick="document.getElementById('content').tabIndex = -1;document.getElementById('content').focus();return false;">본문바로가기</a></li>
+	</ul>
+</div>
+
 <script type="text/javascript">
     var settings = {
         localDomain : location.hostname,
@@ -126,10 +163,10 @@
             mbrLoginId       : '',
             mbrLoginId2      : '',
             mbrcoId          : '000000',
-            ckWhere          : 'ssg_ggbr',
+            ckWhere          : 'direct_ssg',
             dmId             : '',
-            emSaleStrNo      : '2439',
-            trSaleStrNo      : '2483',
+            emSaleStrNo      : '2022',
+            trSaleStrNo      : '2478',
             gmSaleStrNo      : '2449',
             gmSaleStrYn      : 'Y',
             emRsvtShppPsblYn : 'Y',
@@ -137,7 +174,7 @@
             sessionId : '',
             ip : '',
             shpplocMod : 'MY',
-            shpplocModKey : '5367225',
+            shpplocModKey : '4108067',
             cartNm : '장바구니',
             mbrspMbrDivCd : '',
             mbrspJoinSiteCd : '',
@@ -237,7 +274,7 @@
     var UserInfo = {
         isLoginYn : 'false'=='true'?'Y':'N',
         mbrTypeCd : '',
-        ckWhere : 'ssg_ggbr'
+        ckWhere : 'direct_ssg'
     };
 
     var mobile = {
@@ -297,119 +334,123 @@
     var emergencyItemIds = "";
 //]]>
 </script>
-</head>
-<body>
-<div id="pop_wrap">
-<div id="memberLogin" class="cmem_ct_login">
-    <input type="hidden" name="loginCertCode" value="ies2PUPg9LjGKHUp0ASfwjKbHZ11nzytD7U8vkptBFB5_S3yRijJLp6Frt5ZNW8C">
+<%@ include file="../Top.jsp" %>
+<div id="category" class="category"></div>
+			<div id="container"  class="cmmyssg_wrap" >
+				
+<div id="memberLogin">
+    <input type="hidden" name="loginCertCode" value="MJAUc6lwlx7PQ5C9ZxkGcTKbHZ11nzytD7U8vkptBFDU2T4oePxUkUf1H-628j3-">
     <input type="hidden" id="loginDvicId" name="loginDvicId" value="">
 
-    <div id="pop_container">
-        <div id="pop_content">
-            <div class="cmem_header">
-                <div class="cmem_header_tit"><h1><span class="notranslate">로그인</span></h1></div>
+    <div id="content" class="cmem_ct_login">
+        <div class="cmem_header">
+            <div class="cmem_header_tit">
+                <h2><span class="notranslate">로그인</span></h2>
             </div>
+        </div>
+        <form id="login_form" method="post" onsubmit="return false;">
             <div class="cmem_cont">
                 <div class="cmem_sec">
-                    <form method="post" id="loginForm" <%-- action="<%=contextPath %>/member/loginPage_new_Form.do" --%> >
-                        
-                        <div class="cmem_inpgrp ty_id">
-                            <div class="cmem_txt">
-                                <label for="mem_id" class="blind">아이디</label>
-                                <input type="text" name="mbrLoginId" id="mem_id" maxlength="50" placeholder="아이디">
-                            </div>
+                    
+                    <div class="cmem_inpgrp ty_id">
+                        <div class="cmem_txt">
+                            <label for="mem_id" class="blind">아이디</label>
+                            <input type="text" name="mbrLoginId" id="mem_id" maxlength="50" placeholder="아이디">
                         </div>
-                        <div class="cmem_inpgrp ty_pw">
-                            <div class="cmem_txt">
-                                <label for="mem_pw" class="blind">비밀번호</label>
-                                <input type="password" name="password" id="mem_pw" placeholder="비밀번호">
-                            </div>
+                    </div>
+                    <div class="cmem_inpgrp ty_pw">
+                        <div class="cmem_txt">
+                            <label for="mem_pw" class="blind">비밀번호</label>
+                            <input type="password" name="password" id="mem_pw" placeholder="비밀번호">
                         </div>
-                        <div class="cmem_login_support">
-                            <span class="cmem_chk notranslate"><input type="checkbox" id="keep_id" name="keep_id"><label for="keep_id">아이디 저장</label></span>
-                            <span class="login_support_pannel notranslate">
-						<a href="javascript:void(0);" onclick="goSslCallback('https://member.ssg.com/member/findIdPw.ssg');" class="find_id">아이디 찾기</a>
-						<a href="javascript:void(0);" onclick="goSslCallback('https://member.ssg.com/member/findIdPw.ssg?tabType=pw');" class="find_password">비밀번호 찾기</a>
-						<a href="javascript:void(0);" onclick="goJoinPage('https://member.ssg.com/member/join/auth.ssg', 'https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB');" class="find_join">회원가입</a>
-					</span>
-                        </div>
-                        <div class="cmem_btnarea">
-                            <button type="submit" class="cmem_btn cmem_btn_ornge" id="loginBtn"><span>로그인</span></button>
-                        </div>
-                        <ul class="cmem_sns_login notranslate">
+                    </div>
+                    <div class="cmem_login_support">
+                        <span class="cmem_chk notranslate"><input type="checkbox" id="keep_id" name="keep_id"><label for="keep_id">아이디 저장</label></span>
+                        <span class="login_support_pannel notranslate">
+					<a href="/member/findIdPw.ssg" class="find_id">아이디 찾기</a>
+					<a href="/member/findIdPw.ssg?tabType=pw" class="find_password">비밀번호 찾기</a>
+					<a href="/member/join/auth.ssg" class="find_join">회원가입</a>
+				</span>
+                    </div>
+                    <div class="cmem_btnarea">
+                        <button type="submit" class="cmem_btn cmem_btn_ornge" onclick="loginModel.login();" id="loginBtn"><span>로그인</span></button>
+                    </div>
+                    <ul class="cmem_sns_login notranslate">
+                        <li>
+                            <a href="javascript:void(0);" onclick="snsLogin.naver('login', 'https://www.ssg.com/myssg/main.ssg?gnb=myssg');">
+						<span class="ico_area">
+							<span class="sp_cmem_sns cmem_ico_naver"></span>
+						</span>
+                                <span class="cmem_sns_name">네이버 로그인</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="snsLogin.kakao('login', 'https://www.ssg.com/myssg/main.ssg?gnb=myssg');">
+						<span class="ico_area">
+							<span class="sp_cmem_sns cmem_ico_kakao"></span>
+						</span>
+                                <span class="cmem_sns_name">카카오 로그인</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="snsLogin.apple('login', 'https://www.ssg.com/myssg/main.ssg?gnb=myssg');">
+						<span class="ico_area">
+							<span class="sp_cmem_sns cmem_ico_apple"></span>
+						</span>
+                                <span class="cmem_sns_name">애플 로그인</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" onclick="snsLogin.toss('login', 'https://www.ssg.com/myssg/main.ssg?gnb=myssg');">
+						<span class="ico_area">
+							<span class="sp_cmem_sns cmem_ico_toss"></span>
+						</span>
+                                <span class="cmem_sns_name">토스 로그인</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                        <ul class="cmem_nonmember notranslate">
                             <li>
-                                <a href="javascript:void(0);" onclick="snsLogin.naver('login', 'https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB');">
-							<span class="ico_area">
-								<span class="sp_cmem_sns cmem_ico_naver"></span>
-							</span>
-                                    <span class="cmem_sns_name">네이버 로그인</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" onclick="snsLogin.kakao('login', 'https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB');">
-							<span class="ico_area">
-								<span class="sp_cmem_sns cmem_ico_kakao"></span>
-							</span>
-                                    <span class="cmem_sns_name">카카오 로그인</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" onclick="snsLogin.apple('login', 'https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB');">
-							<span class="ico_area">
-								<span class="sp_cmem_sns cmem_ico_apple"></span>
-							</span>
-                                    <span class="cmem_sns_name">애플 로그인</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" onclick="snsLogin.toss('login', 'https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB');">
-							<span class="ico_area">
-								<span class="sp_cmem_sns cmem_ico_toss"></span>
-							</span>
-                                    <span class="cmem_sns_name">토스 로그인</span>
-                                </a>
+                                
+                                    
+                                    
+                                    
+                                        <a href="" onclick="nonMemberLogin();return false;">비회원 조회하기</a>
+                                    
+                                
                             </li>
                         </ul>
-                        
-                            <div class="cmem_nomemarea notranslate">
-                                
-                                    
-                                    
-                                    
-                                        <a href="" class="cmem_nomem_btn" onclick="nonMemberLogin();return false;"><span>비회원 조회하기</span></a>
-                                    
-                                
-                            </div>
-                        
-                    </form>
+                    
                 </div>
                 <div class="cmem_sec advertising">
                     <div class="advertising">
                         
                         
                             
-                            <a href='https://event.ssg.com/eventDetail.ssg?nevntId=1000000012665' target='_blank'>
-                                <img src='https://sui.ssgcdn.com/cmpt/banner/202404/2024042615274106868993705999_22.jpg' alt='4/29~5/5 뷰티쓱세일'>
+                            <a href='https://event.ssg.com/eventDetail.ssg?nevntId=1000000013036' target='_blank'>
+                                <img src='https://sui.ssgcdn.com/cmpt/banner/202405/2024050315281674230363949436_615.jpg' alt='5/6~12 The Greatest Gift Of All'>
                             </a>
                         
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
+
+
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ui.flicking.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ui.flip.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.menu-aim.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ui.ssg.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ui-base.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.layout.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/commonUtil.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/member/js/common/ssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/member/js/common/commJs.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
 
-<script type="text/javascript" src="/comm/js/memberJs.ssg"></script>
 <script>
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -522,14 +563,14 @@ $(function(){
     try {
         var _dl = {
             "pcid" 				: "17132588089110623122291"
-            , "fsid" 			: "scuetx01650i02n6vg05"
+            , "fsid" 			: "sd3de201650i02n6vg08"
             , "siteno"		    : "1001" // #443767 siteno 하드코딩 요청
             , "tarea" 			: ""
             , "log_type_flag" 	: "t"
             , "memberid" 		: ""
             , "ga"				: "00"
             , "mbrgrdcd"		: ""
-            , "ckwhere"		    : "ssg_ggbr"
+            , "ckwhere"		    : "direct_ssg"
             , "bkwhere"		    : ""
         };
 
@@ -583,11 +624,13 @@ $(function(){
     } catch (e) {}
 </script>
 
+
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.cookie.js"></script>
 
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
     var loginMsg = {
         "mbrNm": "이름을 입력해주세요."
@@ -614,9 +657,9 @@ $(function(){
         , login: function () {
             var self = this;
             
-		
+
             $.ajax({
-                url: this.urlPrefix + "/login/process.da"
+                url: this.urlPrefix + "/login/process.ssg"
                 , method: "post"
                 , data: {
                     mbrLoginId: $("#memberLogin input[name=mbrLoginId]").val()
@@ -852,14 +895,14 @@ $(function(){
                         alert(result.resultMsg.replaceAll("\\n", "\n"));
                     }
                     if (self.originSite) {    
-                        if ('https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b5163515e1%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB') {
-                            location.href = unescape(originSite) + "/comm/popup/sslCallback.ssg?retURL=" + escape(result.actionUrl + "&retURL=" + 'https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b5163515e1%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB');
+                        if ('https%3A%2F%2Fwww.ssg.com%2Fmyssg%2Fmain.ssg%3Fgnb%3Dmyssg') {
+                            location.href = unescape(originSite) + "/comm/popup/sslCallback.ssg?retURL=" + escape(result.actionUrl + "&retURL=" + 'https%3A%2F%2Fwww.ssg.com%2Fmyssg%2Fmain.ssg%3Fgnb%3Dmyssg');
                             return;
                         }
                         location.href = unescape(originSite) + "/comm/popup/sslCallback.ssg?retURL=" + escape(result.actionUrl);
                     } else { 
-                        if ('https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b5163515e1%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB') {
-                            location.href = result.actionUrl + "&retURL=" + 'https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b5163515e1%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB';
+                        if ('https%3A%2F%2Fwww.ssg.com%2Fmyssg%2Fmain.ssg%3Fgnb%3Dmyssg') {
+                            location.href = result.actionUrl + "&retURL=" + 'https%3A%2F%2Fwww.ssg.com%2Fmyssg%2Fmain.ssg%3Fgnb%3Dmyssg';
                             return;
                         }
                         location.href = result.actionUrl;
@@ -901,7 +944,7 @@ $(function(){
         }
     }
 </script>
- -->
+
 
 
 <script type="text/javascript">
@@ -2227,9 +2270,7 @@ $(function(){
 </script>
 
 
-<%-- <script type="text/javascript">
-    var originSite = "<%= contextPath %>/mainPage.jsp";
-
+<script type="text/javascript">
     $(document).ready(function () {
         try {
             FingerprintJS.load()
@@ -2237,8 +2278,15 @@ $(function(){
                 .then(result => {
                     $("#loginDvicId").val(result.visitorId);
                 })
-        } catch (error) {}
+        } catch (error) {
+        }
     })
+
+    
+
+    function loginCallBack() {
+        loginModel.callbackAfterLogin();
+    }
 
     
 
@@ -2248,75 +2296,28 @@ $(function(){
 
     
 
-    function snsMoveCallback(url) {
-        if (window.opener !== null) {
-            window.opener.location.href = url;
-        } else {
-            window.open(url, "SNS_NEW");
-        }
-        self.close();
-    }
-
-    
-
-    function goSslCallback(url) {
-        location.href = unescape(originSite) + '/comm/popup/sslCallback.ssg?retURL=' + escape(url);
-    }
-
-    function goJoinPage(url, retURL) {
-        // 회원가입 후 redirect할 주소를 retURL 파라미터로 전달.
-        var joinRetURL = escape(url) + '&retURL=' + escape(retURL);
-        location.href = unescape(originSite) + '/comm/popup/sslCallback.ssg?retURL=' + joinRetURL;
-    }
-
-    
-
     function nonMemberLogin(tab) {
-        location.href = '/member/popup/popupNonMemberLogin.ssg?originSite=' + escape(originSite) + '&t=' + tab;
+        var originSite = location.protocol + "//" + location.hostname;
+        window.open('/member/popup/popupNonMemberLogin.ssg?originSite=' + escape(originSite) + '&t=' + tab, 'SSG_POPUP', 'toolbar=no,menubar=no,location=no,scrollbars=no,status=no,left=100,top=100,resizable=no,width=590,height=690')
     }
 
-    /* $(function () {
+
+    $(function () {
         
-        var originSite = "https://www.ssg.com";
-        var retURL = "https://www.ssg.com/?ckwhere=ssg_ggbr&amp;_a1_kad=18e3b5163515e1&amp;_a1_site=ssg&amp;gad_source=1&amp;gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB";
-        loginModel.originSite = "https://www.ssg.com";
-        loginModel.retURL = "https://www.ssg.com/?ckwhere=ssg_ggbr&amp;_a1_kad=18e3b5163515e1&amp;_a1_site=ssg&amp;gad_source=1&amp;gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB";
-        loginModel.ref = "";
+        loginModel.retUrl = "https%3A%2F%2Fwww.ssg.com%2Fmyssg%2Fmain.ssg%3Fgnb%3Dmyssg" || 'http://www.ssg.com';
         loginModel.flow = "";
-        if (loginModel.flow !== "") {
-            loginModel.retUrl = "https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b5163515e1%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB";
-        }
+        loginModel.loginType = "self";
 
-        
-        try {
-            window.resizeTo(780, 600);
-        } catch (e) {
-        }
-
-        
-        if ($.cookie('hideIeUpgrade') != 'Y' && (DUI.check.browser == 'ie6' || DUI.check.browser == 'ie7' || DUI.check.browser == 'ie8')) {
-            $('#ieUpgrade').show();
-        }
-        $('#btn_hide_ieupgrade').click(function () {
-            $.cookie('hideIeUpgrade', 'Y', {expires: 1, path: '/', domain: '.ssg.com'});
-            $('#ieUpgrade').hide();
-        });
-
-        
         $("#keep_id").change(function () {
             if ($(this).prop("checked")) alert('개인정보보호를 위해 개인 PC에서만 사용하세요.');
         });
 
-        
+        // 쿠키 처리
         if ($.cookie("keepId") == "Y") {
             $("#keep_id").prop("checked", true);
-            $("#memberLogin input[name=mbrLoginId]").val($.cookie('mbrLoginId'));
+            $("#memberLogin input[name=mbrLoginId]").val($.cookie("mbrLoginId"));
             $("input[name=password]").focus();
         }
-
-        $(".banr").click(function (e) {
-            location.href = unescape(originSite) + '/comm/popup/sslCallback.ssg?retURL=' + escape($(this).attr("ref"));
-        });
 
         $('.cmem_txt')
             .filter(function () {
@@ -2328,39 +2329,10 @@ $(function(){
                     $(this).find('input').focus();
                 }
             });
-    }); */
-</script> --%>
-<script>
-$('#loginBtn').on('click', function () {
-    let params = $('form').serialize();
-    $.ajax({
-        url: '<%=contextPath%>/member/login.do',
-        dataType: 'json',
-        type: 'POST',
-        data: params,
-        cache: false,
-        success: function (data) {
-            if (data) {
-            	var parent = window.opener;    
-            	parent.location.reload();
-            	window.close();              	
-            } else {
-                alert('받은 데이터가 유효하지 않습니다.');
-            }
-        },
-        error: function (xhr, status, error) {
-            console.error("오류 - 상태: ", status, " 메시지: ", error);
-            //alert('오류: ' + error);
-            
-            alert('아이디와 비밀번호가 다릅니다.')
-            
-            window.location.reload();
-        }
+        // 로그인 아이디 입력 시 기본 영어로 설정
+        // $('#mem_id').css("ime-mode", "inactive");
     });
-   /*  parent.location.reload(); */
-});
-
 </script>
 </div>
-</body>
-</html>
+		<!-- footer -->
+<%@ include file="../footer.jsp" %>

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.util.JdbcUtil;
+
 import product.domain.ProductDTO;
 
 public class ProductDAOImpl implements ProductDAO{
@@ -91,19 +93,13 @@ public class ProductDAOImpl implements ProductDAO{
 		e.printStackTrace();
 	}finally {
 		
-		try {
-			
-			rs.close();
-			pstmt.close();
-			conn.close();	
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
+		 JdbcUtil.close(rs); 
+		 JdbcUtil.close(pstmt); 
+		 JdbcUtil.close(conn);
+	
+		
 	}
 	   
-
-		
-		
 		return dto;
 	}
 	

@@ -4,6 +4,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.CommandHandler;
 import product.domain.ProductDTO;
 import product.service.ViewService;
 
@@ -36,6 +37,7 @@ public class ViewHandler implements CommandHandler{
 					ProductDTO product = productService.getProduct(id);
 					
 					request.setAttribute("product", product);
+
 					
 					
 				} catch (Exception e) {
