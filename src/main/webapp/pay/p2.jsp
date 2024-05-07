@@ -1,6 +1,7 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240419/lb4ssg.min.js" charset="utf-8"></script><script src="https://connect.facebook.net/signals/config/1668002603429849?v=2.9.154&amp;r=stable&amp;domain=localhost&amp;hme=c3a545c63044e8e9102d4f32d84a1137594d024f28e801d670bc76dc5c075575&amp;ex_m=67%2C112%2C99%2C103%2C58%2C3%2C93%2C66%2C15%2C91%2C84%2C49%2C51%2C158%2C161%2C172%2C168%2C169%2C171%2C28%2C94%2C50%2C73%2C170%2C153%2C156%2C165%2C166%2C173%2C121%2C14%2C48%2C178%2C177%2C123%2C17%2C33%2C38%2C1%2C41%2C62%2C63%2C64%2C68%2C88%2C16%2C13%2C90%2C87%2C86%2C100%2C102%2C37%2C101%2C29%2C25%2C154%2C157%2C130%2C27%2C10%2C11%2C12%2C5%2C6%2C24%2C21%2C22%2C54%2C59%2C61%2C71%2C95%2C26%2C72%2C8%2C7%2C76%2C46%2C20%2C97%2C96%2C9%2C19%2C18%2C81%2C53%2C79%2C32%2C70%2C0%2C89%2C31%2C78%2C83%2C45%2C44%2C82%2C36%2C4%2C85%2C77%2C42%2C39%2C34%2C80%2C2%2C35%2C60%2C40%2C98%2C43%2C75%2C65%2C104%2C57%2C56%2C30%2C92%2C55%2C52%2C47%2C74%2C69%2C23%2C105" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PWBFGRL&amp;l=GA4_dataLayer"></script><script type="text/javascript" src="https://js.appboycdn.com/web-sdk/4.7/braze.min.js" async=""></script><script async="" src="https://www.datadoghq-browser-agent.com/datadog-rum-v4.js"></script><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240419/lb4ssg.min.js" charset="utf-8"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0P8DK53C8&amp;l=GA4_dataLayer&amp;cx=c"></script><script src="https://connect.facebook.net/signals/config/1668002603429849?v=2.9.154&amp;r=stable&amp;domain=pay.ssg.com&amp;hme=c3a545c63044e8e9102d4f32d84a1137594d024f28e801d670bc76dc5c075575&amp;ex_m=67%2C112%2C99%2C103%2C58%2C3%2C93%2C66%2C15%2C91%2C84%2C49%2C51%2C158%2C161%2C172%2C168%2C169%2C171%2C28%2C94%2C50%2C73%2C170%2C153%2C156%2C165%2C166%2C173%2C121%2C14%2C48%2C178%2C177%2C123%2C17%2C33%2C38%2C1%2C41%2C62%2C63%2C64%2C68%2C88%2C16%2C13%2C90%2C87%2C86%2C100%2C102%2C37%2C101%2C29%2C25%2C154%2C157%2C130%2C27%2C10%2C11%2C12%2C5%2C6%2C24%2C21%2C22%2C54%2C59%2C61%2C71%2C95%2C26%2C72%2C8%2C7%2C76%2C46%2C20%2C97%2C96%2C9%2C19%2C18%2C81%2C53%2C79%2C32%2C70%2C0%2C89%2C31%2C78%2C83%2C45%2C44%2C82%2C36%2C4%2C85%2C77%2C42%2C39%2C34%2C80%2C2%2C35%2C60%2C40%2C98%2C43%2C75%2C65%2C104%2C57%2C56%2C30%2C92%2C55%2C52%2C47%2C74%2C69%2C23%2C105" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
 	<meta charset="utf-8">
@@ -48,7 +49,7 @@
 		DD_RUM.startSessionReplayRecording();
 	})
 </script>
-
+<%@include file="/Top.jsp" %>
 <script type="text/javascript">
 	+function(a,p,P,b,y){a.braze={};a.brazeQueue=[];for(var s="BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.braze,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.brazeQueue.push(arguments); return true}"))()}window.braze.getCachedContentCards=function(){return new window.braze.ContentCards};window.braze.getCachedFeed=function(){return new window.braze.Feed};window.braze.getUser=function(){return new window.braze.User};window.braze.getFeatureFlag=function(){return new window.braze.FeatureFlag};(y=p.createElement(P)).type='text/javascript';
 		y.src='https://js.appboycdn.com/web-sdk/4.7/braze.min.js';
@@ -249,224 +250,7 @@
     //]]>
 </script>
 <script type="text/javascript" src="https://sui.ssgcdn.com/ui/ssg/js/affiliate/affiliateGnb.js?v=20240409"></script>
-<div id="wrap" class="main sfc_site">
-<link rel="stylesheet" href="/jspPro/project/covcss/ssg1.css">
-    <input type="hidden" name="showTripTapActvYn" value="Y">
-    <input type="hidden" name="siteNo" value="6005">
-    <input type="hidden" name="fromgnb" value="">
-    <div id="header" class="ssg_header react-area">
-        <div class="ssg_header_inner">
-            <div id="notice_b2e_pop" class="notice_lpop" style="width:436px;height:334px;display:none">
-                <div class="nl_cont">
-                    <img src="https://sui.ssgcdn.com/ui/ssg/img/common/notice/bg_benefitnotice.png" alt="제휴 혜택 적용 관련 안내">
-                    <p class="blind">B2E 제휴 고객사 및 신세계 그룹 임직원에게는 신세계몰과 이마트몰의 상시 할인 혜택이 적용되고 있습니다. B2E 회원은 제휴 채널 혜택이 중복 적용되지 않습니다. 특정 제휴 채널을 통한 SSG.COM 방문 시 제휴채널 헤택이 중복 적용되지 않음을 양해하여 주시기 바랍니다.</p>
-                </div>
-                <div class="nl_foot">
-                    <div class="nlf_l"><input type="checkbox" id="nlf_chk" onclick="javascript:openB2ePopClose();"><label for="nlf_chk">오늘 하루 이창을 열지않음</label></div>
-                    <div class="nlf_r"><a href="javascript:void(0);" onclick="javascript:document.getElementById('notice_b2e_pop').style.display='none';" class="nl_close"><span class="sp_nl">안내 레이어 닫기</span></a></div>
-                </div>
-            </div>
-            <div class="ssg_gnb_main">
-                <!-- SSG 로고/몰이동 -->
-                <div class="ssg_gnb_logo v2">
-                        <div class="ssg_mall_layer_container">
-                            <div class="ssg_mall_layer_head">
-                                <h1>
-                                    <a href="javascript:void(0)" class="ssg_logo_link">
-                                        <span class="ssg_logo_slogan">믿고 사는 즐거움</span>
-                                        <i class="logo logo_ssg_com" aria-hidden="true"></i>
-                                        <span class="blind">SSG.COM</span>
-                                    </a>
-                                </h1>
-                                <span class="ssg_mall_menu_trigger" aria-expanded="false">
-                                  <i class="icon_ssg_circle_chevron_down"></i>
-                                  <span class="blind">메뉴 열기</span>
-                                </span>
-                            </div>
-                            <div class="ssg_mall_menu_container" aria-hidden="true" tabindex="-1" data-react-tarea-cd="00042_000000090">
-                                <ul class="ssg_mall_menu_list">
-                                    <li class="ssg_mall_menu_item ssg_mall_menu_item_ssg is-active" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;SSG&quot;}]">
-                                        <a href="https://www.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|SSG_클릭" data-react-tarea-dtl-cd="t00060" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                            <span class="blind">SSG.COM</span>
-                                        </a>
-                                    </li>
-                                    <li class="ssg_mall_menu_item ssg_mall_menu_item_emart" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;이마트몰&quot;}]">
-                                        <a href="https://emart.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|이마트몰_클릭" data-react-tarea-dtl-cd="t00060">
-                                            <span class="blind">이마트몰</span>
-                                        </a>
-                                    </li>
-                                    <li class="ssg_mall_menu_item" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;신세계몰&quot;}]">
-                                        <a href="https://shinsegaemall.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|신세계몰_클릭" data-react-tarea-dtl-cd="t00060">신세계몰</a>
-                                    </li>
-                                    <li class="ssg_mall_menu_item" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;신세계백화점&quot;}]">
-                                        <a href="https://department.ssg.com" class="clickable" data-react-tarea="공통|몰이동_레이어|신세계백화점_클릭" data-react-tarea-dtl-cd="t00060">신세계백화점</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                <!-- //SSG 로고/몰이동 -->
-                <!-- 검색/급상승검색어 -->
-                <div class="ssg_gnb_search">
-                    <!-- [공통헤더] 검색 -->
-                    <div class="gnb_search_wrap">
-                        <div class="gnb_searching_box" id="search_query">
-                            <form onsubmit="return false;">
-                                <div class="gnb_searching_inp" data-globalid="search">
-                                    <input id="ssg-query" type="text" value="" class="inp_txt" style="width:px" onfocus="this.style.background='none'" autocomplete="off">
-                                    <input type="hidden" id="ssgQueryBanrUrl" name="ssgQueryBanrUrl" value="">
-                                    <input type="hidden" id="ssgQueryBanrTarget" name="ssgQueryBanrTarget" value="">
-                                    <input type="hidden" id="ssgQuerySub" name="ssgQuerySub" value="">
 
-                                    <button type="button" id="ssg-query-btn" class="gnb_search_btn">
-                                        <i class="icon ty_lg icon_search"></i>
-                                        <span class="blind">검색</span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- 자동완성영역 개편(s) -->
-                        <div class="gnb_search_word" id="ssg-common_search_word" style="display: none;">
-                            <!-- 검색 키인창(s) -->
-                            <div class="key_word_renew" id="ssg-mbr-wrap-area" style="display: none">
-                                <div class="recent_list">
-                                    <div class="tit_area">
-                                        <strong>최근검색어</strong>
-                                    </div>
-                                    <div class="result_area" id="ssg-recent_result_area">
-                                        <ul id="ssg-recent_search"></ul>
-                                        <div class="result_clear">
-                                            <button type="button" class="btn_clear" id="ssg-btn_late_clear" onclick="javascript:ssgTrigger.btnHandle(event,this);" data-value="mbr"><span>검색어 전체 삭제</span></button>
-                                        </div>
-                                    </div>
-                                    <!-- [D] 검색어가 없을 경우 .nodata는 display:block / .result_area는 display:none -->
-                                    <div class="nodata" id="ssg-late_nodate" style="display:none">
-                                        <p>최근검색어가 없습니다</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 검색 키인창(e) -->
-                            <!-- 자동완성검색어(s) -->
-                            <!-- [D] 광고가 보이는 상태일때 .auto_word에 .ad_showing 클래스 추가-->
-                            <div class="auto_word renew" id="ssg-auto_word" style="display: none">
-                                <div id="ssg-shrtc_target" class="word_shortcut"></div>
-                                <div class="word_list notranslate" id="ssg-word_list">
-                                    <ul id="ssg-auto_list"></ul>
-                                </div>
-                            </div>
-                            <!-- 자동완성검색어(e) -->
-                        </div>
-                        <!-- 자동완성영역 개편(e) -->
-                    </div>
-                    <script type="text/javascript" src="//sui.ssgcdn.com/common/ui/json/srchAdKeyword.js"></script>
-                    <script type="text/javascript" src="//sui.ssgcdn.com/common/ui/json/shrtc_keyword.js"></script>
-                    <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/new/srch.ac.comm.v2.js?v=20240411"></script>
-                    <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/lodash-2.4.1.js"></script>
-                    <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/new/srch.ac.ssg.ui.v2.js?v=20240411"></script>
-                    <!-- 급상승 검색어(s) -->
-                    <!-- 급상승 검색어(e) -->
-                    <!-- //[공통헤더] 검색 -->
-                </div>
-                <!-- //검색/급상승검색어 -->
-                <!-- 몰이동-->
-                <div class="ssg_gnb_mall">
-                    <ul class="gnb_mall_menu" data-react-tarea-cd="00042_000000090">
-                        <li class="gnb_mall_item" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;이마트몰&quot;}]">
-                            <a href="https://emart.ssg.com" class="gnb_mall_link gnb_mall_emart clickable" data-react-tarea="공통|몰이동_레이어|이마트몰_클릭" data-react-tarea-dtl-cd="t00060"><span class="blind">이마트몰</span></a>
-                        </li>
-                        <li class="gnb_mall_item" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;신세계몰&quot;}]">
-                            <a href="https://shinsegaemall.ssg.com" class="gnb_mall_link clickable" data-react-tarea="공통|몰이동_레이어|신세계몰_클릭" data-react-tarea-dtl-cd="t00060">신세계몰</a>
-                        </li>
-                        <li class="gnb_mall_item" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;신세계백화점&quot;}]">
-                            <a href="https://department.ssg.com" class="gnb_mall_link clickable" data-react-tarea="공통|몰이동_레이어|신세계백화점_클릭" data-react-tarea-dtl-cd="t00060">신세계백화점</a>
-                        </li>
-                        </ul>
-                </div>
-                <!-- //몰이동-->
-                </div>
-
-            <div class="ssg_gnb_util">
-                <!-- 상단메뉴: 바로가기/로그인/우측메뉴 -->
-                <div class="gnb_renew_util" data-react-tarea-cd="00042_000000090">
-                    <input type="hidden" value="Y" id="universeOpenYn">
-                    <div class="gnb_mmbrs ty_universe" id="gnbMbrspText_universe" style="display: none" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;멤버십영역&quot;}]" data-react-unit-id=""></div>
-                    <ul class="gnb_util" id="util_right">
-                        <li id="gnbUserInfoArea" class="gnb_tx_user notranslate gnbUserInfoArea" style=""><a href="https://www.ssg.com/myssg/main.ssg?gnb=myssg"><%=request.getParameter("name") %>님</a></li>
-                        <li id="loginBtn" style=""><a class="clickable" data-react-tarea="몰공통|GNB|로그인" href="#" onclick="login('','','','gnb=login');return false;" title="새창 열림">로그인</a></li>
-                        <li id="joinBtn" style=""><a class="clickable" data-react-tarea="몰공통|GNB|회원가입" href="javascript:fn_joinSite('https://member.ssg.com/member/join/auth.ssg')">회원가입</a></li>
-                        <li id="logoutBtn" style="display: none;"><a class="clickable" data-react-tarea="몰공통|GNB|로그아웃" href="#" onclick="logout('', 'gnb=logout');return false;">로그아웃</a></li>
-                       
-                        <li><a class="clickable" data-react-tarea="몰공통|GNB|고객센터" href="javascript:goCustomer();">고객센터</a></li>
-                    </ul>
-                </div>
-                <div class="gnb_renew_menu">
-                    <ul class="gnb_menu" data-react-tarea-cd="00042_000000090">
-                        <li>
-                            <a href="https://www.ssg.com/myssg/myClip/main.ssg?attnDivCd=10&amp;gnb=myclip" class="btn_like clickable" data-react-tarea="몰공통|GNB|MY_MY클립" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_heart" aria-hidden="true"></i>
-                                <span class="blind">좋아요</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ssg.com/myssg/main.ssg?gnb=myssg" class="btn_myssg clickable" data-react-tarea="몰공통|GNB|MY_MYSSG" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_person" aria-hidden="true"></i>
-                                <span class="blind">MY SSG</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://pay.ssg.com/myssg/orderList.ssg?gnb=orderlist" class="btn_order clickable" data-react-tarea="몰공통|GNB|주문배송조회" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_truck" aria-hidden="true"></i>
-                                <span class="blind">주문배송조회</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:ssgGnb.fn_btnClickCart();" class="btn_cart clickable" data-react-tarea="몰공통|GNB|장바구니_클릭" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_cart" aria-hidden="true"></i>
-                                <span class="cmnoti_push" id="mbrCartCntInfo" style="display: none;">
-                                    <span class="blind">장바구니에 담긴 상품 수</span>
-                                    <span class="cmnoti_num" id="mbrCartCntSpan">2</span>
-                                </span>
-                            </a>
-                        </li>
-                        </ul>
-                    <script type="text/javascript">
-                        var loginYn  = 'N';
-                        var cookies = document.cookie.split('; ');
-                        for(var i = 0; i < cookies.length; i++){
-                            var value  = cookies[i].split('=');
-                            if(value[0] === 'LOGIN_YN'){
-                                loginYn = decodeURIComponent(value[1]);
-                            }
-                        }
-						let name = "<%= request.getParameter("name") %>";
-						
-                        if(name !="" || name!=null){
-                            document.getElementById('loginBtn').style.display = "none";
-                            document.getElementById('joinBtn').style.display = "none";
-                            document.getElementById('logoutBtn').style.display = "";
-                        } else{
-                            document.getElementById('loginBtn').style.display = "";
-                            document.getElementById('joinBtn').style.display = "";
-                            document.getElementById('logoutBtn').style.display = "none";
-                        }
-
-                        var ssgGnb = {
-                            fn_btnClickCart : function() {
-                                if(ssgGnb.fn_btnClickCart.progress) {
-                                    alert('처리중입니다.');
-                                    return;
-                                }
-
-                                ssgGnb.fn_btnClickCart.progress = true;
-                                location.href = 'https://pay.ssg.com/cart/dmsShpp.ssg?gnb=cart';
-                            }
-                        }
-                    </script>
-                </div>
-                <!-- //상단메뉴: 바로가기/로그인/우측메뉴-->
-            </div>
-        </div>
-    </div>
 <!-- 최근 본 상품 -->
 <aside id="history" class="drawer_menu drawer_right" role="complementary" aria-label="최근 본 상품 리스트">
   <div class="ssg_history_wrap drawer_wrap" id="_ssg_history_wrap" tabindex="0" data-react-tarea-cd="00042_000000455">
@@ -1089,7 +873,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<div class="codr_pay_box">
 									<div class="codr_meminfo">
 										<strong class="codr_meminfo_tx notranslate rcptpeInfoArea_0">
-											<%= vo.getEname() %> <em><%= vo.getEmpno() %></em>
+											${requestScope.al[0].name}<em>${requestScope.al[0].phonenum}</em>
 										</strong>
 										
 										<span class="codr_meminfo_tel notranslate rcptpTelnoArea_0" style="display:none;">

@@ -1,4 +1,4 @@
-package product.domain;
+package pay.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
