@@ -31,7 +31,7 @@ public class LoginHandler implements CommandHandler {
 		String method = request.getMethod();
 		System.out.println(method);
 		if ( method.equals("GET")) {
-					
+				
 			// GET 요청으로 주소 돌려주기 
 			
 			
@@ -49,7 +49,6 @@ public class LoginHandler implements CommandHandler {
 				
 		} else {
 			// P	OST 요청 
-			
 			
 			// 의존성 주입 
 			Connection conn = ConnectionProvider.getConnection();
