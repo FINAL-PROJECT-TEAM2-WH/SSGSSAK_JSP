@@ -48,8 +48,8 @@ public class LoginHandler implements CommandHandler {
 			}
 				
 		} else {
-			// P	OST 요청 
-			
+			// POST 요청 
+			request.setCharacterEncoding("UTF-8");
 			// 의존성 주입 
 			Connection conn = ConnectionProvider.getConnection();
 			MemberDAO dao = new MemberDAOImpl(conn);

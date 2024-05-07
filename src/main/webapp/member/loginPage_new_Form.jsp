@@ -311,7 +311,7 @@
             </div>
             <div class="cmem_cont">
                 <div class="cmem_sec">
-                    <form method="post" id="loginForm" action="<%=contextPath %>/member/login.do" >
+                    <form method="post" id="loginForm" <%-- action="<%=contextPath %>/member/login.do" --%> >
                         
                         <div class="cmem_inpgrp ty_id">
                             <div class="cmem_txt">
@@ -334,7 +334,7 @@
 					</span>
                         </div>
                         <div class="cmem_btnarea">
-                            <button type="submit" class="cmem_btn cmem_btn_ornge" id="loginBtn"><span>로그인</span></button>
+                            <button type="button" class="cmem_btn cmem_btn_ornge" id="loginBtn"><span>로그인</span></button>
                         </div>
                         <ul class="cmem_sns_login notranslate">
                             <li>
@@ -2331,7 +2331,7 @@ $(function(){
     }); */
 </script> --%>
 <script>
-$('#loginBtn').on('click', function () {
+$('#loginBtn').one('click', function () {
     let params = $('form').serialize();
     $.ajax({
         url: '<%=contextPath%>/member/loginAjax.do',

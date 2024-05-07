@@ -16,7 +16,7 @@ public class MemberDAOImpl implements MemberDAO{
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-	
+
 	private Map<String, String> info = new HashedMap();
 	// 1. Setter를 통한 DI
 	public void setConn(Connection conn) {
@@ -38,29 +38,29 @@ public class MemberDAOImpl implements MemberDAO{
 		ResultSet rs = null ;
 		System.out.println("get in");
 		// 로그인 성공 시 member에 관한 정보를 갖고 와서 세션에서 객체 단위로 왔다갔다 하게끔? 
-		
+
 		String sql =  "SELECT id, email, address, phoneNum, name "
 				+ " FROM member "
 				+ " WHERE REGEXP_LIKE(id, ?) AND REGEXP_LIKE(passwd,?)";
-		
+
 		String cid, email, address, phoneNum,name;
 		MemberDTO dto = null;
 		try {
 			pstmt =conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, passwd);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			if ( rs.next()) {
-			// 로그인 성공 
+				// 로그인 성공 
 				cid = rs.getString("id");
 				email = rs.getString("email");
 				address = rs.getString("address");
 				phoneNum = rs.getString("phoneNum");
 				name = rs.getString("name");
-				
-					dto = new MemberDTO()
+
+				dto = new MemberDTO()
 						.builder()
 						.id(cid)
 						.email(email)
@@ -69,7 +69,7 @@ public class MemberDAOImpl implements MemberDAO{
 						.name(name)
 						.build();	
 			} else {
-			// 로그인 실패 
+				// 로그인 실패 
 				System.out.println("로그인실패");
 			}
 		} catch (SQLException e) {
@@ -80,24 +80,75 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(pstmt);
 
 		}
-		
-		
+
+
 		return dto;
 	}
 	
+	
+	@Override
+	public int updateLoginYN(String id) {
+		// update 하면서 insert 해줘야댐 
+		
+		String sql = "SELECT name, PRIVILEGE "
+				+ " FROM member "
+				+ " WHERE id = ? ";
+		String name = "", privilege = "";
+		int rowCount = 0;
+		System.out.println(" > updateLoginYN ");
+		try { 
+			pstmt=conn.prepareStatement(sql); 
+			pstmt.setString(1, id); 
+			rs = pstmt.executeQuery();
+
+			if ( rs.next()) { // 로그인 성공 cid = rs.getString("id"); email =
+				privilege = rs.getString("PRIVILEGE"); 
+				name = rs.getString("name");
+			} 		
+		} 
+		catch (SQLException e) { 
+			// TODO Auto-generated 
+
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+		}
+		
+		try {			
+			
+			
+			sql = sql.format("INSERT INTO auth (id,name,privilege) VALUES ('%s','%s','%s')", id,name,privilege);
+			System.out.println(sql);
+			pstmt = conn.prepareStatement(sql);	
+			rowCount = pstmt.executeUpdate(sql);
+			System.out.println(rowCount);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+		}
+
+		
+		return rowCount;
+	}
+	
+
+
 	/*
 	 * public Map<String, String> loadInfo(String id) { ResultSet rs = null ;
 	 * System.out.println("> userinfo get in"); // 로그인 성공 시 member에 관한 정보를 갖고 와서
-	 * 세션에서 객체 단위로 왔다갔다 하게끔?
+	 * //세션에서 객체 단위로 왔다갔다 하게끔?
 	 * 
 	 * String sql = "SELECT id, email, address, phoneNum, name " + " FROM member " +
 	 * " WHERE REGEXP_LIKE(id, ?) AND REGEXP_LIKE(passwd,?)";
 	 * 
-	 * String cid, email, address, phoneNum,name; MemberDTO dto = null; try { pstmt
-	 * =conn.prepareStatement(sql); pstmt.setString(1, id); pstmt.setString(2,
-	 * passwd);
-	 * 
-	 * rs = pstmt.executeQuery();
+	 * String cid, email, address, phoneNum,name; MemberDTO dto = null; try {
+	 * pstmt=conn.prepareStatement(sql); pstmt.setString(1, id); rs =
+	 * pstmt.executeQuery();
 	 * 
 	 * if ( rs.next()) { // 로그인 성공 cid = rs.getString("id"); email =
 	 * rs.getString("email"); address = rs.getString("address"); phoneNum =
@@ -106,13 +157,37 @@ public class MemberDAOImpl implements MemberDAO{
 	 * dto = new MemberDTO() .builder() .id(cid) .email(email) .address(address)
 	 * .phoneNum(phoneNum) .name(name) .build(); } else { // 로그인 실패
 	 * System.out.println("로그인실패"); } } catch (SQLException e) { // TODO
-	 * Auto-generated catch block e.printStackTrace(); } finally {
+	 * Auto-generated
+	 * 
+	 * e.printStackTrace(); }finally {
+	 * 
 	 * JdbcUtil.close(rs); JdbcUtil.close(pstmt);
 	 * 
 	 * }
 	 * 
 	 * 
-	 * return }
+	 * return null;
+	 * 
+	 * }
 	 */
 
+
+	@Override
+	public int logOut(String id) {
+		String sql = String.format("DELETE FROM Auth WHERE id = '%s'", id);
+		int rowCount = 0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rowCount = pstmt.executeUpdate(sql);
+			if ( rowCount == 1) {
+				conn.commit();
+			} else {
+				conn.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	
+		return rowCount;
+	}
 }
