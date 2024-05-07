@@ -881,7 +881,6 @@ $(function(){
 	// 기본배송지 설정
 	function fn_setDefault(el) {
 		var shpplocSeq = "";
-		
 		/* 배송지가 체크되어있지 않으면 선택된 배송지 없다. */
 		if ($("[name='deliveryKr']:checked").length == 0) {
 			alert('선택된 배송지가 없습니다.');
@@ -905,14 +904,12 @@ $(function(){
 				$(el).attr("disabled", true);
 			},
 			success: function (map) {
-				
 				if (map["result"] == "98") {
 					if (confirm(map["resultMsg"])) {
 						fn_modify(shpplocSeq, cntry);
 					}
 					return;
 				}
-
 				if (map["CHNG_SALESTR_NM_YN"] === 'Y') {
 					var param = 'type=I&bascShpplocYn=Y';
 					param += '&emSaleStrNm=' + map["EM_SALESTR_NM"]
