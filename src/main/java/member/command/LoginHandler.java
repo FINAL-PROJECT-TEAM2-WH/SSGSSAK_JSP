@@ -30,7 +30,7 @@ public class LoginHandler implements CommandHandler {
 		String contextPath = request.getContextPath();
 		String method = request.getMethod();
 		if ( method.equals("GET")) {
-					
+				
 			// GET 요청으로 주소 돌려주기 
 			String path = "/member/loginPage_new_Form.jsp";
 			return path;
@@ -38,7 +38,6 @@ public class LoginHandler implements CommandHandler {
 			
 		} else {
 			// P	OST 요청 
-			
 			
 			// 의존성 주입 
 			Connection conn = ConnectionProvider.getConnection();
