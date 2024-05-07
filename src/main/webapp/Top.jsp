@@ -746,8 +746,6 @@ $('#loginBtn').on('click', function () {
 	window.open("<%=contextPath%>/member/login.do",'loginPage','width=750,height=590,left=500,top=300','resizable=no','_blank');
 });
 
-
-
 $('#joinBtn').on('click', function () {	
 	location.href = "<%=contextPath%>/member/join/auth.do";
 });

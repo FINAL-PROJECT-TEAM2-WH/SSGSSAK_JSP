@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-<%@page import="com.util.SessionConst"%>
-=======
 
->>>>>>> c9aa3862187e10a06b8ed81b2ac9ed8fe6219fb3
+<%@page import="com.util.SessionConst"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

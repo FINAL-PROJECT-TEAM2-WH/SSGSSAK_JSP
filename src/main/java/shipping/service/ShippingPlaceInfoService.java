@@ -31,6 +31,7 @@ public class ShippingPlaceInfoService {
 			conn = ConnectionProvider.getConnection();
 			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 			
+			System.out.println(conn);
 			rowCount = dao.insert(conn, dto);
 			
 		} catch (Exception e) {
@@ -38,7 +39,6 @@ public class ShippingPlaceInfoService {
 			System.out.println(">> ShippingPlaceInfoService insert 메서드 오류~~");
 		}
 		JdbcUtil.close(conn);
-		
 		return rowCount;
 	}
 	

@@ -36,7 +36,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		try {
 			rowCount = daoImpl.defaultShippingUpdate(conn, memid);
 			
-			String sql = " INSERT INTO shippingplaceinformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
+System.out.println(conn);			
+			String sql = " INSERT INTO shippingPlaceInformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
 					+ " VALUES ( seqshipplaceinfo.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -57,8 +58,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		}
 		JdbcUtil.close(rs);
 		JdbcUtil.close(pstmt);
-		JdbcUtil.close(conn);
-		
 		return rowCount;
 	}
 	
@@ -85,7 +84,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 			
 			if( id != 0 ) {
 				String upSql = " UPDATE shippingPlaceInformation "
-						+ " SET shippingPlaceInformation = 'X' "
+						+ " SET DEFAULTSHIPPING = 'X' "
 						+ " WHERE id = ? " ;
 				
 				pstmt = conn.prepareStatement(upSql);
@@ -99,8 +98,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		JdbcUtil.close(rs);
 		JdbcUtil.close(pstmt);
-		JdbcUtil.close(conn);
-		
 		return rowCount;
 	}
 	
