@@ -380,7 +380,7 @@
 </script>
 
 
-<<<<<<< HEAD
+
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/sentry.bundle.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="body_ssg body_renew body_wide body_wide_ctn">
@@ -1023,7 +1023,7 @@ function setCommonGnbCookie(name, value, expiredays) {
     </script>
     <%@include file="/Top.jsp"  %>
  <div id="wrap">
->>>>>>> 311d4c3af985a5b0a6822adc113cf81739d69734
+
     <div id="container">
         <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/promotion/css/template.css?v=20240424">
 <div id="content" class="content_primary content_event" style="min-height: 1100px;">
