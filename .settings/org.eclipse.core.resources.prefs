@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/product/product.jsp=UTF-8
-encoding//src/main/webapp/shipping/SSG_shippingPlace_insert.jsp=UTF-8
-encoding//src/main/webapp/shipping/SSG_shipping_select.jsp=UTF-8
-encoding//src/main/webapp/shipping/SSG_ssgshipping_main.jsp=UTF-8
-encoding//src/main/webapp/shipping/ex01.jsp=UTF-8
+encoding//src/main/webapp/userinfo/shipping/SSG_shippingPlace_insert.jsp=UTF-8
+encoding//src/main/webapp/userinfo/shipping/SSG_shipping_select.jsp=UTF-8
+encoding//src/main/webapp/userinfo/shipping/SSG_ssgshipping_main.jsp=UTF-8
+encoding//src/main/webapp/userinfo/shipping/ex01.jsp=UTF-8
 encoding/<project>=UTF-8
