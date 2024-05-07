@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%
+    request.setAttribute("pageTitle", "내 페이지 타이틀");
+%>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -8,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
     <link rel="image_src" href="//sui.ssgcdn.com/ui/common/img/sns/ssg.png"  />
-    <title class="notranslate">카테고리 > 스피커, 믿고 사는 즐거움 SSG.COM</title>
+    <title class="notranslate">카테고리 &gt;<%=request.getAttribute("pageTitle") %>, 믿고 사는 즐거움 SSG.COM</title>
     <meta name="title" content="카테고리 &gt; 스피커, 믿고 사는 즐거움 SSG.COM" />
     <meta name="description" content="카테고리 &gt; 스피커, 믿고 사는 즐거움 SSG.COM" />
     <meta name="google-site-verification" content="riDJ-IX46HanskLx25pj6-y8ANf2qTgZNfv_UJvkHq8" />
@@ -2608,7 +2610,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                             data-advertExtensTeryDivCd=""
                             data-advertAcctClsId=""
                             data-react-comm-type="disp_ctg"
-                            data-react-comm-id="6000208709">
+                            data-react-comm-id="1000026532717">
                             <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
 <div class="cunit_prod "
      data-react-unit-type="item"
