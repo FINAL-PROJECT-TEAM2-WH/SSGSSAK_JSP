@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
 <div class="cmmyssg_aside react-area">
     <ul class="cmmyssg_snb" data-react-tarea-cd="00034_000000005">
         <li class="cmmyssg_snb_item">

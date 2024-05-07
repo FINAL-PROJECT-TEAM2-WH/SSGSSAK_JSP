@@ -32,7 +32,7 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		super.init();
-//		System.out.println("> DispatcherServlet.init()...");
+		System.out.println("> DispatcherServlet.init()...");
 		// web.xml <servlet><init-param><param-name>path</servlet>
 		String path = this.getInitParameter("path");
 		String realPath = this.getServletContext().getRealPath(path);
@@ -78,6 +78,7 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void destroy() {
 		super.destroy();
+		
 	}
 
 

@@ -16,7 +16,7 @@
             <ul class="cunit_thmb_lst cunit_thmb_lst6">
                 <li class="cunit_t180">
                         <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
-<div class="cunit_prod "
+<div class="cunit_prod " 
      data-react-unit-type="item"
      data-observable-item = "true"
      data-react-unit-id="1000054496327"
