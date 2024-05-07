@@ -79,7 +79,7 @@
              data-react-unit-text=""
              
         >
-            <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013149"
+            <a href="${pageContext.request.contextPath }/pay/coupon.do"
                class="ssghero_imglink clickable"
                data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|4/29~5/5 쇼핑 익스프레스"
                data-react-tarea-dtl-cd="t00001"
@@ -92,7 +92,7 @@
                  data-react-unit-id="2003594172"
                  data-react-unit-text=""
             >
-                <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013149"
+                <a href="${pageContext.request.contextPath }/pay/coupon.do"
                    class="ssghero_titlnk clickable"
                    data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|4/29~5/5 쇼핑 익스프레스"
                    data-react-tarea-dtl-cd="t00001"

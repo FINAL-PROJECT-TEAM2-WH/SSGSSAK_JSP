@@ -14,12 +14,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class CouponImpl implements CouponDAO{
+public class PayImpl implements PayDAO{
 	private Connection conn = null ;
 	private PreparedStatement pst = null ;
 	private ResultSet rs = null ;
 	
-	public CouponImpl(Connection conn) {
+	public PayImpl(Connection conn) {
 		super();
 		this.conn = conn;
 	}
@@ -75,6 +75,15 @@ public class CouponImpl implements CouponDAO{
 			
 		}
 		return result;
+	}
+
+	@Override
+	public int viewpay(String productid, int option, int count) {
+		String sql = "  select p.id ,c.majorcatename,middlecatename,subcatename,minicatename,\r\n"
+				+ "    specialpriceid, shippingoptionid, sellerstoreid, brandid, pdname, price ,\r\n"
+				+ "    sale ,pcontent , updateday , stock from product p , category c ,shippingoption s ,sellerstore ss ,brand b\r\n"
+				+ "    where p.id = '1000026532717' and p.categoryid = c.id and p.shippingoptionid = s.id and ss.id=p.sellerstoreid and b.id = p.brandid " ; 
+		return 0;
 	}
 
 	
