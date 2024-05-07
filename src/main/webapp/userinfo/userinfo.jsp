@@ -2569,7 +2569,7 @@ $(function(){
         }
     };
 </script>
-<<<<<<<
+
 <!-- footer asdgasgd-->
 
     <%@ include file="../footer.jsp" %>

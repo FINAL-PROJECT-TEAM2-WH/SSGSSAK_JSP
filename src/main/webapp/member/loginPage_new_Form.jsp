@@ -311,7 +311,7 @@
             </div>
             <div class="cmem_cont">
                 <div class="cmem_sec">
-                    <form method="post" id="loginForm" <%-- action="<%=contextPath %>/member/loginPage_new_Form.do" --%> >
+                    <form method="post" id="loginForm" action="<%=contextPath %>/member/login.do" >
                         
                         <div class="cmem_inpgrp ty_id">
                             <div class="cmem_txt">
@@ -2334,7 +2334,7 @@ $(function(){
 $('#loginBtn').on('click', function () {
     let params = $('form').serialize();
     $.ajax({
-        url: '<%=contextPath%>/member/login.do',
+        url: '<%=contextPath%>/member/loginAjax.do',
         dataType: 'json',
         type: 'POST',
         data: params,
