@@ -1,14 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%-- <%
+<%
 	HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 	String memid = null;
-	if (session != null && memSession.getAttribute("memid") != null) {
-		memid = (String) memSession.getAttribute("memid");
+	if (memSession != null && memSession.getAttribute("auth") != null) {
+		memid = (String) memSession.getAttribute("auth");
 	} else {
 	    // 여기는 로그인 페이지로 다시 이동
-	    response.sendRedirect("/member/login.jsp");
+	    response.sendRedirect("../../member/login.jsp");
 	}
-%> --%>
+%> 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/popup.css?v=20240424" />
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     var settings = {
         localDomain : location.hostname,
@@ -476,11 +477,12 @@ function execDaumPostcode() {
 <script>
 	$("#shippingPlaceInsert").on("click", function(){
 		//alert("click했다~~");
+		var contextPath = "<%= request.getContextPath() %>";
 		var datas = {
 				// 여기서 회원 id 값도 같이 넘기기
 			//  memid : ${ param.memid }
-			//	memid : memid
-				addrnick : $("#shpplocAntnmNm").val()
+				memid : "<%= memid %>"
+			,	addrnick : $("#shpplocAntnmNm").val()
 			,	receiveMem : $("#rcptpeNm").val()
 			,	tel : $("#hpno1 option:selected").val() +"-"+ $("#hpno2").val() +"-"+ $("#hpno3").val()
 			,	postNum : $("#postNum").val()
@@ -490,18 +492,24 @@ function execDaumPostcode() {
 		}
 		$.ajax({
 			type: "POST",
-			url : "/shipping/shippingPlace/insert.do",
-			data : datas,
+			datatype : 'json',
+			/* ajax url 줄때 서버단이라면 contextPath 추가 꼭 해주기 */
+			url: contextPath + "/shippingPlaceInsert.do",
+			data: datas,
+			cache : false,
 			success : function(res){
-				console(res.code);
+				alert("성공");
+				console.log(res.code);
+				window.close();
 			},
 			error : function(){
-				console("통신 실패~")
+				//alert("실패")
+				window.close();
+				console(res.code);
 			}
 		})
 	})
 </script>
-
 <script>
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({

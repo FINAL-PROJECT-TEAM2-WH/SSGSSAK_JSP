@@ -29,6 +29,10 @@ public class DispatcherServlet extends HttpServlet {
     }
 
 	@Override
+	public void destroy() {
+		super.destroy();
+	}
+	@Override
 	public void init() throws ServletException {
 		super.init();
 		System.out.println("> DispatcherServlet.init()...");
@@ -73,7 +77,9 @@ public class DispatcherServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		System.out.println(commandHandlerMap);
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public void destroy() {
@@ -81,6 +87,8 @@ public class DispatcherServlet extends HttpServlet {
 		
 	}
 
+=======
+>>>>>>> e754b93d8aedaf1a67a9e40bfd2db712815c8666
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestURI = request.getRequestURI();
@@ -93,7 +101,6 @@ public class DispatcherServlet extends HttpServlet {
 		
 		//[M]VC
 		CommandHandler comHandler = this.commandHandlerMap.get(requestURI);
-		
 		String view = null ; 
 		try {
 			view = comHandler.process(request, response);

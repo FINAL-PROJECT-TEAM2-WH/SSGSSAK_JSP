@@ -44,5 +44,13 @@ public class JdbcUtil {
 			}
 		}
 	}
+	public static void commit(Connection conn) {
+		if (conn != null) {
+			try {
+				conn.commit();
+			} catch (SQLException ex) {
+			}
+		}
+	}
 
 }
