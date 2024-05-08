@@ -1284,6 +1284,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					</tbody>
 				</table>
 			</div>
+			
 	
 		</div>
 	</div>
@@ -1509,7 +1510,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 																	</p>
 																</td>
 																
-																				<c:choose>
+																			<c:choose>
 																					<c:when test="${empty coupon }">
 																			 <td class="codr_unit_dc">
 																				<select name="" id="couponselect" style="width: 230px; height: 40px; font-size: 15px;">
@@ -1549,24 +1550,31 @@ function setCommonGnbCookie(name, value, expiredays) {
 													</tbody>
 												</table>
 											</div>
-											  <script>
-											  					
-											  					for (var i = 0; i < "${coupon.size()}"; i++) {
-																	
-																}				
-											  
-											  					for (var i = 0; i < "${al.size()}"; i++) {
-																let	optionid = "${al[i].optiondesc}";
-																let couponprice = "${al[i].price}";
-																					$("#couponselect"+optionid).on("change",function(){
-																						$("#coupondis").html("");
-																						let value = $(this).val();
-																						 couponprice = `${al.price}`*value ;
-																						
-																						
-																					})
-											  					}
-																					</script>
+											<script>
+				
+	  				/* 쿠폰사용시 스크립트	 */
+	  					
+	  					for (var i = 0; i < "${al.size()}"; i++) {
+						let	optionid = "${al[i].optiondesc}";
+						let couponprice ;
+											$("#couponselect"+optionid).on("change",function(){
+												for (var i = 0; i < "${al.size()}"; i++) {
+													let	optionid2 = "${al[i].optiondesc}";
+													if (optionid != optionid2) {
+														$("#couponselect"+optionid2).prop("selectedIndex",-1);
+													}
+												}
+												}
+												$("#coupondis").html("");
+												let value = $(this).val();
+												 couponprice = `${al[i].price}`*value/100 ;
+												 $("#coupondis").html(couponprice);
+												
+											})
+	  					}
+											
+		           	</script>
+											 
 											<p class="codr_tx_check codr_tx_gray codr_tx_rgt">※ 적용가능한 쿠폰만 노출됩니다.</p>
 											<p class="codr_tx_check codr_tx_gray codr_tx_rgt ssgpaySecCpnGuideArea" style="display:none;">※ SSGPAY 전용쿠폰은 SSGPAY로 결제 시 자동 적용됩니다.</p>
 										</div>
