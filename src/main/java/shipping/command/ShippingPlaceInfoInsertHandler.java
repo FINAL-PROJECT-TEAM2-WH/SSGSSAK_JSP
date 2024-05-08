@@ -16,9 +16,8 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		
+		String method = request.getMethod();
 		ShippingPlaceInfoDTO dto = new ShippingPlaceInfoDTO();
-<<<<<<< HEAD
 		if( method.equals("GET")) {
 			return "/userinfo/shipping/SSG_shipping_place_info.jsp";
 		}else {
@@ -38,9 +37,7 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
-			}
-=======
-		
+		}
 		try {
 			dto.setMemid(request.getParameter("memid"));
 			dto.setAddressnick(request.getParameter("addrnick"));
@@ -50,11 +47,10 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 			dto.setRoadAddress(request.getParameter("roadAddress"));
 			dto.setJibunAddress(request.getParameter("jibunAddress"));
 			dto.setDetailAddress(request.getParameter("detailAddress"));
->>>>>>> aec2ff70ff7feed52466bc437ed4b5719ff70f52
 			
 			ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
 			
-			int rowCount = service.insert(dto);
+			int rowCount = service.insertService(dto);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");

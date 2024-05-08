@@ -1,6 +1,7 @@
 package shipping.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
@@ -43,7 +44,7 @@ public class ShippingPlaceInfoService {
 		return rowCount;
 	}
 	
-<<<<<<< HEAD
+
 	// 배송지 정보 리스트
 	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoListService(String memid){
 		Connection conn = null;
@@ -79,6 +80,4 @@ public class ShippingPlaceInfoService {
 	}
 	
 	
-=======
->>>>>>> aec2ff70ff7feed52466bc437ed4b5719ff70f52
 }

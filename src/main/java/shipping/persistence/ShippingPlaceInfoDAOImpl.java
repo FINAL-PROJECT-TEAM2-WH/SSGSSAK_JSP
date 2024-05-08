@@ -3,6 +3,7 @@ package shipping.persistence;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.util.JdbcUtil;
 
@@ -104,8 +105,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		return rowCount;
 	}
-<<<<<<< HEAD
-	
+
 	// 배송지 정보 리스트형태로
 	@Override
 	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoList(Connection conn, String memid) throws Exception {
@@ -229,8 +229,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 	}
 	
 	
-=======
->>>>>>> aec2ff70ff7feed52466bc437ed4b5719ff70f52
+
 	
 
 }
