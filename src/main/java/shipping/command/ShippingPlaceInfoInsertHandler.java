@@ -35,7 +35,7 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 				
 				ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
 				
-				int rowCount = service.insert(dto);
+				int rowCount = service.insertService(dto);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");

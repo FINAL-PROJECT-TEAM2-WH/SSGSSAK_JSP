@@ -12,4 +12,6 @@ public interface ShippingPlaceInfoDAO {
 	int defaultShippingUpdate(Connection conn, String memid) throws Exception;
 	
 	ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoList(Connection conn, String memid) throws Exception; 
+	
+	ShippingPlaceInfoDTO ShippingPlaceUpView(Connection conn, long id) throws Exception;
 }

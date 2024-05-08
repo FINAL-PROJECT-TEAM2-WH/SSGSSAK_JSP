@@ -21,11 +21,12 @@ public class ShippingPlaceInfoListHandler implements CommandHandler{
 		memid = (String)memSession.getAttribute("auth");
 		
 		ShippingPlaceInfoService spiService = ShippingPlaceInfoService.getInstance();
-		ArrayList<ShippingPlaceInfoDTO> spiList = spiService.shippingPlaceInfoList(memid);
+		ArrayList<ShippingPlaceInfoDTO> spiList = spiService.shippingPlaceInfoListService(memid);
 		
 		request.setAttribute("spiList", spiList);
+		///days06/board/list.jsp
+		return "/userinfo/shipping/SSG_shipping_place_info.jsp";
 		
-		return "";
 	}
 
 }
