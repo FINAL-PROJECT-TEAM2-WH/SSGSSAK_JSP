@@ -30,7 +30,7 @@
 <!-- 마케팅 띠배너 신규 e -->
 
 <div id="gnbBanrDiv" style="display:none">
-  
+ 
 </div>
 <!-- IE Upgrade 캠페인 --><div class="gnb_bnr_wrap" id="_ieEdgeTopBanner" data-cookie="ieUpgradeBanner">
     <div class="gnb_bnr_s gnb_bnr_ie" id="checkUpgrade">
