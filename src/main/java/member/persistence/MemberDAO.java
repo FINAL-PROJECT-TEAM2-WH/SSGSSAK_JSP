@@ -23,4 +23,6 @@ public interface MemberDAO {
 	public int getSevenDaysLeftCou(String id) throws SQLException;
 	
 	public int availDownCoupon(String id) throws SQLException;
+
+	public int changePwd(String id, String pwd) throws SQLException;
 }

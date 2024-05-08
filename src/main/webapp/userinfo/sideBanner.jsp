@@ -1,5 +1,10 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
+    <%
+    String sContextPath = request.getContextPath();
+    %>
+    
 <div class="cmmyssg_aside react-area">
     <ul class="cmmyssg_snb" data-react-tarea-cd="00034_000000005">
         <li class="cmmyssg_snb_item">
@@ -39,7 +44,7 @@
             <strong class="cmmyssg_snb_tit">나의 정보관리</strong>
             <ul class="cmmyssg_snb_sublst">
                 <li class="cmmyssg_snb_subitem" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"회원정보변경"}]'><a href="https://member.ssg.com/myssg/myinfoMng/password.ssg?menu=password" class="clickable" data-react-tarea-dtl-cd="t00058">회원정보 변경</a></li>
-                <li class="cmmyssg_snb_subitem" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"비밀번호변경"}]'><a href="https://member.ssg.com/myssg/myinfoMng/changePwd.ssg?menu=changePwd" class="clickable" data-react-tarea-dtl-cd="t00058">비밀번호 변경</a></li>
+                <li class="cmmyssg_snb_subitem" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"비밀번호변경"}]'><a href="<%=sContextPath %>/member/memberInfo/changepwd.do" class="clickable" data-react-tarea-dtl-cd="t00058">비밀번호 변경</a></li>
                 <li class="cmmyssg_snb_subitem" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"배송지관리"}]'><a href="https://member.ssg.com/myssg/myinfoMng/shpplocNacctMng.ssg?menu=shpplocNacctMng" class="clickable" data-react-tarea-dtl-cd="t00058">배송지 관리</a></li>
                 <li class="cmmyssg_snb_subitem" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"맞춤정보관리"}]'><a href="https://www.ssg.com/myssg/activityMng/custFitInfoReg.ssg?menu=custFitInfoReg" class="clickable" data-react-tarea-dtl-cd="t00058">맞춤정보 관리</a></li>
                 <li class="cmmyssg_snb_subitem" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"text","value":"마케팅정보수신동의"}]'><a href="https://member.ssg.com/myssg/myinfoMng/infoRcvAgree.ssg?menu=infoRcvAgree" class="clickable" data-react-tarea-dtl-cd="t00058">마케팅 정보 수신 동의</a></li>
