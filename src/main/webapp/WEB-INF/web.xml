@@ -22,22 +22,22 @@
 </init-param>
 </filter>
 
-  <servlet>
-    <description>MVC</description>
-    <description>컨트롤러 역할</description>
-    <servlet-name>dispatcher</servlet-name>
-    <servlet-class>controller.DispatcherServlet</servlet-class>
-    <init-param>
-    <description>URL 과 Handler 등록 파일 경로</description>
-    <param-name>path</param-name>
-    <param-value>/WEB-INF/commandHandler.properties</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-<servlet-name>dispatcher</servlet-name>
-<url-pattern>*.do</url-pattern>
-</servlet-mapping>
+	  <servlet>
+	    <description>MVC</description>
+	    <description>컨트롤러 역할</description>
+	    <servlet-name>dispatcher</servlet-name>
+	    <servlet-class>controller.DispatcherServlet</servlet-class>
+	    <init-param>
+	    <description>URL 과 Handler 등록 파일 경로</description>
+	    <param-name>path</param-name>
+	    <param-value>/WEB-INF/commandHandler.properties</param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+	  </servlet>
+	  <servlet-mapping>
+	<servlet-name>dispatcher</servlet-name>
+	<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
  
   <jsp-config>
   <jsp-property-group>
