@@ -1,7 +1,10 @@
 package product.domain;
 
+<<<<<<< HEAD
+=======
 import java.util.List;
 
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,5 +33,9 @@ public class ProductDTO {
     private String updateDay ;
     private int stock;
 
+<<<<<<< HEAD
+	
+=======
     private List<ProductImgDTO> images;
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 }

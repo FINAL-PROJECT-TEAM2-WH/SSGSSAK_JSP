@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+=======
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 <html lang="ko">
 <head>
 <script src="https://analytics.emforce.co.kr/conversion/v5/analytics.js"
@@ -3584,7 +3588,11 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<div class="cdtl_product_representative_image">
 								<div class="cdtl_item_image">
 									<span class="cdtl_imgbox imgzoom"> <img
+<<<<<<< HEAD
+										src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_1100.jpg"
+=======
 										src="${product.images[0].imgurl}"
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 										width="550" height="550" alt="상품이미지1"
 										onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1100&amp;h=1100&amp;t=ad8dc877e029679456bb1f6f8f195a727b5f7453'"
 										id="mainImg"></span>
@@ -3695,7 +3703,11 @@ function setCommonGnbCookie(name, value, expiredays) {
 										alt="시코르">
 								</span> <span class="official_brand_txt">믿고 사는 즐거움, SSG<strong
 										class="official_brand_tit">신세계 공식 시코르</strong></span>
+<<<<<<< HEAD
+								<div class="official_brand_view_item">
+=======
 									<div class="official_brand_view_item">
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 										<span>바로가기</span>
 									</div>
 								</a>
@@ -3803,6 +3815,17 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 							<!-- 몰 뱃지, 상품명 -->
 							<div class="cdtl_prd_info v2">
+<<<<<<< HEAD
+								<span class="cm_mall_ic ty_rect_m notranslate"
+									data-react-unit-type="brand" data-react-unit-id="2010024537">
+									<div class="cdtl_cm_mall_item">
+										<span class="cdtl_ico_item">CHICOR</span>
+									</div>
+								</span>
+								<h2 class="cdtl_info_tit">
+									<span class="cdtl_info_tit_name v2">
+										<div class="cdtl_info_link">
+=======
 								<h2 class="cdtl_info_tit">
 									<span class="cdtl_info_tit_name v2">		
 										<div class="cdtl_info_link">		
@@ -3832,6 +3855,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<h2 class="cdtl_info_tit">
 									<span class="cdtl_info_tit_name v2">		브랜드 링크 체워넣기
 										<div class="cdtl_info_link">		
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 											<div class="cdtl_tit_link">
 												<a
 													href="/disp/brandShop.ssg?brandId=2010024537&amp;ctgId=6000193712"
@@ -3842,10 +3866,49 @@ function setCommonGnbCookie(name, value, expiredays) {
 											헤어에센스-손상모발용]</span>
 									</span>
 
+<<<<<<< HEAD
+									<div class="ssg-tooltip-wrap cdtl_ly_wrap">
+										<a href="javascript:void(0);" class="ssg-tooltip cdtl_tooltip"
+											data-tooltip-options="{'trigger':'click'}"
+											data-react-unit-type="text"
+											data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;공유하기&quot;}]">
+											<span class="ico_share clickable"
+											data-react-tarea-dtl-cd="t00060"
+											data-react-tarea="상품상세|기본정보|공유하기">&nbsp;</span>
+										</a>
+										<div class="ssg-tooltip-layer cdtl_ly_cont">
+											<strong class="layer_tit">공유하기</strong>
+											<ul class="layer_sns" id="cm_sns">
+												<li data-react-unit-type="text"
+													data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;페이스북공유&quot;}]"><a
+													href="javascript:void(0)"
+													onclick="facebook_share_new('\uC2DC\uBABD \uD14C\uB974\uBBF8\uD06C 150ml [No.1 \uD5E4\uC5B4\uC5D0\uC13C\uC2A4-\uC190\uC0C1\uBAA8\uBC1C\uC6A9]','[SSG.COM]','https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_240.jpg','','https://www.ssg.com/item/itemView.ssg?itemId=1000026532717&amp;siteNo=7012&amp;salestrNo=1020','ITEM_VIEW')"
+													title="페이스북" class="sns_facebook clickable"
+													data-react-tarea-dtl-cd="t00060"
+													data-react-tarea="상품상세|기본정보|공유하기_페이스북"><span
+														class="blind">페이스북</span></a></li>
+												<li data-react-unit-type="text"
+													data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;트위터공유&quot;}]"><a
+													href="javascript:void(0)"
+													onclick="twitter_share_new('[SSG.COM]','\uC2DC\uBABD \uD14C\uB974\uBBF8\uD06C 150ml [No.1 \uD5E4\uC5B4\uC5D0\uC13C\uC2A4-\uC190\uC0C1\uBAA8\uBC1C\uC6A9]','','https://www.ssg.com/item/itemView.ssg?itemId=1000026532717&amp;siteNo=7012&amp;salestrNo=1020','ITEM_VIEW')"
+													title="트위터" class="sns_twitter clickable"
+													data-react-tarea-dtl-cd="t00060"
+													data-react-tarea="상품상세|기본정보|공유하기_트위터"><span
+														class="blind">트위터</span></a></li>
+											</ul>
+											<a href="#" class="ssg-tooltip-close cdtl_ly_close"><span
+												class="blind">닫기</span></a>
+										</div>
+									</div>
+
+								</h2>
+							</div>
+=======
 									
 
 								</h2>
 							</div> -->
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 
 							<!-- 리뷰 -->
 							<div class="cdtl_review_wrap"
@@ -4200,7 +4263,11 @@ function setCommonGnbCookie(name, value, expiredays) {
             }
         });
     </script>
+<<<<<<< HEAD
+							
+=======
 
+>>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 									<div class="cdtl_banner clickable"
 										data-react-tarea="상품상세|기본정보|상단 마케팅 띠배너 구좌|유니버스 클럽 오픈">
 										<a

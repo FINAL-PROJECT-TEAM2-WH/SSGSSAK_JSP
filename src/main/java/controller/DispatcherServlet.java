@@ -79,6 +79,16 @@ public class DispatcherServlet extends HttpServlet {
 		}
 		System.out.println(commandHandlerMap);
 	}
+<<<<<<< HEAD
+	
+	@Override
+	public void destroy() {
+		super.destroy();
+		
+	}
+
+=======
+>>>>>>> e754b93d8aedaf1a67a9e40bfd2db712815c8666
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestURI = request.getRequestURI();
