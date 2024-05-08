@@ -1,7 +1,6 @@
 package shipping.service;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
@@ -33,7 +32,6 @@ public class ShippingPlaceInfoService {
 			conn = ConnectionProvider.getConnection();
 			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 			
-			System.out.println(conn);
 			rowCount = dao.insert(conn, dto);
 			
 		} catch (Exception e) {
@@ -41,9 +39,11 @@ public class ShippingPlaceInfoService {
 			System.out.println(">> ShippingPlaceInfoService insert 메서드 오류~~");
 		}
 		JdbcUtil.close(conn);
+		
 		return rowCount;
 	}
 	
+<<<<<<< HEAD
 	// 배송지 정보 리스트
 	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoListService(String memid){
 		Connection conn = null;
@@ -79,4 +79,6 @@ public class ShippingPlaceInfoService {
 	}
 	
 	
+=======
+>>>>>>> aec2ff70ff7feed52466bc437ed4b5719ff70f52
 }

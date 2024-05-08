@@ -1,10 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
-	String memid = (String) memSession.getAttribute("auth");
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
-%> 
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
@@ -12,7 +8,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<link rel="shortcut icon" type="image/x-icon" href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
 	<title class="notranslate">
-		MY SSG > 정보관리 > 배송지/환불계좌관리</title>
+		MY SSG > 정보관리 > 비밀번호변경</title>
+
+	
+
+
+
+
+
+
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" />
@@ -160,18 +164,18 @@
             mbrLoginId       : '',
             mbrLoginId2      : '',
             mbrcoId          : '000000',
-            ckWhere          : 'direct_ssg',
+            ckWhere          : 'ssg_adpick_cps1',
             dmId             : '',
-            emSaleStrNo      : '2022',
+            emSaleStrNo      : '2439',
             trSaleStrNo      : '2483',
             gmSaleStrNo      : '2449',
             gmSaleStrYn      : 'Y',
             emRsvtShppPsblYn : 'Y',
-            ga : '125',
+            ga : '126',
             sessionId : '',
             ip : '',
             shpplocMod : 'MY',
-            shpplocModKey : '5430097',
+            shpplocModKey : '5367225',
             cartNm : '장바구니',
             mbrspMbrDivCd : '2001',
             mbrspJoinSiteCd : '',
@@ -206,6 +210,8 @@
 </script>
 <script type="text/javascript">
 //<![CDATA[
+    
+
     //IE7용 JSON 추가
     var JSON;if(!JSON){JSON={}}(function(){"use strict";function f(e){return e<10?"0"+e:e}function quote(e){escapable.lastIndex=0;return escapable.test(e)?'"'+e.replace(escapable,function(e){var t=meta[e];return typeof t==="string"?t:"\\u"+("0000"+e.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+e+'"'}function str(e,t){var n,r,i,s,o=gap,u,a=t[e];if(a&&typeof a==="object"&&typeof a.toJSON==="function"){a=a.toJSON(e)}if(typeof rep==="function"){a=rep.call(t,e,a)}switch(typeof a){case"string":return quote(a);case"number":return isFinite(a)?String(a):"null";case"boolean":case"null":return String(a);case"object":if(!a){return"null"}gap+=indent;u=[];if(Object.prototype.toString.apply(a)==="[object Array]"){s=a.length;for(n=0;n<s;n+=1){u[n]=str(n,a)||"null"}i=u.length===0?"[]":gap?"[\n"+gap+u.join(",\n"+gap)+"\n"+o+"]":"["+u.join(",")+"]";gap=o;return i}if(rep&&typeof rep==="object"){s=rep.length;for(n=0;n<s;n+=1){if(typeof rep[n]==="string"){r=rep[n];i=str(r,a);if(i){u.push(quote(r)+(gap?": ":":")+i)}}}}else{for(r in a){if(Object.prototype.hasOwnProperty.call(a,r)){i=str(r,a);if(i){u.push(quote(r)+(gap?": ":":")+i)}}}}i=u.length===0?"{}":gap?"{\n"+gap+u.join(",\n"+gap)+"\n"+o+"}":"{"+u.join(",")+"}";gap=o;return i}}if(typeof Date.prototype.toJSON!=="function"){Date.prototype.toJSON=function(e){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null};String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(e){return this.valueOf()}}var cx=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,gap,indent,meta={"\b":"\\b","   ":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},rep;if(typeof JSON.stringify!=="function"){JSON.stringify=function(e,t,n){var r;gap="";indent="";if(typeof n==="number"){for(r=0;r<n;r+=1){indent+=" "}}else if(typeof n==="string"){indent=n}rep=t;if(t&&typeof t!=="function"&&(typeof t!=="object"||typeof t.length!=="number")){throw new Error("JSON.stringify")}return str("",{"":e})}}if(typeof JSON.parse!=="function"){JSON.parse=function(text,reviver){function walk(e,t){var n,r,i=e[t];if(i&&typeof i==="object"){for(n in i){if(Object.prototype.hasOwnProperty.call(i,n)){r=walk(i,n);if(r!==undefined){i[n]=r}else{delete i[n]}}}}return reviver.call(e,t,i)}var j;text=String(text);cx.lastIndex=0;if(cx.test(text)){text=text.replace(cx,function(e){return"\\u"+("0000"+e.charCodeAt(0).toString(16)).slice(-4)})}if(/^[\],:{}\s]*$/.test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,""))){j=eval("("+text+")");return typeof reviver==="function"?walk({"":j},""):j}throw new SyntaxError("JSON.parse")}}})();
 
@@ -262,14 +268,14 @@
             400 : '/ui/ssg/img/common/img_ready_500x500.jpg',
             500 : '/ui/ssg/img/common/img_ready_500x500.jpg'
         },
-        title : 'MY SSG &gt; 정보관리 &gt; 배송지/환불계좌관리'
+        title : 'MY SSG &gt; 정보관리 &gt; 비밀번호변경'
     });
 
     // 회원 관련 객체, 사용하지 말 것.
     var UserInfo = {
         isLoginYn : 'true'=='true'?'Y':'N',
         mbrTypeCd : '10',
-        ckWhere : 'direct_ssg'
+        ckWhere : 'ssg_adpick_cps1'
     };
 
     var mobile = {
@@ -329,7 +335,7 @@
     var emergencyItemIds = "";
 //]]>
 </script>
-<%@ include file="../../Top.jsp" %>
+<%@include file="../../Top.jsp" %>
 <div id="category" class="category"></div>
 			<div id="container"  class="cmmyssg_wrap" >
 				<!-- SSG -->
@@ -341,9 +347,8 @@
 <div class="cmmyssg_header ty_light react-area">
             <div class="cmmyssg_user" data-react-tarea-cd="00034_000000001">
                 <div class="cmmyssg_user_info">
-                	<!-- 회원 마이페이지로 이동 -->
                     <h2 class="cmmyssg_user_tit" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"이름"}]'>
-                        <a href="회원 마이페이지로 이동" class="cmmyssg_user_tittx clickable" data-react-tarea-dtl-cd="t00060"><span class="cmmyssg_user_titname"><%= memid %></span>의 My SSG</a>
+                        <a href="http://www.ssg.com/myssg/main.ssg" class="cmmyssg_user_tittx clickable" data-react-tarea-dtl-cd="t00060"><span class="cmmyssg_user_titname"><%=id %></span>의 My SSG</a>
                     </h2>
                 </div>
             </div>
@@ -389,6 +394,7 @@
                         </li>
                     </ul>
         </div>
+
         <!--혜택안내 영역 -->
         <article class="myssg_box has_bg">
             <h4 class="myssg_box_title">
@@ -411,8 +417,10 @@
                 </span>
             </a>
             </div>
+
     </div>
 </div>
+
 <!-- [D] 레이어팝업 : 유니버스 클럽 쿠폰 다운로드 완료-->
 <div id="myssg_coupon_downloaded_modal2" class="modal_myssg_popup_new myssg_coupon_downloaded_modal v2">
     <a class="myssg_benefit_choose myssg_modal_close" href="#"><span class="blind">레이어팝업 닫기</span></a>
@@ -442,6 +450,7 @@
             </div>
     </div>
 </div>
+
 <script type="text/javascript">
     // 멤버십 쿠폰 다운로드
     function issueCouponForMemberShip() {
@@ -466,6 +475,7 @@
          });
 
     }
+
     //우수고객 쿠폰 다운로드
     function issueCouponForBestCustomer(){
         $.ajax({
@@ -488,7 +498,12 @@
             }
         });
     }
+
+
     </script>
+
+
+
 <script type="text/javascript">
     function fn_myssg_grade_coupon(reactName) {
         if (typeof ssg_react === 'undefined') {
@@ -497,6 +512,7 @@
         }
     }
 </script>
+
 <div class="cmmyssg_aside react-area">
     <ul class="cmmyssg_snb" data-react-tarea-cd="00034_000000005">
         <li class="cmmyssg_snb_item">
@@ -570,6 +586,7 @@
                 callProtocal = "https://";
                 callUrl = settings.domain.domain;
             }
+
             $.ajax({
                 url : callProtocal + callUrl + "/myssg/comm/ajaxCheckB2eSpouse.ssg",
                 async : false,
@@ -585,139 +602,59 @@
         }
     });
 </script>
-<div id="content" class="content_myssg myssg_delivery">
-	<h2 class="stit"><span>배송지 관리</span></h2>
-	<div class="my_order_info">
-		<div class="title">
-			<p>
-						기본배송지
-			</p>		<!-- 수정하는 js로 이동 -->
-					<button onclick="openSPIEditPopup(this)" class="btn_cs ty1">
-							<span>수정</span>
-					</button>
-		</div>
-				<!-- <p class="notranslate">회원의 우편번호<br>
-					회원의 도로명 주소 : ~~~~ <br>
-					회원의 지번 주소 : ~~~~ <br>
-				</p> -->
-				<c:if test="${ not empty spiList }">
-				<c:forEach items="${ spiList }" var="spdto">
-					<c:if test="${ spdto.defaultShipping == '기본배송지' || spdto.defaultShipping == '이번만배송지' }">
-					  <input class="spdtoHidden" id="defaultspdto" type="hidden" value="${spdto.id }">
-		              <p>우편번호: ${spdto.postnum}</p>
-		              <p>도로명 주소: ${spdto.roadAddress} ${spdto.detailAddress}</p>
-		              <p>지번 주소: ${spdto.jibunAddress}</p>        
-					</c:if>
-				</c:forEach>
-				</c:if>
-				<c:if test="${ empty spiList }">
-					회원의 기본배송지 정보 없음
-				</c:if>	
-	</div>
-	<div id="del01" class="section data_tbl content active">
-		<table border="1" class="data_table">
-			<caption></caption>
-			<colgroup>
-				<col style="width:5%"/>
-				<col style="width:12%"/>
-				<col style="width:12%"/>
-				<col/>
-				<col style="width:13%"/>
-				<col style="width:17%"/>
-			</colgroup>
-			<thead>
-			<tr>
-				<th scope="col"></th>
-				<th scope="col">주소별칭</th>
-				<th scope="col">받으실분</th>
-				<th scope="col">배송주소</th>
-				<th scope="col">연락처</th>
-				<th scope="col">관리</th>
-			</tr>
-			</thead>
-			<tbody>
-			</td>
-				<c:if test="${ not empty spiList }">
-				<c:forEach items="${ spiList }" var="spdto">
-					<c:if test="${ spdto.defaultShipping == '기본배송지' || spdto.defaultShipping == '이번만배송지' }">
-					<tr>
-					<td>
-						<input type="radio" name="deliveryKr" class="radio" value="5430097" title="배송지 선택">
-						<input type="hidden" name="shpplocSeq" id="shpplocSeq" value="5430097">
-						<input type="hidden" name="bascShpplocYn" id="bascShpplocYn" value="Y">
-					<td>
-						<span class="sub_tit warning">
-							[기본배송지]
-						</span>
-						<strong class="notranslate">${ spdto.addressnick }</strong>
-					</td>
-					<td class="notranslate">${ spdto.receiveMem }</td>
-					<td class="subject address">
-						<input class="spdtoHidden" type="hidden" value="${spdto.id }">
-						<p class="notranslate">${ spdto.postnum }<br>
-							도로명 주소 : ${ spdto.roadAddress } ${spdto.detailAddress} <br>
-							지번 주소   : ${ spdto.jibunAddress }
-						</p>
-					</td>
-					<td>${ spdto.tel }</td>
-					<td>
-						<!-- 기본 배송지 수정 팝업 띄우기 -->
-						<button onclick="openSPIEditPopup(this);" class="btn_cs ty4">
-							<span>수정</span>
-						</button>
-					</td>
-				</tr>
-				</c:if>
-			</c:forEach>
-			</c:if>
-			<c:if test="${ not empty spiList }">
-				<c:forEach items="${ spiList }" var="spdto">
-					<c:if test="${ spdto.defaultShipping == 'X' }">
-					<tr>
-					<td>
-						<input type="radio" name="deliveryKr" class="radio" value="5430097" title="배송지 선택">
-						<input type="hidden" name="shpplocSeq" id="shpplocSeq" value="5430097">
-						<input type="hidden" name="bascShpplocYn" id="bascShpplocYn" value="Y">
-					<td>
-						<span class="sub_tit warning">
-						</span>
-						<strong class="notranslate">${ spdto.addressnick }</strong>
-					</td>
-					<td class="notranslate">${ spdto.receiveMem }</td>
-					<td class="subject address">
-						<p class="notranslate">${ spdto.postnum }<br>
-							<input class="spdtoHidden"  type="hidden" value="${spdto.id }">
-							도로명 주소 : ${ spdto.roadAddress } ${spdto.detailAddress}<br>
-							지번 주소   : ${ spdto.jibunAddress }
-						</p>
-					</td>
-					<td>${ spdto.tel }</td>
-					<td>
-						<!-- 기본 배송지 수정 팝업 띄우기 -->
-						<button onclick="openSPIEditPopup(this);" class="btn_cs ty4">
-							<span>수정</span>
-						</button>
-					</td>
-				</tr>
-				</c:if>
-			</c:forEach>
-			</c:if>	
-			</tbody>
-		</table>
-		<div class="go_cancel">
-			<!-- 새배송지 추가 화면으로 이동 newShippingWrite.do -->
-			<button onclick="openSPIPopup()" class="btn_cs ty3"><span style="">새 배송지 추가</span></button>
-		</div>
-		<div class="paginate notranslate">
-            <strong title="현재위치">1</strong>
-            <a href="/myssg/myinfoMng/shpplocNacctMng.ssg?page=2">2</a>
-		</div>
-		<div class="button_btm">
-				<button onclick="fn_setDefault(this)" class="btn_cs ty1"><span>기본 배송지 설정</span></button>
-				<button onclick="fn_setOnlyOne()" class="btn_cs ty4"><span>이번만 배송지 설정</span></button>
-			
-		</div>
-	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content" class="content_myssg">
+    <h2 class="stit"><span>비밀번호 변경</span></h2>
+    <form id="submitForm" method="post">
+        <div class="password_change existing">
+
+            <fieldset class="fieldset large">
+                <legend>비밀번호 수정</legend>
+                <div class="wrap">
+                    <label for="pwd" class="label">비밀번호</label>
+                    <input type="password" id="pwd" name="pwd" title="비밀번호" value="" class="input_text small" style="width: 270px" maxlength="20">
+                    <span class="error_txt small warning" id="pwdMsg"></span>
+                </div>
+                <div class="wrap">
+                    <label for="newPwd" class="label">비밀번호 확인</label>
+                    <input type="password" id="newPwd" name="newPwd" title="비밀번호" value="" class="input_text small" style="width: 270px" maxlength="20">
+                    <span class="error_txt small warning" id="newPwdMsg"></span>
+                </div>
+            </fieldset>
+
+        </div>
+        <div class="form_btn_area password_modification">
+            <button type="submit" id="submitBtn" class="cs_btn large black">확인</button>
+        </div>
+
+    </form>
+    <div class="information style">
+        <h4 class="notifications strong">주의하세요</h4>
+        <ul>
+            
+    	
+    	<li>비밀번호는 <span>영문과 숫자를 조합하여 8~20자리로 입력</span>해 주세요.</li>
+    	<li>아이디와 같은 비밀번호나 주민등록번호, 생일, 학번, 전화번호 등 개인정보와 관련된 숫자, 연속된 숫자, 동일 반복된 숫자 등 <br />다른 사람이 쉽게 알아낼 수 있는 비밀번호는 사용하지 않도록 주의하여 주시기 바랍니다.</li>
+    	
+    	
+        </ul>
+    </div>
 </div>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js"></script>
@@ -729,78 +666,7 @@
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
-<script>
-	function openSPIEditPopup(element){
 
-		  var row = element.closest('tr')
-		  var hiddenInput = '';
-		  var spdtoId = '';
-		  if( row ){
-			  hiddenInput = row.querySelector('.spdtoHidden');
-			  spdtoId = hiddenInput.value;
-		  }else{
-			  hiddenInput = document.getElementById('defaultspdto');
-			  spdtoId = hiddenInput.value;
-		  }
-		  
-		  var idJson = {
-					'id' : `\${spdtoId}`
-					
-				
-		  }
-		  var contextPath = "<%= request.getContextPath() %>";
-			$.ajax({
-					type: "GET",
-					/* ajax url 줄때 서버단이라면 contextPath 추가 꼭 해주기 */
-					url: contextPath + "/shippingPlaceUpView.do",
-					datatype : 'json',
-					data : idJson,
-					cache : false,
-					//jsonObject.put("status", "success");
-					success: function(response) {
-				         if (response.status === "success") {
-				             console.log("Shipping Info: ", response);
-				          } else {
-				                //alert(response.message);
-				                alert( response.status );
-				                alert( response.id );
-				          }
-				    },
-				    error: function() {
-				         alert("Error while requesting shipping info.");
-				    }
-				})
-		  
-
-		  //alert(spiJson.id);
-		  //alert('현재 기본배송지 ID는: ' + spdtoId);
-		  var popupURL = `${pageContext.request.contextPath}/userinfo/shipping/SSG_shippingPlace_update.jsp`;
-		  
-		  const width = 600;
-		  const height = 600;
-	
-		  let left = (document.body.offsetWidth / 2) - (width / 2.5);
-		  let tops = (document.body.offsetHeight / 2) - (height / 2.5);
-		  
-		  /* localStorage.setItem("spiJson", JSON.stringify(spiJson)); */
-		  
-		  const popup = window.open(popupURL, 'SIPEditPopup', `width=\${width}, height=\${height}, left=\${left}, top=${tops}`);
-	}
-</script>
-<script>
-	function openSPIPopup(){
-		  var popupURL = "${pageContext.request.contextPath}/userinfo/shipping/SSG_shippingPlace_insert.jsp";
-		  
-		  const width = 600;
-		  const height = 600;
-
-		  let left = (document.body.offsetWidth / 2) - (width / 2.5);
-		  let tops = (document.body.offsetHeight / 2) - (height / 2.5);
-		  
-		  const popup = window.open(popupURL, 'SIPPopup', `width=\${width}, height=\${height}, left=\${left}, top=${tops}`);
-		  
-	}
-</script>
 <script>
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -824,7 +690,8 @@ $(function(){
             , mode:'both'
             , async: true
         }
-    });    
+    });
+    
     $('#utilLangSelect').on('changeTranslatedGnb', function(event, sDataLang){
         location.href = addLocaleParam(sDataLang);
     });
@@ -838,7 +705,8 @@ $(function(){
         if(currentUrl.indexOf(localeStr) < 0) {
             location.href = addLocaleParam(sDataLang);
         }
-    });  
+    });
+    
     function addLocaleParam(sDataLang) {
         var currentUrl = location.href,
             sharpIndex = currentUrl.indexOf('#'),
@@ -858,6 +726,7 @@ $(function(){
             resultUrl = urlRemovedSharp + '?locale=' + locale + sharpStr;
             return resultUrl;
         }
+            
         //파라미터가 있는 경우, #은 있을 수도 없을수도 있음
         urlArray = urlRemovedSharp.split('?');
         baseUrl = urlArray[0];
@@ -867,6 +736,7 @@ $(function(){
             resultUrl = baseUrl + '?locale=' + locale + '&' + paramStr + sharpStr;
             return resultUrl;
         }
+
         //locale 파라미터가 있는 경우 제거하고 다시 붙임
         paramArray = paramStr.split('&');
         for(var x = 0; x < paramArray.length; x++) {
@@ -877,6 +747,7 @@ $(function(){
         resultUrl = baseUrl + '?locale=' + locale + (newParamArray.length > 0 ? '&' + newParamArray.join('&') : '') + sharpStr;
         return resultUrl;
     }
+    
     function getLocaleCode(sDataLang) {
         var locale = '';
         if(sDataLang == 'en_US') {
@@ -889,6 +760,7 @@ $(function(){
         
         return locale;
     }
+    
     // front 다국어
     var frontSsgViewTranslate = new ssg.View.translate({
         i18nConfig: {
@@ -901,21 +773,23 @@ $(function(){
             async: true
         }
     });
+    
 });
 </script><script type="text/javascript">
     try {
         var _dl = {
-            "pcid" 				: "17120738278589137211812"
-            , "fsid" 			: "scvysb5m084r5en6vg05"
+            "pcid" 				: "17129766189179881431225"
+            , "fsid" 			: "sd47wr3d3p6n4vn6vg03"
             , "siteno"		    : "1001" // #443767 siteno 하드코딩 요청
             , "tarea" 			: ""
             , "log_type_flag" 	: "t"
-            , "memberid" 		: "SSG.A9A9C919F04C2F990D153D1A0AD85A88"
-            , "ga"				: "125"
+            , "memberid" 		: "SSG.DB3722BF41D7D913318C4FC8EA8EC0BA"
+            , "ga"				: "126"
             , "mbrgrdcd"		: "10"
-            , "ckwhere"		    : "direct_ssg"
+            , "ckwhere"		    : "ssg_adpick_cps1"
             , "bkwhere"		    : ""
         };
+
         $(window).load( function() {
             var doScript = function() {
                 var scriptUrl = "";
@@ -933,7 +807,8 @@ $(function(){
                         _satellite.track("tracking_log", _dl);
                     }
                 });
-            }; 
+            };
+
             var analytics_sp = "N"
             if (analytics_sp === "Y") {
                 doScript();
@@ -964,169 +839,98 @@ $(function(){
         });
     } catch (e) {}
 </script>
+
+<script type="text/javascript" src="/comm/js/memberJs.ssg"></script>
 <script type="text/javascript" defer="defer">
-	// 기본배송지 설정
-	function fn_setDefault(el) {
-		var shpplocSeq = "";
-		
-		/* 배송지가 체크되어있지 않으면 선택된 배송지 없다. */
-		if ($("[name='deliveryKr']:checked").length == 0) {
-			alert('선택된 배송지가 없습니다.');
-			return;
-		} else if ($("[name='deliveryKr']:checked").length > 1) {
-			alert('1개의 배송지를 선택해 주세요.');
-			return;
-		}
-		/* 체크된 배송지 밸류 들고와서 */
-		shpplocSeq = $("[name='deliveryKr']:checked").val();
-		
-		/* json 타입으로 들고와서  */
-		/* ajax 처리 */
-		$.ajax({
-			type: "GET",
-			url: "/comm/popup/setBascShpploc.ssg",
-			dataType: "jsonp",
-			jsonp: "callBack",
-			data: {"shpplocSeq": shpplocSeq},
-			beforeSend: function () {
-				$(el).attr("disabled", true);
-			},
-			success: function (map) {
-				
-				if (map["result"] == "98") {
-					if (confirm(map["resultMsg"])) {
-						fn_modify(shpplocSeq, cntry);
-					}
-					return;
-				}
+    $(document).ready(function () {
 
-				if (map["CHNG_SALESTR_NM_YN"] === 'Y') {
-					var param = 'type=I&bascShpplocYn=Y';
-					param += '&emSaleStrNm=' + map["EM_SALESTR_NM"]
-					param += '&trSaleStrNm=' + map["TR_SALESTR_NM"]
-					param += '&newEmSaleStrNm=' + map["NEW_EM_SALESTR_NM"]
-					param += '&newTrSaleStrNm=' + map["NEW_TR_SALESTR_NM"];
+        $('#submitForm').ajaxForm({
+            url: "/myssg/myinfoMng/changePwd.ssg"
+            , method: "post"
+            , beforeSerialize: function () {
 
-					popupWin('/comm/popup/saleStrChngNotc.ssg?' + encodeURI(param), '', 500, 380, 'no', 'no');
-				} else {
-					alert(map.resultMsg);
-				}
-				document.location.reload();
-			},
-			error: function (request, status, error) {
-				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
-			}
-		});
-	}
-	// 이번만 배송지 설정
-	function fn_setOnlyOne() {
-		var self = this;
-		const shpplocSeq = $("input[name='deliveryKr']:checked").val();
+                if ($('#submitBtn').hasClass('working')) {
+                    return false;
+                }
 
-		if (shpplocSeq === undefined) {
-			alert("이번만 배송지로 설정할 배송지를 선택하여 주세요.");
-			return;
-		}
-		$.ajax({
-			type: "GET"
-			, url: "/comm/popup/setOnceShpploc.ssg"
-			, dataType: "jsonp"
-			, jsonp: "callBack"
-			, data: {"shpplocSeq": shpplocSeq}
-			, beforeSend: function () {
-				$('div.myodr_btnarea').find('button').attr('disabled', true);
-			}
-			, success: function (map) {
-				if (map["result"] == "98") {
-					if (confirm(map["resultMsg"])) {
-						ShpplocList.update(shpplocSeq);
-					}
-					return;
-				}
-				alert(map.resultMsg);
-				if (self.isNewApp) {
-					sendAppCartUpdateMessage();
-					setTimeout(function () {
-						location.reload();
-					}, 500);
-					document.location.href = mobile.customUrl.prefix + "";
-				} else {
-					location.reload();
-				}
-			}
-			, error: function (request, status, error) {
-				alert('일시적인 장애로 서비스가 일시 중단되었습니다. 잠시 후 다시 시도해 주세요.');
-				location.reload();
-			}
-		});
-	}
-	//배송지 추가
-	function fn_newForm() {
-		popupWin('/comm/popup/shpplocForm.ssg?callbackUrl=myssg', '', 640, 720, 'yes', 'no');
-	}
-	// 배송지 수정
-	function fn_modify(shpplocSeq) {
-		popupWin('/comm/popup/shpplocForm.ssg?callbackUrl=myssg&shpplocSeq=' + shpplocSeq, '', 640, 720, 'yes', 'no');
-	}
+                $('span.error_txt').each(function () {
+                    $(this).text('');
+                });
 
-	// 배송지 삭제
-	function fn_shpplocDel(shpplocSeq) {
-		let page = (typeof $.getUrlVar('page') === 'undefined') ? 1 : $.getUrlVar('page');
+                if (validation() && confirm('비밀번호를 변경하시겠습니까?')) {
+                    $('#submitBtn').addClass('working');
+                    loadingIndicator.show();
+                    return true;
+                } else {
+                    return false;
+                }
 
-		let selectedDelivery = new Array();
-		if (parseInt(shpplocSeq) > 0) {
-			selectedDelivery.push(shpplocSeq);
-		} else {
-			$("input[name='deliveryKr']:checked").each(function () {
-				selectedDelivery.push(this.value);
-			});
-		}
+                return true;
+            }
+            , success: function (responseDto) {
+                if (responseDto.resultCode == 'SUCCESS') {
+                    alert(responseDto.resultMsg);
+                    //var retURL = unescape("");
+                    var retURL = document.location.href;
+                    if (retURL.indexOf("backURL=") >= 0) {
+                        retURL = retURL.substring(retURL.indexOf("backURL=") + 8);
+                    } else {
+                        retURL = "";
+                    }
+                    if (retURL != null && retURL != "")
+                        document.location.href = unescape(retURL);
+                    else
+                        document.location.replace('http://www.ssg.com');
+                } else if (responseDto.resultCode == 'FAIL') {
+                    alert(responseDto.resultMsg.replaceAll('\\n', '\n'));
+                    $('#submitBtn').removeClass('working');
+                    loadingIndicator.hide();
 
-		if (selectedDelivery.length == 0) {
-			alert('선택된 배송지가 없습니다.');
-			return;
-		}
+                    $('span.error_txt').each(function () {
+                        $(this).text('');
+                    });
+                }
+            }
+            , error: function (request, status, error) {
+                $('#submitBtn').removeClass('working');
+                loadingIndicator.hide();
 
-		let extShpploc = function (callback) {
-			callback(selectedDelivery);
-		};
-		if (confirm('선택한 배송지를 삭제하시겠습니까?')) {
-			extShpploc(function (data) {
-				$.ajax({
-					type: 'POST',
-					url: 'https://member.ssg.com/comm/popup/deleteMbrShpploc.ssg',
-					dataType: 'jsonp',
-					jsonp: "callBack",
-					data: {'shpplocSeq': data},
-					success: function (map) {
-						alert(map.resultMsg);
+                $('span.error_txt').each(function () {
+                    $(this).text('');
+                });
 
-						if ($('input[name=deliveryKr]').length == $('input[name=deliveryKr]:checked').length) {
-							if (page == 1) {
-								document.location.reload();
-							} else {
-								page = eval(page) - 1;
-								document.location.href = '/myssg/myinfoMng/shpplocNacctMng.ssg?page=' + page;
-							}
-						} else {
-							document.location.reload();
-						}
-					},
-					error: function (request, status, error) {
-						alert('배송지 삭제중 오류가 발생했습니다.');
-						console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
-					}
-				});
-			});
-		}
-	}
+                console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+            }
+        });
+    });
+
+    // validation 체크
+    function validation() {
+	
+        var pwdStrErrorMsg = validateMbrPwd($('#pwd').val(), <%=id%>);
+        if (!isEmpty(pwdStrErrorMsg)) {
+            $('#pwdMsg').text(pwdStrErrorMsg);
+            $('#pwd').focus();
+            return false;
+        }
+
+        if ($('#newPwd').val().trim() == "") {
+            $('#newPwdMsg').text('비밀번호 확인을 입력해주세요.');
+            $('#newPwd').focus();
+            return false;
+        }
+
+        if ($('#pwd').val() != $('#newPwd').val()) {
+            $('#newPwdMsg').text('비밀번호가 일치하지 않습니다. 다시 입력해주세요.');
+            $('#newPwd').focus();
+            return false;
+        }
+
+        return true;
+    }
+
 </script>
+
 </div>
-<%@ include file="footer.jsp" %>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/history.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.tmpl.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/rplc_keyword.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/shrtc_keyword.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/srch.ac.mdl.js?v=20240424"></script>
-</body>
-</html>
+		<!-- footer -->
+	<%@include file="../../footer.jsp" %>

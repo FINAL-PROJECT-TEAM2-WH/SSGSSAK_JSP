@@ -3,7 +3,6 @@ package shipping.persistence;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 import com.util.JdbcUtil;
 
@@ -36,8 +35,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		ShippingPlaceInfoDAOImpl daoImpl = ShippingPlaceInfoDAOImpl.getInstance();
 		try {
 			rowCount = daoImpl.defaultShippingUpdate(conn, memid);
-					
-			String sql = " INSERT INTO shippingPlaceInformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
+			
+			String sql = " INSERT INTO shippingplaceinformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
 					+ " VALUES ( seqshipplaceinfo.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -58,6 +57,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		}
 		JdbcUtil.close(rs);
 		JdbcUtil.close(pstmt);
+		JdbcUtil.close(conn);
+		
 		return rowCount;
 	}
 	
@@ -85,7 +86,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 			
 			if( id != 0 ) {
 				String upSql = " UPDATE shippingPlaceInformation "
-						+ " SET DEFAULTSHIPPING = 'X' "
+						+ " SET shippingPlaceInformation = 'X' "
 						+ " WHERE id = ? " ;
 				
 				pstmt = conn.prepareStatement(upSql);
@@ -99,8 +100,11 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		JdbcUtil.close(rs);
 		JdbcUtil.close(pstmt);
+		JdbcUtil.close(conn);
+		
 		return rowCount;
 	}
+<<<<<<< HEAD
 	
 	// 배송지 정보 리스트형태로
 	@Override
@@ -225,6 +229,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 	}
 	
 	
+=======
+>>>>>>> aec2ff70ff7feed52466bc437ed4b5719ff70f52
 	
 
 }

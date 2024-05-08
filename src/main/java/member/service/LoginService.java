@@ -38,10 +38,13 @@ public class LoginService {
 			
 			MemberDAO dao = new MemberDAOImpl(conn);
 			dto = dao.login(id, passwd);
+			int rowCount = 0;
 			
 			if ( dto != null ) {
-				System.out.println("로그인성공");
-			
+				rowCount = dao.updateLoginYN(id);
+				if ( rowCount == 1) {
+					System.out.println("로그인성공");
+				}		
 			} else {
 				System.out.println("로그인실패");
 			}
