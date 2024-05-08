@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Map;
 
 import org.apache.commons.collections.map.HashedMap;
@@ -11,6 +12,7 @@ import org.apache.commons.collections.map.HashedMap;
 import com.util.JdbcUtil;
 
 import member.domain.MemberDTO;
+import oracle.net.ano.DataIntegrityService;
 
 public class MemberDAOImpl implements MemberDAO{
 	private Connection conn = null;
@@ -41,7 +43,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 		String sql =  "SELECT id, email, address, phoneNum, name "
 				+ " FROM member "
-				+ " WHERE REGEXP_LIKE(id, ?) AND REGEXP_LIKE(passwd,?)";
+				+ " WHERE id = ? AND passwd = ? "; 
 
 		String cid, email, address, phoneNum,name;
 		MemberDTO dto = null;
@@ -123,8 +125,12 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt = conn.prepareStatement(sql);	
 			rowCount = pstmt.executeUpdate(sql);
 			System.out.println(rowCount);
-		} catch (SQLException e) {
+		} catch (SQLIntegrityConstraintViolationException e) {
 			e.printStackTrace();
+			logOut(id);
+			rowCount = updateLoginYN(id);
+		} catch (SQLException e) {
+			// TODO: handle exception
 		}
 		finally {
 			JdbcUtil.commit(conn);
@@ -145,6 +151,7 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt=conn.prepareStatement(sql);
 			rowCount = pstmt.executeUpdate(sql);
 			if ( rowCount == 1) {
+				System.out.println("로그아웃 성공");
 				conn.commit();
 			} else {
 				conn.rollback();
@@ -340,6 +347,28 @@ public class MemberDAOImpl implements MemberDAO{
 			System.out.println("쿠폰개수 불러오기 실패");
 		}			
 		return availDownCoupon ;
+	}
+
+
+	@Override
+	public int changePwd(String id, String pwd) throws SQLException {
+		String sql = " UPDATE member "
+				+ " SET passwd = ? "
+				+ " WHERE id = ? ";
+		int rowCount = 0 ;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pwd);
+			pstmt.setString(2, id);
+			rowCount = pstmt.executeUpdate();			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return rowCount;
 	}
 	
 	

@@ -30,11 +30,11 @@ public class LogoutHandler implements CommandHandler{
 		int rowCount = service.logout(id);
 		
 		
-		if ( rowCount == 1 ) {			
-			
+		if ( rowCount == 1 ) {					
 			System.out.println(id + "로그아웃 성공");
+			session.invalidate();
 		}	
-		session.invalidate();
+		
 		String path = request.getContextPath() + "/mainPage.jsp";
 		response.sendRedirect(path);
 			
