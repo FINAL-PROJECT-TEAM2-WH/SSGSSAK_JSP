@@ -2,8 +2,8 @@ package shipping.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import controller.CommandHandler;
+import lombok.RequiredArgsConstructor;
 import shipping.domain.ShippingPlaceInfoDTO;
 import shipping.service.ShippingPlaceInfoService;
 
@@ -13,10 +13,15 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 	// 항상 모든 배송지 추가 + 수정은 기본배송지로 update된다.
 	// 다음에서 주소입력해서 데이터 저장하는 방법 알아오기
 	
+	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String method = request.getMethod();
+<<<<<<< HEAD
+=======
+		System.out.println("sip 핸들러에 들어왔다~~");
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 		ShippingPlaceInfoDTO dto = new ShippingPlaceInfoDTO();
 		if( method.equals("GET")) {
 			return "/userinfo/shipping/SSG_shipping_place_info.jsp";
@@ -33,6 +38,7 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 				
 				ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
 				
+<<<<<<< HEAD
 				int rowCount = service.insertService(dto);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -54,10 +60,18 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
+=======
+				int rowCount = service.insert(dto);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
+			}
+			
+			String location = "/userinfo/shipping/SSG_shipping_place_info.jsp";
+			response.sendRedirect(location);
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 		}
-		
-		String location = "/shipping/shippingPlace/list.do";
-		response.sendRedirect(location);
+	
 		return null;
 	}
 

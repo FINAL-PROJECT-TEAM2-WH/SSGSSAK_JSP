@@ -36,8 +36,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		ShippingPlaceInfoDAOImpl daoImpl = ShippingPlaceInfoDAOImpl.getInstance();
 		try {
 			rowCount = daoImpl.defaultShippingUpdate(conn, memid);
-			
-			String sql = " INSERT INTO shippingplaceinformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
+					
+			String sql = " INSERT INTO shippingPlaceInformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
 					+ " VALUES ( seqshipplaceinfo.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -58,8 +58,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		}
 		JdbcUtil.close(rs);
 		JdbcUtil.close(pstmt);
-		JdbcUtil.close(conn);
-		
 		return rowCount;
 	}
 	
@@ -87,7 +85,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 			
 			if( id != 0 ) {
 				String upSql = " UPDATE shippingPlaceInformation "
-						+ " SET shippingPlaceInformation = 'X' "
+						+ " SET DEFAULTSHIPPING = 'X' "
 						+ " WHERE id = ? " ;
 				
 				pstmt = conn.prepareStatement(upSql);
@@ -101,12 +99,13 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		JdbcUtil.close(rs);
 		JdbcUtil.close(pstmt);
-		JdbcUtil.close(conn);
-		
 		return rowCount;
 	}
 
+<<<<<<< HEAD
 	// 배송지 정보 리스트형태로
+=======
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 	@Override
 	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoList(Connection conn, String memid) throws Exception {
 		ShippingPlaceInfoDTO spidto = null;
@@ -116,6 +115,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		long id = 0;
 		String addressnick = null;
+<<<<<<< HEAD
 		String receiveMem = null;
 		String roadAddress = null;
 		String jibunAddress = null;
@@ -123,6 +123,15 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		String tel = null;
 		String postnum = null;
 		String defaultShipping = null;
+=======
+		String receivemem = null;
+		String roadaddress = null;
+		String jibunaddress = null;
+		String detailaddress = null;
+		String tel = null;
+		String postnum = null;
+		String defaultshipping = null;
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 		
 		try {
 			String sql = "SELECT id, memid, addressnick, receivemem, roadaddress, jibunaddress, detailaddress, tel, postnum, defaultshipping "
@@ -141,6 +150,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 					
 					id = rs.getLong("id");
 					addressnick = rs.getString("addressnick");
+<<<<<<< HEAD
 					receiveMem = rs.getString("receiveMem");
 					roadAddress = rs.getString("roadAddress");
 					jibunAddress = rs.getString("jibunAddress");
@@ -148,10 +158,19 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 					tel = rs.getString("tel");
 					postnum = rs.getString("postnum");
 					defaultShipping = rs.getString("defaultShipping");
+=======
+					receivemem = rs.getString("receivemem");
+					roadaddress = rs.getString("roadaddress");
+					jibunaddress = rs.getString("detailaddress");
+					tel = rs.getString("tel");
+					postnum = rs.getString("postnum");
+					defaultshipping = rs.getString("defaultshipping");
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 					
 					spidto = new ShippingPlaceInfoDTO().builder()
 							.id(id)
 							.addressnick(addressnick)
+<<<<<<< HEAD
 							.receiveMem(receiveMem)
 							.roadAddress(roadAddress)
 							.jibunAddress(jibunAddress)
@@ -159,13 +178,24 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 							.tel(tel)
 							.postnum(postnum)
 							.defaultShipping(defaultShipping)
+=======
+							.receiveMem(receivemem)
+							.roadAddress(roadaddress)
+							.jibunAddress(jibunaddress)
+							.tel(tel)
+							.postnum(postnum)
+							.defaultShipping(defaultshipping)
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 							.build();
 					
 					spidtoList.add(spidto);
 				} while (rs.next());
 			}
 		}catch (Exception e){
+<<<<<<< HEAD
 			e.printStackTrace();
+=======
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 			System.out.println("배송 메시지 list 메서드에서 오류~~");
 		}
 		JdbcUtil.close(rs);
@@ -173,6 +203,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		return spidtoList;
 	}
 	
+<<<<<<< HEAD
 	// 배송 수정시 데이터 출력값
 	@Override
 	public ShippingPlaceInfoDTO ShippingPlaceUpView(Connection conn, long id) throws Exception {
@@ -230,6 +261,9 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 	
 	
 
+=======
+	
+>>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 	
 
 }
