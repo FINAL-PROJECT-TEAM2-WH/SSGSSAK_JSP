@@ -23,7 +23,7 @@
             protocol:'https://',
             
             domain:'member.ssg.com',
-             
+            
             sfcDomain : 'member.sfcmall.com',
             
             ssg : 'www.ssg.com',

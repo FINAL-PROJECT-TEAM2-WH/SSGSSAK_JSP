@@ -1,8 +1,5 @@
 package product.service;
 
-<<<<<<< HEAD
-public class ViewService {
-=======
 import java.sql.Connection;
 import java.util.Iterator;
 import java.util.List;
@@ -79,6 +76,5 @@ public class ViewService {
 	
 	
 	
->>>>>>> 4f46cbc8cd4ba9662ad10613b3d13c74febec12f
 
 }
