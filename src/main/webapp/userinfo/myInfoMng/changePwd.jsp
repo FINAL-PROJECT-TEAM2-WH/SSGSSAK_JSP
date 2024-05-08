@@ -870,7 +870,7 @@ $(function(){
 	$('#submitBtn').one('click', function () {
 /* 		if (validation()){ */
 			$('#submitForm').submit();
-			
+			// 추가용 허허허허
 			
 /* 		}	 */
 	})
