@@ -18,10 +18,6 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String method = request.getMethod();
-<<<<<<< HEAD
-=======
-		System.out.println("sip 핸들러에 들어왔다~~");
->>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 		ShippingPlaceInfoDTO dto = new ShippingPlaceInfoDTO();
 		if( method.equals("GET")) {
 			return "/userinfo/shipping/SSG_shipping_place_info.jsp";
@@ -37,8 +33,6 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 				dto.setDetailAddress(request.getParameter("detailAddress"));
 				
 				ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
-				
-<<<<<<< HEAD
 				int rowCount = service.insertService(dto);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -57,11 +51,6 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 			ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
 			
 			int rowCount = service.insertService(dto);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
-=======
-				int rowCount = service.insert(dto);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
@@ -69,7 +58,6 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 			
 			String location = "/userinfo/shipping/SSG_shipping_place_info.jsp";
 			response.sendRedirect(location);
->>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 		}
 	
 		return null;

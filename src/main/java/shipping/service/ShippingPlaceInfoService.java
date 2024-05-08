@@ -44,7 +44,6 @@ public class ShippingPlaceInfoService {
 		return rowCount;
 	}
 	
-<<<<<<< HEAD
 
 	// 배송지 정보 리스트
 	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoListService(String memid){
@@ -52,12 +51,6 @@ public class ShippingPlaceInfoService {
 		ArrayList<ShippingPlaceInfoDTO> list = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-=======
-	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoList(String memid){
-		Connection conn = null;
-		ArrayList<ShippingPlaceInfoDTO> list = null;
-		try {
->>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 			list = dao.shippingPlaceInfoList(conn, memid);
 		}catch(Exception e) {
@@ -68,7 +61,7 @@ public class ShippingPlaceInfoService {
 		return list;
 	}
 	
-<<<<<<< HEAD
+
 	// 배송수정페이지
 	public ShippingPlaceInfoDTO shippingPlaceUpdateViewService(long id) {
 		ShippingPlaceInfoDTO dto = null;
@@ -87,7 +80,4 @@ public class ShippingPlaceInfoService {
 		return dto;
 	}
 	
-	
-=======
->>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 }

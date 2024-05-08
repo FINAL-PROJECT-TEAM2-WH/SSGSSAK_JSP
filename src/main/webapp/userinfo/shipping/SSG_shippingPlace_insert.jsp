@@ -498,8 +498,6 @@ function execDaumPostcode() {
 			data: datas,
 			cache : false,
 			success : function(res){
-<<<<<<< HEAD
-<<<<<<< HEAD
 				alert("성공");
 				console.log(res.code);
 				window.close();
@@ -507,19 +505,7 @@ function execDaumPostcode() {
 			error : function(){
 				//alert("실패")
 				window.close();
-=======
 				console(res.code);
-			},
-			error : function(){
-				console("통신 실패~")
->>>>>>> aec2ff70ff7feed52466bc437ed4b5719ff70f52
-=======
-				alert("성공");
-				console.log(res.code);
-			},
-			error : function(){
-				alert("실패")
->>>>>>> 080add387fa297d852a10bdd4d2e8d364a81ee77
 			}
 		})
 	})
