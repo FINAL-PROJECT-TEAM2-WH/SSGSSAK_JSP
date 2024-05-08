@@ -9,16 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDTO {
+public class UserDTO {
+	String name ; 
+	String phonenum ; 
+	String roadaddress;
+	String email;
 	
-	String imgurl ; 
-	String brand ; 
-	String seller ; 
-	String pdname ; 
-	String optiondesc;
-	int price ; 
-	int deshipfee ;
-	int specialp;
-	int quantity ; 
-	
+	String cardnumber;
+	int cpoint;
+
 }
