@@ -616,6 +616,11 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <input type="hidden" id="mbrGrdCd" value="10"/>
 <div class="cmmyssg_header react-area v2 ">
             <div id="divGnbUserInfo" class="cmmyssg_user" data-react-tarea-cd="00040_000000233">
+             <h2 class="cmmyssg_user_tit">
+             
+             <!--  추후에 수정해줄 필요가 있음. get/ post  -->
+            <a href="<%=contextPath %>/userinfo.userinfo.jsp" data-react-tarea-dtl-cd="t00060" class="cmmyssg_user_tittx clickable"><span class="cmmyssg_user_titname">${info.name}님</span></a>
+            </h2>
             </div>
 
             <div id="divGnbCoupon" class="cmmyssg_asset" data-react-tarea-cd="00034_000000001">
@@ -625,18 +630,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                     </dt>
                     <dd class="cmmyssg_asset_cont" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"쿠폰"}]'>
                         <a href="https://www.ssg.com/myssg/moneyMng/memberCpnOwnList.ssg?myssg=coupon" class="cmmyssg_asset_value clickable" data-react-tarea-dtl-cd="t00060">
-                            <span class="cmmyssg_asset_valuenum">-</span><span class="cmmyssg_asset_valuetx">장</span>
+                            <span class="cmmyssg_asset_valuenum">${info.couponNum}</span><span class="cmmyssg_asset_valuetx">장</span>
                         </a>
                     </dd>
                 </dl>
                 <div class="cmmyssg_asset_detail">
                     <div class="cmmyssg_asset_row">
                         <span class="cmmyssg_asset_subtit">다운가능한 등급쿠폰</span>
-                        <span class="cmmyssg_asset_subtx">-장</span>
+                        <span class="cmmyssg_asset_subtx">${info.availDC}장</span>
                     </div>
                     <div class="cmmyssg_asset_row">
                         <span class="cmmyssg_asset_subtit">7일이내 만료예정 쿠폰</span>
-                        <span class="cmmyssg_asset_subtx">-장</span>
+                        <span class="cmmyssg_asset_subtx">${info.leftDays}장</span>
                     </div>
                 </div>
             </div>
@@ -672,7 +677,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                             </dt>
                             <dd class="cmmyssg_asset_cont" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"신세계포인트"}]'>
                                 <a href="https://member.ssg.com/myssg/moneyMng/spointDetailList.ssg?menu=spointDetailList" class="cmmyssg_asset_value clickable" data-react-tarea-dtl-cd="t00060">
-                                    <span class="cmmyssg_asset_valuenum">-</span><span class="cmmyssg_asset_valuetx">p</span>
+                                    <span class="cmmyssg_asset_valuenum">${info.points}</span><span class="cmmyssg_asset_valuetx">p</span>
                                 </a>
                             </dd>
                         </dl>
