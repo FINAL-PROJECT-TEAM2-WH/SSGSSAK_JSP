@@ -18,7 +18,6 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String method = request.getMethod();
-		System.out.println("sip 핸들러에 들어왔다~~");
 		ShippingPlaceInfoDTO dto = new ShippingPlaceInfoDTO();
 		if( method.equals("GET")) {
 			return "/userinfo/shipping/SSG_shipping_place_info.jsp";
@@ -34,8 +33,24 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 				dto.setDetailAddress(request.getParameter("detailAddress"));
 				
 				ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
-				
-				int rowCount = service.insert(dto);
+				int rowCount = service.insertService(dto);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
+		}
+		try {
+			dto.setMemid(request.getParameter("memid"));
+			dto.setAddressnick(request.getParameter("addrnick"));
+			dto.setReceiveMem(request.getParameter("receiveMem"));
+			dto.setTel(request.getParameter("tel"));
+			dto.setPostnum(request.getParameter("postNum"));
+			dto.setRoadAddress(request.getParameter("roadAddress"));
+			dto.setJibunAddress(request.getParameter("jibunAddress"));
+			dto.setDetailAddress(request.getParameter("detailAddress"));
+			
+			ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
+			
+			int rowCount = service.insertService(dto);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");

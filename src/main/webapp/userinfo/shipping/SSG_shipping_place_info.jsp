@@ -1,4 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
+	String memid = (String) memSession.getAttribute("auth");
+
+%> 
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
@@ -337,7 +343,7 @@
                 <div class="cmmyssg_user_info">
                 	<!-- 회원 마이페이지로 이동 -->
                     <h2 class="cmmyssg_user_tit" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"이름"}]'>
-                        <a href="회원 마이페이지로 이동" class="cmmyssg_user_tittx clickable" data-react-tarea-dtl-cd="t00060"><span class="cmmyssg_user_titname">어떤 회원님의</span>의 My SSG</a>
+                        <a href="회원 마이페이지로 이동" class="cmmyssg_user_tittx clickable" data-react-tarea-dtl-cd="t00060"><span class="cmmyssg_user_titname"><%= memid %></span>의 My SSG</a>
                     </h2>
                 </div>
             </div>
@@ -586,12 +592,27 @@
 			<p>
 						기본배송지
 			</p>		<!-- 수정하는 js로 이동 -->
-					<a href="javascript:fn_modify('배송지 주소 번호 입력');" id="internalBtn" class="btn_cs ty1"><span>수정</span></a>
+					<button onclick="openSPIEditPopup(this)" class="btn_cs ty1">
+							<span>수정</span>
+					</button>
 		</div>
-				<p class="notranslate">회원의 우편번호<br>
+				<!-- <p class="notranslate">회원의 우편번호<br>
 					회원의 도로명 주소 : ~~~~ <br>
 					회원의 지번 주소 : ~~~~ <br>
-				</p>
+				</p> -->
+				<c:if test="${ not empty spiList }">
+				<c:forEach items="${ spiList }" var="spdto">
+					<c:if test="${ spdto.defaultShipping == '기본배송지' || spdto.defaultShipping == '이번만배송지' }">
+					  <input class="spdtoHidden" id="defaultspdto" type="hidden" value="${spdto.id }">
+		              <p>우편번호: ${spdto.postnum}</p>
+		              <p>도로명 주소: ${spdto.roadAddress} ${spdto.detailAddress}</p>
+		              <p>지번 주소: ${spdto.jibunAddress}</p>        
+					</c:if>
+				</c:forEach>
+				</c:if>
+				<c:if test="${ empty spiList }">
+					회원의 기본배송지 정보 없음
+				</c:if>	
 	</div>
 	<div id="del01" class="section data_tbl content active">
 		<table border="1" class="data_table">
@@ -615,64 +636,72 @@
 			</tr>
 			</thead>
 			<tbody>
-
-			
-				<tr>
+			</td>
+				<c:if test="${ not empty spiList }">
+				<c:forEach items="${ spiList }" var="spdto">
+					<c:if test="${ spdto.defaultShipping == '기본배송지' || spdto.defaultShipping == '이번만배송지' }">
+					<tr>
 					<td>
 						<input type="radio" name="deliveryKr" class="radio" value="5430097" title="배송지 선택">
 						<input type="hidden" name="shpplocSeq" id="shpplocSeq" value="5430097">
 						<input type="hidden" name="bascShpplocYn" id="bascShpplocYn" value="Y">
-					</td>
 					<td>
 						<span class="sub_tit warning">
 							[기본배송지]
 						</span>
-						<strong class="notranslate">주소 별칭</strong>
+						<strong class="notranslate">${ spdto.addressnick }</strong>
 					</td>
-					<td class="notranslate">회원 이름</td>
+					<td class="notranslate">${ spdto.receiveMem }</td>
 					<td class="subject address">
-						<p class="notranslate">(06131)<br>
-							도로명 : 도로명 주소 <br>
-							지번 : 지번 주소
+						<input class="spdtoHidden" type="hidden" value="${spdto.id }">
+						<p class="notranslate">${ spdto.postnum }<br>
+							도로명 주소 : ${ spdto.roadAddress } ${spdto.detailAddress} <br>
+							지번 주소   : ${ spdto.jibunAddress }
 						</p>
 					</td>
-					<td>010-9110-1878</td>
+					<td>${ spdto.tel }</td>
 					<td>
 						<!-- 기본 배송지 수정 팝업 띄우기 -->
-						<a href="javascript:fn_modify('5430097');" class="btn_cs ty4">
+						<button onclick="openSPIEditPopup(this);" class="btn_cs ty4">
 							<span>수정</span>
-						</a>
-						
+						</button>
 					</td>
 				</tr>
-				<tr>
+				</c:if>
+			</c:forEach>
+			</c:if>
+			<c:if test="${ not empty spiList }">
+				<c:forEach items="${ spiList }" var="spdto">
+					<c:if test="${ spdto.defaultShipping == 'X' }">
+					<tr>
 					<td>
-						<input type="radio" name="deliveryKr" class="radio" value="5698337" title="배송지 선택">
-						<input type="hidden" name="shpplocSeq" id="shpplocSeq" value="5698337">
-						<input type="hidden" name="bascShpplocYn" id="bascShpplocYn" value="N">
-					</td>
+						<input type="radio" name="deliveryKr" class="radio" value="5430097" title="배송지 선택">
+						<input type="hidden" name="shpplocSeq" id="shpplocSeq" value="5430097">
+						<input type="hidden" name="bascShpplocYn" id="bascShpplocYn" value="Y">
 					<td>
-						<span class="sub_tit warning">	
+						<span class="sub_tit warning">
 						</span>
-						<strong class="notranslate">주소 별칭</strong>
+						<strong class="notranslate">${ spdto.addressnick }</strong>
 					</td>
-					<td class="notranslate">회원 이름</td>
+					<td class="notranslate">${ spdto.receiveMem }</td>
 					<td class="subject address">
-						<p class="notranslate">(01833)<br>
-							도로명 : 도로명 주소 <br>
-							지번 : 지번 주소
+						<p class="notranslate">${ spdto.postnum }<br>
+							<input class="spdtoHidden"  type="hidden" value="${spdto.id }">
+							도로명 주소 : ${ spdto.roadAddress } ${spdto.detailAddress}<br>
+							지번 주소   : ${ spdto.jibunAddress }
 						</p>
 					</td>
-					<td>016-1231-1231</td>
+					<td>${ spdto.tel }</td>
 					<td>
-						<a href="javascript:fn_modify('5698337');" class="btn_cs ty4">
+						<!-- 기본 배송지 수정 팝업 띄우기 -->
+						<button onclick="openSPIEditPopup(this);" class="btn_cs ty4">
 							<span>수정</span>
-						</a>
-							<a href="javascript:fn_shpplocDel('5698337');" class="btn_cs ty2">
-								<span>삭제</span>
-							</a>
+						</button>
 					</td>
 				</tr>
+				</c:if>
+			</c:forEach>
+			</c:if>	
 			</tbody>
 		</table>
 		<div class="go_cancel">
@@ -701,8 +730,66 @@
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
 <script>
+	function openSPIEditPopup(element){
+
+		  var row = element.closest('tr')
+		  var hiddenInput = '';
+		  var spdtoId = '';
+		  if( row ){
+			  hiddenInput = row.querySelector('.spdtoHidden');
+			  spdtoId = hiddenInput.value;
+		  }else{
+			  hiddenInput = document.getElementById('defaultspdto');
+			  spdtoId = hiddenInput.value;
+		  }
+		  
+		  var idJson = {
+					'id' : `\${spdtoId}`
+					
+				
+		  }
+		  var contextPath = "<%= request.getContextPath() %>";
+			$.ajax({
+					type: "GET",
+					/* ajax url 줄때 서버단이라면 contextPath 추가 꼭 해주기 */
+					url: contextPath + "/shippingPlaceUpView.do",
+					datatype : 'json',
+					data : idJson,
+					cache : false,
+					//jsonObject.put("status", "success");
+					success: function(response) {
+				         if (response.status === "success") {
+				             console.log("Shipping Info: ", response);
+				          } else {
+				                //alert(response.message);
+				                alert( response.status );
+				                alert( response.id );
+				          }
+				    },
+				    error: function() {
+				         alert("Error while requesting shipping info.");
+				    }
+				})
+		  
+
+		  //alert(spiJson.id);
+		  //alert('현재 기본배송지 ID는: ' + spdtoId);
+		  var popupURL = `${pageContext.request.contextPath}/userinfo/shipping/SSG_shippingPlace_update.jsp`;
+		  
+		  const width = 600;
+		  const height = 600;
+	
+		  let left = (document.body.offsetWidth / 2) - (width / 2.5);
+		  let tops = (document.body.offsetHeight / 2) - (height / 2.5);
+		  
+		  /* localStorage.setItem("spiJson", JSON.stringify(spiJson)); */
+		  
+		  const popup = window.open(popupURL, 'SIPEditPopup', `width=\${width}, height=\${height}, left=\${left}, top=${tops}`);
+	}
+</script>
+<script>
 	function openSPIPopup(){
-		  var popupURL = "SSG_shippingPlace_insert.jsp";
+		  var popupURL = "${pageContext.request.contextPath}/userinfo/shipping/SSG_shippingPlace_insert.jsp";
 		  
 		  const width = 600;
 		  const height = 600;
