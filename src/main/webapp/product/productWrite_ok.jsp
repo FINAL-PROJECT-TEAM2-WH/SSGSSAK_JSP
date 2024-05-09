@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/SSGSSAK/product/product.do?productcode=1000026532717">헤어크림 사세요</a>
+
 </body>
 </html>
-
-

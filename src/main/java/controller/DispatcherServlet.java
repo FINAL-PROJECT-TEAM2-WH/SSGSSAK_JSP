@@ -27,11 +27,12 @@ public class DispatcherServlet extends HttpServlet {
     public DispatcherServlet() {
         super();
     }
-
+	
 	@Override
 	public void destroy() {
 		super.destroy();
 	}
+	
 	@Override
 	public void init() throws ServletException {
 		super.init();
@@ -77,8 +78,9 @@ public class DispatcherServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(commandHandlerMap);
 	}
+
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestURI = request.getRequestURI();
@@ -96,7 +98,8 @@ public class DispatcherServlet extends HttpServlet {
 			view = comHandler.process(request, response);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("view is null!!!");
 		}
 		
 		// 리다이렉트 또는 포워딩 
