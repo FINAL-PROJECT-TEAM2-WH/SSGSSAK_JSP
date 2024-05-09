@@ -371,10 +371,6 @@
                                     <input type="hidden" id="isDuplicateMbrLoginId">
                                     <div class="cmem_inpgrp ty_id">
                                         <div class="cmem_txt" id="idIpt">
-                                                
-                                            
-                                                
-                                            
                                                 <input type="text" placeholder="영어 또는 숫자로 6~20자리로 입력해주세요." class="translated" id="mbrLoginId" name="mbrDto.mbrLoginId" maxlength="20">
                                             
                                         </div>
@@ -1113,9 +1109,9 @@ $(function(){
     }
 
     $(document).ready(function () {
-        initFormPage();
+       /*  initFormPage();
         join.initFormData();
-
+ */
         $("#mbrLoginId").keyup(function () {
             var inputVal = $(this).val();
             $(this).val(inputVal.toLowerCase());
@@ -1219,23 +1215,37 @@ $(function(){
         }
         , initFormData: function () {
 
-            
-            
-
-            
-            
-
-            
-
-            
-
-            
-            
-            
-
-            
+   
         }
     }
+</script>
+<script>
+$("#checkDuplicateLoginIdBtn").on("click", function (){
+    //var params = $("form").serialize();		// ?deptno=10
+    var params = null;
+    params = "id="+$("#mbrLoginId").val();   
+    alert(params);
+	 $.ajax({
+		 url:"<%=contextPath%>/member/join/idcheck.do" , 
+		 dataType:"json",
+		 type:"GET",
+		 data: params,
+		 cache:false ,
+		 //                              {  "count":1 } 
+		 success: function ( data,  textStatus, jqXHR ){
+			 if( data.count == 0 ){
+				 $("#notice").css("color", "black").text("사용 가능한 ID입니다.");
+			 }else{  // 1
+				 $("#notice").css("color", "red").text("이미 사용 중인 ID입니다.");
+			 }
+			 
+		 },
+		 error:function (){
+			 alert("에러~~~ ");
+		 }
+		 
+	 });
+});
 </script>
 
 </div>
