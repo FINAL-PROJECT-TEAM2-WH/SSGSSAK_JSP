@@ -23,5 +23,4 @@ public class ShippingOptionDTO {
 	private String regionName;
 	private String ShppingCheck;
 
-	
 }

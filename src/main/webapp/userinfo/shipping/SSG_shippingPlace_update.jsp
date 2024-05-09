@@ -332,7 +332,7 @@
 									<tr>
 									<th scope="row"><label for="addressName1">주소별칭</label></th>
 									<td>
-										<input type="text" id="shpplocAntnmNm" name="shpplocAntnmNm" value="" class="input_text small" style="width:232px;ime-mode:active;" maxlength="20">
+										<input type="text" id="addressnick" name="shpplocAntnmNm" value="" class="input_text small" style="width:232px;ime-mode:active;" maxlength="20">
 									</td>
 									</tr>
 								<tr>
@@ -397,7 +397,7 @@
 			<!-- form태그 제출하는 곳 -->
 			<div class="pop_btn_area notranslate">
 				<!-- 여기에 우리가 폼태그 제출해서 데이터 저장할 handler에 주기?? -->
-				<a href="#" onclick="" id="shippingPlaceInsert" class="color4">확인</a>
+				<a href="#" onclick="" id="shippingPlaceUpdate" class="color4">확인</a>
 				<a href="javascript:void(0);" onclick="shpploc.cancel()" class="color3">취소</a>
 			</div>
 		</div>
@@ -474,8 +474,28 @@ function execDaumPostcode() {
 }
 </script>
 <script type="text/javascript" src="/comm/js/memberJs.ssg"></script>
+
 <script>
-	$("#shippingPlaceInsert").on("click", function(){
+	$(document).ready(function(){
+		//alert(inputJson);
+		var inputJson = localStorage.getItem("inputJson");
+		if( inputJson ){
+			var datas = JSON.parse(inputJson);
+			var tels = datas.tel.split('-');
+			$("#addressnick").val(datas.addressnick);
+			$("#rcptpeNm").val(datas.receiveMem);
+			$("#hpno1").val(tels[0]);
+			$("#hpno2").val(tels[1]);
+			$("#hpno3").val(tels[2]);
+			$("#roadAddress").val(datas.roadAddress);
+			$("#jibunAddress").val(datas.jibunAddress);
+			$("#detailAddress").val(datas.detailAddress);
+			$("#postNum").val(datas.postnum);
+		}
+	})
+</script>
+<script>
+	$("#shippingPlaceUpdate").on("click", function(){
 		//alert("click했다~~");
 		var contextPath = "<%= request.getContextPath() %>";
 		var datas = {
@@ -494,7 +514,7 @@ function execDaumPostcode() {
 			type: "POST",
 			datatype : 'json',
 			/* ajax url 줄때 서버단이라면 contextPath 추가 꼭 해주기 */
-			url: contextPath + "/shippingPlaceInsert.do",
+			url: contextPath + "/shippingPlaceUpdate.do",
 			data: datas,
 			cache : false,
 			success : function(res){
