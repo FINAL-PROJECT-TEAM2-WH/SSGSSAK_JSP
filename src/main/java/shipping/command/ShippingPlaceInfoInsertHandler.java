@@ -1,7 +1,13 @@
 package shipping.command;
 
+import java.io.BufferedReader;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import controller.CommandHandler;
 import lombok.RequiredArgsConstructor;
 import shipping.domain.ShippingPlaceInfoDTO;
@@ -16,51 +22,41 @@ public class ShippingPlaceInfoInsertHandler implements CommandHandler {
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		String line;
+        StringBuilder jsonBuilder = new StringBuilder();
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String method = request.getMethod();
+		
+		BufferedReader br = request.getReader();
+		while ((line = br.readLine()) != null) {
+			jsonBuilder.append(line);
+		}
+		
 		ShippingPlaceInfoDTO dto = new ShippingPlaceInfoDTO();
+		Gson gson = new Gson();
+		JsonObject jsonObject = gson.fromJson(jsonBuilder.toString(), JsonObject.class);
+		System.out.println(jsonObject.get("memid").getAsString());
 		if( method.equals("GET")) {
-			return "/userinfo/shipping/SSG_shipping_place_info.jsp";
+			return "/shippingPlace/list.do";
 		}else {
 			try {
-				dto.setMemid(request.getParameter("memid"));
-				dto.setAddressnick(request.getParameter("addrnick"));
-				dto.setReceiveMem(request.getParameter("receiveMem"));
-				dto.setTel(request.getParameter("tel"));
-				dto.setPostnum(request.getParameter("postNum"));
-				dto.setRoadAddress(request.getParameter("roadAddress"));
-				dto.setJibunAddress(request.getParameter("jibunAddress"));
-				dto.setDetailAddress(request.getParameter("detailAddress"));
+				dto.setMemid(jsonObject.get("memid").getAsString());
+				dto.setAddressnick(jsonObject.get("addrnick").getAsString());
+				dto.setReceiveMem(jsonObject.get("receiveMem").getAsString());
+				dto.setTel(jsonObject.get("tel").getAsString());
+				dto.setPostnum(jsonObject.get("postNum").getAsString());
+				dto.setRoadAddress(jsonObject.get("roadAddress").getAsString());
+				dto.setJibunAddress(jsonObject.get("jibunAddress").getAsString());
+				dto.setDetailAddress(jsonObject.get("detailAddress").getAsString());
 				
 				ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
 				int rowCount = service.insertService(dto);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
-		}
-		try {
-			dto.setMemid(request.getParameter("memid"));
-			dto.setAddressnick(request.getParameter("addrnick"));
-			dto.setReceiveMem(request.getParameter("receiveMem"));
-			dto.setTel(request.getParameter("tel"));
-			dto.setPostnum(request.getParameter("postNum"));
-			dto.setRoadAddress(request.getParameter("roadAddress"));
-			dto.setJibunAddress(request.getParameter("jibunAddress"));
-			dto.setDetailAddress(request.getParameter("detailAddress"));
-			
-			ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
-			
-			int rowCount = service.insertService(dto);
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println(">> ShippingPlaceInfoInsert 핸들러에서 오류 발생~~");
 			}
-			
-			String location = "/userinfo/shipping/SSG_shipping_place_info.jsp";
-			response.sendRedirect(location);
 		}
-	
-		return null;
+		return "/shippingPlace/list.do";
 	}
-
 }

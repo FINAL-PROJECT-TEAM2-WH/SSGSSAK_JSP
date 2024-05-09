@@ -730,62 +730,65 @@
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
 <script>
-	function openSPIEditPopup(element){
+function openSPIEditPopup(element) {
+    var row = element.closest('tr');
+    var hiddenInput = '';
+    var spdtoId = '';
+    if (row) {
+        hiddenInput = row.querySelector('.spdtoHidden');
+        spdtoId = hiddenInput.value;
+    } else {
+        hiddenInput = document.getElementById('defaultspdto');
+        spdtoId = hiddenInput.value;
+    }
 
-		  var row = element.closest('tr')
-		  var hiddenInput = '';
-		  var spdtoId = '';
-		  if( row ){
-			  hiddenInput = row.querySelector('.spdtoHidden');
-			  spdtoId = hiddenInput.value;
-		  }else{
-			  hiddenInput = document.getElementById('defaultspdto');
-			  spdtoId = hiddenInput.value;
-		  }
-		  
-		  var idJson = {
-					'id' : `\${spdtoId}`
-					
-				
-		  }
-		  var contextPath = "<%= request.getContextPath() %>";
-			$.ajax({
-					type: "GET",
-					/* ajax url 줄때 서버단이라면 contextPath 추가 꼭 해주기 */
-					url: contextPath + "/shippingPlaceUpView.do",
-					datatype : 'json',
-					data : idJson,
-					cache : false,
-					//jsonObject.put("status", "success");
-					success: function(response) {
-				         if (response.status === "success") {
-				             console.log("Shipping Info: ", response);
-				          } else {
-				                //alert(response.message);
-				                alert( response.status );
-				                alert( response.id );
-				          }
-				    },
-				    error: function() {
-				         alert("Error while requesting shipping info.");
-				    }
-				})
-		  
+    var idJson = {
+        'id': spdtoId
+    };
 
-		  //alert(spiJson.id);
-		  //alert('현재 기본배송지 ID는: ' + spdtoId);
-		  var popupURL = `${pageContext.request.contextPath}/userinfo/shipping/SSG_shippingPlace_update.jsp`;
-		  
-		  const width = 600;
-		  const height = 600;
-	
-		  let left = (document.body.offsetWidth / 2) - (width / 2.5);
-		  let tops = (document.body.offsetHeight / 2) - (height / 2.5);
-		  
-		  /* localStorage.setItem("spiJson", JSON.stringify(spiJson)); */
-		  
-		  const popup = window.open(popupURL, 'SIPEditPopup', `width=\${width}, height=\${height}, left=\${left}, top=${tops}`);
-	}
+    
+    var contextPath = "<%= request.getContextPath() %>";
+    $.ajax({
+        type: "GET",
+        url: contextPath + "/shippingPlaceUpView.do",
+        datatype: 'json',
+        data: idJson,
+        cache: false,
+        contextType : 
+        success: function(response) {
+            if (response.status === "success") {
+                console.log("Shipping Info: ", response);
+                //alert(response.memid);
+                var inputJson = {
+                    'memid': response.memid,
+                    'addressnick': response.addressnick,  // 오타 수정: adressnick -> addressnick
+                    'receiveMem': response.receiveMem,
+                    'roadAddress': response.roadAddress,
+                    'jibunAddress': response.jibunAddress,
+                    'detailAddress': response.detailAddress,
+                    'tel': response.tel,
+                    'postnum': response.postnum
+                };
+                //alert(inputJson);
+                localStorage.setItem("inputJson", JSON.stringify(inputJson)); // 올바른 변수 사용
+            } else {
+                // 알림 처리 등 오류 핸들링
+                //alert("error")
+            }
+        },
+        error: function() {
+            alert("Error while requesting shipping info.");
+        }
+    });
+
+    var popupURL = "${pageContext.request.contextPath}/userinfo/shipping/SSG_shippingPlace_update.jsp";
+    const width = 600;
+    const height = 600;
+    let left = (document.body.offsetWidth / 2) - (width / 2.5);
+    let tops = (document.body.offsetHeight / 2) - (height / 2.5);
+
+    const popup = window.open(popupURL, 'SIPEditPopup', `width=\${width}, height=\${height}, left=\${left}, top=\${tops}`);
+}
 </script>
 <script>
 	function openSPIPopup(){
@@ -817,9 +820,7 @@ $(function(){
     var oSsgViewTranslate = new ssg.View.translate({
         i18nConfig: {
             name:'Messages'
-    
             , path:'//sui.ssgcdn.com/ui/member/js/i18n/'
-        
             , language:'ko'
             , mode:'both'
             , async: true
