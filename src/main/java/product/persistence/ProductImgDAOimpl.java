@@ -39,23 +39,23 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 
 
 	@Override
-	public List<ProductImgDTO> getImg(String productId) throws SQLException {
+	public List<ProductImgDTO> getImg(long productId) throws SQLException {
 		List<ProductImgDTO> images = new ArrayList<ProductImgDTO>();
 		//썸네일 가져오는
 		String sql  = " SELECT * "
 				+ " FROM productimg "
 				+ " WHERE productid = ? AND imgcontent = 'thumbnail' ";
-		
+		System.out.println("pdImgDAOimpl");
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
 			System.out.println(productId);
-			pstmt.setString(1, productId);
+			pstmt.setLong(1, productId);
 			rs=pstmt.executeQuery();
 			while (rs.next()) {
 				ProductImgDTO image = new ProductImgDTO().builder()
-									.id(rs.getString("id"))
-									.productId(rs.getString("productId"))
+									.id(rs.getInt("id"))
+									.productId(rs.getLong("productId"))
 									.imgUrl(rs.getString("imgUrl"))
 									.imgContent(rs.getString("imgContent"))
 									.build();

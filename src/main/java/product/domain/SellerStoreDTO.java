@@ -12,7 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class SellerStoreDTO {
-	private String sellerName;      
 	private String id;
-	
+	private String sellerName;  
 }

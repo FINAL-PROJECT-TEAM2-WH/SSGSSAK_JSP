@@ -7,5 +7,5 @@ import product.domain.ProductImgDTO;
 
 public interface ProductImgDAO {
 
-	List<ProductImgDTO> getImg(String productId) throws SQLException;
+	List<ProductImgDTO> getImg(long productId) throws SQLException;
 }

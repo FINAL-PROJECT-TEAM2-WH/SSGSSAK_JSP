@@ -12,9 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class BrandDTO {
-	private String id;      
-	private String brandImg;    
-	private String brandName;
-	
+	private String id;
+	private String brandImg;      
+	private String brandName;      
 	
 }

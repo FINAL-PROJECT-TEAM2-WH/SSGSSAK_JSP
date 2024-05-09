@@ -25,6 +25,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		return instance;
 	}
 
+
+	
 	// 회원 배송지 추가
 	@Override
 	public int insert(Connection conn, ShippingPlaceInfoDTO dto) {
