@@ -142,7 +142,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 		return rowCount;
 	}
-	
+
 	// 로그아웃
 	@Override
 	public int logOut(String id) {
@@ -167,7 +167,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 
-	
+
 	// info에 필요한 값 불러오기 
 	@Override
 	public Map<String, String> loadInfo(String id) { 
@@ -180,7 +180,7 @@ public class MemberDAOImpl implements MemberDAO{
 				+ " WHERE id = ?";
 
 		String name = ""; 
-		
+
 		try {
 			pstmt=conn.prepareStatement(sql); 
 			pstmt.setString(1, id); 
@@ -200,7 +200,7 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs); 
 			JdbcUtil.close(pstmt);
 		}
-		 
+
 		int points = 0 ;
 		try {
 			points = getPersonalPoints(id);
@@ -212,8 +212,8 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
-		
+
+
 		int couponNum = 0 ;
 		try {
 			couponNum = getPersonalCoupons(id);
@@ -225,7 +225,7 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		int leftDays = 0 ;
 		try {
 			leftDays = getSevenDaysLeftCou(id);
@@ -237,7 +237,7 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		int availDownCoupon = 0 ;
 		try {
 			availDownCoupon = availDownCoupon(id);
@@ -249,8 +249,8 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
-		
+
+
 		info.put("name", name);
 		info.put("points", String.valueOf(points));
 		info.put("couponNum", String.valueOf(couponNum));
@@ -260,25 +260,25 @@ public class MemberDAOImpl implements MemberDAO{
 			info.put("leftDays", "0");
 		}
 		info.put("availDC", String.valueOf(availDownCoupon));
-		
+
 		return info;
 
 	}	
-	
-	
+
+
 	// point 값 갖고오기 
 	@Override
 	public int getPersonalPoints(String id) throws SQLException{
-		
+
 		String sql = "SELECT sum(pr.points) memberPoint "
 				+ " FROM pointrecord pr LEFT JOIN points p ON pr.cardnumber = p.id"
 				+ " WHERE pr.memid = ? ";
-		
+
 		int point = 0;
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
 		rs = pstmt.executeQuery();
-		
+
 		if ( rs.next()) {
 			point = rs.getInt("memberPoint");
 		} else {
@@ -286,19 +286,19 @@ public class MemberDAOImpl implements MemberDAO{
 		}			
 		return point ; 
 	}
-	
-	
+
+
 	@Override
 	public int getPersonalCoupons(String id) throws SQLException {
 		String sql = "SELECT COUNT(cnumber) couponNum "
-		+ " FROM couponrecord "
-		+ " WHERE memid = ? " ;
+				+ " FROM couponrecord "
+				+ " WHERE memid = ? " ;
 
 		int couponNum = 0;
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
 		rs = pstmt.executeQuery();
-		
+
 		if ( rs.next()) {
 			couponNum = rs.getInt("couponNum");
 		} else {
@@ -311,14 +311,14 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int getSevenDaysLeftCou(String id) throws SQLException {
 		String sql = " SELECT trunc(c.endd) - trunc(SYSDATE) leftDays "
-		+ " FROM couponrecord cr LEFT JOIN coupon c ON cr.cnumber = c.id "
-		+ " WHERE cr.memid = ? " ;
-		
+				+ " FROM couponrecord cr LEFT JOIN coupon c ON cr.cnumber = c.id "
+				+ " WHERE cr.memid = ? " ;
+
 		int leftDays = 0;
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
 		rs = pstmt.executeQuery();
-		
+
 		if ( rs.next()) {
 			leftDays = rs.getInt("leftDays");
 		} else {
@@ -335,13 +335,13 @@ public class MemberDAOImpl implements MemberDAO{
 				+ " WHERE id NOT IN ( "
 				+ " SELECT cr.cnumber "
 				+ " FROM couponrecord cr " 
-			    + " WHERE cr.memid = ? ) " ;
-		
+				+ " WHERE cr.memid = ? ) " ;
+
 		int availDownCoupon = 0;
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
 		rs = pstmt.executeQuery();
-		
+
 		if ( rs.next()) {
 			availDownCoupon = rs.getInt("availDownC");
 		} else {
@@ -368,7 +368,7 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		return rowCount;
 	}
 
@@ -386,12 +386,12 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt.setString(3, id);
 			rowCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			
+
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-	
+
 		return rowCount;
 	}
 
@@ -404,7 +404,7 @@ public class MemberDAOImpl implements MemberDAO{
 		System.out.println(prePhoneNum);
 		String postPhoneNum = phoneNum.substring(3);
 		String name = getName(id);
-		
+
 		Map <String,String> infoMap = new HashMap<String, String>();
 		infoMap.put("email", email);
 		infoMap.put("prePhoneNum", prePhoneNum);
@@ -412,7 +412,7 @@ public class MemberDAOImpl implements MemberDAO{
 		infoMap.put("name", name);
 		return infoMap;
 	}
-	
+
 	@Override
 	public String getEmail(String id) throws SQLException {
 		String sql = "SELECT email "
@@ -486,19 +486,81 @@ public class MemberDAOImpl implements MemberDAO{
 		}			
 		return name;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+	@Override
+	public Map<String, String> agreeInfoRcv(String id) throws SQLException {
+		String email = getEmail(id);
+		String phoneNum = getPhoneNum(id);
+		String prePhoneNum = phoneNum.substring(0,3);
+		System.out.println(prePhoneNum);
+
+		// email xxx*****@xxxx.com
+		int alpha = email.indexOf("@");
+
+		String preEmail = email.substring(0,3);
+		String star =  "*".repeat(4);
+		String postEmail = email.substring(alpha, email.length());
+
+		// phone 010-****-xxxx
+		String postPhoneNum = phoneNum.substring(phoneNum.length()-4);
+
+		String name = getName(id);
+
+		Map <String,String> infoMap = new HashMap<String, String>();
+		infoMap.put("email", preEmail + star + postEmail);
+		infoMap.put("prePhoneNum", prePhoneNum);
+		infoMap.put("postPhoneNum", postPhoneNum);
+		infoMap.put("name", name);
+		return infoMap;
+
+	}
+
+
+	@Override
+	public String idCheck(Connection conn, String id) {
+		//  0(사용가능)  1(사용불가능)
+		String sql = " select count(*) cnt " 
+				+ " from member  "
+				+ " where id =  ?";					     
+		String jsonResult =  null;  //   "{ "count":1 }"; 
+
+		try (PreparedStatement pstmt =	conn.prepareStatement(sql)) {
+			pstmt.setString(1, id );
+			rs = pstmt.executeQuery();
+			rs.next();
+			int cnt = rs.getInt("cnt");  
+			// jsonResult  = "{ \"count\":  "+ cnt +" }";
+			jsonResult  = String.format("{ \"count\":%d }", cnt) ;
+			System.out.println( " jsonReuslt :  " + jsonResult);
+			/*
+					JSONObject jsonResult = new JSONObject();
+					jsonResult.put("count" , cnt);
+			 */
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{ 
+			JdbcUtil.close(rs); 
+			JdbcUtil.close(pstmt);
+		}
+
+		return jsonResult;
+	}
 
 
 
 
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

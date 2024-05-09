@@ -425,7 +425,7 @@
 
             
         </div>
-        <form id="agreeForm" method="POST" action="<%=contextPath%>/member/join/form.jsp">
+        <form id="agreeForm" method="POST" action="<%=contextPath%>/member/join/privacy/signup_terms.do">
             <input type="hidden" name="selfCertTokenId" value="044c4bc40b9b11efa6b008f1ea745ea4">
             <input type="hidden" name="autoFillYn" value="N">
             
@@ -1019,11 +1019,11 @@ $(function(){
     });
 
     function viewPolicy(site) {
-        popupWin("/member/join/privacy.ssg?site=" + site, "privacy_policy", 780, 600, "yes", "no");
+        popupWin("<%=contextPath%>/member/join/privacy/signup_terms.do?site=" + site, "privacy_policy", 780, 600, "yes", "no");
     }
 
     function viewPolicyPopup(mbrOperScrnId) {
-        popupWin("/policies/termPopup.ssg?mbrOperScrnId=" + mbrOperScrnId, "terms", 780, 600, "yes", "no");
+        popupWin("<%=contextPath%>/member/policies/termPopup.do?mbrOperScrnId=" + mbrOperScrnId, "terms", 780, 600, "yes", "no");
     }
 </script>
 </div>

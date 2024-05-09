@@ -1,7 +1,9 @@
 package member.service;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 
 import com.util.ConnectionProvider;
@@ -16,7 +18,7 @@ public class LoginService {
 	
 	private MemberDAO dao = null;
 	
-	private LoginService() {}
+	public LoginService() {}
 	
 	public LoginService(MemberDAO dao) {
 		this.dao = dao;
@@ -57,5 +59,19 @@ public class LoginService {
 		
 		return dto;
 	}
+	
+	public String idCheck(String id) {
+
+		try (Connection conn = ConnectionProvider.getConnection()) {
+			String idCheckJson = dao.idCheck(conn, id); 
+			System.out.println("> LoginService.idCheck : idCheckJson = " + idCheckJson);
+			return idCheckJson;
+		} catch (SQLException | NamingException e) {
+			throw new RuntimeException(e);
+		} 
+
+	}
+	
+	
 	
 }
