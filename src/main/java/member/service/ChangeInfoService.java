@@ -2,6 +2,8 @@ package member.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.util.JdbcUtil;
 
@@ -30,8 +32,8 @@ private static ChangeInfoService instance = null;
 		int rowCount = 0; 
 		
 		try {
-			rowCount = dao.changePwd(id,phoneNum,email);
-		} catch (SQLException e) {
+			rowCount = dao.changeinfo(id,phoneNum,email);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
@@ -39,5 +41,21 @@ private static ChangeInfoService instance = null;
 		}
 		
 		return rowCount;
+	}
+	
+	public Map<String,String> originInfoLoad(String id) {
+		Map <String,String> infoMap = new HashMap();
+		
+		try {
+			infoMap = dao.originInfoLoad(id);
+			if ( infoMap.isEmpty()) {
+				System.out.println("originInfoLoad가 비었습니다.");
+			} 
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JdbcUtil.close(conn);
+		}
+		
+		return infoMap;
 	}
 }
