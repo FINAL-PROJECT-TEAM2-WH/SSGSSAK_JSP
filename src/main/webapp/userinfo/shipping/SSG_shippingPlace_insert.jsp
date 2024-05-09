@@ -495,7 +495,8 @@ function execDaumPostcode() {
 			datatype : 'json',
 			/* ajax url 줄때 서버단이라면 contextPath 추가 꼭 해주기 */
 			url: contextPath + "/shippingPlaceInsert.do",
-			data: datas,
+			contentType : 'application/json', 
+		    data : JSON.stringify(datas),
 			cache : false,
 			success : function(res){
 				alert("성공");

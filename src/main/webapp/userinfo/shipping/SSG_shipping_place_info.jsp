@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/cs.css?v=20240424" />
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<script>(function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -642,7 +643,7 @@
 					<c:if test="${ spdto.defaultShipping == '기본배송지' || spdto.defaultShipping == '이번만배송지' }">
 					<tr>
 					<td>
-						<input type="radio" name="deliveryKr" class="radio" value="5430097" title="배송지 선택">
+						<input type="radio" name="deliveryKr" class="radio" value="${ spdto.id }" title="배송지 선택">
 						<input type="hidden" name="shpplocSeq" id="shpplocSeq" value="5430097">
 						<input type="hidden" name="bascShpplocYn" id="bascShpplocYn" value="Y">
 					<td>
@@ -675,7 +676,7 @@
 					<c:if test="${ spdto.defaultShipping == 'X' }">
 					<tr>
 					<td>
-						<input type="radio" name="deliveryKr" class="radio" value="5430097" title="배송지 선택">
+						<input type="radio" name="deliveryKr" class="radio" value="${ spdto.id }" title="배송지 선택">
 						<input type="hidden" name="shpplocSeq" id="shpplocSeq" value="5430097">
 						<input type="hidden" name="bascShpplocYn" id="bascShpplocYn" value="Y">
 					<td>
@@ -713,8 +714,8 @@
             <a href="/myssg/myinfoMng/shpplocNacctMng.ssg?page=2">2</a>
 		</div>
 		<div class="button_btm">
-				<button onclick="fn_setDefault(this)" class="btn_cs ty1"><span>기본 배송지 설정</span></button>
-				<button onclick="fn_setOnlyOne()" class="btn_cs ty4"><span>이번만 배송지 설정</span></button>
+				<button id="editDefaultBtn" class="btn_cs ty1"><span>기본 배송지 설정</span></button>
+				<button id="editEbunmanBtn" class="btn_cs ty4"><span>이번만 배송지 설정</span></button>
 			
 		</div>
 	</div>
@@ -730,65 +731,78 @@
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
 <script>
-function openSPIEditPopup(element) {
-    var row = element.closest('tr');
-    var hiddenInput = '';
-    var spdtoId = '';
-    if (row) {
-        hiddenInput = row.querySelector('.spdtoHidden');
-        spdtoId = hiddenInput.value;
-    } else {
-        hiddenInput = document.getElementById('defaultspdto');
-        spdtoId = hiddenInput.value;
-    }
+	$("#editDefaultBtn").on("click", function(){
+		var defaultVal = $('input[name="deliveryKr"]:checked').val();
+		if( !defaultVal ){
+			alert("배송지를 체크해주세요");
+		}else{
+			//alert(defaultVal); 
+			location.href = `<%= contextPath %>/ShippingStatusEdit.do?id=\${defaultVal}&memid=<%= memid %>&status=기본배송지`
+		}
+	})
+	
+	$("#editEbunmanBtn").on("click", function(){
+		var ebunmanVal = $('input[name="deliveryKr"]:checked').val();
+		if( !ebunmanVal ){
+			alert("배송지를 체크해주세요");
+		}else{
+			//alert(ebunmanVal);
+			location.href = `<%= contextPath %>/ShippingStatusEdit.do?id=\${ebunmanVal}&memid=<%= memid %>&status=이번만배송지`
+		}
+	})
+	
+</script>
+<script>
+	function openSPIEditPopup(element) {
+	    // jQuery를 사용하여 가장 가까운 tr 요소를 찾고 hiddenInput 값 가져오기
+	    var $row = $(element).closest('tr');
+	    var spdtoId = $row.length ? $row.find('.spdtoHidden').val() : $('#defaultspdto').val();
 
-    var idJson = {
-        'id': spdtoId
-    };
+	    var idJson = { 'id': spdtoId };
 
-    
-    var contextPath = "<%= request.getContextPath() %>";
-    $.ajax({
-        type: "GET",
-        url: contextPath + "/shippingPlaceUpView.do",
-        datatype: 'json',
-        data: idJson,
-        cache: false,
-        contextType : 
-        success: function(response) {
-            if (response.status === "success") {
-                console.log("Shipping Info: ", response);
-                //alert(response.memid);
-                var inputJson = {
-                    'memid': response.memid,
-                    'addressnick': response.addressnick,  // 오타 수정: adressnick -> addressnick
-                    'receiveMem': response.receiveMem,
-                    'roadAddress': response.roadAddress,
-                    'jibunAddress': response.jibunAddress,
-                    'detailAddress': response.detailAddress,
-                    'tel': response.tel,
-                    'postnum': response.postnum
-                };
-                //alert(inputJson);
-                localStorage.setItem("inputJson", JSON.stringify(inputJson)); // 올바른 변수 사용
-            } else {
-                // 알림 처리 등 오류 핸들링
-                //alert("error")
-            }
-        },
-        error: function() {
-            alert("Error while requesting shipping info.");
-        }
-    });
+	    // 서버 경로 및 AJAX 요청 설정
+	    var contextPath = "<%= request.getContextPath() %>";
+	    $.ajax({
+	        type: "GET",
+	        url: contextPath + "/shippingPlaceUpView.do",
+	        dataType: 'json',  // jQuery에서는 dataType 소문자로 씁니다.
+	        data: idJson,
+	        cache: false,
+	        contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
+	        success: function(response) {
+	            if (response.status === "success") {
+	                console.log("Shipping Info: ", response);
+	                var inputJson = {
+	                    'memid': response.memid,
+	                    'id' : spdtoId,
+	                    'addressnick': response.addressnick,
+	                    'receiveMem': response.receiveMem,
+	                    'roadAddress': response.roadAddress,
+	                    'jibunAddress': response.jibunAddress,
+	                    'detailAddress': response.detailAddress,
+	                    'tel': response.tel,
+	                    'postnum': response.postnum
+	                };
+	                localStorage.setItem("inputJson", JSON.stringify(inputJson));
+	            } else {
+	                // 에러 처리
+	                alert("Error occurred: " + response.message);
+	            }
+	        },
+	        error: function(xhr, status, error) {
+	            alert("Error while requesting shipping info: " + error);
+	        }
+	    });
 
-    var popupURL = "${pageContext.request.contextPath}/userinfo/shipping/SSG_shippingPlace_update.jsp";
-    const width = 600;
-    const height = 600;
-    let left = (document.body.offsetWidth / 2) - (width / 2.5);
-    let tops = (document.body.offsetHeight / 2) - (height / 2.5);
+	    // 팝업 윈도우 설정 및 열기
+	    var popupURL = contextPath + "/userinfo/shipping/SSG_shippingPlace_update.jsp";
+	    const width = 600;
+	    const height = 600;
+	    let left = (window.innerWidth / 2) - (width / 2);
+	    let tops = (window.innerHeight / 2) - (height / 2);
 
-    const popup = window.open(popupURL, 'SIPEditPopup', `width=\${width}, height=\${height}, left=\${left}, top=\${tops}`);
-}
+	    window.open(popupURL, 'SIPEditPopup', `width=\${width}, height=\${height}, left=\${left}, top=\${tops}`);
+	}
 </script>
 <script>
 	function openSPIPopup(){
