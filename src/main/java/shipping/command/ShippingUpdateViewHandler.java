@@ -1,7 +1,5 @@
 package shipping.command;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,6 +14,8 @@ public class ShippingUpdateViewHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("application/json");
 		ShippingPlaceInfoDTO dto = null;
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 //		.id(id)
 //		.memid(memid)
 //		.addressnick(addressnick)
@@ -42,9 +42,11 @@ public class ShippingUpdateViewHandler implements CommandHandler {
 				jsonObject.put("tel", dto.getTel());
 				jsonObject.put("postnum", dto.getPostnum());
 				jsonObject.put("status", "success");
+				response.getWriter().write(jsonObject.toString());
 			}else {
 				jsonObject.put("status", "error");
 				jsonObject.put("message", "shippingplaceinfoupdate ajax에서 오류~~ ");
+				response.getWriter().write(jsonObject.toString());
 			}	
 		}catch( Exception e ) {
 			e.printStackTrace();
