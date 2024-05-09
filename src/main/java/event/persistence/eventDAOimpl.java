@@ -1,17 +1,15 @@
 package event.persistence;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.util.JdbcUtil;
 
-import event.command.eventHandler;
 import event.domain.eventDTO;
-
-
-
+import oracle.sql.DATE;
 
 public class eventDAOimpl {
 
@@ -39,22 +37,21 @@ public class eventDAOimpl {
                 long eventId = rs.getLong("id");
                 String evnNm = rs.getString("evnNm");
                 String evnImg = rs.getString("evnImg");
-                String evnStrDt = rs.getString("evnStrDt");
-                String evnEnDt = rs.getString("evnEnDt");
+                Date evnStrDt = rs.getDate("evnStrDt");
+                Date evnEnDt = rs.getDate("evnEnDt");
 
-                dto = new eventHandler.Builder()
+                dto = eventDTO.builder()
                         .id(eventId)
                         .evnNm(evnNm)
                         .evnImg(evnImg)
+                        .evnStrDt(evnEnDt)
                         .evnStrDt(evnStrDt)
-                        .evnEnDt(evnEnDt)
                         .build();
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-        
             JdbcUtil.close(rs);
             JdbcUtil.close(pstmt);
         }
