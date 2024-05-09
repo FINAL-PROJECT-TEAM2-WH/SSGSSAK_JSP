@@ -1,4 +1,4 @@
-package product.domain;
+package productList.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SellerStoreDTO {
+public class ProdCateDTO {
+	
+	private String prodID;
 	private String id;
-	private String sellerName;  
+    private String majorCateName;
+    private String middleCateName; 
+    private String subCateName;
+    private String miniCateName;
+
 }
