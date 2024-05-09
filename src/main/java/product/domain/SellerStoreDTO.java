@@ -12,7 +12,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class SellerStoreDTO {
+<<<<<<< HEAD
 	private String id;
 	private String sellerName;      
+=======
+	private String sellerName;      
+	private String id;
+>>>>>>> 20f2f321f3c0bb40d279fd6b026c43c292ccd686
 	
 }

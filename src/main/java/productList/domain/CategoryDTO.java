@@ -12,9 +12,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class CategoryDTO {
+<<<<<<< HEAD
 	private String id;
     private String majorCateName;
     private String middleCateName; 
     private String subCateName;
     private String miniCateName;
+=======
+
+	private String id;
+	private String majorCateName;      
+	private String middleCateName;    
+	private String subCateName;   
+	private String miniCateName;   
+	
+	
+>>>>>>> 20f2f321f3c0bb40d279fd6b026c43c292ccd686
 }

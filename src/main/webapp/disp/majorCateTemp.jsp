@@ -1,3 +1,4 @@
+<%@page import="lombok.EqualsAndHashCode.Include"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
@@ -15,14 +16,14 @@
     <meta name="description" content="카테고리 &gt; 스피커, 믿고 사는 즐거움 SSG.COM" />
     <meta name="google-site-verification" content="riDJ-IX46HanskLx25pj6-y8ANf2qTgZNfv_UJvkHq8" />
     <meta name="facebook-domain-verification" content="ctgl43lmqq8gm4thxgg7j3b38sfqau" />
-    <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" as="style" />
+    
+<link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" as="style" />
 <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" as="style" />
 <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240424" as="style" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240424"/>
-
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_component.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/m_ssg/css/ssg_component.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424" />
@@ -313,9 +314,9 @@
 </script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ssg.ad.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssg.react.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240424"></script><script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/netfunnel.js?v=20240424" charset="UTF-8"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/netfunnel.js?v=20240424" charset="UTF-8"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/netfunnel_skin.js?v=20240424"></script>
-
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/affiliate/affiliateGnb.js"></script>
 <script type="text/javascript">
 var agent = navigator.userAgent.toLowerCase();
@@ -725,7 +726,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <!-- 메인 레이어팝업 (e) -->
 
     <div id="container" >
-        <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_category_v3.css?v=20240424" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_category_v3.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/common_filter.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/mndmoon_ssg.css?v=20240424">
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/delivery_mall.css?v=20240424" />
@@ -741,46 +742,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <span class="clip_info_layer notranslate">상단에서<br />확인해보세요!</span>
 </div>
 <!-- 테마카테고리 -> ssg 쓱배송에서만 붙어나오는곳, 수정필요 -->
-<div id="location" class="cate_location notranslate">
-        <div class="lo_depth_01">
-            <a href="/" class="lo_menu">SSG.COM</a>
-            <span class="lo_line">/</span>
-        </div>
-
-        <div class="lo_depth_01">
-                <a href="/disp/category.ssg?dispCtgId=6000208638" class="lo_menu lo_arr">현재선택된상단바표시상위카테고리이름-DB처리?어케하징</a>
-                <div id="lo_menu01" class="lo_depth_02 n2">
-                    <ul>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable active">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        </ul>
-                </div>
-                <span class="lo_line">/</span>
-                </div>
-        <div class="lo_depth_01">
-                <a href="/disp/category.ssg?dispCtgId=6000208709" class="lo_menu lo_arr">현재선택된상단바표시카테고리이름-얘도 DB처리?</a>
-                <div id="lo_menu02" class="lo_depth_02 n2">
-                    <ul>
-                        <li class="msa_data"><a href="#" class="clickable  active">소카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable">소카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable">소카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable">소카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable">소카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable">소카테</a></li>
-                        
-                        </ul>
-                </div>
-            </div>
-        </div>
+<!-- catevar 스타트 -->
+<%@ include file="catevar.jsp" %>
+<!-- catevar 엔드 -->
 <div id="content" class=" content_cctg com_tmpl react-area">
     <input type="hidden" id="isNanaSize" value="false">
     <!-- 카테고리 타이틀-->
@@ -804,7 +768,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <input type="hidden" name="attnTgtIdnfNo1" value="6000208709">
             <input type="hidden" name="attnTgtIdnfNo2" value="6005">
             <input type="hidden" name="checked" value="N">
-            <button class="cmlike_btn _js_cmlike_btn clickable"  data-react-tarea="카테고리_중소세|카테고리 타이틀|클립 선택|스피커">
+            <button class="cmlike_btn _js_cmlike_btn clickable">
                 <span class="cmlike_ico">
                         <i class="cmlike_primary_l"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -13966,7 +13930,8 @@ $(function(){
     .tooltip_message.active{display:block !important}
 </style>
 
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssg.comm.onerror.observer.js" crossorigin="anonymous"></script><div id="wp_tg_cts" style="display:none;"></div>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssg.comm.onerror.observer.js" crossorigin="anonymous"></script>
+<div id="wp_tg_cts" style="display:none;"></div>
 <script type="text/javascript">
 var wptg_tagscript_vars = wptg_tagscript_vars || [];
 wptg_tagscript_vars.push(

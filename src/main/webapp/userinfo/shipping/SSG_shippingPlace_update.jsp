@@ -364,7 +364,7 @@
 								<!-- 도로명주소, 지번죽소, 우편번호  -->
 								<th scope="row" class="vt"><span class="full_address">배송주소</span></th>
 								<td class="address">
-									<input type="text" class="input_text small" id="postNum" placeholder="우편번호"><br>
+									<input type="text" class="input_text small" id="postNum" placeholder="우편번호" value="우리가 정한 우편번호"><br>
 									<input type="text" class="input_text small" id="roadAddress" placeholder="도로명주소"><br>
 									<input type="text" class="input_text small" id="jibunAddress" placeholder="지번주소"><br>
 									<span id="guide" style="color:#999;display:none"></span>
@@ -505,7 +505,6 @@ function execDaumPostcode() {
 			error : function(){
 				//alert("실패")
 				window.close();
-				console(res.code);
 			}
 		})
 	})
