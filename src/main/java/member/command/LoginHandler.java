@@ -76,12 +76,9 @@ public class LoginHandler implements CommandHandler {
 			session.setAttribute("auth", loginMember.getId());
 		 
 			 
-			 String path = "/member/login.jsp";
-			 
-			
-				
-				 RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-				 dispatcher.forward(request, response);
+			 String path = "/member/login.jsp";	
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
 				 
 			 response.sendRedirect(path);
 			 

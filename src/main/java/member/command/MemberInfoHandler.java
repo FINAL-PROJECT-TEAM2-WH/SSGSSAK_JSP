@@ -38,7 +38,7 @@ public class MemberInfoHandler implements CommandHandler {
 		String id = (String)session.getAttribute("auth");
 		
 		
-		System.out.println( "ID : " + id);
+		System.out.println( " > MemberInfoHandler Handler get in : " + id);
 		Connection conn = ConnectionProvider.getConnection();
 		MemberDAO dao = new MemberDAOImpl(conn);
 		LoadInfoService service = new LoadInfoService(dao);

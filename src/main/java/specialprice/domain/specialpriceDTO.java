@@ -1,4 +1,4 @@
-package specialprice.persistence;
+package specialprice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

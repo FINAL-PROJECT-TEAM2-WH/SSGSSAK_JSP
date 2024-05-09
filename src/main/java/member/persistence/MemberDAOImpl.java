@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.collections.map.HashedMap;
@@ -370,6 +371,123 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return rowCount;
 	}
+
+
+	@Override
+	public int changeinfo(String id, String phoneNum, String email) throws SQLException {
+		String sql = "UPDATE member "
+				+ " SET phonenum = ? , email= ? "
+				+ " WHERE id = ? " ; 
+		int rowCount = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, phoneNum);
+			pstmt.setString(2, email);
+			pstmt.setString(3, id);
+			rowCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	
+		return rowCount;
+	}
+
+
+	@Override
+	public Map<String, String> originInfoLoad(String id) throws SQLException {
+		String email = getEmail(id);
+		String phoneNum = getPhoneNum(id);
+		String prePhoneNum = phoneNum.substring(0,3);
+		System.out.println(prePhoneNum);
+		String postPhoneNum = phoneNum.substring(3);
+		String name = getName(id);
+		
+		Map <String,String> infoMap = new HashMap<String, String>();
+		infoMap.put("email", email);
+		infoMap.put("prePhoneNum", prePhoneNum);
+		infoMap.put("postPhoneNum", postPhoneNum);
+		infoMap.put("name", name);
+		return infoMap;
+	}
+	
+	@Override
+	public String getEmail(String id) throws SQLException {
+		String sql = "SELECT email "
+				+ " FROM member "
+				+ " WHERE id = ?  " ; 
+		String email = "";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if ( rs.next()) {
+				email = rs.getString("email");
+			} else {
+				System.out.println("이메일 불러오기 실패");
+			}						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}			
+		return email;
+	}
+
+
+	@Override
+	public String getPhoneNum(String id) throws SQLException {
+		String sql = "SELECT phonenum "
+				+ " FROM member "
+				+ " WHERE id = ?  " ; 
+		String phoneNum = "";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if ( rs.next()) {
+				phoneNum = rs.getString("phonenum");
+			} else {
+				System.out.println("핸드폰번호 불러오기 실패");
+			}						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}			
+		return phoneNum;
+	}
+
+
+	@Override
+	public String getName(String id) throws SQLException {
+		String sql = "SELECT name "
+				+ " FROM member "
+				+ " WHERE id = ?  " ; 
+		String name = "";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if ( rs.next()) {
+				name = rs.getString("name");
+			} else {
+				System.out.println("이름 불러오기 실패");
+			}						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}			
+		return name;
+	}
+	
+	
 	
 	
 	
