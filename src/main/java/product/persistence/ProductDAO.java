@@ -6,7 +6,7 @@ import product.domain.ProductDTO;
 
 public interface ProductDAO {
 	
-	ProductDTO view(String  id) throws SQLException;
+	ProductDTO view(String id) throws SQLException;
 	
 	
 	
