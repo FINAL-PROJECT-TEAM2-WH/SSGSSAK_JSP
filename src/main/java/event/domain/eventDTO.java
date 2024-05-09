@@ -1,4 +1,4 @@
-package event.persistence;
+package event.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,10 +17,10 @@ import oracle.sql.DATE;
 public class eventDTO {
 	
 	private long   id;
-	private String spclImg;
-	private String spclNm;	
-	private DATE spclStrDt;
-	private DATE spclPrcEnDt;
-	private long spclDscnRt;
+	private String evnNm;
+	private String evnImg;	
+	private DATE evnStrDt;
+	private DATE evnEnDt;
+	
 	
 }

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
-    <link rel="image_src" href="//sui.ssgcdn.com/ui/common/img/sns/ssg.png"  />
+    <link rel="image_src" href="//sui.ssgcdn.com/ui/common/img/sns/ssg.png"/>
     <title class="notranslate">믿고 사는 즐거움 SSG.COM</title>
     <meta name="title" content="믿고 사는 즐거움 SSG.COM" />
     <meta name="description" content="신세계 그룹의 온라인 쇼핑 플랫폼, SSG.COM. 신세계몰, 신세계백화점, 이마트몰, 트레이더스, 신세계라이브쇼핑, S.I. Village가 SSG.COM 이라는 이름으로 하나가 되었어요." />
@@ -1034,7 +1034,8 @@ deferredObj.done(function() {
             });
         }
     }
-</script><script>
+</script>
+<script>
     $(document).ready(function () {
 
         var oSsgViewMainTabmenu = new ssg.View.main.tabMenu();
@@ -1046,7 +1047,8 @@ deferredObj.done(function() {
             Clip.readyClipBtn();
         });
     });
-</script><script>
+</script>
+<script>
     $(document).ready(function () {
         horizontalBannerService.callAdPageView();
     });
@@ -1059,7 +1061,8 @@ deferredObj.done(function() {
             });
         }
     }
-</script><script>
+</script>
+<script>
     $(document).ready(function () {
         var oSsgViewMainTabmenu = new ssg.View.main.tabMenu();
 
@@ -1092,7 +1095,8 @@ deferredObj.done(function() {
             });
         }
     }
-</script><script>
+</script>
+<script>
     $(document).ready(function () {
         var $welTabMenu = $('#main-ranking .cmmain_tablist > li.on > .cmmain_tab');
         var $welTabContent = $('#main-ranking .cmmain_tabcont > .cmmain_tabpanel.on');
@@ -1159,7 +1163,8 @@ deferredObj.done(function() {
             });
         }
     }
-</script><script>
+</script>
+<script>
     $(document).ready(function () {
         var $welTabMenu = $('#special-shop .cmmain_tablist > li.on > .cmmain_tab');
         var $welTabContent = $('#special-shop .cmmain_tabcont > .cmmain_tabpanel.on');
@@ -1201,7 +1206,8 @@ deferredObj.done(function() {
             });
         }
     }
-</script><script>
+</script>
+<script>
     (function() {
         var $wrappers = $(".newmall_area");
         var ajaxNewMallContents = { state: function() {} };
@@ -1259,7 +1265,8 @@ deferredObj.done(function() {
             ajaxMore();
         });
     }());
-</script><script>
+</script>
+<script>
     $(document).ready(function () {
         var $mondayMoonSection = $('#mondayMoon');
         if ($mondayMoonSection) {
