@@ -15,8 +15,8 @@ import lombok.Setter;
 @Builder
 public class ProductImgDTO {
 
-		private String id ;
-		private String productId;  
+		private int id ;
+		private long productId;  
 		private String imgUrl; 
 		private String imgContent;
 	
