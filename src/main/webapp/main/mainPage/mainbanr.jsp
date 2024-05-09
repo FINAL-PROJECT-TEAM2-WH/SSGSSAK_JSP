@@ -85,12 +85,12 @@
     data-react-unit-text=""
     
 >
-   <a href="이벤트사이트링크"
+   <a href="http://localhost:8080/SSGSSAK/event/event1.jsp"
       class="ssghero_imglink clickable"
-      data-react-tarea-cd-old="이벤트클릭3"
+      data-react-tarea-cd-old="http://localhost:8080/SSGSSAK/event/event1.jsp"
       data-react-tarea-dtl-cd="t00001"
    >
-       <img src="이벤트이미지" srcset="이벤트이미지 2x" alt="이벤트 클릭3" loading="lazy">
+      <img src="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202405/45708885615997366.jpg&amp;w=234&amp;h=167&amp;edit=c&amp;t=83b3f918016716fe489d365f0cc4aa13a811c56e" srcset="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202405/45708885615997366.jpg&amp;w=468&amp;h=334&amp;edit=c&amp;t=63abda426805363dda0f59d0dd4aadc15a470581 2x" onerror="this.onerror=null;this.src='//sui.ssgcdn.com/ui/ssg/img/common/img_evt_osmu.png'" alt="공통 배너 이미지">
                    </a>
 </div>
 <div class="ssghero_tit"
@@ -100,15 +100,17 @@
    >
        <a href="이벤트 사이트"
           class="ssghero_titlnk clickable"
-          data-react-tarea-cd-old="이벤트클릭4"
+          data-react-tarea-cd-old="http://localhost:8080/SSGSSAK/event/event1.jsp"
           data-react-tarea-dtl-cd="t00001"
        >
-           <h3 class="ssghero_titmain">이벤트3</h3>
-           <div class="ssghero_titsub">이벤트3</div>
+           <h3 class="ssghero_titmain">[체험단] 뽀숑 반려동물 탈취제 (랜덤)</h3>
+           <div class="ssghero_titsub">10명 모집! 댓글로 기대평을 남겨주세요~</div>
        </a>
    </div>
 </div>
-</div><div class="ssghero_slide_col" data-areaid="main_banr" data-impyn="N">
+
+</div>
+<div class="ssghero_slide_col" data-areaid="main_banr" data-impyn="N">
 <div class="ssghero_panel">
 <div class="ssghero_imgbx "
     data-react-unit-type="banr"
@@ -116,26 +118,26 @@
     data-react-unit-text=""
     
 >
-   <a href="이벤트사이트 클릭"
+   <a href="http://localhost:8080/SSGSSAK/event/event2.jsp"
       class="ssghero_imglink clickable"
-      data-react-tarea-cd-old="이벤트5"
+      data-react-tarea-cd-old="보타닉센스"
       data-react-tarea-dtl-cd="t00001"
    >
-       <img src="이벤트이미지" srcset="이벤트이미지 2x" alt="이벤트5" loading="lazy">
-                   </a>
+       <img src="https://sstatic.ssgcdn.com/promo/event/ssg/202404/44245131910526589.jpg" alt="선스크린_1">         
+        </a>
 </div>
 <div class="ssghero_tit"
         data-react-unit-type="banr"
         data-react-unit-id="2003594373"
         data-react-unit-text=""
    >
-       <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013103"
+       <a href="http://localhost:8080/SSGSSAK/event/event2.jsp"
           class="ssghero_titlnk clickable"
-          data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|5/1~9 이달의 미식 피크닉"
+          data-react-tarea-cd-old=""
           data-react-tarea-dtl-cd="t00001"
        >
-           <h3 class="ssghero_titmain">이벤트4</h3>
-           <div class="ssghero_titsub">이벤트4</div>
+           <h3 class="ssghero_titmain">[보타닉센스]멜라닌 선스크린</h3>
+           <div class="ssghero_titsub">[보타닉센스]멜라닌 선스크린</div>
        </a>
    </div>
 </div>
