@@ -93,7 +93,6 @@ public class DispatcherServlet extends HttpServlet {
 		
 		//[M]VC
 		CommandHandler comHandler = this.commandHandlerMap.get(requestURI);
-		
 		String view = null ; 
 		try {
 			view = comHandler.process(request, response);

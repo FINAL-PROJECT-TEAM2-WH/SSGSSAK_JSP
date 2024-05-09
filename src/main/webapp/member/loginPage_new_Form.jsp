@@ -10,12 +10,6 @@
 <title>
  로그인, 믿고 사는 즐거움 SSG.COM</title>
 
-
-
-
-
-
-
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/common/layout.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/popup.css?v=20240424" />
@@ -311,7 +305,7 @@
             </div>
             <div class="cmem_cont">
                 <div class="cmem_sec">
-                    <form method="post" id="loginForm" <%-- action="<%=contextPath %>/member/loginPage_new_Form.do" --%> >
+                    <form method="post" id="loginForm" <%-- action="<%=contextPath %>/member/login.do" --%> >
                         
                         <div class="cmem_inpgrp ty_id">
                             <div class="cmem_txt">
@@ -334,7 +328,7 @@
 					</span>
                         </div>
                         <div class="cmem_btnarea">
-                            <button type="submit" class="cmem_btn cmem_btn_ornge" id="loginBtn"><span>로그인</span></button>
+                            <button type="button" class="cmem_btn cmem_btn_ornge" id="loginBtn"><span>로그인</span></button>
                         </div>
                         <ul class="cmem_sns_login notranslate">
                             <li>
@@ -2331,10 +2325,10 @@ $(function(){
     }); */
 </script> --%>
 <script>
-$('#loginBtn').on('click', function () {
+$('#loginBtn').one('click', function () {
     let params = $('form').serialize();
     $.ajax({
-        url: '<%=contextPath%>/member/login.do',
+        url: '<%=contextPath%>/member/loginAjax.do',
         dataType: 'json',
         type: 'POST',
         data: params,

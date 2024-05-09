@@ -29,17 +29,27 @@ public class LoginHandler implements CommandHandler {
 		// post , get 그리고 get에서도 뒤에 쿼리 스트링이 오는 친구냐에 따라. 그리고 그 타입에 따라서 로그인 분기점을 정해줘야함. 
 		String contextPath = request.getContextPath();
 		String method = request.getMethod();
+		System.out.println(method);
 		if ( method.equals("GET")) {
-					
+				
 			// GET 요청으로 주소 돌려주기 
-			String path = "/member/loginPage_new_Form.jsp";
-			return path;
 			
 			
+			// servletPath << 이거 SSGSSAK 뒤의 값을 돌려줌 . 
+			String servletPath = request.getServletPath();
+			String path = "";
+			System.out.println("1 " + servletPath);
+			if ( servletPath.equals("/member/login/popup.do")) {
+				 path = "/member/loginPage_new_Form.jsp";
+				 return path;			 
+			} else {	
+				path = contextPath + "/member/login_Full.jsp";				
+				response.sendRedirect(path);
+			}
+				
 		} else {
-			// P	OST 요청 
-			
-			
+			// POST 요청 
+			request.setCharacterEncoding("UTF-8");
 			// 의존성 주입 
 			Connection conn = ConnectionProvider.getConnection();
 			MemberDAO dao = new MemberDAOImpl(conn);
@@ -57,7 +67,8 @@ public class LoginHandler implements CommandHandler {
 			loginMember = service.idcheck(id, passwd);
 			
 			if ( loginMember == null) {
-				return null; // ajax 에서 처리 
+				String redirectPath = contextPath + request.getServletPath();
+				response.sendRedirect(redirectPath);
 			}
 			
 			HttpSession session = request.getSession();
@@ -65,13 +76,11 @@ public class LoginHandler implements CommandHandler {
 			session.setAttribute("auth", loginMember.getId());
 		 
 			 
-			 String path = "/member/login.jsp";
-			 
-			
-			 RequestDispatcher dispatcher =
-					 request.getRequestDispatcher(path); 
-			 dispatcher.forward(request, response);
-			 
+			 String path = "/member/login.jsp";	
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
+				 
+			 response.sendRedirect(path);
 			 
 			 //session.setAttribute("auth",loginMember);
 			// 정확히는 쿠키에 저장하는 거임 .

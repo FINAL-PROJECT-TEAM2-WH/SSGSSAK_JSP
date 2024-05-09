@@ -378,80 +378,9 @@
     var emergencyItemIds = "";
 //]]>
 </script>
-<script type="text/javascript">
-  +function(a,p,P,b,y){a.braze={};a.brazeQueue=[];for(var s="BrazeSdkMetadata DeviceProperties Card Card.prototype.dismissCard Card.prototype.removeAllSubscriptions Card.prototype.removeSubscription Card.prototype.subscribeToClickedEvent Card.prototype.subscribeToDismissedEvent Card.fromContentCardsJson Banner CaptionedImage ClassicCard ControlCard ContentCards ContentCards.prototype.getUnviewedCardCount Feed Feed.prototype.getUnreadCardCount ControlMessage InAppMessage InAppMessage.SlideFrom InAppMessage.ClickAction InAppMessage.DismissType InAppMessage.OpenTarget InAppMessage.ImageStyle InAppMessage.Orientation InAppMessage.TextAlignment InAppMessage.CropType InAppMessage.prototype.closeMessage InAppMessage.prototype.removeAllSubscriptions InAppMessage.prototype.removeSubscription InAppMessage.prototype.subscribeToClickedEvent InAppMessage.prototype.subscribeToDismissedEvent InAppMessage.fromJson FullScreenMessage ModalMessage HtmlMessage SlideUpMessage User User.Genders User.NotificationSubscriptionTypes User.prototype.addAlias User.prototype.addToCustomAttributeArray User.prototype.addToSubscriptionGroup User.prototype.getUserId User.prototype.incrementCustomUserAttribute User.prototype.removeFromCustomAttributeArray User.prototype.removeFromSubscriptionGroup User.prototype.setCountry User.prototype.setCustomLocationAttribute User.prototype.setCustomUserAttribute User.prototype.setDateOfBirth User.prototype.setEmail User.prototype.setEmailNotificationSubscriptionType User.prototype.setFirstName User.prototype.setGender User.prototype.setHomeCity User.prototype.setLanguage User.prototype.setLastKnownLocation User.prototype.setLastName User.prototype.setPhoneNumber User.prototype.setPushNotificationSubscriptionType InAppMessageButton InAppMessageButton.prototype.removeAllSubscriptions InAppMessageButton.prototype.removeSubscription InAppMessageButton.prototype.subscribeToClickedEvent FeatureFlag FeatureFlag.prototype.getStringProperty FeatureFlag.prototype.getNumberProperty FeatureFlag.prototype.getBooleanProperty automaticallyShowInAppMessages destroyFeed hideContentCards showContentCards showFeed showInAppMessage toggleContentCards toggleFeed changeUser destroy getDeviceId initialize isPushBlocked isPushPermissionGranted isPushSupported logCardClick logCardDismissal logCardImpressions logContentCardImpressions logContentCardClick logContentCardsDisplayed logCustomEvent logFeedDisplayed logInAppMessageButtonClick logInAppMessageClick logInAppMessageHtmlClick logInAppMessageImpression logPurchase openSession requestPushPermission removeAllSubscriptions removeSubscription requestContentCardsRefresh requestFeedRefresh refreshFeatureFlags requestImmediateDataFlush enableSDK isDisabled setLogger setSdkAuthenticationSignature addSdkMetadata disableSDK subscribeToContentCardsUpdates subscribeToFeedUpdates subscribeToInAppMessage subscribeToSdkAuthenticationFailures toggleLogging unregisterPush wipeData handleBrazeAction subscribeToFeatureFlagsUpdates getAllFeatureFlags".split(" "),i=0;i<s.length;i++){for(var m=s[i],k=a.braze,l=m.split("."),j=0;j<l.length-1;j++)k=k[l[j]];k[l[j]]=(new Function("return function "+m.replace(/\./g,"_")+"(){window.brazeQueue.push(arguments); return true}"))()}window.braze.getCachedContentCards=function(){return new window.braze.ContentCards};window.braze.getCachedFeed=function(){return new window.braze.Feed};window.braze.getUser=function(){return new window.braze.User};window.braze.getFeatureFlag=function(){return new window.braze.FeatureFlag};(y=p.createElement(P)).type='text/javascript';
-    y.src='https://js.appboycdn.com/web-sdk/4.6/braze.min.js';
-    y.async=1;(b=p.getElementsByTagName(P)[0]).parentNode.insertBefore(y,b)
-  }(window,document,'script');
-</script>
 
-<script type="text/javascript">
-    if(typeof brazeManager === 'undefined') {
-        let brazeManager = (function () {
-            
-            const apiKey = '4a23e2c2-9255-4dd0-97c0-64c0e4036eb5';
-            let initialized = false;
-            if (apiKey !== '') {
-                initialized = braze.initialize(apiKey, {
-                    baseUrl: 'sdk.iad-05.braze.com',
-                    enableLogging: false
-                });
 
-                if (initialized) {
 
-                    braze.automaticallyShowInAppMessages();
-
-                    
-                            if ($.cookie && $.cookie('PCID')) {
-                                braze.changeUser($.cookie('PCID'));
-                            }
-                        
-
-                    // braze.openSession();
-                }
-            }
-
-            return {
-                logCustomEvent: function (eventName, data = {}) {
-                    if (!initialized) {
-                        console.warn('braze is not initialized.');
-                        return;
-                    }
-                    braze.logCustomEvent(eventName, data);
-                }
-            };
-        })();
-    }
-</script>
-
-<script type="text/javascript">
-        try {
-           (function(h,o,u,n,d) {
-               h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
-               d=o.createElement(u);d.async=1;d.src=n
-               n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
-           })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
-           DD_RUM.onReady(function() {
-               DD_RUM.init({
-                   clientToken: 'pubac24b901ad56e749ee6c07bb375b8882',
-                   applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6',
-                   site: 'datadoghq.com',
-                   service: 'ssg-ssgmall-webapp',
-                   env: 'prod',
-                   sessionSampleRate: 0.01,
-                   sessionReplaySampleRate: 0,
-                   trackUserInteractions: true,
-                   trackResources: true,
-                   trackLongTasks: true,
-                   defaultPrivacyLevel: 'mask-user-input',
-                   trackInteractions: true,
-                   trackSessionAcrossSubdomains: true,
-                   enableExperimentalFeatures: ['clickmap']
-               });
-               DD_RUM.startSessionReplayRecording();
-           })
-        } catch(e) {}
-    </script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/sentry.bundle.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="body_ssg body_renew body_wide body_wide_ctn">
@@ -1036,6 +965,65 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 </script>
 <div id="wrap">
+=======
+                if (initialized) {
+
+                    braze.automaticallyShowInAppMessages();
+
+                    
+                            if ($.cookie && $.cookie('PCID')) {
+                                braze.changeUser($.cookie('PCID'));
+                            }
+                        
+
+                    // braze.openSession();
+                }
+            }
+
+            return {
+                logCustomEvent: function (eventName, data = {}) {
+                    if (!initialized) {
+                        console.warn('braze is not initialized.');
+                        return;
+                    }
+                    braze.logCustomEvent(eventName, data);
+                }
+            };
+        })();
+    }
+</script>
+
+<script type="text/javascript">
+        try {
+           (function(h,o,u,n,d) {
+               h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+               d=o.createElement(u);d.async=1;d.src=n
+               n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+           })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
+           DD_RUM.onReady(function() {
+               DD_RUM.init({
+                   clientToken: 'pubac24b901ad56e749ee6c07bb375b8882',
+                   applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6',
+                   site: 'datadoghq.com',
+                   service: 'ssg-ssgmall-webapp',
+                   env: 'prod',
+                   sessionSampleRate: 0.01,
+                   sessionReplaySampleRate: 0,
+                   trackUserInteractions: true,
+                   trackResources: true,
+                   trackLongTasks: true,
+                   defaultPrivacyLevel: 'mask-user-input',
+                   trackInteractions: true,
+                   trackSessionAcrossSubdomains: true,
+                   enableExperimentalFeatures: ['clickmap']
+               });
+               DD_RUM.startSessionReplayRecording();
+           })
+        } catch(e) {}
+    </script>
+    <%@include file="/Top.jsp"  %>
+ <div id="wrap">
+
     <div id="container">
         <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/promotion/css/template.css?v=20240424">
 <div id="content" class="content_primary content_event" style="min-height: 1100px;">
