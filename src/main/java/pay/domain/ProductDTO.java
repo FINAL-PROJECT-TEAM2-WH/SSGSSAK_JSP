@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductDTO {
 	
+	int optionid ;
 	String imgurl ; 
 	String brand ; 
 	String seller ; 

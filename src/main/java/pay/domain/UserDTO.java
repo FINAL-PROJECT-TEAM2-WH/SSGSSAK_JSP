@@ -14,7 +14,7 @@ public class UserDTO {
 	String phonenum ; 
 	String roadaddress;
 	String email;
-	
+	String addressNick;
 	String cardnumber;
 	int cpoint;
 

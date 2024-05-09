@@ -87,11 +87,11 @@ public class PayImpl implements PayDAO{
 
 	@Override
 	public ProductDTO viewproduct(int optionid,int count) {
-		String sql = "  select p.id ,c.majorcatename,middlecatename,subcatename,minicatename,\r\n"
-				+ "    specialpriceid, shippingoptionid, sellerstoreid, brandid, pdname, price ,\r\n"
-				+ "    sale ,pcontent , updateday , stock from product p , category c ,shippingoption s ,sellerstore ss ,brand b\r\n"
-				+ "    where p.id = '1000026532717' and p.categoryid = c.id and p.shippingoptionid = s.id and ss.id=p.sellerstoreid and b.id = p.brandid " ; 
 		
+		String sql = " select po.id optionid , pi.imgurl , b.brandname as brand , ss.sellername as seller , p.pdname  , po.optiondesc , po.optionprice as price\r\n"
+				+ ",so.defaultshippingfee as deshipfee , sp.spclDscnRt as specialp  from product p ,productimg pi , brand b ,sellerstore ss ,productoption po ,\r\n"
+				+ "shippingoption so ,specialprice sp where po.id = ? and p.id=pi.productid and p.brandid = b.id and ss.id = p.sellerstoreid and po.productid=p.id and \r\n"
+				+ "so.id = p.shippingoptionid and sp.id=p.specialpriceid   " ; 
 		
 		String imgurl ; 
 		String brand ; 
@@ -103,14 +103,13 @@ public class PayImpl implements PayDAO{
 		int specialp;
 		int quantity = count;
 		ProductDTO dto = null ;
-		
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, optionid);
 			rs = pst.executeQuery();
+			
 			if (rs.next()) {
 				
-					
 				imgurl = rs.getString("imgurl");
 				brand = rs.getString("brand");
 				seller = rs.getString("seller");
@@ -120,7 +119,7 @@ public class PayImpl implements PayDAO{
 				deshipfee = rs.getInt("deshipfee");
 				specialp = rs.getInt("specialp");
 				dto = ProductDTO.builder().imgurl(imgurl).brand(brand).
-						seller(seller).pdname(pdname).optiondesc(optiondesc).price(price).deshipfee(deshipfee).specialp(specialp).quantity(quantity).build();
+						seller(seller).pdname(pdname).optiondesc(optiondesc).price(price).deshipfee(deshipfee).specialp(specialp).quantity(quantity).optionid(optionid).build();
 				
 			}
 		} catch (SQLException e) {
@@ -136,6 +135,7 @@ public class PayImpl implements PayDAO{
 				e.printStackTrace();
 			}
 		}
+		
 		return dto ;
 		
 		
@@ -145,27 +145,29 @@ public class PayImpl implements PayDAO{
 	@Override
 	public ArrayList<UserDTO> userinfo(String id) {
 		ArrayList<UserDTO> al = new ArrayList<UserDTO>();
-		String sql = " " ; 
+		String sql = "select  addressNick , name , phonenum ,roadaddress , email ,p.id as cardnumber , p.cpoint from member m , "
+				+ " shippingplaceinformation spi , points p where m.id = ? and spi.memid = m.id and spi.defaultshipping='이번만배송지' and p.id2 = m.id " ;
 		String name =null; 
 		String phonenum=null ; 
 		String roadaddress=null;
 		String email=null;
-		
 		String cardnumber=null;
+		String addressNick =null;
 		int cpoint = 0;
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, id);
 			rs = pst.executeQuery();
 			if (rs.next()) {
-				name = rs.getString(name);
-				phonenum = rs.getString(phonenum);
-				roadaddress = rs.getString(roadaddress);
-				email = rs.getString(email);
-				cardnumber = rs.getString(cardnumber);
-				cpoint = rs.getInt(cpoint);
+				name = rs.getString("name");
+				phonenum = rs.getString("phonenum");
+				roadaddress = rs.getString("roadaddress");
+				email = rs.getString("email");
+				cardnumber = rs.getString("cardnumber");
+				cpoint = rs.getInt("cpoint");
+				addressNick = rs.getString("addressNick");
 			}
-			UserDTO dto = new UserDTO(name, phonenum, roadaddress, email, cardnumber, cpoint);
+			UserDTO dto = new UserDTO(name, phonenum, roadaddress, email, addressNick ,cardnumber, cpoint);
 			al.add(dto);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -177,13 +179,11 @@ public class PayImpl implements PayDAO{
 	@Override
 	public ArrayList<CouponDTO> mycouponview(String id) {
 		ArrayList<CouponDTO> al = new ArrayList<CouponDTO>();
-		String sql = " " ;
+		String sql = " select ctype,maxamount,minamount,discountrate from couponrecord cr , coupon c  where cr.memid = ? and cr.cnumber = c.id " ;
 		String ctype ; 
 		int maxamount ; 
 		int minamount ; 
 		int discountrate ; 
-		
-		
 		
 		try {
 			pst = conn.prepareStatement(sql);
