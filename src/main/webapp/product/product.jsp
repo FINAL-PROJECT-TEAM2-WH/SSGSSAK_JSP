@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <html lang="ko">
 <head>
 <script src="https://analytics.emforce.co.kr/conversion/v5/analytics.js"
@@ -3810,42 +3814,21 @@ function setCommonGnbCookie(name, value, expiredays) {
 											<!-- 브랜드번호 불러와서 링크걸고 , 브랜드 이름불러오기  -->
 												<a
 													href="/brand/brandShop.ssg?brandId=${product.brandId}"
-													class="cdtl_info_tit_link">${product.brandId}<i
+													class="cdtl_info_tit_link">${product.brandName}<i
 													class="ic_arrow_link"></i></a>
 											</div>
 										</div> <span class="cdtl_info_tit_txt">${product.pdName }</span>
 									</span>
-									    <h3>상품 이미지</h3>
+<%-- 									    <h3>상품 이미지</h3> 테스트용
 									    <div>
 									        <img src="${product.images[0].imgUrl}" alt="${product.images[0].imgContent}" style="width:200px; height:auto;">
 									        <p>설명: ${product.images[0].imgContent}</p>
-									    </div>
+									    </div> --%>
 
 								</h2>
 							</div>
 													
 													
-													
-<!-- 				
-					
-					<div class="cdtl_prd_info v2">
-								<h2 class="cdtl_info_tit">
-									<span class="cdtl_info_tit_name v2">		브랜드 링크 체워넣기
-										<div class="cdtl_info_link">		
-											<div class="cdtl_tit_link">
-												<a
-													href="/disp/brandShop.ssg?brandId=2010024537&amp;ctgId=6000193712"
-													class="cdtl_info_tit_link">케라스타즈<i
-													class="ic_arrow_link"></i></a>
-											</div>
-										</div> <span class="cdtl_info_tit_txt">시몽 테르미크 150ml [No.1
-											헤어에센스-손상모발용]</span>
-									</span>
-
-									
-
-								</h2>
-							</div> -->
 
 							<!-- 리뷰 -->
 							<div class="cdtl_review_wrap"
@@ -3896,13 +3879,20 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<div class="cdtl_optprice_wrap">
 									<!-- 전시최적가/판매가 -->
 									<div class="cdtl_optprice">
-										<span class="cdtl_new_price notranslate"> <span
-											class="blind">할인율</span><span class="ssg_percent">10%</span>
-											<span class="blind">최적가</span><em class="ssg_price">50,220</em>
+										<c:if test="${specialPrice.spclDscnRt != 0}"> 
+										<span class="cdtl_new_price notranslate">
+										<!--c:if 문으로 특가가 0이 아닐경우 최적가 생성  -->
+									
+
+										 <span
+											class="blind">할인율</span><span class="ssg_percent">${specialPrice.spclDscnRt}%</span>
+											<span class="blind">최적가</span><em class="ssg_price"><c:set var="discountedPrice" value="${productoption[0].optionPrice * (1 - (specialPrice.spclDscnRt / 100))}" />
+									<c:set var="roundedPrice" value="${discountedPrice - (discountedPrice % 100)}" />
+									<fmt:formatNumber value="${roundedPrice}" type="number" maxFractionDigits="0" /></em>
 											<span class="ssg_tx">원</span>
 										</span> <span class="cdtl_old_price"> <span class="blind">판매가</span><em
-											class="ssg_price">62,000원</em>
-										</span>
+											class="ssg_price">${productoption[0].optionPrice}원</em>
+										</span> 
 										<div class="ssg-tooltip-wrap cdtl_ly_wrap cdtl_ly_sale"
 											data-react-unit-type="text"
 											data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;할인내역&quot;}]">
@@ -3918,7 +3908,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 														<dt>판매가</dt>
 														<dd>
 															<span class="cdtl_price"><em
-																class="ssg_price notranslate">62,000</em><span
+																class="ssg_price notranslate">${productoption[0].optionPrice}</em><span
 																class="ssg_tx">원</span></span>
 														</dd>
 													</dl>
@@ -3931,33 +3921,17 @@ function setCommonGnbCookie(name, value, expiredays) {
 														</dt>
 														<dd>
 															<span class="cdtl_price point"><em
-																class="ssg_price notranslate">50,220</em> <span
+																class="ssg_price notranslate"><fmt:formatNumber value="${roundedPrice}" type="number" maxFractionDigits="0" /></em> <span
 																class="ssg_tx">원</span></span>
 														</dd>
 													</dl>
 
-													<dl class="cdtl_ly_dc">
-														<dt>
-															쿠폰<br>[시코르 10%]
-														</dt>
-														<dd>
-															<span class="cdtl_price"><em
-																class="ssg_price notranslate">6,200</em> <span
-																class="ssg_tx">원</span></span>
-														</dd>
-														<dt>SSG MONEY 할인</dt>
-														<dd>
-															<span class="cdtl_price"><em
-																class="ssg_price notranslate">5,580</em> <span
-																class="ssg_tx">원</span></span>
-														</dd>
-													</dl>
 												</div>
 												<div class="cdtl_ly_detail">
 													<dl class="cdtl_ly_dl">
 														<dt>할인 기간</dt>
 														<dd>
-															<span class="cdtl_num"> 2024.05.01 ~ 2024.07.31</span>
+															<span class="cdtl_num"> ${specialPrice.spclStrDt } ~ ${specialPrice.spclPrcEnDt}</span>
 															<p class="cdtl_desc">기간은 사정에 의해 변경될 수 있습니다.</p>
 														</dd>
 													</dl>
@@ -3971,8 +3945,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 													class="blind">닫기</span></a>
 											</div>
 										</div>
+									 </c:if>
+									 <c:if test="${specialPrice.spclDscnRt == 0}">
+									 <span class="cdtl_new_price notranslate">
+                    <span class="blind">최적가</span><em class="ssg_price">${productoption[0].optionPrice}</em> <span class="ssg_tx">원</span>
+                </span>
+									 </c:if>
 									</div>
-
 									<p class="cdtl_txt_info hide_gl"></p>
 
 								</div>
@@ -3997,209 +3976,23 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</div>
 								</div>
 
-								<div class="cdtl_lst">
-									<!-- 셀링포인트 -->
-									<!-- 상품상세 카드 혜택안내 부분 통합 -->
-									<!-- [D] 멤버십 회원일 경우 .ty_customer 추가 -->
-									<div class="mndtl_item ty_customer"
-										data-react-tarea-cd="00006_000000029">
-										<div class="mndtl_card_price">
-											<dl class="mndtl_dl mndtl_toggle">
-												<dt class="mndtl_dl_tit">카드혜택가</dt>
-												<dd class="mndtl_dl_desc" data-react-unit-type="text"
-													data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;카드혜택가&quot;}]">
-													<button type="button"
-														class="mndtl_card_btnmore mndtl_toggle_btn clickable"
-														data-react-tarea-dtl-cd="t00032">
-														<span class="mndtl_price"><em class="ssg_price">46,203</em>
-															<span class="ssg_tx">원~</span></span>
-														<!-- [D] 멤버십 미가입자 노출 (s) -->
-														<!-- [D] 멤버십 미가입자 노출 (e) -->
-
-													</button>
-													<div class="mndtl_card_cont mndtl_toggle_cont">
-														<dl class="mndtl_card_info_dl">
-															<dt>
-																<!-- [D] 멤버십회원 대상 오퍼가 포함된 카드 offer 추가 -->
-																<span class="mndtl_card_name universe">이마트e(현대),
-																	현대, SSG.COM카드</span>
-																<!-- [D] layer (s) -->
-																<div class="ssg-tooltip-wrap cdtl_ly_wrap cdtl_ly_ecard"
-																	data-react-unit-type="text"
-																	data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;행사더보기&quot;}]">
-																	<a href="#" class="ssg-tooltip cdtl_tooltip clickable"
-																		data-react-tarea-dtl-cd="t00004"
-																		data-tooltip-options="{'trigger':'click'}"> <span
-																		class="txt notranslate"> <span class="tx_ko">행사
-																				더보기</span>
-																	</span>
-																	</a>
-																	<div class="ssg-tooltip-layer cdtl_ly_cont">
-																		<strong class="cdtl_ly_tit">행사 자세히보기</strong>
-																		<div class="cdtl_ly_detail">
-																			<dl class="cdtl_card_dl">
-																				<dt>카드청구할인</dt>
-																				<dd>
-																					<ul>
-																						<li>
-																							<p class="cdtl_card_desc">구매금액대별 청구할인 /
-																								최대50,000원</p>
-																							<p class="cdtl_card_desc">7만원 이상 결제 시 추가 8%
-																								할인</p>
-																							<p class="cdtl_card_desc">2024.05.03 ~
-																								2024.05.05</p>
-																						</li>
-																					</ul>
-																				</dd>
-																			</dl>
-																		</div>
-																		<div class="cdtl_ly_detail">
-																			<p class="cdtl_card_desc ty2">※ 상품 쿠폰, 등급 쿠폰 등
-																				적용으로 최종 혜택가는 변경될 수 있으니 최종가는 주문서에서 확인해주세요.</p>
-																		</div>
-																		<a href="#" class="ssg-tooltip-close cdtl_ly_close"><span
-																			class="blind">닫기</span></a>
-																	</div>
-																</div>
-																<!-- [D] layer (e) -->
-															</dt>
-															<dd data-react-unit-type="text"
-																data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;카드혜택가, &quot;}]">
-																<span class="mndtl_info_desc"> SSG PAY 7만원 이상 결제
-																	시 46,203원</span>
-															</dd>
-														</dl>
-														<dl class="mndtl_card_info_dl">
-															<dt>
-																<!-- [D] 멤버십회원 대상 오퍼가 포함된 카드 offer 추가 -->
-																<span class="mndtl_card_name universe">SSG.COM
-																	EDITION2카드</span>
-																<!-- [D] layer (s) -->
-																<div class="ssg-tooltip-wrap cdtl_ly_wrap cdtl_ly_ecard"
-																	data-react-unit-type="text"
-																	data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;행사더보기&quot;}]">
-																	<a href="#" class="ssg-tooltip cdtl_tooltip clickable"
-																		data-react-tarea-dtl-cd="t00004"
-																		data-tooltip-options="{'trigger':'click'}"> <span
-																		class="txt notranslate"> <span class="tx_ko">행사
-																				더보기</span>
-																	</span>
-																	</a>
-																	<div class="ssg-tooltip-layer cdtl_ly_cont">
-																		<strong class="cdtl_ly_tit">행사 자세히보기</strong>
-																		<div class="cdtl_ly_detail">
-																			<dl class="cdtl_card_dl">
-																				<dt>카드청구할인</dt>
-																				<dd>
-																					<ul>
-																						<li>
-																							<p class="cdtl_card_desc">구매금액대별 청구할인 /
-																								최대50,000원</p>
-																							<p class="cdtl_card_desc">7만원 이상 결제 시 추가 8%
-																								할인</p>
-																							<p class="cdtl_card_desc">2024.05.03 ~
-																								2024.05.05</p>
-																						</li>
-																					</ul>
-																				</dd>
-																			</dl>
-																		</div>
-																		<div class="cdtl_ly_detail">
-																			<p class="cdtl_card_desc ty2">※ 상품 쿠폰, 등급 쿠폰 등
-																				적용으로 최종 혜택가는 변경될 수 있으니 최종가는 주문서에서 확인해주세요.</p>
-																		</div>
-																		<a href="#" class="ssg-tooltip-close cdtl_ly_close"><span
-																			class="blind">닫기</span></a>
-																	</div>
-																</div>
-																<!-- [D] layer (e) -->
-															</dt>
-															<dd data-react-unit-type="text"
-																data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;카드혜택가, ~7% 적립+매월 3,900원 적립&quot;}]">
-																<span class="mndtl_info_desc"> SSG PAY 7만원 이상 결제
-																	시 46,203원</span> <a
-																	href="//event.ssg.com/eventDetail.ssg?nevntId=1000000000858&amp;domainSiteNo=6005"
-																	class="cdtl_btn_link v2 clickable"
-																	data-react-tarea-dtl-cd="t00026"><span>~7%
-																		적립+매월 3,900원 적립</span></a>
-															</dd>
-														</dl>
-														<dl class="mndtl_card_info_dl">
-															<dt>
-																<!-- [D] 멤버십회원 대상 오퍼가 포함된 카드 offer 추가 -->
-																<span class="mndtl_card_name universe">신한, 신세계신한,
-																	이마트신한카드</span>
-																<!-- [D] layer (s) -->
-																<div class="ssg-tooltip-wrap cdtl_ly_wrap cdtl_ly_ecard"
-																	data-react-unit-type="text"
-																	data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;행사더보기&quot;}]">
-																	<a href="#" class="ssg-tooltip cdtl_tooltip clickable"
-																		data-react-tarea-dtl-cd="t00004"
-																		data-tooltip-options="{'trigger':'click'}"> <span
-																		class="txt notranslate"> <span class="tx_ko">행사
-																				더보기</span>
-																	</span>
-																	</a>
-																	<div class="ssg-tooltip-layer cdtl_ly_cont">
-																		<strong class="cdtl_ly_tit">행사 자세히보기</strong>
-																		<div class="cdtl_ly_detail">
-																			<dl class="cdtl_card_dl">
-																				<dt>카드청구할인</dt>
-																				<dd>
-																					<ul>
-																						<li>
-																							<p class="cdtl_card_desc">구매금액대별 청구할인 /
-																								최대50,000원</p>
-																							<p class="cdtl_card_desc">7만원 이상 결제 시 추가 7%
-																								할인</p>
-																							<p class="cdtl_card_desc">2024.05.03 ~
-																								2024.05.03</p>
-																						</li>
-																					</ul>
-																				</dd>
-																			</dl>
-																		</div>
-																		<div class="cdtl_ly_detail">
-																			<p class="cdtl_card_desc ty2">※ 상품 쿠폰, 등급 쿠폰 등
-																				적용으로 최종 혜택가는 변경될 수 있으니 최종가는 주문서에서 확인해주세요.</p>
-																		</div>
-																		<a href="#" class="ssg-tooltip-close cdtl_ly_close"><span
-																			class="blind">닫기</span></a>
-																	</div>
-																</div>
-																<!-- [D] layer (e) -->
-															</dt>
-															<dd data-react-unit-type="text"
-																data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;카드혜택가, ~7% 적립+매월 3,900원 적립&quot;}]">
-																<span class="mndtl_info_desc"> SSG PAY 7만원 이상 결제
-																	시 46,705원</span> <a
-																	href="//event.ssg.com/eventDetail.ssg?nevntId=1000000000858&amp;domainSiteNo=6005"
-																	class="cdtl_btn_link v2 clickable"
-																	data-react-tarea-dtl-cd="t00026"><span>~7%
-																		적립+매월 3,900원 적립</span></a>
-															</dd>
-														</dl>
-													</div>
-												</dd>
-											</dl>
-										</div>
-									</div>
+								
 
 									<script type="text/javascript">
-        $(document).off("click", ".mndtl_toggle .mndtl_toggle_btn").on("click", ".mndtl_toggle .mndtl_toggle_btn", function (e) {
-            var welTarget = $(this);
-            var welParent = welTarget.closest(".mndtl_toggle");
-            if (welParent.hasClass("on")) {
-                welTarget.attr("aria-expanded", "false");
-                welTarget.data("react-tarea-dtl-cd", "t00032");
-                welParent.removeClass("on");
-            } else {
-                welTarget.attr("aria-expanded", "true");
-                welTarget.data("react-tarea-dtl-cd", "t00031");
-                welParent.addClass("on");
-            }
-        });
-    </script>
+								        $(document).off("click", ".mndtl_toggle .mndtl_toggle_btn").on("click", ".mndtl_toggle .mndtl_toggle_btn", function (e) {
+								            var welTarget = $(this);
+								            var welParent = welTarget.closest(".mndtl_toggle");
+								            if (welParent.hasClass("on")) {
+								                welTarget.attr("aria-expanded", "false");
+								                welTarget.data("react-tarea-dtl-cd", "t00032");
+								                welParent.removeClass("on");
+								            } else {
+								                welTarget.attr("aria-expanded", "true");
+								                welTarget.data("react-tarea-dtl-cd", "t00031");
+								                welParent.addClass("on");
+								            }
+								        });
+								    </script>
 
 									<div class="cdtl_banner clickable"
 										data-react-tarea="상품상세|기본정보|상단 마케팅 띠배너 구좌|유니버스 클럽 오픈">

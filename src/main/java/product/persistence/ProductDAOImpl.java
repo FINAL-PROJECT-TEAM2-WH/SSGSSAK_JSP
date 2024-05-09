@@ -25,7 +25,7 @@ public class ProductDAOImpl implements ProductDAO{
 		this.conn = conn;
 	}
 	@Override
-	public ProductDTO view(String  id) throws SQLException {
+	public ProductDTO view(long  id) throws SQLException {
 		ProductDTO dto = null;
 		
 	   
@@ -35,38 +35,35 @@ public class ProductDAOImpl implements ProductDAO{
 	   String sellerStoreId; 
 	   String brandId ;
 	   String pdName ;
-	   int price ;
-	   int sale ;
+	   
+	   String brandName;
 	   String pcontent;
 	   String updateDay ;
-	   int stock;
 	   
-	  
-	   PreparedStatement pstmt = null;
+	   
+	  	   PreparedStatement pstmt = null;
 	   ResultSet rs = null;
 	   
-	   String sql = " SELECT id, categoryId,specialPriceId , shippingOptionId,sellerStoreId ,brandId,pdName,price ,sale,pcontent,updateDay,stock"
-	   			+ " FROM product "
-	   			+ " WHERE id = ? ";
+	   String sql = " SELECT p.ID, p.CATEGORYID, p.SPECIALPRICEID, p.SHIPPINGOPTIONID, p.SELLERSTOREID, p.BRANDID, p.PDNAME, p.PCONTENT, p.UPDATEDAY, b.BRANDNAME "
+		   		+ " FROM PRODUCT p JOIN BRAND b ON p.BRANDID = b.ID "
+		   		+ " WHERE p.id = ? ";
 	   try {
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, id);
+		pstmt.setLong(1, id);
 		rs=  pstmt.executeQuery();
 		
 		if (rs.next()) {
-			do {
-				id = rs.getString(1);
+		
+				id = rs.getLong(1);
 				categoryId = rs.getString(2);
 				specialPriceId = rs.getInt(3);
 				shippingOptionId = rs.getString(4);
 				sellerStoreId = rs.getString(5);
 				brandId = rs.getString(6);
 				pdName = rs.getString(7);
-				price = rs.getInt(8);
-				sale = rs.getInt(9);
-				pcontent = rs.getString(10);
-				updateDay = rs.getString(11);
-				stock = rs.getInt(12);
+				pcontent = rs.getString(8);
+				updateDay = rs.getString(9);
+				brandName = rs.getString(10);
 				
 				dto = new ProductDTO()
 						.builder()
@@ -77,14 +74,12 @@ public class ProductDAOImpl implements ProductDAO{
 						.sellerStoreId(sellerStoreId)
 						.brandId(brandId)
 						.pdName(pdName)
-						.price(price)
-						.sale(sale)
 						.pcontent(pcontent)
 						.updateDay(updateDay)
-						.stock(stock)
+						.brandName(brandName)
 						.build();
 				
-			} while (rs.next());
+		
 			
 		}
 		
@@ -93,9 +88,14 @@ public class ProductDAOImpl implements ProductDAO{
 		e.printStackTrace();
 	}finally {
 		
-		 JdbcUtil.close(rs); 
-		 JdbcUtil.close(pstmt); 
-		 JdbcUtil.close(conn);
+		try {
+			JdbcUtil.close(rs); 
+			JdbcUtil.close(pstmt); 
+			JdbcUtil.close(conn);
+			
+		} catch (Exception e2) {
+			System.out.println("productDAO close error");
+		}
 	
 		
 	}

@@ -733,7 +733,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 		$('#regi_a_tag').css('display','none');
 		$('#logoutBtn').css('display','block');
 		$('#like_Page').attr('href','<%=contextPath%>' + "/userinfo/like.jsp");
-		$('#my_Page').attr('href','<%=contextPath%>' + "/member/userinfo/memberInfo.do");
+		$('#my_Page').attr('href','<%=contextPath%>' + "/member/memberInfo.do");
 	});
 	$('#logoutBtn').on('click', function () {
 		location.href = location.protocol + '<%= contextPath %>' + "/member/logout.do";
@@ -747,8 +747,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 $('#loginBtn').on('click', function () {
 	window.open("<%=contextPath%>/member/login/popup.do",'loginPage','width=750,height=590,left=500,top=300','resizable=no','_blank');
 });
-
-
 
 $('#joinBtn').on('click', function () {	
 	location.href = "<%=contextPath%>/member/join/auth.do";
