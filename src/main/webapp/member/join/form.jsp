@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko" style="height: 100%;"><head><script type="text/javascript" src="https://js.appboycdn.com/web-sdk/4.6/braze.min.js" async=""></script><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240506/lb4ssg.min.js" charset="utf-8"></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -427,7 +428,7 @@
                         <dd class="cmem_dd">
                             <div class="cmem_inpgrp ty_pw">
                                 <div class="cmem_txt">
-                                    <input type="text" placeholder="きみのなまえわ" id="pwd" name="mbrDto.pwd" class="translated" maxlength="20"><span class="trans_placeholder blind" data-default-txt="영문, 숫자 조합 8~20자리로 입력해주세요.">영문, 숫자 조합 8~20자리로 입력해주세요.</span>
+                                    <input type="text" placeholder="きみのなまえわ" id="pwd" name="mbrDto.name" class="translated" maxlength="20"><span class="trans_placeholder blind" data-default-txt="영문, 숫자 조합 8~20자리로 입력해주세요.">영문, 숫자 조합 8~20자리로 입력해주세요.</span>
                                 </div>
                             </div>
                         </dd>
@@ -452,7 +453,7 @@
                         <dd class="cmem_dd">
                             <div class="cmem_inpgrp">
                                 <div class="cmem_txt">
-                                    <input type="text" title="우편번호" id="zipcd" name="mbrNshpploc[0].zipcd" readonly="" onclick="openPopupSearchZip();">
+                                    <input type="text" title="우편번호" id="zipcd" name="zipcode" readonly="" onclick="openPopupSearchZip();" >
                                 </div>
                                 <button type="button" class="cmem_btn cmem_btn_gray" onclick="openPopupSearchZip();"><span>우편번호 찾기</span></button>
                             </div>
@@ -468,8 +469,34 @@
                                 <label for="mem_hpno"><span class="blind">필수입력</span>휴대폰번호</label>
                             </span>
                         </dt>
-                        <dd class="cmem_dd">                     
-                                <span class="cmem_dd_cont">휴대폰인증으로 추후구현.</span>                                                
+                        <dd class="cmem_dd"> 
+                        <div class="field">
+							<input type="hidden" name="cntsTypeCd" value="20" /> 
+							<input type="hidden" name="mbrCntsno" id="mbrCntsno">
+							<div class="insert">
+								<div>
+									<select id="mbrCntsano" name="mbrCntsano" title="식별번호 선택"
+										class="select small" style="width: 102px; margin: 11px">
+										<!-- 								<option value="010" addtOptnVal1="" addtOptnVal2="" selected="selected">010</option>
+									<option value="011" addtOptnVal1="" addtOptnVal2="">011</option>
+									<option value="016" addtOptnVal1="" addtOptnVal2="">016</option>
+									<option value="017" addtOptnVal1="" addtOptnVal2="">017</option>
+									<option value="018" addtOptnVal1="" addtOptnVal2="">018</option>
+									<option value="019" addtOptnVal1="" addtOptnVal2="">019</option> -->
+										<option value=010>010</option>
+										<option value=011>011</option>
+										<option value=016>016</option>
+										<option value=017>017</option>
+										<option value=018>018</option>
+										<option value=019>019</option>
+									</select> <span>-</span> 
+									<input type="tel" id="mbrCntsELno" title="휴대폰 번호 뒷자리" placeholder="- 없이 뒷자리를 입력해주세요."
+									value="" class="input_text small" name="mbrCntsELno"
+										style="width: 136px; ime-mode: disabled; margin: 11px" />
+								</div>
+							</div>
+						</div>                    
+                                <!-- <span class="cmem_dd_cont">휴대폰인증으로 추후구현.</span>      -->                                           
                         </dd>
                     </dl>
                     <dl class="cmem_dl" role="presentation">
@@ -477,12 +504,12 @@
 							<span class="cmem_dt_tit cmem_rq_tit">
 								<span class="star">*</span>
 								<label for="email">이메일주소</label>
-							</span>
+							</span> 
                         </dt>
                         <dd class="cmem_dd">
                             <div class="cmem_inpgrp ty_id">
                                 <div class="cmem_txt">
-                                    <input type="text" id="email" placeholder="자주 사용하시는 이메일 주소를 입력해주세요." class="translated" name="mbrDto.email" maxlength="50"><span class="trans_placeholder blind" data-default-txt="자주 사용하시는 이메일 주소를 입력해주세요.">자주 사용하시는 이메일 주소를 입력해주세요.</span>
+                                    <input type="text" id="email" placeholder="자주 사용하시는 이메일 주소를 입력해주세요." class="translated" name="email" maxlength="50"><span class="trans_placeholder blind" data-default-txt="자주 사용하시는 이메일 주소를 입력해주세요.">자주 사용하시는 이메일 주소를 입력해주세요.</span>
                                 </div>
                             </div>
                         </dd>
@@ -566,7 +593,7 @@
 				</span>
             </div>
             <div class="cmem_btnarea">
-                <button type="button" class="cmem_btn cmem_btn_ornge" id="btnSubmit" onclick="join.insert();return false;">
+                <button type="button" class="cmem_btn cmem_btn_ornge" id="btnSubmit" onclick="join()">
                     <span>가입하기</span>
                 </button>
             </div>
@@ -1184,13 +1211,86 @@ $(function(){
                     alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
                 }
             });
-        }
+        }s
         , initFormData: function () {
 
    
         }
     }
 </script>
+
+<script>
+function join() {
+	$('#btnSubmit').on('click', function () {
+		
+	})
+	
+}
+       /*  insert: function () {
+
+            var $_this = $("#btnSubmit");
+            
+            if (!joinValidator.isValidate()) {
+                return;
+            }
+
+            $("#joinForm").ajax({
+                type: "POST"
+                , url: "/member/join/joinprocess.do"
+                , dataType: "json"
+                , success: function (res) {
+
+                    alert(res.resultMsg);
+
+                    if (res.resultCode == "SUCCESS") {
+                        
+                        member_tracking.track('00198_000000750|t00060|1', {
+                                'mbr_join_dt': '2024-05-06'
+                                , "mbr_type_cd": '10'
+                                , "mktg_agree_yn": $('#ssgInfoRcvAgree').is(':checked') ? "Y" : "N"
+                                , "email_agree_yn": $('#emailRcvYn').is(':checked') ? "Y" : "N"
+                                , "sms_agree_yn": $('#smsRcvYn').is(':checked') ? "Y" : "N"
+                            }
+                        );
+
+                        let successIntgrUri = "/member/join/successIntgr.ssg";
+
+                        if (false) {
+                            successIntgrUri += "?retUrl=" + '';
+                        }
+
+                        location.replace(successIntgrUri);
+
+                        return;
+                    } else if (res.resultCode == "REFRESH") {
+                        location.reload();
+                    }
+
+                    $_this.removeClass("working");
+                    loadingIndicator.hide();
+
+                    
+                    if (res.result != null) {
+                        location.href = res.result;
+                    }
+                }
+                , error: function () {
+                    $_this.removeClass("working");
+                    loadingIndicator.hide();
+                    alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
+                }
+            });
+        }
+        , initFormData: function () {
+
+   
+        }
+    } */
+
+
+
+</script>
+
 <script>
 
 var tag = '';
@@ -1198,7 +1298,7 @@ var tag = '';
 function openPopupSearchZip() {
 	new daum.Postcode({
 	    oncomplete: function(data) {
-	        var addrTag = `<strong class="info_tit">도로명</strong><span class="info_cont">\${data.roadAddress}</span><strong class="info_tit">지번</strong><span class="info_cont">\${data.jibunAddress}</span><div class="cmem_inpgrp ty_pw"><div class="cmem_txt"><input type="text" id="sample4_detailAddress" class="d_form" placeholder="상세주소"></div></div>`
+	        var addrTag = `<strong class="info_tit">도로명</strong><span class="info_cont">\${data.roadAddress}</span><strong class="info_tit">지번</strong><span class="info_cont" name="mbrDto.jibunAddress">\${data.jibunAddress}</span><div class="cmem_inpgrp ty_pw"><div class="cmem_txt"><input type="text" id="sample4_detailAddress" class="d_form" name="mbrDto.detailAddress" placeholder="상세주소"></div></div>`
 	    	$('#zipcd').val(data.zonecode);	
 	        $('#addr_info').html(addrTag);	        
 	    }
