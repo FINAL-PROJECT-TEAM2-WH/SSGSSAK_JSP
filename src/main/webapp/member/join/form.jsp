@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko" style="height: 100%;"><head><script type="text/javascript" src="https://js.appboycdn.com/web-sdk/4.6/braze.min.js" async=""></script><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240506/lb4ssg.min.js" charset="utf-8"></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<link rel="shortcut icon" type="image/x-icon" href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
 	<title class="notranslate">
 		회원가입 &gt; 정보입력, 믿고 사는 즐거움 SSG.COM</title>
@@ -410,10 +411,11 @@
                         <dd class="cmem_dd">
                             <div class="cmem_inpgrp ty_pw">
                                 <div class="cmem_txt">
-                                    <input type="password" placeholder="입력하신 비밀번호를 한 번 더 입력해주세요." id="pwd2" class="translated" maxlength="20"><span class="trans_placeholder blind" data-default-txt="입력하신 비밀번호를 한 번 더 입력해주세요.">입력하신 비밀번호를 한 번 더 입력해주세요.</span>
+                                    <input type="password" placeholder="입력하신 비밀번호를 한 번 더 입력해주세요." id="pwd2" class="translated" maxlength="20"><span class="trans_placeholder blind" data-default-txt="입력하신 비밀번호를 한 번 더 입력해주세요.">입력하신 비밀번호를 한 번 더 입력해주세요.</span>  
                                 </div>
-                            </div>
+                            </div> 
                         </dd>
+                         
                     </dl>
                     <dl class="cmem_dl" role="presentation">
                         <dt class="cmem_dt">
@@ -423,7 +425,11 @@
 					</span>
                         </dt>
                         <dd class="cmem_dd">
-                            <span class="cmem_dd_cont">휴대폰인증으로 추후 구현.</span>
+                            <div class="cmem_inpgrp ty_pw">
+                                <div class="cmem_txt">
+                                    <input type="text" placeholder="きみのなまえわ" id="pwd" name="mbrDto.pwd" class="translated" maxlength="20"><span class="trans_placeholder blind" data-default-txt="영문, 숫자 조합 8~20자리로 입력해주세요.">영문, 숫자 조합 8~20자리로 입력해주세요.</span>
+                                </div>
+                            </div>
                         </dd>
                     </dl>
 
@@ -446,12 +452,12 @@
                         <dd class="cmem_dd">
                             <div class="cmem_inpgrp">
                                 <div class="cmem_txt">
-                                    <input type="text" title="우편번호" id="zipcd" name="mbrNshpploc[0].zipcd" readonly="" onclick="openPopupSearchZipcd();">
+                                    <input type="text" title="우편번호" id="zipcd" name="mbrNshpploc[0].zipcd" readonly="" onclick="openPopupSearchZip();">
                                 </div>
-                                <button type="button" class="cmem_btn cmem_btn_gray" onclick="openPopupSearchZipcd();"><span>우편번호 찾기</span></button>
+                                <button type="button" class="cmem_btn cmem_btn_gray" onclick="openPopupSearchZip();"><span>우편번호 찾기</span></button>
                             </div>
-                            <div class="cmem_user_addr" id="addr_info"></div>
-                        </dd>
+                            <div class="cmem_user_addr" id="addr_info"></div>                           
+                        </dd>                       
                     </dl>
 
                     
@@ -754,42 +760,6 @@ $(function(){
 
 <script type="text/javascript" src="/comm/js/memberJoin.ssg?v=20240424"></script>
 <script type="text/javascript" src="/comm/js/memberLoading.ssg?v=20240424"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1112,6 +1082,8 @@ $(function(){
        /*  initFormPage();
         join.initFormData();
  */
+ 		
+ 		// 비밀번호 pwd << id 임 이거 8 ~ 20 체크 해서 옆에다가 띄워주는거. 
         $("#mbrLoginId").keyup(function () {
             var inputVal = $(this).val();
             $(this).val(inputVal.toLowerCase());
@@ -1220,6 +1192,21 @@ $(function(){
     }
 </script>
 <script>
+
+var tag = '';
+
+function openPopupSearchZip() {
+	new daum.Postcode({
+	    oncomplete: function(data) {
+	        var addrTag = `<strong class="info_tit">도로명</strong><span class="info_cont">\${data.roadAddress}</span><strong class="info_tit">지번</strong><span class="info_cont">\${data.jibunAddress}</span><div class="cmem_inpgrp ty_pw"><div class="cmem_txt"><input type="text" id="sample4_detailAddress" class="d_form" placeholder="상세주소"></div></div>`
+	    	$('#zipcd').val(data.zonecode);	
+	        $('#addr_info').html(addrTag);	        
+	    }
+	}).open();
+}
+
+</script>
+<script>
 $("#checkDuplicateLoginIdBtn").on("click", function (){
     //var params = $("form").serialize();		// ?deptno=10
     var params = null;
@@ -1231,14 +1218,17 @@ $("#checkDuplicateLoginIdBtn").on("click", function (){
 		 type:"GET",
 		 data: params,
 		 cache:false ,
-		 //                              {  "count":1 } 
+                           //{  "count":1 } 
 		 success: function ( data,  textStatus, jqXHR ){
 			 if( data.count == 0 ){
-				 $("#notice").css("color", "black").text("사용 가능한 ID입니다.");
+				 alert("사용 가능한 아이디입니다. 회원 가입을 완료하시면 신세계포인트 통합 아이디로 가입되어 있는 신세계 그룹사 사이트의 아이디가 함께 변경됩니다."); 
+				 	$('#id_msg').text('사용가능한 아이디입니다.');
 			 }else{  // 1
-				 $("#notice").css("color", "red").text("이미 사용 중인 ID입니다.");
+				 $('#id_msg')
+			 	.css('color','red')
+			 	.text("이미 사용 중인 ID입니다.");
 			 }
-			 
+			
 		 },
 		 error:function (){
 			 alert("에러~~~ ");

@@ -62,13 +62,15 @@ public class LoginService {
 	
 	public String idCheck(String id) {
 
-		try (Connection conn = ConnectionProvider.getConnection()) {
-			String idCheckJson = dao.idCheck(conn, id); 
+		try {
+			String idCheckJson = dao.idCheck(id); 
 			System.out.println("> LoginService.idCheck : idCheckJson = " + idCheckJson);
 			return idCheckJson;
-		} catch (SQLException | NamingException e) {
-			throw new RuntimeException(e);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
 		} 
+		return null;
 
 	}
 	

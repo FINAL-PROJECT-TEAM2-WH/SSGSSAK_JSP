@@ -518,7 +518,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public String idCheck(Connection conn, String id) {
+	public String idCheck(String id) {
 		//  0(사용가능)  1(사용불가능)
 		String sql = " select count(*) cnt " 
 				+ " from member  "
