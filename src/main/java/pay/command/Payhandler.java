@@ -57,7 +57,7 @@ public class Payhandler implements CommandHandler {
 			request.setAttribute("coupon", al3);
 			
 			conn.close();
-			return "/pay/p2.jsp";
+			return "/pay/p2.jsp?";
 			
 		} else if (method.equals("POST")) {
 			
