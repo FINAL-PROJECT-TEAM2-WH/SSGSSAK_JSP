@@ -499,8 +499,9 @@ function execDaumPostcode() {
 		    data : JSON.stringify(datas),
 			cache : false,
 			success : function(res){
-				alert("성공");
+				alert("주소 추가 성공");
 				console.log(res.code);
+				window.opener.parent.location.reload();
 				window.close();
 			},
 			error : function(){

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
+
+import member.domain.PageDTO;
 import shipping.domain.ShippingPlaceInfoDTO;
 import shipping.persistence.ShippingPlaceInfoDAOImpl;
 
@@ -142,4 +144,45 @@ public class ShippingPlaceInfoService {
 		return rowCount;
 	}
 	
+	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoPageListService(String memid, int currentPage){
+		// 한페이지에 몇개 뿌릴지 계산해주는 service
+		ArrayList<ShippingPlaceInfoDTO> spiList = null;
+		Connection conn = null;
+		
+		// 한페이지에 게시글은 10개만 
+		int numberPerPage = 10;
+		
+		
+		try {
+			conn = ConnectionProvider.getConnection();
+			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+			spiList = dao.shippingPlaceInfoPageList(conn, memid, currentPage, numberPerPage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);
+		}
+
+		return spiList;
+	}
+
+	public PageDTO shippingPlaceinfoPageBlockService(int currentPage, String memid) {
+		PageDTO pdto = null;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			pdto = dao.pageBlock(conn, currentPage, memid);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("shippingPlaceinfoPageBlockService메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		
+		return pdto;
+	}
+	
+	
+	//pageDto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPages)
 }
