@@ -522,7 +522,7 @@ function execDaumPostcode() {
 		    data : JSON.stringify(datas),
 			cache : false,
 			success : function(res){
-				alert("성공");
+				alert("주소 수정 성공");
 				console.log(res.code);
 				window.opener.parent.location.reload();
 				window.close();

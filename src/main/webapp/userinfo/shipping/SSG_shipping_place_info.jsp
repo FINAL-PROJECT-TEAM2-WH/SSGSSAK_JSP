@@ -695,8 +695,11 @@
 					<td>${ spdto.tel }</td>
 					<td>
 						<!-- 기본 배송지 수정 팝업 띄우기 -->
-						<button onclick="openSPIEditPopup(this);" class="btn_cs ty4">
+						<button onclick="openSPIEditPopup(this);" class="btn_cs ty4" style="display: inline">
 							<span>수정</span>
+						</button>
+						<button onclick="deleteBtn(this);" name="deleteBtn" class="btn_cs ty2" style="display: inline">
+							<span>삭제</span>
 						</button>
 					</td>
 				</tr>
@@ -731,6 +734,15 @@
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
 <script>
+
+	function deleteBtn(element){
+		var $row = $(element).closest('tr');
+	    var spdtoId = $row.find('.spdtoHidden').val();
+	    //alert( spdtoId );
+	    location.href = `<%= contextPath %>/ShippingPlaceDelete.do?id=\${spdtoId}`;
+	}
+	
+	
 	$("#editDefaultBtn").on("click", function(){
 		var defaultVal = $('input[name="deliveryKr"]:checked').val();
 		if( !defaultVal ){
