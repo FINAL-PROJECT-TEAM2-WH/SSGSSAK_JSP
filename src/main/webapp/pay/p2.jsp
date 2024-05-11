@@ -1274,7 +1274,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					<tr style="height: 100px;">
 						<td> <img src="${items.imgurl}" alt="" /> d</td>
 						<td>${items.brand } <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } </td>
-						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/><f:formatNumber value="${items.price}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;">${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
+						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/><f:formatNumber value="${items.price}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
 						</tr>
 					
 					</c:forEach>
@@ -1534,7 +1534,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 																				 <select name="" id="couponselect${items.optionid}" style="width: 230px; height: 40px; font-size: 15px;">
 																				 <option value="0" style="border-radius: 0">적용 가능한 쿠폰을 선택해주세요.</option>
 																				<c:forEach begin="0" end="${coupon.size()}" items="${coupon }" var="items" varStatus="count" >
-																				 <option value="${items.discountrate }" style="border-radius: 0">${items.discountrate }퍼센트 할인 쿠폰 </option>
+																				 <option value="${items.cnumber}/${items.discountrate }" style="border-radius: 0">${items.discountrate }퍼센트 할인 쿠폰 </option>
 																				 </c:forEach>
 																				</select>
 																				
@@ -8565,7 +8565,7 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 	  					    	   let a = $("#price" + currentindex).val();
 	  					           $("#ssgpoint").val("");
 	  					           $("#spointUseAmt_bar").val("");
-	  					           let value = $("#price" + currentindex).val() * $(this).val() / 100;
+	  					           let value = $("#price" + currentindex).val() * $(this).val().split('/')[1] / 100;
 	  					           $("#coupondis").html(value);
 	  					           let dis1 = $("#specialdis").val();
 	  					           $("#totaldisco").html(dis1+value);
@@ -8623,18 +8623,37 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 											
 		           	</script>
 		           	<script>
-		           	let payresult1 = "${al}"; 
-					let regex1 = /optionid=([^,]+)/g;
-					let match1=[] ; 
-					let optionids1 = [] ;
+		           	let payresult = "${al}"; 
+		           	let regex1 = /optionid=([^,]+)/g ; 
+		           	let regex2 = /quantity=([^)]+)/g ;
+ 		           	let match ;
+					let selectedoptionids = [];
+					let selectedcouponids = [];
+					let quantity = [] ;
 					
 					$("#processOrderButton").on("click",function(){
-						while ((match1=regex1.exec(payresult1)) !==null) {
-							optionids1.push(match1[1]);
+						let usepoint = $("#ssgpoint").val();
+						while ((match=regex1.exec(payresult))!=null) {
+							selectedoptionids.push(match[1]);
+							
 						}
+						while ((match=regex2.exec(payresult))!=null) {
+							quantity.push(match[1]);
+							
+						}
+						selectedoptionids.forEach(function(id){
+							let couponvals = $("#couponselect"+id).val().split('/')[0];
+							selectedcouponids.push(couponvals);
+						})
+						
 						let alldata = {
-								
-						}
+							optionids : JSON.stringify(selectedoptionids),
+							usecouponids : JSON.stringify(selectedcouponids),
+							usepoint : usepoint,
+							quantity : JSON.stringify(quantity)
+						};
+						
+						$.post("${pageContext.request.contextPath}/pay/pay.do" , alldata);
 						
 					})
 		           	</script>

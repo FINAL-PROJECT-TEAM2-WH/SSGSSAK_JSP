@@ -172,6 +172,15 @@ public class PayImpl implements PayDAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return al;
 	}
@@ -179,12 +188,12 @@ public class PayImpl implements PayDAO{
 	@Override
 	public ArrayList<CouponDTO> mycouponview(String id) {
 		ArrayList<CouponDTO> al = new ArrayList<CouponDTO>();
-		String sql = " select ctype,maxamount,minamount,discountrate from couponrecord cr , coupon c  where cr.memid = ? and cr.cnumber = c.id " ;
+		String sql = " select ctype,maxamount,minamount,discountrate , cr.cnumber from couponrecord cr , coupon c  where cr.memid = ? and cr.cnumber = c.id " ;
 		String ctype ; 
 		int maxamount ; 
 		int minamount ; 
 		int discountrate ; 
-		
+		int cnumber ;
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, id);
@@ -195,7 +204,8 @@ public class PayImpl implements PayDAO{
 					maxamount = rs.getInt("maxamount");
 					minamount = rs.getInt("minamount");
 					discountrate = rs.getInt("discountrate");
-					CouponDTO dto = CouponDTO.builder().ctype(ctype).maxamount(maxamount).minamount(minamount).discountrate(discountrate).build();
+					cnumber = rs.getInt("cnumber");
+					CouponDTO dto = CouponDTO.builder().ctype(ctype).maxamount(maxamount).minamount(minamount).discountrate(discountrate).cnumber(cnumber).build();
 					al.add(dto);
 				} while (rs.next());
 				
@@ -203,8 +213,187 @@ public class PayImpl implements PayDAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return al;
+	}
+
+	@Override
+	public int insertpayre( int points, int orderprice, String userid) {
+		int result = 0 ;
+		String sql = " insert into payrecord values (payrecord_seq.nextval , sysdate , ? , 0 , ? ,'토스', null ,  ? , 1 )  " ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, orderprice);
+			pst.setInt(2, points);
+			pst.setString(3, userid);
+			result = pst.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int resultprice(int optionid, int quantitys, int usecoupons) {
+		int resultprice = 0 ;
+		String sql = " with discount as (\r\n"
+				+ "    select discountrate \r\n"
+				+ "    from coupon\r\n"
+				+ "    where id = ?\r\n"
+				+ ")\r\n"
+				+ "select ( optionprice- optionprice * d.discountrate/100) *? resultprice from productoption po ,discount d where po.id = ?" ;
+			
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, usecoupons);
+			pst.setInt(2, quantitys);
+			pst.setInt(3, optionid);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				resultprice = rs.getInt("resultprice");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return resultprice;
+	}
+
+	@Override
+	public int deletecoupon(String userid, int usecoupons) {
+		String sql = " delete couponrecord where memeid = ? and cnumber = ?  ";
+		int result = 0 ;
+		try {
+			
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, userid);
+			pst.setInt(2, usecoupons);
+			
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int updatepointre(String userid, int points) {
+		String sql = " insert into pointrecord (\r\n"
+				+ "select pointrecord_seq.nextval , id , ?, 1 , payrecord_seq.CURRVAL \r\n"
+				+ "from points\r\n"
+				+ " where id2 = ?) " ;
+		int result = 0 ; 
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, points);
+			pst.setString(2, userid);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int updatepoint(String userid, int points) {
+		String sql = " update points set cpoint = cpoint - ? where id2 = ?  " ;
+		int result = 0 ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, points);
+			pst.setString(2, userid);
+			result =pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int insertpaydetail(int optionid, int couponid, int quantitys) {
+		String sql = " insert into paydetail values ( paydetail_seq.nextval , ? ,  payrecord_seq.CURRVAL , ? , ? ) " ;
+		int result = 0 ;
+		try {
+			pst =conn.prepareStatement(sql);
+			pst.setInt(1, quantitys);
+			pst.setInt(2, optionid);
+			pst.setInt(3, couponid);
+			result = pst.executeUpdate() ;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 
 	
