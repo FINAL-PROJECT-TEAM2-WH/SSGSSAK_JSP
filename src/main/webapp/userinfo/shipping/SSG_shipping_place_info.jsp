@@ -3,7 +3,6 @@
 <%
 	HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 	String memid = (String) memSession.getAttribute("auth");
-
 %> 
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
@@ -713,8 +712,14 @@
 			<button onclick="openSPIPopup()" class="btn_cs ty3"><span style="">새 배송지 추가</span></button>
 		</div>
 		<div class="paginate notranslate">
-            <strong title="현재위치">1</strong>
-            <a href="/myssg/myinfoMng/shpplocNacctMng.ssg?page=2">2</a>
+             <c:forEach var="pageNum" begin="1"	end="${ pdto.totalPages }">
+            	<c:if test="${pageNum eq pdto.currentPage }">
+            		<strong title="현재위치">${ pdto.currentPage}</strong>
+            	</c:if>
+            	<c:if test="${not (pageNum eq pdto.currentPage) }">
+            		<a href="<%= contextPath %>/shippingPlace/list.do?currentPage=${ pageNum }">${ pageNum }</a>
+            	</c:if>
+            </c:forEach>
 		</div>
 		<div class="button_btm">
 				<button id="editDefaultBtn" class="btn_cs ty1"><span>기본 배송지 설정</span></button>
