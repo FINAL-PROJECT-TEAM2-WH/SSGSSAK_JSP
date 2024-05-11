@@ -1,5 +1,7 @@
 package event.domain;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,8 +21,8 @@ public class eventDTO {
 	private long   id;
 	private String evnNm;
 	private String evnImg;	
-	private DATE evnStrDt;
-	private DATE evnEnDt;
+	private Date evnStrDt;
+	private Date evnEnDt;
 	
 	
 }

@@ -9,7 +9,7 @@ import member.domain.MemberDTO;
 public interface MemberDAO {
 	// idcheck 함수
 	
-	public String idCheck(Connection conn,String id) throws SQLException;
+	public String idCheck(String id) throws SQLException;
 	
 	// Member의 id passwd 갖고 오는 
 	
