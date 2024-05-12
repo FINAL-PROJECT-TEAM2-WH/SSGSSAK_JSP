@@ -898,7 +898,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 											</span>
 											
 											<div class="codr_btnarea_rgt">
-												<a href="javascript:void(0);" id="btnChangeShpploc_0" name="btnChangeShpploc" data-nodcsnordshpplocseq="1" class="codr_btn_txgray payTracking" data-pt-click="PC개편주문서|받는분정보|배송지변경">배송지 변경 <span class="codr_sp codr_ico_arr"></span></a>
+												<a id="changeaddr"  data-nodcsnordshpplocseq="1" class="codr_btn_txgray payTracking" data-pt-click="PC개편주문서|받는분정보|배송지변경" target="blank" style="cursor:pointer;">배송지 변경 <span class="codr_sp codr_ico_arr"></span></a>
 												<input type="hidden" id="changeShpplocDrctPurchYn_1" value="">
 												<input type="hidden" id="changeShpplocItemId_1" value="">
 												<input type="hidden" id="changeShpplocOrdItemInfloTgtId_1" value="">
@@ -909,6 +909,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 								</div>
 							</dd>
 						</dl>
+						<script>
+							$("#changeaddr").on("click",function(){
+								let cleft = window.innerWidth/2-250;
+								let ctop = window.innerHeight/2;
+								window.open("${pageContext.request.contextPath}/pay/changeaddr.do","blank","width=500,height=500,left="+cleft+",top="+ctop);
+							})						
+						</script>
 						<input type="hidden" name="shpploc[0].rcptpeNm" value="권맑음">
 						<input type="hidden" name="shpploc[0].rcptpeHpsno" value="010">
 						<input type="hidden" name="shpploc[0].rcptpeHpeno" value="3399">
@@ -8604,6 +8611,7 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 							if (e.keyCode == 13 ) {
 								if (totalpoint < Number($("#ssgpoint").val())) {
 									alert("입력하신 금액이 보유한 포인트금액을 초과합니다.");
+									$("#ssgpoint").val("0");
 								} else {
 									
 								$("#ssgpoint").val($("#ssgpoint").val());

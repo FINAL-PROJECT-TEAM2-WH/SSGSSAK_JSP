@@ -52,8 +52,13 @@ public class Payhandler implements CommandHandler {
 			request.setAttribute("al", al);
 		
 			ArrayList<UserDTO> al2 = new ArrayList<UserDTO>();
+			int result = pi.hasonceship(id);
+			if (result==0) {
+				al2 = pi.defaulutuserinfo(id);
+			} else {
+				al2 = pi.onceuserinfo(id);
+			}
 			
-			al2 = pi.userinfo(id);
 			
 			request.setAttribute("user", al2);
 			ArrayList<CouponDTO> al3 = new ArrayList<CouponDTO>();
@@ -112,7 +117,7 @@ public class Payhandler implements CommandHandler {
 			
 			response.setContentType("application/json; charset=UTF-8");
 			JSONObject jo = new JSONObject();
-			jo.put("url", "/pay/paysuccess.jsp");
+			jo.put("url", "/pay/paysuccess.do");
 			response.getWriter().write(jo.toString());
 		}
 		return null ;

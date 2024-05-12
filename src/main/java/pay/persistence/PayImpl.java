@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pay.domain.CouponDTO;
 import pay.domain.ProductDTO;
+import pay.domain.ShippingDTO;
 import pay.domain.UserDTO;
 @Getter
 @Setter
@@ -143,7 +144,7 @@ public class PayImpl implements PayDAO{
 	}
 
 	@Override
-	public ArrayList<UserDTO> userinfo(String id) {
+	public ArrayList<UserDTO> onceuserinfo(String id) {
 		ArrayList<UserDTO> al = new ArrayList<UserDTO>();
 		String sql = "select  addressNick , name , phonenum ,roadaddress , email ,p.id as cardnumber , p.cpoint from member m , "
 				+ " shippingplaceinformation spi , points p where m.id = ? and spi.memid = m.id and spi.defaultshipping='이번만배송지' and p.id2 = m.id " ;
@@ -385,6 +386,174 @@ public class PayImpl implements PayDAO{
 			e.printStackTrace();
 		} finally {
 		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public ArrayList<ShippingDTO> getdefaultshipinfo(String id) {
+		String sql = " select id id2,addressNick as addrnick , receiveMem as name , tel, postNum postnum, roadaddress roadaddr , jibunaddress jiaddr, detailaddress detailaddr from shippingplaceinformation where memid = ? and defaultshipping='기본배송지' ";
+		 ArrayList<ShippingDTO> al = new ArrayList<>();
+		  int id2 ;
+		 String addrnick ;
+			String name ; 
+			String postnum;
+			String roadaddr;
+			String jiaddr;
+			String detailaddr ;
+			String tel;
+		 try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					id2 = rs.getInt("id2");
+					addrnick = rs.getString("addrnick");
+					name = rs.getString("name");
+					postnum = rs.getString("postnum");
+					roadaddr = rs.getString("roadaddr");
+					jiaddr = rs.getString("jiaddr");
+					detailaddr = rs.getString("detailaddr");
+					tel = rs.getString("tel");
+					
+					ShippingDTO dto = new ShippingDTO(id2,addrnick, name, postnum, roadaddr, jiaddr, detailaddr, tel);
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<ShippingDTO> getothershipinfo(String id) {
+		String sql = " select id id2 ,addressNick as addrnick , receiveMem as name , tel, postNum postnum, roadaddress roadaddr , jibunaddress jiaddr, detailaddress detailaddr from shippingplaceinformation where memid = ? and defaultshipping !='기본배송지' ";
+		 ArrayList<ShippingDTO> al = new ArrayList<>();
+		 int id2 ;
+		 String addrnick ;
+			String name ; 
+			String postnum;
+			String roadaddr;
+			String jiaddr;
+			String detailaddr ;
+			String tel;
+		 try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					id2 = rs.getInt("id2");
+					addrnick = rs.getString("addrnick");
+					name = rs.getString("name");
+					postnum = rs.getString("postnum");
+					roadaddr = rs.getString("roadaddr");
+					jiaddr = rs.getString("jiaddr");
+					detailaddr = rs.getString("detailaddr");
+					tel = rs.getString("tel");
+					
+					ShippingDTO dto = new ShippingDTO(id2,addrnick, name, postnum, roadaddr, jiaddr, detailaddr, tel);
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	
+	}
+	
+	@Override
+	public ArrayList<UserDTO> defaulutuserinfo(String id) {
+		ArrayList<UserDTO> al = new ArrayList<UserDTO>();
+		String sql = "select  addressNick , name , phonenum ,roadaddress , email ,p.id as cardnumber , p.cpoint from member m , "
+				+ " shippingplaceinformation spi , points p where m.id = ? and spi.memid = m.id and spi.defaultshipping='기본배송지' and p.id2 = m.id " ;
+		String name =null; 
+		String phonenum=null ; 
+		String roadaddress=null;
+		String email=null;
+		String cardnumber=null;
+		String addressNick =null;
+		int cpoint = 0;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				name = rs.getString("name");
+				phonenum = rs.getString("phonenum");
+				roadaddress = rs.getString("roadaddress");
+				email = rs.getString("email");
+				cardnumber = rs.getString("cardnumber");
+				cpoint = rs.getInt("cpoint");
+				addressNick = rs.getString("addressNick");
+			}
+			UserDTO dto = new UserDTO(name, phonenum, roadaddress, email, addressNick ,cardnumber, cpoint);
+			al.add(dto);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+		
+	}
+
+	@Override
+	public int hasonceship(String id) {
+		int result = 0 ;
+		String sql = " select count(*) result from shippingplaceinformation where  defaultshipping='이번만배송지' and memid = ?  " ;
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			rs= pst.executeQuery();
+			
+			if (rs.next()) {
+				result = rs.getInt("result");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
 			try {
 				rs.close();
 				pst.close();
