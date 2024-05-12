@@ -292,7 +292,7 @@ public class PayImpl implements PayDAO{
 
 	@Override
 	public int deletecoupon(String userid, int usecoupons) {
-		String sql = " delete couponrecord where memeid = ? and cnumber = ?  ";
+		String sql = " delete couponrecord where memid = ? and cnumber = ?  ";
 		int result = 0 ;
 		try {
 			

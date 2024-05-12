@@ -66,7 +66,13 @@ public class Payhandler implements CommandHandler {
 		} else if (method.equals("POST")) {
 			String optionids =  request.getParameter("optionids");
 			String usecouponids = request.getParameter("usecouponids");
-			int usepoint = Integer.parseInt(request.getParameter("usepoint"));
+			int usepoint ;
+			if (request.getParameter("usepoint").equals("")) {
+				usepoint = 0;
+			} else  {
+				usepoint = Integer.parseInt(request.getParameter("usepoint"));
+			}
+			 
 			String quantity = request.getParameter("quantity");
 			JSONArray ja1 = JSONArray.fromObject(optionids);
 			int optionid[] = new int[ja1.size()];
@@ -102,8 +108,14 @@ public class Payhandler implements CommandHandler {
 				
 			}
 			
+			conn.close();
+			
+			response.setContentType("application/json; charset=UTF-8");
+			JSONObject jo = new JSONObject();
+			jo.put("url", "/pay/paysuccess.jsp");
+			response.getWriter().write(jo.toString());
 		}
-		return "/pay/paysuccess.jsp";
+		return null ;
 	}
 
 }

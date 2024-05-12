@@ -1522,8 +1522,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 																			<c:choose>
 																					<c:when test="${empty coupon }">
 																			 <td class="codr_unit_dc">
-																				<select name="" id="couponselect" style="width: 230px; height: 40px; font-size: 15px;">
-																				 <option style="border-radius: 0" value="0">적용가능한 쿠폰이없습니다. </option>
+																				<select name="" id="couponselect${items.optionid}" style="width: 230px; height: 40px; font-size: 15px;">
+																				 <option style="border-radius: 0" value="0/0">적용가능한 쿠폰이없습니다. </option>
 																				
 																				</select>
 																				
@@ -8642,6 +8642,7 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 							
 						}
 						selectedoptionids.forEach(function(id){
+						
 							let couponvals = $("#couponselect"+id).val().split('/')[0];
 							selectedcouponids.push(couponvals);
 						})
@@ -8653,7 +8654,10 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 							quantity : JSON.stringify(quantity)
 						};
 						
-						$.post("${pageContext.request.contextPath}/pay/pay.do" , alldata);
+						$.post("${pageContext.request.contextPath}/pay/pay.do" , alldata , function(response){
+							
+							location.href = "${pageContext.request.contextPath}"+response.url ;
+						});
 						
 					})
 		           	</script>
