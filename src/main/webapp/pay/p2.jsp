@@ -884,7 +884,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<div class="codr_pay_box">
 									<div class="codr_meminfo">
 										<strong class="codr_meminfo_tx notranslate rcptpeInfoArea_0">
-											${requestScope.user[0].name}<em>${requestScope.user[0].phonenum}</em>
+											<span id="cname">${requestScope.user[0].name}</span><em>/<span id="cphonenum">${requestScope.user[0].phonenum}</span></em>
 										</strong>
 										
 										<span class="codr_meminfo_tel notranslate rcptpTelnoArea_0" style="display:none;">
@@ -894,7 +894,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="codr_meminfo_addr">
 											<span class="blind">주소</span>
 											<span class="notranslate shpplocInfoArea_0">
-												${requestScope.user[0].roadaddress }
+												<span id="caddr">${requestScope.user[0].roadaddress}</span>
 											</span>
 											
 											<div class="codr_btnarea_rgt">
@@ -911,10 +911,21 @@ function setCommonGnbCookie(name, value, expiredays) {
 						</dl>
 						<script>
 							$("#changeaddr").on("click",function(){
+								let cwidth = window.innerWidth/3;
+								let cheight = window.innerHeight/3;
 								let cleft = window.innerWidth/2-250;
 								let ctop = window.innerHeight/2;
-								window.open("${pageContext.request.contextPath}/pay/changeaddr.do","blank","width=500,height=500,left="+cleft+",top="+ctop);
-							})						
+								window.open("${pageContext.request.contextPath}/pay/changeaddr.do","blank","width="+cwidth+",height="+cheight+",left="+cleft+",top="+ctop);
+								
+							
+								
+							})	
+							
+							function updateshipinfo(name,phonenum,addr){
+									$("#cname").html(name);
+									$("#cphonenum").html(phonenum);
+									$("#caddr").html(addr);
+							}
 						</script>
 						<input type="hidden" name="shpploc[0].rcptpeNm" value="권맑음">
 						<input type="hidden" name="shpploc[0].rcptpeHpsno" value="010">

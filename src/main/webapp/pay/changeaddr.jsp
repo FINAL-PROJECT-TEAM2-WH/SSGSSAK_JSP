@@ -462,7 +462,7 @@
 											<td><span class="notranslate">${items.name }</span></td>
 											<td class="align_left ">
 												<span class="in_ar">(${items.postnum })</span>
-												<span class="in_ar notranslate">도로명 : ${items.roadaddr }, ${items.detailaddr } </span>
+												<span class="in_ar notranslate">도로명 : <span> ${items.roadaddr }, ${items.detailaddr } </span></span>
 												<span class="in_ar notranslate">지번 : ${items.jiaddr }  ${items.detailaddr }</span>
 											</td>
 
@@ -506,13 +506,13 @@
 		</div>
 		<script>
 			$("#changeaddr").on("click",function(){
-				let changednum = $("input[type=radio]:checked").val();
-				let changedata = {
-						changenum : changednum 
-				}
-				$.post("${pageContext.request.contextPath}/pay/changeaddr.do" ,changedata , function(response){
-					
-				} )
+				let cname = $("input[type=radio]:checked").closest("td").next().next().find("span").html();
+				let caddr = $("input[type=radio]:checked").closest("td").next().next().next().find("span").eq(1).find("span").html();
+				let tel = $("input[type=radio]:checked").closest("td").next().next().next().next().html();
+				
+				window.opener.updateshipinfo(cname,tel,caddr);
+				
+				window.close();
 			})
 		</script>
 		<button class="button_close" type="button" onclick="window.close();">팝업닫기<span class="ir"></span></button>

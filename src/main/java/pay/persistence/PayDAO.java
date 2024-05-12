@@ -23,4 +23,5 @@ public interface PayDAO {
 	public abstract int insertpaydetail(int optionid, int couponid , int quantitys) ;
 	public abstract ArrayList<ShippingDTO> getdefaultshipinfo(String id) ;
 	public abstract ArrayList<ShippingDTO> getothershipinfo(String id) ;
+	
 }

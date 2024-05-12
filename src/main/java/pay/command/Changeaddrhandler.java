@@ -32,9 +32,6 @@ public class Changeaddrhandler implements CommandHandler {
 			request.setAttribute("al2", al2);
 			conn.close();
 			return "/pay/changeaddr.jsp";
-		} else if (method.equals("POST")) {
-			String changenum = request.getParameter("changenum");
-			System.out.println(changenum);
 		} 
 		
 		
