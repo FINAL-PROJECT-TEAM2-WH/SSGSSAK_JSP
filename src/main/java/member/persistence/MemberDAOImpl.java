@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.apache.commons.collections.map.HashedMap;
 
+import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
 import member.domain.MemberDTO;
@@ -518,7 +519,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public String idCheck(Connection conn, String id) {
+	public String idCheck(String id) {
 		//  0(사용가능)  1(사용불가능)
 		String sql = " select count(*) cnt " 
 				+ " from member  "
@@ -545,6 +546,46 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 
 		return jsonResult;
+	}
+
+
+	@Override
+	public int registerMbr(MemberDTO dto) throws SQLException {
+		// dto 
+		int rowCount = 0;
+		String id = dto.getId();
+		String email = dto.getEmail();
+		String name = dto.getName();
+		String passwd = dto.getPasswd();
+		String phonePhone = dto.getPhoneNum();
+		String address = dto.getAddress();
+		
+		String sql =  " INSERT INTO MEMBER( "
+				+ " id,email,address,phonenum,name,passwd,birthd, "
+				+ " REGISTERDATE,UPDATEDATE,LOGINNOTIFICATION,LOGIN2NOTIFICATION ) "
+				+ " VALUES (?,? ,?,?,?, "
+				+ "		?,?,SYSDATE,SYSDATE,'0','0') ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, email);
+			pstmt.setString(3, address);
+			pstmt.setString(4, phonePhone);
+			pstmt.setString(5, name);
+			pstmt.setString(6, passwd);
+			pstmt.setString(7, "1991-12-01");
+			
+			rowCount = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rowCount;
 	}
 
 
