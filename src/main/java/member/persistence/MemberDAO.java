@@ -50,4 +50,6 @@ public interface MemberDAO {
 	// 마케팅 정보 관련 함수. 
 	
 	public Map<String,String> agreeInfoRcv(String id) throws SQLException;
+
+	public int registerMbr(MemberDTO dto) throws SQLException;
 }

@@ -8687,7 +8687,7 @@ deferredObj.done(function() {
                 complete: function (jqXHR, textStatus) {
                     var index = $.inArray(paramSettings.url, talkApiClient._processingUrls);
                     if (index >= 0) {
-                        talkApiClient._processingUrls.splice(index, 1);
+                        talkApiClient._processingUrls.splce(index, 1);
                     }
                     if (completeFunc) {
                         completeFunc(jqXHR, textStatus);
