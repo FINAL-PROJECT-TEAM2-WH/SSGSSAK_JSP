@@ -21,6 +21,8 @@ import product.persistence.ProductDAOImpl;
 import product.persistence.ProductImgDAOimpl;
 import product.persistence.ProductOptionDAOImpl;
 import product.persistence.SpecialPriceDAOImpl;
+import shipping.domain.ShippingOptionDTO;
+import shipping.persistence.ShippingOptionDAOImpl;
 
 public class ViewService {
 	
@@ -134,5 +136,23 @@ public class ViewService {
 		
 	}
 	
+	public ShippingOptionDTO getShippingOption(long productcode) {
+		
+		ShippingOptionDTO shippingOption = null;
+		
+		try (Connection conn = ConnectionProvider.getConnection()){
+			
+			ShippingOptionDAOImpl  dao = new ShippingOptionDAOImpl(conn);
+			shippingOption = dao.view(productcode);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return shippingOption;
+		
+		
+	}
 
 }
