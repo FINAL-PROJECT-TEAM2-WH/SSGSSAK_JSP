@@ -1,7 +1,10 @@
 eclipse.preferences.version=1
 
 encoding//src/main/webapp/event/event1.jsp=UTF-8
+<<<<<<< HEAD
+=======
 encoding//src/main/webapp/pay/paysuccess.jsp=UTF-8
+>>>>>>> 5f2e14ea0f298f6da03152a79c7b906a7a6f6df0
 encoding//src/main/webapp/product/product.jsp=UTF-8
 encoding//src/main/webapp/product/productTest.jsp=UTF-8
 encoding/<project>=UTF-8
