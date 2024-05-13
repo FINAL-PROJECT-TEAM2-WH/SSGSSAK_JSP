@@ -13,8 +13,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AgreeMentDTO {
-	int id;
-	String memid;
-	Date agreeDate;
+public class AgreementDTO {
+	private int id;
+	private String terms_id;
+	private String memid;
+	private String status;
+	private Date agreeDate;
 }
