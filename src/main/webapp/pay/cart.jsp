@@ -1124,23 +1124,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 	</div>
 	<div class="codr_acdo_cont codr_toggle_cont">
 
-		
-		
-		
-
-		
-			
-			
-
-			
-				
-				
-
-					
-						
-						
-
-
 						<div class="codr_unit v2"> 
 						<table role="presentation">
 						<caption><span class="blind">이마트몰 쓱배송 주문상품 목록</span></caption>
@@ -1152,20 +1135,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<col style="width:139px">
 						</colgroup>
 						<tbody>
-
-					
-
-
-					
-					
-						
-							
-							
-						
-						
-					
-
-
+						<c:forEach begin="0" end="${al.size() }" items="${al}" var="items">
 						<tr class="pay_item_area codr_unit_area" id="codr_unit_area_6339576986" data-cart-id="6339576986">
 							
 							<td class="codr_thmb">
@@ -1173,14 +1143,11 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<span class="codr_chk">
 										<input type="checkbox" id="chk_order_6339576986" name="cbCartId" value="6339576986" class="payTracking" data-pt-click="PC장바구니_국내배송|택배배송|상품개별체크">
 										<label for="chk_order_6339576986">
-											<span class="blind">코카콜라 제로 215ml X 30입(CAN)</span>
+											<span class="blind"> ${items.optionname }</span>
 											<span class="blind">상품선택</span>
 										</label>
 									</span>
 
-									
-										
-										
 											<span class="codr_unit_img" aria-hidden="true">
 												<img src="https://sitem.ssgcdn.com/94/88/66/item/1000044668894_i1_80.jpg" srcset="https://sitem.ssgcdn.com/94/88/66/item/1000044668894_i1_160.jpg 2x" alt="코카콜라 제로 215ml X 30입(CAN)" id="img6339576986" width="90" height="90" onerror="javascript:this.src='https://sui.ssgcdn.com/ui/sd/img/common/noImg_80.gif';this.alt='상품 이미지 준비중입니다.';">
 											</span>
@@ -1201,235 +1168,37 @@ function setCommonGnbCookie(name, value, expiredays) {
 										
 										<!--쓱배송 0차수 새벽배송인 경우 아이콘 이마트로 표시 -->
 										
-										
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <span style="font-size: 15px; font-weight: bolder;"> ${items.brand }</span>
     
-    <i class="tr"><span class="blind">트레이더스</span></i>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
 									</span>
 									
-									
-										
-									
 									<div class="codr_unit_dv">
-										
-										
-										
-											
 												
-												
-												
-												
+															<div class="codr_unit_dvtx notranslate"><strong>${items.seller }</strong></div>
 													
-														
-														
-														
-														
-															<div class="codr_unit_dvtx notranslate"><strong>TRADERS 군포점</strong></div>
-														
-													
-												
-												
-												
-											
-										
-										
-										
-										
-										
-			    					    
-			    					    
-				    						
-				    						
-											
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-										
-											
-											
-											
-										
 									</div>
 								</div>
 								
-								
-									
-									
 										<p class="codr_unit_tit notranslate">
 											
-												
-												
-													
 														<strong class="codr_unit_brd">
-															<span class="tx_ko">코카콜라</span>
-															<span class="tx_en">코카콜라</span>
+															<span class="tx_ko">${items.brand }</span>
+															<span class="tx_en">${items.brand }</span>
 														</strong>
 													
 													<span class="codr_unit_name">
 														<a class="payTracking" name="itemNmBtn" data-pt-click="PC장바구니_국내배송|택배배송|상품명" href="http://www.ssg.com/item/itemView.ssg?itemId=1000044668894&amp;siteNo=6002&amp;salestrNo=2478">
 															<span class="tx_ko">
-																코카콜라 제로 215ml X 30입(CAN)
+																${items.optionname }
 															</span>
-															<span class="tx_en">코카콜라 제로 215ml X 30입(CAN)</span>
-															<span class="tx_zh">코카콜라 제로 215ml X 30입(CAN)</span>
+															<span class="tx_en">${items.optionname }</span>
+															<span class="tx_zh">${items.optionname }</span>
 														</a>
 													</span>
 												
-											
 										</p>
 									
-								
-								
-								
-
 								<div class="codr_unit_orderstate">
-									
-									
 									
 									
 								</div>
@@ -1437,22 +1206,16 @@ function setCommonGnbCookie(name, value, expiredays) {
 							
 							<td class="codr_unit_pricewrap">
 								
-								
-
-								
 								<div class="codr_unit_newprice notranslate">
 									<span class="blind">판매가격</span>
-									<em class="ssg_price itemOrdAmt">20,950</em>
+									<em class="ssg_price ">${items.price }</em>
 									<span class="ssg_tx">원</span>
 								</div>
 
-								
 								<div class="codr_unit_oldprice" style="display:none;">
-									<del><span class="blind">정상가격</span><em class="ssg_price itemSellprc">20,950</em></del> <span class="ssg_tx">원</span>
+									<del><span class="blind">정상가격</span><em class="ssg_price itemSellprc">${items.price }</em></del> <span class="ssg_tx">원</span>
 								</div>
 
-								
-								
 									<div class="dtl_price_wrap price-tooltip-wrap" style="display:none;">
 										<button class="btn_price price-tooltip" aria-describedby="price-tip-6339576986">
 											<span class="blind">가격 상세보기</span>
@@ -1460,7 +1223,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="ly_dtl_price price-tooltip-layer" role="tooltip" id="price-tip-6339576986" aria-hidden="true">
 											<dl class="org">
 												<dt>판매가</dt>
-												<dd class="itemSellprc"><em class="ssg_price">20,950</em><span class="ssg_tx">원</span></dd>
+												<dd class="itemSellprc"><em class="ssg_price">${items.price }</em><span class="ssg_tx">원</span></dd>
 											</dl>
 											<dl class="dis">
 												
@@ -1468,16 +1231,11 @@ function setCommonGnbCookie(name, value, expiredays) {
 											</dl>
 											<dl class="sum">
 												<dt>최적가</dt>
-												<dd class="itemOrdAmt"><em class="ssg_price">20,950</em><span class="ssg_tx">원</span></dd>
+												<dd class="itemOrdAmt"><em class="ssg_price">${items.price }</em><span class="ssg_tx">원</span></dd>
 											</dl>
 										</div>
 									</div>
-								
-
-								
-								
-
-								
+							
 								<div class="codr_unit_amount">
 									<div class="codr_amount">
 										<a href="javascript:void(0);" role="button" class="codr_b_minus payTracking" data-pt-click="PC장바구니_국내배송|택배배송|수량빼기" name="btUpdOrdQtyMinus"><span aria-hidden="true">-</span><span class="blind">수량빼기</span></a>
@@ -1487,25 +1245,12 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<a href="javascript:void(0);" role="button" class="codr_b_plus payTracking" data-pt-click="PC장바구니_국내배송|택배배송|수량더하기" name="btUpdOrdQtyPlus" data-max-psbl-qty="10"><span aria-hidden="true">+</span><span class="blind">수량더하기</span></a>
 									</div>
 									
-										
-										
-										
-										
-										
-										
-									
 								</div>
 							</td>
 
 							<td class="codr_unit_benearea">
 								<div class="codr_bene_lst">
 									
-										
-										
-										
-
-											
-											
 												<div class="codr_bene_tx hideTranslate">
 													<span class="codr_ico_dot"></span>
 													<div class="codr_tooltip_wrap ty3">
@@ -1519,22 +1264,12 @@ function setCommonGnbCookie(name, value, expiredays) {
 																<button type="button" class="codr_tooltip_delete"><span class="codr_sp codr_ico_delete"><span class="blind">청구할인 혜택 닫기</span></span></button>
 															</div>
 															<div class="codr_tooltip_area codr_scroll notranslate">
-																
-																	
-																	
-																
-
-																
-																
-															    
-															    	
+													
 															    		
 																	    <div class="codr_tooltip_innertit">
 																			<h3>결제수단별 청구할인 특별혜택</h3>
 																		</div>
 																		<div class="codr_tooltip_tblwrap">
-																	
-																	
 																	
 																		<div class="codr_tooltip_tbl">
 																			<h4 class="codr_tbl_tit"><span class="ico_pay ssgpay"><span class="blind">ssgpay</span></span>결제시</h4>
@@ -1553,20 +1288,16 @@ function setCommonGnbCookie(name, value, expiredays) {
 																						<th scope="col">특별혜택 할인율</th>
 																						<th scope="col">최대할인 금액</th>
 																					</tr>
+																					
 																				</thead>
 																				<tbody>
 																					
-																						
-																                    	
 																                    		<tr>
 																								<th scope="row">삼성카드</th>
 																								<td>7만원 이상</td>
 																								<td class="codr_tx_blk">10% 할인</td>
 																								<td>최대 50,000원(~05/13일)</td>
 																							</tr>
-																                    	
-																					
-																						
 																                    	
 																                    		<tr>
 																								<th scope="row">신세계삼성카드</th>
@@ -1575,18 +1306,12 @@ function setCommonGnbCookie(name, value, expiredays) {
 																								<td>최대 50,000원(~05/13일)</td>
 																							</tr>
 																                    	
-																					
-																						
-																                    	
 																                    		<tr>
 																								<th scope="row">이마트삼성카드</th>
 																								<td>7만원 이상</td>
 																								<td class="codr_tx_blk">10% 할인</td>
 																								<td>최대 50,000원(~05/13일)</td>
 																							</tr>
-																                    	
-																					
-																						
 																                    	
 																                    		<tr>
 																								<th scope="row">트레이더스삼성카드</th>
@@ -1595,9 +1320,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 																								<td>최대 50,000원(~05/13일)</td>
 																							</tr>
 																                    	
-																					
-																						
-																                    	
 																                    		<tr>
 																								<th scope="row">SSG.COM 삼성카드</th>
 																								<td>7만원 이상</td>
@@ -1605,45 +1327,17 @@ function setCommonGnbCookie(name, value, expiredays) {
 																								<td>최대 50,000원(~05/13일)</td>
 																							</tr>
 																                    	
-																					
 																				</tbody>
 																			</table>
 																		</div>
 																	
-																	
-																	
-																	
-																	
 																		</div>
-																	
-															    
+																
 															</div>
 														</div>
 													</div>
 												</div>
 											
-
-											
-											
-											
-											
-												
-												
-											
-
-											
-												
-												
-												
-											
-
-											
-											 
-											
-										 
-
-									
-
 								</div>
 							</td>
 
@@ -1679,8 +1373,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 										    		<input type="hidden" name="uitemIdAndSalestrNo" value="00000+2478">
 										    		<input type="hidden" name="uitemId" value="00000">
 										    	
-										    	
-										    
 										    <input type="hidden" name="attnDivDtlCd" value="10">
 										    <input type="hidden" name="checked" value="N">
 											
@@ -1698,7 +1390,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 							</td>
 						</tr>
 
-					
+						</c:forEach>
 					
 						</tbody>
 						</table>

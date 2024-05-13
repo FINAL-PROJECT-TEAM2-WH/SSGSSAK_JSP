@@ -2,6 +2,7 @@ package pay.persistence;
 
 import java.util.ArrayList;
 
+import pay.domain.CartDTO;
 import pay.domain.CouponDTO;
 import pay.domain.OrderedDTO;
 import pay.domain.ProductDTO;
@@ -29,6 +30,7 @@ public interface PayDAO {
 	public abstract ArrayList<OrderedDTO> selectorderinfo( String id ) ;
 	public abstract int insertpointrecord( String id , int points) ;
 	public abstract int selectshipfee( int optionid ) ;
+	public abstract ArrayList<CartDTO> selectcartinfo(String id);
 	
 	
 	
