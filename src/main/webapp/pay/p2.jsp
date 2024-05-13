@@ -517,7 +517,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<div class="codr_opt_txarea">
 									<strong class="codr_opt_delivtx">
 										<span class="codr_sp codr_ico_loc"></span>
-										<strong>배송지</strong> : <strong class="notranslate"><span>${requestScope.user[0].addressNick}</span></strong>
+										<strong>배송지</strong> : <strong class="notranslate"><span id="addrnick1">${requestScope.user[0].addressNick}</span></strong>
 									</strong>
 									
 										<div class="codr_btnarea_rgt">
@@ -528,7 +528,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									
 								</div>
 								
-									<span class="codr_opt_delivaddr shpplocInfoArea_0_bar notranslate">${requestScope.user[0].roadaddress}</span>
+									<span class="codr_opt_delivaddr shpplocInfoArea_0_bar notranslate" id="sideaddr">${requestScope.user[0].roadaddress}</span>
 								
 							</div>
 							<div class="codr_opt_cont codr_scroll" style="max-height: 2664px;">
@@ -596,7 +596,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 												<dt class="codr_dt">
 													<strong class="codr_dt_tit">포인트 사용</strong>
 												</dt>
-												<dd class="codr_dd"><strong><span class="codr_plusminus paySummaryPntPayAmtPlusMinus blind" style="display: none;">- </span><em class="ssg_price paySummaryPntPayAmt">0</em><span class="ssg_tx">원</span></strong></dd>
+												<dd class="codr_dd"><strong><span class="codr_plusminus paySummaryPntPayAmtPlusMinus blind" style="display: none;">- </span><em class="ssg_price" id="sidebarpoint">0</em><span class="ssg_tx">원</span></strong></dd>
 											</dl>
 										
 
@@ -922,11 +922,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 								
 							})	
 							
-							function updateshipinfo(name,phonenum,addr,selectedshipnum){
+							function updateshipinfo(name,phonenum,addr,selectedshipnum,addrnick){
 									$("#cname").html(name);
 									$("#cphonenum").html(phonenum);
 									$("#caddr").html(addr);
 									$("#shipnum").val(selectedshipnum);
+									$("#sideaddr").html(addr);
+									$("#addrnick1").html(addrnick);
 							}
 						</script>
 						<input type="hidden" name="shpploc[0].rcptpeNm" value="권맑음">
@@ -1397,13 +1399,21 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<span class="codr_dc_total">
 										<!-- 정상가격 -->
 										<span class="ssg_price"></span>
-										<span id="totalprice6">
-										<c:set value="0" var="totalprice"></c:set>
-										<c:forEach begin="0" end="${al.size() }" items="${al }" var="items">
-											<c:set var="totalprice" value="${totalprice+items.price}"></c:set>
-										</c:forEach>
-										<f:formatNumber value="${totalprice}" type="number" pattern="#,##0" ></f:formatNumber>
+										<span class="ssg_price" id="totalprice6">
+										 
 										</span><span class="ssg_tx">원</span>
+										<em class="codr_dc_desc">(
+											상품가 <span  id="productamounts">
+											<c:set value="0" var="totalprice"></c:set>
+										   <c:forEach begin="0" end="${al.size() }" items="${al}" var="items">
+											<c:set var="totalprice" value="${totalprice+items.price}"></c:set>
+										  </c:forEach>
+										  <f:formatNumber value="${totalprice}" type="number" pattern="#,##0" ></f:formatNumber>
+											</span><span class="ssg_tx">원</span>
+											
+											 + 배송비 <span id="shipfee"><f:formatNumber value="${shipfee}" type="number" pattern="#,##0" ></f:formatNumber></span><span class="ssg_tx">원</span>
+											
+										)</em>
 									</span>
 									
 								</dd>
@@ -1551,8 +1561,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 																	        		</c:when>
 																					<c:otherwise>
 																				  <td class="codr_unit_dc">
-																				 <select name="" id="couponselect${items.optionid}" style="width: 230px; height: 40px; font-size: 15px;">
-																				 <option value="0" style="border-radius: 0">적용 가능한 쿠폰을 선택해주세요.</option>
+																				 <select name="" id="couponselect${items.optionid}"  style="width: 230px; height: 40px; font-size: 15px;">
+																				 <option  style="border-radius: 0" value="0/0">적용 가능한 쿠폰을 선택해주세요.</option>
 																				<c:forEach begin="0" end="${coupon.size()}" items="${coupon }" var="items" varStatus="count" >
 																				 <option value="${items.cnumber}/${items.discountrate }" style="border-radius: 0">${items.discountrate }퍼센트 할인 쿠폰 </option>
 																				 </c:forEach>
@@ -8566,6 +8576,8 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 							index = end ;
 						}
 	  					let totalpr = 0;
+	  					let totalprice2 = parseInt($("#productamounts").html().replace(/,/g,"")) + parseInt($("#shipfee").html().replace(/,/g,""));
+	  					$("#totalprice6").html(totalprice2.toLocaleString());
 	  					let convertnum =Number($("#totalprice6").html().replace(/,/g,"")) - Number($("#totaldisco").html().replace(/,/g,""));;
 	  					
 	  					for (let k = 0; k < optionids.length; k++) {
@@ -8573,25 +8585,18 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 	  					   (function(currentindex){
 	  						    totalpr += parseFloat($("#price" + currentindex).val());
 	  						 
-	  						   $("#totalprice1").html(totalpr.toLocaleString("ko-KR"));
-	  						  
-	  						   $("#totalprice2").html(totalpr.toLocaleString("ko-KR"));
-	  							
-	  						   $("#pretotalprice").html(totalpr.toLocaleString("ko-KR"));
-	  						   $("#totalprice4").html(totalpr.toLocaleString("ko-KR"));
-	  						   
 	  					       $("#couponselect" + optionids[currentindex]).on("change", function() {
 	  					    	
 	  					    	   let a = $("#price" + currentindex).val();
 	  					           $("#ssgpoint").val("");
 	  					           $("#spointUseAmt_bar").val("");
-	  					           let value = $("#price" + currentindex).val() * $(this).val().split('/')[1] / 100;
+	  					           let value = $("#price" + currentindex).val() * $(this).val().split('/')[1]/ 100;
 	  					           $("#coupondis").html(value);
 	  					           let dis1 = $("#specialdis").val();
 	  					           $("#totaldisco").html(dis1+value);
-	  					           let totalprice = $("#price" + currentindex).val() - (dis1+value);
+	  					           let totalprice = $("#price" + currentindex).val() - (dis1+value) + parseInt($("#shipfee").html().replace(/,/g,""));
 	  					           
-	  					           convertnum =Number($("#totalprice6").html().replace(/,/g,"")) - Number($("#totaldisco").html().replace(/,/g,""));;
+	  					           convertnum =Number($("#totalprice6").html().replace(/,/g,"")) - Number($("#totaldisco").html().replace(/,/g,""));
 	  		  					
 	  					           $("#totalprice1").html(totalprice.toLocaleString("ko-KR"));
 	  					           $("#totalprice1").val(totalprice.toLocaleString("ko-KR"));
@@ -8605,19 +8610,36 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 	  					        })
 	  					  })(k);
 	  					}
+	  					   totalpr = totalpr + Number($("#shipfee").html().replace(/,/g,""));
+	  					   $("#totalprice1").html(totalpr.toLocaleString("ko-KR"));
+ 						  
+						   $("#totalprice2").html(totalpr.toLocaleString("ko-KR"));
+							
+						   $("#pretotalprice").html(totalpr.toLocaleString("ko-KR"));
+						   $("#totalprice4").html(totalpr.toLocaleString("ko-KR"));
 	  					
 						
 						let totalpoint = "${requestScope.user[0].cpoint}";
 						
 						$("#allpoint").on("click",function(){
-							$("#ssgpoint").val(Number($("#allpoints").text().replace(/,|원/g,'')));
-							$("#spointUseAmt_bar").val(Number($("#allpoints").text().replace(/,|원/g,'')));
+							if (Number($("#allpoints").text().replace(/,|원/g,'')) > Number($("#totalprice1").html().replace(/,/g,'')) ) {
+								$("#ssgpoint").val(Number($("#totalprice1").html().replace(/,/g,'')));
+								$("#spointUseAmt_bar").val(Number($("#totalprice1").html().replace(/,/g,'')));
+								$("#sidebarpoint").html(Number($("#totalprice1").text().replace(/,/g,'')));
+							} else {
+								$("#ssgpoint").val(Number($("#allpoints").text().replace(/,|원/g,'')));
+								$("#spointUseAmt_bar").val(Number($("#allpoints").text().replace(/,|원/g,'')));
+								$("#sidebarpoint").html(Number($("#allpoints").text().replace(/,|원/g,'')));
+							}
+							
+							
 							
 							let totalpr = convertnum;
 							let lastprice = totalpr-$("#ssgpoint").val();
 							$("#totalprice1").html(lastprice.toLocaleString("ko-KR"));
 							$("#totalprice2").html(lastprice.toLocaleString("ko-KR"));
 							$("#pretotalprice").html(lastprice.toLocaleString("ko-KR"));
+							
 						})
 						$("#ssgpoint").on("keydown",function(e){
 							
@@ -8633,6 +8655,7 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 								$("#totalprice1").html(lastprice.toLocaleString("ko-KR"));
 								$("#totalprice2").html(lastprice.toLocaleString("ko-KR"));
 								$("#pretotalprice").html(lastprice.toLocaleString("ko-KR"));
+								$("#sidebarpoint").html(Number($("#allpoints").text().replace(/,|원/g,'')));
 								}
 								}
 						})

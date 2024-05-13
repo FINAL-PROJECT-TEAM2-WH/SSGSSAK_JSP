@@ -510,7 +510,8 @@
 				let caddr = $("input[type=radio]:checked").closest("td").next().next().next().find("span").eq(1).find("span").html();
 				let tel = $("input[type=radio]:checked").closest("td").next().next().next().next().html();
 				let selectedshipnum = $("input[type=radio]:checked").val();
-				window.opener.updateshipinfo(cname,tel,caddr,selectedshipnum);
+				let addrnick = $("input[type=radio]:checked").closest("td").next().find("span").html();
+				window.opener.updateshipinfo(cname,tel,caddr,selectedshipnum,addrnick);
 				
 				window.close();
 			})

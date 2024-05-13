@@ -607,9 +607,10 @@ public class PayImpl implements PayDAO{
 				+ "    )\r\n"
 				+ "    where rownum = 1\r\n"
 				+ ")\r\n"
-				+ "select m.name , p.orderdate , p.id ordernum , spi.id , spi.receivemem ordername , spi.tel phonenum , spi.addressnick addrnick , spi.roadaddress roadaddr ,spi.detailaddress detailaddr , p.orderamount ,so.defaultShippingFee shipamount, pr.points\r\n"
+				+ "select m.name , p.orderdate , p.id ordernum , spi.id , spi.receivemem ordername , spi.tel phonenum , spi.addressnick addrnick , spi.roadaddress roadaddr ,spi.detailaddress detailaddr , p.orderamount ,so.defaultShippingFee shipamount, pr.points , p.points usepoint \r\n"
 				+ "from member m , payrecord p , newordernum no , shippinginformation si  ,shippingPlaceInformation spi ,shippingoption so ,product pd ,productoption pop ,paydetail pdt ,pointrecord pr \r\n"
-				+ "where m.id = ? and si.orderid = no.newordernum and no.newordernum = p.id and  m.id = p.memid and spi.id = si.shippingplaceid and so.id = pd.shippingoptionid and  pop.productid = pd.id and pop.id = pdt.id3 and pr.id2 = p.id and pr.classify = 2  " ;
+				+ "where m.id = ?  and si.orderid = no.newordernum and no.newordernum = p.id and  m.id = p.memid and spi.id = si.shippingplaceid and so.id = pd.shippingoptionid and  pop.productid = pd.id and pop.id = pdt.id3 and pdt.id2 = p.id and pr.id2 = p.id and pr.classify = 2 \r\n"
+				+ "  " ;
 		 String name ; 
 		 Date orderdate;
 		 int ordernum ; 
@@ -621,6 +622,7 @@ public class PayImpl implements PayDAO{
 		 int orderamount ;
 		 int shipamount  ;
 		 int point;
+		 int usepoint;
 		try {
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, id);
@@ -638,8 +640,8 @@ public class PayImpl implements PayDAO{
 				orderamount = rs.getInt("orderamount");
 				shipamount = rs.getInt("shipamount");
 				point = rs.getInt("points");
-				
-				OrderedDTO dto = new OrderedDTO(name, orderdate, ordernum, ordername, phonenum, addrnick, roadaddr, detailaddr, orderamount, shipamount, point);
+				usepoint = rs.getInt("usepoint");
+				OrderedDTO dto = new OrderedDTO(name, orderdate, ordernum, ordername, phonenum, addrnick, roadaddr, detailaddr, orderamount, shipamount, point ,usepoint);
 				al.add(dto);
 			}
 		} catch (SQLException e) {
@@ -711,6 +713,24 @@ public class PayImpl implements PayDAO{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		return result;
+	}
+
+	@Override
+	public int selectshipfee(int optionid) {
+		String sql = " select defaultshippingfee dsf from shippingoption s , product p , productoption po where s.id = p.shippingOptionId and po.productid = p.id and po.id=? " ;
+		int result = 0 ;
+		try {
+			pst =conn.prepareStatement(sql);
+			pst.setInt(1, optionid);
+			rs =pst.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt("dsf");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return result;
 	}

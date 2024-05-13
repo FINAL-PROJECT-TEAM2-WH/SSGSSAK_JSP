@@ -28,6 +28,7 @@ public interface PayDAO {
 	public abstract int insertshipinfo( int shipnum , String shipmsg) ;
 	public abstract ArrayList<OrderedDTO> selectorderinfo( String id ) ;
 	public abstract int insertpointrecord( String id , int points) ;
+	public abstract int selectshipfee( int optionid ) ;
 	
 	
 	

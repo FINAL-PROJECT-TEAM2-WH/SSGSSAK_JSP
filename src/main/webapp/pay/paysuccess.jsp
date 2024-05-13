@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-704173742&amp;l=dataLayer&amp;cx=c"></script><script async="true" type="text/javascript" src="https://sslwidget.criteo.com/event?a=%5B49618%2C106273%5D&amp;v=5.23.0&amp;otl=1&amp;p0=e%3Dexd%26ci%3DSSG.A7B06A3682CCC1CB1D11E4B11E244C0D%26site_type%3Dd&amp;p1=e%3Dvc%26id%3D2024050855C03D%26dd%3D0%26mall_type%3Dssg%26p%3D%255Bi%25253D2097001822760%252526pr%25253D8900%252526q%25253D1%255D&amp;p2=e%3Ddis&amp;adce=1&amp;bundle=HF7imV9aNEFqekE3TjhxNWk3amxmQmtkM3JhWWNySUFGdG9VME9YSU9tTGVjVTVQa096VU9pTlRidEolMkJPMTEyYUcwRnFXY2ZrJTJGbkNHWHVEOVJxZ3k5SFd1d3dhU0JsY0ZwMXpicndQQUhJZ09vMzcyJTJGJTJCNWtLNHZWT0ZLTGtCa0ZHWVp3SFpQOTVlQU9nWHVERUxBaDduJTJGbUZoSmglMkZJU21YJTJGWVoyNFNzYVF3JTJGS3N5ZjEyZEJ0U0hUSzZpNUhPY1lOajVVRlVWQWNqT2laQkRMSzFtQ1JObDltY3VHTkclMkZNYW5CcWhQNGt5WFdWTUQ0VmlYZmNEaGhuSlZjZiUyRjh4QUZWJTJGa1lHSCUyRmU5N25GTk9OaEE5OHQyOCUyRjJjcnUxYW9Ta2FTS2k5MEF3bzRuUUdBbnklMkYwZ0ZTJTJGbHRabTVod2FuT3ppOA&amp;tld=ssg.com&amp;dy=1&amp;fu=https%253A%252F%252Fpay.ssg.com%252Forder%252ForderComplete.ssg%253FordNo%253D2024050855C03D&amp;pu=https%253A%252F%252Fpay.ssg.com%252Forder%252FordPage.ssg%253FnId%253D1297328650&amp;ceid=6b1d34df-d61b-4053-b07c-8c11207a8063&amp;dtycbr=75455" data-owner="criteo-tag"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0P8DK53C8&amp;l=GA4_dataLayer&amp;cx=c"></script><script src="https://connect.facebook.net/signals/config/1668002603429849?v=2.9.155&amp;r=stable&amp;domain=pay.ssg.com&amp;hme=c3a545c63044e8e9102d4f32d84a1137594d024f28e801d670bc76dc5c075575&amp;ex_m=67%2C112%2C99%2C103%2C58%2C3%2C93%2C66%2C15%2C91%2C84%2C49%2C51%2C158%2C161%2C172%2C168%2C169%2C171%2C28%2C94%2C50%2C73%2C170%2C153%2C156%2C165%2C166%2C173%2C121%2C14%2C48%2C178%2C177%2C123%2C17%2C33%2C38%2C1%2C41%2C62%2C63%2C64%2C68%2C88%2C16%2C13%2C90%2C87%2C86%2C100%2C102%2C37%2C101%2C29%2C25%2C154%2C157%2C130%2C27%2C10%2C11%2C12%2C5%2C6%2C24%2C21%2C22%2C54%2C59%2C61%2C71%2C95%2C26%2C72%2C8%2C7%2C76%2C46%2C20%2C97%2C96%2C9%2C19%2C18%2C81%2C53%2C79%2C32%2C70%2C0%2C89%2C31%2C78%2C83%2C45%2C44%2C82%2C36%2C4%2C85%2C77%2C42%2C39%2C34%2C80%2C2%2C35%2C60%2C40%2C98%2C43%2C75%2C65%2C104%2C57%2C56%2C30%2C92%2C55%2C52%2C47%2C74%2C69%2C23%2C105" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="https://analytics.emforce.co.kr/conversion/v5/analytics.js" async=""></script><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240508/lb4ssg.min.js" charset="utf-8"></script>
 	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>주문완료, 믿고 사는 즐거움 SSG.COM</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
 	<link rel="shortcut icon" type="image/x-icon" href="https://sui.ssgcdn.com/ui/common/img/ssg.ico">
 	<link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240423">
 	<link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240423">
@@ -644,30 +646,17 @@ function setCommonGnbCookie(name, value, expiredays) {
 						<div class="codr_payhistory_tit">
 							<h3 class="codr_payhistory_tx">결제 내역</h3>
 						</div>
+						<c:choose>
+						<c:when test="${al[0].usepoint > 0 && al[0].usepoint != al[0].orderamount + al[0].shipamount}">
 						<div class="codr_payhistory_cont codr_total">
 						
-                		
-                			
-		                        
-		                        
-								
-								
-								
-								
-								
-								
-								
-								
 									<div class="codr_payhistory_row">
 										<div class="codr_payhistory_detail notranslate">
 										
-											
 												신용카드
 											
-											
-										
 										</div>
-										<div class="codr_payhistory_money"><em class="ssg_price">11,900</em><span class="ssg_tx">원</span></div>
+										<div class="codr_payhistory_money"><em class="ssg_price">${al[0].orderamount+al[0].shipamount - al[0].usepoint} </em><span class="ssg_tx">원</span></div>
 									</div>
 									<div class="codr_payhistory_desc notranslate">
 										
@@ -685,6 +674,71 @@ function setCommonGnbCookie(name, value, expiredays) {
 						
 						
 						</div>
+						<div class="codr_payhistory_cont codr_total">
+						
+									<div class="codr_payhistory_row">
+										<div class="codr_payhistory_detail notranslate">
+										
+												신세계포인트
+											
+										</div>
+										<div class="codr_payhistory_money"><em class="ssg_price">${ al[0].usepoint} </em><span class="ssg_tx">원</span></div>
+									</div>
+									
+								
+							
+						
+						
+						</div>
+						</c:when>
+						<c:when test="${al[0].usepoint == 0 }">
+						<div class="codr_payhistory_cont codr_total">
+						
+									<div class="codr_payhistory_row">
+										<div class="codr_payhistory_detail notranslate">
+										
+												신용카드
+											
+										</div>
+										<div class="codr_payhistory_money"><em class="ssg_price">${al[0].orderamount} </em><span class="ssg_tx">원</span></div>
+									</div>
+									<div class="codr_payhistory_desc notranslate">
+										
+											
+											
+												<p>(비씨카드 결제 9200-****-****-7435 / 
+												일시불)
+												
+												</p>
+											
+										
+									</div>
+								
+							
+						
+						
+						</div>
+						</c:when>
+						<c:otherwise>
+						<div class="codr_payhistory_cont codr_total">
+						
+									<div class="codr_payhistory_row">
+										<div class="codr_payhistory_detail notranslate">
+										
+												신세계포인트
+											
+										</div>
+										<div class="codr_payhistory_money"><em class="ssg_price">${al[0].usepoint} </em><span class="ssg_tx">원</span></div>
+									</div>
+									
+								
+							
+						
+						
+						</div>
+						</c:otherwise>
+						</c:choose>
+						
 					</div>
 				</div>
 				
