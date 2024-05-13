@@ -51,5 +51,5 @@ public interface MemberDAO {
 	
 	public Map<String,String> agreeInfoRcv(String id) throws SQLException;
 
-	public int registerMbr(MemberDTO dto) throws SQLException;
+	public int registerMbr(MemberDTO dto, Map<String,String> map) throws SQLException;
 }

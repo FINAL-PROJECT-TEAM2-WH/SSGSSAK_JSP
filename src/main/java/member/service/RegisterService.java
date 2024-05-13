@@ -2,6 +2,7 @@ package member.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Map;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,12 +34,12 @@ public class RegisterService {
 	}
 	
 	
-	public int register(MemberDTO dto) {
+	public int register(MemberDTO dto, Map <String,String> map) {
 		int rowCount = 0;
 		try {	
 			
 			if ( dto != null ) {
-				rowCount = dao.registerMbr(dto);
+				rowCount = dao.registerMbr(dto,map);
 				if ( rowCount == 1) {
 					System.out.println("회원가입성공");
 				}		

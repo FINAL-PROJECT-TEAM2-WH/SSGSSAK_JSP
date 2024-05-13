@@ -537,16 +537,16 @@
 
                             <ul class="cmem_termlst" id="agree10">
                                 <li>
-                                    <span class="cmem_chk"><input type="checkbox" id="mail" name="infoRcvMediaCd" value="10" checked="checked"/><label for="mail">이메일</label></span>
+                                    <span class="cmem_chk"><input type="checkbox" class="sms_type" id="mail" name="infoRcvMediaCd" value="email" checked="checked"/><label for="mail">이메일</label></span>
                                 </li>
                                 <li>
-                                    <span class="cmem_chk"><input type="checkbox" id="sms" name="infoRcvMediaCd" value="20" checked="checked"/><label for="sms">문자</label></span>
+                                    <span class="cmem_chk"><input type="checkbox"  class="sms_type" id="sms" name="infoRcvMediaCd" value="sms" checked="checked"/><label for="sms">문자</label></span>
                                 </li>
                                 <li>
-                                    <span class="cmem_chk"><input type="checkbox" id="post" name="infoRcvMediaCd" value="30" checked="checked"/><label for="post">우편물</label></span>
+                                    <span class="cmem_chk"><input type="checkbox"  class="sms_type" id="post" name="infoRcvMediaCd" value="post" checked="checked"/><label for="post">우편물</label></span>
                                 </li>
                                 <li>
-                                    <span class="cmem_chk"><input type="checkbox" id="tel" name="infoRcvMediaCd" value="40" checked="checked"/><label for="tel">텔레마케팅</label></span>
+                                    <span class="cmem_chk"><input type="checkbox"  class="sms_type" id="tel" name="infoRcvMediaCd" value="tel" checked="checked"/><label for="tel">텔레마케팅</label></span>
                                 </li>
                             </ul>
                             <span class="cmem_noti">
@@ -1212,8 +1212,6 @@ $(function(){
 
 <script>
 
-	
-
 	$('#btnSubmit_join').on('click', function () {
 		let params = $('#joinForm').serialize();
 		alert(params);
@@ -1223,12 +1221,41 @@ $(function(){
             , dataType: "json"
             , data:params
             , success: function (params) {
-
-                alert(params.result);
+               if(params.result == 'SUCCESS'){
+            	   alert('회원가입이 완료되었습니다.');
+            	   location.href="<%= contextPath %>/mainPage.jsp";
+               } else {
+            	   alert('회원가입에 실패하였습니다.');
+            	   location.reload();
+               }
             }, error: function () {
                 alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
             }
         });	
+	});
+	
+	
+	$('.sms_type').on('click', function () {
+		let chkChecked = $('#chkAgree20').is(':checked');
+		let total = 0;
+		$('.sms_type').each(function (index,element) {			
+/* 			if (element.checked) { */
+		if(element.checked){
+			total += 1; 
+		}
+			
+/* 			} else {
+				// false 일 때 
+			} */
+			
+		});
+	 	console.log(total); 
+	 	if (!total){
+			$('#chkAgree20').prop('checked',false);
+		} else {
+			$('#chkAgree20').prop('checked',true);
+		}
+		 
 	});
 	
 	
@@ -1237,8 +1264,7 @@ $(function(){
 	
 	$('#chkAgree20').on('click', function () {
 		let chkChecked = $('#chkAgree20').is(':checked');	
-		if (chkChecked) {
-			
+		if (chkChecked) {			
 			$(':checkbox[name*=infoRcvMediaCd]:not(:checked)').each(function (index,element){
 				element.checked = true;
 			})
@@ -1252,8 +1278,13 @@ $(function(){
 			$(':checkbox[name*=infoRcvMediaCd]:checked').each(function (index,element){
 				element.checked = false;
 			})
-		}	
+		}
 	})
+	
+	
+	
+	
+	
 	
 	
 	
@@ -1278,28 +1309,34 @@ $(function(){
 		}
 	})
 	
-	$('#agree40019').siblings().each(function (index, element) {
-		element.on('click', function () {
-			
-		})
-	})
-	
+
 	$('#emailRcvYn').on('click', function () {
 		let chkChecked = $('#emailRcvYn').is(':checked');	
-		alert(chkChecked);
 		if (chkChecked) {
 			$('#ssgInfoRcvAgree').prop('checked','true');
-		}		
+		} else {
+			//false 일 때
+			let smsChecked = $('#smsRcvYn').is(':checked');	
+			if (smsChecked){				
+			} else {
+				$('#ssgInfoRcvAgree').prop('checked',false);
+			}
+		}	
 	});
 	
-	$('#emailRcvYn').on('click', function () {
-		let chkChecked = $('#emailRcvYn').is(':checked');	
-		alert(chkChecked);
+	$('#smsRcvYn').on('click', function () {
+		let chkChecked = $('#smsRcvYn').is(':checked');	
 		if (chkChecked) {
 			$('#ssgInfoRcvAgree').prop('checked','true');
+		} else {
+			//false 일 때
+			let emailChecked = $('#emailRcvYn').is(':checked');	
+			if (emailChecked){				
+			} else {
+				$('#ssgInfoRcvAgree').prop('checked',false);
+			}
 		}		
-	});
-	
+	}); 
 	
 	
 
