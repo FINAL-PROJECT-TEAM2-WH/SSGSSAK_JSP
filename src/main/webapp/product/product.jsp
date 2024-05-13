@@ -6,6 +6,50 @@
 
 <html lang="ko">
 <head>
+<style>
+    /* 첫 번째 선택 박스 스타일 */
+    #first_select {
+        width: 100%; /* 가로 길이를 부모 요소에 맞춤 */
+        padding: 10px; /* 안쪽 여백 */
+        border: 1px solid #ddd; /* 테두리 색상 및 스타일 */
+        border-radius: 4px; /* 모서리 둥글게 */
+        background-color: #fff; /* 배경색 */
+        font-size: 14px; /* 글꼴 크기 */
+        color: #333; /* 글자 색상 */
+        appearance: none; /* 기본 드롭다운 화살표 제거 */
+        -webkit-appearance: none; /* 사파리 브라우저 기본 스타일 제거 */
+        -moz-appearance: none; /* 파이어폭스 브라우저 기본 스타일 제거 */
+        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.095 7.016"><path d="M0 0l4.095 3.508L0 7.016V0z" fill="%23333"/></svg>'); /* 드롭다운 화살표 이미지 추가 */
+        background-repeat: no-repeat; /* 배경 이미지 반복 제거 */
+        background-position: right 10px center; /* 배경 이미지 위치 */
+        background-size: 12px 12px; /* 배경 이미지 크기 */
+    }
+
+    /* 두 번째 선택 박스 스타일 */
+    #sec_select {
+        width: 100%; /* 가로 길이를 부모 요소에 맞춤 */
+        padding: 10px; /* 안쪽 여백 */
+        border: 1px solid #ddd; /* 테두리 색상 및 스타일 */
+        border-radius: 4px; /* 모서리 둥글게 */
+        background-color: #fff; /* 배경색 */
+        font-size: 14px; /* 글꼴 크기 */
+        color: #333; /* 글자 색상 */
+        appearance: none; /* 기본 드롭다운 화살표 제거 */
+        -webkit-appearance: none; /* 사파리 브라우저 기본 스타일 제거 */
+        -moz-appearance: none; /* 파이어폭스 브라우저 기본 스타일 제거 */
+        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.095 7.016"><path d="M0 0l4.095 3.508L0 7.016V0z" fill="%23333"/></svg>'); /* 드롭다운 화살표 이미지 추가 */
+        background-repeat: no-repeat; /* 배경 이미지 반복 제거 */
+        background-position: right 10px center; /* 배경 이미지 위치 */
+        background-size: 12px 12px; /* 배경 이미지 크기 */
+    }
+    
+    /* 포커스 상태 스타일 */
+    #first_select:focus, #sec_select:focus {
+        border-color: #aaa; /* 포커스 상태에서 테두리 색상 변경 */
+        outline: none; /* 포커스 시 기본 파란색 외곽선 제거 */
+    }
+</style>
+
 <script type="text/javascript" async=""
 	src="https://linkback.contentsfeed.com/src/20240510/lb4ssg.min.js"
 	charset="utf-8"></script>
@@ -4411,6 +4455,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 <!-- 							<div id="cdtl_opt_bx_uitem" class="cdtl_empty">
 												<div class="cdtl_opt_item selecedItem" id="item_00000_1020"
 													name="item_00000_1020"> -->
+													
 									<div class="cdtl_opt_bx">
 									    <div id=" " class=" ">
 									        <div class="cdtl_opt_item selecedItem" id="${productoption[0].id}" name="${productoption[0].id}">
@@ -4446,12 +4491,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									    </div>
 									    <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
 									</div>
-    <h2>Product Options</h2>
-    <select name="productOptions">
-        <c:forEach var="option" items="${productoption}">
-            <option value="${option.id}">${option.optionName}</option>
-        </c:forEach>
-    </select>
+
 										
 									</c:when>
 										<c:otherwise>
@@ -4464,11 +4504,51 @@ function setCommonGnbCookie(name, value, expiredays) {
         </c:forEach>
          --%>
         
+<form id="purchaseForm" action="/SSGSSAK/pay/pay.do" method="GET">
+    <!-- 각 옵션 항목 -->
+    <c:forEach var="option" items="${productoption}">
+        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: none;">
+            <dl>
+                <dt>
+                    <p>
+                        <strong class="notranslate"></strong>${option.optionDesc} / ${option.optionName}
+                    </p>
+                </dt>
+                <dd class="cdtl_art_l">
+                    <div class="cdtl_amount">
+                        <a href="javascript:void(0);" class="cdtl_b_minus" onclick="updateQuantity(this, -1, 1, 10);">
+                            <span class="blind">빼기</span>
+                        </a>
+                        <span class="cdtl_inpbx">
+                            <input type="text" id="quantity-${option.id}" data-quantity="${option.id}" title="수량입력" value="1" onchange="updateQuantity(this, 0, 1, 10);">
+                        </span>
+                        <a href="javascript:void(0);" class="cdtl_b_plus" onclick="updateQuantity(this, 1, 1, 10);">
+                            <span class="blind">더하기</span>
+                        </a>
+                    </div>
+                </dd>
+                <dd class="cdtl_art_r">
+                    <span class="price notranslate">
+                        <em class="ssg_price" data-prc="${option.optionPrice}">
+                            ${option.optionPrice}
+                        </em>
+                        <span class="ssg_tx">원</span>
+                    </span>
+                    <button type="button" onclick="hideOption(${option.id});" style="float: right;">닫기</button>
+                </dd>
+            </dl>
+        </div>
+    </c:forEach>
+    <!-- Form hidden inputs will be added by JavaScript -->
+</form>
 
-    
-    <select id="first_select" onchange="load_child();"></select>
-    <select id="sec_select"></select>
-    
+
+
+    <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+
+    <select class="cdtl_item" id="first_select" onchange="load_child();" ></select>
+    <select class="cdtl_item" id="sec_select" onchange="show_option();"></select>
+
     <script type="text/javascript">
         let first_select = [
             {v:"",t:""},
@@ -4478,7 +4558,6 @@ function setCommonGnbCookie(name, value, expiredays) {
                 </c:if>
             </c:forEach>
         ];
-
 
         let sec_select_data = {};
         <c:forEach var="option" items="${productoption}">
@@ -4498,244 +4577,133 @@ function setCommonGnbCookie(name, value, expiredays) {
             document.getElementById("first_select").innerHTML = h.join("");
         }
 
-
         function load_child() {
             let first_select_value = document.getElementById("first_select").value;
             let h = [];
-            if (first_select_value ) {
+            if (first_select_value) {
                 sec_select_data[first_select_value].forEach(item => {
                     h.push('<option value="' + item.v + '">' + item.t + '</option>');
                 });
             }
             document.getElementById("sec_select").innerHTML = h.join("");
+            show_option(); 
         }
 
+        function show_option() {
 
+            let sec_select_value = document.getElementById("sec_select").value;
+            if (sec_select_value) {
+                document.getElementById('option-' + sec_select_value).style.display = 'block';
+            }
+            updateTotalPrice();
+        }
+        
+        function updateQuantity(element, change, min, max) {
+
+            let optionId = element.closest('.cdtl_opt_item').id.split('-')[1];
+
+            let quantityInput = document.getElementById('quantity-' + optionId);
+            let priceElement = document.querySelector('#option-' + optionId + ' .ssg_price');
+            let basePrice = parseInt(priceElement.getAttribute('data-prc'));
+            let currentQuantity = parseInt(quantityInput.value);
+
+
+            let newQuantity = currentQuantity + change;
+
+            if (newQuantity >= min && newQuantity <= max) {
+                quantityInput.value = newQuantity;
+
+                priceElement.textContent = (basePrice * newQuantity).toLocaleString();
+                
+                updateTotalPrice();
+            }
+        }
+        function updateTotalPrice() {
+           
+            let options = document.querySelectorAll('.cdtl_opt_item');
+            let totalPrice = 0;
+
+            options.forEach(option => {
+                if (option.style.display !== 'none') {
+                    let quantityInput = option.querySelector('input[type="text"]');
+                    let priceElement = option.querySelector('.ssg_price');
+                    let quantity = parseInt(quantityInput.value);
+                    let price = parseInt(priceElement.getAttribute('data-prc'));
+
+
+                    totalPrice += (quantity * price);
+                }
+            });
+
+
+            document.getElementById('totalPrc').textContent = totalPrice.toLocaleString();
+        }
+
+        function hideOption(optionId) {
+  
+            document.getElementById('option-' + optionId).style.display = 'none';
+
+            updateTotalPrice();
+        }
+        
         window.onload = function() {
             load_first();
         }
     </script>
-												<!--for이치문으로 옵션 선택 창 만들고 선택시 다음옵션불러오기 최종선택시선택된 옵션 수량선택 띄우기 밸류값 꺼내서 파라미터로넘기기 -->
+    					<script type="text/javascript">
+					function submitPurchaseForm() {
+					    // Get the form element
+					    let form = document.getElementById('purchaseForm');
 
-											
-												<div class="cdtl_item" id="_ordOpt_area" data-optn-type="uitem"	data-react-tarea-cd="00006_000000537">
-													<dl class="cdtl_dl cdtl_opt_group">
-														<!-- <dt>정장디자인</dt> 옵션 -->
-														<dd data-react-unit-type="text"
-															data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운셀렉트박스&quot;}]">
-															<select id="ordOpt1" data-opt-depth="1"
-																data-target="#_ordOpt_area" data-template="#_dropdown"
-																class="_dropdown" title="정장디자인"
-																onchange="ItmOp.changeUitemIptn(this);"
-																style="display: none;"><option value="">선택하세요.</option>
-																
-																<option data-tarea="드롭다운" value="2027">2027</option>
-																<option data-tarea="드롭다운" value="2028">2028</option>
-																<option data-tarea="드롭다운" value="2030">2030</option>
-																
-																</select>
-															<div class="cdtl_opt clickable"
-																data-react-tarea-dtl-cd="t00060">
-																<a href="#" class="cdtl_opt_select _drop_select"><span
-																	class="txt">2028</span> <span class="sp_cdtl sel_arrow">&nbsp;</span></a>
-																<div class="cdtl_scroll">
-																	<ul class="cdtl_select_lst _drop_list">
-																		<li class="" data-index="1"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);">
-																			<span class="txt">2027</span></a>
-																		</li>
-																		<li class="selected" data-index="2"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);"><span
-																				class="txt">2028</span></a>
-																		</li>
-																		<li class="" data-index="3"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);"><span
-																				class="txt">2030</span></a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</dd>
-													</dl>
-												
-														
-														
-														
-														
-													<dl class="cdtl_dl cdtl_opt_group">
-														<dt>정장사이즈</dt>
-														<dd data-react-unit-type="text"
-															data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운셀렉트박스&quot;}]">
-															<select id="ordOpt2" data-opt-depth="2"
-																data-target="#_ordOpt_area" data-template="#_dropdown"
-																class="_dropdown" title="정장사이즈"
-																onchange="ItmOp.changeUitemIptn(this);"
-																style="display: none;"><option value="">선택하세요.</option>
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01757" value="(97/78)">(97/78)</option>
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01759" value="(97/86)">(97/86)</option>
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01773" value="(105/94)">(105/94)</option>
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01753" value="(95/74)" disabled=""
-																	data-soldout="Y"
-																	data-soldout-link="javascript:fn_itemNotiReg(&quot;01753&quot;);">(95/74)</option>
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01754" value="(95/78)" disabled=""
-																	data-soldout="Y"
-																	data-soldout-link="javascript:fn_itemNotiReg(&quot;01754&quot;);">(95/78)</option>
+					    // Clear any existing hidden inputs
+					    while (form.firstChild) {
+					        form.removeChild(form.firstChild);
+					    }
 
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01762" value="(100/82)" disabled=""
-																	data-soldout="Y"
-																	data-soldout-link="javascript:fn_itemNotiReg(&quot;01762&quot;);">(100/82)</option>
+					    // Loop through all visible option items
+					    document.querySelectorAll('.cdtl_opt_item').forEach(option => {
+					        if (option.style.display !== 'none') {
+					            // Get option ID from data-option-id attribute
+					            let optionId = option.getAttribute('data-option-id');
+					            console.log('Option ID:', optionId); // 디버깅을 위해 추가
+
+					            // Get quantity input element using ID
+					            let quantityInput = document.querySelector(`#quantity-${optionId}`);
+					            let quantity = quantityInput ? parseInt(quantityInput.value, 10) : 0;
+					            console.log(`Quantity for option ${optionId} :`, quantity); // 디버깅을 위해 추가
+
+					            // Ensure both optionId and quantity are valid
+					            if (optionId && quantity > 0) {
+					                // Create hidden input for option ID and quantity
+					                let input = document.createElement('input');
+					                input.type = 'hidden';
+					                input.name = `item${optionId}`;
+					                input.value = `${optionId}/${quantity}`;
+					                form.appendChild(input);
+					            }
+					        }
+					    });
+
+					    console.log('Form submitted with:', form); // 디버깅을 위해 추가
+
+					    // Submit the form
+					    form.submit();
+					}
 
 
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01777" value="(110/90)" disabled=""
-																	data-soldout="Y"
-																	data-soldout-link="javascript:fn_itemNotiReg(&quot;01777&quot;);">(110/90)</option>
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01778" value="(110/94)" disabled=""
-																	data-soldout="Y"
-																	data-soldout-link="javascript:fn_itemNotiReg(&quot;01778&quot;);">(110/94)</option>
-																<option data-tarea="드롭다운" data-is-real="Y"
-																	data-uitem-id="01779" value="(110/96)" disabled=""
-																	data-soldout="Y"
-																	data-soldout-link="javascript:fn_itemNotiReg(&quot;01779&quot;);">(110/96)</option>
-															</select>
-															
-															
-															<div class="cdtl_opt clickable"
-																data-react-tarea-dtl-cd="t00060">
-																<a href="#" class="cdtl_opt_select _drop_select"><span
-																	class="txt">(97/86)</span> <span
-																	class="sp_cdtl sel_arrow">&nbsp;</span></a>
-																<div class="cdtl_scroll">
-																	<ul class="cdtl_select_lst _drop_list">
-																		<li class="" data-index="1"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);"><span
-																				class="txt">(97/78)</span></a>
-																		</li>
-																		<li class="selected" data-index="2"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);"><span
-																				class="txt">(97/86)</span></a>
-																		</li>
-																		<li class="" data-index="3"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);"><span
-																				class="txt">(105/94)</span></a>
-																		</li>
-																		<li class="stock disabled soldout_link" data-index="4"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;개별입고알림&quot;}]">
-																			<a href="#"><span class="txt">(95/74)(매진)</span></a>
-																			<a
-																			href="javascript:fn_itemNotiReg(&quot;01753&quot;);"
-																			class="cdtl_btn_stock notranslate clickable"
-																			data-react-tarea-dtl-cd="t00060">입고알림신청<span
-																				class="sp_cdtl">&nbsp;</span></a>
-																		</li>
-																		<li class="stock disabled soldout_link"
-																			data-index="26" data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;개별입고알림&quot;}]">
-																			<a href="#"><span class="txt">(110/94)(매진)</span></a>
-																			<a
-																			href="javascript:fn_itemNotiReg(&quot;01778&quot;);"
-																			class="cdtl_btn_stock notranslate clickable"
-																			data-react-tarea-dtl-cd="t00060">입고알림신청<span
-																				class="sp_cdtl">&nbsp;</span></a>
-																		</li>
-																		<li class="stock disabled soldout_link"
-																			data-index="27" data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;개별입고알림&quot;}]">
-																			<a href="#"><span class="txt">(110/96)(매진)</span></a>
-																			<a
-																			href="javascript:fn_itemNotiReg(&quot;01779&quot;);"
-																			class="cdtl_btn_stock notranslate clickable"
-																			data-react-tarea-dtl-cd="t00060">입고알림신청<span
-																				class="sp_cdtl">&nbsp;</span></a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</dd>
-													</dl>
-												</div>
-											
-												
+					</script>
 										</c:otherwise>
 								
 								</c:choose>
 								
 								
 
-<!-- 						진짜 옵션
-									<div class="cdtl_opt_bx">
-									<div id="cdtl_opt_bx_uitem" class="cdtl_empty">
-									c:if 로 count>1일때  ajax로 여러개 생성하는 버튼 만들어주기.
-										<div class="cdtl_opt_item selecedItem" id="item_00000_1020"
-											name="item_00000_1020" data-optn-type="oneitem_result"
-											data-uitem-id="00000" data-salestr-no="1020"
-											data-salestr-nm="시코르강남역점">
-											<dl>
-												<dt>
-													<p>
-														<strong class="notranslate"></strong> 시몽 테르미크 150ml [No.1
-														헤어에센스-손상모발용]
-													</p>
-												</dt>
-												<dd class="cdtl_art_l">
-													<div class="cdtl_amount">
-														<a href="javascript:void(0);" class="cdtl_b_minus"
-															onclick="ItmOp.changeOrdQty(this, -1, 1, 10);"><span
-															class="blind">빼기</span></a> <span class="cdtl_inpbx"><input
-															type="text" id="cdtl_item_amount1" title="수량입력" value="1"
-															onchange="ItmOp.changeOrdQty(this, 0, 1, 10);"></span> <a
-															href="javascript:void(0);" class="cdtl_b_plus"
-															onclick="ItmOp.changeOrdQty(this, 1, 1, 10);"><span
-															class="blind">더하기</span></a>
-													</div>
-												</dd>
-												<dd class="cdtl_art_r">
-													<span class="price notranslate"><em
-														class="ssg_price" data-prc="55800">55,800</em><span
-														class="ssg_tx">원</span></span>
-												</dd>
-											</dl>
-										</div>
-									</div>
-									<div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
-								</div> -->
+
 
 								<div class="cdtl_total notranslate">
 									<strong class="cdtl_label"> <span class="tx_ko">합계</span>
 									</strong> <strong class="point"> <em class="ssg_price"
-										id="totalPrc">55,800</em> <span class="ssg_tx">원</span>
+										id="totalPrc"></em> <span class="ssg_tx">원</span>
 									</strong>
 								</div>
 							</div>
@@ -4824,23 +4792,25 @@ function setCommonGnbCookie(name, value, expiredays) {
 											</div>
 										</div>
 									</li>
-									<li data-react-unit-type="item"
-										data-react-unit-id="1000026532717"><a href="#"
-										class="cdtl_btn_red cdtl_btn_buy clickable" id="actionPayment"
-										onclick="javascript:fn_SaveCart(this, 'payment');return false;"
-										data-react-tarea-dtl-cd="t00155"
-										data-react-tarea="상품상세|옵션/구매버튼|바로구매"> <i class="ic_ssgpay"><span
-												class="blind">SSGPAY</span></i> <span>바로구매</span>
-									</a></li>
+								<li data-react-unit-type="item" data-react-unit-id="1000026532717">
+						    <a href="javascript:void(0);" class="cdtl_btn_red cdtl_btn_buy clickable" id="buyNowBtn" 
+						       onclick="submitPurchaseForm();" 
+						       data-react-tarea="상품상세|옵션/구매버튼|바로구매">
+						        <i class="ic_ssgpay"><span class="blind">SSGPAY</span></i> 
+						        <span>바로구매</span>
+						    </a>
+						</li>
+
 								</ul>
 							</div>
 						</div>
 					</div>
 
+
 					<!--  몰탭 광고 상품 비노출 처리 -->
 					<!-- 캠페인 배너 -->
 					<!-- 마케팅 배너 -->
-					<div class="cdtl_bn_marketing"
+					<div class="cdtl_bn_marketing" 
 						data-react-tarea-cd="00006_000000012" data-react-unit-type="banr"
 						data-react-unit-id="2003420902">
 						<a

@@ -69,7 +69,43 @@
     <select id="subOptions">
         <option value="" disabled selected>선택하세요</option>
     </select>
-
+<!-- 						진짜 옵션
+									<div class="cdtl_opt_bx">
+									<div id="cdtl_opt_bx_uitem" class="cdtl_empty">
+									c:if 로 count>1일때  ajax로 여러개 생성하는 버튼 만들어주기.
+										<div class="cdtl_opt_item selecedItem" id="item_00000_1020"
+											name="item_00000_1020" data-optn-type="oneitem_result"
+											data-uitem-id="00000" data-salestr-no="1020"
+											data-salestr-nm="시코르강남역점">
+											<dl>
+												<dt>
+													<p>
+														<strong class="notranslate"></strong> 시몽 테르미크 150ml [No.1
+														헤어에센스-손상모발용]
+													</p>
+												</dt>
+												<dd class="cdtl_art_l">
+													<div class="cdtl_amount">
+														<a href="javascript:void(0);" class="cdtl_b_minus"
+															onclick="ItmOp.changeOrdQty(this, -1, 1, 10);"><span
+															class="blind">빼기</span></a> <span class="cdtl_inpbx"><input
+															type="text" id="cdtl_item_amount1" title="수량입력" value="1"
+															onchange="ItmOp.changeOrdQty(this, 0, 1, 10);"></span> <a
+															href="javascript:void(0);" class="cdtl_b_plus"
+															onclick="ItmOp.changeOrdQty(this, 1, 1, 10);"><span
+															class="blind">더하기</span></a>
+													</div>
+												</dd>
+												<dd class="cdtl_art_r">
+													<span class="price notranslate"><em
+														class="ssg_price" data-prc="55800">55,800</em><span
+														class="ssg_tx">원</span></span>
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+								</div> -->
 
 </body>
 </html>
