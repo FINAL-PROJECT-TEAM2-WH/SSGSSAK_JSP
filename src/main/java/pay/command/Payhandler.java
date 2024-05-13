@@ -3,6 +3,7 @@ package pay.command;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,6 +15,8 @@ import org.apache.catalina.Session;
 import com.util.ConnectionProvider;
 
 import controller.CommandHandler;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import pay.domain.CouponDTO;
 import pay.domain.ProductDTO;
 import pay.domain.UserDTO;
@@ -26,11 +29,14 @@ public class Payhandler implements CommandHandler {
 		String method = request.getMethod();
 		Connection conn = ConnectionProvider.getConnection();
 		int i = 0 ;
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("auth");
+		PayImpl pi = new PayImpl(conn);
 		if (method.equals("GET")) {
 		
 			ArrayList<ProductDTO> al = new ArrayList<ProductDTO>();
 			ProductDTO dto = new ProductDTO();
-			PayImpl pi = new PayImpl(conn);
+			
 			Enumeration<String> paramnames = request.getParameterNames();
 			while (paramnames.hasMoreElements()) {
 				String paramname = paramnames.nextElement();
@@ -46,10 +52,13 @@ public class Payhandler implements CommandHandler {
 			request.setAttribute("al", al);
 		
 			ArrayList<UserDTO> al2 = new ArrayList<UserDTO>();
-			HttpSession session = request.getSession();
-			String id = (String) session.getAttribute("auth");
+			int result = pi.hasonceship(id);
+			if (result==0) {
+				al2 = pi.defaulutuserinfo(id);
+			} else {
+				al2 = pi.onceuserinfo(id);
+			}
 			
-			al2 = pi.userinfo(id);
 			
 			request.setAttribute("user", al2);
 			ArrayList<CouponDTO> al3 = new ArrayList<CouponDTO>();
@@ -57,12 +66,69 @@ public class Payhandler implements CommandHandler {
 			request.setAttribute("coupon", al3);
 			
 			conn.close();
-			return "/pay/p2.jsp";
+			return "/pay/p2.jsp?";
 			
 		} else if (method.equals("POST")) {
+			String optionids =  request.getParameter("optionids");
+			String usecouponids = request.getParameter("usecouponids");
+			int shipnum = Integer.parseInt(request.getParameter("shipnum"));
+			String shipmsg = request.getParameter("shipmsg");
+			shipmsg = shipmsg.substring(1,shipmsg.length()-1);
 			
+			int usepoint ;
+			if (request.getParameter("usepoint").equals("")) {
+				usepoint = 0;
+			} else  {
+				usepoint = Integer.parseInt(request.getParameter("usepoint"));
+			}
+			
+			String quantity = request.getParameter("quantity");
+			JSONArray ja1 = JSONArray.fromObject(optionids);
+			int optionid[] = new int[ja1.size()];
+			for (int j = 0; j < ja1.size() ; j++) {
+				optionid[j] = ja1.getInt(j);
+			}
+			JSONArray ja2 = JSONArray.fromObject(quantity);
+			int quantitys[] = new int[ja2.size()];
+			for (int j = 0; j < ja2.size() ; j++) {
+				quantitys[j] = ja2.getInt(j);
+			}
+			JSONArray ja3 = JSONArray.fromObject(usecouponids);
+			int usecoupons[] = new int[ja3.size()];
+			for (int j = 0; j < ja3.size() ; j++) {
+				usecoupons[j] = ja3.getInt(j);
+			}
+			int lastprice = 0 ;
+			for (int j = 0; j < optionid.length; j++) {
+				lastprice += pi.resultprice(optionid[j],quantitys[j],usecoupons[j]);
+				
+			}
+			
+			int result = pi.insertpayre( usepoint , lastprice, id);
+			int result6 = pi.insertpointrecord(id, (int)(lastprice*0.001));
+			int result7 = pi.updatepoint2(id, (int)(lastprice*0.001));
+			if (usepoint !=0) {
+				int result2 = pi.updatepointre(id,usepoint );
+				int result3 =pi.updatepoint(id, usepoint);
+			}
+			
+			for (int j = 0; j < optionid.length; j++) {
+				if (usecoupons[j] !=0 ) {
+					int result4 = pi.deletecoupon(id,usecoupons[j]);
+				}
+				int result4 = pi.insertpaydetail(optionid[j],usecoupons[j],quantitys[j]);
+				
+			}
+			int result5 = pi.insertshipinfo(shipnum, shipmsg);
+			
+			conn.close();
+			
+			response.setContentType("application/json; charset=UTF-8");
+			JSONObject jo = new JSONObject();
+			jo.put("url", "/pay/paysuccess.do");
+			response.getWriter().write(jo.toString());
 		}
-		return null;
+		return null ;
 	}
 
 }

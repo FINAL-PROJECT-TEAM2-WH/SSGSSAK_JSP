@@ -619,7 +619,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 													<p class="codr_pt_tit notranslate">신세계포인트<span class="spointResidAmtArea"> : <span class="spointResidAmt">${requestScope.user[0].cpoint}원</span></span></p>
 													<div class="codr_input_grp">
 														<span class="codr_txt ty_sm">
-															<input type="text" id="spointUseAmt_bar" data-paymtmeanscd="600" class="subPaymtMeans ssg_price noconvert spointUseAmt">
+															<input type="text" id="spointUseAmt_bar" data-paymtmeanscd="600" class="ssg_price">
 															<span class="codr_won ssg_tx">원</span>
 														</span>
 														<button type="button" class="codr_btn codr_btn_bxgray" name="spointCheckPop" id="spointCheckPop_bar" style="display:none;">사용</button>
@@ -683,7 +683,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<label>주문정보 및 서비스 이용약관에 동의합니다</label>
 									</span>
 								</div>
-								<button type="button" class="codr_btn codr_btn_payment notranslate payTracking" data-pt-click="PC개편주문서|우측간편주문|간편주문결제하기" name="processOrderButton">
+								<button type="button" class="codr_btn notranslate codr_btn_payment" data-pt-click="PC개편주문서|우측간편주문|간편주문결제하기" name="processOrderButton">
 									<span>
 										<em class="ssg_price" id="totalprice2"></em><span class="ssg_tx paySummaryPaySymbol notranslate">원</span>
 										<span>결제하기</span>
@@ -883,8 +883,9 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<dd class="codr_dd">
 								<div class="codr_pay_box">
 									<div class="codr_meminfo">
+										<input type="hidden" id="shipnum" value="${requestScope.user[0].shipnum }" />
 										<strong class="codr_meminfo_tx notranslate rcptpeInfoArea_0">
-											${requestScope.user[0].name}<em>${requestScope.user[0].phonenum}</em>
+											<span id="cname">${requestScope.user[0].name}</span><em>/<span id="cphonenum">${requestScope.user[0].phonenum}</span></em>
 										</strong>
 										
 										<span class="codr_meminfo_tel notranslate rcptpTelnoArea_0" style="display:none;">
@@ -894,11 +895,11 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="codr_meminfo_addr">
 											<span class="blind">주소</span>
 											<span class="notranslate shpplocInfoArea_0">
-												${requestScope.user[0].roadaddress }
+												<span id="caddr">${requestScope.user[0].roadaddress}</span>
 											</span>
 											
 											<div class="codr_btnarea_rgt">
-												<a href="javascript:void(0);" id="btnChangeShpploc_0" name="btnChangeShpploc" data-nodcsnordshpplocseq="1" class="codr_btn_txgray payTracking" data-pt-click="PC개편주문서|받는분정보|배송지변경">배송지 변경 <span class="codr_sp codr_ico_arr"></span></a>
+												<a id="changeaddr"  data-nodcsnordshpplocseq="1" class="codr_btn_txgray payTracking" data-pt-click="PC개편주문서|받는분정보|배송지변경" target="blank" style="cursor:pointer;">배송지 변경 <span class="codr_sp codr_ico_arr"></span></a>
 												<input type="hidden" id="changeShpplocDrctPurchYn_1" value="">
 												<input type="hidden" id="changeShpplocItemId_1" value="">
 												<input type="hidden" id="changeShpplocOrdItemInfloTgtId_1" value="">
@@ -909,6 +910,25 @@ function setCommonGnbCookie(name, value, expiredays) {
 								</div>
 							</dd>
 						</dl>
+						<script>
+							$("#changeaddr").on("click",function(){
+								let cwidth = window.innerWidth/3;
+								let cheight = window.innerHeight/3;
+								let cleft = window.innerWidth/2-250;
+								let ctop = window.innerHeight/2;
+								window.open("${pageContext.request.contextPath}/pay/changeaddr.do","blank","width="+cwidth+",height="+cheight+",left="+cleft+",top="+ctop);
+								
+								
+								
+							})	
+							
+							function updateshipinfo(name,phonenum,addr,selectedshipnum){
+									$("#cname").html(name);
+									$("#cphonenum").html(phonenum);
+									$("#caddr").html(addr);
+									$("#shipnum").val(selectedshipnum);
+							}
+						</script>
 						<input type="hidden" name="shpploc[0].rcptpeNm" value="권맑음">
 						<input type="hidden" name="shpploc[0].rcptpeHpsno" value="010">
 						<input type="hidden" name="shpploc[0].rcptpeHpeno" value="3399">
@@ -953,13 +973,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<input type="hidden" id="deliShppMemoInput_0" name="shpploc[0].deliShppMemo" value="" class="saveOrdUserDefiMemo deliShppMemo payTracking" data-pt-click="PC개편주문서|배송메시지|택배배송메시지선택">
 										<input type="hidden" name="shpploc[0].deliShppMemoCommCdNo" value="99" class="saveOrdUserDefiMemo">
 										<span class="codr_pay_drop">
-											<select name="" id="" style="width:300px; height: 40px; text-align: center; font-size: 14px; font-weight: bold;">
+											<select name="" id="shipmsg" style="width:500px; height: 35px; text-align: center; font-size: 14px; font-weight: bold;">
 											<option value="부재 시 경비실에 맡겨주세요">부재 시 경비실에 맡겨주세요</option>
 											<option value="부재 시 문앞에 놓아주세요">부재 시 문앞에 놓아주세요</option>
 											<option value="직접 받겠습니다">직접 받겠습니다</option>
 											<option value="배송전에 연락주세요">배송전에 연락주세요</option>
 											<option value="문 앞에 놔주세요">문 앞에 놔주세요</option>
-											<option value="직접 입력">직접 입력</option>
+											<option value="직접 입력" >직접 입력</option>
 											
 											</select>
 											
@@ -1274,7 +1294,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					<tr style="height: 100px;">
 						<td> <img src="${items.imgurl}" alt="" /> d</td>
 						<td>${items.brand } <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } </td>
-						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/> ${items.price } </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;">${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
+						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/><f:formatNumber value="${items.price}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
 						</tr>
 					
 					</c:forEach>
@@ -1377,12 +1397,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<span class="codr_dc_total">
 										<!-- 정상가격 -->
 										<span class="ssg_price"></span>
+										<span id="totalprice6">
 										<c:set value="0" var="totalprice"></c:set>
 										<c:forEach begin="0" end="${al.size() }" items="${al }" var="items">
 											<c:set var="totalprice" value="${totalprice+items.price}"></c:set>
 										</c:forEach>
 										<f:formatNumber value="${totalprice}" type="number" pattern="#,##0" ></f:formatNumber>
-										<span class="ssg_tx">원</span>
+										</span><span class="ssg_tx">원</span>
 									</span>
 									
 								</dd>
@@ -1521,8 +1542,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 																			<c:choose>
 																					<c:when test="${empty coupon }">
 																			 <td class="codr_unit_dc">
-																				<select name="" id="couponselect" style="width: 230px; height: 40px; font-size: 15px;">
-																				 <option style="border-radius: 0" value="0">적용가능한 쿠폰이없습니다. </option>
+																				<select name="" id="couponselect${items.optionid}" style="width: 230px; height: 40px; font-size: 15px;">
+																				 <option style="border-radius: 0" value="0/0">적용가능한 쿠폰이없습니다. </option>
 																				
 																				</select>
 																				
@@ -1533,7 +1554,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 																				 <select name="" id="couponselect${items.optionid}" style="width: 230px; height: 40px; font-size: 15px;">
 																				 <option value="0" style="border-radius: 0">적용 가능한 쿠폰을 선택해주세요.</option>
 																				<c:forEach begin="0" end="${coupon.size()}" items="${coupon }" var="items" varStatus="count" >
-																				 <option value="${items.discountrate }" style="border-radius: 0">${items.discountrate }퍼센트 할인 쿠폰 </option>
+																				 <option value="${items.cnumber}/${items.discountrate }" style="border-radius: 0">${items.discountrate }퍼센트 할인 쿠폰 </option>
 																				 </c:forEach>
 																				</select>
 																				
@@ -1663,9 +1684,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<span class="codr_dt_tit">할인금액</span>
 								</dt>
 								<dd class="codr_dd">
-									<span class="codr_dc_total">- <span class="ssg_price " id="totaldisco">
-									
-									 </span><span class="ssg_tx">원</span></span>
+									<span class="codr_dc_total">- <span class="ssg_price " id="totaldisco">0</span><span class="ssg_tx">원</span></span>
 								</dd>
 							</dl>
 						</div>
@@ -1734,19 +1753,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 											<span class="codr_txt spointTxtArea">
 												<input type="hidden" name="paymtMeans[1].paymtMeansCd" value="600">
 													<!-- 신세계 사용할 포인트 -->
-												<input type="text" id="ssgpoint" name="paymtMeans[1].amt" data-paymtmeanscd="600" class="subPaymtMeans mainSubPaymtMeans ssg_price noconvert spointUseAmt">
+												<input type="text" id="ssgpoint"  data-paymtmeanscd="600" class="ssg_price">
 												<span class="codr_won ssg_tx">원</span>
 											</span> 
 												<button type="button" name="spointCheckPop" class="codr_btn codr_btn_bxgray" data-pt-click="PC개편주문서|포인트|신세계포인트사용" style="display:none;">사용</button>
 												<button type="button" id="allpoint" name="allpoint" class="codr_btn codr_btn_bxgray" data-pt-click="PC개편주문서|포인트|신세계포인트사용">전체사용</button>
 												<span class="codr_potint_tx notranslate">(<span>잔여</span> : <span id="allpoints">${requestScope.user[0].cpoint}원</span> )</span>
-												<script>
-													$("#allpoint").on("click",function(){
-														$("#ssgpoint").val(Number($("#allpoints").text().replace(/,|원/g,'')));
-													})
 												
-												
-												</script>
 											</div>
 											<p class="codr_tx_check codr_tx_gray sPointImpossibleGuideArea" style="display:none;">※ 안정적인 서비스 제공을 위해 시스템 점검중입니다. <span class="sPointImpossibleDtsArea">06/01 10:00</span>까지 신세계포인트 사용이 잠시 불가하니 양해부탁드립니다.</p>
 										</dd>
@@ -1759,14 +1772,27 @@ function setCommonGnbCookie(name, value, expiredays) {
 												<div class="codr_pay_box">
 													<div class="codr_inp_grp">
 														<!-- 포인트카드번호 -->
-														<span class="codr_txt"><input type="text" id="sPointNo1" value="9350" title="카드 첫째자리 입력" maxlength="4"></span><span class="codr_space">&nbsp;</span>
-														<span class="codr_txt"><input type="text" id="sPointNo2" value="1302" title="카드 둘째자리 입력" maxlength="4"></span><span class="codr_space">&nbsp;</span>
-														<span class="codr_txt"><input type="password" id="sPointNo3" value="7083" title="카드 셋째자리 입력" maxlength="4"></span><span class="codr_space">&nbsp;</span>
-														<span class="codr_txt"><input type="text" id="sPointNo4" value="5224" title="카드 넷째자리 입력" maxlength="4"></span>
+														<span class="codr_txt"><input type="text" id="pointsno1" title="카드 첫째자리 입력" maxlength="4"></span><span class="codr_space">&nbsp;</span>
+														<span class="codr_txt"><input type="text" id="pointsno2"  title="카드 둘째자리 입력" maxlength="4"></span><span class="codr_space">&nbsp;</span>
+														<span class="codr_txt"><input type="password" id="pointsno3"  title="카드 셋째자리 입력" maxlength="4"></span><span class="codr_space">&nbsp;</span>
+														<span class="codr_txt"><input type="text" id="pointsno4"  title="카드 넷째자리 입력" maxlength="4"></span>
 													</div>
 												</div>
 											</dd>
 										</dl>
+										<script>
+											let cardnumber = "${requestScope.user[0].cardnumber }";
+											let cardnumarr = cardnumber.match(/.{4}/g);
+											
+											$("#pointsno1").val(cardnumarr[0]);
+											$("#pointsno1").html(cardnumarr[0]);
+											$("#pointsno2").val(cardnumarr[1]);
+											$("#pointsno2").html(cardnumarr[1]);
+											$("#pointsno3").val(cardnumarr[2]);
+											$("#pointsno3").html(cardnumarr[2]);
+											$("#pointsno4").val(cardnumarr[3]);
+											$("#pointsno4").html(cardnumarr[3]);
+										</script>
 										<div class="codr_lst_dot notranslate pointAccumArticle">
 											<ul>
 												<li>신세계·이마트 제휴카드 고객은 해당 카드로 결제하셔야 신세계포인트가 적립되며, 카드사별 적립율은 상이합니다. 자세한 사항은 신세계포인트 사이트를 참고해주세요.</li>
@@ -1824,7 +1850,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 						<!-- 결제수단(s) -->
 						<div style="display: flex; justify-content: center;">
 							<div style="display: inline-block; width: 200px; height: 200px; text-align: center ;">토스 결제</div> <div style="display: inline-block; width: 200px; height: 200px; text-align: center ;">카카오페이 결제</div></div>
-							<button type="button" class="codr_btn_payment payTracking notranslate" data-pt-click="PC개편주문서|결제하기|바닥페이지결제하기" name="processOrderButton">
+							<button type="button" class="codr_btn_payment notranslate" data-pt-click="PC개편주문서|결제하기|바닥페이지결제하기" name="processOrderButton" id="processOrderButton">
 								<span>
 									<em class="ssg_price" id="totalprice1"></em>
 									<span class="ssg_tx paySummaryPaySymbol">원</span>
@@ -8086,8 +8112,10 @@ var ssgpayCardMngBtnShowYn = "Y";
 <script type="text/javascript" defer="" src="https://sui.ssgcdn.com/ui/pay/js/pay/common/payCertUtil_v3.js?dummy=202404090106" crossorigin=""></script>
 <script type="text/javascript" defer="" src="https://sui.ssgcdn.com/ui/pay/js/pay/common/payPromUtil_v3.js?dummy=202404090106" crossorigin=""></script>
 <script type="text/javascript" defer="" src="https://sui.ssgcdn.com/ui/ssg/js/lib/jquery.bxslider.min.js?v=20240409"></script>
-<script type="text/javascript" defer="" src="https://sui.ssgcdn.com/ui/pay/js/pay/ord/ordPage_v3.js?dummy=202404090106" crossorigin=""></script>
+<script type="text/javascript" defer="" src="${pageContext.request.contextPath}/pay/js/ordpage.js" crossorigin="" ></script>
+
 </div>
+
 	<div id="layerPopupWrapDiv" class="tip_wrap" style="position: absolute;"></div>
 	<div id="claimlayerPopupWrapDiv" class="layer_pop" style="width:0px;height:0px;display: none;"></div>
 	<div class="dimmed" style="display:none;"></div>
@@ -8538,27 +8566,37 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 							index = end ;
 						}
 	  					let totalpr = 0;
+	  					let convertnum =Number($("#totalprice6").html().replace(/,/g,"")) - Number($("#totaldisco").html().replace(/,/g,""));;
+	  					
 	  					for (let k = 0; k < optionids.length; k++) {
 	  						   
 	  					   (function(currentindex){
 	  						    totalpr += parseFloat($("#price" + currentindex).val());
 	  						 
 	  						   $("#totalprice1").html(totalpr.toLocaleString("ko-KR"));
+	  						  
 	  						   $("#totalprice2").html(totalpr.toLocaleString("ko-KR"));
+	  							
 	  						   $("#pretotalprice").html(totalpr.toLocaleString("ko-KR"));
 	  						   $("#totalprice4").html(totalpr.toLocaleString("ko-KR"));
 	  						   
 	  					       $("#couponselect" + optionids[currentindex]).on("change", function() {
-	  					            let a = $("#price" + currentindex).val();
-	  					            
-	  					           let value = $("#price" + currentindex).val() * $(this).val() / 100;
+	  					    	
+	  					    	   let a = $("#price" + currentindex).val();
+	  					           $("#ssgpoint").val("");
+	  					           $("#spointUseAmt_bar").val("");
+	  					           let value = $("#price" + currentindex).val() * $(this).val().split('/')[1] / 100;
 	  					           $("#coupondis").html(value);
 	  					           let dis1 = $("#specialdis").val();
 	  					           $("#totaldisco").html(dis1+value);
 	  					           let totalprice = $("#price" + currentindex).val() - (dis1+value);
-	  					          
+	  					           
+	  					           convertnum =Number($("#totalprice6").html().replace(/,/g,"")) - Number($("#totaldisco").html().replace(/,/g,""));;
+	  		  					
 	  					           $("#totalprice1").html(totalprice.toLocaleString("ko-KR"));
+	  					           $("#totalprice1").val(totalprice.toLocaleString("ko-KR"));
 	  					           $("#totalprice2").html(totalprice.toLocaleString("ko-KR"));
+	  					           $("#totalprice2").val(totalprice.toLocaleString("ko-KR"));
 	  					           $("#pretotalprice").html(totalprice.toLocaleString("ko-KR"));
 	  					           $("#coupondis5").html((dis1+value).toLocaleString("ko-KR"));
 	  					           $("#coupondis5").val((dis1+value).toLocaleString("ko-KR"));
@@ -8568,10 +8606,85 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 	  					  })(k);
 	  					}
 	  					
+						
+						let totalpoint = "${requestScope.user[0].cpoint}";
+						
+						$("#allpoint").on("click",function(){
+							$("#ssgpoint").val(Number($("#allpoints").text().replace(/,|원/g,'')));
+							$("#spointUseAmt_bar").val(Number($("#allpoints").text().replace(/,|원/g,'')));
+							
+							let totalpr = convertnum;
+							let lastprice = totalpr-$("#ssgpoint").val();
+							$("#totalprice1").html(lastprice.toLocaleString("ko-KR"));
+							$("#totalprice2").html(lastprice.toLocaleString("ko-KR"));
+							$("#pretotalprice").html(lastprice.toLocaleString("ko-KR"));
+						})
+						$("#ssgpoint").on("keydown",function(e){
+							
+							if (e.keyCode == 13 ) {
+								if (totalpoint < Number($("#ssgpoint").val())) {
+									alert("입력하신 금액이 보유한 포인트금액을 초과합니다.");
+									$("#ssgpoint").val("0");
+								} else {
+									
+								$("#ssgpoint").val($("#ssgpoint").val());
+								$("#spointUseAmt_bar").val($("#ssgpoint").val());
+								let lastprice = convertnum-$("#ssgpoint").val();
+								$("#totalprice1").html(lastprice.toLocaleString("ko-KR"));
+								$("#totalprice2").html(lastprice.toLocaleString("ko-KR"));
+								$("#pretotalprice").html(lastprice.toLocaleString("ko-KR"));
+								}
+								}
+						})
+					
+					
 
 	  					
 	  					
 											
+		           	</script>
+		           	<script>
+		           	let payresult = "${al}"; 
+		           	let regex1 = /optionid=([^,]+)/g ; 
+		           	let regex2 = /quantity=([^)]+)/g ;
+ 		           	let match ;
+					let selectedoptionids = [];
+					let selectedcouponids = [];
+					let quantity = [] ;
+					
+					$("#processOrderButton").on("click",function(){
+						let usepoint = $("#ssgpoint").val();
+						while ((match=regex1.exec(payresult))!=null) {
+							selectedoptionids.push(match[1]);
+							
+						}
+						while ((match=regex2.exec(payresult))!=null) {
+							quantity.push(match[1]);
+							
+						}
+						selectedoptionids.forEach(function(id){
+						
+							let couponvals = $("#couponselect"+id).val().split('/')[0];
+							selectedcouponids.push(couponvals);
+						})
+						let selectedshipnum = $("#shipnum").val();
+						let shippingmsg = $("#shipmsg").val();
+						
+						let alldata = {
+							optionids : JSON.stringify(selectedoptionids),
+							usecouponids : JSON.stringify(selectedcouponids),
+							usepoint : usepoint,
+							quantity : JSON.stringify(quantity),
+							shipnum : selectedshipnum,
+							shipmsg : JSON.stringify(shippingmsg)
+						};
+						
+						$.post("${pageContext.request.contextPath}/pay/pay.do" , alldata , function(response){
+							
+							location.href = "${pageContext.request.contextPath}"+response.url ;
+						});
+						
+					})
 		           	</script>
 <script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1668002603429849");fbq("track","PageView");</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1668002603429849&amp;ev=PageView&amp;noscript=1"></noscript>
