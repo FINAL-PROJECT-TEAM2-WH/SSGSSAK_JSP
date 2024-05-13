@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CouponDTO {
+		int cnumber;
 		String ctype;
 		int maxamount;
 		int minamount;

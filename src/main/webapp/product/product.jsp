@@ -3996,8 +3996,25 @@ function setCommonGnbCookie(name, value, expiredays) {
 									 </c:if>
 									 <c:if test="${specialPrice.spclDscnRt == 0}">
 									 <span class="cdtl_new_price notranslate">
-                    <span class="blind">최적가</span><em class="ssg_price">${productoption[0].optionPrice}</em> <span class="ssg_tx">원</span>
-                </span>
+
+							    <c:set var="minPrice" value="${null}" />
+							
+							    <c:forEach var="option" items="${productoption}">
+							        <c:if test="${option.optionPrice != null && option.optionPrice != ''}">
+
+							            <fmt:parseNumber var="parsedPrice" value="${option.optionPrice}" />
+							            <c:if test="${minPrice == null || parsedPrice < minPrice}">
+							                <c:set var="minPrice" value="${parsedPrice}" />
+							            </c:if>
+							        </c:if>
+							    </c:forEach>
+							
+
+
+
+
+				                    <span class="blind">최적가</span><em class="ssg_price"><fmt:formatNumber value="${minPrice}"/></em> <span class="ssg_tx">원</span>
+				                </span>
 									 </c:if>
 									</div>
 									<p class="cdtl_txt_info hide_gl"></p>
@@ -4491,8 +4508,61 @@ function setCommonGnbCookie(name, value, expiredays) {
 									    </div>
 									    <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
 									</div>
+<<<<<<< HEAD
 
 										
+=======
+									
+				<select class="cdtl_item" id="first_select" onchange="load_child();"></select>
+			    <select class="cdtl_item" id="sec_select"></select>
+			    
+			    <script type="text/javascript">
+			        let first_select = [
+			            {v:"",t:""},
+			            <c:forEach var="option" items="${productoption}">
+			                <c:if test="${empty option.optionRef}">
+			                    {v:"${option.id}",t:"${option.optionName}"},
+			                </c:if>
+			            </c:forEach>
+			        ];
+			
+			
+			        let sec_select_data = {};
+			        <c:forEach var="option" items="${productoption}">
+			            <c:if test="${!empty option.optionRef}">
+			                if (!sec_select_data["${option.optionRef}"]) {
+			                    sec_select_data["${option.optionRef}"] = [];
+			                }
+			                sec_select_data["${option.optionRef}"].push({v:"${option.id}", t:"${option.optionName}"});
+			            </c:if>
+			        </c:forEach>;
+			
+			        function load_first() {
+			            let h = [];
+			            first_select.forEach(item => {
+			                h.push('<option value="' + item.v + '">' + item.t + '</option>');
+			            });
+			            document.getElementById("first_select").innerHTML = h.join("");
+			        }
+			
+			
+			        function load_child() {
+			            let first_select_value = document.getElementById("first_select").value;
+			            let h = [];
+			            if (first_select_value ) {
+			                sec_select_data[first_select_value].forEach(item => {
+			                    h.push('<option value="' + item.v + '">' + item.t + '</option>');
+			                });
+			            }
+			            document.getElementById("sec_select").innerHTML = h.join("");
+			        }
+			
+			
+			        window.onload = function() {
+			            load_first();
+			        }
+			    </script>
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
 									</c:when>
 										<c:otherwise>
 										<%-- 
@@ -4504,10 +4574,16 @@ function setCommonGnbCookie(name, value, expiredays) {
         </c:forEach>
          --%>
         
+<<<<<<< HEAD
 <form id="purchaseForm" action="/SSGSSAK/pay/pay.do" method="GET">
     <!-- 각 옵션 항목 -->
     <c:forEach var="option" items="${productoption}">
         <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: none;">
+=======
+				<!-- if 2이면 -->
+		<c:forEach var="option" items="${productoption}">
+        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" name="option-${option.id}" style="display: none;">
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
             <dl>
                 <dt>
                     <p>
@@ -4520,7 +4596,11 @@ function setCommonGnbCookie(name, value, expiredays) {
                             <span class="blind">빼기</span>
                         </a>
                         <span class="cdtl_inpbx">
+<<<<<<< HEAD
                             <input type="text" id="quantity-${option.id}" data-quantity="${option.id}" title="수량입력" value="1" onchange="updateQuantity(this, 0, 1, 10);">
+=======
+                            <input type="text" id="quantity-${option.id}" title="수량입력" value="1" onchange="updateQuantity(this, 0, 1, 10);">
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
                         </span>
                         <a href="javascript:void(0);" class="cdtl_b_plus" onclick="updateQuantity(this, 1, 1, 10);">
                             <span class="blind">더하기</span>
@@ -4534,11 +4614,15 @@ function setCommonGnbCookie(name, value, expiredays) {
                         </em>
                         <span class="ssg_tx">원</span>
                     </span>
+<<<<<<< HEAD
                     <button type="button" onclick="hideOption(${option.id});" style="float: right;">닫기</button>
+=======
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
                 </dd>
             </dl>
         </div>
     </c:forEach>
+<<<<<<< HEAD
     <!-- Form hidden inputs will be added by JavaScript -->
 </form>
 
@@ -4547,6 +4631,12 @@ function setCommonGnbCookie(name, value, expiredays) {
     <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
 
     <select class="cdtl_item" id="first_select" onchange="load_child();" ></select>
+=======
+
+    <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+
+    <select class="cdtl_item" id="first_select" onchange="load_child();"></select>
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
     <select class="cdtl_item" id="sec_select" onchange="show_option();"></select>
 
     <script type="text/javascript">
@@ -4590,6 +4680,16 @@ function setCommonGnbCookie(name, value, expiredays) {
         }
 
         function show_option() {
+<<<<<<< HEAD
+=======
+
+        
+            let sec_select_value = document.getElementById("sec_select").value;
+            if (sec_select_value) {
+                document.getElementById('option-' + sec_select_value).style.display = 'block';
+            }
+        }
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
 
             let sec_select_value = document.getElementById("sec_select").value;
             if (sec_select_value) {
@@ -4649,11 +4749,125 @@ function setCommonGnbCookie(name, value, expiredays) {
         window.onload = function() {
             load_first();
         }
+        
+        function updateQuantity(element, change, min, max){
+        	
+        	let parent = element.closest('.cdtl_opt_item');
+        	let quantity = parent.querySelector('');
+        }
     </script>
+<<<<<<< HEAD
     					<script type="text/javascript">
 					function submitPurchaseForm() {
 					    // Get the form element
 					    let form = document.getElementById('purchaseForm');
+=======
+			    
+			    <!-- 만든 코드 -->
+			  <!--   <select  id="first_select" onchange="load_child();"></select>
+			    <select  id="sec_select" onchange="update_summary();"></select>
+			      <div id="option_summary"></div>
+			        
+			        
+			    <script type="text/javascript">
+			        let first_select = [
+			            {v:"",t:""},
+			            <c:forEach var="option" items="${productoption}">
+			                <c:if test="${empty option.optionRef}">
+			                    {v:"${option.id}",t:"${option.optionName}"},
+			                </c:if>
+			            </c:forEach>
+			        ];
+			
+			
+			        let sec_select_data = {};
+			        <c:forEach var="option" items="${productoption}">
+			            <c:if test="${!empty option.optionRef}">
+			                if (!sec_select_data["${option.optionRef}"]) {
+			                    sec_select_data["${option.optionRef}"] = [];
+			                }
+			                sec_select_data["${option.optionRef}"].push({v:"${option.id}", t:"${option.optionName}"});
+			            </c:if>
+			        </c:forEach>;
+			
+			        function load_first() {
+			            let h = [];
+			            first_select.forEach(item => {
+			                h.push('<option value="' + item.v + '">' + item.t + '</option>');
+			            });
+			            document.getElementById("first_select").innerHTML = h.join("");
+			        }
+			
+			
+			        function load_child() {
+			            let first_select_value = document.getElementById("first_select").value;
+			            let h = [];
+			            if (first_select_value ) {
+			                sec_select_data[first_select_value].forEach(item => {
+			                    h.push('<option value="' + item.v + '">' + item.t + '</option>');
+			                });
+			            }
+			            document.getElementById("sec_select").innerHTML = h.join("");
+			            update_summary();
+			        }
+			
+			        function update_summary() {
+			            let first_select_value = document.getElementById("first_select").value;
+			            let sec_select_value = document.getElementById("sec_select").value;
+			            let summary_div = document.getElementById("option_summary");
+			            let selectedOption = null;
+			            
+			            if (sec_select_data[first_select_value]) {
+			                selectedOption = sec_select_data[first_select_value].find(function(item) {
+			                    return item.v == sec_select_value;
+			                });
+			            }
+			            
+			            if (selectedOption) {
+			                let firstOptionText = first_select.find(item => item.v == first_select_value).t;
+			                let secondOptionText = selectedOption.t;
+			                let price = selectedOption.price;
+			                
+			                summary_div.innerHTML = `
+			                    <div>
+			                        <span>${firstOptionText} / ${secondOptionText}</span>
+			                        <button onclick="remove_option()">X</button>
+			                        <div>
+			                            <button onclick="change_quantity(-1)">-</button>
+			                            <input type="text" id="quantity" value="1" readonly>
+			                            <button onclick="change_quantity(1)">+</button>
+			                        </div>
+			                        <span>${price}원</span>
+			                    </div>
+			                `;
+			            } else {
+			                summary_div.innerHTML = '';
+			            }
+			        }
+
+			        // 옵션 제거 함수
+			        function remove_option() {
+			            document.getElementById("option_summary").innerHTML = '';
+			        }
+
+			        // 수량 변경 함수
+			        function change_quantity(amount) {
+			            let quantityInput = document.getElementById("quantity");
+			            let newQuantity = parseInt(quantityInput.value) + amount;
+			            if (newQuantity > 0) {
+			                quantityInput.value = newQuantity;
+			            }
+			        }
+
+			        // 초기 로드
+			        window.onload = function() {
+			            load_first();
+			        }
+			    </script>
+			     -->
+			    
+												<!--for이치문으로 옵션 선택 창 만들고 선택시 다음옵션불러오기 최종선택시선택된 옵션 수량선택 띄우기 밸류값 꺼내서 파라미터로넘기기 -->
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
 
 					    // Clear any existing hidden inputs
 					    while (form.firstChild) {

@@ -8,63 +8,94 @@
 </head>
 <body>
 
-												<div class="cdtl_item" id="_ordOpt_area" data-optn-type="uitem"	data-react-tarea-cd="00006_000000537">
-													<dl class="cdtl_dl cdtl_opt_group">
-														<!-- <dt>정장디자인</dt> 옵션 -->
-														<dd data-react-unit-type="text"
-															data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운셀렉트박스&quot;}]">
-															<select id="ordOpt1" data-opt-depth="1"
-																data-target="#_ordOpt_area" data-template="#_dropdown"
-																class="_dropdown" title="정장디자인"
-																onchange="ItmOp.changeUitemIptn(this);"
-																style="display: none;"><option value="">선택하세요.</option>
-																
-																<option data-tarea="드롭다운" value="2027">2027</option>
-																<option data-tarea="드롭다운" value="2028">2028</option>
-																<option data-tarea="드롭다운" value="2030">2030</option>
-																
-																</select>
-															<div class="cdtl_opt clickable"
-																data-react-tarea-dtl-cd="t00060">
-																<a href="#" class="cdtl_opt_select _drop_select"><span
-																	class="txt">2028</span> <span class="sp_cdtl sel_arrow">&nbsp;</span></a>
-																<div class="cdtl_scroll">
-																	<ul class="cdtl_select_lst _drop_list">
-																		<li class="" data-index="1"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);">
-																			<span class="txt">2027</span></a>
-																		</li>
-																		<li class="selected" data-index="2"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);"><span
-																				class="txt">2028</span></a>
-																		</li>
-																		<li class="" data-index="3"
-																			data-react-unit-type="text"
-																			data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;드롭다운_선택&quot;}]">
-																			<a href="#" class="clickable"
-																			data-react-tarea-dtl-cd="t00060"
-																			onclick="ssg_react_v2.direct_call(this);"><span
-																				class="txt">2030</span></a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</dd>
-													</dl>
+			    <!-- 만든 코드 -->
+			    <select  id="first_select" onchange="load_child();"></select>
+			    <select  id="sec_select" onchange="update_summary();"></select>
+			      <div id="option_summary"></div>
+			        
+			        
+			    <script type="text/javascript">
+			        let first_select = [
+			            {v:"",t:""},
+			            <c:forEach var="option" items="${productoption}">
+			                <c:if test="${empty option.optionRef}">
+			                    {v:"${option.id}",t:"${option.optionName}"},
+			                </c:if>
+			            </c:forEach>
+			        ];
+			
+			
+			        let sec_select_data = {};
+			        <c:forEach var="option" items="${productoption}">
+			            <c:if test="${!empty option.optionRef}">
+			                if (!sec_select_data["${option.optionRef}"]) {
+			                    sec_select_data["${option.optionRef}"] = [];
+			                }
+			                sec_select_data["${option.optionRef}"].push({v:"${option.id}", t:"${option.optionName}"});
+			            </c:if>
+			        </c:forEach>;
+			
+			        function load_first() {
+			            let h = [];
+			            first_select.forEach(item => {
+			                h.push('<option value="' + item.v + '">' + item.t + '</option>');
+			            });
+			            document.getElementById("first_select").innerHTML = h.join("");
+			        }
+			
+			
+			        function load_child() {
+			            let first_select_value = document.getElementById("first_select").value;
+			            let h = [];
+			            if (first_select_value ) {
+			                sec_select_data[first_select_value].forEach(item => {
+			                    h.push('<option value="' + item.v + '">' + item.t + '</option>');
+			                });
+			            }
+			            document.getElementById("sec_select").innerHTML = h.join("");
+			            update_summary();
+			        }
+			
+			        function update_summary() {
+			            let first_select_value = document.getElementById("first_select").value;
+			            let sec_select_value = document.getElementById("sec_select").value;
+			            let summary_div = document.getElementById("option_summary");
+			            let selectedOption = null;
+			            
+			            if (sec_select_data[first_select_value]) {
+			                selectedOption = sec_select_data[first_select_value].find(function(item) {
+			                    return item.v == sec_select_value;
+			                });
+			            }
+			            
+			            if (selectedOption) {
+			                let firstOptionText = first_select.find(item => item.v == first_select_value).t;
+			                let secondOptionText = selectedOption.t;
+			                let price = selectedOption.price;
+			                
+			                summary_div.innerHTML = `
+			                    <div>
+			                        <span>${firstOptionText} / ${secondOptionText}</span>
+			                        <button onclick="remove_option()">X</button>
+			                        <div>
+			                            <button onclick="change_quantity(-1)">-</button>
+			                            <input type="text" id="quantity" value="1" readonly>
+			                            <button onclick="change_quantity(1)">+</button>
+			                        </div>
+			                        <span>${price}원</span>
+			                    </div>
+			                `;
+			            } else {
+			                summary_div.innerHTML = '';
+			            }
+			        }
 
-			    <label for="mainOptions">정장디자인</label>
-    <select id="mainOptions">
-        <option value="" disabled selected>선택하세요</option>
-    </select>
+			        // 옵션 제거 함수
+			        function remove_option() {
+			            document.getElementById("option_summary").innerHTML = '';
+			        }
 
+<<<<<<< HEAD
     <label for="subOptions">정장사이즈</label>
     <select id="subOptions">
         <option value="" disabled selected>선택하세요</option>
@@ -106,6 +137,24 @@
 									</div>
 									<div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
 								</div> -->
+=======
+			        // 수량 변경 함수
+			        function change_quantity(amount) {
+			            let quantityInput = document.getElementById("quantity");
+			            let newQuantity = parseInt(quantityInput.value) + amount;
+			            if (newQuantity > 0) {
+			                quantityInput.value = newQuantity;
+			            }
+			        }
+
+			       
+			        window.onload = function() {
+			            load_first();
+			        }
+			    </script>
+			    
+
+>>>>>>> 5c0e79e94d8b196c4d149be86520e1d0868343e5
 
 </body>
 </html>
