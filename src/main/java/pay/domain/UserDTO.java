@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
+	int shipnum;
 	String name ; 
 	String phonenum ; 
 	String roadaddress;

@@ -12,9 +12,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderedDTO {
-	 int orderednum ; 
-	 String username ; 
+	 String name ; 
 	 Date orderdate;
+	 int ordernum ; 
+	 String ordername ;
+	 String phonenum ; 
+	 String addrnick;
+	 String roadaddr ; 
+	 String detailaddr ;
+	 int orderamount ;
+	 int shipamount  ;
+	 int point;
+	 
+	 
+	 
+	 
 	 
 	 
 }

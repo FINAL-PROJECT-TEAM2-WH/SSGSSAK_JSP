@@ -71,13 +71,17 @@ public class Payhandler implements CommandHandler {
 		} else if (method.equals("POST")) {
 			String optionids =  request.getParameter("optionids");
 			String usecouponids = request.getParameter("usecouponids");
+			int shipnum = Integer.parseInt(request.getParameter("shipnum"));
+			String shipmsg = request.getParameter("shipmsg");
+			shipmsg = shipmsg.substring(1,shipmsg.length()-1);
+			
 			int usepoint ;
 			if (request.getParameter("usepoint").equals("")) {
 				usepoint = 0;
 			} else  {
 				usepoint = Integer.parseInt(request.getParameter("usepoint"));
 			}
-			 
+			
 			String quantity = request.getParameter("quantity");
 			JSONArray ja1 = JSONArray.fromObject(optionids);
 			int optionid[] = new int[ja1.size()];
@@ -96,10 +100,13 @@ public class Payhandler implements CommandHandler {
 			}
 			int lastprice = 0 ;
 			for (int j = 0; j < optionid.length; j++) {
-				lastprice = pi.resultprice(optionid[j],quantitys[j],usecoupons[j]);
+				lastprice += pi.resultprice(optionid[j],quantitys[j],usecoupons[j]);
 				
 			}
+			
 			int result = pi.insertpayre( usepoint , lastprice, id);
+			int result6 = pi.insertpointrecord(id, (int)(lastprice*0.001));
+			int result7 = pi.updatepoint2(id, (int)(lastprice*0.001));
 			if (usepoint !=0) {
 				int result2 = pi.updatepointre(id,usepoint );
 				int result3 =pi.updatepoint(id, usepoint);
@@ -112,6 +119,7 @@ public class Payhandler implements CommandHandler {
 				int result4 = pi.insertpaydetail(optionid[j],usecoupons[j],quantitys[j]);
 				
 			}
+			int result5 = pi.insertshipinfo(shipnum, shipmsg);
 			
 			conn.close();
 			

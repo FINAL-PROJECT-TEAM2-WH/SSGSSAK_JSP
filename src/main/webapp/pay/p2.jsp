@@ -883,6 +883,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<dd class="codr_dd">
 								<div class="codr_pay_box">
 									<div class="codr_meminfo">
+										<input type="hidden" id="shipnum" value="${requestScope.user[0].shipnum }" />
 										<strong class="codr_meminfo_tx notranslate rcptpeInfoArea_0">
 											<span id="cname">${requestScope.user[0].name}</span><em>/<span id="cphonenum">${requestScope.user[0].phonenum}</span></em>
 										</strong>
@@ -917,14 +918,15 @@ function setCommonGnbCookie(name, value, expiredays) {
 								let ctop = window.innerHeight/2;
 								window.open("${pageContext.request.contextPath}/pay/changeaddr.do","blank","width="+cwidth+",height="+cheight+",left="+cleft+",top="+ctop);
 								
-							
+								
 								
 							})	
 							
-							function updateshipinfo(name,phonenum,addr){
+							function updateshipinfo(name,phonenum,addr,selectedshipnum){
 									$("#cname").html(name);
 									$("#cphonenum").html(phonenum);
 									$("#caddr").html(addr);
+									$("#shipnum").val(selectedshipnum);
 							}
 						</script>
 						<input type="hidden" name="shpploc[0].rcptpeNm" value="권맑음">
@@ -971,13 +973,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<input type="hidden" id="deliShppMemoInput_0" name="shpploc[0].deliShppMemo" value="" class="saveOrdUserDefiMemo deliShppMemo payTracking" data-pt-click="PC개편주문서|배송메시지|택배배송메시지선택">
 										<input type="hidden" name="shpploc[0].deliShppMemoCommCdNo" value="99" class="saveOrdUserDefiMemo">
 										<span class="codr_pay_drop">
-											<select name="" id="" style="width:300px; height: 40px; text-align: center; font-size: 14px; font-weight: bold;">
+											<select name="" id="shipmsg" style="width:500px; height: 35px; text-align: center; font-size: 14px; font-weight: bold;">
 											<option value="부재 시 경비실에 맡겨주세요">부재 시 경비실에 맡겨주세요</option>
 											<option value="부재 시 문앞에 놓아주세요">부재 시 문앞에 놓아주세요</option>
 											<option value="직접 받겠습니다">직접 받겠습니다</option>
 											<option value="배송전에 연락주세요">배송전에 연락주세요</option>
 											<option value="문 앞에 놔주세요">문 앞에 놔주세요</option>
-											<option value="직접 입력">직접 입력</option>
+											<option value="직접 입력" >직접 입력</option>
 											
 											</select>
 											
@@ -8665,12 +8667,16 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 							let couponvals = $("#couponselect"+id).val().split('/')[0];
 							selectedcouponids.push(couponvals);
 						})
+						let selectedshipnum = $("#shipnum").val();
+						let shippingmsg = $("#shipmsg").val();
 						
 						let alldata = {
 							optionids : JSON.stringify(selectedoptionids),
 							usecouponids : JSON.stringify(selectedcouponids),
 							usepoint : usepoint,
-							quantity : JSON.stringify(quantity)
+							quantity : JSON.stringify(quantity),
+							shipnum : selectedshipnum,
+							shipmsg : JSON.stringify(shippingmsg)
 						};
 						
 						$.post("${pageContext.request.contextPath}/pay/pay.do" , alldata , function(response){

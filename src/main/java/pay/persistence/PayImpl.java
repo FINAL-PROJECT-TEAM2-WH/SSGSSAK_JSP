@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.naming.NamingException;
 
@@ -15,6 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pay.domain.CouponDTO;
+import pay.domain.OrderedDTO;
 import pay.domain.ProductDTO;
 import pay.domain.ShippingDTO;
 import pay.domain.UserDTO;
@@ -146,8 +148,9 @@ public class PayImpl implements PayDAO{
 	@Override
 	public ArrayList<UserDTO> onceuserinfo(String id) {
 		ArrayList<UserDTO> al = new ArrayList<UserDTO>();
-		String sql = "select  addressNick , name , phonenum ,roadaddress , email ,p.id as cardnumber , p.cpoint from member m , "
+		String sql = "select spi.id shipnum, addressNick , name , phonenum ,roadaddress , email ,p.id as cardnumber , p.cpoint from member m , "
 				+ " shippingplaceinformation spi , points p where m.id = ? and spi.memid = m.id and spi.defaultshipping='이번만배송지' and p.id2 = m.id " ;
+		int shipnum = 0 ;
 		String name =null; 
 		String phonenum=null ; 
 		String roadaddress=null;
@@ -160,6 +163,7 @@ public class PayImpl implements PayDAO{
 			pst.setString(1, id);
 			rs = pst.executeQuery();
 			if (rs.next()) {
+				shipnum =rs.getInt("shipnum");
 				name = rs.getString("name");
 				phonenum = rs.getString("phonenum");
 				roadaddress = rs.getString("roadaddress");
@@ -168,7 +172,7 @@ public class PayImpl implements PayDAO{
 				cpoint = rs.getInt("cpoint");
 				addressNick = rs.getString("addressNick");
 			}
-			UserDTO dto = new UserDTO(name, phonenum, roadaddress, email, addressNick ,cardnumber, cpoint);
+			UserDTO dto = new UserDTO(shipnum,name, phonenum, roadaddress, email, addressNick ,cardnumber, cpoint);
 			al.add(dto);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -355,13 +359,13 @@ public class PayImpl implements PayDAO{
 			pst.setInt(1, points);
 			pst.setString(2, userid);
 			result =pst.executeUpdate();
-		} catch (SQLException e) {
+		} catch (SQLException e) {	
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 		
 			try {
-				rs.close();
+				
 				pst.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -387,7 +391,7 @@ public class PayImpl implements PayDAO{
 		} finally {
 		
 			try {
-				rs.close();
+				
 				pst.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -495,8 +499,9 @@ public class PayImpl implements PayDAO{
 	@Override
 	public ArrayList<UserDTO> defaulutuserinfo(String id) {
 		ArrayList<UserDTO> al = new ArrayList<UserDTO>();
-		String sql = "select  addressNick , name , phonenum ,roadaddress , email ,p.id as cardnumber , p.cpoint from member m , "
+		String sql = "select  spi.id shipnum ,addressNick , name , phonenum ,roadaddress , email ,p.id as cardnumber , p.cpoint from member m , "
 				+ " shippingplaceinformation spi , points p where m.id = ? and spi.memid = m.id and spi.defaultshipping='기본배송지' and p.id2 = m.id " ;
+		int shipnum =0;
 		String name =null; 
 		String phonenum=null ; 
 		String roadaddress=null;
@@ -509,6 +514,7 @@ public class PayImpl implements PayDAO{
 			pst.setString(1, id);
 			rs = pst.executeQuery();
 			if (rs.next()) {
+				shipnum = rs.getInt("shipnum");
 				name = rs.getString("name");
 				phonenum = rs.getString("phonenum");
 				roadaddress = rs.getString("roadaddress");
@@ -517,7 +523,7 @@ public class PayImpl implements PayDAO{
 				cpoint = rs.getInt("cpoint");
 				addressNick = rs.getString("addressNick");
 			}
-			UserDTO dto = new UserDTO(name, phonenum, roadaddress, email, addressNick ,cardnumber, cpoint);
+			UserDTO dto = new UserDTO(shipnum,name, phonenum, roadaddress, email, addressNick ,cardnumber, cpoint);
 			al.add(dto);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -556,6 +562,150 @@ public class PayImpl implements PayDAO{
 			
 			try {
 				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int insertshipinfo(int shipnum , String shipmsg) {
+		int result = 0 ;
+		String sql = " insert into shippinginformation values ( seq_shippingid.nextval , payrecord_seq.currval ,  ? , null , '상품준비중' , ? , null , null , null , null )  " ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, shipnum);
+			pst.setString(2, shipmsg);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public ArrayList<OrderedDTO> selectorderinfo(String id) {
+		ArrayList<OrderedDTO> al = new ArrayList<OrderedDTO>();
+		String sql = " with newordernum as (\r\n"
+				+ "select newordernum\r\n"
+				+ " from (\r\n"
+				+ "    select id newordernum\r\n"
+				+ "    from payrecord \r\n"
+				+ "    where memid = ? \r\n"
+				+ "    order by id desc\r\n"
+				+ "    )\r\n"
+				+ "    where rownum = 1\r\n"
+				+ ")\r\n"
+				+ "select m.name , p.orderdate , p.id ordernum , spi.id , spi.receivemem ordername , spi.tel phonenum , spi.addressnick addrnick , spi.roadaddress roadaddr ,spi.detailaddress detailaddr , p.orderamount ,so.defaultShippingFee shipamount, pr.points\r\n"
+				+ "from member m , payrecord p , newordernum no , shippinginformation si  ,shippingPlaceInformation spi ,shippingoption so ,product pd ,productoption pop ,paydetail pdt ,pointrecord pr \r\n"
+				+ "where m.id = ? and si.orderid = no.newordernum and no.newordernum = p.id and  m.id = p.memid and spi.id = si.shippingplaceid and so.id = pd.shippingoptionid and  pop.productid = pd.id and pop.id = pdt.id3 and pr.id2 = p.id and pr.classify = 2  " ;
+		 String name ; 
+		 Date orderdate;
+		 int ordernum ; 
+		 String ordername ;
+		 String phonenum ; 
+		 String addrnick;
+		 String roadaddr ; 
+		 String detailaddr ;
+		 int orderamount ;
+		 int shipamount  ;
+		 int point;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, id);
+			pst.setString(2, id);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				name = rs.getString("name");
+				orderdate = rs.getTimestamp("orderdate");
+				ordernum = rs.getInt("ordernum");
+				ordername = rs.getString("ordername");
+				phonenum = rs.getString("phonenum");
+				addrnick = rs.getString("addrnick");
+				roadaddr = rs.getString("roadaddr");
+				detailaddr = rs.getString("detailaddr");
+				orderamount = rs.getInt("orderamount");
+				shipamount = rs.getInt("shipamount");
+				point = rs.getInt("points");
+				
+				OrderedDTO dto = new OrderedDTO(name, orderdate, ordernum, ordername, phonenum, addrnick, roadaddr, detailaddr, orderamount, shipamount, point);
+				al.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		
+		return al;
+		
+		
+	}
+
+	@Override
+	public int insertpointrecord(String id, int points) {
+		String sql = " insert into pointrecord ( \r\n"
+				+ "select pointrecord_seq.nextval , id , ? ,2 ,payrecord_seq.currval\r\n"
+				+ "from points\r\n"
+				+ "where id2 = ? ) ";
+		int result = 0 ;
+		try {
+			pst =conn.prepareStatement(sql);
+			pst.setInt(1, points);
+			pst.setString(2, id);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int updatepoint2(String userid, int points) {
+		String sql = " update points set cpoint = cpoint + ? where id2 = ?  " ;
+		int result = 0 ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, points);
+			pst.setString(2, userid);
+			result =pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+		
+			try {
+				
 				pst.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
