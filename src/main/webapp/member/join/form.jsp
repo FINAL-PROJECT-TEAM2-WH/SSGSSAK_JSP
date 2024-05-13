@@ -1212,6 +1212,8 @@ $(function(){
 
 <script>
 
+	
+
 	$('#btnSubmit_join').on('click', function () {
 		let params = $('#joinForm').serialize();
 		alert(params);
@@ -1246,9 +1248,15 @@ $(function(){
 			$('#sms').checked = true;
 			$('#post').checked = true;
 			$('#tel').checked = true; */
-		}
-		alert ( chkChecked );
+		} else {
+			$(':checkbox[name*=infoRcvMediaCd]:checked').each(function (index,element){
+				element.checked = false;
+			})
+		}	
 	})
+	
+	
+	
 	
 	$('#ssgInfoRcvAgree').on('click', function () {
 		let chkChecked = $('#ssgInfoRcvAgree').is(':checked');	
@@ -1263,9 +1271,35 @@ $(function(){
 			$('#sms').checked = true;
 			$('#post').checked = true;
 			$('#tel').checked = true; */
+		} else {
+			$(':checkbox[name*=ssgInfoRcvAgreeDto]:checked').each(function (index,element){
+				element.checked = false;
+			})
 		}
-		alert ( chkChecked );
 	})
+	
+	$('#agree40019').siblings().each(function (index, element) {
+		element.on('click', function () {
+			
+		})
+	})
+	
+	$('#emailRcvYn').on('click', function () {
+		let chkChecked = $('#emailRcvYn').is(':checked');	
+		alert(chkChecked);
+		if (chkChecked) {
+			$('#ssgInfoRcvAgree').prop('checked','true');
+		}		
+	});
+	
+	$('#emailRcvYn').on('click', function () {
+		let chkChecked = $('#emailRcvYn').is(':checked');	
+		alert(chkChecked);
+		if (chkChecked) {
+			$('#ssgInfoRcvAgree').prop('checked','true');
+		}		
+	});
+	
 	
 	
 
