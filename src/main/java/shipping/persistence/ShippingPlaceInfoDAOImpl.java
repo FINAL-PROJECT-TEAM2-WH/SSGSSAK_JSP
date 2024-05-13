@@ -3,10 +3,13 @@ package shipping.persistence;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
+import member.domain.PageDTO;
 import shipping.domain.ShippingPlaceInfoDTO;
 
 public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
@@ -23,6 +26,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		return instance;
 	}
 
+
+	
 	// 회원 배송지 추가
 	@Override
 	public int insert(Connection conn, ShippingPlaceInfoDTO dto) {
@@ -34,24 +39,22 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		int rowCount = 0;
 		String memid = dto.getMemid();
 		ShippingPlaceInfoDAOImpl daoImpl = ShippingPlaceInfoDAOImpl.getInstance();
+		String sql = null;
 		try {
-			rowCount = daoImpl.defaultShippingUpdate(conn, memid);
-					
-			String sql = " INSERT INTO shippingPlaceInformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
-					+ " VALUES ( seqshipplaceinfo.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memid);
-			pstmt.setString(2, dto.getAddressnick());
-			pstmt.setString(3, dto.getReceiveMem());
-			pstmt.setString(4, dto.getTel());
-			pstmt.setString(5, dto.getPostnum());
-			pstmt.setString(6, "기본배송지");
-			pstmt.setString(7, dto.getRoadAddress());
-			pstmt.setString(8, dto.getJibunAddress());
-			pstmt.setString(9, dto.getDetailAddress());
-			
-			rowCount = pstmt.executeUpdate();
+				rowCount = daoImpl.defaultShippingUpdate(conn, memid);
+				sql = " INSERT INTO shippingPlaceInformation ( id, memid, addressNick, receiveMem, tel, postNum, defaultShipping, roadAddress, jibunAddress, detailAddress ) "
+						+ " VALUES ( seqshipplaceinfo.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";			
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, memid);
+				pstmt.setString(2, dto.getAddressnick());
+				pstmt.setString(3, dto.getReceiveMem());
+				pstmt.setString(4, dto.getTel());
+				pstmt.setString(5, dto.getPostnum());
+				pstmt.setString(6, "기본배송지");
+				pstmt.setString(7, dto.getRoadAddress());
+				pstmt.setString(8, dto.getJibunAddress());
+				pstmt.setString(9, dto.getDetailAddress());
+				rowCount = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(">> ShippingPlaceInfoDAOImple defaultShippingUpdate 메서드 호출 오류~~");
@@ -60,6 +63,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		JdbcUtil.close(pstmt);
 		return rowCount;
 	}
+	
 	
 	// 기본배송지 업데이트
 	@Override
@@ -105,6 +109,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 	// 배송지 정보 리스트형태로
 	@Override
 	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoList(Connection conn, String memid) throws Exception {
+		System.out.println("리스트 DAO요청이 발생");
 		ShippingPlaceInfoDTO spidto = null;
 		ArrayList<ShippingPlaceInfoDTO> spidtoList = null;
 		PreparedStatement pstmt = null;
@@ -134,7 +139,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 				spidtoList = new ArrayList<ShippingPlaceInfoDTO>();
 				
 				do {
-					
 					id = rs.getLong("id");
 					addressnick = rs.getString("addressnick");
 					receiveMem = rs.getString("receiveMem");
@@ -223,8 +227,215 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		}
 		return dto;
 	}
+
+	@Override
+	public int update(Connection conn, ShippingPlaceInfoDTO dto) throws Exception {
+		int rowCount = 0;
+		PreparedStatement pstmt = null;
+		//System.out.println("updateDAO 들어옴");
+		String sql = " UPDATE shippingPlaceInformation "
+					+" SET addressnick = ?, "
+					+ " receiveMem = ?, "
+					+ " roadAddress = ?, "
+					+ " jibunAddress = ?, "
+					+ " detailAddress = ?, "
+					+ " tel = ?, "
+					+ " postNum = ? "
+					+" WHERE id = ? ";
+		//System.out.println(sql);
+		try {
+			conn = ConnectionProvider.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getAddressnick());
+			pstmt.setString(2, dto.getReceiveMem());
+			pstmt.setString(3, dto.getRoadAddress());
+			pstmt.setString(4, dto.getJibunAddress());
+			pstmt.setString(5, dto.getDetailAddress());
+			pstmt.setString(6, dto.getTel());
+			pstmt.setString(7, dto.getPostnum());
+			pstmt.setLong(8, dto.getId());
+			rowCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ShippingPlaceUpdate 메서드에서 오류~~");
+		}
+		JdbcUtil.close(pstmt);
+		return rowCount;
+	}
+
+	@Override
+	public int shippingStatusEdit(Connection conn, long id, String status, String memid) throws Exception {
+		PreparedStatement pstmt = null;
+		String sql = " UPDATE shippingPlaceInformation "
+				+" SET DEFAULTSHIPPING = ?" 
+				+" WHERE id = ? ";
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance(); 
+		dao.defaultShippingUpdate(conn, memid);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, status);
+			pstmt.setLong(2, id);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("shippingStatusEdit DAO 메서드에서 오류~~");
+		}finally {
+			JdbcUtil.close(pstmt);
+		}
+		return 0;
+	}
+
+	@Override
+	public int shippingPlaceDelete(Connection conn, long id) throws Exception {
+		
+		int rowCount = 0;
+		PreparedStatement pstmt = null;
+		String sql = " DELETE FROM shippingPlaceInformation "
+				+ " WHERE id = ? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setLong(1, id);
+			rowCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("shippingPlaceDelete DAO 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		return rowCount;
+	}
+
+	@Override
+	public int shippingPlaceTotalCount(Connection conn) throws Exception {
+		
+		PreparedStatement pstmt = null;
+		String sql = "";
+		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("shippingPlaceTotalCount DAO 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		
+		return 0;
+	}
+
+	@Override
+	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoPageList(Connection conn, String memid, int currentPage,
+			int numberPerPage) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<ShippingPlaceInfoDTO> spiList = null;
+		ShippingPlaceInfoDTO spiDto = null;
+		long id = 0;
+		String addressnick = null;
+		String receiveMem = null;
+		String roadAddress = null;
+		String jibunAddress = null;
+		String detailAddress = null;
+		String tel = null;
+		String postnum = null;
+		String defaultShipping = null;
+		
+		String sql = "	SELECT * FROM "
+				+ "	( "
+				+ "	SELECT ROWNUM no, t.* "
+				+ "	FROM "
+				+ "	( "
+				+ "	SELECT id, memid, addressnick, receivemem, roadaddress, jibunaddress, detailaddress, tel, postnum, defaultshipping "
+				+ "	FROM SHIPPINGPLACEINFORMATION "
+				+ "	WHERE memid = '"+ memid +"'"
+				+ "	ORDER BY defaultshipping DESC, id DESC "
+				+ "	) t "
+				+ "	) b "
+				+ "	WHERE no BETWEEN ? and ? ";
+		
+		System.out.println(sql);
+		try {
+			int start = (currentPage - 1) * numberPerPage + 1 ;
+			int end = start + numberPerPage - 1 ; 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) {
+				spiList = new ArrayList<ShippingPlaceInfoDTO>();
+				
+				do {
+					id = rs.getLong("id");
+					addressnick = rs.getString("addressnick");
+					receiveMem = rs.getString("receiveMem");
+					roadAddress = rs.getString("roadAddress");
+					jibunAddress = rs.getString("jibunAddress");
+					detailAddress = rs.getString("detailAddress");
+					tel = rs.getString("tel");
+					postnum = rs.getString("postnum");
+					defaultShipping = rs.getString("defaultShipping");
+					
+					spiDto = new ShippingPlaceInfoDTO().builder()
+							.id(id)
+							.addressnick(addressnick)
+							.receiveMem(receiveMem)
+							.roadAddress(roadAddress)
+							.jibunAddress(jibunAddress)
+							.detailAddress(detailAddress)
+							.tel(tel)
+							.postnum(postnum)
+							.defaultShipping(defaultShipping)
+							.build();
+					
+					spiList.add(spiDto);
+				} while (rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("pageListDAO 메서드에서 오류~~");
+		}
+		
+		return spiList;
+	}
+
+	@Override
+	public PageDTO pageBlock(Connection conn, int currentPage, String memid) throws Exception {
+		PageDTO pdto = null;
+		int numberPerPage = 10;
+		int numberOfPageBlock = 10;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+		int totalPage = dao.getTotalPages(conn, numberPerPage, memid);
+		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
+		
+		return pdto;
+	}
 	
-	
-	
+	@Override
+	public int getTotalPages(Connection conn, int numberPerPage, String memid) throws SQLException {
+		int totalPages = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT CEIL(COUNT(*)/?) FROM SHIPPINGPLACEINFORMATION where memid = ? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, numberPerPage);
+			pstmt.setString(2, memid);
+			rs =  pstmt.executeQuery();
+			if ( rs.next() ) totalPages = rs.getInt(1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("getTotalPagesDAO 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		return totalPages;
+	}
+
 
 }

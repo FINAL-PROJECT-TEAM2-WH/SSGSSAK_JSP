@@ -332,7 +332,7 @@
 									<tr>
 									<th scope="row"><label for="addressName1">주소별칭</label></th>
 									<td>
-										<input type="text" id="shpplocAntnmNm" name="shpplocAntnmNm" value="" class="input_text small" style="width:232px;ime-mode:active;" maxlength="20">
+										<input type="text" id="addressnick" name="shpplocAntnmNm" value="" class="input_text small" style="width:232px;ime-mode:active;" maxlength="20">
 									</td>
 									</tr>
 								<tr>
@@ -364,6 +364,7 @@
 								<!-- 도로명주소, 지번죽소, 우편번호  -->
 								<th scope="row" class="vt"><span class="full_address">배송주소</span></th>
 								<td class="address">
+									<input type="hidden" id="hiddenId" />
 									<input type="text" class="input_text small" id="postNum" placeholder="우편번호" value="우리가 정한 우편번호"><br>
 									<input type="text" class="input_text small" id="roadAddress" placeholder="도로명주소"><br>
 									<input type="text" class="input_text small" id="jibunAddress" placeholder="지번주소"><br>
@@ -397,7 +398,7 @@
 			<!-- form태그 제출하는 곳 -->
 			<div class="pop_btn_area notranslate">
 				<!-- 여기에 우리가 폼태그 제출해서 데이터 저장할 handler에 주기?? -->
-				<a href="#" onclick="" id="shippingPlaceInsert" class="color4">확인</a>
+				<a href="#" id="shippingPlaceUpdate" class="color4">확인</a>
 				<a href="javascript:void(0);" onclick="shpploc.cancel()" class="color3">취소</a>
 			</div>
 		</div>
@@ -474,15 +475,37 @@ function execDaumPostcode() {
 }
 </script>
 <script type="text/javascript" src="/comm/js/memberJs.ssg"></script>
+
 <script>
-	$("#shippingPlaceInsert").on("click", function(){
+	$(document).ready(function(){
+		//alert(inputJson);
+		//alert(inputJson);
+		var inputJson = localStorage.getItem("inputJson");
+		if( inputJson ){
+			var datas = JSON.parse(inputJson);
+			var tels = datas.tel.split('-');
+			$("#hiddenId").val(datas.id);
+			$("#addressnick").val(datas.addressnick);
+			$("#rcptpeNm").val(datas.receiveMem);
+			$('#hpno1').val(tels[0]).attr('selected', true);
+			$("#hpno2").val(tels[1]);
+			$("#hpno3").val(tels[2]);
+			$("#roadAddress").val(datas.roadAddress);
+			$("#jibunAddress").val(datas.jibunAddress);
+			$("#detailAddress").val(datas.detailAddress);
+			$("#postNum").val(datas.postnum);
+		}
+	})
+</script>
+<script>
+	$("#shippingPlaceUpdate").on("click", function(){
 		//alert("click했다~~");
 		var contextPath = "<%= request.getContextPath() %>";
 		var datas = {
 				// 여기서 회원 id 값도 같이 넘기기
-			//  memid : ${ param.memid }
 				memid : "<%= memid %>"
-			,	addrnick : $("#shpplocAntnmNm").val()
+			,   id : $("#hiddenId").val()
+			,	addrnick : $("#addressnick").val()
 			,	receiveMem : $("#rcptpeNm").val()
 			,	tel : $("#hpno1 option:selected").val() +"-"+ $("#hpno2").val() +"-"+ $("#hpno3").val()
 			,	postNum : $("#postNum").val()
@@ -494,12 +517,14 @@ function execDaumPostcode() {
 			type: "POST",
 			datatype : 'json',
 			/* ajax url 줄때 서버단이라면 contextPath 추가 꼭 해주기 */
-			url: contextPath + "/shippingPlaceInsert.do",
-			data: datas,
+			url: contextPath + "/shippingPlaceUpdate.do",
+			contentType : 'application/json', 
+		    data : JSON.stringify(datas),
 			cache : false,
 			success : function(res){
-				alert("성공");
+				alert("주소 수정 성공");
 				console.log(res.code);
+				window.opener.parent.location.reload();
 				window.close();
 			},
 			error : function(){

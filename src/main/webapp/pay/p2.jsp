@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240419/lb4ssg.min.js" charset="utf-8"></script><script src="https://connect.facebook.net/signals/config/1668002603429849?v=2.9.154&amp;r=stable&amp;domain=localhost&amp;hme=c3a545c63044e8e9102d4f32d84a1137594d024f28e801d670bc76dc5c075575&amp;ex_m=67%2C112%2C99%2C103%2C58%2C3%2C93%2C66%2C15%2C91%2C84%2C49%2C51%2C158%2C161%2C172%2C168%2C169%2C171%2C28%2C94%2C50%2C73%2C170%2C153%2C156%2C165%2C166%2C173%2C121%2C14%2C48%2C178%2C177%2C123%2C17%2C33%2C38%2C1%2C41%2C62%2C63%2C64%2C68%2C88%2C16%2C13%2C90%2C87%2C86%2C100%2C102%2C37%2C101%2C29%2C25%2C154%2C157%2C130%2C27%2C10%2C11%2C12%2C5%2C6%2C24%2C21%2C22%2C54%2C59%2C61%2C71%2C95%2C26%2C72%2C8%2C7%2C76%2C46%2C20%2C97%2C96%2C9%2C19%2C18%2C81%2C53%2C79%2C32%2C70%2C0%2C89%2C31%2C78%2C83%2C45%2C44%2C82%2C36%2C4%2C85%2C77%2C42%2C39%2C34%2C80%2C2%2C35%2C60%2C40%2C98%2C43%2C75%2C65%2C104%2C57%2C56%2C30%2C92%2C55%2C52%2C47%2C74%2C69%2C23%2C105" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PWBFGRL&amp;l=GA4_dataLayer"></script><script type="text/javascript" src="https://js.appboycdn.com/web-sdk/4.7/braze.min.js" async=""></script><script async="" src="https://www.datadoghq-browser-agent.com/datadog-rum-v4.js"></script><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240419/lb4ssg.min.js" charset="utf-8"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0P8DK53C8&amp;l=GA4_dataLayer&amp;cx=c"></script><script src="https://connect.facebook.net/signals/config/1668002603429849?v=2.9.154&amp;r=stable&amp;domain=pay.ssg.com&amp;hme=c3a545c63044e8e9102d4f32d84a1137594d024f28e801d670bc76dc5c075575&amp;ex_m=67%2C112%2C99%2C103%2C58%2C3%2C93%2C66%2C15%2C91%2C84%2C49%2C51%2C158%2C161%2C172%2C168%2C169%2C171%2C28%2C94%2C50%2C73%2C170%2C153%2C156%2C165%2C166%2C173%2C121%2C14%2C48%2C178%2C177%2C123%2C17%2C33%2C38%2C1%2C41%2C62%2C63%2C64%2C68%2C88%2C16%2C13%2C90%2C87%2C86%2C100%2C102%2C37%2C101%2C29%2C25%2C154%2C157%2C130%2C27%2C10%2C11%2C12%2C5%2C6%2C24%2C21%2C22%2C54%2C59%2C61%2C71%2C95%2C26%2C72%2C8%2C7%2C76%2C46%2C20%2C97%2C96%2C9%2C19%2C18%2C81%2C53%2C79%2C32%2C70%2C0%2C89%2C31%2C78%2C83%2C45%2C44%2C82%2C36%2C4%2C85%2C77%2C42%2C39%2C34%2C80%2C2%2C35%2C60%2C40%2C98%2C43%2C75%2C65%2C104%2C57%2C56%2C30%2C92%2C55%2C52%2C47%2C74%2C69%2C23%2C105" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
 	<meta charset="utf-8">
@@ -516,7 +517,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<div class="codr_opt_txarea">
 									<strong class="codr_opt_delivtx">
 										<span class="codr_sp codr_ico_loc"></span>
-										<strong>배송지</strong> : <strong class="rcptpeNmArea_0 notranslate">서초동집</strong>
+										<strong>배송지</strong> : <strong class="notranslate"><span>${requestScope.user[0].addressNick}</span></strong>
 									</strong>
 									
 										<div class="codr_btnarea_rgt">
@@ -527,7 +528,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									
 								</div>
 								
-									<span class="codr_opt_delivaddr shpplocInfoArea_0_bar notranslate">[06634] 서울특별시 서초구 서초대로52길 39, 201호 (서초동)</span>
+									<span class="codr_opt_delivaddr shpplocInfoArea_0_bar notranslate">${requestScope.user[0].roadaddress}</span>
 								
 							</div>
 							<div class="codr_opt_cont codr_scroll" style="max-height: 2664px;">
@@ -538,7 +539,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 												<strong class="codr_dt_tit">주문금액</strong>
 											</dt>
 
-											<dd class="codr_dd"><strong><em class="ssg_price">2,390,000</em><span class="ssg_tx">원</span></strong></dd>
+											<dd class="codr_dd"><strong><em class="ssg_price" id="totalprice4"></em><span class="ssg_tx">원</span></strong></dd>
 										</dl>
 										<dl class="codr_dl" aria-hidden="false" role="none presentation">
 											<dt class="codr_dt">
@@ -567,16 +568,22 @@ function setCommonGnbCookie(name, value, expiredays) {
 													<span>할인금액</span>
 												</strong>
 											</dt>
-											<dd class="codr_dd"><strong><span class="dispTotDcAmtPlusMinus" style="">- </span><em class="ssg_price dispTotDcAmt">478,000</em><span class="ssg_tx">원</span></strong></dd>
+											<dd class="codr_dd"><strong><span class="dispTotDcAmtPlusMinus" style="">- </span><em class="ssg_price " id="discountprice4">
+											
+											</em><span class="ssg_tx">원</span></strong></dd>
 										</dl>
 										<ul class="mnodr_paydetail_sublst dispTotDcAmtDtl">
 											<li class="dispTotItemDiscountAmtArea">
 												<span class="mnodr_paydetail_tx">상품할인</span>
-												<span class="mnodr_paydetail_money">- <em class="ssg_price dispTotItemDiscountAmt">478,000</em><span class="ssg_tx">원</span></span>
+												<span class="mnodr_paydetail_money">- <em class="ssg_price"><c:set value="0" var="discount"></c:set>
+											<c:forEach begin="0" end="${al.size() }" items="${al }" var="items">
+											 <c:set value="${ discount + items.specialp * items.price / 100 }" var="discount" ></c:set>
+											 <span id="prodis5" value="">${discount.intValue()}</span>
+											</c:forEach></em><span class="ssg_tx">원</span></span>
 											</li>
-											<li class="dispTotCpnDcArea" style="display:none;">
+											<li class="" >
 												<span class="mnodr_paydetail_tx">쿠폰할인</span>
-												<span class="mnodr_paydetail_money">- <em class="ssg_price dispTotCpnDcAmt">0</em><span class="ssg_tx">원</span></span>
+												<span class="mnodr_paydetail_money">- <em class="ssg_price dispTotCpnDcAmt" id="coupondis5">0</em><span class="ssg_tx">원</span></span>
 											</li>
 											
 											<li class="dispTotDcAmtWithCrdDcArea dispTotPayDcArea" style="display:none;">
@@ -609,7 +616,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 											
 												
 												<div class="codr_pt_input shinsegaePointUseArticle pointArticle">
-													<p class="codr_pt_tit notranslate">신세계포인트<span class="spointResidAmtArea"> : <span class="spointResidAmt">2,973원</span></span></p>
+													<p class="codr_pt_tit notranslate">신세계포인트<span class="spointResidAmtArea"> : <span class="spointResidAmt">${requestScope.user[0].cpoint}원</span></span></p>
 													<div class="codr_input_grp">
 														<span class="codr_txt ty_sm">
 															<input type="text" id="spointUseAmt_bar" data-paymtmeanscd="600" class="subPaymtMeans ssg_price noconvert spointUseAmt">
@@ -625,7 +632,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<div class="codr_opt_bx">
 										<dl class="codr_dl codr_dl_totalprice codr_tx_point" role="presentation">
 											<dt class="codr_dt">결제예정금액</dt>
-											<dd class="codr_dd"><strong><em class="ssg_price paySummaryPayAmt paySummaryTgtPaymtAmt">1,912,000</em><span class="ssg_tx paySummaryPaySymbol notranslate">원</span></strong></dd>
+											<dd class="codr_dd"><strong><em class="ssg_price" id="pretotalprice"></em><span class="ssg_tx paySummaryPaySymbol notranslate">원</span></strong></dd>
 										</dl>
 										<dl class="codr_dl codr_dl_billeddc codr_tx_gray show_gl hide_ko" role="presentation">
 											<dt class="codr_dt">
@@ -678,7 +685,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								</div>
 								<button type="button" class="codr_btn codr_btn_payment notranslate payTracking" data-pt-click="PC개편주문서|우측간편주문|간편주문결제하기" name="processOrderButton">
 									<span>
-										<em class="ssg_price paySummaryPayAmt paySummaryTgtPaymtAmt">1,912,000</em><span class="ssg_tx paySummaryPaySymbol notranslate">원</span>
+										<em class="ssg_price" id="totalprice2"></em><span class="ssg_tx paySummaryPaySymbol notranslate">원</span>
 										<span>결제하기</span>
 										<span class="tx_benefit cardDcInfoAmtDiv" style="display:none;">
 											<span>청구할인예상금액</span>
@@ -697,6 +704,10 @@ function setCommonGnbCookie(name, value, expiredays) {
 					</div>
 				</div>
 			</div>
+			<script>
+			
+			
+			</script>
 			<div class="codr_col_lft">
 				
 
@@ -873,7 +884,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<div class="codr_pay_box">
 									<div class="codr_meminfo">
 										<strong class="codr_meminfo_tx notranslate rcptpeInfoArea_0">
-											${requestScope.al[0].name}<em>${requestScope.al[0].phonenum}</em>
+											${requestScope.user[0].name}<em>${requestScope.user[0].phonenum}</em>
 										</strong>
 										
 										<span class="codr_meminfo_tel notranslate rcptpTelnoArea_0" style="display:none;">
@@ -883,7 +894,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="codr_meminfo_addr">
 											<span class="blind">주소</span>
 											<span class="notranslate shpplocInfoArea_0">
-												여기다가 배송지주소
+												${requestScope.user[0].roadaddress }
 											</span>
 											
 											<div class="codr_btnarea_rgt">
@@ -942,25 +953,17 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<input type="hidden" id="deliShppMemoInput_0" name="shpploc[0].deliShppMemo" value="" class="saveOrdUserDefiMemo deliShppMemo payTracking" data-pt-click="PC개편주문서|배송메시지|택배배송메시지선택">
 										<input type="hidden" name="shpploc[0].deliShppMemoCommCdNo" value="99" class="saveOrdUserDefiMemo">
 										<span class="codr_pay_drop">
-											<select data-template="#_dropdown" class="_dropdown deliShppMemoSelect" title="배송메시지 선택" id="deliShppMemo_0" data-bulk-yn="N" onchange="PayCustomEvent.changeDeliShppMemo(event, this);return false;" style="display:none">
-												<option value="">배송기사에게 전달되는 메시지 입니다. 선택해 주세요.</option>
-
-												
-													<option value="부재 시 경비실에 맡겨주세요" data-commcdno="10">부재 시 경비실에 맡겨주세요</option>
-												
-													<option value="부재 시 문앞에 놓아주세요" data-commcdno="20">부재 시 문앞에 놓아주세요</option>
-												
-													<option value="직접 받겠습니다" data-commcdno="30">직접 받겠습니다</option>
-												
-													<option value="배송전에 연락주세요" data-commcdno="40">배송전에 연락주세요</option>
-												
-													<option value="msgDirect" data-commcdno="99" selected="selected">직접 입력</option>
-												
-
-												
-													<option value="문 앞에 놔주세요" data-commcdno="99" selected="selected">문 앞에 놔주세요</option>
-												
-											</select></span>
+											<select name="" id="" style="width:300px; height: 40px; text-align: center; font-size: 14px; font-weight: bold;">
+											<option value="부재 시 경비실에 맡겨주세요">부재 시 경비실에 맡겨주세요</option>
+											<option value="부재 시 문앞에 놓아주세요">부재 시 문앞에 놓아주세요</option>
+											<option value="직접 받겠습니다">직접 받겠습니다</option>
+											<option value="배송전에 연락주세요">배송전에 연락주세요</option>
+											<option value="문 앞에 놔주세요">문 앞에 놔주세요</option>
+											<option value="직접 입력">직접 입력</option>
+											
+											</select>
+											
+											</span>
 										<span class="codr_txt focus_visible" id="msgDeliDirect_0" style="display:none;">
 											<label for="deliShppMemoTxtArea_0" class="blind">배송메시지 입력</label>
 											<input type="text" id="deliShppMemoTxtArea_0" data-bulk-yn="N" placeholder="50자 이내로 입력해 주세요." maxlength="50">
@@ -1002,7 +1005,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 						<span class="codr_dt_tit">주문자명/이메일</span>
 					</dt>
 					<dd class="codr_dd notranslate">
-						<span class="ordpeEmailArea"> 주문자이름 / 이메일주소넣는곳</span>
+						<span class="ordpeEmailArea"> ${requestScope.user[0].name } / ${requestScope.user[0].email
+						 }</span>
 						<a href="javascript:void(0);" name="btnChangeUserInfo" data-authtype="" class="codr_btn_txornge payTracking" data-pt-click="PC개편주문서|주문자정보|정보변경">
 							<span class="tx_ko">주문자 정보 변경</span>
 							<span class="codr_sp codr_ico_arr"></span>
@@ -1251,7 +1255,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 	<div class="codr_acdo">
 	<div class="codr_acdo_tit">
 		<!-- 주문갯수 -->
-		<h2 class="codr_acdo_tittx">주문상품 : <em>100000</em><span class="notranslate"><span class="tx_ko">개</span></span></h2>
+		<h2 class="codr_acdo_tittx">주문상품 : <em>${al.size()}</em><span class="notranslate"><span class="tx_ko">개</span></span></h2>
 	</div>
 	<div class="codr_acdo_cont">
 	<div class="codr_moretgl codr_toggle">
@@ -1265,94 +1269,24 @@ function setCommonGnbCookie(name, value, expiredays) {
 						<col style="width:180px">
 					</colgroup>
 					<tbody>
-
-	
-						
-						<tr class="codr_unit_area itemUnit_0 pay_item_area">
-							<td class="codr_thmb">
-								<div class="codr_unit_thmb">
-									<span  aria-hidden="true"><img src="/jspPro/project/image/baekyerin.jpg" style="width: 100px; width: 100px;"  ></span>
-								</div>
-							</td>
-							<td class="codr_unit_cont">
-								<div class="codr_unit_mallarea">
-									<span class="cm_mall_ic ty_rect_s notranslate">
-										
-
-
-
-    
-    
-    <!-- 브랜드이미지위치 -->
-    <i><span><img src="/jspPro/project/image/gdragon.jpg" alt="" style="width: 60px; height: 20px;"/></span></i>
-    
-    
-    
-
-
-
-									</span>
-									
-									
-										
-										
-										
-									
-									
-										
-										
-										
-										
-									
-								</div>
-								<p class="codr_unit_tit notranslate">
-									<!-- 상품명위치 -->
-										<strong class="codr_unit_brd">
-											<span class="tx_ko">정국세븐</span>
-										</strong>
-									
-									<span class="codr_unit_name">
-										<span class="tx_ko">gather around and look at me</span>
-									</span>
-								</p>
-								
-								
-								
-								
-								
-									<span class="codr_unit_line"></span>
-									<div class="codr_unit_option">mondaystuesdaywednesday</div>
-									
-								
-							</td>
-							
-							<td class="codr_unit_pricewrap">
-								
-								
-								
-								
-								<div class="codr_unit_newprice notranslate">
-									<!-- 가격위치 -->
-									<span class="blind">판매가격</span><em class="ssg_price">43,000</em> <span class="ssg_tx">원</span>
-									<div class="ssg_price_ko show_gl hide_ko">(￦1,912,000)</div>
-									<div class="ssg_price_desc show_gl hide_ko">Approximate Price</div>
-								</div>
-								
-									<div class="codr_unit_oldprice">
-										<!-- 가격위치 -->
-										<del><span class="blind">정상가격</span><em class="ssg_price">50,000</em></del> <span class="ssg_tx">원</span>
-									</div>
-								
-								<span class="codr_unit_line"></span>
-								<!-- 	수량위치 -->
-								<span class="codr_unit_count"><strong>수량</strong> <em class="num">2,000,000</em> <span class="notranslate"><span class="tx_ko">개</span></span></span>
-							</td>
+					<c:forEach begin="0" end="${al.size()}" var="items" items="${al}" varStatus="count" >
+					
+					<tr style="height: 100px;">
+						<td> <img src="${items.imgurl}" alt="" /> d</td>
+						<td>${items.brand } <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } </td>
+						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/> ${items.price } </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;">${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
 						</tr>
-	
-
+					
+					</c:forEach>
+					
+					
+					
+						
+				
 					</tbody>
 				</table>
 			</div>
+			
 	
 		</div>
 	</div>
@@ -1442,7 +1376,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<dd class="codr_dd">
 									<span class="codr_dc_total">
 										<!-- 정상가격 -->
-										<span class="ssg_price">50,000</span><span class="ssg_tx">원</span>
+										<span class="ssg_price"></span>
+										<c:set value="0" var="totalprice"></c:set>
+										<c:forEach begin="0" end="${al.size() }" items="${al }" var="items">
+											<c:set var="totalprice" value="${totalprice+items.price}"></c:set>
+										</c:forEach>
+										<f:formatNumber value="${totalprice}" type="number" pattern="#,##0" ></f:formatNumber>
+										<span class="ssg_tx">원</span>
 									</span>
 									
 								</dd>
@@ -1462,7 +1402,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<dd class="codr_dd">
 											<span class="codr_dc_price">
 												<!-- 할인가격 -->
-												<span class="codr_plusminus dispTotItemDiscountAmtPlusMinus">- </span><span class="ssg_price">7,000</span><span class="ssg_tx">원</span>
+												<span class="codr_plusminus dispTotItemDiscountAmtPlusMinus">- </span><span class="codr_dc_total">
+									<c:set var="totaldisprice" value="0"></c:set>
+									<c:forEach begin="0" end="${al.size()}" items="${al }" var="items">
+									 <c:set var="totaldisprice" value="${totaldisprice + items.specialp}"></c:set>
+									</c:forEach>
+									<span class="ssg_price " id="specialdis" value="${totaldisprice}"> ${totaldisprice}
+									 </span><span class="ssg_tx">원</span>
 											</span>
 											<button type="button" class="codr_toggle_btn on">
 												<span class="sr_off"><span class="blind">상품할인</span>전체보기</span>
@@ -1477,136 +1423,14 @@ function setCommonGnbCookie(name, value, expiredays) {
 									
 									
 										<div class="mnodr_subform_sec ">
+											<c:forEach begin="0" end="${al.size() }" var="items" items="${al }" varStatus="count">
+											
 											<dl class="mnodr_priceitem ty_narrow">
 												
-													
-													
 														<dt>
 															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
 																	<span class="codr_tx_gray">상품즉시할인</span>
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
-																
-															
+														
 																
 															
 																
@@ -1614,11 +1438,14 @@ function setCommonGnbCookie(name, value, expiredays) {
 														</dt>
 														<dd>
 															<!-- 자세히보기 할인 -->
-															<span class=" codr_tx_gray">- <span class="ssg_price">7,000</span><span class="ssg_tx">원</span></span>
+															<span class=" codr_tx_gray">- <span class="ssg_price" >${items.specialp }</span><span class="ssg_tx">원</span></span>
 														</dd>
+														
 													
 												
 											</dl>
+											</c:forEach>
+											
 										</div>
 									
 									
@@ -1636,7 +1463,10 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<div class="codr_bxtgl codr_toggle ty_coupon">
 										<div>
 											<span class="codr_dc_price">
-												<span class="codr_plusminus dispItemOrdCpnPromTotAmtPlusMinus" style="display: none;">- </span><em class="ssg_price">2000</em><span class="ssg_tx">원</span>
+												<span class="codr_plusminus dispItemOrdCpnPromTotAmtPlusMinus" style="display: none;">- </span><em class="ssg_price" id="coupondis">0</em><span class="ssg_tx">원</span>
+											<script>
+												
+											</script>
 											</span>
 											<span class="codr_dc_type">[할인] </span>
 											/
@@ -1662,177 +1492,56 @@ function setCommonGnbCookie(name, value, expiredays) {
 													</colgroup>
 													<tbody>
 														
-															
-															
+														<c:forEach begin="0" end="${al.size()}" var="items" items="${al }">
 															<tr class="codr_unit_area">
 																<td class="codr_thmb">
 																	<div class="codr_unit_thmb">
-																		<span aria-hidden="true"><img src="/jspPro/project/image/baekyerin.jpg" style="width: 100px; height: 100px;" alt="까사미아 쿠나 액티브 4인 소파(컬러 택1)"></span>
+																		<span aria-hidden="true"><img src="${items.imgurl }" style="width: 100px; height: 100px;" alt="까사미아 쿠나 액티브 4인 소파(컬러 택1)"></span>
 																	</div>
 																</td>
 																<td class="codr_unit_cont">
 																	<div class="codr_unit_mallarea">
 																		<span class="cm_mall_ic ty_rect_s notranslate">
-																			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-
-
-
+																	
 																		</span>
 																	</div>
+																	
 																	<p class="codr_unit_tit notranslate">
 																		
 																		<strong class="codr_unit_brd">
-																			<span>브랜드명</span>
+																			<span>${items.brand }</span>
 																		</strong>
 																		
 																		<span class="codr_unit_name">
-																			<span>제품명</span>
+																			<span>${items.seller }</span>
 																		</span>
 																	</p>
 																</td>
-																<td class="codr_unit_dc">
-																	
-																	
-																	
-																	<span class="codr_pay_drop"> <!-- 상품 쿠폰 쪽 -->
-																		<select id="secItemProm_1" name="secItemPromApl[0]" data-offer-apl-key="" data-userselected="" data-template="#_dropdown" class="_dropdown secItemPromApl" title="상품쿠폰 선택"  style="display:none" >
-																			
+																
+																			<c:choose>
+																					<c:when test="${empty coupon }">
+																			 <td class="codr_unit_dc">
+																				<select name="" id="couponselect" style="width: 230px; height: 40px; font-size: 15px;">
+																				 <option style="border-radius: 0" value="0">적용가능한 쿠폰이없습니다. </option>
 																				
-																					<option value="1:::#0:::::">적용가능한 상품쿠폰이 없습니다.</option>
-																					<option value="1:::#1:::::">적용가능한 나는이 없습니다.</option>
+																				</select>
+																				
+																				</td>
+																	        		</c:when>
+																					<c:otherwise>
+																				  <td class="codr_unit_dc">
+																				 <select name="" id="couponselect${items.optionid}" style="width: 230px; height: 40px; font-size: 15px;">
+																				 <option value="0" style="border-radius: 0">적용 가능한 쿠폰을 선택해주세요.</option>
+																				<c:forEach begin="0" end="${coupon.size()}" items="${coupon }" var="items" varStatus="count" >
+																				 <option value="${items.discountrate }" style="border-radius: 0">${items.discountrate }퍼센트 할인 쿠폰 </option>
+																				 </c:forEach>
+																				</select>
+																				
+																				</td> 
+																					</c:otherwise>
+																				</c:choose>
 																					
-																		</select></span>
-																</td>
+																		
 																
 																	<td class="codr_unit_cpn" rowspan="1">
 																		<span class="codr_pay_drop">
@@ -1844,12 +1553,14 @@ function setCommonGnbCookie(name, value, expiredays) {
 																				
 																			</select></span>
 																	</td>
-																
 															</tr>
-														
+															
+														</c:forEach>
 													</tbody>
 												</table>
 											</div>
+											
+											 
 											<p class="codr_tx_check codr_tx_gray codr_tx_rgt">※ 적용가능한 쿠폰만 노출됩니다.</p>
 											<p class="codr_tx_check codr_tx_gray codr_tx_rgt ssgpaySecCpnGuideArea" style="display:none;">※ SSGPAY 전용쿠폰은 SSGPAY로 결제 시 자동 적용됩니다.</p>
 										</div>
@@ -1952,7 +1663,9 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<span class="codr_dt_tit">할인금액</span>
 								</dt>
 								<dd class="codr_dd">
-									<span class="codr_dc_total">- <span class="ssg_price ">7,000</span><span class="ssg_tx">원</span></span>
+									<span class="codr_dc_total">- <span class="ssg_price " id="totaldisco">
+									
+									 </span><span class="ssg_tx">원</span></span>
 								</dd>
 							</dl>
 						</div>
@@ -2007,10 +1720,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 							</div>
 						</div>
 					
-					
-
-					
-					
 						<div class="codr_acdo" id="pointArticle">
 							<div class="codr_acdo_tit" id="codr_ctn_ssgpoint" tabindex="-1">
 								<h2 class="codr_acdo_tittx"><span class="shinsegaePointTitle">신세계포인트 사용 및 카드 적립</span></h2>
@@ -2030,7 +1739,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 											</span> 
 												<button type="button" name="spointCheckPop" class="codr_btn codr_btn_bxgray" data-pt-click="PC개편주문서|포인트|신세계포인트사용" style="display:none;">사용</button>
 												<button type="button" id="allpoint" name="allpoint" class="codr_btn codr_btn_bxgray" data-pt-click="PC개편주문서|포인트|신세계포인트사용">전체사용</button>
-												<span class="codr_potint_tx notranslate">(<span>잔여</span> : <span id="allpoints">18,900원</span> )</span>
+												<span class="codr_potint_tx notranslate">(<span>잔여</span> : <span id="allpoints">${requestScope.user[0].cpoint}원</span> )</span>
 												<script>
 													$("#allpoint").on("click",function(){
 														$("#ssgpoint").val(Number($("#allpoints").text().replace(/,|원/g,'')));
@@ -2064,7 +1773,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 											</ul>
 										</div>
 										<span class="codr_chk pointAccumArticle">
-											<input type="checkbox" id="ssgpntCrdNoChk" name="ssgpntCrdNoChk" class="payTracking" data-pt-click="PC개편주문서|포인트|신세계포인트카드적립" checked=""><label for="ssgpntCrdNoChk"><strong>신세계포인트 카드 적립</strong></label>
+											<input type="checkbox" id="ssgpntCrdNoChk" name="ssgpntCrdNoChk" class="payTracking" data-pt-click="PC개편주문서|포인트|신세계포인트카드적립" checked><label for="ssgpntCrdNoChk"><strong>신세계포인트 카드 적립</strong></label>
 										</span>
 									
 								</div>
@@ -2117,7 +1826,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<div style="display: inline-block; width: 200px; height: 200px; text-align: center ;">토스 결제</div> <div style="display: inline-block; width: 200px; height: 200px; text-align: center ;">카카오페이 결제</div></div>
 							<button type="button" class="codr_btn_payment payTracking notranslate" data-pt-click="PC개편주문서|결제하기|바닥페이지결제하기" name="processOrderButton">
 								<span>
-									<em class="ssg_price paySummaryPayAmt paySummaryTgtPaymtAmt">1,912,000</em>
+									<em class="ssg_price" id="totalprice1"></em>
 									<span class="ssg_tx paySummaryPaySymbol">원</span>
 									<span class="tx_ko">결제하기</span>
 									<span class="tx_benefit cardDcInfoAmtDiv" style="display:none;">
@@ -2135,7 +1844,10 @@ function setCommonGnbCookie(name, value, expiredays) {
 				</div>
 				<!-- E: [결제방법] -->
 			</div>
-
+			<script>
+			
+			
+			</script>
 			
 			<div id="paymtFrameDiv" style="width:780px; padding:5px; display:none; z-index:1;">
 				<div id="paymtProcessFrameDiv" style=""></div>
@@ -3028,22 +2740,7 @@ function setCommonGnbCookie(name, value, expiredays) {
     {{/each}}
 </script>
 <script id="_dropdown" type="text/x-jquery-tmpl">
-	<div class="codr_drop">
-		<div class="codr_drop_area">
-			<button type="button" class="codr_drop_select _drop_select" aria-haspopup="listbox">
-				{{tmpl(selected) "#_dropdown-selected"}}
-			</button>
-			<div class="codr_drop_scroll">
-				<div class="codr_scroll">
-					<ul class="codr_drop_list _drop_list" role="listbox" aria-activedescendant="drop_select" tabindex="-1">
-						{{if items}}
-							{{tmpl "#_dropdown-list"}}
-						{{/if}}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </script>
 <script type="text/javascript" src="https://sui.ssgcdn.com/ui/pay/js/tools/jquery/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="https://sui.ssgcdn.com/ui/pay/js/tools/json/json2.js"></script>
@@ -8604,22 +8301,26 @@ var ssgpayCardMngBtnShowYn = "Y";
 
 </script>
 
+<script>
 
+<div class="codr_drop">
+	<div class="codr_drop_area">
+		<button type="button" class="codr_drop_select _drop_select" aria-haspopup="listbox">
+			{{tmpl(selected) "#_dropdown-selected"}}
+		</button>
+		<div class="codr_drop_scroll">
+			<div class="codr_scroll">
+				<ul class="codr_drop_list _drop_list" role="listbox" aria-activedescendant="drop_select" tabindex="-1">
+					{{if items}}
+						{{tmpl "#_dropdown-list"}}
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</script>
 
 
 
@@ -8819,7 +8520,59 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
     document.head.appendChild(script);
 }
 </script>
+<script>
+				
+	  				/* 쿠폰사용시 스크립트	 */
+	  					
+	  					let alarr = "${al}";
+	  					
+	  					let optionids = [] ;
+	  					let index = 0 ;
+	  					while ((index = alarr.indexOf("optionid=", index)) !== -1) {
+							let start = index + "optionid=".length ;
+							let end = alarr.indexOf(",",start);
+							
+							
+							let optionid = alarr.substring(start,end);
+							optionids.push(optionid);
+							index = end ;
+						}
+	  					let totalpr = 0;
+	  					for (let k = 0; k < optionids.length; k++) {
+	  						   
+	  					   (function(currentindex){
+	  						    totalpr += parseFloat($("#price" + currentindex).val());
+	  						 
+	  						   $("#totalprice1").html(totalpr.toLocaleString("ko-KR"));
+	  						   $("#totalprice2").html(totalpr.toLocaleString("ko-KR"));
+	  						   $("#pretotalprice").html(totalpr.toLocaleString("ko-KR"));
+	  						   $("#totalprice4").html(totalpr.toLocaleString("ko-KR"));
+	  						   
+	  					       $("#couponselect" + optionids[currentindex]).on("change", function() {
+	  					            let a = $("#price" + currentindex).val();
+	  					            
+	  					           let value = $("#price" + currentindex).val() * $(this).val() / 100;
+	  					           $("#coupondis").html(value);
+	  					           let dis1 = $("#specialdis").val();
+	  					           $("#totaldisco").html(dis1+value);
+	  					           let totalprice = $("#price" + currentindex).val() - (dis1+value);
+	  					          
+	  					           $("#totalprice1").html(totalprice.toLocaleString("ko-KR"));
+	  					           $("#totalprice2").html(totalprice.toLocaleString("ko-KR"));
+	  					           $("#pretotalprice").html(totalprice.toLocaleString("ko-KR"));
+	  					           $("#coupondis5").html((dis1+value).toLocaleString("ko-KR"));
+	  					           $("#coupondis5").val((dis1+value).toLocaleString("ko-KR"));
+	  					           $("#discountprice4").html($("#coupondis5").val() + $("#prodis5").val() );
+	  					           
+	  					        })
+	  					  })(k);
+	  					}
+	  					
 
+	  					
+	  					
+											
+		           	</script>
 <script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1668002603429849");fbq("track","PageView");</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1668002603429849&amp;ev=PageView&amp;noscript=1"></noscript>
 <script type="text/javascript" id="ga4_jshandler">function logEvent(a,b){a&&(window.AnalyticsWebInterface?window.AnalyticsWebInterface.logEvent(a,JSON.stringify(b)):window.webkit&&window.webkit.messageHandlers&&window.webkit.messageHandlers.firebase&&(a={command:"logEvent",name:a,parameters:b},window.webkit.messageHandlers.firebase.postMessage(a)))}
