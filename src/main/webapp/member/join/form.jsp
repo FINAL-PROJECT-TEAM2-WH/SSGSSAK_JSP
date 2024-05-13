@@ -403,9 +403,12 @@
                         <dd class="cmem_dd">
                             <div class="cmem_inpgrp ty_pw">
                                 <div class="cmem_txt">
-                                    <input type="password" placeholder="입력하신 비밀번호를 한 번 더 입력해주세요." id="pwd2" class="translated" maxlength="20"/><span class="trans_placeholder blind" data-default-txt="입력하신 비밀번호를 한 번 더 입력해주세요.">입력하신 비밀번호를 한 번 더 입력해주세요.</span>  
+                                    <input type="password" placeholder="입력하신 비밀번호를 한 번 더 입력해주세요." id="pwd2" class="translated" maxlength="20"/><span class="trans_placeholder blind" data-default-txt="입력하신 비밀번호를 한 번 더 입력해주세요.">입력하신 비밀번호를 한 번 더 입력해주세요.</span>                              
                                 </div>
                             </div> 
+                             <span class="cmem_noti" aria-live="polite">
+											<em class="usable_value"><p id="pwd_msg"></p></em>
+							</span>
                         </dd>
                          
                     </dl>
@@ -419,8 +422,11 @@
                         <dd class="cmem_dd">
                             <div class="cmem_inpgrp ty_pw">
                                 <div class="cmem_txt">
-                                    <input type="text" placeholder="dada" id="mbrname" name="mbrDto.name" class="translated" maxlength="20"/><span class="trans_placeholder blind" data-default-txt="영문, 숫자 조합 8~20자리로 입력해주세요.">영문, 숫자 조합 8~20자리로 입력해주세요.</span>
+                                    <input type="text" placeholder="きみのなまえわ" id="mbrname" name="mbrDto.name" class="translated" maxlength="20"/><span class="trans_placeholder blind" data-default-txt="영문, 숫자 조합 8~20자리로 입력해주세요.">영문, 숫자 조합 8~20자리로 입력해주세요.</span>
                                 </div>
+                                 <span class="cmem_noti" aria-live="polite">
+											<em class="usable_value"><p id="name_msg" style="padding-top: 13px"></p></em>
+								</span>
                             </div>
                         </dd>
                     </dl>
@@ -484,7 +490,11 @@
 									<input type="tel" id="mbrCntsELno" title="휴대폰 번호 뒷자리" placeholder="- 없이 뒷자리를 입력해주세요."
 									value="" class="input_text small" name="mbrCntsELno"
 										style="width: 136px; ime-mode: disabled; margin: 11px"/>
+										<span class="cmem_noti" aria-live="polite">
+											<em class="usable_value"><p id="mbrCntsELno_msg" style="padding-top: 15px"></p></em>
+								</span>
 								</div>
+								
 							</div>
 						</div>                    
                                 <!-- <span class="cmem_dd_cont">휴대폰인증으로 추후구현.</span>      -->                                           
@@ -498,10 +508,13 @@
 							</span> 
                         </dt>
                         <dd class="cmem_dd">
-                            <div class="cmem_inpgrp ty_id">
+                            <div class="cmem_inpgrp ty_id" style="">
                                 <div class="cmem_txt">
-                                    <input type="text" id="email" placeholder="자주 사용하시는 이메일 주소를 입력해주세요." class="translated" name="email" maxlength="50"/><span class="trans_placeholder blind" data-default-txt="자주 사용하시는 이메일 주소를 입력해주세요.">자주 사용하시는 이메일 주소를 입력해주세요.</span>
+                                    <input type="text" id="email_input" placeholder="자주 사용하시는 이메일 주소를 입력해주세요." class="translated" name="email" maxlength="50"/><span class="trans_placeholder blind" data-default-txt="자주 사용하시는 이메일 주소를 입력해주세요.">자주 사용하시는 이메일 주소를 입력해주세요.</span>
                                 </div>
+                                 <span class="cmem_noti" aria-live="polite">
+											<em class="usable_value"><p id="email_msg" style="padding-top: 13px"></p></em>
+								</span>
                             </div>
                         </dd>
                     </dl>
@@ -1107,6 +1120,66 @@ $(function(){
             $(this).val(inputVal.toLowerCase());
             $(this).val($(this).val().replace(/[^a-z0-9]/g, ""));
         });
+ 				 
+		 const regex = new RegExp('^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,20}$');
+		 $('#pwd2').on('keyup', function () {		 
+			 if (regex.test($('#pwd').val())) {
+					if ($('#pwd').val() === $(this).val()) {
+						 $('#pwd_msg')
+						 .css('color','blue')
+						 .text("사용가능한 암호");
+					}else{
+						$('#pwd_msg')
+					 	.css('color','red')
+					 	.text("패스워드를 동일하게 설정해주세요."); 
+					}
+				}else{				
+					$('#pwd_msg')
+				 	.css('color','red')
+				 	.text("비밀번호는 최소 8자에서 20자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다."); 
+				}
+			});
+			
+		const pattern = new RegExp('^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+');
+		
+		$('#email_input').on('keyup', function () {		 
+			 if (pattern.test($(this).val())){
+				 $('#email_msg')
+					.text(' ');
+			} else {
+				$('#email_msg')
+				.css('color','red')
+				.text('이메일 형식에 맞지 않습니다.');
+			} 
+		});
+		
+		const numPattern = new RegExp('([0-9]{3,4})([0-9]{4})$');
+		
+		$('#mbrCntsELno').on('keyup', function () {		 
+			 if (numPattern.test($(this).val())){
+				 $('#mbrCntsELno_msg')
+					.text(' ');
+			} else {
+				$('#mbrCntsELno_msg')
+				.css('color','red')
+				.text('전화번호 형식에 맞지 않습니다.');
+			} 
+		});
+		
+		const regexName = new RegExp('^[가-힣a-zA-Z\s]+$');
+		
+		$('#mbrname').on('keyup', function () {		 
+			 if (regexName.test($(this).val())){
+				 $('#name_msg')
+					.text(' ');
+			} else {
+				$('#name_msg')
+				.css('color','red')
+				.text('한글 그리고 영어 혹은 완성된 이름을 써주세요.');
+			} 
+		});
+		
+		
 
         $("#checkDuplicateLoginIdBtn").click(function (e) {
             e.preventDefault();
@@ -1211,6 +1284,16 @@ $(function(){
 </script>
 
 <script>
+
+	// password 확인 시에 키업 해서 패스워드가 대소문자 구분해서 일치하는지 확인해야됨.
+	// 핸들러를 써서 그냥 id 중복 체크하듯이 비밀번호가 맞는지 체크하는 ajax 핸들러 쓰는 게 좋아보임
+	
+	
+	
+	
+	// 이메일도 마찬가지임. 
+	
+	
 
 	$('#btnSubmit_join').on('click', function () {
 		let params = $('#joinForm').serialize();
