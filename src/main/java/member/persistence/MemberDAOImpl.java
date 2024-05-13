@@ -502,7 +502,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public Map<String, String> agreeInfoRcv(String id) throws SQLException {
+	public Map<String, String> agreeInfoRcv(String id, String conditionName) throws SQLException {
 		String email = getEmail(id);
 		String phoneNum = getPhoneNum(id);
 		String prePhoneNum = phoneNum.substring(0,3);
@@ -519,14 +519,62 @@ public class MemberDAOImpl implements MemberDAO{
 		String postPhoneNum = phoneNum.substring(phoneNum.length()-4);
 
 		String name = getName(id);
+		
+		// 마케팅 id 22번 23번 24번 ssgInfoRcvAgree=10
+		ArrayList <String> conList = getAgreement(id, conditionName);
+		
+		
 
 		Map <String,String> infoMap = new HashMap<String, String>();
+		
+		if ( conList != null) {
+			for (int i = 0; i < conList.size(); i++) {
+				infoMap.put(conList.get(i), "true");
+			}
+		} else {
+			
+			// 동의를 안했을 경우. 
+			infoMap.put(conditionName, "false");
+		}
+			
 		infoMap.put("email", preEmail + star + postEmail);
 		infoMap.put("prePhoneNum", prePhoneNum);
 		infoMap.put("postPhoneNum", postPhoneNum);
 		infoMap.put("name", name);
 		return infoMap;
 
+	}
+	
+	
+	@Override
+	public ArrayList<String> getAgreement(String id, String conditionName) throws SQLException {
+		String sql = " SELECT t.name conName"
+				+ " FROM agreement d left join terms t on d.terms_id=t.id "
+				+ " WHERE REGEXP_LIKE(t.name, ? ) AND d.memid = ? ";
+		ArrayList<String> condiList = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, conditionName);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();		
+			if ( rs.next()) {
+				condiList = new ArrayList();
+				do {
+					String conName = rs.getString("conName");		
+					condiList.add(conName);
+				} while(rs.next());
+			} 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		
+		return condiList;
 	}
 
 

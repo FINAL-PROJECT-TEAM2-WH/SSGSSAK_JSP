@@ -44,42 +44,29 @@ public class AgreeInfoHandler implements CommandHandler{
 			// GET 요청 
 			// GET 요청 시에는 회원 정보 값들을 불러와서 기존 값에 넣어줘야함. 
 			System.out.println(" > AgreeInfoHandler 'GET' get in");
+			
+			String queryString = request.getQueryString();
+			System.out.println(queryString);
+		
 			Map<String,String> infoMap = new HashMap<String, String>();
 			Connection conn = ConnectionProvider.getConnection();
 			MemberDAO dao = new MemberDAOImpl(conn);
 			AgreeInfoService service = new AgreeInfoService(dao);
-			infoMap = service.originInfoLoad(id);	
+			infoMap = service.originInfoLoad(id, queryString);	
 			infoMap.put("id", id);
 			request.setAttribute("info", infoMap);
 			String path = "/userinfo/myInfoMng/infoRcvAgree.jsp";
 			dispatcher = request.getRequestDispatcher(path); 
 			dispatcher.forward(request, response);
 		} else {
-			/*
-			 * // POST 요청 System.out.println(" > changeInfoHandler 'POST' get in"); String
-			 * cPhoneNum = (String)request.getParameter("mbrCntsano"); String pPhoneNum =
-			 * (String)request.getParameter("mbrCntsELno"); String cEmail =
-			 * (String)request.getParameter("email");
-			 * 
-			 * System.out.println( " > ChangeInfo Handler get in : " + id);
-			 * 
-			 * System.out.println(id + " " + cPhoneNum + " " + cEmail); cPhoneNum +=
-			 * pPhoneNum; Connection conn = ConnectionProvider.getConnection(); MemberDAO
-			 * dao = new MemberDAOImpl(conn); ChangeInfoService service = new
-			 * ChangeInfoService(dao); int rowCount =
-			 * service.changeinfo(id,cPhoneNum,cEmail); String path =
-			 * "/userinfo/myInfoMng/changeInfoProcess.jsp";
-			 * 
-			 * 
-			 * 
-			 * String resultJson = "{\"resultCode\":"; if (rowCount >= 1) {
-			 * System.out.println("회원정보가 변경됐습니다."); // userinfo페이지로 이동. resultJson +=
-			 * "\"SUCCESS\", \"resultMsg\":\"SUCCESS\"}"; System.out.println(resultJson); }
-			 * else { System.out.println("회원정보 변경 실패"); resultJson +=
-			 * "\"FALSE\", \"resultMsg\":\"FALSE\"}"; System.out.println(resultJson); }
-			 * request.setAttribute("resultJson", resultJson); dispatcher =
-			 * request.getRequestDispatcher(path); dispatcher.forward(request, response);
-			 */
+			// POST 요청
+			System.out.println(" > AgreeInfoHandler 'POST' get in ");
+			String addtInfoAgree = request.getParameter("addtInfoAgree");
+			String emailRcvYn = request.getParameter("emailRcvYn");
+			String smsRcvYn = request.getParameter("smsRcvYn");
+			
+			System.out.println(addtInfoAgree + " " + emailRcvYn + " " + smsRcvYn);
+			
 		}
 		
 		
