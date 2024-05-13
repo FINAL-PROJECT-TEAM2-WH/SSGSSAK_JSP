@@ -51,17 +51,18 @@ import java.io.IOException;
 		            res = stmt.executeQuery(sql);
 
 		            while (res.next()) {
-		                String memberID = res.getString("member_ID");
+		                String ID = res.getString("ID");
 		                String evnNm = res.getString("evnNm");
 		                String evnImg = res.getString("evnImg");
 		                java.sql.Date evnStrDt = res.getDate("evnStrDt");
 		                java.sql.Date evnEnDt = res.getDate("evnEnDt");
 
-		                out.print("memberID : " + memberID + ", ");
+		                out.print("ID : " + ID + ", ");
 		                out.print("evnNm : " + evnNm + ", ");
 		                out.print("evnImg : " + evnImg + ", ");
 		                out.print("evnStrDt : " + evnStrDt + ", ");
 		                out.print("evnEnDt : " + evnEnDt);
+		                System.out.print(evnImg);
 		            }
 
 		        } catch (Exception e) {

@@ -9,7 +9,7 @@ import member.domain.MemberDTO;
 public interface MemberDAO {
 	// idcheck 함수
 	
-	public String idCheck(Connection conn,String id) throws SQLException;
+	public String idCheck(String id) throws SQLException;
 	
 	// Member의 id passwd 갖고 오는 
 	
@@ -50,4 +50,6 @@ public interface MemberDAO {
 	// 마케팅 정보 관련 함수. 
 	
 	public Map<String,String> agreeInfoRcv(String id) throws SQLException;
+
+	public int registerMbr(MemberDTO dto) throws SQLException;
 }

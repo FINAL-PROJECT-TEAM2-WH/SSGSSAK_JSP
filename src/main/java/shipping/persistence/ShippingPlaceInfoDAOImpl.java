@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
+import member.domain.PageDTO;
 import shipping.domain.ShippingPlaceInfoDTO;
 
 public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
@@ -321,8 +322,120 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		return 0;
 	}
+
+	@Override
+	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoPageList(Connection conn, String memid, int currentPage,
+			int numberPerPage) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<ShippingPlaceInfoDTO> spiList = null;
+		ShippingPlaceInfoDTO spiDto = null;
+		long id = 0;
+		String addressnick = null;
+		String receiveMem = null;
+		String roadAddress = null;
+		String jibunAddress = null;
+		String detailAddress = null;
+		String tel = null;
+		String postnum = null;
+		String defaultShipping = null;
+		
+		String sql = "	SELECT * FROM "
+				+ "	( "
+				+ "	SELECT ROWNUM no, t.* "
+				+ "	FROM "
+				+ "	( "
+				+ "	SELECT id, memid, addressnick, receivemem, roadaddress, jibunaddress, detailaddress, tel, postnum, defaultshipping "
+				+ "	FROM SHIPPINGPLACEINFORMATION "
+				+ "	WHERE memid = '"+ memid +"'"
+				+ "	ORDER BY defaultshipping DESC, id DESC "
+				+ "	) t "
+				+ "	) b "
+				+ "	WHERE no BETWEEN ? and ? ";
+		
+		System.out.println(sql);
+		try {
+			int start = (currentPage - 1) * numberPerPage + 1 ;
+			int end = start + numberPerPage - 1 ; 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) {
+				spiList = new ArrayList<ShippingPlaceInfoDTO>();
+				
+				do {
+					id = rs.getLong("id");
+					addressnick = rs.getString("addressnick");
+					receiveMem = rs.getString("receiveMem");
+					roadAddress = rs.getString("roadAddress");
+					jibunAddress = rs.getString("jibunAddress");
+					detailAddress = rs.getString("detailAddress");
+					tel = rs.getString("tel");
+					postnum = rs.getString("postnum");
+					defaultShipping = rs.getString("defaultShipping");
+					
+					spiDto = new ShippingPlaceInfoDTO().builder()
+							.id(id)
+							.addressnick(addressnick)
+							.receiveMem(receiveMem)
+							.roadAddress(roadAddress)
+							.jibunAddress(jibunAddress)
+							.detailAddress(detailAddress)
+							.tel(tel)
+							.postnum(postnum)
+							.defaultShipping(defaultShipping)
+							.build();
+					
+					spiList.add(spiDto);
+				} while (rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("pageListDAO 메서드에서 오류~~");
+		}
+		
+		return spiList;
+	}
+
+	@Override
+	public PageDTO pageBlock(Connection conn, int currentPage, String memid) throws Exception {
+		PageDTO pdto = null;
+		int numberPerPage = 10;
+		int numberOfPageBlock = 10;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+		int totalPage = dao.getTotalPages(conn, numberPerPage, memid);
+		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
+		
+		return pdto;
+	}
 	
-	
-	
+	@Override
+	public int getTotalPages(Connection conn, int numberPerPage, String memid) throws SQLException {
+		int totalPages = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT CEIL(COUNT(*)/?) FROM SHIPPINGPLACEINFORMATION where memid = ? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, numberPerPage);
+			pstmt.setString(2, memid);
+			rs =  pstmt.executeQuery();
+			if ( rs.next() ) totalPages = rs.getInt(1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("getTotalPagesDAO 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		return totalPages;
+	}
+
 
 }

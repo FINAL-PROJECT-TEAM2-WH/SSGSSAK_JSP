@@ -13,6 +13,7 @@ import product.domain.ProductDTO;
 import product.domain.ProductOptionDTO;
 import product.domain.SpecialPriceDTO;
 import product.service.ViewService;
+import shipping.domain.ShippingOptionDTO;
 
 
 
@@ -30,7 +31,9 @@ public class ViewHandler implements CommandHandler{
 					ProductDTO product = productService.getProduct(id);
 					List<ProductOptionDTO> productoption = productService.getProductOption(id);
 					SpecialPriceDTO specialPrice = productService.getSpecialPrice(id);
+					ShippingOptionDTO shippingOption = productService.getShippingOption(id);
 					
+					request.setAttribute("ShippingOption", shippingOption);
 					request.setAttribute("specialPrice", specialPrice);
 					request.setAttribute("product", product);
 					request.setAttribute("productoption", productoption);
