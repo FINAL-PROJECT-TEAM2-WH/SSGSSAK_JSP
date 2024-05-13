@@ -23,6 +23,7 @@ public class OrderedDTO {
 	 int orderamount ;
 	 int shipamount  ;
 	 int point;
+	 int usepoint;
 	 
 	 
 	 
