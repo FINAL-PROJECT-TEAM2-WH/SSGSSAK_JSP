@@ -28,18 +28,11 @@ public class Carthandler  implements CommandHandler{
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("auth");
 		String method = request.getMethod();
-<<<<<<< HEAD
 		String delete = "";
-		if (request.getParameter("delete") != null) {
+		if (request.getParameter("delete") != null ) {
 			delete = (String) request.getParameter("delete");
-=======
-		String delete = request.getParameter("delete");
-		if (delete == null) {
-			delete = "nodelete";
-		} else {
-			delete = "delete";
->>>>>>> 0acbd68c3c2e5ed947c0b5e90e814b71ec7594f5
 		}
+		
 		if (method.equals("GET")) {
 			ArrayList<CartDTO> al = new ArrayList<CartDTO>();
 			ArrayList<ShippingDTO> al2 = new ArrayList<ShippingDTO>();
@@ -51,6 +44,7 @@ public class Carthandler  implements CommandHandler{
 			conn.close();
 			return "/pay/cart.jsp";
 		} else if (method.equals("POST") && delete.equals("delete")) {
+			
 			response.setContentType("application/json; charset=UTF-8");
 			PayImpl pi = new PayImpl(conn);
 			StringBuilder sb = new StringBuilder();
@@ -83,15 +77,14 @@ public class Carthandler  implements CommandHandler{
 			int result = 0;
 			
 			JSONObject json = JSONObject.fromObject(sb.toString());
-			JSONArray jarr = json.getJSONArray("optionid");
-			System.out.println(jarr);
+			JSONArray jarr = json.getJSONArray("optionId");
 			JSONArray jarr2 = json.getJSONArray("quantity");
 			for (int i = 0; i < jarr.size(); i++) {
 				result += pi.insertcartinfo(id, Integer.parseInt(jarr.getString(i)) , Integer.parseInt(jarr2.getString(i)) );
 			}
 			conn.close();
 			JSONObject jo = new JSONObject();
-			jo.put("data", result+"");
+			jo.put("data", result);
 			response.getWriter().write(jo.toString());
 		}
 		
