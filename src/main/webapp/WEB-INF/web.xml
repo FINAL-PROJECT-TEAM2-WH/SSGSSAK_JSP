@@ -13,6 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
+<<<<<<< HEAD
 	 <filter>
        <description>권한 체크 필터</description>
        <filter-name>loginCheckFilter</filter-name>
@@ -25,6 +26,10 @@
     </filter-mapping>
 	
 	<filter>
+=======
+
+	 <filter>
+>>>>>>> d391827e79f5b4862315cc113a09ef942b5e5cd3
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <filter-class>com.filter.CharacterEncodingFilter</filter-class>
 	  <init-param>
@@ -32,12 +37,13 @@
 	    <param-value>UTF-8</param-value>
 	  </init-param>
 	</filter>
+	
 	<filter-mapping>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <url-pattern>/*</url-pattern> 
-	  <!-- <url-pattern>/</url-pattern>  위의 패턴과 차이점. -->
+	  <url-pattern>/</url-pattern> 
 	  <dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
+	</filter-mapping> 
 
 	  <servlet>
 	    <description>MVC</description>

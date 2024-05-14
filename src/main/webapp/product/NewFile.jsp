@@ -7,6 +7,61 @@
 <title>Insert title here</title>
 </head>
 <body>
+        function show_option() {
+    		<c:choose>
+			<c:when test="${allNull}">
+			<!-- 옵션하나 -->
+            let first_select_value = document.getElementById("first_select").value;
+            if (first_select_value) {
+                document.getElementById('option-' + first_select_value).style.display = 'block';
+            }
+			</c:when>
+			<c:when test="${nonNull}">
+			<!-- 옵션두개 -->
+            let sec_select_value = document.getElementById("sec_select").value;
+            if (sec_select_value) {
+                document.getElementById('option-' + sec_select_value).style.display = 'block';
+            }
+			</c:when>
+			</c:choose>
+
+            updateTotalPrice();
+        }
+
+    <c:forEach var="option" items="${productoption}">
+        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: none;">
+            <dl>
+                <dt>
+                    <p>
+                        <strong class="notranslate"></strong>${option.optionDesc} / ${option.optionName}
+                    </p>
+                </dt>
+                <dd class="cdtl_art_l">
+                    <div class="cdtl_amount">
+                        <a href="javascript:void(0);" class="cdtl_b_minus" onclick="updateQuantity(this, -1, 1, 10);">
+                            <span class="blind">빼기</span>
+                        </a>
+                        <span class="cdtl_inpbx">
+                            <input type="text" id="quantity-${option.id}" data-quantity="${option.id}" title="수량입력" value="1" onchange="updateQuantity(this, 0, 1, 10);">
+                        </span>
+                        <a href="javascript:void(0);" class="cdtl_b_plus" onclick="updateQuantity(this, 1, 1, 10);">
+                            <span class="blind">더하기</span>
+                        </a>
+                    </div>
+                </dd>
+                <dd class="cdtl_art_r">
+                    <span class="price notranslate">
+                        <em class="ssg_price" data-prc="${option.optionPrice}">
+                            ${option.optionPrice}
+                        </em>
+                        <span class="ssg_tx">원</span>
+                    </span>
+                    <button type="button" onclick="hideOption(${option.id});" style="float: right;">닫기</button>
+                </dd>
+            </dl>
+        </div>
+
+
 
 			    <!-- 만든 코드 -->
 			    <select  id="first_select" onchange="load_child();"></select>

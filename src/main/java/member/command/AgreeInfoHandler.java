@@ -65,9 +65,7 @@ public class AgreeInfoHandler implements CommandHandler{
 			String emailRcvYn = request.getParameter("emailRcvYn");
 			String smsRcvYn = request.getParameter("smsRcvYn");
 			
-			Connection conn = ConnectionProvider.getConnection();
-			MemberDAO dao = new MemberDAOImpl(conn);
-			AgreeInfoService service = new AgreeInfoService(dao);
+			System.out.println(addtInfoAgree + " " + emailRcvYn + " " + smsRcvYn);
 			
 		}
 		

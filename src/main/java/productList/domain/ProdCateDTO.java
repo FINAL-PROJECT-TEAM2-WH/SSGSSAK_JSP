@@ -12,8 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class ProdCateDTO {
-	
-	private String prodID;
 	private String id;
     private String majorCateName;
     private String middleCateName; 
