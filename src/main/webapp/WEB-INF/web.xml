@@ -13,8 +13,23 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
+<<<<<<< HEAD
+	 <filter>
+       <description>권한 체크 필터</description>
+       <filter-name>loginCheckFilter</filter-name>
+       <filter-class>com.filter.LoginCheckFilter</filter-class>
+    </filter>
+    <filter-mapping>
+       <filter-name>loginCheckFilter</filter-name>
+       <url-pattern>/memberInfo/*</url-pattern>
+       <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+	
+	<filter>
+=======
 
 	 <filter>
+>>>>>>> d391827e79f5b4862315cc113a09ef942b5e5cd3
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <filter-class>com.filter.CharacterEncodingFilter</filter-class>
 	  <init-param>

@@ -701,6 +701,64 @@ public class MemberDAOImpl implements MemberDAO{
 		System.out.println(rowCount);
 		return rowCount;
 	}
+	
+	
+
+
+	@Override
+	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException {
+		String sql = " SELECT pd.id id,pd.pdname name,pd.pcontent content, po.optionprice price,pi.imgurl url, rv.grade grade "
+				+ " FROM interestgoods ig LEFT JOIN product pd ON ig.productid = pd.id "
+                + " LEFT JOIN productoption po ON ig.productid = po.productid "
+                + " LEFT JOIN productimg pi ON ig.productid = pi.productid "
+                + " LEFT JOIN review rv ON ig.productid = rv.productid "
+				+ " WHERE ig.memid = ? ";
+		String productid, name, content, price, url, grade;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					rs.getString("id");
+					rs.getString("name");
+					rs.getString("content");
+					rs.getString("price");
+					rs.getString("url");
+					rs.getString("grade");
+					
+					
+				} while ( rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+		
+		return null;
+	}
+
+
+	@Override
+	public String transtoPhoneNum(String phoneNum) {
+		//010
+				String preNum = phoneNum.substring(0,3);
+				String middleNum = "";
+				String postNum = "";
+				if ( phoneNum.length() == 10) {
+				// 뒷자리가 7자리일 때	
+					middleNum = phoneNum.substring(3,6);
+					postNum = phoneNum.substring(6);
+				} else {
+					middleNum = phoneNum.substring(3,7);
+					postNum = phoneNum.substring(7);
+				}
+				
+				return String.format("%s-%s-%s", preNum,middleNum,postNum);
+	}
 
 
 
