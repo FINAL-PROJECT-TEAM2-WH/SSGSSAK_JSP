@@ -150,6 +150,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 					defaultShipping = rs.getString("defaultShipping");
 					
 					spidto = new ShippingPlaceInfoDTO().builder()
+							.memid(memid)
 							.id(id)
 							.addressnick(addressnick)
 							.receiveMem(receiveMem)
