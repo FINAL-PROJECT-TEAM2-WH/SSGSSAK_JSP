@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CartDTO {
+	int optionid;
+	int scount ;
 	String imgurl ;
 	String seller ;
 	String brand ;
