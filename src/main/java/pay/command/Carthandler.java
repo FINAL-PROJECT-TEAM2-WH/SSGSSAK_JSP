@@ -28,7 +28,10 @@ public class Carthandler  implements CommandHandler{
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("auth");
 		String method = request.getMethod();
-		String delete = (String) request.getParameter("delete");
+		String delete = "";
+		if (request.getParameter("delete") != null) {
+			delete = (String) request.getParameter("delete");
+		}
 		if (method.equals("GET")) {
 			ArrayList<CartDTO> al = new ArrayList<CartDTO>();
 			ArrayList<ShippingDTO> al2 = new ArrayList<ShippingDTO>();
@@ -57,6 +60,7 @@ public class Carthandler  implements CommandHandler{
 			conn.close();
 			JSONObject jo = new JSONObject();
 			jo.put("data", result);
+			
 			response.getWriter().write(jo.toString());
 		} else if (method.equals("POST") && !delete.equals("delete")) {
 			response.setContentType("application/json; charset=UTF-8");

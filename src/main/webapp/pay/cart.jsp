@@ -2738,7 +2738,7 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 			}),
 			dataType : "JSON" ,
 			success : function(data , response) {
-				if (data > 0 ) {
+				if (data.data > 0 ) {
 					alert("선택하신 장바구니 목록을 삭제하였습니다.");
 				} else {
 					alert("선택하신 장바구니 목록이 없습니다.");
