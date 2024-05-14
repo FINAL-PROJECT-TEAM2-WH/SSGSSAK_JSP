@@ -3532,149 +3532,19 @@ function setCommonGnbCookie(name, value, expiredays) {
                         </em>
                         <span class="ssg_tx">원</span>
                     </span>
-                    <button type="button" onclick="hideOption(${option.id});" style="float: right;">닫기</button>
                 </dd>
             </dl>
         </div>
     </c:forEach>
     
-        <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
-		<script>
-		
-		 function updateQuantity(element, change, min, max) {
-			 
-			
-				
-	            let optionId = element.closest('.cdtl_opt_item').id.split('-')[1];
 
-	            let quantityInput = document.getElementById('quantity-' + optionId);
-	            let priceElement = document.querySelector('#option-' + optionId + ' .ssg_price');
-	            let basePrice = parseInt(priceElement.getAttribute('data-prc'));
-	            let currentQuantity = parseInt(quantityInput.value);
-
-
-	            let newQuantity = currentQuantity + change;
-
-	            if (newQuantity >= min && newQuantity <= max) {
-	                quantityInput.value = newQuantity;
-
-	                priceElement.textContent = (basePrice * newQuantity).toLocaleString();
-	                
-	                updateTotalPrice();
-	            }
-	        }
-	        function updateTotalPrice() {
-	           
-	            let options = document.querySelectorAll('.cdtl_opt_item');
-	            let totalPrice = 0;
-
-	            options.forEach(option => {
-	                if (option.style.display !== 'none') {
-	                    let quantityInput = option.querySelector('input[type="text"]');
-	                    let priceElement = option.querySelector('.ssg_price');
-	                    let quantity = parseInt(quantityInput.value);
-	                    let price = parseInt(priceElement.getAttribute('data-prc'));
-
-
-	                    totalPrice += (quantity * price);
-	                }
-	            });
-
-
-	            document.getElementById('totalPrc').textContent = totalPrice.toLocaleString();
-	        }
-
-	        
-	        window.onload = function() {
-	            load_first();
-	        }
-	    </script>
-	    
-	    		<script type="text/javascript">
-	    		
-	    		function handlePurchase() {
-	    	
-	    		    let params = [];
-	    		    let index = 1; 
-
-	    		    document.querySelectorAll('.cdtl_opt_item').forEach(option => {
-	    		        if (option.style.display !== 'none') {
-	    		            let optionId = option.id.split('-')[1];
-	    		          
-	    		            let quantityInput = $("#quantity-"+optionId).val();
-	    		            let quantity = quantityInput ;
-	    		            
-	   		                params.push("item"+index+"="+optionId+"/"+quantity);
-	   		                index++; 
-	    		            
-	    		        }
-	    		    });
-
-	    		    let url = '/SSGSSAK/pay/pay.do?' + params.join('&');
-
-	    		    window.location.href = url;
-	    		}
-	    		function handleCart() {
-
-	    			
-	    	    	let optionIdArr=[];
-	    	    	let quantityArr=[];
-	    		    let params = [];
-	    		    let index = 1; 
-					
-	    		    document.querySelectorAll('.cdtl_opt_item').forEach(option => {
-	    		    	
-	    		        if (option.style.display !== 'none') {
-	    		            let optionId = option.id.split('-')[1];
-	    		          
-	    		            let quantityInput = $("#quantity-"+optionId).val();
-	    		            let quantity = quantityInput ;
-						
-	    		            optionIdArr.push(optionId);
-	    		            quantityArr.push(quantity);
-	    		         
-	    		            console.log(optionIdArr);
-	    		            console.log(quantityArr);
-	    		        }
-	    		    });
-					
-					var data={
-	    	    			optionId:optionIdArr,
-	    	    			quantity:quantityArr
-	    	    	}
-					
-
-
-				    $.ajax({
-				        
-				        url: "${pageContext.request.contextPath}"+'/pay/cart.do',
-				        type: "POST",
-				        data: JSON.stringify(data),
-				        contentType: "application/json; charset=utf-8",
-				        dataType: "json",
-				        success : function(data,res){
-				        	if (data.data != 0) {
-				        		alert("상품을 장바구니에 담았습니다.");
-							} else {
-								alert("이미 장바구니에 담겨있습니다.");
-							}
-				        },
-				        error : function(res){
-				        	alert("장바구니 담기에 실패하였습니다.");
-				        }
-
-				    });
-					
-	    		    
-	    		}//handleCart
-		</script>
 		
 
 			</c:when>
 			<c:when test="${allNull}">
 			
 						 <c:forEach var="option" items="${productoption}">
-					        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: block;">
+					        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: none;">
 					            <dl>
 					                <dt>
 					                    <p>
@@ -3708,192 +3578,9 @@ function setCommonGnbCookie(name, value, expiredays) {
 				    </c:forEach>
 			    <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
 			    
-			     <select class="cdtl_item" id="first_select" onchange="load_child();" ></select>
-    			<select class="cdtl_item" id="sec_select" onchange="show_option();"></select>
 
-    <script type="text/javascript">
-        let first_select = [
-            {v:"",t:""},
-            <c:forEach var="option" items="${productoption}">
-                <c:if test="${empty option.optionRef}">
-                    {v:"${option.id}",t:"${option.optionName}"},
-                </c:if>
-            </c:forEach>
-        ];
-
-        let sec_select_data = {};
-        <c:forEach var="option" items="${productoption}">
-            <c:if test="${!empty option.optionRef}">
-                if (!sec_select_data["${option.optionRef}"]) {
-                    sec_select_data["${option.optionRef}"] = [];
-                }
-                sec_select_data["${option.optionRef}"].push({v:"${option.id}", t:"${option.optionName}"});
-            </c:if>
-        </c:forEach>;
-
-        function load_first() {
-            let h = [];
-            first_select.forEach(item => {
-                h.push('<option value="' + item.v + '">' + item.t + '</option>');
-            });
-            document.getElementById("first_select").innerHTML = h.join("");
-        }
-
-        function load_child() {
-            let first_select_value = document.getElementById("first_select").value;
-            let h = [];
-            if (first_select_value) {
-                sec_select_data[first_select_value].forEach(item => {
-                    h.push('<option value="' + item.v + '">' + item.t + '</option>');
-                });
-            }
-            document.getElementById("sec_select").innerHTML = h.join("");
-            show_option(); 
-        }
-
-        function show_option() {
-
-            let sec_select_value = document.getElementById("sec_select").value;
-            if (sec_select_value) {
-                document.getElementById('option-' + sec_select_value).style.display = 'block';
-            }
-            updateTotalPrice();
-        }
-        
-        function updateQuantity(element, change, min, max) {
-
-            let optionId = element.closest('.cdtl_opt_item').id.split('-')[1];
-
-            let quantityInput = document.getElementById('quantity-' + optionId);
-            let priceElement = document.querySelector('#option-' + optionId + ' .ssg_price');
-            let basePrice = parseInt(priceElement.getAttribute('data-prc'));
-            let currentQuantity = parseInt(quantityInput.value);
-
-
-            let newQuantity = currentQuantity + change;
-
-            if (newQuantity >= min && newQuantity <= max) {
-                quantityInput.value = newQuantity;
-
-                priceElement.textContent = (basePrice * newQuantity).toLocaleString();
-                
-                updateTotalPrice();
-            }
-        }
-        function updateTotalPrice() {
-           
-            let options = document.querySelectorAll('.cdtl_opt_item');
-            let totalPrice = 0;
-
-            options.forEach(option => {
-                if (option.style.display !== 'none') {
-                    let quantityInput = option.querySelector('input[type="text"]');
-                    let priceElement = option.querySelector('.ssg_price');
-                    let quantity = parseInt(quantityInput.value);
-                    let price = parseInt(priceElement.getAttribute('data-prc'));
-
-
-                    totalPrice += (quantity * price);
-                }
-            });
-
-
-            document.getElementById('totalPrc').textContent = totalPrice.toLocaleString();
-        }
-
-        function hideOption(optionId) {
-  
-            document.getElementById('option-' + optionId).style.display = 'none';
-
-            updateTotalPrice();
-        }
-        
-        window.onload = function() {
-            load_first();
-        }
-    </script>
-    
-    		<script type="text/javascript">
-    		
-    		function handlePurchase() {
-    	
-    		    let params = [];
-    		    let index = 1; 
-
-    		    document.querySelectorAll('.cdtl_opt_item').forEach(option => {
-    		        if (option.style.display !== 'none') {
-    		            let optionId = option.id.split('-')[1];
-    		          
-    		            let quantityInput = $("#quantity-"+optionId).val();
-    		            let quantity = quantityInput ;
-    		            
-   		                params.push("item"+index+"="+optionId+"/"+quantity);
-   		                index++; 
-    		            
-    		        }
-    		    });
-
-    		    let url = '/SSGSSAK/pay/pay.do?' + params.join('&');
-
-    		    window.location.href = url;
-    		}
-    		function handleCart() {
-
-    			
-    	    	let optionIdArr=[];
-    	    	let quantityArr=[];
-    		    let params = [];
-    		    let index = 1; 
-				
-    		    document.querySelectorAll('.cdtl_opt_item').forEach(option => {
-    		    	
-    		        if (option.style.display !== 'none') {
-    		            let optionId = option.id.split('-')[1];
-    		          
-    		            let quantityInput = $("#quantity-"+optionId).val();
-    		            let quantity = quantityInput ;
 					
-    		            optionIdArr.push(optionId);
-    		            quantityArr.push(quantity);
-    		         
-    		            console.log(optionIdArr);
-    		            console.log(quantityArr);
-    		        }
-    		    });
-				
-				var data={
-    	    			optionId: optionIdArr,
-    	    			quantity: quantityArr
-    	    	 }
-				
-
-
-				  $.ajax({
-				       
-				        url: "${pageContext.request.contextPath}"+'/pay/cart.do',
-				        data: JSON.stringify(data),
-				        contentType: "application/json; charset=utf-8",
-				        dataType: "json",
-				        type: "POST",
-				        success : function(data,res){
-				        	if (data.data != 0) {
-				        		alert("상품을 장바구니에 담았습니다.");
-							} else {
-								alert("이미 장바구니에 담겨있습니다.");
-							}
-				        },
-				        error : function(res){
-				        	alert("장바구니 담기에 실패하였습니다.");
-				        }
-
-				    });
-				
-    		    
-    		}//handleCart
-
-					</script>
-					
-					
+						<select class="cdtl_item" id="first_select" onchange="show_option();" ></select>
 			</c:when>
 			
 			<c:when test="${nonNull}">
@@ -3933,13 +3620,16 @@ function setCommonGnbCookie(name, value, expiredays) {
         </div>
     </c:forEach>
 
-
-
-
     <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
 
-    <select class="cdtl_item" id="first_select" onchange="load_child();" ></select>
+   	<select class="cdtl_item" id="first_select" onchange="load_child();" ></select>
     <select class="cdtl_item" id="sec_select" onchange="show_option();"></select>
+   
+
+			</c:when>
+		</c:choose>
+
+
 
     <script type="text/javascript">
         let first_select = [
@@ -3982,11 +3672,23 @@ function setCommonGnbCookie(name, value, expiredays) {
         }
 
         function show_option() {
-
+    		<c:choose>
+			<c:when test="${allNull}">
+			<!-- 옵션하나 -->
+            let first_select_value = document.getElementById("first_select").value;
+            if (first_select_value) {
+                document.getElementById('option-' + first_select_value).style.display = 'block';
+            }
+			</c:when>
+			<c:when test="${nonNull}">
+			<!-- 옵션두개 -->
             let sec_select_value = document.getElementById("sec_select").value;
             if (sec_select_value) {
                 document.getElementById('option-' + sec_select_value).style.display = 'block';
             }
+			</c:when>
+			</c:choose>
+
             updateTotalPrice();
         }
         
@@ -4091,43 +3793,38 @@ function setCommonGnbCookie(name, value, expiredays) {
     		        }
     		    });
 				
-				var data={
-    	    			optionId:optionIdArr,
-    	    			quantity:quantityArr
-    	    	}
-				
+    		    var data={
+                        optionId:optionIdArr,
+                        quantity:quantityArr
+                  }
+                
 
 
-				  $.ajax({
-				       
-				        url: "${pageContext.request.contextPath}"+'/pay/cart.do',
-				        type: "POST",
-				        data: JSON.stringify(data),
-				        contentType: "application/json; charset=utf-8",
-				        dataType: "json",
-				        success : function(data,res){
-				        	if (data.data >0) {
-								alert("장바구니 등록에 성공하였습니다.");
-							} else {
-								alert("이미 장바구니에 들어있습니다.");
-							}
-				        },
-				        error : function(res) {
-				        	alert("장바구니 등록에 실패하였습니다.");
-				        }
-				    
-				    });
-				
-    		    
+                 $.ajax({
+                     
+                     url: "${pageContext.request.contextPath}"+'/pay/cart.do',
+                     type: "POST",
+                     data: JSON.stringify(data),
+                     contentType: "application/json; charset=utf-8",
+                     dataType: "json",
+                     success : function(data,res){
+                        if (data.data != 0) {
+                           alert("상품을 장바구니에 담았습니다.");
+                      } else {
+                         alert("이미 장바구니에 담겨있습니다.");
+                      }
+                     },
+                     error : function(res){
+                        alert("장바구니 담기에 실패하였습니다.");
+                     }
+
+                 });
+                
+                  
     		}//handleCart
 
 					</script>
 					
-
-			</c:when>
-		</c:choose>
-
-								
 
 
 

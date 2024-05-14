@@ -14,7 +14,7 @@
 	</welcome-file-list>
 
 
-	<filter>
+	 <filter>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <filter-class>com.filter.CharacterEncodingFilter</filter-class>
 	  <init-param>
@@ -22,12 +22,13 @@
 	    <param-value>UTF-8</param-value>
 	  </init-param>
 	</filter>
+	
 	<filter-mapping>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <url-pattern>/*</url-pattern> 
-	  <!-- <url-pattern>/</url-pattern>  위의 패턴과 차이점. -->
+	  <url-pattern>/</url-pattern> 
 	  <dispatcher>REQUEST</dispatcher>
-	</filter-mapping>
+	</filter-mapping> 
 
 	  <servlet>
 	    <description>MVC</description>
