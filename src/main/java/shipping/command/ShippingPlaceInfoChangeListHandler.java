@@ -10,7 +10,7 @@ import controller.CommandHandler;
 import shipping.domain.ShippingPlaceInfoDTO;
 import shipping.service.ShippingPlaceInfoService;
 
-public class ShippingPlaceInfoListHandler implements CommandHandler{
+public class ShippingPlaceInfoChangeListHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -19,14 +19,16 @@ public class ShippingPlaceInfoListHandler implements CommandHandler{
 		HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 		String memid = null;
 		memid = (String)memSession.getAttribute("auth");
-		
 		ShippingPlaceInfoService spiService = ShippingPlaceInfoService.getInstance();
 
 		ArrayList<ShippingPlaceInfoDTO> spiList = spiService.shippingPlaceInfoListService(memid);
 		
 		request.setAttribute("spiList", spiList);
-		///days06/board/list.jsp
-		return "/userinfo/shipping/SSG_shipping_place_info.jsp";
+		
+		
+		
+		
+		return "/userinfo/shipping/SSG_shipping_place_change.jsp";
 		
 	}
 

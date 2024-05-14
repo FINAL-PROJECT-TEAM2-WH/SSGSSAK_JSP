@@ -34,8 +34,6 @@ public class ShippingPlaceListPageHandler implements CommandHandler {
 		ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
 		spiList = service.shippingPlaceInfoPageListService(memid, currentPage);
 		pdto = service.shippingPlaceinfoPageBlockService(currentPage, memid);
-		System.out.println(spiList);
-		System.out.println(pdto);
 		request.setAttribute("spiList", spiList);
 		request.setAttribute("pdto", pdto);
 //		String location = contextPath+"/userinfo/shipping/SSG_shipping_place_info.jsp";

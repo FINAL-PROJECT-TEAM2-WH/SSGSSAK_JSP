@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -19,6 +20,13 @@
 	href="https://sui.ssgcdn.com/ui/ssg/css/odr_v2.css?v=20240423" />
 <link rel="stylesheet" type="text/css"
 	href="https://sui.ssgcdn.com/ui/ssg/css/ssg_component.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+
+	#saveShppInfo:hover{
+		cursor: pointer;
+	}
+</style>
 <script>
 	// regex patterns to identify known bot instances:
 	let botPattern = "(googlebot\/|bot|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)";
@@ -256,8 +264,8 @@
     };
     //]]>
 </script>
-<%@ include file="SSG_shipping_select_top.jsp"%>
-<!-- MYSSG UI 변경 대응 -->
+	<%@ include file="../../Top.jsp"%>
+	<!-- MYSSG UI 변경 대응 -->
 	<hr>
 	<div id="container" class="case_new delivery_report">
 		<!-- left -->
@@ -276,15 +284,26 @@
 									<input type="hidden" id="changeShpplocItemId_1" value="" /> <input
 										type="hidden" id="changeShpplocOrdItemInfloTgtId_1" value="" />
 									<div class="codr_opt_top">
-										<strong class="codr_opt_delivtx notranslate"> <span
-											class="codr_sp codr_ico_loc"></span> <span class="tx_ko">배송지</span><span
-											class="tx_en"></span> : <span id="shpplocAntnmNm">이동영</span></strong>
-										<span class="codr_opt_delivaddr notranslate"
-											id="shpplocBascAddr"> (우편번호) 해당 유저의 도로명 주소</span>
+
+										<c:if test="${ not empty spiList }">
+											<c:forEach items="${ spiList }" var="spiDto">
+												<c:if
+													test="${ spiDto.defaultShipping == '기본배송지' || spiDto.defaultShipping == '이번만배송지' }">
+													<strong class="codr_opt_delivtx notranslate"> <span
+														class="codr_sp codr_ico_loc"></span><span> 배송지 : ${ spiDto.memid }</span>
+														<span class="codr_opt_delivaddr notranslate"
+														style="display: block; max-width: 100%; white-space: normal; word-wrap: break-word;"
+														id="shpplocBascAddr">[${ spiDto.postnum }] ${ spiDto.roadAddress }
+															(${ spiDto.detailAddress })</span>
+												</c:if>
+											</c:forEach>
+										</c:if>
+
 										<div class="codr_cell_btnarea">
 											<ul class="codr_cell_btnlst">
-												<li><a href="#" role="button"
-													class="codr_btn_option btnChangeShpploc" target="_blank">배송지변경을 누르면 회원의 배송지 목록이 출력된다.</a></li>
+												<li><button role="button"
+													class="codr_btn_option btnChangeShpploc"
+													id="shippingPlaceBtn" target="_blank">배송지 변경</button></li>
 											</ul>
 										</div>
 									</div>
@@ -292,13 +311,14 @@
 										<div class="codr_opt_area">
 											<div class="codr_opt_bx">
 												<strong class="codr_opt_picktx"><span
-													class="codr_sp codr_ico_basket"></span> <strong><!-- 주문상품이 여러개인 경우 DIV태그 갯수 늘리기
-														여기에 몇개 사는지 출력 -->1<span class="notranslate"><span class="tx_ko">개</span></span>
+													class="codr_sp codr_ico_basket"></span> <strong> <!-- 주문상품이 여러개인 경우 DIV태그 갯수 늘리기
+														여기에 몇개 사는지 출력 -->1<span class="notranslate"><span
+															class="tx_ko">개</span></span>
 												</strong> </strong>
 												<div class="codr_opt_pickitem">
 													<div class="codr_opt_pickimgarea">
 														<span class="codr_opt_pickimg"> <img
-														<%-- 회원이 구매하려는 제품의 이미지와 어떤 제품인지 데이터 넣기--%>
+															<%-- 회원이 구매하려는 제품의 이미지와 어떤 제품인지 데이터 넣기--%>
 															src="#"
 															srcset="https://sitem.ssgcdn.com/40/28/59/item/0000009592840_i1_120.jpg 2x"
 															alt="백오이 (5입/봉)" width="60" height="60"
@@ -313,11 +333,14 @@
 											</div>
 										</div>
 									</div>
-									<div class="codr_opt_btm" style="display: flex; justify-content: center;">
-									<!-- 결제창으로 이동  -->
-									    <a href="#" class="codr_btn_payment" id="saveShppInfo" style="display: flex; align-items: center;">
-									        <div style="margin-left: 90px">계속하기</div>
-									    </a>
+									<div class="codr_opt_btm"
+										style="display: flex; justify-content: center;">
+										<!-- 결제창으로 이동  -->
+										<a class="codr_btn_payment" id="saveShppInfo"
+											style="display: flex; align-items: center; width: 400px">
+											<div id="payContinueBtn"
+												style="margin-left: 90px; display: flex; justify-content: center; text-align: center">계속하기</div>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -375,11 +398,11 @@
 												<thead>
 													<tr>
 														<th scope="col"></th>
-														<th scope="col">날짜 5개 출력</th>
-														<th scope="col">날짜 5개 출력</th>
-														<th scope="col">날짜 5개 출력</th>
-														<th scope="col">날짜 5개 출력</th>
-														<th scope="col">날짜 5개 출력</th>
+														<c:if test="${ not empty dateList }">
+															<c:forEach items="${ dateList }" var="date">
+																<th scope="col">${ date }</th>
+															</c:forEach>
+														</c:if>
 													</tr>
 												</thead>
 												<tbody>
@@ -392,200 +415,86 @@
 													<!-- 예약이 마감되면 codr_state_finished 이 클래스 먹이기  -->
 													<tr class="cdor_anytime_row ">
 														<th scope="row"><strong>이날 아무때나</strong></th>
-														<td class="codr_state_anytime"><span class="codr_rdo">
-																<input type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_0_0" name="rsvtShppInfo_1_1"
-																value="12^20240503^1600^2000^4^4^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+1 선택"> <label
-																for="rsvtShppInfo_1_1_0_0"> 예약가능 </label>
-														</span></td>
-														<td class="codr_state_anytime"><span class="codr_rdo">
-																<input type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_0_1" name="rsvtShppInfo_1_1"
-																value="12^20240504^1500^1900^3^3^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+2 선택"> <label
-																for="rsvtShppInfo_1_1_0_1"> 예약가능 </label>
-														</span></td>
-														<td class="codr_state_anytime"><span class="codr_rdo">
-																<input type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_0_2" name="rsvtShppInfo_1_1"
-																value="12^20240505^1200^1600^2^2^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+3 선택"> <label
-																for="rsvtShppInfo_1_1_0_2"> 예약가능 </label>
-														</span></td>
-
-														<td class="codr_state_anytime"><span class="codr_rdo">
-																<input type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_0_3" name="rsvtShppInfo_1_1"
-																value="12^20240506^1500^1900^3^3^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+4 선택"> <label
-																for="rsvtShppInfo_1_1_0_3"> 예약가능 </label>
-														</span></td>
 
 														<td class="codr_state_bookready" rowspan="6"><span
 															class="codr_state"><span class="codr_ico_closed"></span><span
-																class="codr_tx_closed">예약준비중이에요!</span></span></td>
+																class="codr_tx_closed">마감됐어요!</span></span></td>
+
+														<c:forEach begin="1" end="4" var="i">
+															<td class="codr_state_anytime"><span
+																class="codr_rdo"> <input type="radio"
+																id="rsvtShppInfo_1_1_1_${i}"
+																class="blind payTracking" name="rsvtShppInfo_1_1"
+																value="이날아무때나"><label
+																for="rsvtShppInfo_1_1_1_${i}"> 예약가능</label>
+															</span></td>
+														</c:forEach>
 													</tr>
 													<tr class=" ">
 														<th scope="row">10:00~14:00</th>
-														
-														<td class="codr_state_finished"><span>예약마감</span></td>
-														
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_1_1" name="rsvtShppInfo_1_1"
-																value="10^20240504^1000^1400^1^1^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+2 선택"> <label
-																for="rsvtShppInfo_1_1_1_1"> 예약가능 </label>
-														</span></td>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_1_2" name="rsvtShppInfo_1_1"
-																value="10^20240505^1000^1400^1^1^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+3 선택"> <label
-																for="rsvtShppInfo_1_1_1_2"> 예약가능 </label>
-														</span></td>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_1_3" name="rsvtShppInfo_1_1"
-																value="10^20240506^1000^1400^1^1^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+4 선택"> <label
-																for="rsvtShppInfo_1_1_1_3"> 예약가능 </label>
-														</span></td>
+
+														<c:forEach begin="1" end="4" var="i">
+															<td class=""><span class="codr_rdo"> <input
+																	type="radio" class="" name="rsvtShppInfo_1_1"
+																	id="rsvtShppInfo_1_1_2_${i}"
+																	value="10:00~14:00"><label
+																	for="rsvtShppInfo_1_1_2_${i}"> 예약가능 </label>
+															</span></td>
+														</c:forEach>
 
 													</tr>
 													<tr class=" ">
 
 														<th scope="row">12:00~16:00</th>
 
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_2_0" name="rsvtShppInfo_1_1"
-																value="10^20240503^1200^1600^2^2^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+1 선택"> <label
-																for="rsvtShppInfo_1_1_2_0"> 예약가능 </label>
-														</span></td>
+														<c:forEach begin="1" end="4" var="i">
+															<td class=""><span class="codr_rdo"> <input
+																	type="radio" class="" name="rsvtShppInfo_1_1"
+																	id="rsvtShppInfo_1_1_3_${i}"
+																	value="12:00~16:00"><label
+																	for="rsvtShppInfo_1_1_3_${i}"> 예약가능 </label>
+															</span></td>
+														</c:forEach>
 
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_2_1" name="rsvtShppInfo_1_1"
-																value="10^20240504^1200^1600^2^2^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+2 선택"> <label
-																for="rsvtShppInfo_1_1_2_1"> 예약가능 </label>
-														</span></td>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_2_2" name="rsvtShppInfo_1_1"
-																value="10^20240505^1200^1600^2^2^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+3 선택"> <label
-																for="rsvtShppInfo_1_1_2_2"> 예약가능 </label>
-														</span></td>
-
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_2_3" name="rsvtShppInfo_1_1"
-																value="10^20240506^1200^1600^2^2^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+4 선택"> <label
-																for="rsvtShppInfo_1_1_2_3"> 예약가능 </label>
-														</span></td>
 													</tr>
 													<tr class=" ">
 														<th scope="row">15:00~19:00</th>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_3_0" name="rsvtShppInfo_1_1"
-																value="10^20240503^1500^1900^3^3^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+1 선택"> <label
-																for="rsvtShppInfo_1_1_3_0"> 예약가능 </label>
-														</span></td>
-
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_3_1" name="rsvtShppInfo_1_1"
-																value="10^20240504^1500^1900^3^3^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+2 선택"> <label
-																for="rsvtShppInfo_1_1_3_1"> 예약가능 </label>
-														</span></td>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_3_2" name="rsvtShppInfo_1_1"
-																value="10^20240505^1500^1900^3^3^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+3 선택"> <label
-																for="rsvtShppInfo_1_1_3_2"> 예약가능 </label>
-														</span></td>
-
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_3_3" name="rsvtShppInfo_1_1"
-																value="10^20240506^1500^1900^3^3^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+4 선택"> <label
-																for="rsvtShppInfo_1_1_3_3"> 예약가능 </label>
-														</span></td>
+														<c:forEach begin="1" end="4" var="i">
+															<td class=""><span class="codr_rdo"> <input
+																	type="radio" class="" name="rsvtShppInfo_1_1"
+																	id="rsvtShppInfo_1_1_4_${i}"
+																	value="15:00~19:00"><label
+																	for="rsvtShppInfo_1_1_4_${i}"> 예약가능 </label>
+															</span></td>
+														</c:forEach>
 													</tr>
 													<tr class=" ">
 
 														<th scope="row">16:00~20:00</th>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_4_0" name="rsvtShppInfo_1_1"
-																value="10^20240503^1600^2000^4^4^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+1 선택"> <label
-																for="rsvtShppInfo_1_1_4_0"> 예약가능 </label>
-														</span></td>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_4_1" name="rsvtShppInfo_1_1"
-																value="10^20240504^1600^2000^4^4^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+2 선택"> <label
-																for="rsvtShppInfo_1_1_4_1"> 예약가능 </label>
-														</span></td>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_4_2" name="rsvtShppInfo_1_1"
-																value="10^20240505^1600^2000^4^4^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+3 선택"> <label
-																for="rsvtShppInfo_1_1_4_2"> 예약가능 </label>
-														</span></td>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_4_3" name="rsvtShppInfo_1_1"
-																value="10^20240506^1600^2000^4^4^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+4 선택"> <label
-																for="rsvtShppInfo_1_1_4_3"> 예약가능 </label>
-														</span></td>
+														<c:forEach begin="1" end="4" var="i">
+															<td class=""><span class="codr_rdo"> <input
+																	type="radio" class="" name="rsvtShppInfo_1_1"
+																	id="rsvtShppInfo_1_1_5_${i}"
+																	value="16:00~20:00"><label
+																	for="rsvtShppInfo_1_1_5_${i}"> 예약가능 </label>
+															</span></td>
+
+														</c:forEach>
 													</tr>
+
 													<tr class=" ">
 														<th scope="row">18:00~23:59</th>
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_5_0" name="rsvtShppInfo_1_1"
-																value="10^20240503^1800^2359^5^5^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+1 선택"> <label
-																for="rsvtShppInfo_1_1_5_0"> 예약가능 </label>
-														</span></td>
-
-
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_5_1" name="rsvtShppInfo_1_1"
-																value="10^20240504^1800^2359^5^5^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+2 선택"> <label
-																for="rsvtShppInfo_1_1_5_1"> 예약가능 </label>
-														</span></td>
-														<td class="codr_state_finished "><span>예약마감</span></td>
-
-														<td class=""><span class="codr_rdo"> <input
-																type="radio" class="blind payTracking"
-																id="rsvtShppInfo_1_1_5_3" name="rsvtShppInfo_1_1"
-																value="10^20240506^1800^2359^5^5^2022^2022^A01^01^"
-																data-pt-click="이마트몰 쓱배송 일자선택|타임테이블|D+4 선택"> <label
-																for="rsvtShppInfo_1_1_5_3"> 예약가능 </label>
-														</span></td>
-
+														<c:forEach begin="1" end="4" var="i">
+															<td class=""><span class="codr_rdo"> <input
+																	type="radio" class="" name="rsvtShppInfo_1_1"
+																	id="rsvtShppInfo_1_1_6_${i}"
+																	value="18:00~23:59"><label
+																	for="rsvtShppInfo_1_1_6_${i}"> 예약가능 </label>
+															</span></td>
+														</c:forEach>
 													</tr>
-
 													<tr>
-														<td colspan="6"><strong>쓱배송과 새벽배송 차이를 둬서 000원이상일 경우 무료배송(기본 배송비 000원)</strong></td>
+														<td colspan="6"><strong>35000원 이상 무료배송 (기본배송료 3000원) </strong></td>
 													</tr>
 
 												</tbody>
@@ -654,7 +563,7 @@
 																		</tbody>
 																	</table>
 																</div>
-															</div>														
+															</div>
 														</div>
 													</div>
 												</div>
@@ -677,9 +586,99 @@
 			style="display: none">주문더하기 선택 팝업 열기</a>
 		<div class="ssg-layer-popup codr_lypop codr_lypop_orderplus"
 			id="addord_list"></div>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/pay/js/tools/jquery/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript">
+<script type="text/javascript"src="https://sui.ssgcdn.com/ui/pay/js/tools/jquery/jquery-1.9.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    // 테이블 헤더에서 날짜 정보를 추출하여 배열에 저장
+    var dates = [];
+    $("th").each(function(index) {
+        if (index > 0) { // 첫 번째 th는 빈 칸으로 가정
+            dates.push($(this).text()); // 날짜 데이터를 배열에 추가
+        }
+    });
+
+    // 라디오 버튼 선택 시 연관된 날짜 정보 출력
+    $("input[type='radio'][name='rsvtShppInfo_1_1']").change(function() {
+        // 선택된 라디오 버튼의 열 위치를 찾기
+        var columnIndex = $(this).closest('td').index();
+        var selectedTime = $(this).val();
+        if( selectedTime === '이날아무때나' ){
+        	var selectedDate = dates[columnIndex-1]; 
+            var datetime = '0'+selectedDate.substring(0, 1);
+            datetime += selectedDate.substring(3, 5);
+            datetime += '0024';
+        }else{
+        	var selectedDate = dates[columnIndex]; 
+            var datetime = '0'+selectedDate.substring(0, 1);
+            datetime += selectedDate.substring(3, 5);
+            datetime += selectedTime.substring(0,2)+selectedTime.substring(6,8);
+        }
+
+        
+        //5월 17일  (금요일)
+        //10:00~14:00       
+        //alert(datetime);
+        
+        
+    });
+});
+
+	$("#saveShppInfo").on("click", function(){
+		alert("계속하기 버튼");
+		// 계속하기 버튼을 눌렀을때 이런식으로 데이터 넘기기
+		//http://localhost/SSGSSAK/pay/pay.do?item1=47/1&items=46/1&DATETIME=05151012
+		//location.href = `<%= request.getContextPath() %>/pay/pay.do?=\${datetime}`;
+	})
+</script>
+<script>
+  <%--  $("#shippingPlaceBtn").on("click", function(){
+	   
+	    var popupURL = `<%= request.getContextPath() %>/userinfo/shipping/SSG_shipping_place_change.jsp`;
+	    
+	    
+	    var contextPath = `<%= request.getContextPath() %>`;
+	    $.ajax({
+	        type: "GET",
+	        url: contextPath + "/shippingPlaceUpView.do",
+	        dataType: 'json',  // jQuery에서는 dataType 소문자로 씁니다.
+	        data: idJson,
+	        cache: false,
+	        contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
+	        success: function(response) {
+	            if (response.status === "success") {
+	                console.log("Shipping Info: ", response);
+	                var inputJson = {
+	                    'memid': response.memid,
+	                    'id' : spdtoId,
+	                    'addressnick': response.addressnick,
+	                    'receiveMem': response.receiveMem,
+	                    'roadAddress': response.roadAddress,
+	                    'jibunAddress': response.jibunAddress,
+	                    'detailAddress': response.detailAddress,
+	                    'tel': response.tel,
+	                    'postnum': response.postnum
+	                };
+	                localStorage.setItem("inputJson", JSON.stringify(inputJson));
+	            } else {
+	                // 에러 처리
+	                alert("Error occurred: " + response.message);
+	            }
+	        },
+	        error: function(xhr, status, error) {
+	            alert("Error while requesting shipping info: " + error);
+	        }
+	    });
+	    
+	    const width = 900;
+	    const height = 900;
+	    let left = (window.innerWidth / 2) - (width / 2);
+	    let tops = (window.innerHeight / 2) - (height / 2);
+		
+	    window.open(popupURL, 'SIPChangePopup', `width=\${width}, height=\${height}, left=\${left}, top=\${tops}`);
+   }) --%>
+</script>
+<script type="text/javascript">
 		
 var _MBR_ID        			= "51963846";
 var IMG_PATH 				= "https://sui.ssgcdn.com/ui/ssg/img";
@@ -853,7 +852,7 @@ var reactingObj = {};
 	<div class="dimmed" style="display: none;"></div>
 
 
-	<%@ include file="footer.jsp" %>
+	<%@ include file="footer.jsp"%>
 	<p style="color: white; background: white;">api-pay-prod-was13_pay02</p>
 </body>
 </html>

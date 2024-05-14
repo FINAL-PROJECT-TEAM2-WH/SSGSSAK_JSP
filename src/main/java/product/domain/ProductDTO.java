@@ -26,7 +26,6 @@ public class ProductDTO {
     private String pdName ;
     private String pcontent;
     private String updateDay ;
-
     private String brandName;
     
     private List<ProductImgDTO> images;

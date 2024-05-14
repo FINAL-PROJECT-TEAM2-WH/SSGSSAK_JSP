@@ -34,9 +34,6 @@ public class ViewService {
 	
 	public ViewService() {	}
 	
-	
-
-
 	public static ViewService getInstance() {
 		if (instance ==null) {
 			instance = new ViewService();
@@ -45,8 +42,6 @@ public class ViewService {
 		return instance;
 	}
 
-	
-	
 	public ProductDTO getProduct(long productcode) {
 		
 		try (Connection conn = ConnectionProvider.getConnection()){
