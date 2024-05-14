@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
- <%
- 	boolean checkValid = false;
- %>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko" style="height: 100%;"><head><script type="text/javascript" src="https://js.appboycdn.com/web-sdk/4.6/braze.min.js" async=""></script><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240506/lb4ssg.min.js" charset="utf-8"></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
