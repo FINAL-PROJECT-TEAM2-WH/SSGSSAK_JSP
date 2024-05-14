@@ -47,7 +47,7 @@ public class MemberDAOImpl implements MemberDAO{
 		System.out.println("get in");
 		// 로그인 성공 시 member에 관한 정보를 갖고 와서 세션에서 객체 단위로 왔다갔다 하게끔? 
 
-		String sql =  "SELECT id, email, address, phoneNum, name "
+		String sql =  "SELECT id, email, phoneNum, name "
 				+ " FROM member "
 				+ " WHERE id = ? AND passwd = ? "; 
 
@@ -64,7 +64,6 @@ public class MemberDAOImpl implements MemberDAO{
 				// 로그인 성공 
 				cid = rs.getString("id");
 				email = rs.getString("email");
-				address = rs.getString("address");
 				phoneNum = rs.getString("phoneNum");
 				name = rs.getString("name");
 
