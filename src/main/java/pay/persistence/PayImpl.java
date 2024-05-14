@@ -738,14 +738,10 @@ public class PayImpl implements PayDAO{
 
 	@Override
 	public ArrayList<CartDTO> selectcartinfo(String id) {
-		String sql = "  select sc.id2 optionid , sc.scount , pi.imgurl ,ss.sellername, b.brandname , po.optionname , po.optionprice price, so.defaultshippingfee shipfee\r\n"
-				+ " \r\n"
-				+ " from shoppingcart sc , productimg pi , product p, brand b , sellerstore ss , productoption po , shippingoption so\r\n"
-				+ " where sc.memid = ? and sc.id2 = po.id and pi.productid = p.id and p.id = po.productid and b.id = p.brandid and ss.id = p.sellerstoreid and so.id = p.shippingoptionid  \r\n"
-				+ "	  " ;
+		String sql = " select sc.memid , pi.imgurl ,ss.sellername, b.brandname , po.optionname , po.optionprice price, so.defaultshippingfee shipfee \r\n"
+				+ "from shoppingcart sc , productimg pi , product p, brand b , sellerstore ss , productoption po , shippingoption so\r\n"
+				+ "where sc.memid = ? and pi.productid = p.id and p.id = po.productid and b.id = p.brandid and ss.id = p.sellerstoreid and so.id = p.shippingoptionid  " ;
 		ArrayList<CartDTO> al = new ArrayList<CartDTO>();
-		int optionid;
-		int scount ;
 		String imgurl ;
 		String sellername ;
 		String brandname ;
@@ -758,15 +754,14 @@ public class PayImpl implements PayDAO{
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				do {
-					optionid = rs.getInt("optionid");
 					imgurl = rs.getString("imgurl");
 					sellername = rs.getString("sellername");
 					brandname = rs.getString("brandname");
 					optionname = rs.getString("optionname");
 					price = rs.getInt("price");
 					shipfee = rs.getInt("shipfee");
-					scount = rs.getInt("scount");
-					CartDTO dto = CartDTO.builder().optionid(optionid).imgurl(imgurl).seller(sellername).brand(brandname).optionname(optionname).price(price).shipfee(shipfee).scount(scount).build();
+					
+					CartDTO dto = CartDTO.builder().imgurl(imgurl).seller(sellername).brand(brandname).optionname(optionname).price(price).shipfee(shipfee).build();
 					al.add(dto);
 				} while (rs.next());
 				
@@ -785,54 +780,6 @@ public class PayImpl implements PayDAO{
 			
 		}
 		return al;
-	}
-
-	@Override
-	public int deletecartinfo(String id, int optionid) {
-		String sql = " delete shoppingcart \r\n"
-				+ "  where memid = ? and id2= ? " ;
-		int result = 0 ;
-		try {
-			pst =conn.prepareStatement(sql);
-			pst.setString(1, id);
-			pst.setInt(2, optionid);
-			result = pst.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				pst.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
-
-	@Override
-	public int insertcartinfo(String id, int optionid , int quantity) {
-		String sql = "  insert into shoppingcart values ( shoppingcart_seq.nextval , ? , sysdate , ? , ? ) " ;
-		int result = 0 ; 
-		try {
-			pst = conn.prepareStatement(sql);
-			pst.setString(1, id);
-			pst.setInt(2, optionid);
-			pst.setInt(3, quantity);
-			result = pst.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				pst.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return result;
 	}
 
 

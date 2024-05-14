@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240513/lb4ssg.min.js" charset="utf-8"></script>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -609,7 +608,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<span class="tx_ko">기본배송지</span>
 								<span class="tx_en">Primary Shipping Address</span>
 								<span class="tx_zh">基本配送地</span>
-							 	<span> : ${al2[0].addrnick }</span>
+							 	<span> : 서초동집</span>
 							</strong>
 						</strong>
 					
@@ -617,8 +616,17 @@ function setCommonGnbCookie(name, value, expiredays) {
 				
 				<span class="codr_opt_delivaddr">					
 					
-									<span class="notranslate">[${al2[0].postnum }] ${al2[0].roadaddr }, ${al2[0].detailaddr } </span>
+						
+							
 								
+								
+									<span class="notranslate">[06634] 서울특별시 서초구 서초대로52길&nbsp;39, 201호 (서초동)</span>
+								
+								
+								
+							
+						
+						
 					
 				</span>
 				<span class="codr_tx_desc codr_tx_point" id="delicoText"></span>
@@ -647,7 +655,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					<strong id="wingTitle">
 						
 							
-								전체상품 : ${al.size()}개
+								전체상품 : 1개
 							
 							
 						
@@ -683,13 +691,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 				</dt>
 				<dd class="codr_dd">
 					<em class="ssg_price viewAmt_sellprc">
-						<c:set var="totalprice" value="0"></c:set>
-						<c:forEach items="${al}" var="items">
-						<c:set var="totalprice" value="${(totalprice + items.price * items.scount)}"></c:set>
-						</c:forEach>
-						
-						<f:formatNumber pattern="#,##0" value="${totalprice}"></f:formatNumber>
-						
+						20,950
 					</em>
 					<span class="ssg_tx">원</span>
 				</dd>
@@ -719,13 +721,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 				</dt>
 				<dd class="codr_dd">
 					+<em class="ssg_price viewAmt_shppcst">
-						<c:forEach items="${al}" var="items">
-						<c:set var="shipfee" value="0"></c:set>
-						<c:if test="${shipfee < items.shipfee}">
-							<c:set var="shipfee" value="${items.shipfee }"></c:set>
-						</c:if>
-						</c:forEach>
-						<f:formatNumber pattern="#,##0" value="${shipfee}"></f:formatNumber>
+						4,000
 					</em>
 					<span class="ssg_tx">원</span>
 				</dd>
@@ -740,7 +736,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 						<span class="tx_zh">结算预定金额</span>
 					</strong>
 				</dt>
-				<dd class="codr_dd"><strong><em class="ssg_price viewAmt_paymt"><f:formatNumber pattern="#,##0" value="${shipfee + totalprice}"></f:formatNumber></em><span class="ssg_tx">원</span></strong></dd>
+				<dd class="codr_dd"><strong><em class="ssg_price viewAmt_paymt">24,950</em><span class="ssg_tx">원</span></strong></dd>
 			</dl>
 			
 			<dl class="codr_dl codr_dl_billeddc codr_tx_gray show_gl hide_ko" role="presentation">
@@ -827,7 +823,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<button type="button" class="codr_btn_delete" name="btSoldoutDel"><span>품절상품삭제</span></button>
 									</li>
 									<li>
-										<button type="button" id="deletebtn" class="codr_btn_delete payTracking"  data-pt-click="PC장바구니_일반배송|상품별기능|선택상품삭제"><span>선택삭제</span></button>
+										<button type="button" class="codr_btn_delete payTracking" name="btDelChekItemAll" data-pt-click="PC장바구니_일반배송|상품별기능|선택상품삭제"><span>선택삭제</span></button>
 									</li>
 			                    </ul>
 							</div>
@@ -1112,9 +1108,9 @@ function setCommonGnbCookie(name, value, expiredays) {
 <div class="codr_acdo ty2 codr_toggle on addOrdTab addOrd_" id="divItemView_04">
 	<div class="codr_acdo_tit">
 		<h2 class="codr_acdo_tittx">
-			<span >
+			<span class="codr_chk">
 				<input type="checkbox" id="04" name="btChekShppGrp" class="payTracking" data-pt-click="PC장바구니_국내배송|택배배송|상품전체선택">
-				<label for="04">택배배송 상품 : <em>${al.size()}</em><span class="notranslate"><span class="tx_ko">개</span><span class="tx_en">pieces</span><span class="tx_zh">件</span></span></label>
+				<label for="04">택배배송 상품 : <em class="shppItemCnt">1</em><span class="notranslate"><span class="tx_ko">개</span><span class="tx_en">pieces</span><span class="tx_zh">件</span></span></label>
 			</span>
 
 			
@@ -1140,13 +1136,14 @@ function setCommonGnbCookie(name, value, expiredays) {
 						</colgroup>
 						<tbody>
 						<c:forEach begin="0" end="${al.size() }" items="${al}" var="items">
-						<tr class="pay_item_area" >
+						<tr class="pay_item_area codr_unit_area" id="codr_unit_area_6339576986" data-cart-id="6339576986">
+							
 							<td class="codr_thmb">
 								<div class="codr_unit_thmb">
 									<span class="codr_chk">
-										<input type="checkbox" id="chk_order_${items.optionid}"  value="${items.optionid}" class="payTracking" data-pt-click="PC장바구니_국내배송|택배배송|상품개별체크">
-										<label for="chk_order_${items.optionid}">
-											<span class="blind">${items.optionname }</span>
+										<input type="checkbox" id="chk_order_6339576986" name="cbCartId" value="6339576986" class="payTracking" data-pt-click="PC장바구니_국내배송|택배배송|상품개별체크">
+										<label for="chk_order_6339576986">
+											<span class="blind"> ${items.optionname }</span>
 											<span class="blind">상품선택</span>
 										</label>
 									</span>
@@ -1211,12 +1208,12 @@ function setCommonGnbCookie(name, value, expiredays) {
 								
 								<div class="codr_unit_newprice notranslate">
 									<span class="blind">판매가격</span>
-									<em class="ssg_price ">${items.price *items.scount }</em>
+									<em class="ssg_price ">${items.price }</em>
 									<span class="ssg_tx">원</span>
 								</div>
 
 								<div class="codr_unit_oldprice" style="display:none;">
-									<del><span class="blind">정상가격</span><em class="ssg_price itemSellprc">${items.price *items.scount}</em></del> <span class="ssg_tx">원</span>
+									<del><span class="blind">정상가격</span><em class="ssg_price itemSellprc">${items.price }</em></del> <span class="ssg_tx">원</span>
 								</div>
 
 									<div class="dtl_price_wrap price-tooltip-wrap" style="display:none;">
@@ -1226,7 +1223,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="ly_dtl_price price-tooltip-layer" role="tooltip" id="price-tip-6339576986" aria-hidden="true">
 											<dl class="org">
 												<dt>판매가</dt>
-												<dd class="itemSellprc"><em class="ssg_price">${items.price*items.scount }</em><span class="ssg_tx">원</span></dd>
+												<dd class="itemSellprc"><em class="ssg_price">${items.price }</em><span class="ssg_tx">원</span></dd>
 											</dl>
 											<dl class="dis">
 												
@@ -1243,7 +1240,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									<div class="codr_amount">
 										<a href="javascript:void(0);" role="button" class="codr_b_minus payTracking" data-pt-click="PC장바구니_국내배송|택배배송|수량빼기" name="btUpdOrdQtyMinus"><span aria-hidden="true">-</span><span class="blind">수량빼기</span></a>
 										<span class="codr_inpbx">
-											<input class="ordQty" type="text"  title="수량입력" value="${items.scount}">
+											<input class="ordQty" type="text" name="inputOrdQty" title="수량입력" value="1">
 										</span>
 										<a href="javascript:void(0);" role="button" class="codr_b_plus payTracking" data-pt-click="PC장바구니_국내배송|택배배송|수량더하기" name="btUpdOrdQtyPlus" data-max-psbl-qty="10"><span aria-hidden="true">+</span><span class="blind">수량더하기</span></a>
 									</div>
@@ -1409,11 +1406,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										
 											
 											
-												<span class="ssg_tx">
-												
-						
-						<f:formatNumber pattern="#,##0" value="${totalprice}"></f:formatNumber>
-						원 + 배송비 <f:formatNumber pattern="#,##0" value="${shipfee}"></f:formatNumber>원 = <strong><f:formatNumber pattern="#,##0" value="${shipfee + totalprice}"></f:formatNumber>원</strong></span>
+												<span class="ssg_tx">20,950원 + 배송비 4,000원 = <strong>24,950원</strong></span>
 											
 										
 									</span>
