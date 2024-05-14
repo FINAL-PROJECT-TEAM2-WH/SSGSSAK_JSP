@@ -832,7 +832,6 @@
 		  let tops = (document.body.offsetHeight / 2) - (height / 2.5);
 		  
 		  const popup = window.open(popupURL, 'SIPPopup', `width=\${width}, height=\${height}, left=\${left}, top=${tops}`);
-		  
 	}
 </script>
 <script>

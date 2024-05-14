@@ -75,5 +75,8 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 		
 		return images;
 	}
-
+	
+	
+	
+	
 }
