@@ -2373,16 +2373,11 @@
 <script>
 
 function submitEventBtn10(){
-<<<<<<< HEAD
 	var firstCommentId = $("#reply_list_container tr:first-child td:first-child").text()+1;
 	var updateQuery = '';
     //firstCommentId
 	//alert($("#entrycomment").val());
 	//alert($("#hiddenEventId").val());
-=======
-	alert($("#entrycomment").val());
-	alert($("#hiddenEventId").val());
->>>>>>> 1ff0ffc922421dfa9432b9ba4dbb5c7424eba052
 	 var jsonObject = {
 			 entrycomment : $("#entrycomment").val(),
 			 eid : $("#hiddenEventId").val()
@@ -2394,22 +2389,14 @@ function submitEventBtn10(){
 	        dataType: 'json',  // jQuery에서는 dataType 소문자로 씁니다.
 	        data: JSON.stringify(jsonObject),
 	        cache: false,
-<<<<<<< HEAD
 	        contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
 	        success: function(response) {
 	            //console.log("insert ajax처리 성공");
 	            alert("ajax 처리!!")
-=======
-	        //contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
-	        success: function(response) {
-	            //console.log("insert ajax처리 성공");
-	            //alert("ajax 처리!!")
->>>>>>> 1ff0ffc922421dfa9432b9ba4dbb5c7424eba052
 	        	$.ajax({
 	        		type: "GET",
 	        		url: contextPath + "/eventLogic.do",
 	        		dataType: 'json',
-<<<<<<< HEAD
 	                data: { eid : $("#hiddenEventId").val()},
 	                //contentType: "application/json",
 	        		cache: false,
@@ -2427,30 +2414,15 @@ function submitEventBtn10(){
 	        		}
 	        		, error : function(){
 	        			alert("error 발생~~");
-=======
-	        		cache: false,
-	        		success: function(response){
-	        			console.log("select ajax처리 성공");
-	        			alert("ajax 처리!!!!")
-	        			// 여기서 이제 테이블 구조 만들어서 뿌려주기
-	        		}
-	        		, error : function(){
-	        			alert("Error 발생 !!");
->>>>>>> 1ff0ffc922421dfa9432b9ba4dbb5c7424eba052
 	        		}
 	        	})
 	        },
 	        error: function(xhr, status, error) {
 	            alert("Error while requesting " + error);
 	        }
-<<<<<<< HEAD
 	  });
 }
 
-=======
-	    });
-}
->>>>>>> 1ff0ffc922421dfa9432b9ba4dbb5c7424eba052
 <%-- $("#submitEventBtn").on("click", function(){
 	 alert($("#submitEventBtn").val());
 	 var jsonObject = {
