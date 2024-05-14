@@ -644,7 +644,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 		$('#regi_a_tag').css('display','none');
 		$('#logoutBtn').css('display','block');
 		$('#like_Page').attr('href','<%=contextPath%>' + "/userinfo/like.jsp");
-		$('#my_Page').attr('href','<%=contextPath%>' + "/member/memberInfo.do");
+		$('#my_Page').attr('href','<%=contextPath%>' + "/memberInfo/memberInfo.do");
 	});
 	$('#logoutBtn').on('click', function () {
 		location.href = location.protocol + '<%= contextPath %>' + "/member/logout.do";

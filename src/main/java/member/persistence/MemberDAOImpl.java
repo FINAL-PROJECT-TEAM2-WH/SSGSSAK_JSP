@@ -751,6 +751,43 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 
+	@Override
+	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException {
+		String sql = " SELECT pd.id id,pd.pdname name,pd.pcontent content, po.optionprice price,pi.imgurl url, rv.grade grade "
+				+ " FROM interestgoods ig LEFT JOIN product pd ON ig.productid = pd.id "
+                + " LEFT JOIN productoption po ON ig.productid = po.productid "
+                + " LEFT JOIN productimg pi ON ig.productid = pi.productid "
+                + " LEFT JOIN review rv ON ig.productid = rv.productid "
+				+ " WHERE ig.memid = ? ";
+		String productid, name, content, price, url, grade;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					rs.getString("id");
+					rs.getString("name");
+					rs.getString("content");
+					rs.getString("price");
+					rs.getString("url");
+					rs.getString("grade");
+					
+					
+				} while ( rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+		
+		return null;
+	}
+
+
 
 
 

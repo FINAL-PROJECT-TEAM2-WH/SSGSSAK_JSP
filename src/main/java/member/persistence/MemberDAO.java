@@ -57,6 +57,10 @@ public interface MemberDAO {
 	public ArrayList<String> getAgreement(String conditionName , String id) throws SQLException;
 
 
+	// 좋아요 관련 함수. 
+	
+	public ArrayList<Map<String,String>> getproductList(String id) throws SQLException;
+	
 	// 기타 함수. 
 	public String transtoPhoneNum (String phoneNum) ;
 }
