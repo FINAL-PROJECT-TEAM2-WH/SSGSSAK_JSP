@@ -72,7 +72,6 @@ public class MemberDAOImpl implements MemberDAO{
 						.builder()
 						.id(cid)
 						.email(email)
-						.address(address)
 						.phoneNum(phoneNum)
 						.name(name)
 						.build();	
@@ -610,7 +609,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public int registerMbr(MemberDTO dto, Map<String,String> map) throws SQLException {
+	public int registerMbr(MemberDTO dto, Map<String,String> map, Map<String,String> address) throws SQLException {
 		// dto 
 		int rowCount = 0;
 		String id = dto.getId();
@@ -618,23 +617,21 @@ public class MemberDAOImpl implements MemberDAO{
 		String name = dto.getName();
 		String passwd = dto.getPasswd();
 		String phonePhone = dto.getPhoneNum();
-		String address = dto.getAddress();
 
 		String sql =  " INSERT INTO MEMBER( "
-				+ " id,email,address,phonenum,name,passwd,birthd, "
+				+ " id,email,phonenum,name,passwd,birthd, "
 				+ " REGISTERDATE,UPDATEDATE,LOGINNOTIFICATION,LOGIN2NOTIFICATION ) "
-				+ " VALUES (?,? ,?,?,?, "
-				+ "		?,?,SYSDATE,SYSDATE,'0','0') ";
+				+ " VALUES (?,?,?,?,?, "
+				+ "		?,SYSDATE,SYSDATE,'0','0') ";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, email);
-			pstmt.setString(3, address);
-			pstmt.setString(4, phonePhone);
-			pstmt.setString(5, name);
-			pstmt.setString(6, passwd);
-			pstmt.setString(7, "1991-12-01");
+			pstmt.setString(3, phonePhone);
+			pstmt.setString(4, name);
+			pstmt.setString(5, passwd);
+			pstmt.setString(6, "1991-12-01");
 
 			rowCount = pstmt.executeUpdate();
 
@@ -648,7 +645,41 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
+		
+		// INSERT into shippingplaceinformation VALUES (seqshipplaceinfo.NEXTVAL,회원id,회원id,회원id,회원연락처,우편번호,'기본배송지','도로명주소','지번주소','상세주소')
+		// 배송지 insert 문 
+		sql =  " INSERT into shippingplaceinformation"
+				+ " VALUES (seqshipplaceinfo.NEXTVAL,"
+				+ "?,?,?,?,?, "
+				+ " ? , ? , ? ,'기본배송지'"
+				+ " ) ";
 
+		try {
+		
+			String zipCode = address.get("zipcode");
+			String roadAddress = address.get("roadAddress");		
+			String jibunAddress = address.get("jibunAddress");
+			String detailAddress = address.get("detailAddress");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, id);
+			pstmt.setString(3, id);
+			pstmt.setString(4, roadAddress);
+			pstmt.setString(5, jibunAddress);
+			pstmt.setString(6, detailAddress);
+			pstmt.setString(7, phonePhone);
+			pstmt.setString(8, zipCode);
+			
+			rowCount = pstmt.executeUpdate();		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		
 		// 필수 약관 동의 
 		// 프로시저로 처리	
 		boolean result = false;
