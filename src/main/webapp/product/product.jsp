@@ -3675,7 +3675,11 @@ function setCommonGnbCookie(name, value, expiredays) {
     		<c:choose>
 			<c:when test="${allNull}">
 			<!-- 옵션하나 -->
+<<<<<<< HEAD
+            let first_select_value = document.getElementById("first_select").value;
+=======
             let first_select_value = document.getElementById("first_select").value;  
+>>>>>>> 43a24e50cfacab013721e40a1d1740880101ba96
             if (first_select_value) {
                 document.getElementById('option-' + first_select_value).style.display = 'block';
             }
