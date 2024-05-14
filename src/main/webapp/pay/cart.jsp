@@ -2694,4 +2694,66 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
     script.src = 'https://cdn.datamanager.co.kr/0/tcsdm.js?eid=1jy7ogkbi2hx41jy7ogkbi';
     document.head.appendChild(script);
 }
-</script></body></html>
+</script>
+<script>
+	let arr = "${al}";
+	let optionids = [] ;
+	let index = 0 ;
+	let checkedids = [] ;
+	$("#deletebtn").on("click",function(){
+		optionids.length = 0 ;
+		while ((index = arr.indexOf("optionid=", index)) !== -1) {
+			let start = index + "optionid=".length ;
+			let end = arr.indexOf(",",start);
+			
+			
+			let optionid = arr.substring(start,end);
+			optionids.push(optionid);
+			index = end ;
+		}
+		
+		checkedids.length = 0 ;
+		for (var i = 0; i < optionids.length; i++) {
+			(function(currentindex){
+				if ($("#chk_order_"+optionids[currentindex]).is(":checked")) {
+					let checkid = $("#chk_order_"+optionids[currentindex]).val();
+					checkedids.push(checkid);
+				}
+			})(i);
+				
+		}
+		$.ajax({
+			url : "${pageContext.request.contextPath}"+"/pay/cart.do?delete=delete" ,
+			method : "POST" ,
+			contentType : 'application/json',
+			data : JSON.stringify({
+				optionid : checkedids
+			}),
+			dataType : "JSON" ,
+			success : function(data , response) {
+				if (data.data > 0 ) {
+					alert("선택하신 장바구니 목록을 삭제하였습니다.");
+				} else {
+					alert("선택하신 장바구니 목록이 없습니다.");
+				}
+			},
+			error : function(response) {
+				alert("통신 실패");
+			}
+			
+			
+		})
+		
+		
+	
+	})
+	
+	
+
+
+</script>
+
+
+</body>
+
+</html>

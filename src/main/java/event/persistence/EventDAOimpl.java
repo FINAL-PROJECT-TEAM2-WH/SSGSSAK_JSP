@@ -207,43 +207,43 @@ public class EventDAOimpl implements EventDAO {
 		return alist;
 	}
 
-	@Override
-	public PageDTO pageBlock(Connection conn, int currentPage, String memid) throws Exception {
-		PageDTO pdto = null;
-		int numberPerPage = 10;
-		int numberOfPageBlock = 10;
-		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
-		int totalPage = dao.getTotalPages(conn, numberPerPage, memid);
-		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
-		
-		return pdto;
-	}
+//	@Override
+//	public PageDTO pageBlock(Connection conn, int currentPage, String memid) throws Exception {
+//		PageDTO pdto = null;
+//		int numberPerPage = 10;
+//		int numberOfPageBlock = 10;
+//		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+//		int totalPage = dao.getTotalPages(conn, numberPerPage, memid);
+//		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
+//		
+//		return pdto;
+//	}
 	
-	@Override
-	public int getTotalPages(Connection conn, int numberPerPage, String memid) throws SQLException {
-		int totalPages = 0;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String sql = "SELECT CEIL(COUNT(*)/?) FROM SHIPPINGPLACEINFORMATION where memid = ? ";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, numberPerPage);
-			pstmt.setString(2, memid);
-			rs =  pstmt.executeQuery();
-			if ( rs.next() ) totalPages = rs.getInt(1);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("getTotalPagesDAO 메서드에서 오류~~");
-		} finally {
-			JdbcUtil.close(rs);
-			JdbcUtil.close(pstmt);
-		}
-		
-		
-		return totalPages;
-	}
+//	@Override
+//	public int getTotalPages(Connection conn, int numberPerPage, String memid) throws SQLException {
+//		int totalPages = 0;
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		String sql = "SELECT CEIL(COUNT(*)/?) FROM SHIPPINGPLACEINFORMATION where memid = ? ";
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, numberPerPage);
+//			pstmt.setString(2, memid);
+//			rs =  pstmt.executeQuery();
+//			if ( rs.next() ) totalPages = rs.getInt(1);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println("getTotalPagesDAO 메서드에서 오류~~");
+//		} finally {
+//			JdbcUtil.close(rs);
+//			JdbcUtil.close(pstmt);
+//		}
+//		
+//		
+//		return totalPages;
+//	}
     
     
 }

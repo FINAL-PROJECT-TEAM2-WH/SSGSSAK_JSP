@@ -408,9 +408,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         } catch(e) {}
     </script>
 
-<%@include file="/Top.jsp" %>
+<%@include file="../../Top.jsp" %>
 
-<%@include file="/category.jsp" %>
+<%@include file="../../category.jsp" %>
 
 <script id="_tmplNavigation" type="text/x-jquery-tmpl">
 {{tmpl "#_tmplNavigation-menu"}}
@@ -696,22 +696,22 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 </script>
 <!-- 메인 배팝업 (e) -->
 
-    <%@ include file="./main/mainPage/mainbanr.jsp" %>
+    <%@ include file="./mainbanr.jsp" %>
 <!-- 그룹사 프로모션 -->
-    <%@ include file="./main/mainPage/middleBanner.jsp" %>
+    <%@ include file="./middleBanner.jsp" %>
     <!--------------------------------------------------------------------------------------------------------------------------------------->
     
     <!-- //그룹사 프로모션 -->
- <%@ include file="./main/mainPage/middleBanner2.jsp" %>
+ <%@ include file="./middleBanner2.jsp" %>
     
 <!-- 쓱1DAY배송 상품 구좌 -->
-<%@include file="./main/mainPage/1Day.jsp" %>
+<%@include file="./1Day.jsp" %>
 
 
         <!-- 구현할것들 -->
-<%@include file="./main/mainPage/WHmake.jsp" %>
+<%@include file="./WHmake.jsp" %>
 
-<%@include file="./main/mainPage/newNews.jsp" %>
+<%@include file="./newNews.jsp" %>
 <!--  ----------------------------- -->
 
 

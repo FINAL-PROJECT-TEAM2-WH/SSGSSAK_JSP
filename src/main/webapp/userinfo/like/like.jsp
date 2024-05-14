@@ -426,7 +426,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
            })
         } catch(e) {}
     </script>
-<%@ include file="../Top.jsp"%>
+<%@ include file="../../Top.jsp"%>
 <div id="category" class="category"></div>
 
     <!-- 메인 레이어팝업 (s) -->
