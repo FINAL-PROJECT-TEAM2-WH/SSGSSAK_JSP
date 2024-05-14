@@ -55,4 +55,8 @@ public interface MemberDAO {
 	public int registerMbr(MemberDTO dto, Map<String,String> map, Map<String,String> address) throws SQLException;
 	
 	public ArrayList<String> getAgreement(String conditionName , String id) throws SQLException;
+
+
+	// 기타 함수. 
+	public String transtoPhoneNum (String phoneNum) ;
 }
