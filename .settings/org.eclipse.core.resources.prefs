@@ -1,18 +1,12 @@
 eclipse.preferences.version=1
-<<<<<<< HEAD
 encoding//src/main/webapp/event/event1.jsp=UTF-8
 encoding//src/main/webapp/pay/paysuccess.jsp=UTF-8
 encoding//src/main/webapp/product/product.jsp=UTF-8
 encoding//src/main/webapp/search/searchPage.jsp=UTF-8
 encoding//src/main/webapp/userinfo/shipping/SSG_shippingMain.jsp=UTF-8
-=======
 
 encoding//src/main/webapp/event/event1.jsp=UTF-8
-<<<<<<< HEAD
-=======
 encoding//src/main/webapp/pay/paysuccess.jsp=UTF-8
->>>>>>> 5f2e14ea0f298f6da03152a79c7b906a7a6f6df0
 encoding//src/main/webapp/product/product.jsp=UTF-8
 encoding//src/main/webapp/product/productTest.jsp=UTF-8
->>>>>>> fe90379367a6f9ab35aae3562a713e54bdfbf53f
 encoding/<project>=UTF-8
