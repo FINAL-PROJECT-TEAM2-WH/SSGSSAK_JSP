@@ -7,7 +7,26 @@
 <title>Insert title here</title>
 </head>
 <body>
+        function show_option() {
+    		<c:choose>
+			<c:when test="${allNull}">
+			<!-- 옵션하나 -->
+            let first_select_value = document.getElementById("first_select").value;
+            if (first_select_value) {
+                document.getElementById('option-' + first_select_value).style.display = 'block';
+            }
+			</c:when>
+			<c:when test="${nonNull}">
+			<!-- 옵션두개 -->
+            let sec_select_value = document.getElementById("sec_select").value;
+            if (sec_select_value) {
+                document.getElementById('option-' + sec_select_value).style.display = 'block';
+            }
+			</c:when>
+			</c:choose>
 
+            updateTotalPrice();
+        }
 
     <c:forEach var="option" items="${productoption}">
         <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: none;">
