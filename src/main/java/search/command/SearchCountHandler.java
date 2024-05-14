@@ -32,7 +32,6 @@ public class SearchCountHandler implements CommandHandler{
 				
 				jsonObject.put("id", searchDTO.getId());
 				jsonObject.put("searchWord", searchDTO.getSearchword());
-				//jsonObject.put("searchHour", searchDTO.getSearchHour());
 				jsonObject.put("currentRank", searchDTO.getCurrentRank());
 				jsonObject.put("rankChange", searchDTO.getRankChange());
 				
