@@ -35,9 +35,15 @@ public class RegisterHandler implements CommandHandler {
 		String loginId = request.getParameter("mbrDto.mbrLoginId");
 		String detailAddress = request.getParameter("mbrDto.detailAddress");
 		String jibunAddress = request.getParameter("mbrDto.jibunAddress");
-			
-		String address = String.format("?zipcode=%s&jibunAddress=%s&detailAddress=%s" , zipcode,jibunAddress,detailAddress);
+		String roadAddress = request.getParameter("mbrDto.roadAddress");
 		
+		System.out.println(zipcode + detailAddress + jibunAddress + roadAddress);
+			
+		Map <String,String> address = new HashMap();
+		address.put("zipcode", zipcode);
+		address.put("roadAddress", roadAddress);
+		address.put("jibunAddress", jibunAddress);
+		address.put("detailAddress", detailAddress);
 		
 		// 2 번째 약관 옵션 
 		String [] ssgInfo_mbrSvcAgreeTypdCd = request.getParameterValues("ssgInfoRcvAgreeDto.mbrSvcAgreeTypeCd");
@@ -89,7 +95,6 @@ public class RegisterHandler implements CommandHandler {
 		MemberDTO member = new MemberDTO()
 				.builder()
 				.id(loginId)
-				.address(address)
 				.email(email)
 				.name(name)
 				.phoneNum(mbrCntsano+mbrCntsELno)
@@ -100,7 +105,7 @@ public class RegisterHandler implements CommandHandler {
 		MemberDAO dao = new MemberDAOImpl(conn);
 		RegisterService service = new RegisterService(dao);
 
-		int rowCount = service.register(member, agreement);
+		int rowCount = service.register(member, agreement, address);
 		String resultJson = "";
 		if ( rowCount >= 1) {
 			resultJson = "{\"result\":\"SUCCESS\"}";
