@@ -55,7 +55,7 @@ public interface MemberDAO {
 	public int registerMbr(MemberDTO dto, Map<String,String> map) throws SQLException;
 	
 	public ArrayList<String> getAgreement(String conditionName , String id) throws SQLException;
-<<<<<<< HEAD
+
 
 
 	// 좋아요 관련 함수. 
@@ -64,6 +64,4 @@ public interface MemberDAO {
 	
 	// 기타 함수. 
 	public String transtoPhoneNum (String phoneNum) ;
-=======
->>>>>>> d391827e79f5b4862315cc113a09ef942b5e5cd3
 }
