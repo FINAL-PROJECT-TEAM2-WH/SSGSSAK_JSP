@@ -667,7 +667,7 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt.setString(4, roadAddress);
 			pstmt.setString(5, jibunAddress);
 			pstmt.setString(6, detailAddress);
-			pstmt.setString(7, phonePhone);
+			pstmt.setString(7, transtoPhoneNum(phonePhone));
 			pstmt.setString(8, zipCode);
 			
 			rowCount = pstmt.executeUpdate();		
@@ -731,6 +731,24 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		System.out.println(rowCount);
 		return rowCount;
+	}
+	
+	@Override
+	public String transtoPhoneNum (String phoneNum) {
+		//010
+		String preNum = phoneNum.substring(0,3);
+		String middleNum = "";
+		String postNum = "";
+		if ( phoneNum.length() == 10) {
+		// 뒷자리가 7자리일 때	
+			middleNum = phoneNum.substring(3,6);
+			postNum = phoneNum.substring(6);
+		} else {
+			middleNum = phoneNum.substring(3,7);
+			postNum = phoneNum.substring(7);
+		}
+		
+		return String.format("%s-%s-%s", preNum,middleNum,postNum);
 	}
 
 

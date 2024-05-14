@@ -1574,6 +1574,14 @@ insert: function () {
 
  }
 } */
+
+function viewPolicy(site) {
+    popupWin("<%=contextPath%>/member/join/privacy/signup_terms.do?site=" + site, "privacy_policy", 780, 600, "yes", "no");
+}
+
+function viewPolicyPopup(mbrOperScrnId) {
+    popupWin("<%=contextPath%>/member/policies/termPopup.do?mbrOperScrnId=" + mbrOperScrnId, "terms", 780, 600, "yes", "no");
+}
 </script>
 
 </div>
