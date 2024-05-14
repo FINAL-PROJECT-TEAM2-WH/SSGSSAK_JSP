@@ -34,12 +34,12 @@ public class RegisterService {
 	}
 	
 	
-	public int register(MemberDTO dto, Map <String,String> map) {
+	public int register(MemberDTO dto, Map <String,String> map , Map<String,String> address) {
 		int rowCount = 0;
 		try {	
 			
 			if ( dto != null ) {
-				rowCount = dao.registerMbr(dto,map);
+				rowCount = dao.registerMbr(dto,map,address);
 				if ( rowCount == 1) {
 					System.out.println("회원가입성공");
 				}		

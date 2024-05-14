@@ -95,21 +95,13 @@
             </div>
         </div>
         <div id="cmgnb_ship" class="cmgnb_ship" data-react-unit-type="banr">
-            <a href="<%= request.getContextPath() %>/ssgShippingMainPage.do" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|쓱배송" style="display:none">
+            <a href="https://www.ssg.com/service/emart/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|쓱배송" style="display:inline">
                         <span class="cmgnb_ship_ico">
                             <img src='//sui.ssgcdn.com/cmpt/banner/202211/2022113014302993780266166126_299.png' alt='쓱배송' alt="쓱배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202211/2022113014303177073538664453_530.png 2x"></span>
                     </a>
-                <a href="https://www.ssg.com/service/morning/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|새벽배송" style="display:none">
+                <a href="https://www.ssg.com/service/morning/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|새벽배송" style="display:inline">
                         <span class="cmgnb_ship_ico">
                             <img src='//sui.ssgcdn.com/cmpt/banner/202211/2022113014303924415595968559_325.png' alt='새벽배송' alt="새벽배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202211/2022113014304147582933106393_763.png 2x"></span>
-                    </a>
-                <a href="https://www.ssg.com/service/oneday/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|쓱1DAY배송" style="display:none">
-                        <span class="cmgnb_ship_ico">
-                            <img src='//sui.ssgcdn.com/cmpt/banner/202307/2023070416215733607376373737_259.png' alt='쓱1DAY배송' alt="쓱1DAY배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202307/2023070416221367791932412293_612.png 2x"></span>
-                    </a>
-                <a href="https://www.ssg.com/service/traders/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|트레이더스 쓱배송" style="display:none">
-                        <span class="cmgnb_ship_ico">
-                            <img src='//sui.ssgcdn.com/cmpt/banner/202303/2023032015590922936400201740_322.png' alt='트레이더스 쓱배송' alt="트레이더스 쓱배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202303/2023032015591306807808608780_456.png 2x"></span>
                     </a>
                 </div>
         <div class="cmgnb_menubar">

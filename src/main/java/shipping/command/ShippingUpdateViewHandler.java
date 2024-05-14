@@ -16,15 +16,7 @@ public class ShippingUpdateViewHandler implements CommandHandler {
 		ShippingPlaceInfoDTO dto = null;
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-//		.id(id)
-//		.memid(memid)
-//		.addressnick(addressnick)
-//		.receiveMem(receiveMem)
-//		.roadAddress(roadAddress)
-//		.jibunAddress(jibunAddress)
-//		.detailAddress(detailAddress)
-//		.tel(tel)
-//		.postnum(postnum)
+
 		try {
 			String temp = request.getParameter("id");
 			long id = Long.parseLong(temp);

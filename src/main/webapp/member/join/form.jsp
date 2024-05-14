@@ -451,6 +451,8 @@
                             <div class="cmem_inpgrp">
                                 <div class="cmem_txt">
                                     <input type="text" title="우편번호" id="zipcd" name="zipcode" readonly="" onclick="openPopupSearchZip();" />
+                                    <input type="hidden" id="roadAddress" name="mbrDto.roadAddress" readonly=""/>
+                                    <input type="hidden" id="jibunAddress" name="mbrDto.jibunAddress" readonly=""/>
                                 </div>
                                 <button type="button" class="cmem_btn cmem_btn_gray" onclick="openPopupSearchZip();"><span>우편번호 찾기</span></button>
                             </div>
@@ -1113,30 +1115,43 @@ $(function(){
        /*  initFormPage();
         join.initFormData();
  */
- 		
+	
  		// 비밀번호 pwd << id 임 이거 8 ~ 20 체크 해서 옆에다가 띄워주는거. 
         $("#mbrLoginId").keyup(function () {
             var inputVal = $(this).val();
             $(this).val(inputVal.toLowerCase());
             $(this).val($(this).val().replace(/[^a-z0-9]/g, ""));
         });
- 				 
+    });		 
+    
+	 const checkValidvalue = {
+			    ID : "N",
+			    PASSWD :"N",
+			    NAME : "N",
+			    ADDRESS : "N",
+			    PHONENUM : "N",
+			    EMAIL : "N"
+			}
 		 const regex = new RegExp('^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,20}$');
 		 $('#pwd2').on('keyup', function () {		 
 			 if (regex.test($('#pwd').val())) {
 					if ($('#pwd').val() === $(this).val()) {
 						 $('#pwd_msg')
 						 .css('color','blue')
-						 .text("사용가능한 암호");
+						 .text("사용가능한 암호");						 
+						 checkValidvalue.PASSWD = 'Y';
+
 					}else{
 						$('#pwd_msg')
 					 	.css('color','red')
 					 	.text("패스워드를 동일하게 설정해주세요."); 
+						checkValidvalue.PASSWD = 'N';
 					}
 				}else{				
 					$('#pwd_msg')
 				 	.css('color','red')
 				 	.text("비밀번호는 최소 8자에서 20자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다."); 
+					checkValidvalue.PASSWD = 'N';
 				}
 			});
 			
@@ -1146,10 +1161,12 @@ $(function(){
 			 if (pattern.test($(this).val())){
 				 $('#email_msg')
 					.text(' ');
+				 checkValidvalue.EMAIL = 'Y';
 			} else {
 				$('#email_msg')
 				.css('color','red')
 				.text('이메일 형식에 맞지 않습니다.');
+				checkValidvalue.EMAIL = 'N';
 			} 
 		});
 		
@@ -1159,10 +1176,13 @@ $(function(){
 			 if (numPattern.test($(this).val())){
 				 $('#mbrCntsELno_msg')
 					.text(' ');
+				 checkValidvalue.PHONENUM = 'Y';
 			} else {
 				$('#mbrCntsELno_msg')
 				.css('color','red')
 				.text('전화번호 형식에 맞지 않습니다.');
+				checkValidvalue.PHONENUM = 'N';
+
 			} 
 		});
 		
@@ -1172,15 +1192,20 @@ $(function(){
 			 if (regexName.test($(this).val())){
 				 $('#name_msg')
 					.text(' ');
+				 checkValidvalue.NAME = 'Y';
+
 			} else {
 				$('#name_msg')
 				.css('color','red')
 				.text('한글 그리고 영어 혹은 완성된 이름을 써주세요.');
+				checkValidvalue.NAME = 'N';
+
 			} 
 		});
 		
 		
-
+		
+/* 
         $("#checkDuplicateLoginIdBtn").click(function (e) {
             e.preventDefault();
 
@@ -1195,7 +1220,7 @@ $(function(){
 
             $("#checkDuplicateLoginIdBtn").removeClass("working");
             loadingIndicator.hide();
-        });
+        }); */
 
         $("#lastCloseDate").html(convertDateFmt(''));
         $("#strtDt").html(convertDateFmt(''));
@@ -1203,101 +1228,35 @@ $(function(){
         $("#paymtExpcDt").html(convertDateFmt(''));
         $("#mbrspStrtDt").html(convertDateFmt(''));
         $("#mbrspEndDt").html(convertDateFmt(''));
-    });
+  
 
-    
-   /*  var join = {
-        insert: function () {
 
-            var $_this = $("#btnSubmit");
-            if ($_this.hasClass("working")) {
-                return false;
-            }
-
-            
-            if (!joinValidator.isValidate()) {
-                return;
-            }
-
-            $("#joinForm").ajaxSubmit({
-                type: "POST"
-                , url: "/member/join/process.ssg"
-                , dataType: "json"
-                , beforeSubmit: function () {
-                    $("#btnSubmit").attr('disabled', true);
-                    $_this.addClass("working");
-                    loadingIndicator.show();
-
-                    
-                    if ($("#mbrCntsano").val()) {
-                        $("#mbrCntsno").val($("#mbrCntsano").val() + $("#mbrCntsELno").val());
-                    }
-                }
-                , success: function (res) {
-
-                    alert(res.resultMsg);
-
-                    if (res.resultCode == "SUCCESS") {
-                        
-                        member_tracking.track('00198_000000750|t00060|1', {
-                                'mbr_join_dt': '2024-05-06'
-                                , "mbr_type_cd": '10'
-                                , "mktg_agree_yn": $('#ssgInfoRcvAgree').is(':checked') ? "Y" : "N"
-                                , "email_agree_yn": $('#emailRcvYn').is(':checked') ? "Y" : "N"
-                                , "sms_agree_yn": $('#smsRcvYn').is(':checked') ? "Y" : "N"
-                            }
-                        );
-
-                        let successIntgrUri = "/member/join/successIntgr.ssg";
-
-                        if (false) {
-                            successIntgrUri += "?retUrl=" + '';
-                        }
-
-                        location.replace(successIntgrUri);
-
-                        return;
-                    } else if (res.resultCode == "REFRESH") {
-                        location.reload();
-                    }
-
-                    $_this.removeClass("working");
-                    loadingIndicator.hide();
-
-                    
-                    if (res.result != null) {
-                        location.href = res.result;
-                    }
-                }
-                , error: function () {
-                    $_this.removeClass("working");
-                    loadingIndicator.hide();
-                    alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
-                }
-            });
-        }s
-        , initFormData: function () {
-
-   
-        }
-    } */
-</script>
-
-<script>
 
 	// password 확인 시에 키업 해서 패스워드가 대소문자 구분해서 일치하는지 확인해야됨.
 	// 핸들러를 써서 그냥 id 중복 체크하듯이 비밀번호가 맞는지 체크하는 ajax 핸들러 쓰는 게 좋아보임
-	
-	
-	
-	
+	function isvalidValue (checkValidvalue) {
+	   const keys = Object.keys(checkValidvalue);
+	   let result = 'Y';
+	   
+	   for (let i = 0; i < keys.length; i++) {
+		   const key = keys[i] // 각각의 키	  
+		   const value = checkValidvalue[key] // 각각의 키에 해당하는 각각의 값
+		   
+		   result = value;
+		   console.log(result);
+		 }
+	   return result == 'Y';
+   } 
+   
 	// 이메일도 마찬가지임. 
-	
-	
-
 	$('#btnSubmit_join').on('click', function () {
 		let params = $('#joinForm').serialize();
-		alert(params);
+		
+		if (!isvalidValue(checkValidvalue)){
+			alert('다시 입력');
+			return 
+		}
+
 		$.ajax({
             type: "POST"
             , url: "<%=contextPath%>/member/join/joinprocess.do"
@@ -1315,9 +1274,14 @@ $(function(){
                 alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
             }
         });	
-	});
-	
-	
+
+		
+	});	
+   
+    
+   
+ 
+   
 	$('.sms_type').on('click', function () {
 		let chkChecked = $('#chkAgree20').is(':checked');
 		let total = 0;
@@ -1326,11 +1290,6 @@ $(function(){
 		if(element.checked){
 			total += 1; 
 		}
-			
-/* 			} else {
-				// false 일 때 
-			} */
-			
 		});
 	 	console.log(total); 
 	 	if (!total){
@@ -1340,8 +1299,7 @@ $(function(){
 		}
 		 
 	});
-	
-	
+		
 	// 이걸로 checked 속성 가져올거임 ..
 		
 	
@@ -1362,15 +1320,7 @@ $(function(){
 				element.checked = false;
 			})
 		}
-	})
-	
-	
-	
-	
-	
-	
-	
-	
+	});
 	
 	$('#ssgInfoRcvAgree').on('click', function () {
 		let chkChecked = $('#ssgInfoRcvAgree').is(':checked');	
@@ -1390,7 +1340,7 @@ $(function(){
 				element.checked = false;
 			})
 		}
-	})
+	});
 	
 
 	$('#emailRcvYn').on('click', function () {
@@ -1420,90 +1370,36 @@ $(function(){
 			}
 		}		
 	}); 
-	
-	
-
-       /* insert: function () {
-
-            var $_this = $("#btnSubmit");
-            
-            if (!joinValidator.isValidate()) {
-                return;
-            }
-
-            $("#joinForm").ajax({
-                type: "POST"
-                , url: "/member/join/joinprocess.do"
-                , dataType: "json"
-                , success: function (res) {
-
-                    alert(res.resultMsg);
-
-                    if (res.resultCode == "SUCCESS") {
-                        
-                        member_tracking.track('00198_000000750|t00060|1', {
-                                'mbr_join_dt': '2024-05-06'
-                                , "mbr_type_cd": '10'
-                                , "mktg_agree_yn": $('#ssgInfoRcvAgree').is(':checked') ? "Y" : "N"
-                                , "email_agree_yn": $('#emailRcvYn').is(':checked') ? "Y" : "N"
-                                , "sms_agree_yn": $('#smsRcvYn').is(':checked') ? "Y" : "N"
-                            }
-                        );
-
-                        let successIntgrUri = "/member/join/successIntgr.ssg";
-
-                        if (false) {
-                            successIntgrUri += "?retUrl=" + '';
-                        }
-
-                        location.replace(successIntgrUri);
-
-                        return;
-                    } else if (res.resultCode == "REFRESH") {
-                        location.reload();
-                    }
-
-                    $_this.removeClass("working");
-                    loadingIndicator.hide();
-
-                    
-                    if (res.result != null) {
-                        location.href = res.result;
-                    }
-                }
-                , error: function () {
-                    $_this.removeClass("working");
-                    loadingIndicator.hide();
-                    alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
-                }
-            });
-        }
-        , initFormData: function () {
-
-   
-        }
-    } */
-
-
-
-</script>
-
-<script>
 
 var tag = '';
 
 function openPopupSearchZip() {
 	new daum.Postcode({
 	    oncomplete: function(data) {
-	        var addrTag = `<strong class="info_tit">도로명</strong><span class="info_cont">\${data.roadAddress}</span><strong class="info_tit">지번</strong><span class="info_cont" name="mbrDto.jibunAddress">\${data.jibunAddress}</span><div class="cmem_inpgrp ty_pw"><div class="cmem_txt"><input type="text" id="sample4_detailAddress" class="d_form" name="mbrDto.detailAddress" placeholder="상세주소"></div></div>`
+	        var addrTag = `<strong class="info_tit">도로명</strong><span class="info_cont">\${data.roadAddress}</span><strong class="info_tit">지번</strong><span class="info_cont">\${data.jibunAddress}</span><div class="cmem_inpgrp ty_pw"><div class="cmem_txt"><input type="text" id="sample4_detailAddress" class="d_form" name="mbrDto.detailAddress" placeholder="상세주소"></div><span class="cmem_noti" aria-live="polite">
+				<em class="usable_value"><p id="address_msg" style="padding-top: 13px"></p></em>
+				</span></div>`
 	    	$('#zipcd').val(data.zonecode);	
-	        $('#addr_info').html(addrTag);	        
+			$('#roadAddress').val(data.roadAddress); 
+			$('#jibunAddress').val(data.jibunAddress);
+	        $('#addr_info').html(addrTag);	
+	        const regexDetailAddress = new RegExp('^[가-힣0-9\s]+$');
+	        $('#sample4_detailAddress').on('keyup', function () {		
+	    	 	if (regexDetailAddress.test($(this).val())){
+	    			 $('#address_msg')
+	    				.text(' ');
+	    			 checkValidvalue.ADDRESS = 'Y';
+	    		} else {
+	    			$('#address_msg')
+	    			.css('color','red')
+	    			.text('정확한 배송지를 입력해주세요.');
+	    			checkValidvalue.ADDRESS = 'N';
+	    		}  
+	    	});
 	    }
 	}).open();
 }
 
-</script>
-<script>
 $("#checkDuplicateLoginIdBtn").on("click", function (){
     //var params = $("form").serialize();		// ?deptno=10
     var params = null;
@@ -1519,11 +1415,14 @@ $("#checkDuplicateLoginIdBtn").on("click", function (){
 		 success: function ( data,  textStatus, jqXHR ){
 			 if( data.count == 0 ){
 				 alert("사용 가능한 아이디입니다. 회원 가입을 완료하시면 신세계포인트 통합 아이디로 가입되어 있는 신세계 그룹사 사이트의 아이디가 함께 변경됩니다."); 
-				 	$('#id_msg').text('사용가능한 아이디입니다.');
-			 }else{  // 1
+				 	$('#id_msg').text('사용가능한 아이디입니다.')
+				 	.css('color','blue');
+				 	checkValidvalue.ID = 'Y';
+			 }else {  // 1
 				 $('#id_msg')
 			 	.css('color','red')
 			 	.text("이미 사용 중인 ID입니다.");
+				 checkValidvalue.ID = 'N';
 			 }
 			
 		 },
@@ -1533,6 +1432,153 @@ $("#checkDuplicateLoginIdBtn").on("click", function (){
 		 
 	 });
 });
+
+/*  var join = {
+insert: function () {
+
+    var $_this = $("#btnSubmit");
+    if ($_this.hasClass("working")) {
+        return false;
+    }
+
+    
+    if (!joinValidator.isValidate()) {
+        return;
+    }
+
+    $("#joinForm").ajaxSubmit({
+        type: "POST"
+        , url: "/member/join/process.ssg"
+        , dataType: "json"
+        , beforeSubmit: function () {
+            $("#btnSubmit").attr('disabled', true);
+            $_this.addClass("working");
+            loadingIndicator.show();
+
+            
+            if ($("#mbrCntsano").val()) {
+                $("#mbrCntsno").val($("#mbrCntsano").val() + $("#mbrCntsELno").val());
+            }
+        }
+        , success: function (res) {
+
+            alert(res.resultMsg);
+
+            if (res.resultCode == "SUCCESS") {
+                
+                member_tracking.track('00198_000000750|t00060|1', {
+                        'mbr_join_dt': '2024-05-06'
+                        , "mbr_type_cd": '10'
+                        , "mktg_agree_yn": $('#ssgInfoRcvAgree').is(':checked') ? "Y" : "N"
+                        , "email_agree_yn": $('#emailRcvYn').is(':checked') ? "Y" : "N"
+                        , "sms_agree_yn": $('#smsRcvYn').is(':checked') ? "Y" : "N"
+                    }
+                );
+
+                let successIntgrUri = "/member/join/successIntgr.ssg";
+
+                if (false) {
+                    successIntgrUri += "?retUrl=" + '';
+                }
+
+                location.replace(successIntgrUri);
+
+                return;
+            } else if (res.resultCode == "REFRESH") {
+                location.reload();
+            }
+
+            $_this.removeClass("working");
+            loadingIndicator.hide();
+
+            
+            if (res.result != null) {
+                location.href = res.result;
+            }
+        }
+        , error: function () {
+            $_this.removeClass("working");
+            loadingIndicator.hide();
+            alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
+        }
+    });
+}s
+, initFormData: function () {
+
+
+}
+} */
+
+
+
+/* insert: function () {
+
+     var $_this = $("#btnSubmit");
+     
+     if (!joinValidator.isValidate()) {
+         return;
+     }
+
+     $("#joinForm").ajax({
+         type: "POST"
+         , url: "/member/join/joinprocess.do"
+         , dataType: "json"
+         , success: function (res) {
+
+             alert(res.resultMsg);
+
+             if (res.resultCode == "SUCCESS") {
+                 
+                 member_tracking.track('00198_000000750|t00060|1', {
+                         'mbr_join_dt': '2024-05-06'
+                         , "mbr_type_cd": '10'
+                         , "mktg_agree_yn": $('#ssgInfoRcvAgree').is(':checked') ? "Y" : "N"
+                         , "email_agree_yn": $('#emailRcvYn').is(':checked') ? "Y" : "N"
+                         , "sms_agree_yn": $('#smsRcvYn').is(':checked') ? "Y" : "N"
+                     }
+                 );
+
+                 let successIntgrUri = "/member/join/successIntgr.ssg";
+
+                 if (false) {
+                     successIntgrUri += "?retUrl=" + '';
+                 }
+
+                 location.replace(successIntgrUri);
+
+                 return;
+             } else if (res.resultCode == "REFRESH") {
+                 location.reload();
+             }
+
+             $_this.removeClass("working");
+             loadingIndicator.hide();
+
+             
+             if (res.result != null) {
+                 location.href = res.result;
+             }
+         }
+         , error: function () {
+             $_this.removeClass("working");
+             loadingIndicator.hide();
+             alert('정상적으로 처리되지 않았습니다. 계속 문제가 발생되면 SSG고객센터(1577-3419)로 연락 주시기 바랍니다.');
+         }
+     });
+ }
+ , initFormData: function () {
+
+
+ }
+} */
+
+function viewPolicy(site) {
+    popupWin("<%=contextPath%>/member/join/privacy/signup_terms.do?site=" + site, "privacy_policy", 780, 600, "yes", "no");
+}
+
+function viewPolicyPopup(mbrOperScrnId) {
+    popupWin("<%=contextPath%>/member/policies/termPopup.do?mbrOperScrnId=" + mbrOperScrnId, "terms", 780, 600, "yes", "no");
+}
 </script>
 
 </div>

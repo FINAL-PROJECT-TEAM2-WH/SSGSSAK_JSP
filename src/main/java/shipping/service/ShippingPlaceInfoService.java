@@ -182,7 +182,5 @@ public class ShippingPlaceInfoService {
 		
 		return pdto;
 	}
-	
-	
-	//pageDto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPages)
+
 }

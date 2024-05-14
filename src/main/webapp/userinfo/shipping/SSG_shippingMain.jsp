@@ -1,4 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
+	String memid = (String) memSession.getAttribute("auth");
+%> 
 <!doctype html>
 <html lang="ko">
 <head>
@@ -11,17 +16,17 @@
     <meta name="description" content="이마트몰쓱배송, 믿고 사는 즐거움 SSG.COM" />
     <meta name="google-site-verification" content="riDJ-IX46HanskLx25pj6-y8ANf2qTgZNfv_UJvkHq8" />
     <meta name="facebook-domain-verification" content="ctgl43lmqq8gm4thxgg7j3b38sfqau" />
-    <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" as="style" />
-<link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" as="style" />
-<link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240424" as="style" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424"/>
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240424"/>
+    <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240508" as="style" />
+<link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240508" as="style" />
+<link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240508" as="style" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240508" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240508" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240508"/>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240508"/>
 
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_component.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/m_ssg/css/ssg_component.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_component.css?v=20240508" />
+<link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/m_ssg/css/ssg_component.css?v=20240508" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240508" />
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -147,7 +152,7 @@
             sessionId : '',
             ip : '',
             shpplocMod : 'MY',
-            shpplocModKey : '5430097',
+            shpplocModKey : '5835078',
             cartNm : '장바구니',
             mbrspMbrDivCd : '2001',
             mbrspJoinSiteCd : '',
@@ -307,10 +312,10 @@
     var emergencyItemIds = "";
 //]]>
 </script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ssg.ad.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssg.react.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240424"></script><script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/netfunnel.js?v=20240424" charset="UTF-8"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/netfunnel_skin.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ssg.ad.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssg.react.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240508"></script><script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/netfunnel.js?v=20240508" charset="UTF-8"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/netfunnel_skin.js?v=20240508"></script>
 
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/affiliate/affiliateGnb.js"></script>
 <script type="text/javascript">
@@ -437,628 +442,15 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <meta name="twitter:image" content="https://sui.ssgcdn.com/ui/common/img/sns/ssg.png" />
 </head>
 <body class="body_ssg body_renew body_wide body_wide_ctn">
-<div id="skip">
-    <h2>스킵 네비게이션</h2>
-    <ul>
-        <li><a href="#skip_gnb" onclick="document.getElementById('skip_gnb').tabIndex = -1;document.getElementById('skip_gnb').focus();return false;">카테고리 메뉴 바로가기</a></li>
-        <li><a href="#content" onclick="document.getElementById('content').tabIndex = -1;document.getElementById('content').focus();return false;">본문바로가기</a></li>
-        <li><a href="https://www.ssg.com/customer/faqKeywordList.ssg?keyword=접근성#content">접근성 FAQ 바로가기</a></li>
-    </ul>
-</div>
-<!-- 마케팅 띠배너 신규 s -->
-<!-- 마케팅 띠배너 신규 e -->
 
-<div id="gnbBanrDiv" style="display:none">
-       
-</div>
-<!-- IE Upgrade 캠페인 --><div class="gnb_bnr_wrap" id="_ieEdgeTopBanner" data-cookie="ieUpgradeBanner">
-    <div class="gnb_bnr_s gnb_bnr_ie" id="checkUpgrade">
-        <div class="gnb_bnr_inner">
-            <div class="gnb_bnr_desc">
-                <p>해당 브라우저 이용 시 일부 서비스 이용이 제한됩니다. 안정적인 서비스 이용을 위해 <strong>최신 브라우저로 업데이트 하세요.</strong></p>
-                <a class="gnb_bnr_btnopen" href="microsoft-edge:https://www.ssg.com">Microsoft Edge 열기 <i class="icon ty_xs icon_chevron_right_s" aria-hidden="true"></i></a>
-            </div>
-            <button class="gnb_bnr_btntoday js_close_today" type="button">오늘 하루 열지 않음 <i class="icon ty_xs icon_close" aria-hidden="true"></i></button>
-        </div>
-    </div>
-</div>
-<!-- //IE Upgrade 캠페인 -->
-<div id="wrap" >
-    <input type="hidden" name="showTripTapActvYn" value="Y"/>
-    <input type="hidden" name="siteNo" value="6005"/>
-    <input type="hidden" name="fromgnb" value="ssg"/>
-    <div id="header" class="ssg_header react-area"  >
-        <div class="ssg_header_inner">
-            <div id="notice_b2e_pop" class="notice_lpop" style="width:436px;height:334px;display:none">
-                <div class="nl_cont">
-                    <img src="https://sui.ssgcdn.com/ui/ssg/img/common/notice/bg_benefitnotice.png" alt="제휴 혜택 적용 관련 안내">
-                    <p class="blind">B2E 제휴 고객사 및 신세계 그룹 임직원에게는 신세계몰과 이마트몰의 상시 할인 혜택이 적용되고 있습니다. B2E 회원은 제휴 채널 혜택이 중복 적용되지 않습니다. 특정 제휴 채널을 통한 SSG.COM 방문 시 제휴채널 헤택이 중복 적용되지 않음을 양해하여 주시기 바랍니다.</p>
-                </div>
-                <div class="nl_foot">
-                    <div class="nlf_l"><input type="checkbox" id="nlf_chk" onclick="javascript:openB2ePopClose();"><label for="nlf_chk">오늘 하루 이창을 열지않음</label></div>
-                    <div class="nlf_r"><a href="javascript:void(0);" onclick="javascript:document.getElementById('notice_b2e_pop').style.display='none';" class="nl_close"><span class="sp_nl">안내 레이어 닫기</span></a></div>
-                </div>
-            </div>
- 
+<%@include file="../../Top.jsp" %>
+<%@include file="SSG_shippingCategory.jsp" %>
 
-            <div class="ssg_gnb_util">
-                <!-- 상단메뉴: 바로가기/로그인/우측메뉴 -->
-                <div class="gnb_renew_util" data-react-tarea-cd="00042_000000090">
-                    <input type="hidden" value="Y" id="universeOpenYn"/>
-                    <div class="gnb_mmbrs ty_universe" id="gnbMbrspText_universe" style="display: none" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"멤버십영역"}]' data-react-unit-id=""></div>
-                    <ul class="gnb_util" id="util_right">
-                        <li id="gnbUserInfoArea" class="gnb_tx_user notranslate gnbUserInfoArea" style="display:none;"><a href="javascript:void(0);"></a></li>
-                        <li id="loginBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|로그인" href="#" onclick="login('','','','gnb=login');return false;" title="새창 열림">로그인</a></li>
-                        <li id="joinBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|회원가입" href="javascript:fn_joinSite('https://member.ssg.com/member/join/auth.ssg')">회원가입</a></li>
-                        <li id="logoutBtn" style="display:none;"><a class="clickable" data-react-tarea="몰공통|GNB|로그아웃" href="#" onclick="logout('', 'gnb=logout');return false;">로그아웃</a></li>
-                        <li><a class="clickable" data-react-tarea="몰공통|GNB|고객센터" href="javascript:goCustomer();">고객센터</a></li>
-                    </ul>
-                </div>
-                <div class="gnb_renew_menu">
-                    <ul class="gnb_menu" data-react-tarea-cd="00042_000000090">
-                        <li>
-                            <a href="https://www.ssg.com/myssg/myClip/main.ssg?attnDivCd=10&gnb=myclip" class="btn_like clickable" data-react-tarea="몰공통|GNB|MY_MY클립" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_heart" aria-hidden="true"></i>
-                                <span class="blind">좋아요</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ssg.com/myssg/main.ssg?gnb=myssg" class="btn_myssg clickable" data-react-tarea="몰공통|GNB|MY_MYSSG" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_person" aria-hidden="true"></i>
-                                <span class="blind">MY SSG</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://pay.ssg.com/myssg/orderList.ssg?gnb=orderlist" class="btn_order clickable" data-react-tarea="몰공통|GNB|주문배송조회" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_truck" aria-hidden="true"></i>
-                                <span class="blind">주문배송조회</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:ssgGnb.fn_btnClickCart();" class="btn_cart clickable" data-react-tarea="몰공통|GNB|장바구니_클릭" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
-                                <i class="icon ty_sm icon_cart" aria-hidden="true"></i>
-                                <span class="cmnoti_push" id="mbrCartCntInfo" style="display:none;">
-                                    <span class="blind">장바구니에 담긴 상품 수</span>
-                                    <span class="cmnoti_num" id="mbrCartCntSpan"></span>
-                                </span>
-                            </a>
-                        </li>
-                        <li data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"최근본"}]'>
-                            <a href="#" onclick="javascript:historySsg.getHistoryList()" class="btn_history js_history_open clickable" data-react-tarea="공통|GNB|최근본_클릭" data-react-tarea-dtl-cd="t00060">
-                                <i class="icon ty_sm icon_eye" id="icon_eye" aria-hidden="true"></i>
-                                <span class="blind">최근본 상품</span>
-                                <!-- [D] 가장 최근에 본 상품 이미지 노출시 -->
-                                <span class="gnb_util_thumb" id="gnb_util_thumb" style="display:none">
-                                    <img id="gnb_util_thumb_img" alt="{{ 상품 이미지명 }}" loading="lazy">
-                                </span>
-                            </a>
-                        </li>
-                        </ul>
-                    <script type="text/javascript">
-                        var loginYn  = 'N';
-                        var cookies = document.cookie.split('; ');
-                        for(var i = 0; i < cookies.length; i++){
-                            var value  = cookies[i].split('=');
-                            if(value[0] === 'LOGIN_YN'){
-                                loginYn = decodeURIComponent(value[1]);
-                            }
-                        }
-
-                        if(loginYn == 'T'){
-                            document.getElementById('loginBtn').style.display = "none";
-                            document.getElementById('joinBtn').style.display = "none";
-                            document.getElementById('logoutBtn').style.display = "";
-                        } else{
-                            document.getElementById('loginBtn').style.display = "";
-                            document.getElementById('joinBtn').style.display = "";
-                            document.getElementById('logoutBtn').style.display = "none";
-                        }
-
-                        var ssgGnb = {
-                            fn_btnClickCart : function() {
-                                if(ssgGnb.fn_btnClickCart.progress) {
-                                    alert('처리중입니다.');
-                                    return;
-                                }
-
-                                ssgGnb.fn_btnClickCart.progress = true;
-                                location.href = 'https://pay.ssg.com/cart/dmsShpp.ssg?gnb=cart';
-                            }
-                        }
-                    </script>
-                </div>
-                <!-- //상단메뉴: 바로가기/로그인/우측메뉴-->
-            </div>
-        </div>
-    </div>
-<!-- 최근 본 상품 -->
-<aside id="history" class="drawer_menu drawer_right" role="complementary" aria-label="최근 본 상품 리스트">
-  <div class="ssg_history_wrap drawer_wrap" id="_ssg_history_wrap" tabindex="0" data-react-tarea-cd="00042_000000455">
-    <div class="ssg_history_top">
-      <div class="ssg_history_title">
-        <h3>최근본</h3>
-        <span class="txt_count">0</span>
-      </div>
-      <div class="ssg_history_ctrl" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"전체삭제"}]'>
-        <button type="button" class="ssg_history_delete clickable" onclick="javascript:historySsg.deleteHistoryAll();ssg_react_v2.direct_call(this);" data-react-tarea="공통|최근본|전체삭제_클릭" data-react-tarea-dtl-cd="t00060">전체삭제</button>
-        <button type="button" class="ssg_history_close drawer_close" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"닫기"}]'>
-          <i class="icon ty_md icon_close clickable" aria-hidden="true" onclick="ssg_react_v2.direct_call(this);" data-react-tarea="공통|최근본|닫기_클릭" data-react-tarea-dtl-cd="t00060"></i>
-          <span class="blind">최근 본 상품 닫기</span>
-        </button>
-      </div>
-    </div>
-    <div class="ssg_history_cont">
-      <div class="ssg_history_scroll">
-        <ul class="ssg_history_list">
-        </ul>
-      </div>
-      <div class="ssg_history_loading"><span class="blind">로딩중</span></div>
-      <div class="ssg_history_nodata">
-        <p>최근본<br>내역이 없습니다</p>
-      </div>
-    </div>
-  </div>
-</aside>
-<!-- //최근 본 상품 -->
-
-    <script type="text/javascript">
-        function frontSsgReactDirectCall(tareaParam) {
-            if(typeof ssg_react !== 'undefined') {
-                ssg_react.directCall({tarea: tareaParam})
-            }
-        }
-
-        </script>
-
-<script type="text/javascript">
-
-function setCommonGnbCookie(name, value, expiredays) {
-    //name:useGnbAdvert, value:Y
-    //$.cookie(name, value, {expires: expiredays, path: '/', domain: '.ssg.com'});
-    
-    var strCookie = name + "=" + encodeURIComponent(value);
-    strCookie += "; path=/";
-    strCookie += "; domain=.ssg.com";
-    if( typeof expiredays === "number" )
-    {
-        var todayDate = new Date();
-        todayDate.setDate (todayDate.getDate() + expiredays);
-
-        strCookie += "; expires=" + todayDate.toGMTString();
-    }
-
-    document.cookie = strCookie;
-}
-
-</script>
-<div id="skip_gnb" class="ssg_navbar react-area">
-    <div class="ssg_navbar_inner" data-react-tarea-cd="00042_000000090">
-        <div class="cmgnb_ctg" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"카테고리"}]'>
-            <button type="button" class="cmgnb_ctg_open v2 clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|카테고리_클릭" data-react-tarea-dtl-cd="t00060">
-                <span class="blind">통합 카테고리 보기</span>
-                <span class="ico_menu">&nbsp;</span>
-            </button>
-            <div class="cmctg_text">카테고리</div>
-            <div class="cmctg_total" aria-hidden="true">
-                <div class="cmctg_dimmed"></div>
-                <div class="cmctg_cont">
-                    <ul class="cmctg_list" role="menubar">
-                        <li class="cmctg_top_mn" data-ctg-code="5410000001">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|패션의류">
-                                    <span class="cmctg_lnk_txt">패션의류</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015891">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|패션잡화">
-                                    <span class="cmctg_lnk_txt">패션잡화</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000016221">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|명품">
-                                    <span class="cmctg_lnk_txt">명품</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000002">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|뷰티">
-                                    <span class="cmctg_lnk_txt">뷰티</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000006">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|스포츠/레저">
-                                    <span class="cmctg_lnk_txt">스포츠/레저</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000003">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|생활/주방">
-                                    <span class="cmctg_lnk_txt">생활/주방</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015890">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|가구/인테리어">
-                                    <span class="cmctg_lnk_txt">가구/인테리어</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000004">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|유아동">
-                                    <span class="cmctg_lnk_txt">유아동</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000005">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|디지털/렌탈">
-                                    <span class="cmctg_lnk_txt">디지털/렌탈</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015889">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|여행/e쿠폰/문구/도서">
-                                    <span class="cmctg_lnk_txt">여행/e쿠폰/문구/도서</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000007">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|신선식품">
-                                    <span class="cmctg_lnk_txt">신선식품</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015925">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|가공/건강식품">
-                                    <span class="cmctg_lnk_txt">가공/건강식품</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000016140">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|반려동물">
-                                    <span class="cmctg_lnk_txt">반려동물</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        </ul>
-                </div>
-            </div>
-        </div>
-        <div id="cmgnb_ship" class="cmgnb_ship" data-react-unit-type="banr">
-            <a href="https://www.ssg.com/service/emart/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|쓱배송" style="display:none">
-                        <span class="cmgnb_ship_ico">
-                            <img src='//sui.ssgcdn.com/cmpt/banner/202211/2022113014302993780266166126_299.png' alt='쓱배송' alt="쓱배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202211/2022113014303177073538664453_530.png 2x"></span>
-                    </a>
-                <a href="https://www.ssg.com/service/morning/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|새벽배송" style="display:none">
-                        <span class="cmgnb_ship_ico">
-                            <img src='//sui.ssgcdn.com/cmpt/banner/202211/2022113014303924415595968559_325.png' alt='새벽배송' alt="새벽배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202211/2022113014304147582933106393_763.png 2x"></span>
-                    </a>
-                <a href="https://www.ssg.com/service/oneday/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|쓱1DAY배송" style="display:none">
-                        <span class="cmgnb_ship_ico">
-                            <img src='//sui.ssgcdn.com/cmpt/banner/202307/2023070416215733607376373737_259.png' alt='쓱1DAY배송' alt="쓱1DAY배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202307/2023070416221367791932412293_612.png 2x"></span>
-                    </a>
-                <a href="https://www.ssg.com/service/traders/dvstore.ssg" class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001" data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|트레이더스 쓱배송" style="display:none">
-                        <span class="cmgnb_ship_ico">
-                            <img src='//sui.ssgcdn.com/cmpt/banner/202303/2023032015590922936400201740_322.png' alt='트레이더스 쓱배송' alt="트레이더스 쓱배송" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202303/2023032015591306807808608780_456.png 2x"></span>
-                    </a>
-                </div>
-        <div class="cmgnb_menubar">
-            <ul role="menubar">
-                <li class="Y" data-react-unit-type="banr" data-react-unit-text='[{"type":"text","value":"SSG.COM Biz."}]'>
-                            <a href='https://www.ssg.com/service/bizMain.ssg' target='_self' role="menuitem" class="menu_lnk ty_open clickable" aria-label="SSG.COM Biz. 서비스매장 바로가기" data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|SSG.COM Biz." data-react-tarea-dtl-cd="t00001" ><span class="menu_ico_img"><img src='//sui.ssgcdn.com/cmpt/banner/202403/2024032709555489322063224206_497.png' alt='SSG.COM Biz.' alt="" loading="lazy"></span>
-                                        <span class="menu_txt">SSG.COM Biz.</span>
-                                <span class="menu_ico_label ty_new">NEW</span>
-                                </a></li>
-                    <li class="menu_gift" data-react-unit-type="banr" data-react-unit-text='[{"type":"text","value":"선물하기"}]'>
-                            <a href='https://www.ssg.com/service/gift/main.ssg' target='_self' role="menuitem" class="menu_lnk clickable" aria-label="선물하기 서비스매장 바로가기" data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|선물하기" data-react-tarea-dtl-cd="t00001" ><span class="menu_ico_img"><img src='//sui.ssgcdn.com/cmpt/banner/202311/2023112210100688016845963684_281.png' alt="" loading="lazy" srcset="//sui.ssgcdn.com/cmpt/banner/202311/2023112210101635319246335924_563.png"></span>
-                                        <span class="menu_txt">선물하기</span>
-                                </a></li>
-                    <li class="menu_event" data-react-unit-type="banr" data-react-unit-text='[{"type":"text","value":"이벤트"}]'>
-                            <a href='https://www.ssg.com/event/eventMain.ssg' target='_self' role="menuitem" class="menu_lnk clickable" aria-label="이벤트 서비스매장 바로가기" data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|이벤트" data-react-tarea-dtl-cd="t00001" ><span class="menu_txt">이벤트</span>
-                                </a></li>
-                    <li class="menu_store" data-react-unit-type="banr" data-react-unit-text='[{"type":"text","value":"공식스토어"}]'>
-                            <a href='https://www.ssg.com/special/index.ssg' target='_self' role="menuitem" class="menu_lnk clickable" aria-label="공식스토어 서비스매장 바로가기" data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|공식스토어" data-react-tarea-dtl-cd="t00001" ><span class="menu_txt">공식스토어</span>
-                                </a></li>
-                    <li class="menu_obanjang" data-react-unit-type="banr" data-react-unit-text='[{"type":"text","value":"특가"}]'>
-                            <a href='https://www.ssg.com/service/specialMain.ssg?tabDivCd=happy' target='_self' role="menuitem" class="menu_lnk clickable" aria-label="특가 서비스매장 바로가기" data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|특가" data-react-tarea-dtl-cd="t00001" ><span class="menu_txt">특가</span>
-                                </a></li>
-                    <li class="menu_best" data-react-unit-type="banr" data-react-unit-text='[{"type":"text","value":"베스트"}]'>
-                            <a href='https://www.ssg.com/service/bestMain.ssg' target='_self' role="menuitem" class="menu_lnk clickable" aria-label="베스트 서비스매장 바로가기" data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|베스트" data-react-tarea-dtl-cd="t00001" ><span class="menu_txt">베스트</span>
-                                </a></li>
-                    </ul>
-        </div>
-
-    </div>
-</div>
-
-<script id="_tmplNavigation" type="text/x-jquery-tmpl">
-{{tmpl "#_tmplNavigation-menu"}}
-{{if hasKillerCategory}}
-    <div class="cmctg_sub_side has_kilr">
-
-    {{tmpl(data) "#_tmplNavigation-killer"}}
-    </div>
-    {{else hasSideBanner}}
-    <div class="cmctg_sub_side">
-    {{tmpl(data.L[0]) "#_tmplNavigation-banner"}}
-    </div>
-{{/if}}
-</script>
-<script id="_tmplNavigation-menu" type="text/x-jquery-tmpl">
-<div class="cmctg_sub_menu">
-{{each(i, header) data.L}}
-    <ul class="cmctg_sub_lst" role="menu">
-        <li class="cmctg_sub_tit">
-            <a role="menuitem" href="/disp/category.ssg?ctgId={{= header.C}}" class="cmctg_sub_lnk clickable" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|{{= header.N}}">{{= header.N}}</a>
-        </li>
-        {{if header.L.length > 0}}
-            {{each(i, submenu) header.L}}
-            <li class="cmctg_sub_mn">
-                <a role="menuitem" href="/disp/category.ssg?ctgId={{= submenu.C}}" class="cmctg_sub_lnk clickable" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|{{= submenu.N}}">{{= submenu.N}}</a>
-            </li>
-            {{/each}}
-        {{/if}}
-    </ul>
-{{/each}}
-</div>
-</script>
-<script id="_tmplNavigation-banner" type="text/x-jquery-tmpl">
-<div class="cmctg_bn">
-    <a href="/plan/planShop.ssg?planShopId={{= PNSHOP_ID}}" class="cmctg_bn_lnk clickable" data-react-tarea="SSG공통|GNB 띠메뉴|기획전|{{= I_TIT}}">
-        <div class="cmctg_bn_img">
-            <img src="{{= I}}" alt="{{= I_TIT}}" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&edit=c'">
-        </div>
-        <div class="cmctg_bn_tit">
-            <span class="cmctg_bn_main">{{= I_TIT}}</span>
-            <span class="cmctg_bn_sub">{{= I_SUB_TIT}}</span>
-        </div>
-    </a>
-</div>
-</script>
-<script id="_tmplNavigation-killer" type="text/x-jquery-tmpl">
-<div class="cmctg_kilr{{if C === "5410000002"}} ty_mndmoon{{/if}}{{if C === "5410000004"}} ty_baby{{/if}}{{if C === "1000015889"}} ty_trip{{/if}}{{if C === "1000015890"}} ty_trip{{/if}}">
-    {{if KILR_SERVICE.TOT_LINK_URL && KILR_SERVICE.TOT_IMG}}
-    <div class="cmctg_kilr_bn">
-        <a href="{{= KILR_SERVICE.TOT_LINK_URL}}" class="cmctg_kilr_bnlnk clickable" data-react-tarea="SSG공통|GNB 띠메뉴|{{if C === "5410000002"}}먼데이문 배너{{/if}}{{if C === "5410000004"}}유아동 배너{{/if}}{{if C === "1000015889"}}여행 배너{{/if}}{{if C === "1000015890"}}갤러리 배너{{/if}}">
-            <div class="cmctg_kilr_bnimg">
-                <img src="{{= KILR_SERVICE.TOT_IMG}}" alt="" onerror="this.onerror=null;this.src='//simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&edit=c'">
-            </div>
-        </a>
-    </div>
-    {{/if}}
-
-    {{if KILR_SERVICE.L && KILR_SERVICE.L.length > 0}}
-        <ul class="cmctg_kilr_lst">
-        {{each(i, serviceMenu) KILR_SERVICE.L}}
-            {{if serviceMenu.SHOW_YN === "ALL" || serviceMenu.SHOW_YN === "LOGIN" && typeof settings !== "undefined" && settings.UserInfo.isLoginYn === "Y"}}
-                <li class="cmctg_kilr_mn">
-                    <a href="{{= serviceMenu.LINK_URL}}" class="cmctg_kilr_lnk" data-react-tarea="SSG공통|GNB 띠메뉴|{{= N}} 서비스매장|{{= serviceMenu.NM}}">
-                        <span class="cmctg_kilr_name">{{= serviceMenu.NM}}</span>
-                        {{if serviceMenu.IMG !== ""}}<span class="cmctg_kilr_badge"><img src="{{= serviceMenu.IMG}}" alt=""></span>{{/if}}
-                    </a>
-                </li>
-            {{/if}}
-        {{/each}}
-        </ul>
-    {{/if}}
-</div>
-</script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.common.gnb.js?v=20240424"></script>
-
-<script type="text/javascript">
-    $(function(){
-        var oSsgMallCategory = new ssg.Model.mallCategory({
-            sUrl: 'https://sui.ssgcdn.com/common/ui/json/pc_ctg_list_0000_NORMAL.js'
-        });
-        oSsgMallCategory.getCategoryInfo().done(function(data) {
-            var sSsgMallCode = "6005";
-            var oSsgViewNavigation = new ssg.View.navigation({
-                htCtgData: oSsgMallCategory.getCtgDataByMallCode(sSsgMallCode, data)
-            });
-        });
-
-        // 배송매장 ( 새벽배송 )의 경우 이마트 / 새벽배송이 같은 차수이면 비노출 처리한다.
-        deferredObj.done(function() {
-            $("#cmgnb_ship a").each(function() {
-                if ( this.href.indexOf("morning/dvstore.ssg") > -1 && settings.UserInfo.isSameEmGm == "true" ) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
-            });
-        });
-    });
-</script>
-
-<script type="text/javascript">
-    function goSmileClub(notMbrLinkUrl, leaveMbrLinkUrl, mbrLinkUrl) {
-        if(settings.UserInfo.mbrspMbrDivCd == '2002') {
-            location.href = leaveMbrLinkUrl;
-        } else if(settings.UserInfo.mbrspMbrDivCd == '2003' || settings.UserInfo.mbrspMbrDivCd == '2004') {
-            location.href = mbrLinkUrl;
-        } else {
-            location.href = notMbrLinkUrl;
-        }
-    }
-</script>
-<div id="category" class="category"></div>
-
-    <!-- 메인 레이어팝업 (s) -->
-    <div class="cmmain_notipop" id="cmmain_notipop_div" style="display: none;">
-    <div class="cmmain_notipop_inr" id="cmmain_notipop_inr_div">
-    </div>
-</div>
-
-<script type="text/javascript">
-
-    $(function(){
-        /*팝업갯수만큼 쿠키값확인 하여 쿠키값없을경우 show*/
-        // 메인 레이어 팝업 & 긴급공지 팝업
-        deferredObj.done(function() {
-            var mainLayerPcEmergencyFlag = settings && settings.emergency && settings.emergency.MAIN_LAYER_PC_OFF == 'Y';
-            if(!mainLayerPcEmergencyFlag) {
-                if( "" != "" ) {
-                    ajaxMainLayerPopupPc('6005', 'preview');
-                } else {
-                    if('' == 'main'){
-                        ajaxMainLayerPopupPc('6005', 'main');
-                    } else {
-                        ajaxMainLayerPopupPc('6005', 'page');
-                    }
-                }
-            }
-        });
-    });
-
-    // 메인 레이어 팝업 제어
-    function noticeMainUnlimitedClose(closeId) {
-        // #486560 domain 추가 전체 전몰 쿠키 공유
-        $.cookie('popup_' + closeId,'Y',{expires:365,path:'/',domain:'.ssg.com'});
-        $("#popup_" + closeId).hide();
-    };
-    
-    // 메인 레이어 팝업 제어
-    function noticeMainTodayClose(closeId) {
-        // #486560 domain 추가 전체 전몰 쿠키 공유
-        $.cookie('popup_' + closeId,'Y',{expires:1,path:'/'});
-        $("#popup_" + closeId).hide();
-    };
-
-    function noticeMainPopupClose(closeId) {
-        $("#popup_" + closeId).hide();
-    };
-    
-    function getNoticeCookieMain(name) {
-        var nameOfCookie = name + "=";
-        var x = 0;
-        while ( x <= document.cookie.length ){
-            var y = (x+nameOfCookie.length);
-            if ( document.cookie.substring( x, y ) == nameOfCookie ) {
-                if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
-                    endOfCookie = document.cookie.length;
-                return unescape( document.cookie.substring( y, endOfCookie ) );
-            }
-            x = document.cookie.indexOf( " ", x ) + 1;
-            if ( x == 0 )
-                break;
-        }
-        return "";
-    }
-
-    var oPasswordCampaignModal;
-    function callMemberAfterClose (popupId, param) {
-        var url = '/comm/ajaxMbrPopupBlock.ssg?cmpnPopupCd=' + param;
-        $.ajax({
-            type : "GET",
-            url : url,
-            dataType : "json",
-            success:function(data) {
-                if(data.resultCode == "SUCCESS") {
-                    alert(data.resultMsg);
-                    if(popupId == 'cm_password_campaign' && typeof oPasswordCampaignModal != 'undefined' && typeof oPasswordCampaignModal == 'object') {
-                        oPasswordCampaignModal.closeLayer();
-                    } else {
-                        $("#" + popupId).hide();
-                    }
-                } else {
-                    alert(data.resultMsg);
-                }
-            }
-        });
-    }
-
-    //배송지 등록 팝업
-    function fn_MemberInsertMyShppLoc(url) {
-        $('#popup_lyRegiAd').hide();
-        popupWin(url + "?callbackUrl=" + encodeURIComponent(location.href), "", 750, 822, "yes", "no");
-    }
-
-    //배송지 변경 팝업
-    function fn_MemberModifyMyShppLoc(url) {
-        $('#popup_lyRegiAd2').hide();
-        popupWin(url + "&callbackUrl=" + encodeURIComponent(location.href), "", 750, 822, "yes", "no");
-    }
-    
-    //레이어 팝업 조회
-    function ajaxMainLayerPopupPc(siteNoParam, typeParam) {
-
-        
-                var url = '/main/ajaxMainLayerPopupPc.ssg?siteNo='+siteNoParam+'&type='+typeParam;
-                if(typeParam == 'preview') {
-                    url = "/main/ajaxMainLayerPopupPcForPreview?popupId=" + "";
-                }
-            
-        $.ajax({
-            type : "GET",
-            url : url,
-            dataType : "html",
-            success:function(html) {
-                var showFlag = false;
-                var $tempDiv = $('<div/>').html(html);
-                // 긴급공지 팝업 노출 결정
-                $tempDiv.find('.noti').each(function(idx, data) {
-                    var popupId = $(data).attr('id');
-    
-                    if (getNoticeCookieMain(popupId) != "Y") {
-                        $("#cmmain_notipop_inr_div").append(data);
-                        showFlag = true;
-                    }
-                });
-
-                // 비밀번호 변경 팝업
-                $tempDiv.find('.cm_lypop_pwcampaign').each(function (idx, data) {
-                    $("#wrap").append(data);
-
-                    oPasswordCampaignModal = new ssg.View.layerPopup({
-                        sTarget  : '.cm_lypop_open',
-                        sClose   : '.cm_lypop_close',
-                        htDefault: {
-                            overlayCSS: {
-                                backgroundColor: '#fff',
-                                opacity: 0.8
-                            },
-                            onOverlayClick: function() { oPasswordCampaignModal.closeLayer(); }
-                        }
-                    });
-
-                    oPasswordCampaignModal.showByTarget('#cm_password_campaign');
-                });
-
-                // 배송지 등록/수정
-                $tempDiv.find('.regi_ad').each(function (idx, data) {
-                    var popupId = $(data).attr('id');
-
-                    if (getNoticeCookieMain(popupId) != "Y") {
-                        $("#cmmain_notipop_inr_div").append(data);
-                        showFlag = true;
-                    }
-                });
-
-                // 로그인 보안 설정
-                $tempDiv.find('.logsecurity').each(function (idx, data) {
-                    var popupId = $(data).attr('id');
-
-                    if (getNoticeCookieMain(popupId) != "Y") {
-                        $("#cmmain_notipop_inr_div").append(data);
-                        showFlag = true;
-                    }
-                });
-
-                if ( showFlag ) {
-                    $("#cmmain_notipop_div").show();
-                } else {
-                    $("#cmmain_notipop_div").hide();
-                }
-            }
-        });//end ajax
-    }
-    
 </script>
 <!-- 메인 레이어팝업 (e) -->
 
     <div id="container" >
-        <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/delivery_mall.css?v=20240424" />
+        <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/delivery_mall.css?v=20240508" />
 
 <!-- content -->
 <div id="content" class="delivery_mall react-area">
@@ -1123,9 +515,24 @@ function setCommonGnbCookie(name, value, expiredays) {
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/new/srch.ac.deliveryStore.ui.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/new/srch.ac.deliveryStore.ui.js?v=20240508"></script>
+<script>
+	var memid = '<%= memid %>';
+	var innerhtml = '';
+	$(document).ready(function(){
+		if( memid ){
+			innerhtml = `<span class="delivery_ship_infotx">지금 주문하면 내일 10시~14시 까지 도착</span>`
+		}else{
+			innerhtml = `<span class="delivery_ship_infotx">로그인 후, 쓱배송 가능한 상품을 확인하세요!</span>`
+		}
+		$("#deliveryShipInfo").html(innerhtml);
+		$("#deliveryShipInfo").show();
+	})
+	
+</script>
+
 <script type="text/javascript">
-function getMbrBaseAddr() {
+/* function getMbrBaseAddr() {
 	var ajaxUrl = "";
 
 	if(settings.UserInfo.isLoginYn == "Y") {
@@ -1163,12 +570,12 @@ function getMbrBaseAddr() {
 		} else {
 			innerHtml += '<span class="delivery_ship_infotx">배송지를 설정하고 도착 예정 시간을 확인해 보세요</span>';
 		}
-
 		$("#deliveryShipInfo").html(innerHtml);
 		$("#deliveryShipInfo").show();
 
 	}
-}
+} */
+
 
 function dssShppOrdDgr(siteNo) {
 	if(settings.UserInfo.isLoginYn == "Y") {
@@ -1248,20 +655,20 @@ $(function(){
 								<div class="ssghero_slide_col">
 									<div class="ssghero_panel">
 										<div class="ssghero_imgbx">
-											<a href="/plan/planShop.ssg?dispCmptId=6000125592"
+											<a href="/plan/planShop.ssg?dispCmptId=6000131503"
 											   class="ssghero_imglink clickable"
 											   data-react-unit-type="banr"
-											   data-react-unit-id="2003597335"
+											   data-react-unit-id="2003602089"
 											   data-unittype="banr"
-											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/6, 6일간 슈퍼세일 ~1+1, 50% 할인"
+											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/16,금주의 전단광고 Fresh 알뜰 장보기 ~50%"
 											>
-												<img src="//sui.ssgcdn.com/cmpt/banner/202404/2024043014323638374701354570_384.jpg" width="840" height="400" alt="6일간 슈퍼세일 ~1+1, 50% 할인">
+												<img src="//sui.ssgcdn.com/cmpt/banner/202405/2024050915133884671013101201_643.jpg" width="840" height="400" alt="금주의 전단광고 Fresh 알뜰 장보기 ~50%">
 											</a>
 										</div>
 										<div class="ssghero_tit">
-											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000125592" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/6, 6일간 슈퍼세일 ~1+1, 50% 할인">
-												<h3 class="ssghero_titmain">6일간 슈퍼세일 ~1+1, 50% 할인</h3>
-												<div class="ssghero_titsub">5.1(수)~5.6(일)</div>
+											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000131503" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/16,금주의 전단광고 Fresh 알뜰 장보기 ~50%">
+												<h3 class="ssghero_titmain">금주의 전단광고 Fresh 알뜰 장보기 ~50%</h3>
+												<div class="ssghero_titsub">5.10(금)~5.16(목)</div>
 											</a>
 										</div>
 									</div>
@@ -1269,20 +676,20 @@ $(function(){
 								<div class="ssghero_slide_col">
 									<div class="ssghero_panel">
 										<div class="ssghero_imgbx">
-											<a href="/plan/planShop.ssg?dispCmptId=6000455296"
+											<a href="/plan/planShop.ssg?dispCmptId=6000478992"
 											   class="ssghero_imglink clickable"
 											   data-react-unit-type="banr"
-											   data-react-unit-id="2003598233"
+											   data-react-unit-id="2003602190"
 											   data-unittype="banr"
-											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/6, 고기로 든든한 한상! 한돈데이"
+											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/16,국산과일 대표주자 수박"
 											>
-												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050215555939994612723561_183.jpg&w=400&h=400&edit=c&t=3e2e31dcd9bdc4791536708d7aee8f4ea329760e" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050215555939994612723561_183.jpg&w=800&h=400&edit=c&t=4c382797d10bc3f8ac0966b7a33afa73e74dc0e2 2x" alt="고기로 든든한 한상! 한돈데이">
+												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050915280958235139626513_202.jpg&w=400&h=400&edit=c&t=c7c20cba8b6e46b12403743823938c5e8c8d8cdb" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050915280958235139626513_202.jpg&w=800&h=400&edit=c&t=46cea0cc1221483b7b7918ba2e0031263096a133 2x" alt="국산과일 대표주자 수박">
 											</a>
 										</div>
 										<div class="ssghero_tit">
-											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000455296" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/6, 고기로 든든한 한상! 한돈데이">
-												<h3 class="ssghero_titmain">고기로 든든한 한상! 한돈데이</h3>
-												<div class="ssghero_titsub">국내산 삼겹살,목심,버섯 등 ~40%</div>
+											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000478992" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/16,국산과일 대표주자 수박">
+												<h3 class="ssghero_titmain">국산과일 대표주자 수박</h3>
+												<div class="ssghero_titsub">집 앞까지 달콤한 수박을 쓱</div>
 											</a>
 										</div>
 									</div>
@@ -1292,64 +699,64 @@ $(function(){
 								<div class="ssghero_slide_col">
 									<div class="ssghero_panel">
 										<div class="ssghero_imgbx">
-											<a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013103"
+											<a href="/plan/planShop.ssg?dispCmptId=6000478195"
 											   class="ssghero_imglink clickable"
 											   data-react-unit-type="banr"
-											   data-react-unit-id="2003592460"
+											   data-react-unit-id="2003602097"
 											   data-unittype="banr"
-											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/1~5/9,이달의 미식 : Picnic"
+											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/12 ,제주의 맛! 동부농장 한돈"
 											>
-												<img src="//sui.ssgcdn.com/cmpt/banner/202404/2024042515352914959415614051_197.jpg" width="840" height="400" alt="이달의 미식 : Picnic">
+												<img src="//sui.ssgcdn.com/cmpt/banner/202405/2024050915142874248856897885_515.jpg" width="840" height="400" alt="제주의 맛! 동부농장 한돈">
 											</a>
 										</div>
 										<div class="ssghero_tit">
-											<a class="ssghero_titlnk clickable" href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013103" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/1~5/9,이달의 미식 : Picnic">
-												<h3 class="ssghero_titmain">이달의 미식 : Picnic</h3>
-												<div class="ssghero_titsub">미식과 함께 떠나는 피크닉</div>
+											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000478195" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/12 ,제주의 맛! 동부농장 한돈">
+												<h3 class="ssghero_titmain">제주의 맛! 동부농장 한돈</h3>
+												<div class="ssghero_titsub">풍미 가득 제주 삼겹,목살, 양념 돼지고기 등~40%</div>
 											</a>
 										</div>
 									</div>
 								</div>
+								<div class="ssghero_slide_col">
+									<div class="ssghero_panel">
+										<div class="ssghero_imgbx">
+											<a href="/plan/planShop.ssg?dispCmptId=6000478557"
+											   class="ssghero_imglink clickable"
+											   data-react-unit-type="banr"
+											   data-react-unit-id="2003598816"
+											   data-unittype="banr"
+											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/6~5/12,황금빛 과일로, 행운을 선물하세요!"
+											>
+												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050314284560721832884183_670.jpg&w=400&h=400&edit=c&t=032266652f5d29c28835a02e35bc92cca828a320" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050314284560721832884183_670.jpg&w=800&h=400&edit=c&t=588746d8d4c965fdc5c96a890367fad32a9b9130 2x" alt="황금빛 과일로, 행운을 선물하세요!">
+											</a>
+										</div>
+										<div class="ssghero_tit">
+											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000478557" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/6~5/12,황금빛 과일로, 행운을 선물하세요!">
+												<h3 class="ssghero_titmain">황금빛 과일로, 행운을 선물하세요!</h3>
+												<div class="ssghero_titsub">사전 예약하면 40%할인 혜택</div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						<li>
 								<div class="ssghero_slide_col">
 									<div class="ssghero_panel">
 										<div class="ssghero_imgbx">
 											<a href="/plan/planShop.ssg?dispCmptId=6000458120"
 											   class="ssghero_imglink clickable"
 											   data-react-unit-type="banr"
-											   data-react-unit-id="2003598241"
+											   data-react-unit-id="2003602119"
 											   data-unittype="banr"
-											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/5,농림부와 함께하는 농할갑시다"
+											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/12 ,농림부와 함께하는 농할갑시다"
 											>
-												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050215573656664904219490_233.jpg&w=400&h=400&edit=c&t=cdb9956ba2806cfc3cc5d869e1c0d502b2590897" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050215573656664904219490_233.jpg&w=800&h=400&edit=c&t=a72a0ba0d38fb23cb25289611d52b478f0e4a6e4 2x" alt="농림부와 함께하는 농할갑시다">
+												<img src="//sui.ssgcdn.com/cmpt/banner/202405/2024050915163471233830196383_192.jpg" width="840" height="400" alt="농림부와 함께하는 농할갑시다">
 											</a>
 										</div>
 										<div class="ssghero_tit">
-											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000458120" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/5,농림부와 함께하는 농할갑시다">
+											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000458120" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/12 ,농림부와 함께하는 농할갑시다">
 												<h3 class="ssghero_titmain">농림부와 함께하는 농할갑시다</h3>
-												<div class="ssghero_titsub">흙대파, 파프리카 등 농할 행사 품목 20% 할인</div>
-											</a>
-										</div>
-									</div>
-								</div>
-							</li>
-						<li>
-								<div class="ssghero_slide_col">
-									<div class="ssghero_panel">
-										<div class="ssghero_imgbx">
-											<a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013043"
-											   class="ssghero_imglink clickable"
-											   data-react-unit-type="banr"
-											   data-react-unit-id="2003592465"
-											   data-unittype="banr"
-											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/1~5/2, 미식 MONEY 쏩니다"
-											>
-												<img src="//sui.ssgcdn.com/cmpt/banner/202404/2024042515361753857011214801_468.jpg" width="840" height="400" alt="미식 MONEY 쏩니다">
-											</a>
-										</div>
-										<div class="ssghero_tit">
-											<a class="ssghero_titlnk clickable" href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013043" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/1~5/2, 미식 MONEY 쏩니다">
-												<h3 class="ssghero_titmain">미식 MONEY 쏩니다</h3>
-												<div class="ssghero_titsub">100% 당첨! 최대 1만원, 35만 명 고객님께</div>
+												<div class="ssghero_titsub">애호박, 백오이 등 농할 행사 품목 20% 할인</div>
 											</a>
 										</div>
 									</div>
@@ -1357,20 +764,20 @@ $(function(){
 								<div class="ssghero_slide_col">
 									<div class="ssghero_panel">
 										<div class="ssghero_imgbx">
-											<a href="/plan/planShop.ssg?dispCmptId=6000425873"
+											<a href="/plan/planShop.ssg?dispCmptId=6000478987"
 											   class="ssghero_imglink clickable"
 											   data-react-unit-type="banr"
-											   data-react-unit-id="2003592473"
+											   data-react-unit-id="2003602223"
 											   data-unittype="banr"
-											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|4/29~5/5, 가정의 달 맞이 과일/축산GIFT 세트 _1"
+											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/12, 더워지는 날씨, 시원한 아이스크림 할인전"
 											>
-												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042515404400347849112884_111.jpg&w=400&h=400&edit=c&t=da3fd2a6c90bc23258d9178c3f3744e15fd5ed7d" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202404/2024042515404400347849112884_111.jpg&w=800&h=400&edit=c&t=e3c90af58a3195a47b83a97ea37ce19b9da00e06 2x" alt="가정의 달 맞이 과일/축산GIFT 세트">
+												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050915352876066166569616_341.jpg&w=400&h=400&edit=c&t=bf8d98f270f6291d1ac98c5f30e7651ac9188555" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050915352876066166569616_341.jpg&w=800&h=400&edit=c&t=5ffdf78749fa289a6e9ab866a11bc47fcd935d3e 2x" alt="더워지는 날씨, 시원한 아이스크림 할인전">
 											</a>
 										</div>
 										<div class="ssghero_tit">
-											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000425873" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|4/29~5/5, 가정의 달 맞이 과일/축산GIFT 세트 _1">
-												<h3 class="ssghero_titmain">선물하기 좋은 과일/축산GIFT 세트</h3>
-												<div class="ssghero_titsub">사전예약 구매 시 ~40% 할인</div>
+											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000478987" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/12, 더워지는 날씨, 시원한 아이스크림 할인전">
+												<h3 class="ssghero_titmain">더워지는 날씨, 시원한 아이스크림 할인전</h3>
+												<div class="ssghero_titsub">하겐다즈/빙그레/롯데/해태 등 ~50%</div>
 											</a>
 										</div>
 									</div>
@@ -1401,20 +808,20 @@ $(function(){
 								<div class="ssghero_slide_col">
 									<div class="ssghero_panel">
 										<div class="ssghero_imgbx">
-											<a href="/plan/planShop.ssg?dispCmptId=6000478611"
+											<a href="/plan/planShop.ssg?dispCmptId=6000340571"
 											   class="ssghero_imglink clickable"
 											   data-react-unit-type="banr"
-											   data-react-unit-id="2003598243"
+											   data-react-unit-id="2003602251"
 											   data-unittype="banr"
-											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/9,홈파티 한상차림"
+											   data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/16, 못생겨도 맛은 퍼펙트!"
 											>
-												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050215583190920618145061_410.jpg&w=400&h=400&edit=c&t=d6551da5149c847336babc920cc3c1ea4213e683" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050215583190920618145061_410.jpg&w=800&h=400&edit=c&t=c0147cf091738f849ca8bff6d137d8c65718d42e 2x" alt="홈파티 한상차림">
+												<img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050915374329787400872840_795.jpg&w=400&h=400&edit=c&t=fb1fb2e0d40f1b9c822f74f11a61eba4b731f9b1" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050915374329787400872840_795.jpg&w=800&h=400&edit=c&t=6fed11f2c969d304cad7ddc5b2e0b6095a998b9b 2x" alt="못생겨도 맛은 퍼펙트!">
 											</a>
 										</div>
 										<div class="ssghero_tit">
-											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000478611" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/3~5/9,홈파티 한상차림">
-												<h3 class="ssghero_titmain">홈파티 한상차림</h3>
-												<div class="ssghero_titsub">스테이크, 칠리새우, 디저트, 음료 등 1+1</div>
+											<a class="ssghero_titlnk clickable" href="/plan/planShop.ssg?dispCmptId=6000340571" data-react-tarea-cd-old="이마트몰쓱배송|메인롤링배너|배너_클릭|5/10~5/16, 못생겨도 맛은 퍼펙트!">
+												<h3 class="ssghero_titmain">못생겨도 맛은 퍼펙트!</h3>
+												<div class="ssghero_titsub">못난이 과일,채소 ~40% 할인</div>
 											</a>
 										</div>
 									</div>
@@ -1695,498 +1102,6 @@ $(function(){
 <input type="hidden" name="hasNext" value="false">
 <!-- //MD 추천 상품 -->
 
-		<!-- 자주 구매 -->
-		<div class="delivery_sec" id="freqBuyDiv">
-			<h3 class="delivery_sec_tit">고객님이
-				쓱배송으로 자주구매한 상품이에요
-			</h3>
-			<div class="delivery_filter">
-					<ul class="delivery_filter_lst">
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable on"
-										onclick="javascript:ajaxFreqBuyRsvtItem('', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|전체"
-								>전체</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216985', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|케찹/마요"
-								>케찹/마요</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216951', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|우유"
-								>우유</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216952', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|생수"
-								>생수</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216953', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|쌀"
-								>쌀</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216954', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|라면"
-								>라면</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216955', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|계란"
-								>계란</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216956', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|두부"
-								>두부</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216957', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|콩나물"
-								>콩나물</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216958', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|커피"
-								>커피</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216959', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|차"
-								>차</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216960', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|김"
-								>김</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216961', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|닭고기"
-								>닭고기</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216962', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|돼지고기"
-								>돼지고기</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216963', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|소고기"
-								>소고기</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216964', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|해물/생선"
-								>해물/생선</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216965', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|감자/당근"
-								>감자/당근</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216966', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|오이/호박"
-								>오이/호박</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216967', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|마늘/양파/파"
-								>마늘/양파/파</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216968', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|쌈채소"
-								>쌈채소</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216969', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|제철과일"
-								>제철과일</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216970', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|해외과일"
-								>해외과일</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216971', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|간편가정식"
-								>간편가정식</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216972', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|짜장/카레"
-								>짜장/카레</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216973', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|식빵/빵"
-								>식빵/빵</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216974', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|시리얼"
-								>시리얼</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216975', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|햄"
-								>햄</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216976', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|치즈"
-								>치즈</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216977', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|냉동만두"
-								>냉동만두</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216978', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|어묵/맛살"
-								>어묵/맛살</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216979', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|참치/연어캔"
-								>참치/연어캔</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216980', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|반찬/통조림"
-								>반찬/통조림</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216981', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|김치"
-								>김치</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216982', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|장류"
-								>장류</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216983', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|설탕/조미료"
-								>설탕/조미료</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216984', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|드레싱/소스"
-								>드레싱/소스</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216986', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|스낵"
-								>스낵</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216987', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|쿠키/파이"
-								>쿠키/파이</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216988', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|초콜릿/사탕"
-								>초콜릿/사탕</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216989', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|두유"
-								>두유</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216990', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|요구르트"
-								>요구르트</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216991', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|올가닉"
-								>올가닉</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216992', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|피코크"
-								>피코크</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216993', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|노브랜드"
-								>노브랜드</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216994', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|자주/데이즈"
-								>자주/데이즈</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216995', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|주방세제"
-								>주방세제</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216996', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|일회용품"
-								>일회용품</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216997', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|사무용품"
-								>사무용품</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216998', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|양말"
-								>양말</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000216999', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|속옷"
-								>속옷</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217000', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|음료수/주스"
-								>음료수/주스</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217001', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|기저귀"
-								>기저귀</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217002', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|분유"
-								>분유</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217003', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|반려동물용품"
-								>반려동물용품</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217004', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|휴지"
-								>휴지</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217005', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|물티슈"
-								>물티슈</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217006', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|여성용품"
-								>여성용품</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217007', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|치약/칫솔"
-								>치약/칫솔</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217008', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|바디/비누"
-								>바디/비누</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217009', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|샴푸/린스"
-								>샴푸/린스</button>
-							</li>
-						<li>
-								<button type="button"
-										class="delivery_filter_btn clickable "
-										onclick="javascript:ajaxFreqBuyRsvtItem('6000217010', this);"
-										data-react-tarea="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|세탁/세제"
-								>세탁/세제</button>
-							</li>
-						</ul>
-					<button class="delivery_filter_btn_more sr_toggle">
-						<span class="delivery_ico_toggle">
-						  <span class="sr_off"><span class="blind">카테고리</span>더보기</span>
-						  <span class="sr_on"><span class="blind">카테고리</span>접기</span>
-						</span>
-					</button>
-				</div>
-			<div class="delivery_sort_wrap">
-				<div class="delivery_sort_lft">
-					<div class="delivery_chk">
-						<input type="checkbox" id="check_state" name="_delivery_chk_sales" class="clickable" data-react-tarea="이마트몰쓱배송|자주구매상품|판매중필터_클릭" checked />
-						<label for="check_state"><span class="delivery_labeltx">판매중</span></label>
-					</div>
-				</div>
-				<div class="delivery_sort_rgt">
-					<ul class="delivery_sort_filter" id="sortFilterDiv">
-						<li>
-							<a href="javascript:;" class="on clickable" onclick="javascript:changeSort('oftenBuy', this);" data-react-tarea="이마트몰쓱배송|자주구매상품|자주구매순필터_클릭">
-								<span class="delivery_sort_tx">자주구매순</span>
-							</a>
-						</li>
-						<li>
-							<a href="javascript:;" onclick="javascript:changeSort('lastBuy', this);" class="clickable" data-react-tarea="이마트몰쓱배송|자주구매상품|최신구매순필터_클릭">
-								<span class="delivery_sort_tx">최신구매순</span>
-							</a>
-						</li>
-						<li>
-							<a href="javascript:;" onclick="javascript:changeSort('dcrt', this);" class="clickable" data-react-tarea="이마트몰쓱배송|자주구매상품|할인율순필터_클릭">
-								<span class="delivery_sort_tx">할인율순</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="delivery_nodata" style="display:none">
-				<p class="delivery_nodata_dtl">로그인 해주세요</p>
-				<p class="delivery_nodata_dtlsub">로그인하시면 고객님께서 구매하신 상품을 보실 수 있습니다.</p>
-				<div class="delivery_btn_wrap">
-					<button type="button" onclick="login('','','','');" class="deliver_btn_more btn_right">
-						<span>로그인하고 자주구매 상품보기</span>
-					</button>
-				</div>
-			</div>
-			<div class="cunit_lst_v" id="freqBuyListDiv" style="display:none">
-				<ul class="cunit_thmb_lst" id="freqBuyRsvtItemDiv"></ul>
-			</div>
-			<div class="delivery_loading" id="freqBuyRsvtItemLoadingDiv" style="display:none">
-				<span class="blind">상품 로딩 중</span>
-			</div>
-			<div class="delivery_btn_wrap" id="freqBuyRsvtItemMoreDiv" style="display:none">
-				<button type="button" class="deliver_btn_more clickable" onclick="javascript:ajaxFreqBuyRsvtItemMore();" data-react-tarea="이마트몰쓱배송|자주구매상품|상품더보기_클릭">
-					<span>상품 더보기</span>
-				</button>
-			</div>
-		</div>
-		<!-- //자주 구매 -->
-
 		<!-- WASD-403 START -->
 		<!-- 재구매 BEST -->
 		<!-- 재구매 BEST -->
@@ -2319,7 +1234,8 @@ $(function(){
 					<li>
 							<button type="button" class="delivery_filter_btn clickable" onclick="javascript:ajaxBestItem('6000223649', this);"
 									data-dvbest-ctg-id="6000223649"
-									data-react-tarea-cd-old="이마트몰쓱배송|카테고리인기상품|카테고리_클릭|커피/원두/차"
+									data-react-tarea-cd-old="
+									이마트몰쓱배송|카테고리인기상품|카테고리_클릭|커피/원두/차"
 									data-react-tarea-dtl-cd="t00054" >
 								커피/원두/차</button>
 						</li>
@@ -2498,19 +1414,19 @@ $(function(){
 
 
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/commonUtil.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/event.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/nevnt.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssgGnb.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/commJs.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/m_ssg/js/ui/mcom.webview.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/clipJs.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ui.datepicker.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.layout.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/commonUtil.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/event.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/nevnt.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssgGnb.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/commJs.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/m_ssg/js/ui/mcom.webview.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/clipJs.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ui.datepicker.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.layout.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240508"></script>
 
-<script type="text/javascript" src="https://sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.translate.js?v=20240424"></script>
+<script type="text/javascript" src="https://sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.translate.js?v=20240508"></script>
 <script>
 $(function(){
     var oSsgViewTranslate = new ssg.View.translate({
@@ -2525,7 +1441,7 @@ $(function(){
 });
 </script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.history.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.deliverymall.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.deliverymall.js?v=20240508"></script>
 
 <script type="text/javascript">
 	// 자주구매 page
@@ -2726,8 +1642,8 @@ $(function(){
 			data : {
 				"dataSiteNo" : "6001"
 				, "saleType" : saleType
-				, "dispCmptId" : saleType == "card" ? "" : "6000125592"
-				, "dispCmptCornrId" : saleType == "card" ? "" : "7000172774"
+				, "dispCmptId" : saleType == "card" ? "" : "6000131503"
+				, "dispCmptCornrId" : saleType == "card" ? "" : "7000180408"
 				, "page" : (salePage+1)
 			},
 			dataType: "html",
@@ -2770,8 +1686,8 @@ $(function(){
 			data : {
 				"dataSiteNo" : "6001"
 				, "saleType" : saleType
-				, "dispCmptId" : saleType == "card" ? "" : "6000125592"
-				, "dispCmptCornrId" : saleType == "card" ? "" : "7000172774"
+				, "dispCmptId" : saleType == "card" ? "" : "6000131503"
+				, "dispCmptCornrId" : saleType == "card" ? "" : "7000180408"
 				, "page" : (salePage+1)
 			},
 			dataType: "html",
@@ -2985,29 +1901,43 @@ $(function(){
                 <div class="swiper-container">
                     <ul class="swiper-wrapper">
                         <li class="swiper-slide">
-                                <div class="ssgcard_item ty_card_bi07">
-                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013189" class="ssgcard_item_link">
+                                <div class="ssgcard_item ty_card_bi38">
+                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013253" class="ssgcard_item_link">
                                         <div class="ssgcard_img">
-                                            <img src="https://sui.ssgcdn.com/ui/ssg/img/common/card/card_bi07.svg" alt="신한카드" loading="lazy">
+                                            <img src="https://sui.ssgcdn.com/ui/ssg/img/common/card/card_bi38.svg" alt="롯데카드" loading="lazy">
                                         </div>
                                         <div class="ssgcard_info">
-                                            <span class="ssgcard_name">신한카드</span>
+                                            <span class="ssgcard_name">롯데카드</span>
                                             <span class="ssgcard_rate">SSGPAY</span>
-                                            <span class="ssgcard_discount">7% 청구할인</span>
+                                            <span class="ssgcard_discount">5% 청구할인</span>
                                         </div>
                                     </a>
                                 </div>
                             </li>
                         <li class="swiper-slide">
-                                <div class="ssgcard_item ty_card_bi08">
-                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013187" class="ssgcard_item_link">
+                                <div class="ssgcard_item ty_card_bi07">
+                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013238" class="ssgcard_item_link">
                                         <div class="ssgcard_img">
-                                            <img src="https://sui.ssgcdn.com/ui/ssg/img/common/card/card_bi08.svg" alt="현대카드" loading="lazy">
+                                            <img src="https://sui.ssgcdn.com/ui/ssg/img/common/card/card_bi07.svg" alt="신한카드" loading="lazy">
                                         </div>
                                         <div class="ssgcard_info">
-                                            <span class="ssgcard_name">현대카드</span>
-                                            <span class="ssgcard_rate">뷰티쓱세일</span>
-                                            <span class="ssgcard_discount">8% 청구할인</span>
+                                            <span class="ssgcard_name">신한카드</span>
+                                            <span class="ssgcard_rate">추천 브랜드</span>
+                                            <span class="ssgcard_discount">10% 청구할인</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        <li class="swiper-slide">
+                                <div class="ssgcard_item ty_card_bi76">
+                                    <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013248" class="ssgcard_item_link">
+                                        <div class="ssgcard_img">
+                                            <img src="https://sui.ssgcdn.com/ui/ssg/img/common/card/card_bi76.svg" alt="SSG.COM카드" loading="lazy">
+                                        </div>
+                                        <div class="ssgcard_info">
+                                            <span class="ssgcard_name">SSG.COM카드</span>
+                                            <span class="ssgcard_rate">Edition2</span>
+                                            <span class="ssgcard_discount">8% 즉시할인</span>
                                         </div>
                                     </a>
                                 </div>
@@ -3656,7 +2586,7 @@ $(function(){
 
 </script>
 
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/history.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/history.js?v=20240508"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/chnlPopup.js"></script>
 
 
@@ -3694,4 +2624,4 @@ wptg_tagscript_vars.push(
 </script>
 </body>
 </html>
-<p style='display:none' data-ssgVersion='0.1' data-domainSiteNo='' data-depth1=''></p><p style="display:none">frt-ssg-prod-was47_ssgmall02 s-www.ssg.com:/service/emart/dvstore.ssg,:2022:0000:2483:2449:2449:2483:Y:N:Y:N:B2C:10:MY:null:</p>
+<p style='display:none' data-ssgVersion='0.1' data-domainSiteNo='' data-depth1=''></p><p style="display:none">frt-ssg-prod-was26_ssgmall01 s-www.ssg.com:/service/emart/dvstore.ssg,:2022:0000:2483:2449:2449:2483:Y:N:Y:N:B2C:10:MY:null:</p>
