@@ -18,6 +18,7 @@ import lombok.Setter;
 public class MemberDTO {
 	private String id;
 	private String email;
+	private String address;
 	private String phoneNum;
 	private String name;
 	private String passwd;
