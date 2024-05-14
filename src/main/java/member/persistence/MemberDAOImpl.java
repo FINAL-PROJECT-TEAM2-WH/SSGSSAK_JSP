@@ -1,15 +1,19 @@
 package member.persistence;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.map.HashedMap;
 
+import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
 import member.domain.MemberDTO;
@@ -19,6 +23,7 @@ public class MemberDAOImpl implements MemberDAO{
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
+	private CallableStatement callStatement = null;
 
 	private Map<String, String> info = new HashedMap();
 	// 1. Setter를 통한 DI
@@ -37,7 +42,7 @@ public class MemberDAOImpl implements MemberDAO{
 		return this.conn;
 	}
 	@Override
-	public MemberDTO login(String id, String passwd) {
+	public MemberDTO login(String id, String passwd) throws SQLException {
 		ResultSet rs = null ;
 		System.out.println("get in");
 		// 로그인 성공 시 member에 관한 정보를 갖고 와서 세션에서 객체 단위로 왔다갔다 하게끔? 
@@ -90,7 +95,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public int updateLoginYN(String id) {
+	public int updateLoginYN(String id) throws SQLException {
 		// update 하면서 insert 해줘야댐 
 
 		String sql = "SELECT name, PRIVILEGE "
@@ -131,7 +136,8 @@ public class MemberDAOImpl implements MemberDAO{
 			logOut(id);
 			rowCount = updateLoginYN(id);
 		} catch (SQLException e) {
-			// TODO: handle exception
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
 		}
 		finally {
 			JdbcUtil.commit(conn);
@@ -145,7 +151,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	// 로그아웃
 	@Override
-	public int logOut(String id) {
+	public int logOut(String id) throws SQLException {
 		String sql = String.format("DELETE FROM Auth WHERE id = '%s'", id);
 		int rowCount = 0;
 		try {
@@ -153,9 +159,9 @@ public class MemberDAOImpl implements MemberDAO{
 			rowCount = pstmt.executeUpdate(sql);
 			if ( rowCount == 1) {
 				System.out.println("로그아웃 성공");
-				conn.commit();
+				JdbcUtil.commit(conn);
 			} else {
-				conn.rollback();
+				JdbcUtil.rollback(conn);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -170,7 +176,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	// info에 필요한 값 불러오기 
 	@Override
-	public Map<String, String> loadInfo(String id) { 
+	public Map<String, String> loadInfo(String id) throws SQLException { 
 		System.out.println("> userinfo get in"); 
 		// 로그인 성공 시 member에 관한 정보를 갖고 와서
 		//세션에서 객체 단위로 왔다갔다 하게끔?
@@ -361,10 +367,14 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pwd);
 			pstmt.setString(2, id);
-			rowCount = pstmt.executeUpdate();			
+			rowCount = pstmt.executeUpdate();	
+			
 		} catch (SQLException e) {
-			// TODO: handle exception
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+			
 		} finally {
+			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
@@ -386,8 +396,11 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt.setString(3, id);
 			rowCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
-
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+			
 		} finally {
+			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
@@ -489,7 +502,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public Map<String, String> agreeInfoRcv(String id) throws SQLException {
+	public Map<String, String> agreeInfoRcv(String id, String conditionName) throws SQLException {
 		String email = getEmail(id);
 		String phoneNum = getPhoneNum(id);
 		String prePhoneNum = phoneNum.substring(0,3);
@@ -506,14 +519,62 @@ public class MemberDAOImpl implements MemberDAO{
 		String postPhoneNum = phoneNum.substring(phoneNum.length()-4);
 
 		String name = getName(id);
+		
+		// 마케팅 id 22번 23번 24번 ssgInfoRcvAgree=10
+		ArrayList <String> conList = getAgreement(id, conditionName);
+		
+		
 
 		Map <String,String> infoMap = new HashMap<String, String>();
+		
+		if ( conList != null) {
+			for (int i = 0; i < conList.size(); i++) {
+				infoMap.put(conList.get(i), "true");
+			}
+		} else {
+			
+			// 동의를 안했을 경우. 
+			infoMap.put(conditionName, "false");
+		}
+			
 		infoMap.put("email", preEmail + star + postEmail);
 		infoMap.put("prePhoneNum", prePhoneNum);
 		infoMap.put("postPhoneNum", postPhoneNum);
 		infoMap.put("name", name);
 		return infoMap;
 
+	}
+	
+	
+	@Override
+	public ArrayList<String> getAgreement(String id, String conditionName) throws SQLException {
+		String sql = " SELECT t.name conName"
+				+ " FROM agreement d left join terms t on d.terms_id=t.id "
+				+ " WHERE REGEXP_LIKE(t.name, ? ) AND d.memid = ? ";
+		ArrayList<String> condiList = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, conditionName);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();		
+			if ( rs.next()) {
+				condiList = new ArrayList();
+				do {
+					String conName = rs.getString("conName");		
+					condiList.add(conName);
+				} while(rs.next());
+			} 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		
+		return condiList;
 	}
 
 
@@ -545,6 +606,100 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 
 		return jsonResult;
+	}
+
+
+	@Override
+	public int registerMbr(MemberDTO dto, Map<String,String> map) throws SQLException {
+		// dto 
+		int rowCount = 0;
+		String id = dto.getId();
+		String email = dto.getEmail();
+		String name = dto.getName();
+		String passwd = dto.getPasswd();
+		String phonePhone = dto.getPhoneNum();
+		String address = dto.getAddress();
+
+		String sql =  " INSERT INTO MEMBER( "
+				+ " id,email,address,phonenum,name,passwd,birthd, "
+				+ " REGISTERDATE,UPDATEDATE,LOGINNOTIFICATION,LOGIN2NOTIFICATION ) "
+				+ " VALUES (?,? ,?,?,?, "
+				+ "		?,?,SYSDATE,SYSDATE,'0','0') ";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, email);
+			pstmt.setString(3, address);
+			pstmt.setString(4, phonePhone);
+			pstmt.setString(5, name);
+			pstmt.setString(6, passwd);
+			pstmt.setString(7, "1991-12-01");
+
+			rowCount = pstmt.executeUpdate();
+
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		// 필수 약관 동의 
+		// 프로시저로 처리	
+		boolean result = false;
+		sql = "{call ins_req_terms(?)}";
+		try {
+			callStatement = conn.prepareCall(sql);
+			callStatement.setString(1, id);
+			result = callStatement.execute();
+
+		} catch (SQLException e) {
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(callStatement);
+			JdbcUtil.close(pstmt);
+		}
+		
+		if (result) {
+			rowCount += 1; 
+		}
+
+		// 선택 약관 동의 
+		if ( map != null) {
+			System.out.println("get in Map");
+			List <String> agree = new ArrayList(map.keySet());
+			for (String string : agree) {	
+				sql = "{call ins_sel_terms(?,?)}";
+				try {
+					callStatement = conn.prepareCall(sql);
+					callStatement.setString(1, string);
+					callStatement.setString(2, id);	
+					result = callStatement.execute();
+				} catch (SQLException e) {
+					JdbcUtil.rollback(conn);
+					e.printStackTrace();
+				} finally {
+					JdbcUtil.commit(conn);
+					JdbcUtil.close(callStatement);
+					JdbcUtil.close(pstmt);
+				}
+			}
+		}
+		
+		if (result) {
+			rowCount += 1; 
+		}
+		
+		
+		System.out.println(rowCount);
+		return rowCount;
 	}
 
 

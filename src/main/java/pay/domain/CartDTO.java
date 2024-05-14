@@ -6,17 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
-	int shipnum;
-	String name ; 
-	String phonenum ; 
-	String roadaddress;
-	String email;
-	String addressNick;
-	String cardnumber;
-	int cpoint;
+@Data
+public class CartDTO {
+	String imgurl ;
+	String seller ;
+	String brand ;
+	String optionname;
+	int price;
+	int shipfee ;
+	
 
 }

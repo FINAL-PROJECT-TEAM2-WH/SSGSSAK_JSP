@@ -9,14 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
-	int shipnum;
+public class ShippingDTO {
+	int id;
+	String addrnick ;
 	String name ; 
-	String phonenum ; 
-	String roadaddress;
-	String email;
-	String addressNick;
-	String cardnumber;
-	int cpoint;
-
+	String postnum;
+	String roadaddr;
+	String jiaddr;
+	String detailaddr ;
+	String tel;
+	
+	
 }

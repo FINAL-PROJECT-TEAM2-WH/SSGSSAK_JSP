@@ -28,11 +28,11 @@ private static AgreeInfoService instance = null;
 		return instance;
 	}
 	
-	public Map<String,String> originInfoLoad(String id) {
+	public Map<String,String> originInfoLoad(String id, String conditionName) {
 		Map <String,String> infoMap = new HashMap();
 		
 		try {
-			infoMap = dao.agreeInfoRcv(id);
+			infoMap = dao.agreeInfoRcv(id, conditionName);
 			if ( infoMap.isEmpty()) {
 				System.out.println("originInfoLoad가 비었습니다.");
 			} 
@@ -43,4 +43,5 @@ private static AgreeInfoService instance = null;
 		
 		return infoMap;
 	}
+	
 }
