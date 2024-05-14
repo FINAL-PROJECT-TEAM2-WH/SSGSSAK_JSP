@@ -31,8 +31,6 @@ public interface PayDAO {
 	public abstract int insertpointrecord( String id , int points) ;
 	public abstract int selectshipfee( int optionid ) ;
 	public abstract ArrayList<CartDTO> selectcartinfo(String id);
-	public abstract int deletecartinfo(String id , int optionid);
-	public abstract int insertcartinfo(String id , int optionid , int quantity);
 	
 	
 	

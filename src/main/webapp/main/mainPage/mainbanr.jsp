@@ -180,4 +180,6 @@
     <div id="ajaxMainMemberShipBanner" style="display:none"></div><div class="main_ssgday" id="main_ssgday" style="display:none"></div>
     <input type="hidden" value="7">
 </body>
+<script>
+</script>
 </html>

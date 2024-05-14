@@ -27,16 +27,10 @@ public class PrivacyHandler implements CommandHandler{
 			String queryString = request.getQueryString();
 			System.out.println(queryString);
 			System.out.println(uri);
-			//signup_terms03
+
 			
 			if (queryString.contains("signup_terms02")) {	
 				// 수정 요함. 
-				return "/member/join/signup_terms02.jsp";
-			}
-			else if (queryString.contains("signup_terms03")) {
-				return "/member/join/signup_terms02.jsp";
-			}
-			else if (queryString.contains("signup_terms04")) {
 				return "/member/join/signup_terms02.jsp";
 			}
 			else if (queryString.contains("signup_terms01")) {
@@ -50,9 +44,6 @@ public class PrivacyHandler implements CommandHandler{
 			}
 			else if (queryString.contains("signup_terms_scom01")) {
 				//수정 요함 . 
-				return "/member/polices/termPopup.jsp";
-			}
-			else if (queryString.contains("signup_terms_scom02")) {
 				return "/member/polices/termPopup.jsp";
 			}
 			

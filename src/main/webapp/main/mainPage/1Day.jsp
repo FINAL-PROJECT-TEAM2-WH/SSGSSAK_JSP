@@ -408,7 +408,7 @@
     <div class="prod_top">
         </div>
     <div class="thmb">
-        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"
+        <a href="/SSGSSAK/product/product.do?productcode=1000587702102" target="_self"  class="clickable"
              data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤_1000544937242" data-info="1000544937242" data-index="4" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
             <img srcset="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg, //sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_580.jpg 2x" src="//sitem.ssgcdn.com/42/72/93/item/1000544937242_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="3겹 화장지 33M X 30롤"  loading="lazy">
@@ -418,7 +418,7 @@
             </div>
 </a>
         <div class="exp_area notranslate">
-        <div class="util_bx"> <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" class="blank clickable"  target="_blank"
+        <div class="util_bx"> <a href="/SSGSSAK/product/product.do?productcode=1000587702102" class="blank clickable"  target="_blank"
                     data-info="1000544937242" data-index="4" data-position="pop" data-unit="img" data-react-tarea="메인매장|쓱1DAY배송|상품_새창보기|3겹 화장지 33M X 30롤"><span class="blind">새창보기</span></a>
 
             <a href="javascript:void(0)" class="cart clickable" role="button" onclick="frontCommCart.put(this, '');"
@@ -465,7 +465,7 @@
         <strong class="brd">
                 <em class="tx_ko">노브랜드</em>
             </strong>
-        <a href="/item/itemView.ssg?itemId=1000544937242&siteNo=6001&salestrNo=2569" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤"
+        <a href="/SSGSSAK/product/product.do?productcode=1000587702102" target="_self"  class="clickable"  data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|3겹 화장지 33M X 30롤"
             data-info="1000544937242" data-index="4" data-position="view" data-unit="img">
                 <em class="tx_ko">3겹 화장지 33M X 30롤</em>
             </a>

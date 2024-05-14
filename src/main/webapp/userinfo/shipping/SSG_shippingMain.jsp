@@ -1106,53 +1106,6 @@ $(function(){
 		<!-- 재구매 BEST -->
 		<!-- 재구매 BEST -->
 		<!-- WASD-403 END -->
-		<!-- 행사 상품 -->
-		<div class="delivery_sec">
-			<h3 class="delivery_sec_tit">쓱배송 가능한 오늘의 행사상품이에요</h3>
-				<div class="delivery_sec_tab">
-				<!-- [D] 이마트몰 -->
-				<div class="delivery_tab">
-					<ul class="delivery_tab_list" id="sale_tab_list" role="tablist">
-						<li class="delivery_tab_mn on" role="presentation">
-							<a href="javascript:;" onclick="javascript:ajaxSaleItem('obanjang', this);" class="delivery_tab_link clickable" role="tab" aria-selected="true" data-react-tarea="이마트몰쓱배송|행사상품|탭_클릭|오반장">
-								<span class="delivery_icon"><i class="icon icon_obanjang"></i></span>
-								<span class="delivery_tab_tx">오반장</span>
-							</a>
-						</li>
-						<li class="delivery_tab_mn" role="presentation">
-							<a href="javascript:;" onclick="javascript:ajaxSaleItem('flyer', this);" class="delivery_tab_link clickable" role="tab" aria-selected="false" data-react-tarea="이마트몰쓱배송|행사상품|탭_클릭|전단행사">
-								<span class="delivery_icon"><i class="icon icon_ssgpaper"></i></span>
-								<span class="delivery_tab_tx">전단행사</span>
-							</a>
-						</li>
-						<li class="delivery_tab_mn" role="presentation">
-							<a href="javascript:;" onclick="javascript:ajaxSaleItem('plusone', this);" class="delivery_tab_link clickable" role="tab" aria-selected="false" data-react-tarea="이마트몰쓱배송|행사상품|탭_클릭|1+1">
-								<span class="delivery_icon"><i class="icon icon_oneplusone"></i></span>
-								<span class="delivery_tab_tx">1 + 1</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="delivery_tab_cont">
-					<div class="delivery_tab_panel" role="delivery_tab_panel" style="display:block" data-react-tarea-cd="00112_000000009">
-						<div class="cunit_lst_v">
-							<ul class="cunit_thmb_lst" id="saleItemDiv"></ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="delivery_loading" id="saleItemLoadingDiv" style="display:none">
-				<span class="blind">상품 로딩 중</span>
-			</div>
-			<div class="delivery_btn_wrap" id="saleItemMoreDiv" style="display:none" data-react-tarea-cd="00112_000000009" >
-				<button type="button" class="deliver_btn_more clickable" onclick="javascript:ajaxSaleItemMore();"
-						data-react-tarea-cd-old="이마트몰쓱배송|행사상품|상품더보기_클릭" data-react-tarea-dtl-cd="t00004" >
-					<span>상품 더보기</span>
-				</button>
-			</div>
-		</div>
-		<!-- //행사 상품 -->
-
 		<!-- 카테고리 필터 상품 -->
 		<div class="delivery_sec">
 			<h3 class="delivery_sec_tit">
