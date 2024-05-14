@@ -3639,20 +3639,21 @@ function setCommonGnbCookie(name, value, expiredays) {
 	    		    });
 					
 					var data={
-	    	    			optionId:JSON.stringify(optionIdArr),
-	    	    			quantity:JSON.stringify(quantityArr)
+	    	    			optionId:optionIdArr,
+	    	    			quantity:quantityArr
 	    	    	}
 					
 
 
 				    $.ajax({
+				        
+				        url: "${pageContext.request.contextPath}"+'/pay/cart.do',
 				        type: "POST",
-				        url: '/SSGSSAK/pay/cart.do',
-				        data: data,
+				        data: JSON.stringify(data),
 				        contentType: "application/json; charset=utf-8",
 				        dataType: "json",
 				        success : function(data,res){
-				        	if (data != 0) {
+				        	if (data.data != 0) {
 				        		alert("상품을 장바구니에 담았습니다.");
 							} else {
 								alert("이미 장바구니에 담겨있습니다.");
@@ -3861,20 +3862,21 @@ function setCommonGnbCookie(name, value, expiredays) {
     		    });
 				
 				var data={
-    	    			optionId: JSON.stringify(optionIdArr),
-    	    			quantity: JSON.stringify(quantityArr)
+    	    			optionId: optionIdArr,
+    	    			quantity: quantityArr
     	    	 }
 				
 
 
 				  $.ajax({
-				        type: "POST",
-				        url: '/pay/cart.do',
-				        data: data,
+				       
+				        url: "${pageContext.request.contextPath}"+'/pay/cart.do',
+				        data: JSON.stringify(data),
 				        contentType: "application/json; charset=utf-8",
 				        dataType: "json",
+				        type: "POST",
 				        success : function(data,res){
-				        	if (data != 0) {
+				        	if (data.data != 0) {
 				        		alert("상품을 장바구니에 담았습니다.");
 							} else {
 								alert("이미 장바구니에 담겨있습니다.");
@@ -4090,23 +4092,30 @@ function setCommonGnbCookie(name, value, expiredays) {
     		    });
 				
 				var data={
-    	    			optionId:JSON.stringify(optionIdArr),
-    	    			quantity:JSON.stringify(quantityArr)
+    	    			optionId:optionIdArr,
+    	    			quantity:quantityArr
     	    	}
 				
 
 
 				  $.ajax({
-				        type: "POST",
-				        url: '/SSGSSAK/pay/cart.do',
-				        data: data,
-				        contentType: "application/json; charset=utf-8",
-				        dataType: "json"
-				    }).done(res => {
-				        alert("상품을 장바구니에 담았습니다.");
-				    }).fail(error => {
-				        alert("장바구니 담기 실패");
 				       
+				        url: "${pageContext.request.contextPath}"+'/pay/cart.do',
+				        type: "POST",
+				        data: JSON.stringify(data),
+				        contentType: "application/json; charset=utf-8",
+				        dataType: "json",
+				        success : function(data,res){
+				        	if (data.data >0) {
+								alert("장바구니 등록에 성공하였습니다.");
+							} else {
+								alert("이미 장바구니에 들어있습니다.");
+							}
+				        },
+				        error : function(res) {
+				        	alert("장바구니 등록에 실패하였습니다.");
+				        }
+				    
 				    });
 				
     		    
