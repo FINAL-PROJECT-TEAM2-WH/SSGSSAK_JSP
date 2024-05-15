@@ -749,6 +749,67 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return String.format("%s-%s-%s", preNum,middleNum,postNum);
 	}
+	
+	@Override
+	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException {
+		Map<String,String> likeProduct = null;
+		ArrayList<Map<String,String>> likeProductList = null;
+		String sql = " SELECT * "
+				+ " FROM ( "
+				+ " with temp as ( "
+				+ " SELECT productid pd "
+				+ " FROM interestgoods "
+				+ " WHERE memid = ? "
+				+ " ) "
+				+ " SELECT DISTINCT tp.pd id, pd.pdname name, pd.pcontent content, pi.imgurl url, rv.grade grade , ROW_NUMBER() OVER (PARTITION BY po.productid ORDER BY po.optionprice) as row_num , po.optionprice price "
+				+ " FROM temp tp    LEFT JOIN product pd ON tp.pd = pd.id "
+				+ "               LEFT JOIN productoption po ON tp.pd = po.productid "
+				+ "                LEFT JOIN productimg pi ON tp.pd = pi.productid "
+				+ "                LEFT JOIN review rv ON tp.pd = rv.productid "
+				+ " order by tp.pd  "
+				+ " ) b "
+				+ " WHERE row_num = 1 ";
+		String productid, name, content, price, url, grade;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			System.out.println(rs.next());
+			System.out.println("1");
+			if (rs.next()) {
+				likeProductList = new ArrayList();
+				System.out.println("1");
+				do {
+					System.out.println("2");
+					likeProduct = new HashMap();
+					productid =  rs.getString("id");
+					name = rs.getString("name");
+					content = rs.getString("content");
+					price = rs.getString("price");
+					url = rs.getString("url");
+					grade = rs.getString("grade");
+					likeProduct.put("productid", productid);
+					likeProduct.put("name", name);
+					likeProduct.put("content", content);
+					likeProduct.put("price", price);
+					likeProduct.put("url", url);
+					likeProduct.put("grade", grade);
+					likeProductList.add(likeProduct);
+					System.out.println(productid + " " + name + " " + content + " " + price + " " + url + " " + grade );
+					
+				} while ( rs.next());
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return likeProductList;
+	}
 
 
 
