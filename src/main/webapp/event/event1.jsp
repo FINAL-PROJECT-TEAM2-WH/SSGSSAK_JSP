@@ -1,7 +1,8 @@
-<html lang="ko"><head><script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240509/lb4ssg.min.js" charset="utf-8"></script>
-    <meta charset="utf-8">
-   
+<%@ page contentType="text/html; charset=UTF-8"%>
+<html lang="ko"><head>
 
+<script type="text/javascript" async="" src="https://linkback.contentsfeed.com/src/20240509/lb4ssg.min.js" charset="utf-8"></script>
+    <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="https://sui.ssgcdn.com/ui/common/img/ssg.ico">
     <title>이벤트/쿠폰 &gt; 뽀숑 반려동물 탈취제 체험단</title>
 
@@ -9,7 +10,6 @@
     <meta name="description" content="">
     <meta name="google-site-verification" content="riDJ-IX46HanskLx25pj6-y8ANf2qTgZNfv_UJvkHq8">
     <meta name="facebook-domain-verification" content="ctgl43lmqq8gm4thxgg7j3b38sfqau">
-
     <!-- Google Tag Manager -->
     <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-E0P8DK53C8&amp;l=GA4_dataLayer&amp;cx=c"></script><script src="https://connect.facebook.net/signals/config/1668002603429849?v=2.9.156&amp;r=stable&amp;domain=event.ssg.com&amp;hme=c3a545c63044e8e9102d4f32d84a1137594d024f28e801d670bc76dc5c075575&amp;ex_m=67%2C112%2C99%2C103%2C58%2C3%2C93%2C66%2C15%2C91%2C84%2C49%2C51%2C158%2C161%2C172%2C168%2C169%2C171%2C28%2C94%2C50%2C73%2C170%2C153%2C156%2C165%2C166%2C173%2C121%2C14%2C48%2C178%2C177%2C123%2C17%2C33%2C38%2C1%2C41%2C62%2C63%2C64%2C68%2C88%2C16%2C13%2C90%2C87%2C86%2C100%2C102%2C37%2C101%2C29%2C25%2C154%2C157%2C130%2C27%2C10%2C11%2C12%2C5%2C6%2C24%2C21%2C22%2C54%2C59%2C61%2C71%2C95%2C26%2C72%2C8%2C7%2C76%2C46%2C20%2C97%2C96%2C9%2C19%2C18%2C81%2C53%2C79%2C32%2C70%2C0%2C89%2C31%2C78%2C83%2C45%2C44%2C82%2C36%2C4%2C85%2C77%2C42%2C39%2C34%2C80%2C2%2C35%2C60%2C40%2C98%2C43%2C75%2C65%2C104%2C57%2C56%2C30%2C92%2C55%2C52%2C47%2C74%2C69%2C23%2C105" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://www.datadoghq-browser-agent.com/datadog-rum-v4.js"></script><script type="text/javascript" src="https://js.appboycdn.com/web-sdk/4.6/braze.min.js" async=""></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PWBFGRL&amp;l=GA4_dataLayer"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -2152,18 +2152,17 @@
 </div>
 
 <div class="cevent_sec">
-    <form onsubmit="entryEvent(); return false;">
         <fieldset class="fieldset">
             <legend class="blind">댓글 입력</legend>
             <div class="cevent_comment">
             <span class="cevent_inpbx">
-                <input type="text" name="entryRsnCntt" id="entryRsnCntt" class="input_text translated" title="댓글을 입력해주세요." placeholder="댓글을 입력해주세요."><span class="trans_placeholder blind" data-default-txt="댓글을 입력해주세요.">댓글을 입력해주세요.</span>
+                <input type="text" name="entryRsnCntt" id="entrycomment" class="input_text translated" title="댓글을 입력해주세요." placeholder="댓글을 입력해주세요."><span class="trans_placeholder blind" data-default-txt="댓글을 입력해주세요.">댓글을 입력해주세요.</span>
             </span>
+            	<input id="eventId" type="hidden" value="1" />
                 <span class="cevent_bytechk">0/200자</span>
-                <span class="bnbox"><button type="submit" class="cevent_btn btn_submit"><span class="cevent_comment">등록하기</span></button></span>
+                <span class="bnbox"><button type="button" class="cevent_btn btn_submit" id="submitBtn"><span class="cevent_comment">등록하기</span></button></span>
             </div>
         </fieldset>
-    </form>
     <div id="reply_list_container"><table class="cevent_data_tbl">
     <caption>댓글 번호, 댓글 내용, 작성자 아이디, 작성일 순으로 정보를 제공하는 댓글 리스트 테이블입니다.</caption>
     <colgroup>
@@ -2266,10 +2265,6 @@
     </tbody>
 </table>
 <div class="cevent_paginate">
-    
-
-
-
 
 <div class="paging notranslate" style="width:100%">
 
@@ -2351,151 +2346,54 @@
 </div>
 </div>
 </div>
-
 <script>
-    
-    var _entryType = {
-        validate: function () {
-            var $entryRsnCntt = $('#entryRsnCntt');
-            $entryRsnCntt.val($entryRsnCntt.val().trim());
-            if (!$entryRsnCntt.val().length) {
-                alert('댓글을 입력해주세요.');
-                return false;
-            }
-            return true;
-        },
-        getEntryData: function () {
-            return {
-                entryRsnCntt: $('#entryRsnCntt').val()
-            }
-        },
-        entryCallback: function (response) {
-            $('#entryRsnCntt').val('');
-            entryReply.loadReply();
-        }
-    };
-
-    $(function () {
-        entryReply.loadReply();
-        byteCheck($('div.cevent_comment'), 200);
-        $('#entryRsnCntt').on('focus', function () {
-            eventCommons.isLogin();
-        });
-
-        document.addEventListener('contextmenu', function(e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('copy', function(e) {
-          e.preventDefault();
-        });
-
-        document.addEventListener('selectstart', function(e) {
-          e.preventDefault();
-        });
-    });
-
-    var entryReply = {
-        currentPage: 1,
-        loadReply: function (page) {
-            page = page ? page : this.currentPage;
-            return $.ajax({
-                url: '/eventDetail/entryType/ajaxReplyList.ssg',
-                type: 'GET',
-                cache: false,
-                data: {
-                    nevntId: '1000000013320',
-                    page: page
-                },
-                dataType: 'html',
-                success: function (html) {
-                    entryReply.currentPage = page;
-                    $("#reply_list_container").html(html);
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error(errorThrown)
-                    alert('처리 중 알 수 없는 오류가 발생하였습니다.');
-                }
-            });
-        },
-
-        deleteReply: function (nevntEntryId) {
-            var entryData = {
-                nevntEntryId: nevntEntryId,
-                nevntId: '1000000013320'
-            };
-            eventCommons.removeMyEntry(entryData, function (response) {
-                if (response.success) {
-                    alert('삭제되었습니다.')
-                    entryReply.loadReply();
-                } else if (response.message) {
-                    alert(response.message);
-                } else {
-                    alert('삭제 실패하였습니다.');
-                }
-            });
-        }
-    };
-
-    var byteCheck = function (welTarget, nMax) {
-        var _this = welTarget.find('input[type=text]');
-        //파이어폭스 한글입력 패치
-        _this.attr('id', 'entryRsnCntt');
-        new beta.fix('entryRsnCntt');
-
-        _this.bind('keyup paste', function (e) {
-            var str_len = $(this).val().length;
-            var is_one_char2;
-            var cbyte = 0;
-            for (var i = 0; i < str_len; i++) {
-                var is_one_char = $(this).val().charAt(i);
-                if (escape(is_one_char).length > 4) {
-                    //cbyte += 2;
-                    cbyte++;
-                } else {
-                    cbyte++;
-                }
-            }
-            //if (cbyte == 1001) cbyte = 1000;
-            if (cbyte > nMax) {
-                cbyte = 0;
-                is_one_char2 = "";
-
-                $(this).parent().next().text(nMax + "/" + nMax);
-
-                alert('초과된 글자는 자동으로 삭제됩니다.');
-
-                if (!_this.data('orgTxt')) {
-                    _this.data('orgTxt', $(this).val())
-                }
-                for (var t = 0; t < _this.data('orgTxt').length; t++) {
-                    var is_one_char = _this.data('orgTxt').charAt(t);
-                    if (escape(is_one_char).length > 4) {
-                        //cbyte += 2;
-                        cbyte++;
-                    } else {
-                        cbyte++;
-                    }
-                    if (cbyte > nMax) {
-                        if (escape(is_one_char).length > 4) {
-                            //cbyte -= 2;
-                            cbyte--;
-                        } else {
-                            cbyte--;
-                        }
-                        break;
-                    }
-                    is_one_char2 += is_one_char;
-                }
-                $(this).val(is_one_char2);
-            } else {
-                $(this).parent().next().text(cbyte + "/" + nMax + "자");
-            }
-        });
-    }
+ $("#submitBtn").on("click", function(){
+	 alert("dosngsg");
+ })
+ $("#submitBtn").on("click", function(){
+	 alert($("#entrycomment").val());
+	 var jsonObject = {
+			 entrycomment : $("#entrycomment").val(),
+			 eid : $("#eventId").val()
+	 } 
+	 
+	 let contextPath = `<%= request.getContextPath() %>`;
+	 $.ajax({
+		 	type: "POST",
+	        url: contextPath + "/eventLogic.do",
+	        dataType: 'json',  // jQuery에서는 dataType 소문자로 씁니다.
+	        data: jsonObject,
+	        cache: false,
+	        contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
+	        success: function(response) {
+	            console.log("insert ajax처리 성공");
+	            alert("ajax 처리!!")
+	        	$.ajax({
+	        		type: "POST",
+	        		url: contextPath + "/eventLogic.do",
+	        		dataType: 'json',
+	        		cache: false,
+	        		success: function(response){
+	        			console.log("select ajax처리 성공");
+	        			// 여기서 이제 테이블 구조 만들어서 뿌려주기
+	        			
+	        		}
+	        	})
+	        	
+	        error: function(xhr, status, error) {
+	            alert("Error while requesting shipping info: " + error);
+	        }
+	    });
+	 })
+	 
+ })
+		 
 </script>
 <script>
-    $(function () {
+
+</script>
+<script>
+   $(function () {
         if (UserInfo.isLoginYn !== 'N') {
             var myEntryList = eventCommons.getMyEntryList('1000000013320');
             if (myEntryList.length > 0) {
@@ -2556,7 +2454,7 @@
                 alert(response.message.replace(/\\n/g, '\n'));
             }
         });
-    }
+    } 
 </script>
 <div id="planShopItem"></div>
 

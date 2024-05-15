@@ -2172,18 +2172,17 @@
 </div>
 
 <div class="cevent_sec">
-    <form onsubmit="entryEvent(); return false;">
         <fieldset class="fieldset">
             <legend class="blind">댓글 입력</legend>
             <div class="cevent_comment">
             <span class="cevent_inpbx">
-                <input type="text" name="entryRsnCntt" id="entryRsnCntt" class="input_text translated" title="댓글을 입력해주세요." placeholder="댓글을 입력해주세요."><span class="trans_placeholder blind" data-default-txt="댓글을 입력해주세요.">댓글을 입력해주세요.</span>
+            	<input type="hidden" value="1" id="hiddenEventId"/>
+                <input type="text" name="entryRsnCntt" id="entrycomment" class="input_text translated" title="댓글을 입력해주세요." placeholder="댓글을 입력해주세요."><span class="trans_placeholder blind" >댓글을 입력해주세요.</span>
             </span>
                 <span class="cevent_bytechk">0/200자</span>
-                <span class="bnbox"><button type="submit" class="cevent_btn btn_submit"><span class="cevent_comment">등록하기</span></button></span>
+                <span class="bnbox"><button type="button" onclick="submitEventBtn10()" id="submitEventBtn10" class="cevent_btn btn_submit"><span class="cevent_comment">등록하기</span></button></span>
             </div>
         </fieldset>
-    </form>
     <div id="reply_list_container"><table class="cevent_data_tbl">
     <caption>댓글 번호, 댓글 내용, 작성자 아이디, 작성일 순으로 정보를 제공하는 댓글 리스트 테이블입니다.</caption>
     <colgroup>
@@ -2192,7 +2191,7 @@
         <col style="width:150px">
         <col style="width:114px">
     </colgroup>
-    <tbody id="reply_list_container">
+    <tbody id="reply_listBody">
     <tr>
             <td>592</td>
             <td>
@@ -2291,7 +2290,7 @@
 
 
 
-<div class="paging notranslate" style="width:100%">
+<div class="paging notranslate" id="pagination_id" style="width:100%">
 
     
         
@@ -2303,57 +2302,11 @@
             <strong title="현재위치">1</strong>
         
         
-    
-        
-            <a href="#" onclick="entryReply.loadReply(2);return false;">2</a>
-        
         
         
     
         
-            <a href="#" onclick="entryReply.loadReply(3);return false;">3</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(4);return false;">4</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(5);return false;">5</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(6);return false;">6</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(7);return false;">7</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(8);return false;">8</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(9);return false;">9</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(10);return false;">10</a>
+          
         
         
         
@@ -2371,9 +2324,135 @@
 </div>
 </div>
 </div>
-
 <script>
-    
+/* jsonArray : [{"comment":"ㅁㄴㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㅇㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅇㄹㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㅇㄹㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㅇㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅇㄹㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㄴㅇㄴㅇㄹㄴㅇ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"당첨되고 싶어요","WritingDate":"2024-05-14 00:00:00"},
+	{"currentPage":1,"end":0,"next":false,"numberOfPageBlock":10,
+	{"numberPerPage":10,"prev":false,"start":1,"totalPages":0}] */
+	
+function submitEventBtn10(){
+	var firstCommentId = $("#reply_list_container tr:first-child td:first-child").text()+1;
+	var updateQuery = '';
+    //firstCommentId
+	//alert($("#entrycomment").val());
+	//alert($("#hiddenEventId").val());
+	 var jsonObject = {
+			 entrycomment : $("#entrycomment").val(),
+			 eid : $("#hiddenEventId").val()
+	 }
+	 let contextPath = `<%= request.getContextPath() %>`;
+	 $.ajax({
+		 	type: "POST",
+	        url: contextPath + "/eventLogic.do",
+	        dataType: 'json',  // jQuery에서는 dataType 소문자로 씁니다.
+	        data: JSON.stringify(jsonObject),
+	        cache: false,
+	        contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
+	        success: function(response) {
+	            //console.log("insert ajax처리 성공");
+	            alert("ajax 처리!!")
+	        	$.ajax({
+	        		type: "GET",
+	        		url: contextPath + "/eventLogic.do",
+	        		dataType: 'json',
+	                data: { eid : $("#hiddenEventId").val()},
+	                //contentType: "application/json",
+	        		cache: false,
+	        		success: function(response){
+	        			 var jsonArray = response; // 이 부분에서 실제 응답 데이터 구조에 맞게 조정 필요
+	        		        // 테이블에 데이터 추가
+	        		        $("#reply_listBody").empty(); 
+	        		        jsonArray.forEach(function(item, index) {
+	        		            if (item.comment && item.WritingDate && item.name) {
+	        		                var updateQuery = '<tr>';
+	        		                updateQuery += `<td>\${index + 1}</td>`;  
+	        		                updateQuery += `<td><span class="cevent_comment_txt">\${item.comment}</span></td>`;
+	        		                updateQuery += `<td class="cevent_writter">\${item.name}</td>`; 
+	        		                updateQuery += `<td class="date">\${item.WritingDate}</td></tr>`;
+	        		                $("#reply_listBody").append(updateQuery);
+	        		            }
+	        		        });
+	        		        $("#pagination_id").empty();
+	        		        var inner = '';
+	        		        jsonArray.forEach(function(item, index) {
+	        		            if (item.currentPage && item.numberPerPage && item.totalPages) {
+	        		                for (var i = 0; i < item.totalPages; i++) {  // totalPages에 대한 반복을 수행해야 함
+	        		                    if (item.currentPage === (i + 1)) {
+	        		                        inner += `<strong title="현재위치">\${item.currentPage}</strong>`;  // 템플릿 리터럴 수정
+	        		                    } else {
+	        		                        inner += `<a href="#" onclick="navigatePage(${i + 1})">\${i + 1}</a>`;  // 클릭 시 페이지 이동 함수와 정확한 페이지 숫자 출력
+	        		                    }
+	        		                }
+	        		            }
+	        		        });
+	        		        $("#pagination_id").append(inner);
+	        		  }
+	        		, error : function(){
+	        			alert("error 발생~~");
+	        		}
+	        	})
+	        },
+	        error: function(xhr, status, error) {
+	            alert("Error while requesting " + error);
+	        }
+	  });
+}
+/* <tr>
+<td>592</td>
+<td>
+	<span class="cevent_comment_txt">
+    	너무기대됩니다.꼭체험해보고싶어요.</span>
+</td>
+<td class="cevent_writter">조*정</td>
+<td class="date">2024-05-06</td>
+</tr> */
+<%-- $("#submitEventBtn").on("click", function(){
+	 alert($("#submitEventBtn").val());
+	 var jsonObject = {
+			 entrycomment : $("#entrycomment").val(),
+			 eid : $("#eventId").val()
+	 } 
+	 
+	 let contextPath = `<%= request.getContextPath() %>`;
+	 $.ajax({
+		 	type: "POST",
+	        url: contextPath + "/eventLogic.do",
+	        dataType: 'json',  // jQuery에서는 dataType 소문자로 씁니다.
+	        data: jsonObject,
+	        cache: false,
+	        contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
+	        success: function(response) {
+	            console.log("insert ajax처리 성공");
+	            alert("ajax 처리!!")
+	        	$.ajax({
+	        		type: "POST",
+	        		url: contextPath + "/eventLogic.do",
+	        		dataType: 'json',
+	        		cache: false,
+	        		success: function(response){
+	        			console.log("select ajax처리 성공");
+	        			// 여기서 이제 테이블 구조 만들어서 뿌려주기
+	        			
+	        		}
+	        	})
+	        error: function(xhr, status, error) {
+	            alert("Error while requesting shipping info: " + error);
+	        }
+	    });
+	 })
+	 
+}) --%>
+</script>
+<script>
+/*     
     var _entryType = {
         validate: function () {
             var $entryRsnCntt = $('#entryRsnCntt');
@@ -2413,9 +2492,9 @@
         document.addEventListener('selectstart', function(e) {
           e.preventDefault();
         });
-    });
+    }); */
 
-    var entryReply = {
+    /* var entryReply = {
         currentPage: 1,
         loadReply: function (page) {
             page = page ? page : this.currentPage;
@@ -2512,7 +2591,7 @@
                 $(this).parent().next().text(cbyte + "/" + nMax + "자");
             }
         });
-    }
+    } */
 </script>
 <script>
     $(function () {

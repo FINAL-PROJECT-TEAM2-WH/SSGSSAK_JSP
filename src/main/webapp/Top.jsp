@@ -437,7 +437,7 @@ cmjump_rank_lst
 	                displayItems();  // 초기 목록 표시
 	        },
 	        error: function(xhr, status, error) {
-	            alert("Error while requesting shipping info: " + error);
+	            alert("Error while requesting searchCount info: " + error);
 	        }
 	    });
 		 function displayItems() {
@@ -485,7 +485,7 @@ cmjump_rank_lst
 		            	itemHtml += '</i><span class="blind">상승</span></span>';
 		            }
 		            itemHtml += '</span></a></li>';
-		            console.log(itemHtml);
+		            //console.log(itemHtml);
 		            $("#cmjump_rank_lst1").append(itemHtml);
 		        }
 		        currentIndex++;
@@ -522,7 +522,7 @@ cmjump_rank_lst
 		            	itemHtml += '</i><span class="blind">상승</span></span>';
 		            }
 		            itemHtml += '</span></a></li>';
-		            console.log(itemHtml);
+		            //console.log(itemHtml);
 		            $("#cmjump_rank_lst2").append(itemHtml);
 		        }
 		        currentIndex++;

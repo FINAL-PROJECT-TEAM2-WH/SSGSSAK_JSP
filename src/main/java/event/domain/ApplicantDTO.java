@@ -1,7 +1,5 @@
 package event.domain;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,13 +14,16 @@ import oracle.sql.DATE;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class eventDTO {
+public class ApplicantDTO {
 	
 	private long   id;
-	private String evnNm;
-	private String evnImg;	
-	private Date evnStrDt;
-	private Date evnEnDt;
+	private String eid;
+	private String memid;	
+	private String cmmn;
+	private String WritingDate;
+	private String win;
+	private DATE winDay;
+	private String name;
 	
 	
 }
