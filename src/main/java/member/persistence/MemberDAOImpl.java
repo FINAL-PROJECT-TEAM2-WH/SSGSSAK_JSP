@@ -769,13 +769,13 @@ public class MemberDAOImpl implements MemberDAO{
 				+ " order by tp.pd  "
 				+ " ) b "
 				+ " WHERE row_num = 1 ";
-		String productid, name, content, price, url, grade;
+		String productid, name, content, price, url;
+		int grade;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			System.out.println(rs.next());
 			System.out.println("1");
 			if (rs.next()) {
 				likeProductList = new ArrayList();
@@ -788,17 +788,17 @@ public class MemberDAOImpl implements MemberDAO{
 					content = rs.getString("content");
 					price = rs.getString("price");
 					url = rs.getString("url");
-					grade = rs.getString("grade");
+					grade = rs.getInt("grade");
 					likeProduct.put("productid", productid);
 					likeProduct.put("name", name);
 					likeProduct.put("content", content);
 					likeProduct.put("price", price);
 					likeProduct.put("url", url);
-					likeProduct.put("grade", grade);
+					likeProduct.put("grade", String.valueOf(grade));
 					likeProductList.add(likeProduct);
 					System.out.println(productid + " " + name + " " + content + " " + price + " " + url + " " + grade );
 					
-				} while ( rs.next());
+				} while (rs.next());
 			}
 			
 		} catch (SQLException e) {

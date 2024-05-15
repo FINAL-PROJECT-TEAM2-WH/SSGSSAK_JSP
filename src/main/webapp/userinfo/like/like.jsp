@@ -735,11 +735,15 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 							<div class="mylike_cunit_lst">
 								<div class="cunit_lst_v">
 									<ul class="cunit_thmb_lst" data-react-tarea-cd="00133_000000168">
-										<li class="cunit_t290" data-tgt-idnf1="1000068529577" data-attnDtlcSeq="54709172" data-itemNm="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종" data-itemSiteNo="6004" data-itemSalestrNo="6005" data-uitemId="00000">
+									
+									
+									<!-- 여기서 부터 박으면 됨  -->
+									<c:forEach var="product" items="${productList}">
+										<li class="cunit_t290" data-tgt-idnf1="1000068529577" data-attnDtlcSeq="54709172" data-itemNm="${product.content}" data-itemSiteNo="6004" data-itemSalestrNo="6005" data-uitemId="00000">
 												<div class="mylike_item_top">
 													<span class="mylike_chk _mylike_chk_item">
 														<input type="checkbox" name="checkItem" id="checkItem_1000068529577" class="mylike_chk_inp">
-														<label for="checkItem_1000068529577" class="mylike_chk_lbl"><span class="blind">어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종</span></label>
+														<label for="checkItem_1000068529577" class="mylike_chk_lbl"><span class="blind">${product.content }</span></label>
 													</span>
 													</div>
 												<!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
@@ -813,7 +817,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     </div>
 </div>
 
-	<c:forEach var="product" items="${productList}">
+	
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
