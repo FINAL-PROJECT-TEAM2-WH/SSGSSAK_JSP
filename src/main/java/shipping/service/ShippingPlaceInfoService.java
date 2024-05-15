@@ -151,8 +151,6 @@ public class ShippingPlaceInfoService {
 		
 		// 한페이지에 게시글은 10개만 
 		int numberPerPage = 10;
-		
-		
 		try {
 			conn = ConnectionProvider.getConnection();
 			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();

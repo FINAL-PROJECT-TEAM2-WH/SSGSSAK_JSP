@@ -160,12 +160,14 @@ public class EventDAOimpl implements EventDAO {
 		String WritingDate = null;
 		String name = null;
 		
+		
+		
 		String sql = " SELECT * FROM  "
 				+ " (  "
 				+ " SELECT ROWNUM no, t.*  "
 				+ " FROM  "
 				+ " (  "
-				+ " SELECT a.id, eid, memid, cmmn, WritingDate, win, winday, m.name "
+				+ " SELECT a.id, eid, memid, cmmn, WritingDate, win, winday, name "
 				+ " FROM applicant a JOIN member m ON a.memid = m.id "
 				+ " WHERE eid = '"+ eid +"' "
 				+ " ORDER BY id DESC "
@@ -173,10 +175,15 @@ public class EventDAOimpl implements EventDAO {
 				+ " ) b  "
 				+ " WHERE no BETWEEN ? and ? ";
 		
+		System.out.println(sql);
 		try {
-			
+			int start = (currentPage - 1) * numberPerPage + 1 ;
+			int end = start + numberPerPage - 1 ; 
+			System.out.println("end는 ?? " + start);
+			System.out.println("start는 ?? " + start);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(2, eid);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
 			rs = pstmt.executeQuery();
 			
 			if( rs.next() ) {
@@ -186,7 +193,8 @@ public class EventDAOimpl implements EventDAO {
 				do {
 					cmmn = rs.getString("cmmn");
 					WritingDate = rs.getString("WritingDate");
-					
+					name = rs.getString("name");
+					WritingDate = WritingDate.substring(0, 11);
 					adto = new ApplicantDTO().builder()
 							.cmmn(cmmn)
 							.WritingDate(WritingDate)
@@ -207,43 +215,43 @@ public class EventDAOimpl implements EventDAO {
 		return alist;
 	}
 
-//	@Override
-//	public PageDTO pageBlock(Connection conn, int currentPage, String memid) throws Exception {
-//		PageDTO pdto = null;
-//		int numberPerPage = 10;
-//		int numberOfPageBlock = 10;
-//		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
-//		int totalPage = dao.getTotalPages(conn, numberPerPage, memid);
-//		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
-//		
-//		return pdto;
-//	}
+	@Override
+	public PageDTO pageBlock(Connection conn, int currentPage, String eid) throws Exception {
+		PageDTO pdto = null;
+		int numberPerPage = 10;
+		int numberOfPageBlock = 10;
+		EventDAOimpl dao = EventDAOimpl.getInstance();
+		int totalPage = dao.getTotalPages(conn, numberPerPage, eid);
+		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
+		
+		return pdto;
+	}
 	
-//	@Override
-//	public int getTotalPages(Connection conn, int numberPerPage, String memid) throws SQLException {
-//		int totalPages = 0;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		String sql = "SELECT CEIL(COUNT(*)/?) FROM SHIPPINGPLACEINFORMATION where memid = ? ";
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, numberPerPage);
-//			pstmt.setString(2, memid);
-//			rs =  pstmt.executeQuery();
-//			if ( rs.next() ) totalPages = rs.getInt(1);
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			System.out.println("getTotalPagesDAO 메서드에서 오류~~");
-//		} finally {
-//			JdbcUtil.close(rs);
-//			JdbcUtil.close(pstmt);
-//		}
-//		
-//		
-//		return totalPages;
-//	}
+	@Override
+	public int getTotalPages(Connection conn, int numberPerPage, String eid) throws SQLException {
+		int totalPages = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT CEIL(COUNT(*)/?) FROM applicant where eid = ? ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, numberPerPage);
+			pstmt.setString(2, eid);
+			rs =  pstmt.executeQuery();
+			if ( rs.next() ) totalPages = rs.getInt(1);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("getTotalPagesDAO 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		return totalPages;
+	}
     
     
 }

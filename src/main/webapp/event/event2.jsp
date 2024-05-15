@@ -2191,7 +2191,7 @@
         <col style="width:150px">
         <col style="width:114px">
     </colgroup>
-    <tbody id="reply_list_container">
+    <tbody id="reply_listBody">
     <tr>
             <td>592</td>
             <td>
@@ -2290,7 +2290,7 @@
 
 
 
-<div class="paging notranslate" style="width:100%">
+<div class="paging notranslate" id="pagination_id" style="width:100%">
 
     
         
@@ -2304,55 +2304,13 @@
         
     
         
-            <a href="#" onclick="entryReply.loadReply(2);return false;">2</a>
+            <a href="#" onclick="">2</a>
         
         
         
     
         
-            <a href="#" onclick="entryReply.loadReply(3);return false;">3</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(4);return false;">4</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(5);return false;">5</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(6);return false;">6</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(7);return false;">7</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(8);return false;">8</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(9);return false;">9</a>
-        
-        
-        
-    
-        
-            <a href="#" onclick="entryReply.loadReply(10);return false;">10</a>
+          
         
         
         
@@ -2371,7 +2329,19 @@
 </div>
 </div>
 <script>
-
+/* jsonArray : [{"comment":"ㅁㄴㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㅇㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅇㄹㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㅇㄹㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅁㄴㅇㄻㄴㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㅇㄹㅇㄹ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"ㄴㅇㄴㅇㄹㄴㅇ","WritingDate":"2024-05-14 00:00:00"},
+	{"comment":"당첨되고 싶어요","WritingDate":"2024-05-14 00:00:00"},
+	{"currentPage":1,"end":0,"next":false,"numberOfPageBlock":10,
+	{"numberPerPage":10,"prev":false,"start":1,"totalPages":0}] */
+	
 function submitEventBtn10(){
 	var firstCommentId = $("#reply_list_container tr:first-child td:first-child").text()+1;
 	var updateQuery = '';
@@ -2381,7 +2351,7 @@ function submitEventBtn10(){
 	 var jsonObject = {
 			 entrycomment : $("#entrycomment").val(),
 			 eid : $("#hiddenEventId").val()
-	 }  
+	 }
 	 let contextPath = `<%= request.getContextPath() %>`;
 	 $.ajax({
 		 	type: "POST",
@@ -2401,17 +2371,34 @@ function submitEventBtn10(){
 	                //contentType: "application/json",
 	        		cache: false,
 	        		success: function(response){
-	        			console.log("select ajax처리 성공");
-	        			var comment = response.comment;
-	        			var name = respons.name;
-	        			var date = response.WritingDate;
-	        			updateQuery = '<tr>';
-	        			updateQuery += `<td>\${firstCommentId}</td>`;
-	        			updateQuery += `<td><span class="cevent_comment_txt">response.comment</span></td>`;
-	        			updateQuery += `<td class="cevent_writter"></td>`;
-	        			updateQuery += `<td class="date"></td></tr>`;
-	        			$("#reply_list_container").html(updateQuery); 		
-	        		}
+	        			 var jsonArray = response; // 이 부분에서 실제 응답 데이터 구조에 맞게 조정 필요
+	        		        // 테이블에 데이터 추가
+	        		        $("#reply_listBody").empty(); 
+	        		        jsonArray.forEach(function(item, index) {
+	        		            if (item.comment && item.WritingDate && item.name) {
+	        		                var updateQuery = '<tr>';
+	        		                updateQuery += `<td>\${index + 1}</td>`;  
+	        		                updateQuery += `<td><span class="cevent_comment_txt">\${item.comment}</span></td>`;
+	        		                updateQuery += `<td class="cevent_writter">\${item.name}</td>`; 
+	        		                updateQuery += `<td class="date">\${item.WritingDate}</td></tr>`;
+	        		                $("#reply_listBody").append(updateQuery);
+	        		            }
+	        		        });
+	        		        $("#pagination_id").empty();
+	        		        var inner = '';
+	        		        jsonArray.forEach(function(item, index) {
+	        		            if (item.currentPage && item.numberPerPage && item.totalPages) {
+	        		                for (var i = 0; i < item.totalPages; i++) {  // totalPages에 대한 반복을 수행해야 함
+	        		                    if (item.currentPage === (i + 1)) {
+	        		                        inner += `<strong title="현재위치">\${item.currentPage}</strong>`;  // 템플릿 리터럴 수정
+	        		                    } else {
+	        		                        inner += `<a href="#" onclick="navigatePage(${i + 1})">\${i + 1}</a>`;  // 클릭 시 페이지 이동 함수와 정확한 페이지 숫자 출력
+	        		                    }
+	        		                }
+	        		            }
+	        		        });
+	        		        $("#pagination_id").append(inner);
+	        		  }
 	        		, error : function(){
 	        			alert("error 발생~~");
 	        		}
@@ -2422,7 +2409,15 @@ function submitEventBtn10(){
 	        }
 	  });
 }
-
+/* <tr>
+<td>592</td>
+<td>
+	<span class="cevent_comment_txt">
+    	너무기대됩니다.꼭체험해보고싶어요.</span>
+</td>
+<td class="cevent_writter">조*정</td>
+<td class="date">2024-05-06</td>
+</tr> */
 <%-- $("#submitEventBtn").on("click", function(){
 	 alert($("#submitEventBtn").val());
 	 var jsonObject = {

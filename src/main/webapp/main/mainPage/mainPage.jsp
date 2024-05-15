@@ -1156,6 +1156,7 @@ deferredObj.done(function() {
 
                     $welTabContent.removeClass('js_loading_data');
                     $welTabContent.append(html);
+                    
 
                     ssg.View.main.ranking.prototype.init();
 

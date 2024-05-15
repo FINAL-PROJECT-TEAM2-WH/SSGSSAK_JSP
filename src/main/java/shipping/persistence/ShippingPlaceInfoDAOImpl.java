@@ -408,7 +408,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 		int totalPage = dao.getTotalPages(conn, numberPerPage, memid);
 		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
-		
 		return pdto;
 	}
 	
