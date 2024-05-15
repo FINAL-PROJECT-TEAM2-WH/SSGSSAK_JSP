@@ -917,10 +917,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 								let cleft = window.innerWidth/2-250;
 								let ctop = window.innerHeight/2;
 								window.open("${pageContext.request.contextPath}/pay/changeaddr.do","blank","width="+cwidth+",height="+cheight+",left="+cleft+",top="+ctop);
-								
-								
-								
-							})	
+								})	
 							
 							function updateshipinfo(name,phonenum,addr,selectedshipnum,addrnick){
 									$("#cname").html(name);
