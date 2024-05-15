@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pay.domain.CartDTO;
 import pay.domain.CouponDTO;
+import pay.domain.EnrollDTO;
 import pay.domain.OrderedDTO;
 import pay.domain.ProductDTO;
 import pay.domain.ShippingDTO;
@@ -833,6 +834,198 @@ public class PayImpl implements PayDAO{
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectcateinfo() {
+		String sql = " select id cateid,majorcatename cate1 ,middlecatename cate2,subcatename cate3,minicatename cate4 from category ";
+		ArrayList<EnrollDTO> al = new ArrayList<>() ;
+		int cateid;
+		String cate1;
+		String cate2;
+		String cate3;
+		String cate4;
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+				cateid = rs.getInt("cateid");
+				cate1 = rs.getString("cate1");
+				cate2 = rs.getString("cate2");
+				cate3 = rs.getString("cate3");
+				cate4 = rs.getString("cate4");
+				
+				EnrollDTO dto = EnrollDTO.builder().cateid(cateid).cate1(cate1).cate2(cate2).cate3(cate3).cate4(cate4).build();
+				al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectbrandinfo() {
+		String sql = " select id brandid , brandname from brand " ;
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		int brandid;
+		String brandname;
+		try {
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					brandid = rs.getInt("brandid");
+					brandname = rs.getString("brandname");
+					
+					EnrollDTO dto = EnrollDTO.builder().brandid(brandid).brandname(brandname).build();
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectsellerinfo() {
+		String sql = " select id sellerid, sellername from sellerstore " ;
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		int sellerid;
+		String sellername;
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					sellerid = rs.getInt("sellerid");
+					sellername = rs.getString("sellername");
+					EnrollDTO dto = EnrollDTO.builder().sellerid(sellerid).sellername(sellername).build();
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectspecialpinfo() {
+		String sql = " select id specialpid , spclnm ,  spclstrdt , spclprcendt ,spcldscnrt from specialprice ";
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		int specialpid;
+		String spclnm;
+		Date spclstrdt;
+		Date spclprcendt;
+		int spcldscnrt;
+		
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					specialpid = rs.getInt("specialpid");
+					spclnm = rs.getString("spclnm");
+					spclstrdt = rs.getDate("spclstrdt");
+					spclprcendt = rs.getDate("spclprcendt");
+					spcldscnrt = rs.getInt("spcldscnrt");
+					EnrollDTO dto = EnrollDTO.builder().specialpid(specialpid).spclnm(spclnm).spclstrdt(spclstrdt).spclprcendt(spclprcendt).spcldscnrt(spcldscnrt).build();
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectshipinfo() {
+		String sql = " select id shipid , shippingOptionName sname ,  defaultShippingFee dfee from shippingoption ";
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		int shipid;
+		String sname ;
+		String dfee ;
+		
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					shipid = rs.getInt("shipid");
+					sname = rs.getString("sname");
+					dfee = rs.getString("dfee");
+				
+					EnrollDTO dto = EnrollDTO.builder().shipid(shipid).sname(sname).dfee(dfee).build();
+							
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public int insertproducttable(int cateid, int brandid, int sellerid, int spp, int shipo, String productn,
+			String productex) {
+		String sql = " insert into product values ( )";
+		return 0;
 	}
 
 
