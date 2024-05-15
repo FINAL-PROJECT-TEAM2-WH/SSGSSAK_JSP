@@ -59,4 +59,7 @@ public interface MemberDAO {
 
 	// 기타 함수. 
 	public String transtoPhoneNum (String phoneNum) ;
+	
+	// 좋아요 
+	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException;
 }
