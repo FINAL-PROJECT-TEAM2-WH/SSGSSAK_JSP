@@ -40,6 +40,8 @@ public interface PayDAO {
 	public abstract ArrayList<EnrollDTO> selectspecialpinfo();
 	public abstract ArrayList<EnrollDTO> selectshipinfo();
 	public abstract int insertproducttable(int cateid,int brandid,int sellerid,int spp,int shipo,String productn,String productex);
+	public abstract int insertproductoption(String optionname, String optiondes, int refoption, int optionprice, int optionstock);
+	public abstract int selectrefoptionid(String optionname);
 	
 	
 	

@@ -27,8 +27,9 @@
 </style>
 </head>
 <body style="color: pink">
-<br /><br >
  <form action="" method="post" enctype="multipart/form-data">
+<br /><br >
+
  <div style="font-size: 25px; display: flex; justify-content: center; top: 20px;"><h1 style="color: pink;">SSG 상품등록</h1></div>
   <div class="grid" style="display:  flex; justify-content: center;">
  
@@ -94,15 +95,17 @@
     3-1 . 옵션설명 입력
     <input type="text" name="optiondes1" />
     3-1. 참조옵션명 입력
-    <input type="text" name="refoptiondes1"/>
+    <input type="text" name="refoptiondes1" disabled/>
     3-1. 해당 옵션 가격 입력
     <input type="text" name="optionprice1" />
      3-1. 해당 옵션 재고 입력
     <input type="text" name="optionstock1"/>
+    
    <hr />
    </div>
   </div>
  </div>
+ <input type="hidden" name="optioncount" id="optioncount" value="1" > 
  <br />
  <br />
  <br />
@@ -110,6 +113,7 @@
    <br />	
     <div class="indiv" style="display: grid ; grid-template-column: repeat (2,1fr);">
     <div>
+    
     4-1. 상품 대표이미지 등록
     <input type="file" style="width: 20%;" name="file1"/>
     &nbsp; &nbsp; &nbsp;
@@ -146,8 +150,11 @@
 </dialog>
 		<script>
 		let count =$("#options").length ;
+		
 		$("#optionadd").on("click",function(){
+			
 			count =count + 1;
+			$("#optioncount").val(count);
 			$("#options").append(`
 				  	<div style="display: inline-block; width: 100%; margin-left: 5vw;">
 				  	3-\${count}. 옵션명 입력 
@@ -166,7 +173,8 @@
 		});
 		
 		$("#optiondel").on("click",function(){
-			
+			count =count - 1;
+			$("#optioncount").val(count);
 			$("#options div:last-child").remove();
 
 		})
@@ -177,7 +185,9 @@
 			$("dialog").prop("open",false);
 		})
 		$("#confirm").on("click",function(){
+			
 			$("form").submit();
+			
 		})
 		</script>
 </body>

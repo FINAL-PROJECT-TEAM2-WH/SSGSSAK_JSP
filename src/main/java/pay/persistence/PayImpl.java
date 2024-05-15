@@ -1024,9 +1024,85 @@ public class PayImpl implements PayDAO{
 	@Override
 	public int insertproducttable(int cateid, int brandid, int sellerid, int spp, int shipo, String productn,
 			String productex) {
-		String sql = " insert into product values ( )";
-		return 0;
+		String sql = " insert into product values ( product_id_seq.nextval , ? , ? , ? , ? , ? , ? , ? , sysdate ) ";
+		int result = 0 ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setInt(1, cateid);
+			pst.setInt(2, spp);
+			pst.setInt(3, shipo);
+			pst.setInt(4, sellerid);
+			pst.setInt(5, brandid);
+			pst.setString(6, productn);
+			pst.setString(7, productex);
+			result = pst.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
 	}
+
+	@Override
+	public int insertproductoption(String optionname, String optiondes, int refoption, int optionprice,
+			int optionstock) {
+		String sql = " insert into productoption values ( productoption_id_seq.nextval , product_id_seq.currval , ? , ? , ?, ? ,? )  "; ;
+		int result = 0 ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, optionname);
+			pst.setString(2, optiondes);
+			pst.setInt(3, refoption);
+			pst.setInt(4 , optionprice);
+			pst.setInt(5, optionstock);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public int selectrefoptionid(String optionname) {
+		String sql = " select id optionid from productoption where optionname = ? and productid =  product_id_seq.currval " ;
+		int optionid = 0 ;
+		try {
+			pst =conn.prepareStatement(sql);
+			pst.setString(1, optionname);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				optionid = rs.getInt("optionid");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return optionid;
+	}
+
+	
 
 
 
