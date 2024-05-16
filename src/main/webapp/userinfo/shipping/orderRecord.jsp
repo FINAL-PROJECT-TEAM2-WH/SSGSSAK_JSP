@@ -984,6 +984,11 @@
 					
 				</c:forEach>
 			</c:if>
+			<c:if test="${ not empty olist }">
+				<c:forEach items="${ olist }" var="order">
+					<h3>${ order }</h3>
+				</c:forEach>
+			</c:if>
 			<div class="codr_odrdeliv" name="divOrordUnit">
 				<input type="hidden" name="orordNo" value="2024041502F004" />
 				<dl class="codr_odrdeliv_head">

@@ -17,6 +17,7 @@ public class OrderRecordHandler implements CommandHandler {
 		
 		HttpSession hSession = request.getSession(false);
 		String memid = (String)hSession.getAttribute("auth");
+		String contextPath = request.getContextPath();
 		ArrayList<OrderRecordVO> olist = null;
 		ArrayList<String> dlist = null;
 		try {
