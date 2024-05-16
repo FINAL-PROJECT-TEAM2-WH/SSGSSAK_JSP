@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
     $('.cmmain_tab').click(function(){
         var tabName = $(this).text(); 
         $.ajax({
@@ -16,4 +16,4 @@ $(document).ready(function(){
         });
     });
 });
-
+*/
