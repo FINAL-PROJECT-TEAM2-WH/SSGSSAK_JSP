@@ -1,5 +1,6 @@
 package pay.persistence;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.util.Date;
 
 import javax.naming.NamingException;
 
+import com.oreilly.servlet.MultipartRequest;
 import com.util.ConnectionProvider;
 
 import lombok.AllArgsConstructor;
@@ -739,11 +741,9 @@ public class PayImpl implements PayDAO{
 
 	@Override
 	public ArrayList<CartDTO> selectcartinfo(String id) {
-		String sql = "  select sc.id2 optionid , sc.scount , pi.imgurl ,ss.sellername, b.brandname , po.optionname , po.optionprice price, so.defaultshippingfee shipfee\r\n"
-				+ " \r\n"
-				+ " from shoppingcart sc , productimg pi , product p, brand b , sellerstore ss , productoption po , shippingoption so\r\n"
-				+ " where sc.memid = ? and sc.id2 = po.id and pi.productid = p.id and p.id = po.productid and b.id = p.brandid and ss.id = p.sellerstoreid and so.id = p.shippingoptionid  \r\n"
-				+ "	  " ;
+		String sql = " select sc.id2 optionid , sc.scount , pi.imgurl ,ss.sellername, b.brandname , po.optionname , po.optionprice price, so.defaultshippingfee shipfee	\r\n"
+				+ "     from shoppingcart sc , productimg pi , product p, brand b , sellerstore ss , productoption po , shippingoption so\r\n"
+				+ "			where sc.memid = ? and sc.id2 = po.id and pi.productid = p.id and pi.imgcontent = 'sum' and p.id = po.productid and b.id = p.brandid and ss.id = p.sellerstoreid and so.id = p.shippingoptionid " ;
 		ArrayList<CartDTO> al = new ArrayList<CartDTO>();
 		int optionid;
 		int scount ;
@@ -840,7 +840,7 @@ public class PayImpl implements PayDAO{
 	public ArrayList<EnrollDTO> selectcateinfo() {
 		String sql = " select id cateid,majorcatename cate1 ,middlecatename cate2,subcatename cate3,minicatename cate4 from category ";
 		ArrayList<EnrollDTO> al = new ArrayList<>() ;
-		int cateid;
+		String cateid;
 		String cate1;
 		String cate2;
 		String cate3;
@@ -850,7 +850,7 @@ public class PayImpl implements PayDAO{
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				do {
-				cateid = rs.getInt("cateid");
+				cateid = rs.getString("cateid");
 				cate1 = rs.getString("cate1");
 				cate2 = rs.getString("cate2");
 				cate3 = rs.getString("cate3");
@@ -880,14 +880,14 @@ public class PayImpl implements PayDAO{
 	public ArrayList<EnrollDTO> selectbrandinfo() {
 		String sql = " select id brandid , brandname from brand " ;
 		ArrayList<EnrollDTO> al = new ArrayList<>();
-		int brandid;
+		String brandid;
 		String brandname;
 		try {
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				do {
-					brandid = rs.getInt("brandid");
+					brandid = rs.getString("brandid");
 					brandname = rs.getString("brandname");
 					
 					EnrollDTO dto = EnrollDTO.builder().brandid(brandid).brandname(brandname).build();
@@ -914,14 +914,14 @@ public class PayImpl implements PayDAO{
 	public ArrayList<EnrollDTO> selectsellerinfo() {
 		String sql = " select id sellerid, sellername from sellerstore " ;
 		ArrayList<EnrollDTO> al = new ArrayList<>();
-		int sellerid;
+		String sellerid;
 		String sellername;
 		try {
 			pst =conn.prepareStatement(sql);
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				do {
-					sellerid = rs.getInt("sellerid");
+					sellerid = rs.getString("sellerid");
 					sellername = rs.getString("sellername");
 					EnrollDTO dto = EnrollDTO.builder().sellerid(sellerid).sellername(sellername).build();
 					al.add(dto);
@@ -1022,17 +1022,17 @@ public class PayImpl implements PayDAO{
 	}
 
 	@Override
-	public int insertproducttable(int cateid, int brandid, int sellerid, int spp, int shipo, String productn,
+	public int insertproducttable(String cateid, String brandid, String sellerid, int spp, int shipo, String productn,
 			String productex) {
 		String sql = " insert into product values ( product_id_seq.nextval , ? , ? , ? , ? , ? , ? , ? , sysdate ) ";
 		int result = 0 ;
 		try {
 			pst = conn.prepareStatement(sql);
-			pst.setInt(1, cateid);
+			pst.setString(1, cateid);
 			pst.setInt(2, spp);
 			pst.setInt(3, shipo);
-			pst.setInt(4, sellerid);
-			pst.setInt(5, brandid);
+			pst.setString(4, sellerid);
+			pst.setString(5, brandid);
 			pst.setString(6, productn);
 			pst.setString(7, productex);
 			result = pst.executeUpdate();
@@ -1077,11 +1077,25 @@ public class PayImpl implements PayDAO{
 
 	@Override
 	public int selectrefoptionid(String optionname) {
-		String sql = " select id optionid from productoption where optionname = ? and productid =  product_id_seq.currval " ;
+		String sql2 = " select product_id_seq.currval seq from dual ";
+		long productseqcurrval = 0;
+		try {
+			pst = conn.prepareStatement(sql2);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				productseqcurrval = rs.getLong("seq");
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		String sql = " select id optionid from productoption where optionname = ? and productid = ? " ;
 		int optionid = 0 ;
 		try {
 			pst =conn.prepareStatement(sql);
 			pst.setString(1, optionname);
+			pst.setLong(2, productseqcurrval);
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				optionid = rs.getInt("optionid");
@@ -1100,6 +1114,32 @@ public class PayImpl implements PayDAO{
 			
 		}
 		return optionid;
+	}
+
+	@Override
+	public int insertproductimg(String realpath , String sum) {
+		String sql = " insert into productimg values ( productimg_seq.nextval , product_id_seq.currval , ? , ? ) ";
+		int result = 0 ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, realpath);
+			pst.setString(2, sum);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		return result;
 	}
 
 	

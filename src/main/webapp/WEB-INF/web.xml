@@ -13,7 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
-
+ 
 	 <filter>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <filter-class>com.filter.CharacterEncodingFilter</filter-class>
@@ -26,11 +26,10 @@
 	<filter-mapping>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <url-pattern>/*</url-pattern> 
-	  <url-pattern>/</url-pattern> 
 	  <dispatcher>REQUEST</dispatcher>
 	</filter-mapping> 
-
-	  <servlet>
+ 
+  	  <servlet>
 	    <description>MVC</description>
 	    <description>컨트롤러 역할</description>
 	    <servlet-name>dispatcher</servlet-name>
@@ -41,13 +40,19 @@
 	    <param-value>/WEB-INF/commandHandler.properties</param-value>
 	    </init-param>
 	    <load-on-startup>1</load-on-startup>
+	    <multipart-config>
+         <location>C:/temp</location>
+         <max-file-size>-1</max-file-size> <!-- byte -->
+         <max-request-size>-1</max-request-size>
+         <file-size-threshold>1024</file-size-threshold>
+      </multipart-config>
 	  </servlet>
 	  <servlet-mapping>
 	<servlet-name>dispatcher</servlet-name>
 	<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-
-
+ 
+ 
 	<jsp-config>
 		<jsp-property-group>
 			<url-pattern>/</url-pattern>
@@ -55,7 +60,7 @@
 			<!-- <include-prelude>/WEB-INF/inc/footer.jspf</include-prelude> -->
 		</jsp-property-group>
 	</jsp-config>
-
+ 
 	<servlet>
 		<servlet-name>jsp</servlet-name>
 		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>

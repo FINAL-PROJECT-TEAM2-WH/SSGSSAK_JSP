@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EnrollDTO {
-	int cateid;
+	String cateid;
 	String cate1;
 	String cate2;
 	String cate3;
 	String cate4;
 	
-	int brandid;
+	String brandid;
 	String brandname;
-	int sellerid;
+	String sellerid;
 	String sellername;
 	
 	int specialpid;

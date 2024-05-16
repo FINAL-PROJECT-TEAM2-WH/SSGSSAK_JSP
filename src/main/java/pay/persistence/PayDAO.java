@@ -2,6 +2,8 @@ package pay.persistence;
 
 import java.util.ArrayList;
 
+import com.oreilly.servlet.MultipartRequest;
+
 import pay.domain.CartDTO;
 import pay.domain.CouponDTO;
 import pay.domain.EnrollDTO;
@@ -39,9 +41,10 @@ public interface PayDAO {
 	public abstract ArrayList<EnrollDTO> selectsellerinfo();
 	public abstract ArrayList<EnrollDTO> selectspecialpinfo();
 	public abstract ArrayList<EnrollDTO> selectshipinfo();
-	public abstract int insertproducttable(int cateid,int brandid,int sellerid,int spp,int shipo,String productn,String productex);
+	public abstract int insertproducttable(String cateid,String brandid,String sellerid,int spp,int shipo,String productn,String productex);
 	public abstract int insertproductoption(String optionname, String optiondes, int refoption, int optionprice, int optionstock);
 	public abstract int selectrefoptionid(String optionname);
+	public abstract int insertproductimg(String realpath , String sum);
 	
 	
 	
