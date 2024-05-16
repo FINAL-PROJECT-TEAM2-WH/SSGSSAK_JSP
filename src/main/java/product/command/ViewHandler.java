@@ -22,9 +22,9 @@ public class ViewHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+				
 				long id =Long.parseLong( request.getParameter("productcode"));
-
+				
 				try {
 					
 					ViewService productService = ViewService.getInstance();
@@ -40,6 +40,9 @@ public class ViewHandler implements CommandHandler{
 					request.setAttribute("product", product);
 					request.setAttribute("productoption", productoption);
 					request.setAttribute("reviews", reviews);
+					
+					
+
 					
 				} catch (Exception e) {
 					System.out.println("상품정보불러오기실패");
