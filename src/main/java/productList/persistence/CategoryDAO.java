@@ -14,7 +14,7 @@ public interface CategoryDAO {
 //		ArrayList<CategoryDTO> viewTopCate (long id) throws SQLException;
 
 	//다음에 풀 땡길때까지 임시로 씀 id값 long으로 바뀌어야함
-		ArrayList<ProdCateDTO> viewTopCate(String id) throws SQLException; 
+		ArrayList<ProdCateDTO> viewTopCate(long id) throws SQLException; 
 		
 		//왼쪽사이드 카테고리 리스트 뿌려줄 메서드
 		//아직작업안함

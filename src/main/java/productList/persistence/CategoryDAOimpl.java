@@ -28,7 +28,7 @@ public class CategoryDAOimpl implements CategoryDAO {
 	}
 
 	@Override
-	public ArrayList<ProdCateDTO> viewTopCate(String  id) throws SQLException {
+	public ArrayList<ProdCateDTO> viewTopCate(long  id) throws SQLException {
 
 		ArrayList<ProdCateDTO> cdtoList = null ; 
 		
@@ -45,13 +45,13 @@ public class CategoryDAOimpl implements CategoryDAO {
 		   String sql = " SELECT c.id AS categoryId, c.majorCateName, c.middleCateName, c.subCateName, c.miniCateName FROM product p JOIN category c ON p.categoryId = c.id WHERE p.id= ? ";
 		   try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setLong(1, id);
 			rs=  pstmt.executeQuery();
 			
 			if (rs.next()) {
 				cdtoList = new ArrayList();
 				do {
-					id = rs.getString(1);
+					id = rs.getLong(1);
 					categoryId = rs.getString(2);
 					majorCateName = rs.getString(3);
 					middleCateName = rs.getString(4);
