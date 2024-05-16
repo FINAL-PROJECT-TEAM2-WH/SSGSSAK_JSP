@@ -106,62 +106,64 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 		return reviews;
 	}
+
+	
+	
 	@Override
-	public ArrayList<ReviewDTO> select(int currentPage, int numberPerPage) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public int insertReview(long productid, String memid, int productOptionId, String reviewContent, String reviewType,
+	        double grade, int q1, int q2, int q3) throws SQLException {
+	    int result = 0;
+
+	    String sql = "INSERT INTO review (id, productid, memid, productOptionId, reviewContent, reviewDate, reviewType, grade, q1, q2, q3) "
+	            + "VALUES (review_seq.NEXTVAL, ?, ?, ?, ?, sysdate, ?, ?, ?, ?, ?)";
+
+	    try {
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setLong(1, productid);
+	        pstmt.setString(2, memid);
+	        pstmt.setInt(3, productOptionId);
+	        pstmt.setString(4, reviewContent);
+	        pstmt.setString(5, reviewType);
+	        pstmt.setDouble(6, grade);
+	        pstmt.setInt(7, q1);
+	        pstmt.setInt(8, q2);
+	        pstmt.setInt(9, q3);
+
+	        result = pstmt.executeUpdate(); 
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        JdbcUtil.close(rs);  
+	        JdbcUtil.close(pstmt);
+	       
+	    }
+
+	    return result;
 	}
 	@Override
-	public int insert(ReviewDTO dto) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertReviewImg(String reviewImgUrl) throws SQLException {
+		int result = 0;
+		
+		 String sql = " INSERT INTO reviewImg VALUES "
+		 		+ " (reviewImg_seq.NEXTVAL,review_seq.CURRVAL,?) ";
+
+		    try {
+		        pstmt = conn.prepareStatement(sql);
+		        pstmt.setString(1, reviewImgUrl);
+		        result = pstmt.executeUpdate(); 
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        JdbcUtil.close(rs);  
+		        JdbcUtil.close(pstmt);
+		        JdbcUtil.close(conn);
+		    }
+
+		
+		return result;
 	}
-	@Override
-	public int increaseReaded(long seq) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public ReviewDTO view(long seq) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public int delete(long seq) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public int update(ReviewDTO dto) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public ArrayList<ReviewDTO> search(int searchCondition, String searchWord, int currentPage, int numberPerPage)
-			throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public int getTotalRecords() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public int getTotalPages(int numberPerPage) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public int getTotalPages(int numberPerPage, int searchCondition, String searchWord) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public String getOriginalPwd(int seq) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
 
 
 	

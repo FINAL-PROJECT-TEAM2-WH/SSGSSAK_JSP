@@ -41,6 +41,9 @@ public class ViewHandler implements CommandHandler{
 					request.setAttribute("productoption", productoption);
 					request.setAttribute("reviews", reviews);
 					
+					
+
+					
 				} catch (Exception e) {
 					System.out.println("상품정보불러오기실패");
 				}

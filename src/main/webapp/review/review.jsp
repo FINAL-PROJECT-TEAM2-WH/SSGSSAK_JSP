@@ -84,7 +84,7 @@ label {
 	margin-right: 5px; /* 라벨과 라디오 버튼 사이의 간격 */
 }
 </style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript" async=""
 	src="https://linkback.contentsfeed.com/src/20240510/lb4ssg.min.js"
 	charset="utf-8"></script>
@@ -156,12 +156,12 @@ label {
 
 
 
-	<h2>리뷰 등록</h2>
-	<form action="" method="post" enctype="multipart/form-data">
+	<h1>리뷰 등록</h1>
+	<form action="WriteReview.do" method="post" enctype="multipart/form-data">
 		<div>
 			<label for="productId">제품 ID:</label> <input type="text"
 				id="productId" name="productId" value="${product.id}"
-				disabled="disabled">
+				readonly="readonly">
 		</div>
 		<div>
 			<label for="memid">회원 ID:</label> <input type="text" id="memid"
@@ -175,13 +175,13 @@ label {
 					<c:when test="nonNull">
 						<c:forEach var="option" items="${productoption}">
 							<c:if test=" ${!empty option.optionRef }">
-								<option>${option.optionName}</option>
+								<option value="${option.id}">${option.optionName}</option>
 							</c:if>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="option" items="${productoption}">
-							<option>${option.optionName}</option>
+							<option value="${option.id}">${option.optionName}</option>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
@@ -288,9 +288,12 @@ label {
 			<input type="submit" value="리뷰 등록">
 		</div>
 	</form>
-</body>
-
-<script type="text/javascript">
 	
-</script>
+	<c:if test="${success}">
+		<script type="text/javascript">
+			alert("리뷰 등록 성공");
+			window.close();
+		</script>
+	</c:if>
+</body>
 </html>
