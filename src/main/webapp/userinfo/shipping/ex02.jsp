@@ -101,7 +101,7 @@
 	<br>
 	<br>
 	<button id="selectShippingDateTime">배송 시간 날짜 선택화면</button>
-	
+	<button id="selectOrderBtn">주문조회 버튼</button>
 	<tbody>
 													<tr>
 														<td colspan="6" class="codr_bubblebx_anytime"><span>근처
@@ -117,7 +117,9 @@
 	$("#selectShippingDateTime").on("click", function(){
 		location.href = `<%= request.getContextPath() %>/shippingTimeSelect.do`;
 	})
-
+	$("#selectOrderBtn").on("click", function(){
+		location.href = `<%= request.getContextPath() %>/orderRecord.do`;
+	})
 </script>
 </body>
 </html>

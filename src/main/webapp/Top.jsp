@@ -206,7 +206,7 @@
                                                 </ul>
                                         </div>
                                     </div>
-                                    <div class="cmjump_keyword_info">2024-05-02 13:00 기준</div>
+                                    <div id="searchDateTime" class="cmjump_keyword_info"></div>
                                 </div>
                             </div>
                         </div>
@@ -420,7 +420,6 @@ cmjump_rank_lst
 	$(document).ready(function(){
 		var itemList = [];
 	    var currentIndex = 0;  // 현재 표시되고 있는 항목의 시작 인덱스
-	    
 		$("#rank_slide").html("");
 		let innerHtml = "";
 		
@@ -437,7 +436,7 @@ cmjump_rank_lst
 	                displayItems();  // 초기 목록 표시
 	        },
 	        error: function(xhr, status, error) {
-	            alert("Error while requesting searchCount info: " + error);
+	            alert("Error while requesting shipping info: " + error);
 	        }
 	    });
 		 function displayItems() {
@@ -527,8 +526,16 @@ cmjump_rank_lst
 		        }
 		        currentIndex++;
 		 }
+		 var date = new Date();
+		 let day = date.getDate();
+
+		 let month = date.getMonth()+1;
+
+		 let year = date.getFullYear();
+		 
+		 let format4 = year + "-" + month + "-" + day +" 기준";
+		 $("#searchDateTime").text(format4);
 	}) 
-	
 	
 	/*
 	 <li class="cmjump_rank_item">
