@@ -34,9 +34,11 @@ private static LikeInfoService instance = null;
 	public ArrayList<Map<String,String>> getProductList(String id) {
 		Connection conn = null;
 		ArrayList <Map<String,String>> productList = null;
+		
 		try {
 			conn = ConnectionProvider.getConnection();
 			productList = dao.getproductList(id);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -44,5 +46,35 @@ private static LikeInfoService instance = null;
 		}
 		
 		return productList;
+	}
+	
+	public ArrayList<String> getFolderList(String id) {	
+		Connection conn = null;
+		ArrayList <String> folderList = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			folderList = dao.getFolderList(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);		
+		}
+		return folderList;	
+	}
+	
+	public ArrayList<Integer> getCountList(String id) {
+		Connection conn = null;
+		ArrayList <Integer> countList = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			countList = dao.getCountList(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);		
+		}
+		return countList;	
 	}
 }

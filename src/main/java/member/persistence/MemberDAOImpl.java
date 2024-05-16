@@ -679,6 +679,7 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(pstmt);
 		}
 		
+		
 		// 필수 약관 동의 
 		// 프로시저로 처리	
 		boolean result = false;
@@ -701,6 +702,7 @@ public class MemberDAOImpl implements MemberDAO{
 			rowCount += 1; 
 		}
 
+	
 		// 선택 약관 동의 
 		if ( map != null) {
 			System.out.println("get in Map");
@@ -727,10 +729,36 @@ public class MemberDAOImpl implements MemberDAO{
 			rowCount += 1; 
 		}
 		
+		// 기본 폴더 추가. 
+		rowCount += regiInsertFolder(id);
+		
 		
 		System.out.println(rowCount);
 		return rowCount;
 	}
+	
+	@Override
+	public int regiInsertFolder(String id) throws SQLException{
+		String sql = " INSERT INTO divisionfolder "
+				+ "(id,memid) VALUES "
+				+ "(division_seq.NEXTVAL, ? ) ";
+		int rowCount = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rowCount = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JdbcUtil.rollback(conn);
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return rowCount;
+	}
+	
 	
 	@Override
 	public String transtoPhoneNum (String phoneNum) {
@@ -810,6 +838,126 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return likeProductList;
 	}
+	
+	
+	@Override
+	public ArrayList<String> getFolderList(String id) throws SQLException {
+		ArrayList<String> folderList =  null;
+		
+		String sql = " SELECT name " 
+				+ " FROM divisionfolder "
+				+ " WHERE memid = ? "
+				+ " ORDER BY id " ; 
+		String name;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+				
+			if ( rs.next() ) {
+				folderList = new ArrayList();				
+				do {
+					name = rs.getString("name");
+					folderList.add(name);
+					
+					System.out.println(name);
+				} while ( rs.next());
+			}
+		} catch (SQLException e) {
+				e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+
+		
+		
+		
+		return folderList;
+		
+	}
+	
+	
+	@Override
+	public ArrayList<Integer> getCountList(String id) throws SQLException {
+		String sql = "SELECT COUNT(*) goodsCount "
+				+ " FROM interestgoods "
+				+ " WHERE memid = ? ";
+		ArrayList<Integer> countList = new ArrayList();
+		int goodsCount, brandsCount, cateCount;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				do {
+					goodsCount = rs.getInt("goodsCount");					
+					countList.add(goodsCount);
+					System.out.println(goodsCount);
+				} while ( rs.next());			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		sql = "SELECT COUNT(*) brandsCount "
+				+ " FROM interestbrand "
+				+ " WHERE memid = ? ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);	
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					brandsCount = rs.getInt("brandsCount");					
+					countList.add(brandsCount);
+					System.out.println(brandsCount);
+				} while ( rs.next());			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		sql = "SELECT COUNT(*) cateCount "
+				+ " FROM interestcategory "
+				+ " WHERE memid = ? ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);	
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				do {
+					cateCount = rs.getInt("cateCount");					
+					countList.add(cateCount);
+					System.out.println(cateCount);
+				} while ( rs.next());			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return countList;
+	}
+	
+	
+	
 
 
 
