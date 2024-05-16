@@ -2957,7 +2957,16 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="cdtl_info_link">		
 											<div class="cdtl_tit_link">
 											<!-- 브랜드번호 불러와서 링크걸고 , 브랜드 이름불러오기  -->
-											<a href="/SSGSSAK/review/review.do?productcode=${productcode}">리뷰등록하기</a>
+											<a href="#" onclick="openReviewWindow();return false;">리뷰등록하기</a>
+											<script type="text/javascript">
+												function openReviewWindow() {
+													var url = "/SSGSSAK/review/review.do?productcode="+${product.id};
+													var windowName = "newReviewWindow";
+													var windowSize = "width=660,height=700";
+													window.open(url,windowName,windowSize+",resizable=yes");
+													
+												}
+											</script>
 												<a
 													href="/brand/brandShop.ssg?brandId=${product.brandId}"
 													class="cdtl_info_tit_link">${product.brandName}<i

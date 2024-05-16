@@ -24,7 +24,7 @@ public class ViewHandler implements CommandHandler{
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 				long id =Long.parseLong( request.getParameter("productcode"));
-
+				System.out.println("리뷰뷰핸들러");
 				try {
 					
 					ViewService productService = ViewService.getInstance();
@@ -45,7 +45,7 @@ public class ViewHandler implements CommandHandler{
 					System.out.println("상품정보불러오기실패");
 				}
 				
-				String path = "/product/product.jsp";
+				String path = "/review/review.jsp";
 				RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 				dispatcher.forward(request, response);
 		return null;
