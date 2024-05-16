@@ -39,6 +39,9 @@ public class LikeInfoHandler implements CommandHandler{
 		MemberDAO dao = new MemberDAOImpl(conn);
 		LikeInfoService service = new LikeInfoService(dao);
 		ArrayList<Map<String,String>> productList = service.getProductList(id);
+		ArrayList<String> folderList = service.getFolderList(id);
+		ArrayList<Integer> countList = service.getCountList(id);
+		
 		
 		/*
 		 * System.out.println(productList.isEmpty());
@@ -54,6 +57,8 @@ public class LikeInfoHandler implements CommandHandler{
 		 * 
 		 * }
 		 */
+		request.setAttribute("countList", countList);
+		request.setAttribute("folderList", folderList);
 		request.setAttribute("productList", productList);
 		String path = "/userinfo/like/like.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);

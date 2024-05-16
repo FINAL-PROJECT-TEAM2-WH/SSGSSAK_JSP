@@ -79,8 +79,7 @@ public class LoginHandler implements CommandHandler {
 			 String path = "/member/login.jsp";	
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 			dispatcher.forward(request, response);
-				 
-			 response.sendRedirect(path);
+				
 			 
 			 //session.setAttribute("auth",loginMember);
 			// 정확히는 쿠키에 저장하는 거임 .
