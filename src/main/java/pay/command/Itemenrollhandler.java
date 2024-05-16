@@ -100,7 +100,7 @@ public class Itemenrollhandler implements CommandHandler {
 			            }
 				} 
 			 }
-			 
+			 //
 			conn.close();
 			response.sendRedirect(request.getRequestURI());
 			return null;
