@@ -1,5 +1,6 @@
 package product.domain;
 
+import java.sql.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class ProductDTO {
     private String brandId ;
     private String pdName ;
     private String pcontent;
-    private String updateDay ;
+    private Date updateDay ;
     private String brandName;
     
     private List<ProductImgDTO> images;

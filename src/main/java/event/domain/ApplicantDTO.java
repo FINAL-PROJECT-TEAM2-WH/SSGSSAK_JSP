@@ -20,7 +20,7 @@ public class ApplicantDTO {
 	private String eid;
 	private String memid;	
 	private String cmmn;
-	private String WritingDate;
+	private String writingDate;
 	private String win;
 	private DATE winDay;
 	private String name;

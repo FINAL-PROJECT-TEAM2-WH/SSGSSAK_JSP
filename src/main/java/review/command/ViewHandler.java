@@ -1,4 +1,4 @@
-package product.command;
+package review.command;
 
 import java.util.List;
 

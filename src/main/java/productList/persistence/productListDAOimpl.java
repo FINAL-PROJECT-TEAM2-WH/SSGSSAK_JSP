@@ -43,13 +43,14 @@ public class productListDAOimpl implements productListDAO{
 		String 		upDateDay;     
 		long 		optionPrice;     
 		long 		sprice;          
+		long 		discount;          
 	   
 
 		String sql = "SELECT * "
 				+ "FROM ( "
 				+ "        SELECT ROWNUM no, t.* "
 				+ "        FROM ( "
-				+ "                SELECT p.ID, p.SHIPPINGOPTIONID, p.sellerstoreid, s.SELLERNAME, p.brandid, b.brandname, p.PDNAME, p.UPDATEDAY, COALESCE(o.optionPrice, 0) AS optionPrice, COALESCE((o.optionPrice-((o.optionPrice/100)*c.spclDscnRt)), 0) AS sprice  "
+				+ "                SELECT p.ID, p.SHIPPINGOPTIONID, p.sellerstoreid, s.SELLERNAME, p.brandid, b.brandname, p.PDNAME, p.UPDATEDAY, COALESCE(o.optionPrice, 0) AS optionPrice, COALESCE((o.optionPrice-((o.optionPrice/100)*c.spclDscnRt)), 0) AS sprice, COALESCE(c.spclDscnRt, 0) AS discount  "
 				+ "                FROM PRODUCT p JOIN BRAND b ON p.BRANDID = b.ID "
 				+ "				   JOIN sellerstore s ON p.SELLERSTOREID = s.id "
 				+ "				   LEFT JOIN productOption o ON p.ID = o.productid "
@@ -75,7 +76,6 @@ public class productListDAOimpl implements productListDAO{
 				list = new ArrayList<ProductListDTO>();
 				ProductListDTO dto = null;
 				do {
-					dto = new ProductListDTO();
 					no=rs.getInt(1);
 					id= rs.getLong(2);              
 					shippingOptionId = rs.getLong(3); 
@@ -85,8 +85,9 @@ public class productListDAOimpl implements productListDAO{
 					brandName = rs.getString(7);
 					pDname = rs.getString(8);
 					upDateDay = rs.getString(9);
-					optionPrice= (rs.getLong(10)==0?0:rs.getLong(10));
-					sprice= (rs.getLong(11)==0?0:rs.getLong(11));
+					optionPrice = (rs.getLong(10)==0?0:rs.getLong(10));
+					sprice = (rs.getLong(11)==0?0:rs.getLong(11));
+					discount = (rs.getLong(12)==0?0:rs.getLong(12));
 					
 					
 					dto = new ProductListDTO()
@@ -101,6 +102,8 @@ public class productListDAOimpl implements productListDAO{
 							.upDateDay(upDateDay)
 							.optionPrice(optionPrice)
 							.sprice(sprice)
+							.discount(discount)
+							
 							.build();
 					list.add(dto);
 					System.out.println("dto에 담아짐");

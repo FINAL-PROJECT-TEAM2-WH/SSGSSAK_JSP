@@ -8,7 +8,9 @@ import javax.naming.NamingException;
 
 import com.util.ConnectionProvider;
 
+import productList.domain.AllCateDTO;
 import productList.domain.ProductListDTO;
+import productList.persistence.CategoryDAOimpl;
 import productList.persistence.productListDAOimpl;
 
 public class ProductListService {
@@ -48,13 +50,29 @@ public class ProductListService {
 			return ProdCount;
 			
 		} catch (Exception e) {
-			System.out.println("뭔가안됨");
+			System.out.println("getProdCount 뭔가안됨");
 			e.printStackTrace();
 		}
 		
 		return (Integer) null;
 	}
 	
+	
+	public AllCateDTO selectCate(String categoryId) {
+		
+		try (Connection conn = ConnectionProvider.getConnection()){
+			System.out.println("selectCate");
+			
+			CategoryDAOimpl dao = new CategoryDAOimpl(conn); 
+			AllCateDTO acDTO = dao.selectCate(categoryId);
+			System.out.println("selectCate 서비스 잘 작동됨");
+			return acDTO;
+		} catch ( NamingException | SQLException e) {
+			e.printStackTrace();
+			System.out.println("selectCate 서비스안됨ㅋㅋㅋ");
+		}
+		return null;
+	}//selectCate
 	
 	
 
