@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.CommandHandler;
+import productList.domain.AllCateDTO;
 import productList.domain.ProductListDTO;
 import productList.service.ProductListService;
 
@@ -20,15 +21,18 @@ public class ProductListHandler implements CommandHandler{
 		System.out.println(request.getParameter("categoryId"));
 		String categoryId = request.getParameter("categoryId");
 		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		int numberPerPage = 80; // 페이지당 상품 수
+		int numberPerPage = 4; // 페이지당 상품 수
 
 		try {
 			ProductListService service = ProductListService.getInstance();
+			AllCateDTO selectCate = service.selectCate(categoryId);
 			ArrayList<ProductListDTO> productList = service.getProductList(categoryId, currentPage, numberPerPage);
-			//			int totalProdCount = service.getProdCount(categoryId);
+			int getProdCount = service.getProdCount(categoryId);
 			//			int totalPages = (int) Math.ceil((double) totalProdCount / numberPerPage);
 
 			request.setAttribute("productList", productList);
+			request.setAttribute("getProdCount", getProdCount);
+			request.setAttribute("selectCate", selectCate);
 			//			request.setAttribute("totalProdCount", totalProdCount);
 			//			request.setAttribute("totalPages", totalPages);
 
