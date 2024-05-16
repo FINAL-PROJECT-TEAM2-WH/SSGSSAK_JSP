@@ -7,6 +7,7 @@ import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
 import member.domain.PageDTO;
+import shipping.domain.OrderRecordVO;
 import shipping.domain.ShippingPlaceInfoDTO;
 import shipping.persistence.ShippingPlaceInfoDAOImpl;
 
@@ -50,7 +51,7 @@ public class ShippingPlaceInfoService {
 	// 배송지 정보 리스트
 	public ArrayList<ShippingPlaceInfoDTO> shippingPlaceInfoListService(String memid){
 		Connection conn = null;
-		System.out.println("리스트.do 요청 발생!");
+		//System.out.println("리스트.do 요청 발생!");
 		ArrayList<ShippingPlaceInfoDTO> list = null;
 		try {
 			conn = ConnectionProvider.getConnection();
@@ -181,6 +182,40 @@ public class ShippingPlaceInfoService {
 		}
 		
 		return pdto;
+	}
+	
+	public ArrayList<OrderRecordVO> orderRecordService(String memid){
+		ArrayList<OrderRecordVO> olist = null;
+		Connection conn = null;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+		
+		try {
+			conn = ConnectionProvider.getConnection();
+			olist = dao.orderList(conn, memid);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderRecordService 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		return olist;
+	}
+	
+	public ArrayList<String> orderDateService(String memid){
+		ArrayList<String> dlist = null;
+		Connection conn = null;
+		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderDateService 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		
+		return dlist;
+		
 	}
 
 }
