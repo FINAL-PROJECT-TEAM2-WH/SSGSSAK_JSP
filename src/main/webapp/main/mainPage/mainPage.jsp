@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  -->
 <!doctype html>
 <html lang="ko">
 <head>
@@ -23,8 +23,6 @@
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/main_new.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/mndmoon_ssg.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424"/>
-
-
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_component.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/m_ssg/css/ssg_component.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424" />
@@ -34,8 +32,8 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','GA4_dataLayer','GTM-PWBFGRL');</script>
 
- <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.min.js"></script> 
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.min.js"></script>
 <script type="text/javascript">
     var settings = {
         localDomain : location.hostname,
@@ -696,23 +694,24 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 </script>
 <!-- 메인 배팝업 (e) -->
 
-    <%@ include file="./main/mainPage/mainbanr.jsp" %>
+    <%@ include file="./mainbanr.jsp" %>
 <!-- 그룹사 프로모션 -->
-    <%@ include file="./main/mainPage/middleBanner.jsp" %>
+    <%@ include file="./middleBanner.jsp" %>
     <!--------------------------------------------------------------------------------------------------------------------------------------->
     
     <!-- //그룹사 프로모션 -->
- <%@ include file="./main/mainPage/middleBanner2.jsp" %>
+ <%@ include file="./middleBanner2.jsp" %>
     
 <!-- 쓱1DAY배송 상품 구좌 -->
-<%@include file="./main/mainPage/1Day.jsp" %>
+<%@include file="./1Day.jsp" %>
 
 
         <!-- 구현할것들 -->
-<%@include file="./main/mainPage/WHmake.jsp" %>
+<%@include file="./WHmake.jsp" %>
 
-<%@include file="./main/mainPage/newNews.jsp" %>
+<%@include file="./newNews.jsp" %>
 <!--  ----------------------------- -->
+
 
 
 
@@ -762,6 +761,56 @@ deferredObj.done(function() {
 <script type="text/javascript">
     n_so_pid(1);
 </script>
+
+ <script type="text/javascript">
+    $(document).ready(function() {
+        bannerTimeCheck();
+    });
+    var mallBanrStrtDts     = '';
+    var mallBanrEndDts         = '';
+    var commBanrStrtDts     = ''; 
+    var commBanrEndDts         = ''; 
+    function bannerTimeCheck(){                
+        var nowTimeNum      =   Math.floor(new Date()/1000);
+        //몰별 플로팅 팝업
+        if(mallBanrStrtDts.length > 0){
+            var mallStartTime = new Date(mallBanrStrtDts.substring(0,4),mallBanrStrtDts.substring(4,6)-1,mallBanrStrtDts.substring(6,8),mallBanrStrtDts.substring(8,10),mallBanrStrtDts.substring(10,12),mallBanrStrtDts.substring(12));              //팝업 시작일시
+            var mallendTime   = new Date(mallBanrEndDts.substring(0,4),mallBanrEndDts.substring(4,6)-1,mallBanrEndDts.substring(6,8),mallBanrEndDts.substring(8,10),mallBanrEndDts.substring(10,12),mallBanrEndDts.substring(12));              //팝업 종료일시
+            var mallStartTimeNum    =   Math.floor(mallStartTime/1000);
+            var mallendTimeNum    =   Math.floor(mallendTime/1000);
+            
+            if(nowTimeNum >= mallStartTimeNum && nowTimeNum <= mallendTimeNum){                
+                $('#floatWrap3').show();
+                floatBanner3Start();
+            }
+            
+        }else{
+            $('#floatWrap3').hide();
+            $.cookie('floating_ty1', '', {expires: -1, path: '/'});
+        }
+        
+        //공통 플로팅 팝업
+        if(commBanrStrtDts.length > 0){
+            var commStartTime = new Date(commBanrStrtDts.substring(0,4),commBanrStrtDts.substring(4,6)-1,commBanrStrtDts.substring(6,8),commBanrStrtDts.substring(8,10),commBanrStrtDts.substring(10,12),commBanrStrtDts.substring(12));              //팝업 시작일시
+            var commendTime = new Date(commBanrEndDts.substring(0,4),commBanrEndDts.substring(4,6)-1,commBanrEndDts.substring(6,8),commBanrEndDts.substring(8,10),commBanrEndDts.substring(10,12),commBanrEndDts.substring(12));              //팝업 종료일시
+            var commStartTimeNum = Math.floor(commStartTime/1000);
+            var commendTimeNum = Math.floor(commendTime/1000);
+            
+            if(nowTimeNum >= commStartTimeNum && nowTimeNum <= commendTimeNum){                
+                $('#floatWrap2').show();
+                floatBanner2Start();
+            }
+        }else{
+            $('#floatWrap2').hide();
+            $.cookie('floating_ty2', '', {expires: -1, path: '/',domain:'ssg.com'});
+        }
+    }
+</script>
+
+
+
+
+
 
 <script type="text/javascript">
     (function() {
@@ -1287,7 +1336,8 @@ deferredObj.done(function() {
             });
         }
     }
-</script><iframe src="https://asia.creativecdn.com/tags?id=pr_0eprxmL3KSJIVYpHgQkK_home&amp;id=pr_0eprxmL3KSJIVYpHgQkK_custom_site_ssg" width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>
+</script>
+
 
 
 
@@ -1584,4 +1634,147 @@ deferredObj.done(function() {
         }
     };
 </script>
+<script type="text/javascript">
+//대체상품 레이어 관련 스크립트
+// #370751 [상품전시] 대체 상품 리스트 수정 요청
+var Replacement = {
+    getItems : function (htData) {
+        return $.ajax({
+            type: "get",
+            dataType : "html",
+            data: {
+                itemId : htData.replaceCode,
+                siteNo : htData.replaceSiteno,
+                displayPrc : htData.replaceDisplayprc,
+                sellPrc : htData.replaceSellprc
+            },
+            url : '/disp/list/ajaxReplaceItem'
+        });
+    }
+};
+
+$(function(){
+    var oReplacementLayer=function(){function n(){var n=null,e=function(){n=$("#lyChange"),_welReplaceGoods=n.find(".ly_chg_goods")},l=function(){var n=_welReplaceGoods.children(),e=n.filter(".on").prev();e.length?e.addClass("on").siblings().removeClass("on"):n.last().addClass("on").siblings().removeClass("on")},o=function(){var n=_welReplaceGoods.children(),e=n.filter(".on").next();e.length?e.addClass("on").siblings().removeClass("on"):n.first().addClass("on").siblings().removeClass("on")},s=function(){n.on("click",".ly_chg_prev",l),n.on("click",".ly_chg_next",o)};return this.init=function(){return e(),s(),this},this.render=function(n){_welReplaceGoods.html(n).removeClass("loading")},this.empty=function(){_welReplaceGoods.html("").addClass("loading")},this.init()}return new n}();
+    var oSsgViewLayerPopup = new ssg.View.layerPopup({
+        bGlobal  : true,
+        sTarget  : '.btn_change', // 레이어 팝업 보기 버튼
+        sClose   : '.ly_chg_close', // 레이어 팝업 닫기 버튼
+        htDefault: {
+            overlayCSS: {
+                backgroundColor: '#fff',
+                opacity: 0.8
+            },
+            onOverlayClick: function() { oSsgViewLayerPopup.closeLayer(); } // overlay click 레이어 닫기
+        },
+        sNamespaceEmit: '.ssgReplaceLayer'
+    });
+
+    oSsgViewLayerPopup.on('beforeOpen.ssgReplaceLayer', function(htData){
+        if(htData && htData.replaceCode){
+            Replacement.getItems(htData).done(function(data){
+                var trim = data.trim();
+                if(trim){
+                    oReplacementLayer.render(data);
+                } else {
+                    alert("준비된 대체상품이 없습니다.");
+                    oSsgViewLayerPopup.closeLayer();
+                }
+            });
+        }
+    });
+
+    oSsgViewLayerPopup.on('afterClose.ssgReplaceLayer', function(){
+        oReplacementLayer.empty();
+    });
+});
+
+</div>
+<iframe allow="join-ad-interest-group" data-tagging-id="AW-1005118937" data-load-time="1715675744007" height="0" width="0" src="https://td.doubleclick.net/td/rul/1005118937?random=1715675743884&amp;cv=11&amp;fst=1715675743884&amp;fmt=3&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be45d0za200&amp;gcd=13l3l3l3l1&amp;dma=0&amp;u_w=1680&amp;u_h=1050&amp;url=https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b516353632%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCjwKCAjwl4yyBhAgEiwADSEjeHhzWOyLkBCDrMXKEPXZzkPDlIP8TGvB4KV6ut1W6hyNhuUqQ23NhBoCKC0QAvD_BwE&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%EB%AF%BF%EA%B3%A0%20%EC%82%AC%EB%8A%94%20%EC%A6%90%EA%B1%B0%EC%9B%80%20SSG.COM&amp;npa=0&amp;pscdl=noapi&amp;auid=758619389.1711985930&amp;uaa=arm&amp;uab=64&amp;uafvl=Google%2520Chrome%3B123.0.6312.122%7CNot%253AA-Brand%3B8.0.0.0%7CChromium%3B123.0.6312.122&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=14.1.1&amp;uaw=0&amp;fledge=1&amp;data=event%3Dgtag.config" style="display: none; visibility: hidden;"></iframe><div id="criteo-tags-div" style="display: none;"></div>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1668002603429849");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1668002603429849&amp;ev=PageView&amp;noscript=1"></noscript>
+<script type="text/javascript" id="ga4_jshandler">function logEvent(a,b){a&&(window.AnalyticsWebInterface?window.AnalyticsWebInterface.logEvent(a,JSON.stringify(b)):window.webkit&&window.webkit.messageHandlers&&window.webkit.messageHandlers.firebase&&(a={command:"logEvent",name:a,parameters:b},window.webkit.messageHandlers.firebase.postMessage(a)))}
+function setUserProperty(a,b){a&&b&&(window.AnalyticsWebInterface?window.AnalyticsWebInterface.setUserProperty(a,b):window.webkit&&window.webkit.messageHandlers&&window.webkit.messageHandlers.firebase&&(a={command:"setUserProperty",name:a,value:b},window.webkit.messageHandlers.firebase.postMessage(a)))}
+function ecommerceLogEvent(a,b){a&&b&&(window.AnalyticsWebInterface?window.AnalyticsWebInterface.ecommerceLogEvent(a,JSON.stringify(b)):window.webkit&&window.webkit.messageHandlers&&window.webkit.messageHandlers.firebase&&(a={command:"ecommerceLogEvent",name:a,parameters:b},window.webkit.messageHandlers.firebase.postMessage(a)))};</script>
+<script type="text/javascript" id="">var linkback=linkback||{};(function(){var a=document,b=a.createElement("script");a=a.getElementsByTagName("head")[0];b.type="text/javascript";b.async=!0;var c=new Date;c=c.getFullYear().toString()+("0"+(c.getMonth()+1)).slice(-2)+("0"+c.getDate()).slice(-2);b.src="https://linkback.contentsfeed.com/src/"+c+"/lb4ssg.min.js";b.charset="utf-8";linkback.l||(linkback.l=!0,a.insertBefore(b,a.firstChild))})();</script><script type="text/javascript" id="">var checkLbLoaded=function(){linkback.send&&callLbInf()},lbItvFn=setInterval(checkLbLoaded,500),callLbInf=function(){linkback.send("inflow");linkback.track("inflow");clearInterval(lbItvFn)};</script><script type="text/javascript" id="" src="https://cdn.onetag.co.kr/0/tcs.js?eid=ubon3jnb3o11ubon3jnb3o"></script>
+
+<script defer="defer">
+    $(function(){
+        $("#skyScraperTopBtn").on("click","a",function(e){
+            e.preventDefault();
+            $('html, body').animate({scrollTop: 0 } , 100);
+        });
+    });
+
+    var jsPath = "//sui.ssgcdn.com/ui/ssg/js";
+
+</script>
+
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/history.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/chnlPopup.js"></script>
+
+
+<style>
+    .tooltip_message.active{display:block !important}
+</style>
+
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssg.comm.onerror.observer.js" crossorigin="anonymous"></script><div id="wp_tg_cts" style="display:none;"><script id="wp_tag_script_1715675744266" charset="UTF-8" src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1j0ll8d-6o0n39-1-1&amp;wp_uid=2-11aa2e1ba679412f9de29b4b43bc6254-s1693406510.375214%7Cmac_osx%7Cchrome-1br9bi9&amp;ty=Home&amp;ti=37624&amp;device=web&amp;charset=UTF-8&amp;tc=1715675744266&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;loc=https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b516353632%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCjwKCAjwl4yyBhAgEiwADSEjeHhzWOyLkBCDrMXKEPXZzkPDlIP8TGvB4KV6ut1W6hyNhuUqQ23NhBoCKC0QAvD_BwE"></script></div>
+<script type="text/javascript">
+var wptg_tagscript_vars = wptg_tagscript_vars || [];
+wptg_tagscript_vars.push(
+(function() {
+    return {
+        wp_hcuid:"",   /*고객넘버 등 Unique ID (ex. 로그인  ID, 고객넘버 등 )를 암호화하여 대입.
+                *주의 : 로그인 하지 않은 사용자는 어떠한 값도 대입하지 않습니다.*/
+        ti:"37624",    /*광고주 코드 */
+        ty:"Home",    /*트래킹태그 타입 */
+        device:"web"    /*디바이스 종류  (web 또는  mobile)*/
+        
+    };
+}));
+</script>
+
+<script type="text/javascript" async="" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
+<script>
+    // Emforce ROI V5 Tag Start
+    (function(w,d,t,s,v,e,o){
+        if (w.EmfV5)return;v=w.EmfV5=function(){v.queue.push(arguments)};
+        v.queue=[];e=d.createElement(t);e.src=s;e.async=!0;
+        o=d.getElementsByTagName(t)[0];o.parentNode.insertBefore(e,o);
+    })(window, document, 'script', 'https://analytics.emforce.co.kr/conversion/v5/analytics.js');
+
+    EmfV5('inflow', "723");
+    //Emforce ROI V5 Conversion Tag End
+</script>
+
+
+<p style="display:none" data-ssgversion="0.1" data-domainsiteno="" data-depth1=""></p><p style="display:none">frt-ssg-prod-was64_ssgmall01 s-www.ssg.com:/,/main.ssg,:2037:0000:2491:2449:2449:2154:Y:Y:N:B2C:null:false:KR:false:null:20:</p><iframe allow="join-ad-interest-group" data-tagging-id="AW-704173742" data-load-time="1715675758839" height="0" width="0" src="https://td.doubleclick.net/td/rul/704173742?random=1715675758726&amp;cv=11&amp;fst=1715675758726&amp;fmt=3&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be45d0v876173147za200&amp;gcd=13l3l3l3l1&amp;dma=0&amp;u_w=1680&amp;u_h=1050&amp;url=https%3A%2F%2Fwww.ssg.com%2F%3Fckwhere%3Dssg_ggbr%26_a1_kad%3D18e3b516353632%26_a1_site%3Dssg%26gad_source%3D1%26gclid%3DCjwKCAjwl4yyBhAgEiwADSEjeHhzWOyLkBCDrMXKEPXZzkPDlIP8TGvB4KV6ut1W6hyNhuUqQ23NhBoCKC0QAvD_BwE&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%EB%AF%BF%EA%B3%A0%20%EC%82%AC%EB%8A%94%20%EC%A6%90%EA%B1%B0%EC%9B%80%20SSG.COM&amp;npa=0&amp;pscdl=noapi&amp;auid=758619389.1711985930&amp;uaa=arm&amp;uab=64&amp;uafvl=Google%2520Chrome%3B123.0.6312.122%7CNot%253AA-Brand%3B8.0.0.0%7CChromium%3B123.0.6312.122&amp;uamb=0&amp;uam=&amp;uap=macOS&amp;uapv=14.1.1&amp;uaw=0&amp;fledge=1&amp;data=event%3Dgtag.config" style="display: none; visibility: hidden;"></iframe><span id="transObserver" class="blind" style="position:fixed;top:0px;display:none" data-default-txt="언어 번역">언어 번역</span><script src="https://analytics.emforce.co.kr/config/conversion/v5/723/conf.js?t=1715675561189" type="text/javascript" async=""></script><script>
+ try {
+ var DM_ITEMS = {};
+ var list = [];
+ Object.keys(repItemInfoMap).forEach((item) => {
+ var obj  = {};
+ obj['productId'] = repItemInfoMap[item]['itemId'];
+ obj['productName'] = repItemInfoMap[item]['itemFullNm'];
+ obj['productPrice'] = repItemInfoMap[item]['sellprc'];
+ obj['productQty'] = repItemInfoMap[item]['realOrdQty'];
+ list.push(obj);
+ });
+ DM_ITEMS['products'] = list;
+ } catch (e) {}
+ var subdomain = window.location.hostname.split('.')[0];
+ if(subdomain.indexOf('www') !== -1 || subdomain.indexOf('pay') !== -1) {
+ var script = document.createElement('script');
+ script.async = true;
+ script.src = 'https://cdn.datamanager.co.kr/0/tcsdm.js?eid=ubon3jnb3o11ubon3jnb3o';
+ document.head.appendChild(script);
+ }
+ </script><script>
+var subdomain = window.location.hostname.split('.')[0];
+if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://cdn.datamanager.co.kr/0/tcsdm.js?eid=1jy7ogkbi2hx41jy7ogkbi';
+    document.head.appendChild(script);
+}
+</script></body></html>
 <%@ include file="/footer.jsp" %>
