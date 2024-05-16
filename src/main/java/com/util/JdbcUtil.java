@@ -14,6 +14,7 @@ public class JdbcUtil {
 			try {
 				rs.close();
 			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
 		}
 	}
@@ -23,6 +24,7 @@ public class JdbcUtil {
 			try {
 				stmt.close();
 			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
 		}
 	}
@@ -32,6 +34,7 @@ public class JdbcUtil {
 			try {
 				conn.close();
 			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
 		}
 	}
@@ -41,6 +44,7 @@ public class JdbcUtil {
 			try {
 				conn.rollback();
 			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
 		}
 	}
@@ -49,6 +53,7 @@ public class JdbcUtil {
 			try {
 				conn.commit();
 			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
 		}
 	}
