@@ -274,9 +274,9 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int getPersonalPoints(String id) throws SQLException{
 
-		String sql = "SELECT sum(pr.points) memberPoint "
-				+ " FROM pointrecord pr LEFT JOIN points p ON pr.cardnumber = p.id"
-				+ " WHERE pr.memid = ? ";
+		String sql = " SELECT SUM(pr.points) memberPoint "
+				+ " FROM pointrecord pr LEFT JOIN points p ON pr.cardNumber = p.id "
+				+ " WHERE p.id2 = ? ";
 
 		int point = 0;
 		pstmt = conn.prepareStatement(sql);

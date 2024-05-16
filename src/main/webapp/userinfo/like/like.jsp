@@ -399,7 +399,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     }
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
         try {
            (function(h,o,u,n,d) {
                h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
@@ -426,7 +426,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                DD_RUM.startSessionReplayRecording();
            })
         } catch(e) {}
-    </script>
+    </script> -->
 <%@ include file="../../Top.jsp"%>
 <div id="category" class="category"></div>
 
@@ -751,12 +751,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 									
 									
 									<!-- 여기서 부터 박으면 됨  -->
+									<c:choose>
+									<c:when test="${empty productList}">
+									<div class="mylike_nodata"><p class="mylike_nodata_txt">아직 좋아요한 상품이 없습니다</p></div>
+									</c:when>
+									<c:otherwise>
 									<c:forEach var="product" items="${productList}">
-										<li class="cunit_t290" data-tgt-idnf1="1000068529577" data-attnDtlcSeq="54709172" data-itemNm="${product.content}" data-itemSiteNo="6004" data-itemSalestrNo="6005" data-uitemId="00000">
+								
+										<li class="cunit_t290" data-tgt-idnf1="${product.productid}" data-attnDtlcSeq="54709172" data-itemNm="${product.content}" data-itemSiteNo="6004" data-itemSalestrNo="6005" data-uitemId="00000">
 												<div class="mylike_item_top">
 													<span class="mylike_chk _mylike_chk_item">
-														<input type="checkbox" name="checkItem" id="checkItem_1000068529577" class="mylike_chk_inp">
-														<label for="checkItem_1000068529577" class="mylike_chk_lbl"><span class="blind">${product.content }</span></label>
+														<input type="checkbox" name="checkItem" id="${product.productid}" class="mylike_chk_inp">
+														<label for="checkItem_${product.productid}" class="mylike_chk_lbl"><span class="blind">${product.content}</span></label>
 													</span>
 													</div>
 												<!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
@@ -797,14 +803,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6004">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000068529577">
+                <input type="hidden" name="attnTgtIdnfNo1" value="${product.productid}">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
                 <input type="hidden" name="notiTitle" value="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종">
                 <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_290.jpg">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea="좋아요|상품|상품_좋아요|_1000068529577" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" onclick="addLike(${product.productid});" > <!-- cmlike_btn _js_cmlike_btn clickable -->
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -882,6 +888,8 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         </div>
     </div>
     </c:forEach>
+    </c:otherwise>   
+    </c:choose>
     
     <!-- <div class="cunit_bene">
         <div class="spt_deiv">
@@ -3098,7 +3106,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/ssgGnb.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/commJs.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/m_ssg/js/ui/mcom.webview.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/clipJs.js?v=20240424"></script>
+<!-- <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/clipJs.js?v=20240424"></script> -->
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ui.datepicker.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js?v=20240424"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.layout.js?v=20240424"></script>
@@ -3279,6 +3287,27 @@ $(function(){
 
 </script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.infinitegrid.js?v=20240424"></script>
+<script>
+function addLike(productid) {
+ 	$.ajax({
+        url: '<%=contextPath%>/memberInfo/like.do',
+        dataType: 'json',
+        type: 'POST',
+        data: { "productid" : productid}, 
+        cache: false,
+        success: function (data) {
+        	
+        },
+        error: function (xhr, status, error) {
+
+        }
+    });
+} 
+
+/* $('.cmlike_btn_js_cmlike_btn_clickable').on('click', function () {
+	alert('kk');
+}); */
+</script>
 
 <script type="text/javascript">
 	//throttle
@@ -3608,7 +3637,7 @@ $(function(){
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      contentType: "application/josn",
+      contentType: "application/json",
       crossDomain: true,
       xhrFields: {
         withCredentials: true
@@ -4278,7 +4307,7 @@ $(function(){
         </dd>
         <dd class="cmfooter_corp_txarea">
             <div class="cmfooter_corp_txwrap">
-                <p>
+                <p> 
                     <span class="cmfooter_corp_tx">대표자: 이인영</span>
                     <span class="cmfooter_corp_tx">서울특별시 강남구 테헤란로 231</span>
                     <span class="cmfooter_corp_tx">사업자등록번호: 870-88-01143</span>

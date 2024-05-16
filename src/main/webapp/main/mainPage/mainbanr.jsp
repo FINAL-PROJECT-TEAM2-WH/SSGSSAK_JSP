@@ -118,7 +118,7 @@
     data-react-unit-text=""
     
 >
-   <a href="http://localhost:8080/SSGSSAK/event/event2.jsp"
+   <a href="http://localhost:8102/SSGSSAK/event/event2.jsp"
       class="ssghero_imglink clickable"
       data-react-tarea-cd-old="보타닉센스"
       data-react-tarea-dtl-cd="t00001"
@@ -131,7 +131,7 @@
         data-react-unit-id="2003594373"
         data-react-unit-text=""
    >
-       <a href="http://localhost:8080/SSGSSAK/event/event2.jsp"
+       <a href="http://localhost:8102/SSGSSAK/event/event2.jsp"
           class="ssghero_titlnk clickable"
           data-react-tarea-cd-old=""
           data-react-tarea-dtl-cd="t00001"
