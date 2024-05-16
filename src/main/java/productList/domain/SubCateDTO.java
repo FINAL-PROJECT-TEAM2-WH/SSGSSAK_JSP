@@ -11,13 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProdCateDTO {
-	
-	private String prodID;
+public class SubCateDTO {
 	private String id;
-    private String majorCateName;
-    private String middleCateName; 
     private String subCateName;
-    private String miniCateName;
 
 }

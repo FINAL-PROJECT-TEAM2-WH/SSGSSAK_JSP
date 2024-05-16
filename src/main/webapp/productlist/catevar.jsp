@@ -12,18 +12,13 @@
                 <a href="/disp/category.ssg?dispCtgId=6000208638" class="lo_menu lo_arr">현재선택된상단바표시상위카테고리이름-DB처리?어케하징</a>
                 <div id="lo_menu01" class="lo_depth_02 n2">
                     <ul>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable active">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        <li class="msa_data"><a href="#" class="clickable ">중카테</a></li>
-                        </ul>
+<%--                         <li class="msa_data"><a href="/SSGSSAK/productlist/productList.do?categoryId=${scDto.id}&currentPage=1" class="clickable ">${scDto.id}</a></li> --%>
+                       <c:forEach items="${selectCate.mdcDtoList}" var="mdcDto">
+                        <li class="msa_data"><a href="#" class="clickable ">${mdcDto.middleCateName}</a></li>
+						</c:forEach>
+<!--                         <li class="msa_data"><a href="#" class="clickable active">중카테</a></li> -->
+                       
+                       </ul>
                 </div>
                 <span class="lo_line">/</span>
                 </div>

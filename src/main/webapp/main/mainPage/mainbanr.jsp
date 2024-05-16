@@ -23,10 +23,13 @@
              
         >
             <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013232" class="ssghero_imglink clickable" data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|5/6~12 아울렛 슈퍼위크" data-react-tarea-dtl-cd="t00001" tabindex="-1">
-                <img src="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050316181748282022820302_828.jpg&amp;w=620&amp;h=400&amp;edit=c&amp;t=a5d79b0859406da868dae52f5b56fbabaaafa32d" srcset="https://simg.ssgcdn.com/trans.ssg?src=/cmpt/banner/202405/2024050316181748282022820302_828.jpg&amp;w=1240&amp;h=800&amp;edit=c&amp;t=7304a939bdf51634e4a02c7ab3a0d7665130c896 2x" alt="5/6~12 아울렛 슈퍼위크" loading="lazy">
-                            </a>
+             <img alt="" src="https://sui.ssgcdn.com/ui/common/img/promotion/2023/230109_hubdelivery_howto/img01.jpg">
+             </a>
                
         </div>
+        
+        
+        
         <div class="ssghero_tit"
                  data-react-unit-type="banr"
                  data-react-unit-id="2003589588"
@@ -180,4 +183,6 @@
     <div id="ajaxMainMemberShipBanner" style="display:none"></div><div class="main_ssgday" id="main_ssgday" style="display:none"></div>
     <input type="hidden" value="7">
 </body>
+<script>
+</script>
 </html>

@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import oracle.sql.DATE;
 
 @Data
 @Getter
@@ -16,7 +15,7 @@ import oracle.sql.DATE;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class eventDTO {
+public class EventDTO {
 	
 	private long   id;
 	private String evnNm;

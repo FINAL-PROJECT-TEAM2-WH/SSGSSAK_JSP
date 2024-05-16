@@ -2,8 +2,10 @@ package shipping.persistence;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 
 import member.domain.PageDTO;
+import shipping.domain.OrderRecordVO;
 import shipping.domain.ShippingPlaceInfoDTO;
 
 public interface ShippingPlaceInfoDAO {
@@ -29,4 +31,8 @@ public interface ShippingPlaceInfoDAO {
 	PageDTO pageBlock(Connection conn, int currentPage, String memid) throws Exception;
 	
 	int getTotalPages(Connection conn, int numberPerPage, String memid) throws Exception;
+	
+	ArrayList<OrderRecordVO> orderList(Connection conn, String memid) throws Exception;
+	 
+	ArrayList<String> orderDateList(Connection conn, String memid) throws Exception;
 }

@@ -1,6 +1,7 @@
 package product.persistence;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,7 +45,7 @@ public class ProductDAOImpl implements ProductDAO{
 	   
 	   String brandName;
 	   String pcontent;
-	   String updateDay ;
+	   Date updateDay ;
 	   
 	   
 	  	   PreparedStatement pstmt = null;
@@ -68,7 +69,7 @@ public class ProductDAOImpl implements ProductDAO{
 				brandId = rs.getString(6);
 				pdName = rs.getString(7);
 				pcontent = rs.getString(8);
-				updateDay = rs.getString(9);
+				updateDay = rs.getDate(9);
 				brandName = rs.getString(10);
 				
 				dto = new ProductDTO()

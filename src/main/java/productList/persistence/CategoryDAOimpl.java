@@ -8,8 +8,11 @@ import java.util.ArrayList;
 
 import com.util.JdbcUtil;
 
-import product.domain.ProductDTO;
-import productList.domain.ProdCateDTO;
+import productList.domain.AllCateDTO;
+import productList.domain.MajorCateDTO;
+import productList.domain.MiddleCateDTO;
+import productList.domain.MiniCateDTO;
+import productList.domain.SubCateDTO;
 
 public class CategoryDAOimpl implements CategoryDAO {
 
@@ -26,66 +29,177 @@ public class CategoryDAOimpl implements CategoryDAO {
 	public CategoryDAOimpl(Connection conn) {
 		this.conn = conn;
 	}
-
 	@Override
-	public ArrayList<ProdCateDTO> viewTopCate(String  id) throws SQLException {
-
-		ArrayList<ProdCateDTO> cdtoList = null ; 
+	public AllCateDTO selectCate(String categoryId) throws SQLException {
+		System.out.println("selectCate 실행됨");
+		AllCateDTO acDTO = null;		
+		ArrayList<MajorCateDTO> 	mjcDtoList=null;
+		ArrayList<MiddleCateDTO> 	mdcDtoList=null;
+		ArrayList<SubCateDTO>	 	scDtoList=null; 
+		ArrayList<MiniCateDTO> 		mncDtoList=null;
 		
-		   
-		   String categoryId;
-		   String majorCateName; 
-		   String middleCateName;
-		   String subCateName;   
-		   String miniCateName;  
-		  
-		   PreparedStatement pstmt = null;
-		   ResultSet rs = null;
-		   
-		   String sql = " SELECT c.id AS categoryId, c.majorCateName, c.middleCateName, c.subCateName, c.miniCateName FROM product p JOIN category c ON p.categoryId = c.id WHERE p.id= ? ";
-		   try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			rs=  pstmt.executeQuery();
+		String id;            
+		String majorCateName;
+		String middleCateName;
+		String subCateName;
+		String miniCateName;
+		
+		String mdcSql = " SELECT DISTINCT middleCateName, id "
+					  + " FROM category "
+					  + " WHERE id LIKE SUBSTR(?, 1, 2) || '%0000' "
+					  + " AND middleCateName IS NOT NULL ";
+		try {
+			pstmt = conn.prepareStatement(mdcSql); 
+			pstmt.setString(1, categoryId);
+			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				cdtoList = new ArrayList();
+				mdcDtoList = new ArrayList<MiddleCateDTO>();
+				MiddleCateDTO dto = null;
 				do {
-					id = rs.getString(1);
-					categoryId = rs.getString(2);
-					majorCateName = rs.getString(3);
-					middleCateName = rs.getString(4);
-					subCateName = rs.getString(5);
-					miniCateName = rs.getString(6);
+					middleCateName= rs.getString(1);    
+					id= rs.getString(2);    
 					
-
-					ProdCateDTO cdto = new ProdCateDTO()
+					
+					dto = new MiddleCateDTO()
 							.builder()
-							.id(categoryId)
-							.majorCateName(majorCateName)
+							.id(id)
 							.middleCateName(middleCateName)
-							.subCateName(subCateName)
-							.miniCateName(miniCateName)
 							.build();
-					cdtoList.add(cdto);
+					mdcDtoList.add(dto);
+					System.out.println("mdcDtoList에 중카테정보담아짐");
 				} while (rs.next());
-				
-			}
+
+			} // if 
+			
 			
 		} catch (SQLException e) {
-
 			e.printStackTrace();
-		}finally {
-			
-			 JdbcUtil.close(rs); 
-			 JdbcUtil.close(pstmt); 
-			 JdbcUtil.close(conn);
-		
-			
+			System.out.println("여기서 오류뜨면 mdcDtoList에 담기는게 안되는거임");
+		} finally {
+			try {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+			} catch (Exception e2) {
+				System.out.println(" mdcDtoList 닫기실패");
+			}
 		}
-		   
-			return cdtoList;
-	}
+		
+		
+		
+		
+		String scSql = " SELECT DISTINCT subCateName, id "
+					  + " FROM category "
+					  + " WHERE id LIKE SUBSTR(?, 1, 4) || '%00' "
+					  + " AND subCateName IS NOT NULL ";
+		try {
+			pstmt = conn.prepareStatement(scSql); 
+			pstmt.setString(1, categoryId);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				scDtoList = new ArrayList<SubCateDTO>();
+				SubCateDTO dto = null;
+				do {
+					subCateName= rs.getString(1);    
+					id= rs.getString(2);    
+					
+					
+					dto = new SubCateDTO()
+							.builder()
+							.id(id)
+							.subCateName(subCateName)
+							.build();
+					scDtoList.add(dto);
+					System.out.println("scDtoList에 중카테정보담아짐");
+				} while (rs.next());
+
+			} // if 
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("여기서 오류뜨면 scDtoList에 담기는게 안되는거임");
+		} finally {
+			try {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+			} catch (Exception e2) {
+				System.out.println(" scDtoList 닫기실패");
+			}
+		}
+		
+		
+		String mncSql = " SELECT DISTINCT miniCateName, id "
+					  + " FROM category "
+					  + " WHERE id LIKE SUBSTR(?, 1, 6) || '%' "
+					  + " AND miniCateName IS NOT NULL ";
+		try {
+			pstmt = conn.prepareStatement(mncSql); 
+			pstmt.setString(1, categoryId);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				mncDtoList = new ArrayList<MiniCateDTO>();
+				MiniCateDTO dto = null;
+				do {
+					miniCateName= rs.getString(1);    
+					id= rs.getString(2);    
+					
+					
+					dto = new MiniCateDTO()
+							.builder()
+							.id(id)
+							.miniCateName(miniCateName)
+							.build();
+					mncDtoList.add(dto);
+					System.out.println("mncDtoList에 카테정보담아짐");
+				} while (rs.next());
+
+			} // if 
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("여기서 오류뜨면 mncDtoList에 담기는게 안되는거임");
+		} finally {
+			try {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+			} catch (Exception e2) {
+				System.out.println("닫기실패");
+			}
+		}
+		acDTO = new AllCateDTO()
+				.builder()
+				.mdcDtoList(mdcDtoList)
+				.scDtoList(scDtoList)
+				.mncDtoList(mncDtoList)
+				.build();
+		
+		
+		System.out.println("mdcDtoList:");
+		if (mdcDtoList != null) {
+		    for (MiddleCateDTO dto : mdcDtoList) {
+		        System.out.println(dto.getId() + " - " + dto.getMiddleCateName());
+		    }
+		}
+
+		System.out.println("scDtoList:");
+		if (scDtoList != null) {
+		    for (SubCateDTO dto : scDtoList) {
+		        System.out.println(dto.getId() + " - " + dto.getSubCateName());
+		    }
+		}
+
+		System.out.println("mncDtoList:");
+		if (mncDtoList != null) {
+		    for (MiniCateDTO dto : mncDtoList) {
+		        System.out.println(dto.getId() + " - " + dto.getMiniCateName());
+		    }
+		}
+		return acDTO;
+	}//selectCate
 
 
 }

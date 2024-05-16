@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
 import member.domain.PageDTO;
+import shipping.domain.OrderRecordVO;
 import shipping.domain.ShippingPlaceInfoDTO;
 
 public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
@@ -438,5 +440,153 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		return totalPages;
 	}
 
+	@Override
+	public ArrayList<OrderRecordVO> orderList(Connection conn, String memid) throws Exception {
+		ArrayList<OrderRecordVO> olist = null;
+		OrderRecordVO ovo = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String pdname;
+		long poptionid;
+		long productid;
+		long optionprice;
+		String orderdate;
+		long payrecordid;
+		long paydetailid;
+		long quantity;
+		String imgurl;
+		
+		String sql = "SELECT pd.pdname, "
+				+ "	c2.poptionid poptionid, c2.productid productid, c2.optionprice optionprice,  "
+				+ "	c2.orderdate orderdate, c2.memid memid, c2.payrecordid payrecordid,  "
+				+ "	c2.paydetailid paydetailid, c2.quantity quantity "
+				+ "	FROM product pd JOIN( "
+				+ "	SELECT po.id poptionid, po.productid productid, po.optionprice optionprice, c1.orderdate orderdate, c1.memid memid, c1.payrecordid payrecordid, c1.paydetailid paydetailid, c1.quantity quantity "
+				+ "	FROM productoption po JOIN( "
+				+ "	SELECT pr.orderdate orderdate, pr.memid memid, pr.id payrecordid, pt.id paydetailid, pt.quantity quantity, pt.id3 poptionid "
+				+ "	FROM payrecord pr JOIN paydetail pt ON pr.id = pt.id2) c1 "
+				+ "	ON c1.poptionid = po.id) c2 "
+				+ "	ON pd.id = c2.productid "
+				+ " WHERE memid = ? "
+				+ " ORDER BY orderDate DESC ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) {
+				olist = new ArrayList<OrderRecordVO>();
+				
+				
+				do {
+					
+					pdname = rs.getString("pdname");
+					poptionid = rs.getLong("poptionid");
+					productid = rs.getLong("productid");
+					optionprice = rs.getLong("optionprice");
+					orderdate = rs.getString("orderdate");
+					payrecordid = rs.getLong("payrecordid");
+					paydetailid = rs.getLong("paydetailid");
+					quantity = rs.getLong("quantity");
+					
+					ShippingPlaceInfoDAOImpl dao = new ShippingPlaceInfoDAOImpl().getInstance();
+					imgurl = dao.imgurlSelect(conn, productid);
+					
+					
+					ovo = new OrderRecordVO().builder()
+							.pdname(pdname)
+							.poptionid(poptionid)
+							.productid(productid)
+							.optionprice(optionprice)
+							.orderdate(orderdate)
+							.payrecordid(payrecordid)
+							.paydetailid(paydetailid)
+							.quantity(quantity)
+							.imgurl(imgurl)
+							.build();
+					
+					olist.add(ovo);
+					
+				} while (rs.next());
+			}
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("OrderRecord(주문기록 리스트) DAO에서 오류~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return olist;
+	}
+	
+	public String imgurlSelect(Connection conn, long productid) throws Exception {
+		String imgurl = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = " SELECT DISTINCT productid, imgurl "
+				+ " FROM productimg "
+				+ " WHERE productid = ? ";
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setLong(1, productid);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next()) {
+				imgurl = rs.getString("imgurl");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("imgurl 얻어오는 메서드에서 오류");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return imgurl;
+	}
+
+	@Override
+	public ArrayList<String> orderDateList(Connection conn, String memid) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<String> dlist = null;
+		String orderDate = null;
+		
+		String sql = " SELECT DISTINCT orderdate "
+				+ " FROM payrecord "
+				+ " WHERE memid = ? "
+				+ " ORDER BY orderdate DESC ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+				dlist = new ArrayList<String>();
+				
+				do {					
+					orderDate = rs.getString("orderdate");
+					dlist.add(orderDate);
+				} while (rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderDateList 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		return dlist;
+	}
+	
+	
+
+
+	
 }
