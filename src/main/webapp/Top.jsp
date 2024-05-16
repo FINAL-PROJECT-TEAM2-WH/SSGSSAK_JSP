@@ -461,7 +461,7 @@
                                                 </ul>
                                         </div>
                                     </div>
-                                    <div class="cmjump_keyword_info">2024-05-02 13:00 기준</div>
+                                    <div id="searchDateTime" class="cmjump_keyword_info"></div>
                                 </div>
                             </div>
                         </div>
@@ -657,6 +657,179 @@
     </div>
   </div>
 </aside>
+<script>
+
+/*
+ * 
+<li class="cmjump_rank_item">
+     <span class="cmjump_rank_num">1.</span>
+     <span class="cmjump_rank_tx">레고 10325</span>
+     <span class="cmjump_rank_state cmjump_rank_up">
+     <span class="cmjump_rank_count">6</span>
+     <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+ 	 </span>
+</li>
+
+cmjump_rank_lst
+ */
+	$(document).ready(function(){
+		var itemList = [];
+	    var currentIndex = 0;  // 현재 표시되고 있는 항목의 시작 인덱스
+		$("#rank_slide").html("");
+		let innerHtml = "";
+		
+		$.ajax({
+	        type: "GET",
+	        url: `<%= request.getContextPath() %>/searchCount.do`,
+	        dataType: 'json',  // jQuery에서는 dataType 소문자로 씁니다.
+	        cache: false,
+	        success: function(response) {
+	                console.log("searchCount : ", response);
+	                itemList = response;  // 서버에서 받은 데이터 저장
+	                inputItems(); // 검색 전체 작업 1
+	                inputItems2(); // 검색 전체 작업 2
+	                displayItems();  // 초기 목록 표시
+	        },
+	        error: function(xhr, status, error) {
+	            alert("Error while requesting shipping info: " + error);
+	        }
+	    });
+		 function displayItems() {
+	        $("#rank_slide").empty();  // 목록 초기화
+	        for (var i = 0; i < 10; i++) {
+	            var itemIndex = (currentIndex + i) % itemList.length;  // 순환 인덱스 계산
+	            var item = itemList[itemIndex];
+	            var itemHtml = '<li class="cmjump_rank_item">';
+	            itemHtml += '<span class="cmjump_rank_num">' + (itemIndex + 1) + '. </span>';
+	            itemHtml += '<span class="cmjump_rank_tx">' + item.searchWord + '</span>';
+	            itemHtml += '<span class="cmjump_rank_state cmjump_rank_up"></span></li><br>';
+	            $("#rank_slide").append(itemHtml);
+	        }
+	        currentIndex++;  // 다음 항목으로 이동
+	        setTimeout(displayItems, 2000);  // 2초 후에 다시 실행
+	    }
+		 function inputItems(){
+			 var currentIndex = 0;
+			 $("#cmjump_rank_lst1").empty();
+		        for (var i = 0; i < 10; i++) {
+		            var itemIndex = (currentIndex + i) % itemList.length;  // 순환 인덱스 계산
+		            var item = itemList[itemIndex];
+		            //alert(item.rankChange);
+		            var itemHtml = '<li class="cmjump_rank_item">';
+		            itemHtml += '<a href="#" class="cmjump_rank_link clickable" >';
+		            itemHtml += '<span class="cmjump_rank_num">' + (itemIndex + 1) + '. </span>';
+		            itemHtml += '<span class="cmjump_rank_tx">' + item.searchWord + '</span>';
+		            // 바뀐 랭크가 0과 null일때
+		            if( item.rankChange === 0 || item.rankChange === null ) {
+		            	itemHtml += ' <span class="cmjump_rank_state cmjump_rank_same">';
+		            	itemHtml += '<span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>';
+		            // 바뀐 랭크가 -일때
+		            }else if( item.rankChange < 0 ){
+		            	 var num = Math.abs(item.rankChange);
+		            	 itemHtml += ' <span class="cmjump_rank_state cmjump_rank_down">';
+		            	 itemHtml += '<span class="cmjump_rank_count">'+num+'</span>';
+		            	 itemHtml += '<span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue">';
+		            	 itemHtml +='</i><span class="blind">하락</span></span>';
+                    // 바뀐 랭크가 +일때
+		            }else {
+		            	itemHtml += '<span class="cmjump_rank_state cmjump_rank_up">';
+		            	itemHtml += '<span class="cmjump_rank_count">'+item.rankChange+'</span>';
+		            	itemHtml += '<span class="cmjump_rank_ico cmicon">';
+		            	itemHtml += '<i class="icon ty_xs icon_caret_up_s_red">';
+		            	itemHtml += '</i><span class="blind">상승</span></span>';
+		            }
+		            itemHtml += '</span></a></li>';
+		            //console.log(itemHtml);
+		            $("#cmjump_rank_lst1").append(itemHtml);
+		        }
+		        currentIndex++;
+		 }
+		 
+		 function inputItems2(){
+			 var currentIndex = 0;
+			 $("#cmjump_rank_lst2").empty();
+		        for (var i = 10; i < 20; i++) {
+		            var itemIndex = (currentIndex + i) % itemList.length;  // 순환 인덱스 계산
+		            var item = itemList[itemIndex];
+		            //alert(item.rankChange);
+		            var itemHtml = '<li class="cmjump_rank_item">';
+		            itemHtml += '<a href="#" class="cmjump_rank_link clickable" >';
+		            itemHtml += '<span class="cmjump_rank_num">' + (itemIndex + 1) + '. </span>';
+		            itemHtml += '<span class="cmjump_rank_tx">' + item.searchWord + '</span>';
+		            // 바뀐 랭크가 0과 null일때
+		            if( item.rankChange === 0 || item.rankChange === null ) {
+		            	itemHtml += ' <span class="cmjump_rank_state cmjump_rank_same">';
+		            	itemHtml += '<span class="cmjump_rank_count">-<span class="blind">변동없음</span></span>';
+		            // 바뀐 랭크가 -일때
+		            }else if( item.rankChange < 0 ){
+		            	 var num = Math.abs(item.rankChange);
+		            	 itemHtml += ' <span class="cmjump_rank_state cmjump_rank_down">';
+		            	 itemHtml += '<span class="cmjump_rank_count">'+num+'</span>';
+		            	 itemHtml += '<span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue">';
+		            	 itemHtml +='</i><span class="blind">하락</span></span>';
+                    // 바뀐 랭크가 +일때
+		            }else {
+		            	itemHtml += '<span class="cmjump_rank_state cmjump_rank_up">';
+		            	itemHtml += '<span class="cmjump_rank_count">'+item.rankChange+'</span>';
+		            	itemHtml += '<span class="cmjump_rank_ico cmicon">';
+		            	itemHtml += '<i class="icon ty_xs icon_caret_up_s_red">';
+		            	itemHtml += '</i><span class="blind">상승</span></span>';
+		            }
+		            itemHtml += '</span></a></li>';
+		            //console.log(itemHtml);
+		            $("#cmjump_rank_lst2").append(itemHtml);
+		        }
+		        currentIndex++;
+		 }
+		 var date = new Date();
+		 let day = date.getDate();
+
+		 let month = date.getMonth()+1;
+
+		 let year = date.getFullYear();
+		 
+		 let format4 = year + "-" + month + "-" + day +" 기준";
+		 $("#searchDateTime").text(format4);
+	}) 
+	
+	/*
+	 <li class="cmjump_rank_item">
+      <a href="#" class="cmjump_rank_link clickable" >
+      
+     <span class="cmjump_rank_num">1.</span>
+     <span class="cmjump_rank_tx">종가집김치</span>
+     <span class="cmjump_rank_state cmjump_rank_up">
+     <span class="cmjump_rank_count">1</span>
+     <span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_up_s_red"></i><span class="blind">상승</span></span>
+     </span>
+     </a>
+     </li>
+	*/
+/* 	<li class="cmjump_rank_item"><span class="cmjump_rank_num">1. </span>
+	<span class="cmjump_rank_tx">키보드</span>
+	<span class="cmjump_rank_state cmjump_rank_same">
+	<span class="cmjump_rank_count">-<span class="blind">변동없음</span>
+	</span></span></li> */
+	
+/* 	<span class="cmjump_rank_count">6</span>
+     <span class="cmjump_rank_ico cmicon">
+     <i class="icon ty_xs icon_caret_up_s_red">
+     </i><span class="blind">상승</span>
+     </span> */
+</script>
+<script>
+	
+	// 키보드 온 프레스 해서 엔터 눌렀을때도 마찬가지로 작동하도록 만들기
+	
+<%-- 	$("#ssgSearchBtn").on("click", function(){
+		var searchWord = $("#ssg_searchQuery").val();
+		
+		// 검색작업이 일어나고 검색된 페이지를 뿌려야한다.
+		location.href = `<%= request.getContextPath() %>/searchQuery.do?searchWord=\${ searchWord }`;
+		
+	}) --%>
+	
+</script>
 <!-- //최근 본 상품 -->
 
     <script type="text/javascript">

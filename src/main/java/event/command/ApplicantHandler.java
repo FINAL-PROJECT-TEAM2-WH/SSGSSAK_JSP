@@ -57,15 +57,16 @@ public class ApplicantHandler implements CommandHandler {
 			while (ir.hasNext()) {
 				
 				ApplicantDTO applicantDTO = (ApplicantDTO) ir.next();
-				System.out.println(applicantDTO.getName()); 
+				//System.out.println(applicantDTO.getName()); 
 				json.put("comment", applicantDTO.getCmmn());
 				json.put("name", applicantDTO.getName());
 				json.put("WritingDate", applicantDTO.getWritingDate());
+				json.put("id", applicantDTO.getId());
 				jsonArray.add(json);
 			}
 			jsonArray.add(pdto);
 			response.getWriter().write(jsonArray.toString());
-			System.out.println("jsonArray : " + jsonArray);
+			//System.out.println("jsonArray : " + jsonArray);
 		}else if( method.equals("POST")) {
 			HttpSession memSession = request.getSession(false); // 세션이 없으면 새로 생성하지 않음
 			String memid = (String) memSession.getAttribute("auth");

@@ -135,7 +135,7 @@ public class EventDAOimpl implements EventDAO {
 				
 				adto = new ApplicantDTO().builder()
 						.cmmn(cmmn)
-						.WritingDate(WritingDate)
+						.writingDate(WritingDate)
 						.name(name)
 						.build();
 			}
@@ -151,16 +151,15 @@ public class EventDAOimpl implements EventDAO {
 	
 	@Override
 	public ArrayList<ApplicantDTO> listApplicant(Connection conn, String eid, int currentPage, int numberPerPage) throws Exception {
+		
 		ArrayList<ApplicantDTO> alist = null;
 		ApplicantDTO adto = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String cmmn = null;
-		String WritingDate = null;
+		String writingDate = null;
 		String name = null;
-		
-		
-		
+		long id;
 		String sql = " SELECT * FROM  "
 				+ " (  "
 				+ " SELECT ROWNUM no, t.*  "
@@ -174,12 +173,9 @@ public class EventDAOimpl implements EventDAO {
 				+ " ) b  "
 				+ " WHERE no BETWEEN ? and ? ";
 		
-		System.out.println(sql);
 		try {
 			int start = (currentPage - 1) * numberPerPage + 1 ;
 			int end = start + numberPerPage - 1 ; 
-			System.out.println("end는 ?? " + start);
-			System.out.println("start는 ?? " + start);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
@@ -191,12 +187,14 @@ public class EventDAOimpl implements EventDAO {
 				
 				do {
 					cmmn = rs.getString("cmmn");
-					WritingDate = rs.getString("WritingDate");
+					writingDate = rs.getString("WritingDate");
 					name = rs.getString("name");
-					WritingDate = WritingDate.substring(0, 11);
+					id = rs.getLong("id");
+					writingDate = writingDate.substring(0, 11);
 					adto = new ApplicantDTO().builder()
+							.id(id)
 							.cmmn(cmmn)
-							.WritingDate(WritingDate)
+							.writingDate(writingDate)
 							.name(name)
 							.build();
 					
@@ -204,6 +202,7 @@ public class EventDAOimpl implements EventDAO {
 				} while (rs.next());
 				
 			}
+			//System.out.println(alist);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -222,7 +221,6 @@ public class EventDAOimpl implements EventDAO {
 		EventDAOimpl dao = EventDAOimpl.getInstance();
 		int totalPage = dao.getTotalPages(conn, numberPerPage, eid);
 		pdto = new PageDTO(currentPage, numberPerPage, numberOfPageBlock, totalPage);
-		
 		return pdto;
 	}
 	

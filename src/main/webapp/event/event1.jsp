@@ -2337,9 +2337,9 @@
         
             <a class="btn_next on" href="#" onclick="entryReply.loadReply(11);return false;" title="다음"><span class="blind">다음</span></a>
         
-        
+        	
             <a class="btn_last on" href="#" onclick="entryReply.loadReply(66);return false;" title="마지막"><span class="blind">끝</span></a>
-        
+        	
     
 
 </div>
