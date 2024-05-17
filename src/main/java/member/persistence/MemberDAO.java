@@ -71,9 +71,5 @@ public interface MemberDAO {
 	
 	public ArrayList<Integer> getCountList(String id) throws SQLException;
 
-	public int insLike(String memid, String id) throws SQLException;
 
-	public int checkLike(String memid, String id) throws SQLException;
-
-	public int cancelLike(String memid, String id) throws SQLException;
 }
