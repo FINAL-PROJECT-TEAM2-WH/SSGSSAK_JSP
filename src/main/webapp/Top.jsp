@@ -85,7 +85,7 @@
                                         </a>
                                     </li>
                                     <li class="ssg_mall_menu_item ssg_mall_menu_item_emart" data-react-unit-type="text" data-react-unit-text='[{"type":"text","value":"이마트몰"}]'>
-                                        <a href="<%= contextPath %>/mainPage.jsp" class="clickable" data-react-tarea="공통|몰이동_레이어|이마트몰_클릭" data-react-tarea-dtl-cd="t00060">
+                                        <a href="<%= contextPath %>/productlist/productList.do?categoryId=04040303&currentPage=1" class="clickable" data-react-tarea="공통|몰이동_레이어|이마트몰_클릭" data-react-tarea-dtl-cd="t00060">
                                             <span class="blind">이마트몰</span>
                                         </a>
                                     </li>
@@ -101,7 +101,7 @@
                     </div>
                 <!-- //SSG 로고/몰이동 -->
                 <!-- 검색/급상승검색어 -->
-                <div class="ssg_gnb_search">
+         <div class="ssg_gnb_search">
                     <!-- [공통헤더] 검색 -->
                     <div class="gnb_search_wrap">
                         <div class="gnb_searching_box" id="search_query">
@@ -206,7 +206,7 @@
                                                 </ul>
                                         </div>
                                     </div>
-                                    <div class="cmjump_keyword_info">2024-05-02 13:00 기준</div>
+                                    <div class="cmjump_keyword_info" id="searchDateTime"></div>
                                 </div>
                             </div>
                         </div>
@@ -329,7 +329,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://pay.ssg.com/myssg/orderList.ssg?gnb=orderlist" class="btn_order clickable" data-react-tarea="몰공통|GNB|주문배송조회" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
+                            <a href="<%= contextPath %>/orderRecord.do" class="btn_order clickable" data-react-tarea="몰공통|GNB|주문배송조회" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
                                 <i class="icon ty_sm icon_truck" aria-hidden="true"></i>
                                 <span class="blind">주문배송조회</span>
                             </a>
@@ -417,13 +417,11 @@
 
 cmjump_rank_lst
  */
-	$(document).ready(function(){
+ $(document).ready(function(){
 		var itemList = [];
 	    var currentIndex = 0;  // 현재 표시되고 있는 항목의 시작 인덱스
-	    
 		$("#rank_slide").html("");
 		let innerHtml = "";
-		
 		$.ajax({
 	        type: "GET",
 	        url: `<%= request.getContextPath() %>/searchCount.do`,
@@ -476,7 +474,7 @@ cmjump_rank_lst
 		            	 itemHtml += '<span class="cmjump_rank_count">'+num+'</span>';
 		            	 itemHtml += '<span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue">';
 		            	 itemHtml +='</i><span class="blind">하락</span></span>';
-                    // 바뀐 랭크가 +일때
+                 // 바뀐 랭크가 +일때
 		            }else {
 		            	itemHtml += '<span class="cmjump_rank_state cmjump_rank_up">';
 		            	itemHtml += '<span class="cmjump_rank_count">'+item.rankChange+'</span>';
@@ -485,7 +483,7 @@ cmjump_rank_lst
 		            	itemHtml += '</i><span class="blind">상승</span></span>';
 		            }
 		            itemHtml += '</span></a></li>';
-		            console.log(itemHtml);
+		            //console.log(itemHtml);
 		            $("#cmjump_rank_lst1").append(itemHtml);
 		        }
 		        currentIndex++;
@@ -513,7 +511,7 @@ cmjump_rank_lst
 		            	 itemHtml += '<span class="cmjump_rank_count">'+num+'</span>';
 		            	 itemHtml += '<span class="cmjump_rank_ico cmicon"><i class="icon ty_xs icon_caret_down_s_blue">';
 		            	 itemHtml +='</i><span class="blind">하락</span></span>';
-                    // 바뀐 랭크가 +일때
+                 // 바뀐 랭크가 +일때
 		            }else {
 		            	itemHtml += '<span class="cmjump_rank_state cmjump_rank_up">';
 		            	itemHtml += '<span class="cmjump_rank_count">'+item.rankChange+'</span>';
@@ -522,14 +520,22 @@ cmjump_rank_lst
 		            	itemHtml += '</i><span class="blind">상승</span></span>';
 		            }
 		            itemHtml += '</span></a></li>';
-		            console.log(itemHtml);
+		            //console.log(itemHtml);
 		            $("#cmjump_rank_lst2").append(itemHtml);
 		        }
 		        currentIndex++;
 		 }
+		 var date = new Date();
+		 let day = date.getDate();
+
+		 let month = date.getMonth()+1;
+
+		 let year = date.getFullYear();
+		 
+		 let format4 = year + "-" + month + "-" + day +" 기준";
+		 $("#searchDateTime").text(format4);
 	}) 
-	
-	
+
 	/*
 	 <li class="cmjump_rank_item">
       <a href="#" class="cmjump_rank_link clickable" >
@@ -643,8 +649,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 		$('#login_a_tag').text(name + '님 반갑습니다!');
 		$('#regi_a_tag').css('display','none');
 		$('#logoutBtn').css('display','block');
-		$('#like_Page').attr('href','<%=contextPath%>' + "/userinfo/like.jsp");
-		$('#my_Page').attr('href','<%=contextPath%>' + "/member/memberInfo.do");
+		$('#like_Page').attr('href','<%=contextPath%>' + "/memberInfo/likeInfo.do");
+		$('#my_Page').attr('href','<%=contextPath%>' + "/memberInfo/memberInfo.do");
 	});
 	$('#logoutBtn').on('click', function () {
 		location.href = location.protocol + '<%= contextPath %>' + "/member/logout.do";

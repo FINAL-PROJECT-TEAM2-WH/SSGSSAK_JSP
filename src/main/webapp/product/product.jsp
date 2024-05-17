@@ -48,6 +48,18 @@
         border-color: #aaa; /* 포커스 상태에서 테두리 색상 변경 */
         outline: none; /* 포커스 시 기본 파란색 외곽선 제거 */
     }
+    
+
+.dob_opt_bx {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 700px;
+    width: 90%;
+}
+
+
 </style>
 
 <script type="text/javascript" async=""
@@ -62,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon"
 	href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
 <link rel="image_src" href="//sui.ssgcdn.com/ui/common/img/sns/ssg.png">
-<title class="notranslate">시몽 테르미크 150ml [No.1 헤어에센스-손상모발용], 믿고
+<title class="notranslate">${product.pdName}, 믿고
 	사는 즐거움 SSG.COM</title>
 <meta name="title"
 	content="시몽 테르미크 150ml [No.1 헤어에센스-손상모발용], 믿고 사는 즐거움 SSG.COM">
@@ -2750,26 +2762,25 @@ function setCommonGnbCookie(name, value, expiredays) {
 													style="width: 100%; overflow: hidden; position: relative; height: 506px;">
 													<ul class="cdtl_pager_lst"
 														style="width: auto; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-														<li class="active"
-															style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
-															<a href="javascript:void(0);"
-															onclick="getImgAssoItem(0);" class="clickable"
-															data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
-																src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_500.jpg"
-																width="90" height="90" alt="상품이미지1"
-																onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
-																class="zoom_thumb"><span class="bd"></span></a>
-														</li>
-														<li
-															style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
-															<a href="javascript:void(0);"
-															onclick="getImgAssoItem(1);" class="clickable"
-															data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
-																src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i2_500.jpg"
-																width="90" height="90" alt="상품이미지2"
-																onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
-																class="zoom_thumb"><span class="bd"></span></a>
-														</li>
+<%-- 														<c:forEach var="images" items="${product.images}">
+															<c:if test="${images.imgContent==sum||images.imgContent는2번째일때}">
+																	<li
+																		style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
+																		<a href="javascript:void(0);"
+																		onclick="getImgAssoItem(1);" class="clickable"
+																		data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
+																			src="${images.imgUrl} "
+																			width="90" height="90" alt="상품이미지2"
+															
+															
+															
+																			onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
+																			class="zoom_thumb"><span class="bd"></span></a>
+																	</li>
+															</c:if>
+														</c:forEach> --%>
+
+														
 														<li
 															style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
 															<a href="javascript:void(0);"
@@ -2945,6 +2956,16 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="cdtl_info_link">		
 											<div class="cdtl_tit_link">
 											<!-- 브랜드번호 불러와서 링크걸고 , 브랜드 이름불러오기  -->
+											<a href="#" onclick="openReviewWindow();return false;">리뷰등록하기</a>
+											<script type="text/javascript">
+												function openReviewWindow() {
+													var url = "/SSGSSAK/review/review.do?productcode="+${product.id};
+													var windowName = "newReviewWindow";
+													var windowSize = "width=635,height=665";
+													window.open(url,windowName,windowSize+",resizable=yes");
+													
+												}
+											</script>
 												<a
 													href="/brand/brandShop.ssg?brandId=${product.brandId}"
 													class="cdtl_info_tit_link">${product.brandName}<i
@@ -2956,6 +2977,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 								</h2>
 							</div>
+
+
 
 
 		<c:set value="${fn:length(productoption)}" var="totalOptions"></c:set>
@@ -3025,12 +3048,22 @@ function setCommonGnbCookie(name, value, expiredays) {
 								<!-- 원산지표시 -->
 								<div class="cdtl_optprice_wrap">
 									<!-- 전시최적가/판매가 -->
+									
+									
+								<c:set var="showPrice" value="9999999999" scope="request"></c:set>
+								<c:forEach var="optionp" items="${productoption}">
+								    <c:if test="${optionp.optionPrice != 0 && optionp.optionPrice <= showPrice}">
+								        <c:set var="showPrice" value="${optionp.optionPrice}" scope="request"></c:set>
+								    </c:if>
+								</c:forEach>
+									
 									<div class="cdtl_optprice">
 										<c:if test="${specialPrice.spclDscnRt != 0}"> 	<!--c:if 문으로 특가가 0이 아닐경우 최적가 생성  -->
 										<span class="cdtl_new_price notranslate">
 										 <span
 											class="blind">할인율</span><span class="ssg_percent">${specialPrice.spclDscnRt}%</span>
-											<span class="blind">최적가</span><em class="ssg_price"><c:set var="discountedPrice" value="${productoption[0].optionPrice * (1 - (specialPrice.spclDscnRt / 100))}" />
+											<span class="blind">최적가</span><em class="ssg_price">
+											<c:set var="discountedPrice" value="${showPrice * (1 - (specialPrice.spclDscnRt / 100))}" />
 									<c:set var="roundedPrice" value="${discountedPrice - (discountedPrice % 100)}" />
 									<fmt:formatNumber var="formPrice" value="${roundedPrice}" type="number" maxFractionDigits="0" />
 									<c:set var="formPrice" value="${formPrice}"/>
@@ -3038,7 +3071,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</em>
 											<span class="ssg_tx">원</span>
 										</span> <span class="cdtl_old_price"> <span class="blind">판매가</span><em
-											class="ssg_price">${productoption[0].optionPrice}원</em>
+											class="ssg_price">${showPrice}원</em>
 										</span> 
 										<div class="ssg-tooltip-wrap cdtl_ly_wrap cdtl_ly_sale"
 											data-react-unit-type="text"
@@ -3055,7 +3088,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 														<dt>판매가</dt>
 														<dd>
 															<span class="cdtl_price"><em
-																class="ssg_price notranslate">${productoption[0].optionPrice}</em><span
+																class="ssg_price notranslate">${showPrice}</em><span
 																class="ssg_tx">원</span></span>
 														</dd>
 													</dl>
@@ -3095,7 +3128,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									 </c:if>
 									 <c:if test="${specialPrice.spclDscnRt == 0}">
 									 <span class="cdtl_new_price notranslate">
-                    <span class="blind">최적가</span><em class="ssg_price">${productoption[0].optionPrice}</em> <span class="ssg_tx">원</span>
+                    <span class="blind">최적가</span><em class="ssg_price"> ${showPrice}</em><span class="ssg_tx">원</span>
                 </span>
 									 </c:if>
 									</div>
@@ -3123,85 +3156,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</div>
 								</div>
 
-								<div class="cdtl_lst">
-									<!-- 셀링포인트 -->
-									<!-- 상품상세 카드 혜택안내 부분 통합 -->
-									<!-- [D] 멤버십 회원일 경우 .ty_customer 추가 -->
-									<div class="mndtl_item ty_customer"
-										data-react-tarea-cd="00006_000000029">
-										<div class="mndtl_card_price">
-											<dl class="mndtl_dl mndtl_toggle">
-												<dt class="mndtl_dl_tit">카드혜택가</dt>
-												<dd class="mndtl_dl_desc" data-react-unit-type="text"
-													data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;카드혜택가&quot;}]">
-													<button type="button"
-														class="mndtl_card_btnmore mndtl_toggle_btn clickable"
-														data-react-tarea-dtl-cd="t00032">
-														<span class="mndtl_price"><em class="ssg_price">53,010</em>
-															<span class="ssg_tx">원</span></span>
-														<!-- [D] 멤버십 미가입자 노출 (s) -->
-														<!-- [D] 멤버십 미가입자 노출 (e) -->
+							<div class="cdtl_lst">
+								<!-- 셀링포인트 -->
+								<!-- 상품상세 카드 혜택안내 부분 통합 -->
+								<!-- [D] 멤버십 회원일 경우 .ty_customer 추가 -->
+								
 
-													</button>
-													<div class="mndtl_card_cont mndtl_toggle_cont">
-														<dl class="mndtl_card_info_dl">
-															<dt>
-																<!-- [D] 멤버십회원 대상 오퍼가 포함된 카드 offer 추가 -->
-																<span class="mndtl_card_name universe">비씨, 수협,
-																	신세계SC, 이마트SC, 우리, SC은행, IBK기업은행, 이마트우리체크카드</span>
-																<!-- [D] layer (s) -->
-																<div class="ssg-tooltip-wrap cdtl_ly_wrap cdtl_ly_ecard"
-																	data-react-unit-type="text"
-																	data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;행사더보기&quot;}]">
-																	<a href="#" class="ssg-tooltip cdtl_tooltip clickable"
-																		data-react-tarea-dtl-cd="t00004"
-																		data-tooltip-options="{'trigger':'click'}"> <span
-																		class="txt notranslate"> <span class="tx_ko">행사
-																				더보기</span>
-																	</span>
-																	</a>
-																	<div class="ssg-tooltip-layer cdtl_ly_cont">
-																		<strong class="cdtl_ly_tit">행사 자세히보기</strong>
-																		<div class="cdtl_ly_detail">
-																			<dl class="cdtl_card_dl">
-																				<dt>카드청구할인</dt>
-																				<dd>
-																					<ul>
-																						<li>
-																							<p class="cdtl_card_desc">구매금액대별 청구할인 /
-																								최대50,000원</p>
-																							<p class="cdtl_card_desc">7만원 이상 결제 시 추가 5%
-																								할인</p>
-																							<p class="cdtl_card_desc">2024.05.10 ~
-																								2024.05.10</p>
-																						</li>
-																					</ul>
-																				</dd>
-																			</dl>
-																		</div>
-																		<div class="cdtl_ly_detail">
-																			<p class="cdtl_card_desc ty2">※ 상품 쿠폰, 등급 쿠폰 등
-																				적용으로 최종 혜택가는 변경될 수 있으니 최종가는 주문서에서 확인해주세요.</p>
-																		</div>
-																		<a href="#" class="ssg-tooltip-close cdtl_ly_close"><span
-																			class="blind">닫기</span></a>
-																	</div>
-																</div>
-																<!-- [D] layer (e) -->
-															</dt>
-															<dd data-react-unit-type="text"
-																data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;카드혜택가, &quot;}]">
-																<span class="mndtl_info_desc"> SSG PAY 7만원 이상 결제
-																	시 53,010원</span>
-															</dd>
-														</dl>
-													</div>
-												</dd>
-											</dl>
-										</div>
-									</div>
-
-									<script type="text/javascript">
+								<script type="text/javascript">
         $(document).off("click", ".mndtl_toggle .mndtl_toggle_btn").on("click", ".mndtl_toggle .mndtl_toggle_btn", function (e) {
             var welTarget = $(this);
             var welParent = welTarget.closest(".mndtl_toggle");
@@ -3216,8 +3177,11 @@ function setCommonGnbCookie(name, value, expiredays) {
             }
         });
     </script>
-									<div class="cdtl_item" data-react-tarea-cd="00006_000000029">
-									
+    
+
+    
+								<div class="cdtl_item" data-react-tarea-cd="00006_000000029">
+
 									<div class="cdtl_banner clickable"
 										data-react-tarea="상품상세|기본정보|상단 마케팅 띠배너 구좌|유니버스 클럽 오픈">
 										<a
@@ -3276,6 +3240,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 														<ul class="info_detail_wrap">
 															<li name="delivery_info">
 																<div class="info_detail_head">
+
+																
 																	<strong class="info_detail_tit"> 택배배송</strong> <span
 																		class="info_detail_tit_sub">${ShippingOption.shippingOptionName}</span>
 																	<div
@@ -3298,22 +3264,24 @@ function setCommonGnbCookie(name, value, expiredays) {
 																</div>
 
 																<div class="info_detail_child">
-																<c:choose>
-																    <c:when test="${ShippingOption.id>= 1 && ShippingOption.id<= 7}">
-																       <p class="info_detail_txt">${ShippingOption.shippingOptionExplain}</p>
-																    </c:when>
-																    <c:otherwise>
-																    																	    
-																        <p class="info_detail_txt"><script type="text/javascript">
+																	<c:choose>
+																		<c:when
+																			test="${ShippingOption.id>= 1 && ShippingOption.id<= 7}">
+																			<p class="info_detail_txt">${ShippingOption.shippingOptionExplain}</p>
+																		</c:when>
+																		<c:otherwise>
+
+																			<p class="info_detail_txt">
+																				<script type="text/javascript">
 																    		var today = new Date();
 																    		today.setDate(today.getDate()+2);
 																    		var deliveryDate = (today.getMonth()+1)+ '/' + today.getDate();
 																    		document.write(deliveryDate+' 도착 예정');																    	
 																    	</script>
-																    	</p>
-																    </c:otherwise>
-																</c:choose>
-																
+																			</p>
+																		</c:otherwise>
+																	</c:choose>
+
 																	<div
 																		class="ssg-tooltip-wrap cdtl_ly_wrap cdtl_ly_delivery2">
 																		<a href="javascript:;"
@@ -3370,9 +3338,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										</dl>
 									</div>
 									<!-- 유통기한, 원산지, 보관방법 -->
-									<div class="cdtl_item">
-										
-									</div>
+									<div class="cdtl_item"></div>
 									<!-- 관부가세 -->
 									<!-- 포장안내 -->
 									<!-- 백화점 쇼핑백 -->
@@ -3440,7 +3406,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 									<div class="cdtl_item">
 										<div class="cdtl_noti_txtinfo">
-<!-- 											<span class="txt">이 상품은 <em class="point notranslate">강남점</em>
+											<!-- 											<span class="txt">이 상품은 <em class="point notranslate">강남점</em>
 												기준의 가격 및 혜택 정보입니다.
 											</span> -->
 										</div>
@@ -3500,138 +3466,166 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</script>
 
 								</div>
-								
-										<c:choose>
-			<c:when test="${totalOptions==1}">
-															<!-- 단일상품 -->	
-			 <c:forEach var="option" items="${productoption}">
-        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: block;">
-            <dl>
-                <dt>
-                    <p>
-                        <strong class="notranslate"></strong>${option.optionDesc} / ${option.optionName}
-                    </p>
-                </dt>
-                <dd class="cdtl_art_l">
-                    <div class="cdtl_amount">
-                        <a href="javascript:void(0);" class="cdtl_b_minus" onclick="updateQuantity(this, -1, 1, 10);">
-                            <span class="blind">빼기</span>
-                        </a>
-                        <span class="cdtl_inpbx">
-                            <input type="text" id="quantity-${option.id}" data-quantity="${option.id}" title="수량입력" value="1" onchange="updateQuantity(this, 0, 1, 10);">
-                        </span>
-                        <a href="javascript:void(0);" class="cdtl_b_plus" onclick="updateQuantity(this, 1, 1, 10);">
-                            <span class="blind">더하기</span>
-                        </a>
-                    </div>
-                </dd>
-                <dd class="cdtl_art_r">
-                    <span class="price notranslate">
-                        <em class="ssg_price" data-prc="${option.optionPrice}">
-                            ${option.optionPrice}
-                        </em>
-                        <span class="ssg_tx">원</span>
-                    </span>
-                </dd>
-            </dl>
-        </div>
-    </c:forEach>
-    
 
-		
-
-			</c:when>
-			<c:when test="${allNull}">
-			
-						 <c:forEach var="option" items="${productoption}">
-					        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: none;">
-					            <dl>
-					                <dt>
-					                    <p>
-					                        <strong class="notranslate"></strong>${option.optionDesc} / ${option.optionName}
-					                    </p>
-					                </dt>
-					                <dd class="cdtl_art_l">
-					                    <div class="cdtl_amount">
-					                        <a href="javascript:void(0);" class="cdtl_b_minus" onclick="updateQuantity(this, -1, 1, 10);">
-					                            <span class="blind">빼기</span>
-					                        </a>
-					                        <span class="cdtl_inpbx">
-					                            <input type="text" id="quantity-${option.id}" data-quantity="${option.id}" title="수량입력" value="1" onchange="updateQuantity(this, 0, 1, 10);">
-					                        </span>
-					                        <a href="javascript:void(0);" class="cdtl_b_plus" onclick="updateQuantity(this, 1, 1, 10);">
-					                            <span class="blind">더하기</span>
-					                        </a>
-					                    </div>
-					                </dd>
-					                <dd class="cdtl_art_r">
-					                    <span class="price notranslate">
-					                        <em class="ssg_price" data-prc="${option.optionPrice}">
-					                            ${option.optionPrice}
-					                        </em>
-					                        <span class="ssg_tx">원</span>
-					                    </span>
-					                    <button type="button" onclick="hideOption(${option.id});" style="float: right;">닫기</button>
-					                </dd>
-					            </dl>
-					        </div>
-				    </c:forEach>
-			    <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
-			    
-
-					
-						<select class="cdtl_item" id="first_select" onchange="show_option();" ></select>
-			</c:when>
-			
-			<c:when test="${nonNull}">
-
-			<!-- 옵션 두 개-->
-			 <c:forEach var="option" items="${productoption}">
-        <div class="cdtl_opt_item selecedItem" id="option-${option.id}" data-option-id="${option.id}" style="display: none;">
-            <dl>
-                <dt>
-                    <p>
-                        <strong class="notranslate"></strong>${option.optionDesc} / ${option.optionName}
-                    </p>
-                </dt>
-                <dd class="cdtl_art_l">
-                    <div class="cdtl_amount">
-                        <a href="javascript:void(0);" class="cdtl_b_minus" onclick="updateQuantity(this, -1, 1, 10);">
-                            <span class="blind">빼기</span>
-                        </a>
-                        <span class="cdtl_inpbx">
-                            <input type="text" id="quantity-${option.id}" data-quantity="${option.id}" title="수량입력" value="1" onchange="updateQuantity(this, 0, 1, 10);">
-                        </span>
-                        <a href="javascript:void(0);" class="cdtl_b_plus" onclick="updateQuantity(this, 1, 1, 10);">
-                            <span class="blind">더하기</span>
-                        </a>
-                    </div>
-                </dd>
-                <dd class="cdtl_art_r">
-                    <span class="price notranslate">
-                        <em class="ssg_price" data-prc="${option.optionPrice}">
-                            ${option.optionPrice}
-                        </em>
-                        <span class="ssg_tx">원</span>
-                    </span>
-                    <button type="button" onclick="hideOption(${option.id});" style="float: right;">닫기</button>
-                </dd>
-            </dl>
-        </div>
-    </c:forEach>
-
-    <div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
-
-   	<select class="cdtl_item" id="first_select" onchange="load_child();" ></select>
-    <select class="cdtl_item" id="sec_select" onchange="show_option();"></select>
-   
-
-			</c:when>
-		</c:choose>
+								<c:choose>
+									<c:when test="${totalOptions==1}">
+										<!-- 단일상품 -->
+										<c:forEach var="option" items="${productoption}">
+											<div class="cdtl_opt_item selecedItem"
+												id="option-${option.id}" data-option-id="${option.id}"
+												style="display: block;">
+												<dl>
+													<dt>
+														<p>
+															<strong class="notranslate"></strong>${option.optionDesc}
+															/ ${option.optionName}
+														</p>
+													</dt>
+													<dd class="cdtl_art_l">
+														<div class="cdtl_amount">
+															<a href="javascript:void(0);" class="cdtl_b_minus"
+																onclick="updateQuantity(this, -1, 1, 10);"> <span
+																class="blind">빼기</span>
+															</a> <span class="cdtl_inpbx"> <input type="text"
+																id="quantity-${option.id}" data-quantity="${option.id}"
+																title="수량입력" value="1"
+																onchange="updateQuantity(this, 0, 1, 10);">
+															</span> <a href="javascript:void(0);" class="cdtl_b_plus"
+																onclick="updateQuantity(this, 1, 1, 10);"> <span
+																class="blind">더하기</span>
+															</a>
+														</div>
+													</dd>
+													<dd class="cdtl_art_r">
+														<span class="price notranslate"> <em
+															class="ssg_price" data-prc="${roundedPrice}">
+																${formPrice} </em> <span class="ssg_tx">원</span>
+														</span>
+													</dd>
+												</dl>
+											</div>
+										</c:forEach>
 
 
 
-    <script type="text/javascript">
+
+									</c:when>
+									<c:when test="${allNull}">
+
+										<c:forEach var="option" items="${productoption}">
+											<c:set var="discountedPrice"
+												value="${showPrice * (1 - (specialPrice.spclDscnRt / 100))}" />
+											<c:set var="roundedPrice"
+												value="${discountedPrice - (discountedPrice % 100)}" />
+											<fmt:formatNumber var="formPrice" value="${roundedPrice}"
+												type="number" maxFractionDigits="0" />
+											<c:set var="formPrice" value="${formPrice}" />
+											<div class="cdtl_opt_item selecedItem"
+												id="option-${option.id}" data-option-id="${option.id}"
+												style="display: none;">
+												<dl>
+													<dt>
+														<p>
+															<strong class="notranslate"></strong>${option.optionDesc}
+															/ ${option.optionName}
+														</p>
+													</dt>
+													<dd class="cdtl_art_l">
+														<div class="cdtl_amount">
+															<a href="javascript:void(0);" class="cdtl_b_minus"
+																onclick="updateQuantity(this, -1, 1, 10);"> <span
+																class="blind">빼기</span>
+															</a> <span class="cdtl_inpbx"> <input type="text"
+																id="quantity-${option.id}" data-quantity="${option.id}"
+																title="수량입력" value="1"
+																onchange="updateQuantity(this, 0, 1, 10);">
+															</span> <a href="javascript:void(0);" class="cdtl_b_plus"
+																onclick="updateQuantity(this, 1, 1, 10);"> <span
+																class="blind">더하기</span>
+															</a>
+														</div>
+													</dd>
+													<dd class="cdtl_art_r">
+														<span class="price notranslate"> <em
+															class="ssg_price" data-prc="${roundedPrice}">
+																${formPrice} </em> <span class="ssg_tx">원</span>
+														</span>
+														<button type="button" onclick="hideOption(${option.id});"
+															style="float: right;">닫기</button>
+													</dd>
+												</dl>
+											</div>
+										</c:forEach>
+										<div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+
+
+
+										<select class="cdtl_item" id="first_select"
+											onchange="show_option();"></select>
+									</c:when>
+
+									<c:when test="${nonNull}">
+
+										<!-- 옵션 두 개-->
+										<c:forEach var="option" items="${productoption}">
+											<c:set var="discountedPrice"
+												value="${showPrice * (1 - (specialPrice.spclDscnRt / 100))}" />
+											<c:set var="roundedPrice"
+												value="${discountedPrice - (discountedPrice % 100)}" />
+											<fmt:formatNumber var="formPrice" value="${roundedPrice}"
+												type="number" maxFractionDigits="0" />
+											<c:set var="formPrice" value="${formPrice}" />
+											<div class="cdtl_opt_item selecedItem"
+												id="option-${option.id}" data-option-id="${option.id}"
+												style="display: none;">
+												<dl>
+													<dt>
+														<p>
+															<strong class="notranslate"></strong>${option.optionDesc}
+															/ ${option.optionName}
+														</p>
+													</dt>
+													<dd class="cdtl_art_l">
+														<div class="cdtl_amount">
+															<a href="javascript:void(0);" class="cdtl_b_minus"
+																onclick="updateQuantity(this, -1, 1, 10);"> <span
+																class="blind">빼기</span>
+															</a> <span class="cdtl_inpbx"> <input type="text"
+																id="quantity-${option.id}" data-quantity="${option.id}"
+																title="수량입력" value="1"
+																onchange="updateQuantity(this, 0, 1, 10);">
+															</span> <a href="javascript:void(0);" class="cdtl_b_plus"
+																onclick="updateQuantity(this, 1, 1, 10);"> <span
+																class="blind">더하기</span>
+															</a>
+														</div>
+													</dd>
+													<dd class="cdtl_art_r">
+														<span class="price notranslate"> <em
+															class="ssg_price" data-prc="${roundedPrice}">
+																${formPrice} </em> <span class="ssg_tx">원</span>
+														</span>
+														<button type="button" onclick="hideOption(${option.id});"
+															style="float: right;">닫기</button>
+													</dd>
+												</dl>
+											</div>
+										</c:forEach>
+
+										<div id="cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+
+										<select class="cdtl_item" id="first_select"
+											onchange="load_child();"></select>
+										<select class="cdtl_item" id="sec_select"
+											onchange="show_option();"></select>
+
+
+									</c:when>
+								</c:choose>
+
+
+
+								<script type="text/javascript">
         let first_select = [
             {v:"",t:""},
             <c:forEach var="option" items="${productoption}">
@@ -3663,6 +3657,7 @@ function setCommonGnbCookie(name, value, expiredays) {
             let first_select_value = document.getElementById("first_select").value;
             let h = [];
             if (first_select_value) {
+            	h.push('<option value="">' +'선택하세요'+ '</option>');
                 sec_select_data[first_select_value].forEach(item => {
                     h.push('<option value="' + item.v + '">' + item.t + '</option>');
                 });
@@ -3678,14 +3673,18 @@ function setCommonGnbCookie(name, value, expiredays) {
             let first_select_value = document.getElementById("first_select").value;
             if (first_select_value) {
                 document.getElementById('option-' + first_select_value).style.display = 'block';
+                document.getElementById('option-' + first_select_value+'_bar').style.display = 'block';
             }
+
 			</c:when>
 			<c:when test="${nonNull}">
 			<!-- 옵션두개 -->
             let sec_select_value = document.getElementById("sec_select").value;
             if (sec_select_value) {
                 document.getElementById('option-' + sec_select_value).style.display = 'block';
+                document.getElementById('option-' + sec_select_value+'_bar').style.display = 'block';
             }
+
 			</c:when>
 			</c:choose>
 
@@ -3697,7 +3696,9 @@ function setCommonGnbCookie(name, value, expiredays) {
             let optionId = element.closest('.cdtl_opt_item').id.split('-')[1];
 
             let quantityInput = document.getElementById('quantity-' + optionId);
+            let quantityInputBar = document.getElementById('quantity-' + optionId+'_bar');
             let priceElement = document.querySelector('#option-' + optionId + ' .ssg_price');
+            let priceElementBar = document.querySelector('#option-' + optionId + '_bar .ssg_price');
             let basePrice = parseInt(priceElement.getAttribute('data-prc'));
             let currentQuantity = parseInt(quantityInput.value);
 
@@ -3706,15 +3707,16 @@ function setCommonGnbCookie(name, value, expiredays) {
 
             if (newQuantity >= min && newQuantity <= max) {
                 quantityInput.value = newQuantity;
+                quantityInputBar.value = newQuantity;
 
                 priceElement.textContent = (basePrice * newQuantity).toLocaleString();
-                
+                priceElementBar.textContent = (basePrice * newQuantity).toLocaleString();
                 updateTotalPrice();
             }
         }
         function updateTotalPrice() {
            
-            let options = document.querySelectorAll('.cdtl_opt_item');
+            let options = document.querySelectorAll('.cdtl_opt_item:not(.bar)');
             let totalPrice = 0;
 
             options.forEach(option => {
@@ -3730,12 +3732,14 @@ function setCommonGnbCookie(name, value, expiredays) {
             });
 
 
-            document.getElementById('totalPrc').textContent = totalPrice.toLocaleString();
+            document.getElementById('displayTotalPrice').textContent = totalPrice.toLocaleString();
+            document.getElementById('displayTotalPrice_bar').textContent = totalPrice.toLocaleString();
         }
 
         function hideOption(optionId) {
   
             document.getElementById('option-' + optionId).style.display = 'none';
+            document.getElementById('option-' + optionId+'_bar').style.display = 'none';
 
             updateTotalPrice();
         }
@@ -3743,9 +3747,10 @@ function setCommonGnbCookie(name, value, expiredays) {
         window.onload = function() {
             load_first();
         }
+        
     </script>
-    
-    		<script type="text/javascript">
+
+								<script type="text/javascript">
     		
     		function handlePurchase() {
     	
@@ -3823,17 +3828,30 @@ function setCommonGnbCookie(name, value, expiredays) {
                   
     		}//handleCart
 
+    		
+    		
 					</script>
-					
+								<c:choose>
+									<c:when test="${specialPrice.spclDscnRt!=0 }">
+										<div class="cdtl_total notranslate">
+											<strong class="cdtl_label"> <span class="tx_ko">합계</span>
+											</strong> <strong class="point"> <em class="ssg_price"
+												id="displayTotalPrice">${formPrice}</em> <span
+												class="ssg_tx">원</span>
+											</strong>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="cdtl_total notranslate">
+											<strong class="cdtl_label"> <span class="tx_ko">합계</span>
+											</strong> <strong class="point"> <em class="ssg_price"
+												id="displayTotalPrice">${showPrice}</em> <span class="ssg_tx">원</span>
+											</strong>
+										</div>
+									</c:otherwise>
+								</c:choose>
 
-
-
-								<div class="cdtl_total notranslate">
-									<strong class="cdtl_label"> <span class="tx_ko">합계</span>
-									</strong> <strong class="point"> <em class="ssg_price"
-										id="totalPrc"></em> <span class="ssg_tx">원</span>
-									</strong>
-								</div>
+								
 							</div>
 
 							<div class="cdtl_lst" data-react-tarea-cd="00006_000000537">
@@ -12782,6 +12800,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 													</div>
 													<div class="rvw_expansion_panel_container">
 														<ul class="rvw_expansion_panel_list" id="item_rvw_list">
+														
+														<c:forEach var="reviews" items="${reviews}">
 															<li class="rvw_expansion_panel"
 																data-postngid="1184443604">
 																<div class="rvw_expansion_panel_head">
@@ -12792,44 +12812,31 @@ function setCommonGnbCookie(name, value, expiredays) {
 																				<div class="rvw_item_label rvw_item_rating">
 																					<span>5</span>
 																				</div>
-																				<div class="rvw_item_label rvw_item_type">프리미엄</div>
-																				<div class="rvw_item_label rvw_item_user_id">ang*******</div>
-																				<div class="rvw_item_label rvw_item_date">2022.10.25</div>
+																				<div class="rvw_item_label rvw_item_type">${reviews.productOptionId}</div>
+																				<div class="rvw_item_label rvw_item_user_id">${reviews.memid}</div>
+																				<div class="rvw_item_label rvw_item_date">${reviews.reviewDate}</div>
 																				<div class="rvw_item_label rvw_item_order">No.1546</div>
 																				<button type="button" class="rvw_item_btn_block"
 																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1184443604', 800, 480);">
 																					<span>신고/차단</span>
 																				</button>
 																			</div>
-																			<p class="rvw_item_text">요거요. 미용실에서 디자이너쌤이 무심한듯
-																				시크하게 발라주신건데 사과향이 달달한것이 게다가 깔끔한거예요.. 제가 젤 시러하는게 헤어에센스
-																				끈적이고 유분기 있는거... 그리고 덕지덕지 떡지는거. 근데 이거 발라주신날 머릿칼이 샥샥
-																				내려가는게 희한해서 바로 주문했습니다. 심지어 이건 3번째 구매라는것.. 타사제품 아무거나
-																				옆에 찍어놔봤어요. 쫀득한 제형이긴한데, 떡진답니다ㅠㅠ 그치만 우리의 케라스타즈는
-																				영롱하죠.ㅎㅎ 회사원이라, 머릿결 덜 마른 상태에서 대애충~ 치덕치덕 바르고 드라이 슉슉 하고
-																				출근하면 11시쯤 ~점심시간되면 최상의 머릿결로 탄생합니다.ㅋㅋ 풀고있어도.묶어버려도 유지되는
-																				가뿐함에 몇번을 살까? 아니다 걍 싼거쓰자.아니다 살까? 이 쓸데없는 고민을 하다 결국
-																				쓱어플을 켰네요ㅠㅠ♡ 머릿결.피부.골격 이런건 타고나는게 대부분이라 커버해가면서 사는수 밖에
-																				없네요.. 그런게 보통 시술이나 제품인데, 머리는 계속 자라나잖아요? 아마 할머니될때까지
-																				못벗어날지도 모르겠습니다..♡ㅎㅎ (ps 고민은 배송만 늦출뿐...)</p>
+																			<p class="rvw_item_text">${reviews.reviewContent}</p>
 																			<div class="rvw_panel_expand_hide_group">
 																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202210/20221025222532_1184443604_0_1.jpg"
-																							alt="">
-																					</div>
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202210/20221025222532_1184443604_0_2.jpg"
-																							alt="">
-																					</div>
+																						<c:forEach var="reviewImg" items="${reviewImg}">
+																						${reviewImg.reviewImgUrl}
+																							<c:if test="${reviewImg.reviewId==reviews.id}">
+																							${reviewImg.reviewImgUrl}
+																								<div class="rvw_item_thumb">
+																									<img
+																										src="${reviewImg.reviewImgUrl}"
+																										alt="">
+																								</div>
+																							</c:if>
+																						</c:forEach>
 																				</div>
-																				<div class="rvw_chip_group">
-																					<span class="rvw_chip">#개운한느낌</span> <span
-																						class="rvw_chip">#손상케어용</span> <span
-																						class="rvw_chip">#데일리용</span>
-																				</div>
+
 																			</div>
 																		</div>
 																	</a>
@@ -12917,855 +12924,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 																	</div>
 																</div>
 															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1219128179">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">dhf*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.05.08</div>
-																				<div class="rvw_item_label rvw_item_order">No.1545</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1219128179', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">제품은 워낙오랫동안 쓰던거라 좋아요 필름지
-																				샘플하나 없는 단일 상품이라 좀 당황스러웠네요 참고하셨음 해여</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202405/20240508013122_1219128179_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202405/20240508013122_1219128179_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">제품은 워낙오랫동안 쓰던거라 좋아요 필름지
-																					샘플하나 없는 단일 상품이라 좀 당황스러웠네요 참고하셨음 해여</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1218435476">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">han*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.27</div>
-																				<div class="rvw_item_label rvw_item_order">No.1544</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218435476', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">향도 마음에들고 사용감도 좋아서 애용하는
-																				제품입니다 가격이 조금 저렴하면 더부담없이 사용할수 있을꺼 같습니다</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240427154446_1218435476_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240427154446_1218435476_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">향도 마음에들고 사용감도 좋아서 애용하는
-																					제품입니다 가격이 조금 저렴하면 더부담없이 사용할수 있을꺼 같습니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1218358962">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">coz*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.25</div>
-																				<div class="rvw_item_label rvw_item_order">No.1543</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218358962', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">펌하고 나서 사용하려고 구매했는데 많이
-																				끈적이지 않으면서 스타일링도 잘 되고 향도 좋아요.샴푸라인도 구매해서 같이 사용해보렵니다^^</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240425194339_1218358962_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240425194339_1218358962_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">펌하고 나서 사용하려고 구매했는데 많이
-																					끈적이지 않으면서 스타일링도 잘 되고 향도 좋아요.샴푸라인도 구매해서 같이 사용해보렵니다^^</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1215652497">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">gar*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.07</div>
-																				<div class="rvw_item_label rvw_item_order">No.1542</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1215652497', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">정말 인생 최고의 아이템이에요 매일
-																				드라이기, 고데기로 머리카락에 열이 가해지다 보니 머리끝이 금방 상해서 끊어지고 난리였는데
-																				제품 사용후 머리결상하는게 덜 해져서 항상 꾸준히 사용중이에요</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240307132140_1215652497_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240307132140_1215652497_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">정말 인생 최고의 아이템이에요 매일
-																					드라이기, 고데기로 머리카락에 열이 가해지다 보니 머리끝이 금방 상해서 끊어지고 난리였는데
-																					제품 사용후 머리결상하는게 덜 해져서 항상 꾸준히 사용중이에요</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1215359316">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">mon*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.02</div>
-																				<div class="rvw_item_label rvw_item_order">No.1541</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1215359316', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">머리결이 곱슬이라 어떤 제품을써도 좋아지는
-																				느낌이 별로 없습니다 근데 미용실 추천도 있고해서 써봤어요 조금씩 더 좋아지는 느낌이에요 이
-																				브랜드 다른제품도 사용하고 싶어져요 앞으로 꾸준히 사용해보려구요 추천합니다</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240302211221_1215359316_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240302211221_1215359316_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머리결이 곱슬이라 어떤 제품을써도 좋아지는
-																					느낌이 별로 없습니다 근데 미용실 추천도 있고해서 써봤어요 조금씩 더 좋아지는 느낌이에요 이
-																					브랜드 다른제품도 사용하고 싶어져요 앞으로 꾸준히 사용해보려구요 추천합니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1213837668">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">yoo*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.02.04</div>
-																				<div class="rvw_item_label rvw_item_order">No.1540</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1213837668', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">곱슬 건조하고 두껍고 염색으로 머리결이
-																				최극상이라 케라 극손상 마스크팩하고 사용했는데 부드럽지 않고 뻣뻣하더라고요 드라이하고 좀
-																				나아지고 다음날 더 나아지네요 다른 제품 부시시 모발용도 주문했어요 세일에 쿠폰가에 카드dc
-																				받아서 넘 싸게 사요 샘플도 더 주네요</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240204123720_1213837668_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																				<div class="rvw_chip_group">
-																					<span class="rvw_chip">#발림성좋은</span>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240204123720_1213837668_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">곱슬 건조하고 두껍고 염색으로 머리결이
-																					최극상이라 케라 극손상 마스크팩하고 사용했는데 부드럽지 않고 뻣뻣하더라고요 드라이하고 좀
-																					나아지고 다음날 더 나아지네요 다른 제품 부시시 모발용도 주문했어요 세일에 쿠폰가에 카드dc
-																					받아서 넘 싸게 사요 샘플도 더 주네요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#발림성좋은</span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1213630642">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">받은
-																					선물</div>
-																				<div class="rvw_item_label rvw_item_user_id">ari*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.02.01</div>
-																				<div class="rvw_item_label rvw_item_order">No.1539</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1213630642', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">이거 진짜 무서운 에센스예요.... 한 번
-																				쓰면 안 쓸 때로 못 돌아갑니다...ㅠ드라이 전에 발라주면 가볍게 흡수가 엄청 빠르고요 정말
-																				머리가 부스스한 것 싹 잡아주면서 너무 좋아요. 에어랩 하기전에 발라주면 정말 그 날은.!혜택
-																				좋을때 꼭 쟁이시길요!</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240201130906_1213630642_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																				<div class="rvw_chip_group">
-																					<span class="rvw_chip">#여친</span> <span
-																						class="rvw_chip">#생일</span>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240201130906_1213630642_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">이거 진짜 무서운 에센스예요.... 한 번
-																					쓰면 안 쓸 때로 못 돌아갑니다...ㅠ드라이 전에 발라주면 가볍게 흡수가 엄청 빠르고요 정말
-																					머리가 부스스한 것 싹 잡아주면서 너무 좋아요. 에어랩 하기전에 발라주면 정말 그
-																					날은.!혜택 좋을때 꼭 쟁이시길요!</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#여친</span> <span
-																					class="rvw_chip">#생일</span>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1218435435">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">han*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.27</div>
-																				<div class="rvw_item_label rvw_item_order">No.1538</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218435435', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">향도 마음에들고 사용감도 좋아서 만족합니다</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240427154220_1218435435_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240427154220_1218435435_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">향도 마음에들고 사용감도 좋아서 만족합니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="rvw_expansion_panel"
-																data-postngid="1218131147">
-																<div class="rvw_expansion_panel_head">
-																	<a href="javascript:void(0)" role="button"
-																		class="rvw_expansion_panel_trigger">
-																		<div class="rvw_item is-horizontal">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">ohn*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.21</div>
-																				<div class="rvw_item_label rvw_item_order">No.1537</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218131147', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<p class="rvw_item_text">원래 쓰던 상품이라 재구매해요. 가볍고
-																				좋아요.</p>
-																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
-																					<div class="rvw_item_thumb">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240421121455_1218131147_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</a>
-																</div>
-																<div class="rvw_expansion_panel_body">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240421121455_1218131147_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">원래 쓰던 상품이라 재구매해요. 가볍고
-																					좋아요.</p>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
+															</c:forEach>
+
 														</ul>
 													</div>
 													<div class="rvw_pagination" id="comment_navi_area">
@@ -40122,9 +39282,9 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<!-- 옵션/사은품/추가구성 -->
 							<div class="cdtl_fixed" data-react-tarea-cd="00006_000000538"
 								style="margin-left: 0px;">
-								<div id="_dtl_opt_bar" class="dtl_opt_bar">
+								<div id="" class="dtl_opt_bar">
 									<div class="dob_opt_area">
-										<div class="dob_opt_bx" style="height: 793px;">
+										<div class="dob_opt_bx" style="height: 700px;">
 											<div class="dob_item" id="_bar_cmptNoti"
 												style="display: none">
 												<p class="dob_guide">
@@ -40148,37 +39308,108 @@ function setCommonGnbCookie(name, value, expiredays) {
 											</div>
 
 											<div class="dob_item">
-												<div id="_bar_cdtl_opt_bx_uitem" class="cdtl_empty">
-													<div class="dob_opt_item selecedItem"
-														id="_bar_item_00000_1020" name="item_00000_1020"
-														data-optn-type="oneitem_result" data-uitem-id="00000"
-														data-salestr-no="1020" data-salestr-nm="시코르강남역점">
-														<dl class="opt_dl">
+												<c:choose>
+													<c:when test="${totalOptions==1}">
+														<!-- 단일상품 -->
+														<c:forEach var="option" items="${productoption}">
+															<c:set var="discountedPrice"
+																value="${showPrice * (1 - (specialPrice.spclDscnRt / 100))}" />
+															<c:set var="roundedPrice"
+																value="${discountedPrice - (discountedPrice % 100)}" />
+															<fmt:formatNumber var="formPrice" value="${roundedPrice}"
+																type="number" maxFractionDigits="0" />
+															<c:set var="formPrice" value="${formPrice}" />
+															<div class="cdtl_opt_item_bar selecedItem bar"
+																id="option-${option.id}_bar"
+																data-option-id="${option.id}" style="display: block;">
+																<dl>
+																	<dt>
+																		<p>
+																			<strong class="notranslate"></strong>${option.optionDesc}
+																			/ ${option.optionName}
+																		</p>
+																	</dt>
+																	<dd class="cdtl_art_l">
+																		<div class="cdtl_amount">
+																			<a href="javascript:void(0);" class="cdtl_b_minus"
+																				onclick="updateQuantity(this, -1, 1, 10);"> <span
+																				class="blind">빼기</span>
+																			</a> <span class="cdtl_inpbx"> <input type="text"
+																				id="quantity-${option.id}_bar"
+																				data-quantity="${option.id}" title="수량입력" value="1"
+																				onchange="updateQuantity(this, 0, 1, 10);">
+																			</span> <a href="javascript:void(0);" class="cdtl_b_plus"
+																				onclick="updateQuantity(this, 1, 1, 10);"> <span
+																				class="blind">더하기</span>
+																			</a>
+																		</div>
+																	</dd>
+																	<dd class="cdtl_art_r">
+																		<span class="price notranslate"> <em
+																			class="ssg_price" data-prc="${roundedPrice}">
+																				${formPrice} </em> <span class="ssg_tx">원</span>
+																		</span>
+																	</dd>
+																</dl>
+															</div>
+																<div id="_bar_cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+														</c:forEach>
+
+
+
+
+													</c:when>
+													<c:otherwise>
+													<c:forEach var="option" items="${productoption}">
+													<c:set var="discountedPrice"
+														value="${showPrice * (1 - (specialPrice.spclDscnRt / 100))}" />
+													<c:set var="roundedPrice"
+														value="${discountedPrice - (discountedPrice % 100)}" />
+													<fmt:formatNumber var="formPrice" value="${roundedPrice}"
+														type="number" maxFractionDigits="0" />
+													<c:set var="formPrice" value="${formPrice}" />
+													<div class="cdtl_opt_item_bar selecedItem bar"
+														id="option-${option.id}_bar" data-option-id="${option.id}"
+														style="display: none;">
+														<dl>
 															<dt>
-																<p>시몽 테르미크 150ml [No.1 헤어에센스-손상모발용]</p>
+																<p>
+																	<strong class="notranslate"></strong>${option.optionDesc}
+																	/ ${option.optionName}
+																</p>
 															</dt>
 															<dd class="cdtl_art_l">
 																<div class="cdtl_amount">
 																	<a href="javascript:void(0);" class="cdtl_b_minus"
-																		onclick="ItmOp.changeOrdQty(this, -1, 1, 10);"><span
-																		class="blind">빼기</span></a> <span class="cdtl_inpbx"><input
-																		type="text" id="cdtl_item_amount1" title="수량입력"
-																		value="1"
-																		onchange="ItmOp.changeOrdQty(this, 0, 1, 10);"></span>
-																	<a href="javascript:void(0);" class="cdtl_b_plus"
-																		onclick="ItmOp.changeOrdQty(this, 1, 1, 10);"><span
-																		class="blind">더하기</span></a>
+																		onclick="updateQuantity(this, -1, 1, 10);"> <span
+																		class="blind">빼기</span>
+																	</a> <span class="cdtl_inpbx"> <input type="text"
+																		id="quantity-${option.id}_bar"
+																		data-quantity="${option.id}" title="수량입력" value="1"
+																		onchange="updateQuantity(this, 0, 1, 10);">
+																	</span> <a href="javascript:void(0);" class="cdtl_b_plus"
+																		onclick="updateQuantity(this, 1, 1, 10);"> <span
+																		class="blind">더하기</span>
+																	</a>
 																</div>
 															</dd>
 															<dd class="cdtl_art_r">
-																<span class="price notranslate"><em
-																	class="ssg_price" data-prc="55800">55,800</em><span
-																	class="ssg_tx">원</span></span>
+																<span class="price notranslate"> <em
+																	class="ssg_price" data-prc="${roundedPrice}">
+																		${formPrice} </em> <span class="ssg_tx">원</span>
+																</span>
 															</dd>
 														</dl>
 													</div>
-												</div>
-												<div id="_bar_cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+													
+														<div id="_bar_cdtl_opt_bx_cmpt" class="cdtl_empty"></div>
+												</c:forEach>
+													</c:otherwise>
+												</c:choose>
+
+
+												
+											
 											</div>
 										</div>
 									</div>
@@ -40186,7 +39417,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="dob_total notranslate">
 											<strong class="label"> <span class="tx_ko">합계</span>
 											</strong> <strong class="price"> <em class="ssg_price"
-												id="_bar_totalPrc">55,800</em> <span class="ssg_tx">원</span>
+												id="displayTotalPrice_bar">0</em> <span class="ssg_tx">원</span>
 											</strong>
 										</div>
 
@@ -40230,7 +39461,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 														data-react-unit-id="1000026532717"
 														data-react-mkt-info="{&quot;sell_stat_cd&quot;:true,&quot;item_id&quot;:&quot;1000026532717&quot;,&quot;shpp_type_dtl_cd&quot;:&quot;21&quot;,&quot;item_img_url&quot;:&quot;https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_500.jpg&quot;,&quot;lwst_sellprc&quot;:55800,&quot;usabl_inv_qty&quot;:347,&quot;brand_id&quot;:&quot;2010024537&quot;}">
 														<a href="javascript:void(0);"
-															onclick="fn_SaveCart(this, 'cart');" id="_bar_actionCart"
+															onclick="handleCart();" id="_bar_actionCart"
 															class="cdtl_btn_dgray cdtl_btn_cart clickable"
 															data-react-tarea-dtl-cd="t00002"
 															data-react-tarea="상품상세|옵션바|장바구니"> <span>장바구니</span>
@@ -40241,7 +39472,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 																	class="cdtl_cart_txt notranslate"></p>
 																<p class="cdtl_cart_btnwrap">
 																	<a href="#" class="cdtl_btn_arr clickable"
-																		onclick="javascript:shoppingContinue('cart_tooltip'),$('#actionPayment').focus();return false;"
+																		onclick="handleCart();"
 																		data-react-tarea="상품상세|구매확인팝업|쇼핑계속하기"> <span
 																		class="txt">쇼핑 계속하기</span> <span class="sp_cdtl">&nbsp;</span>
 																	</a> <a href="#" class="cdtl_btn_arr ty2 clickable"
@@ -40274,7 +39505,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 												<li data-react-unit-type="item"
 													data-react-unit-id="1000026532717"><a href="#"
 													class="cdtl_btn_red clickable" id="_bar_actionPayment"
-													onclick="javascript:fn_SaveCart(this, 'payment');return false;"
+													onclick="handlePurchase();"
 													data-react-tarea-dtl-cd="t00155"
 													data-react-tarea="상품상세|옵션바|바로구매"> <i class="ic_ssgpay"><span
 															class="blind">SSGPAY</span></i> <span>바로구매</span>

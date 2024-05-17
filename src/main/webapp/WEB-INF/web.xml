@@ -13,6 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
+<<<<<<< HEAD
  
 	  <filter>
 	  <filter-name>characterEncodingFilter</filter-name>
@@ -21,8 +22,30 @@
 	    <param-name>encoding</param-name>
 	    <param-value>UTF-8</param-value>
 	  </init-param>
+=======
+
+
+	<filter>
+		<description>권한 체크 필터</description>
+		<filter-name>loginCheckFilter</filter-name>
+		<filter-class>com.filter.LoginCheckFilter</filter-class>
+>>>>>>> 00c0cf4431dfed6c5d735799804d306c98547f57
 	</filter>
-	
+	<filter-mapping>
+		<filter-name>loginCheckFilter</filter-name>
+		<url-pattern>/memberInfo/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>com.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
 	<filter-mapping>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <url-pattern>/*</url-pattern> 
@@ -53,6 +76,11 @@
 	</servlet-mapping>
  
  
+<<<<<<< HEAD
+=======
+
+ 
+>>>>>>> 00c0cf4431dfed6c5d735799804d306c98547f57
 	<servlet>
 		<servlet-name>jsp</servlet-name>
 		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>

@@ -51,12 +51,29 @@ public interface MemberDAO {
 	// 마케팅 정보 관련 함수. 
 	
 	public Map<String,String> agreeInfoRcv(String id, String conditionName) throws SQLException;
-
-	public int registerMbr(MemberDTO dto, Map<String,String> map, Map<String,String> address) throws SQLException;
 	
 	public ArrayList<String> getAgreement(String conditionName , String id) throws SQLException;
+	
+	// 회원 생성 함수 . 
+	public int registerMbr(MemberDTO dto, Map<String,String> map, Map<String,String> address) throws SQLException;
+	
+	public int regiInsertFolder(String id) throws SQLException;
+	
 
 
 	// 기타 함수. 
 	public String transtoPhoneNum (String phoneNum) ;
+	
+	// 좋아요 
+	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException;
+
+	public ArrayList<String> getFolderList(String id) throws SQLException;
+	
+	public ArrayList<Integer> getCountList(String id) throws SQLException;
+
+	public int insLike(String memid, String id) throws SQLException;
+
+	public int checkLike(String memid, String id) throws SQLException;
+
+	public int cancelLike(String memid, String id) throws SQLException;
 }
