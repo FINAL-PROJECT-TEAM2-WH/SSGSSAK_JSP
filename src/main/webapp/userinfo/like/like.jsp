@@ -734,7 +734,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 					</span>
 				</li>
 				<li class="mylike_modify_item" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"선택삭제"}]'>
-					<button type="button" class="mylike_modify_btn clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|편집|선택삭제_클릭" onclick="javascript:operateClipDatas('D');">선택삭제</button>
+					<button type="button" class="mylike_modify_btn clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|편집|선택삭제_클릭" onclick="javascript:operate('D');">선택삭제</button>
 				</li>
 				<li class="mylike_modify_item" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"폴더에 추가"}]'>
 					<button type="button" class="mylike_modify_btn _mylike_lay_open clickable"
@@ -3290,7 +3290,7 @@ $(function(){
 <script>
 function addLike(productid) {
  	$.ajax({
-        url: '<%=contextPath%>/memberInfo/like.do',
+        url: '<%=contextPath%>/like/like.do',
         dataType: 'json',
         type: 'GET',
         data: { "productid" : productid}, 
@@ -3301,7 +3301,7 @@ function addLike(productid) {
         			alert("ㅇㅋ 취소해줌");
         			// 취소하는 ajax 
         			$.ajax({
-        				url: '<%=contextPath%>/memberInfo/like.do',
+        				url: '<%=contextPath%>/like/like.do',
         				dataType: 'json',
         				type: 'POST',
         				data : {"productid" : productid,
@@ -3353,7 +3353,7 @@ function addLike(productid) {
 	});
 
 	// 페이징 처리
-	function goPage(page){
+	/* function goPage(page){
 		document.location.href = "/myssg/myClip/main.ssg?attnDivCd=10&mbrAttnGrpSeq=0&page="+page;
 	}
 
@@ -3419,7 +3419,7 @@ function addLike(productid) {
 				alert("새폴더 만들기 오류가 발생하였습니다. \n 관리자에게 문의해주세요.");
 			}
 		});
-	}
+	} */
 	// 폴더 수정 전
 	function beforeModifyFolder(seq) {
 		$('#mng_disp_text_' + seq).hide();
@@ -3524,7 +3524,7 @@ function addLike(productid) {
 		}
 	}
 	// 체크박스 선택 후 동작
-	function operateClipDatas(type) {
+/* 	function operateClipDatas(type) {
 		if(type == 'D') {
 			// delete
 			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
@@ -3589,8 +3589,10 @@ function addLike(productid) {
 			}
 
 		}
-	}
-	// 선택삭제 실행
+	} */
+	
+	
+/* 	// 선택삭제 실행
 	function deleteClip(attnDtlcSeqStr) {
 		var params = {
 			'attnDivCd': '10',
@@ -3635,7 +3637,7 @@ function addLike(productid) {
 				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
 			}
 		});
-	}
+	} */
 	// 폴더에추가 실행
 	function updateMbrAttnGrpDtlc(attnDtlcSeqStr) {
 		var mbrAttnGrpSeqStr = $('#add_exists_folder_id').find('input[type=checkbox]:checked').map(function(){return $(this).val()}).get().join(",");
@@ -3730,6 +3732,143 @@ function addLike(productid) {
 			}
 		});
 	}
+	
+	function operate(type) {
+		if(type == 'D') {
+			// delete
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
+				alert('삭제할 항목을 선택해 주세요');
+				return;
+			} if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length > 100 ) {
+				alert('최대 100개 입니다.')
+				return;
+			} else {
+				if ( confirm('정말 삭제하시겠습니까?') ) {
+					var attnDtlcSeqStr = $('div.mylike_grid_container').find('input[type=checkbox]:checked').parents('li');/* .map(function(){return $(this).attr('data-attnDtlcSeq')}).get().join(",") */;
+					//deleteClip(attnDtlcSeqStr);
+					deleteContents(attnDtlcSeqStr);
+				}
+			}
+
+		} else if(type == 'C') {
+			// copy
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
+				alert('폴더에 추가할 내용을 선택해 주세요.');
+				return;
+			}
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length > 100 ) {
+				alert('폴더에 추가할 내용은 최대 100개 입니다.')
+				return;
+			}
+
+			if ( $('#add_exists_folder_id').find('input[type=checkbox]:checked').length == 0) {
+				alert('추가할 폴더를 선택해 주세요.');
+				return;
+			}
+			if ( $('#add_exists_folder_id').find('input[type=checkbox]:checked').length > 10) {
+				alert('추가할 폴더는 최대 10개입니다.');
+				return;
+			}
+
+			var attnDtlcSeqStr = $('div.mylike_grid_container').find('input[type=checkbox]:checked').parents('li').map(function(){return $(this).attr('data-attnDtlcSeq')}).get().join(",");
+			updateMbrAttnGrpDtlc(attnDtlcSeqStr);
+
+		} else if(type == 'M') {
+			// move
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
+				alert('폴더로 이동할 내용을 선택해 주세요.');
+				return;
+			}
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length > 100 ) {
+				alert('폴더로 이동할 내용은 최대 100개 입니다.')
+				return;
+			}
+
+			if ( $('#move_exists_folder_id').find('input[type=checkbox]:checked').length == 0) {
+				alert('이동할 폴더를 선택해 주세요.');
+				return;
+			}
+			if ( $('#move_exists_folder_id').find('input[type=checkbox]:checked').length > 10) {
+				alert('이동할 폴더는 최대 10개입니다.');
+				return;
+			}
+
+			if ( confirm('선택한 내용을 폴더로 이동 하시겠습니까?') ) {
+				var attnDtlcSeqStr = $('div.mylike_grid_container').find('input[type=checkbox]:checked').parents('li').map(function(){return $(this).attr('data-attnDtlcSeq')}).get().join(",");
+				moveMbrAttnGrpDtlc(attnDtlcSeqStr);
+			}
+
+		}
+	}
+	
+	
+	function deleteContents(attnDtlcSeqStr) {
+		/* var params = {
+			'attnDivCd': '10',
+			'attnDtlcSeqStr' : attnDtlcSeqStr,
+			'mbrAttnGrpSeq' : '0'
+		}; */
+		var params = {};
+		$.each(attnDtlcSeqStr, function (index,element) {			
+                 var key = "productid"+index  // 'data-' 부분 제거
+                 var value = element.getAttribute("data-tgt-idnf1");
+                 params[key] = value;             
+		}); 
+			 
+			/* element.getAttribute("data-tgt-idnf1")); */
+			
+		$.ajax({
+			type: "POST",
+			dataType:"json",
+			url: "<%=contextPath%>/like/likeCancel.do",// 경로
+			data : JSON.stringify(params),
+			cache: false,
+			success: function(result){
+				if (result.result == 'Success'){
+					alert('삭제가 완료되었습니다.');
+					window.location.reload(true);
+				} else {
+					alert('삭제가 실패했습니다.');
+				}
+				
+				
+			},
+			error : function(){
+				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
+			}
+			
+		});
+		/* $.ajax({
+			type: "POST",
+			dataType: "json",
+			url: url,
+      cache: false,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      contentType: "application/josn",
+      crossDomain: true,
+      xhrFields: {
+        withCredentials: true
+      },
+      dataType: "json",
+      method: 'post',
+      cors: true,
+			data: JSON.stringify(params),
+			async: false,
+			success: function(result){
+				//alert('선택한 상품을' + result.resultMsg);
+				alert('삭제가 완료되었습니다.');
+				window.location.reload(true);
+			},
+			error : function(){
+				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
+			}
+		}); */
+	} 
+	
+	
 	$(function() {
 		if('11' > 0) {
 			$('#mng_none_folder_id').hide();
@@ -3849,10 +3988,89 @@ function addLike(productid) {
 			};
 		}();
 		oMyLikeFolderSlider.init();
+		
+		 var popupW = 450;
+		  var popupH = 400;
+		  var left = Math.ceil((window.screen.width - popupW)/2);
+		  var top = Math.ceil((window.screen.height - popupH)/2);
+		$('#list_floder_add').on('click', function () {
+			var left = Math.ceil((window.screen.width - popupW)/2);
+			  var top = Math.ceil((window.screen.height - popupH)/2);
+			$.blockUI({message:'<div class="blockUI blockOverlay" id="blockasdf" style="z-index: 3000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; cursor: pointer; background-color: rgb(0, 0, 0); opacity: 0.6; position: fixed;"></div> '
+			+ `<div class="blockUI blockMsg blockPage" style="z-index: 3011; position: fixed; background-color: rgb(255, 255, 255); top: \${top}px; left: \${left}px;"><div class="mylike_laysec" id="mylikeNewFolder" role="dialog" aria-modal="true" style="cursor: default; display: block;" tabindex="0"> `
+			+ '<div class="mylike_lay_header"> '
+			+ '<h2 class="mylike_lay_tit">새 폴더</h2> '
+		+'</div> '
+		+ '<div class="mylike_lay_contents">'
+			+'<div class="mylike_manage_makefolder">'
+				+'<p class="mylike_lay_ctext">폴더를 추가하여 좋아요를 내맘대로 관리해보세요!</p>'
+				+'<div class="mylike_lay_input"><input type="text" id="mylikeNew" name="mbrAttnGrpNm" value="" placeholder="폴더명을 입력해주세요." maxlength="6" title="폴더명" class="translated"><span class="trans_placeholder blind" data-default-txt="폴더명을 입력해주세요.">폴더명을 입력해주세요.</span><span class="mylike_lay_max">0 / 6</span></div>'
+				+'<div class="mylike_lay_btnbox">'
+					+'<button type="button" id="mylikeNew_btn" class="mylike_lay_make" disabled="disabled">만들기</button>'
+				+'</div>'
+			+'</div>'
+		+'</div>'
+		+'<button type="button" class="mylike_lay_close" id="myLikeNewClose"><span class="blind">닫기</span></button>'
+	+'</div></div>' });
+			
+			// 닫는 친구들 
+			$('#myLikeNewClose').on('click',function () {
+				$.unblockUI();
+			});
+			
+			$('#blockasdf').on('click',function () {
+				$.unblockUI();
+			});
+			$('#mylikeNew').on('change',function () {
+				let context = $('.mylike_lay_max').html();
+				console.log(context);
+			});
+			
+		 	$('#mylikeNew').on('keyup',function () {		
+				let context = $(this).val();
+				$('.mylike_lay_max').html(`\${context.length} / 6`);
+				if(context) {
+					$('#mylikeNew_btn').prop('disabled', false);					
+				}
+			});
+		 	
+			// 추가하는 코딩 
+			$('#mylikeNew_btn').on('click', function () {
+				$.ajax({
+					url: '<%=contextPath%>/like/folder.do',
+			        dataType: 'json',
+			        type: 'GET',
+			        data: { "folderName" : $('#mylikeNew').val()}, 
+			        cache: false,
+			        success: function (data) {
+			        	if (data) {
+			        		alert('kk');
+			        	}
+			        },
+			        error: function (xhr, status, error) {
 
+			        }
+				});
+			}); 
+			
+		});
+		
+		
 
 		// 전체선택
-		var oClipCheckbox = (function(){
+		$('#checkAll').on('click', function () {
+			let chk = $('#checkAll').is(":checked");		
+			if ( chk ){
+				// 전체 선택 
+				$('._mylike_chk_item input:checkbox').prop('checked',true);
+			} else {
+				// 전체 선택 해제 
+				$('._mylike_chk_item input:checkbox').prop('checked',false);
+			}			
+		});
+		
+		
+		/* var oClipCheckbox = (function(){
 			var welAllSelect = $('#checkAll');
 			var sClipCheboxSelector = '._mylike_chk_item input:checkbox';
 
@@ -3899,7 +4117,7 @@ function addLike(productid) {
 				init: init
 			};
 		}());
-		oClipCheckbox.init();
+		oClipCheckbox.init(); */
 
 		// folder layer popup
 		var oSsgMyLikeLayerPopup = new ssg.View.layerPopup({
@@ -3961,6 +4179,7 @@ function addLike(productid) {
 		});
 
 	});
+	
 
 </script>
 

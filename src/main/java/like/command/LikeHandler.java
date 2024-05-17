@@ -1,4 +1,4 @@
-package member.command;
+package like.command;
 
 import java.sql.Connection;
 
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpSession;
 import com.util.ConnectionProvider;
 
 import controller.CommandHandler;
-import member.persistence.MemberDAO;
-import member.persistence.MemberDAOImpl;
-import member.service.LikeService;
+import like.persistence.LikeDAO;
+import like.persistence.LikeDAOImpl;
+import like.service.LikeService;
 
 public class LikeHandler implements CommandHandler {
 
@@ -35,7 +35,7 @@ public class LikeHandler implements CommandHandler {
 		String productId = request.getParameter("productid");
 		String status = request.getParameter("status");
 		Connection conn = ConnectionProvider.getConnection();
-		MemberDAO dao = new MemberDAOImpl(conn);
+		LikeDAO dao = new LikeDAOImpl(conn);
 		LikeService service = new LikeService(dao);
 		int rowCount = 0 ;
 		String resultJson = "{\"result\":";
