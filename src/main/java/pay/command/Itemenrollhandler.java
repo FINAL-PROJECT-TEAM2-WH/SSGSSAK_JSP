@@ -77,7 +77,7 @@ public class Itemenrollhandler implements CommandHandler {
 				if (part.getHeader("Content-Disposition").contains("filename=")) {
 					 if(part.getName().equals("file1")){
 						   UUID uuid = UUID.randomUUID();
-			               String filename = part.getSubmittedFileName();
+			               String filename = uuid+part.getSubmittedFileName();
 			               String realpath = request.getRealPath("/pay/image/" + filename);
 			               System.out.println(">>>> "  + realpath);
 			               if (part.getSize() > 0) {
@@ -88,7 +88,7 @@ public class Itemenrollhandler implements CommandHandler {
 
 					 }else{  
 						   UUID uuid = UUID.randomUUID();
-			               String filename = part.getSubmittedFileName();
+			               String filename = uuid+part.getSubmittedFileName();
 			               String realpath = request.getRealPath("/pay/image/" + filename);
 			              
 			               if (part.getSize() > 0) {
@@ -100,7 +100,7 @@ public class Itemenrollhandler implements CommandHandler {
 			            }
 				} 
 			 }
-			 //
+			 
 			conn.close();
 			response.sendRedirect(request.getRequestURI());
 			return null;
