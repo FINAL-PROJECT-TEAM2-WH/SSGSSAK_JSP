@@ -24,7 +24,7 @@
 
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_component.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/m_ssg/css/ssg_component.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424" /> 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -3820,7 +3820,7 @@ function addLike(productid) {
 		$.ajax({
 			type: "POST",
 			dataType:"json",
-			url: "<%=contextPath%>/like/likeCancel.do",// 경로
+			url: "<%=contextPath%>/like/likeCancel.do",  // 경로
 			data : JSON.stringify(params),
 			cache: false,
 			success: function(result){
@@ -3829,9 +3829,7 @@ function addLike(productid) {
 					window.location.reload(true);
 				} else {
 					alert('삭제가 실패했습니다.');
-				}
-				
-				
+				}			
 			},
 			error : function(){
 				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
@@ -4044,7 +4042,15 @@ function addLike(productid) {
 			        cache: false,
 			        success: function (data) {
 			        	if (data) {
-			        		alert('kk');
+			        		  $.ajax({
+			        			url:'<%=contextPath%>/like/folder.do',
+			        			dataType:'json',
+			        			 type: 'POST',
+			        			 cache:false,
+			        			 success : function (data){
+			        				 // 새로고침하는 데이터 갖고와서 뿌려줘야됨 
+			        			 } 
+			        		});  
 			        	}
 			        },
 			        error: function (xhr, status, error) {
