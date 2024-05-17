@@ -1293,7 +1293,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					<tr style="height: 100px;">
 						<td> <img src="${items.imgurl}" alt="" style="width: 70px; height: auto;" /></td>
 						<td>${items.brand } <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } </td>
-						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/><f:formatNumber value="${items.price}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
+						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/><f:formatNumber value="${(items.price * (1 - items.specialp/100))*items.quantity}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" id="quantity"${count} >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
 						</tr>
 					
 					</c:forEach>
@@ -1403,7 +1403,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 											상품가 <span  id="productamounts">
 											<c:set value="0" var="totalprice"></c:set>
 										   <c:forEach begin="0" end="${al.size() }" items="${al}" var="items">
-											<c:set var="totalprice" value="${totalprice+items.price}"></c:set>
+											<c:set var="totalprice" value="${totalprice+(items.price * (1 - items.specialp/100)*items.quantity)}"></c:set>
 										  </c:forEach>
 										  <f:formatNumber value="${totalprice}" type="number" pattern="#,##0" ></f:formatNumber>
 											</span><span class="ssg_tx">원</span>
