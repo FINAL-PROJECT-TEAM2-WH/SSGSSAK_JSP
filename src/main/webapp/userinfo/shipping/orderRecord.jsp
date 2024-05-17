@@ -3,12 +3,16 @@
 <%
 	HttpSession hsession = request.getSession(false);
 	String mid = (String) hsession.getAttribute("auth");
+	//System.out.println(request.getParameter("olist"));
+	//System.out.println(request.getParameter("dlist"));
+	
 %>
 <!doctype html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
 <head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>MY SSG> 주문관리> 주문배송조회, 믿고 사는 즐거움 SSG.COM</title>
@@ -490,201 +494,7 @@
     }
 </script>
 
-		<div class="cmmyssg_aside react-area">
-			<ul class="cmmyssg_snb" data-react-tarea-cd="00034_000000005">
-				<li class="cmmyssg_snb_item"><strong class="cmmyssg_snb_tit">나의
-						주문관리</strong>
-					<ul class="cmmyssg_snb_sublst">
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"주문/배송조회"}]'><a
-							href="https://pay.ssg.com/myssg/orderList.ssg?menu=orderList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">주문/배송조회</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"여행예약조회"}]'><a
-							href="https://triip.ssg.com/hotel/myssg/rsvtList.ssg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">여행예약 조회</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"구매내역"}]'><a
-							href="http://www.ssg.com/myssg/productMng/purchaseList.ssg?menu=purchaseList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">구매 내역</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"자주구매상품"}]'><a
-							href="http://www.ssg.com/myssg/productMng/frequentlyOrderItem.ssg?menu=frequentlyOrderItem"
-							class="clickable" data-react-tarea-dtl-cd="t00058">자주구매 상품</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"정기배송설정관리"}]'><a
-							href="https://pay.ssg.com/myssg/perdc-shpp-mng.ssg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">정기배송 설정 관리</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"영수증통합조회"}]'><a
-							href="https://pay.ssg.com/myssg/orderEvidInfo.ssg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">영수증 통합 조회</a></li>
-					</ul></li>
-				<li class="cmmyssg_snb_item"><strong class="cmmyssg_snb_tit">나의
-						혜택관리</strong>
-					<ul class="cmmyssg_snb_sublst">
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"쿠폰"}]'><a
-							href="http://www.ssg.com/myssg/moneyMng/memberCpnOwnList.ssg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">쿠폰</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"SSGMONEY"}]'><a
-							href="https://member.ssg.com/myssg/ssgmoneyMng/ssgmoneySavedList.ssg?menu=smoneySavedList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">SSG MONEY</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"신세계포인트"}]'><a
-							href="https://member.ssg.com/myssg/moneyMng/spointDetailList.ssg?menu=spointDetailList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">신세계 포인트</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"미식MONEY"}]'><a
-							href="https://member.ssg.com/myssg/moneyMng/pinmoneySavedList.ssg?menu=pinmoneySavedList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">미식 MONEY</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"맘키즈클럽관리"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/manageBenefit.ssg?menu=manageBenefit"
-							class="clickable" data-react-tarea-dtl-cd="t00058">맘키즈 클럽 관리</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"SSGVOUCHER"}]'><a
-							href="https://member.ssg.com/myssg/moneyMng/ssgVoucherSavedList.ssg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">SSG
-								VOUCHER</a></li>
-					</ul></li>
-				<li class="cmmyssg_snb_item"><strong class="cmmyssg_snb_tit">나의
-						활동관리</strong>
-					<ul class="cmmyssg_snb_sublst">
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"좋아요"}]'><a
-							href="http://www.ssg.com/myssg/myClip/main.ssg?attnDivCd=10&menu=myclip"
-							class="clickable" data-react-tarea-dtl-cd="t00058">좋아요</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"상품리뷰"}]'><a
-							href="http://www.ssg.com/myssg/activityMng/pdtEvalList.ssg?quick=pdtEvalList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">상품 리뷰</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"새벽배송알비백관리"}]'><a
-							href="https://pay.ssg.com/myssg/orderInfoCoolerBagInfo.ssg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">새벽배송 알비백
-								관리</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"이벤트참여현황"}]'><a
-							href="http://www.ssg.com/myssg/activityMng/eventEntryStatusList.ssg?menu=eventEntryStatusList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">이벤트 참여현황</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"상품Q&amp;A"}]'><a
-							href="http://www.ssg.com/myssg/activityMng/postngQna.ssg?menu=postngQna"
-							class="clickable" data-react-tarea-dtl-cd="t00058">상품 Q&amp;A</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"입고알림내역"}]'><a
-							href="http://www.ssg.com/myssg/activityMng/itemNotiList.ssg?menu=itemNotiList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">입고알림 내역</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"우르르앵콜내역"}]'><a
-							href="http://www.ssg.com/myssg/activityMng/urrEncoreList.ssg?menu=urrEncoreList"
-							class="clickable" data-react-tarea-dtl-cd="t00058">우르르 앵콜내역</a></li>
-					</ul></li>
-				<li class="cmmyssg_snb_item"><strong class="cmmyssg_snb_tit">나의
-						정보관리</strong>
-					<ul class="cmmyssg_snb_sublst">
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"회원정보변경"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/password.ssg?menu=password"
-							class="clickable" data-react-tarea-dtl-cd="t00058">회원정보 변경</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"비밀번호변경"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/changePwd.ssg?menu=changePwd"
-							class="clickable" data-react-tarea-dtl-cd="t00058">비밀번호 변경</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"배송지관리"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/shpplocNacctMng.ssg?menu=shpplocNacctMng"
-							class="clickable" data-react-tarea-dtl-cd="t00058">배송지 관리</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"맞춤정보관리"}]'><a
-							href="http://www.ssg.com/myssg/activityMng/custFitInfoReg.ssg?menu=custFitInfoReg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">맞춤정보 관리</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"마케팅정보수신동의"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/infoRcvAgree.ssg?menu=infoRcvAgree"
-							class="clickable" data-react-tarea-dtl-cd="t00058">마케팅 정보 수신
-								동의</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"개인정보제3자제공동의"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/infoUtlAgree.ssg?menu=infoUtlAgree"
-							class="clickable" data-react-tarea-dtl-cd="t00058">개인정보 제3자
-								제공 동의</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"제휴멤버십관리"}]'><a
-							href="https://member.ssg.com/myssg/alln/membership.ssg"
-							class="clickable" data-react-tarea-dtl-cd="t00058">제휴 멤버십 관리</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"로그인정보관리"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/manageLoginInfo.ssg?menu=manageLoginInfo"
-							class="clickable" data-react-tarea-dtl-cd="t00058">로그인 정보 관리</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"SNS연결설정"}'><a
-							href="https://member.ssg.com/myssg/myinfoMng/snsConnSetting.ssg?menu=sns"
-							class="clickable" data-react-tarea-dtl-cd="t00058">SNS 연결 설정</a></li>
-						<li class="cmmyssg_snb_subitem" data-react-unit-type="text"
-							data-react-unit-id=""
-							data-react-unit-text='[{"type":"text","value":"회원탈퇴"}]'><a
-							href="https://member.ssg.com/myssg/myinfoMng/memberSecession.ssg?menu=memberSecession"
-							class="clickable" data-react-tarea-dtl-cd="t00058">회원 탈퇴</a></li>
-					</ul></li>
-			</ul>
-			<ul class="cmmyssg_quick" data-react-tarea-cd="00034_000000005">
-				<li class="cmmyssg_quick_item" data-react-unit-type="text"
-					data-react-unit-id=""
-					data-react-unit-text='[{"type":"text","value":"MY선물함"}]'><a
-					href="https://pay.ssg.com/giftOrder/receiver/orderInfo.ssg"
-					class="clickable" data-react-tarea-dtl-cd="t00058"><i
-						class="icon ty_md icon_gift"></i>MY 선물함</a></li>
-				<li class="cmmyssg_quick_item" data-react-unit-type="text"
-					data-react-unit-id=""
-					data-react-unit-text='[{"type":"text","value":"이메일상담"}]'><a
-					href="http://www.ssg.com/customer/counselForm.ssg"
-					class="clickable" data-react-tarea-dtl-cd="t00058"><i
-						class="icon ty_md icon_paper_pencil"></i>이메일 상담</a></li>
-				<li class="cmmyssg_quick_item" data-react-unit-type="text"
-					data-react-unit-id=""
-					data-react-unit-text='[{"type":"text","value":"이메일답변확인"}]'><a
-					href="http://www.ssg.com/myssg/activityMng/counselList.ssg?menu=counselList"
-					class="clickable" data-react-tarea-dtl-cd="t00058"><i
-						class="icon ty_md icon_envelope"></i>이메일 답변확인</a></li>
-				<li class="cmmyssg_quick_item" data-react-unit-type="text"
-					data-react-unit-id=""
-					data-react-unit-text='[{"type":"text","value":"1:1고객센터톡"}]'><a
-					href="javascript:moveCsbot('https://talk.ssg.com/webchat/?gateType=cs&siteNo=6005');"
-					class="clickable" data-react-tarea-dtl-cd="t00058"><i
-						class="icon ty_md icon_chat_individual"></i>1:1 고객센터톡</a></li>
-			</ul>
-		</div>
+		<%@ include file="../sideBanner.jsp" %>
 		<script type="text/javascript"
 			src="https://sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" defer="defer">
@@ -978,37 +788,23 @@
 </script>
 			<!-- 명절 선물 세트 대량 구매 -->
 			<!-- //새벽배송 보냉백 관리 -->
-			<c:if test="${ !empty dlist }">
-				<c:forEach items="${ dlist }" var="date">
-					<div><h3>${ date.orderdate }</h3></div>
-					
-				</c:forEach>
-			</c:if>
-			<c:if test="${ not empty olist }">
-				<c:forEach items="${ olist }" var="order">
-					<h3>${ order }</h3>
-				</c:forEach>
-			</c:if>
-			<div class="codr_odrdeliv" name="divOrordUnit">
+			<c:if test="${ !empty dhm }">
+				<c:forEach items="${ dhm }" var="entry">
+				<div class="codr_odrdeliv" name="divOrordUnit">
 				<input type="hidden" name="orordNo" value="2024041502F004" />
 				<dl class="codr_odrdeliv_head">
 					<dt>
-						<span class="codr_odrdeliv_odrdate notranslate">주문날짜 넣기</span>
+						<span class="codr_odrdeliv_odrdate notranslate">${ entry.key }</span>
 						<span class="codr_odrdeliv_odrnum"> <em>주문번호</em>
-							주문날짜 + 주문번호
+							${ entry.value }
 						</span>
-						<button class="codr_btn_txgray" name="btn_ordInfoDetail"
-							data-orord-no="2024041502F004">
+						<button class="codr_btn_txgray" onclick="orderDetail(this)" value="${ entry.value }">
 							상세보기<span class="codr_sp codr_ico_arr"></span>
 						</button>
 					</dt>
 					<dd>
-						<button type="button" class="codr_btn_odrhide codr_sticky_close"
-							name="btnDeleteOrderInfo" data-orord-no="2024041502F004"
-							data-page-name="orderInfo">
-							<span>주문내역 삭제</span>
-						</button>
-						<span class="codr_bar"></span>
+						<button type="button" style="maring-right: 10px;" onclick="orderDelete(this)" value="${ entry.value }"><span>주문내역 삭제</span></button>
+					<span class="codr_bar" style="margin-left: 10px;"></span>
 						<button type="button" class="codr_btn_tx" name="btnDigitalReceipt"
 							data-orord-no="2024041502F004">
 							<span>전자영수증</span>
@@ -1053,7 +849,6 @@
 
 										상품준비중
 										<div class="tx_detail">
-											<span>몇일날 출발한다??</span>에 배송 메시지
 										</div>
 									</div>
 								</div>
@@ -1102,9 +897,10 @@
 						<div class="ssg-layer-popup codr_lypop codr_lypop_shopinfo"
 							id="codr_lypop_shopinfo"></div>
 						<!-- 알비백 Notice -->
-						
-						<!-- 여기부터 상품 1개 -->
-						<div class="codr_unit ty_thmb">
+						<c:if test="${ !empty olist }">
+						<c:forEach items="${ olist }" var="orderDto">	
+							<c:if test="${ entry.key eq orderDto.orderdate }">
+								<div class="codr_unit ty_thmb" style="display: inline-block; margin-left: 10px;">
 							<div class="codr_unit_area">
 								<a href="http://www.ssg.com/item/itemView.ssg?itemId=1000017659761&siteNo=6001&salestrNo=2022"
 									target="_blank">
@@ -1112,8 +908,8 @@
 										<input type="hidden" id="ordItemGrp__ForceShppcstBdnMainCd"
 											value="XX" /> <span class="codr_unit_img" aria-hidden="true">
 											<img
-											src="https://sitem.ssgcdn.com/61/97/65/item/1000017659761_i1_100.jpg"
-											srcset="https://sitem.ssgcdn.com/61/97/65/item/1000017659761_i1_200.jpg 2x"
+											src="${ orderDto.imgurl }"
+											srcset="${ orderDto.imgurl }"
 											alt="상품이미지"
 											onerror="javascript:this.src='https://sui.ssgcdn.com/ui/sd/img/common/noImg_100.gif';this.alt='상품 이미지 준비중입니다.';" />
 										</span>
@@ -1125,26 +921,36 @@
 										<a
 											href="http://www.ssg.com/item/itemView.ssg?itemId=1000017659761&siteNo=6001&salestrNo=2022"
 											target="_blank"> <span class="codr_unit_name">
-												상품 이름</span>
+												${ orderDto.pdname }</span>
 										</a>
 									</p>
 								</div>
 								<div class="codr_unit_pricewrap">
 									<div class="codr_unit_newprice notranslate">
-										<span class="blind">판매가격</span><em
-											class="ssg_price notranslate">상품가격 얼마인지</em><span class="ssg_tx">원</span>
+										<span class="blind">${ orderDto.optionprice }</span><em
+											class="ssg_price notranslate">${ orderDto.optionprice }</em><span class="ssg_tx">원</span>
 									</div>
 									<span class="codr_unit_dot"></span> <span
 										class="codr_unit_count"> <strong class="blind">상품수량</strong>
-										<em class="num notranslate"> 몇개 구매??</em><span class="notranslate">개</span>
+										<em class="num notranslate"> ${ orderDto.quantity }</em><span class="notranslate">개</span>
 									</span>
 								</div>
 							</div>
 						</div>
-						<!-- 여기까지 상품 1개 -->
+							</c:if>
+						</c:forEach>	
+					</c:if>
 					</div>
 				</div>
 			</div>
+				</c:forEach>
+			</c:if>
+			
+						
+						<!-- 여기부터 상품 1개 -->
+						
+						<!-- 여기까지 상품 1개 -->
+		
 			<div class="codr_cont_sec">
 				<div class="codr_contit ty_underline">
 					<h3 class="codr_contit_tx">주문에 불편함이 있으신가요?</h3>
@@ -1246,7 +1052,27 @@
 
 		<input type="hidden" id="logPageName" value="orderInfo" /> <input
 			type="hidden" id="clmRcpMthdCd" value="" />
-
+<script>
+	function orderDelete(button){
+		//alert("삭제버튼");
+		var value = button.value;
+		var isConfirmed = confirm("정말로 이 주문을 삭제하시겠습니까?");
+		
+		  if (isConfirmed) {
+			  location.href = `<%= request.getContextPath() %>/OrderRecordDelete.do?orderId=`+value;
+			  alert("주문 삭제 완료");
+		  }else{
+			  console.log("주문 삭제 취소");
+		  }
+	}
+	
+	function orderDetail(button){
+		//alert('상세보기 버튼');
+		let orderId = button.value;
+		alert(orderId);
+		location.href = `<%= request.getContextPath() %>/orderDetail.do?orderId=`+orderId;
+	}
+</script>
 		<script type="text/javascript"
 			src="https://sui.ssgcdn.com/ui/pay/js/tools/jquery/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript"
@@ -1374,37 +1200,7 @@ function googleTranslateElementInit() {
 		<script type="text/javascript"
 			src="https://sui.ssgcdn.com/ui/pay/js/pay/myssg/ClaimAlertLogUtil.js?v=202405070135"></script>
 		<script type="text/javascript">
-            $(document).ready(orderInfoPageInit);
-            $(window).load(function() {
-                if ($("#frontExpsrYn").val() == "N"){
-                    alert("주문내역을 조회할 수 없습니다. 고객센터로 문의해주세요.", "i18n_clm_fail_inquiry_orderList");
-                    if ( document.referrer ) {
-                        history.back();
-                    }
-                    else {
-                        orderInfoModel.link_주문조회();
-                    }
-                }
-                var agent = navigator.userAgent.toLowerCase();
-                var name = navigator.appName;
-                if(name === 'Microsoft Internet Explorer' || agent.indexOf('trident') > -1 || agent.indexOf('edge/') > -1) {
-                    if (!navigator.msSaveBlob){
-                        $('div.status_save').find('a').hide();
-                    }
-                }
-
-                const oMultiSelectLayerPopup = new ssg.View.layerPopup({
-                    sTarget: '.modal-alert-btn', // 레이어 팝업 보기 버튼
-                    sClose: '.modal-close-btn', // 레이어 팝업 닫기 버튼
-                    htDefault: {
-                        css: {
-                            backgroundColor: 'none'
-                        },
-                        blockMsgClass: 'blockPopupCenter'
-                    },
-                    sNamespaceEmit: '.ssgMnodrLayer'
-                });
-            });
+            $(document).ready(orderInfoPageInit);         
         </script>
 	</div>
 	<div id="layerPopupWrapDiv" class="tip_wrap"

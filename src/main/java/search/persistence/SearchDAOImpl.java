@@ -92,7 +92,7 @@ public class SearchDAOImpl implements SearchDAO {
 				+ "  ORDER BY c.\"date\" DESC, c.rank "
 				+ " ) "
 				+ " WHERE num <= 20 ";
-		//System.out.println(sql);
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

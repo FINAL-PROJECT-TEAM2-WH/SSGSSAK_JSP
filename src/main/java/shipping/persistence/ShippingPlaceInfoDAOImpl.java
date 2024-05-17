@@ -5,12 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.LinkedHashMap;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
 import member.domain.PageDTO;
+import shipping.domain.OrderDetailVO;
 import shipping.domain.OrderRecordVO;
 import shipping.domain.ShippingPlaceInfoDTO;
 
@@ -492,8 +493,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 					
 					ShippingPlaceInfoDAOImpl dao = new ShippingPlaceInfoDAOImpl().getInstance();
 					imgurl = dao.imgurlSelect(conn, productid);
-					
-					
 					ovo = new OrderRecordVO().builder()
 							.pdname(pdname)
 							.poptionid(poptionid)
@@ -507,10 +506,11 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 							.build();
 					
 					olist.add(ovo);
+					//System.out.println("imgurl : " +imgurl);
 					
 				} while (rs.next());
 			}
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("OrderRecord(주문기록 리스트) DAO에서 오류~");
@@ -551,27 +551,33 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 	}
 
 	@Override
-	public ArrayList<String> orderDateList(Connection conn, String memid) throws Exception {
+	public LinkedHashMap<String, String> orderDateList(Connection conn, String memid) throws Exception {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		ArrayList<String> dlist = null;
+		LinkedHashMap<String, String> dhm = null;
 		String orderDate = null;
-		
+		String orderIdStr = null;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 		String sql = " SELECT DISTINCT orderdate "
 				+ " FROM payrecord "
 				+ " WHERE memid = ? "
 				+ " ORDER BY orderdate DESC ";
+		// 주문날짜 + 주문번호 같이 담아야한다. 맵형태로 담을까??
+		// 주문날짜 subString 사용해서 2024-05-16 까지만 자르기
+		// 해당 주문번호에 해당하는 배송 어떤건지 ??
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memid);
 			rs = pstmt.executeQuery();
 			if( rs.next() ) {
-				dlist = new ArrayList<String>();
+				dhm = new LinkedHashMap<String, String>();
 				
 				do {					
 					orderDate = rs.getString("orderdate");
-					dlist.add(orderDate);
+					//System.out.println("orderDate : "+orderDate);
+					orderIdStr = dao.orderIdStr(conn, memid, orderDate);
+					dhm.put(orderDate, orderIdStr);
 				} while (rs.next());
 			}
 		} catch (Exception e) {
@@ -582,7 +588,266 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 			JdbcUtil.close(pstmt);
 		}
 
-		return dlist;
+		return dhm;
+	}
+	
+	public String orderIdStr(Connection conn, String memid, String orderDate) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String orderIdStr = "";
+		String sql = "SELECT py.id id, py.orderdate "
+				+ " FROM paydetail pd JOIN payrecord py ON pd.id2 = py.id "
+				+ " WHERE TO_CHAR( orderdate, 'yyyy-mm-dd hh24:mi:ss') = ? AND py.memid = ?  " ;
+		
+		//System.out.println(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, orderDate);
+			pstmt.setString(2, memid);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) {
+				
+				do {
+					orderIdStr += rs.getString("id")+"/";
+				} while (rs.next());
+			}
+			if(orderIdStr.endsWith("/")) {
+				orderIdStr = orderIdStr.substring(0, orderIdStr.length()-1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderIdStr 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return orderIdStr;
+	}
+
+	@Override
+	public int[] orderRecordDelete(Connection conn, String memid, long[] ids) throws Exception {
+		
+		PreparedStatement pstmt1 = null;
+		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
+		String sql = " DELETE FROM paydetail WHERE id2 = ?";
+		String sql2 = " DELETE FROM pointrecord WHERE id2 = ? ";
+		String sql3 = " DELETE FROM payrecord WHERE id = ? ";
+		int[] rowcounts = null;
+		
+		try {
+			pstmt1 = conn.prepareStatement(sql);
+			for (int i = 0; i < ids.length; i++) {
+				pstmt1.setLong(1, ids[i]);
+				pstmt1.addBatch();
+			}
+			
+			rowcounts = pstmt1.executeBatch();
+			
+			pstmt2 = conn.prepareStatement(sql2);
+			for (int i = 0; i < ids.length; i++) {
+				pstmt2.setLong(1, ids[i]);
+				pstmt2.addBatch();
+			}
+			
+			rowcounts = pstmt2.executeBatch();
+
+			pstmt3 = conn.prepareStatement(sql3);
+			for (int i = 0; i < ids.length; i++) {
+				pstmt3.setLong(1, ids[i]);
+				pstmt3.addBatch();
+			}
+			
+			rowcounts = pstmt3.executeBatch();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderRecordDelete 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(pstmt1);
+			JdbcUtil.close(pstmt2);
+			JdbcUtil.close(pstmt3);
+		}
+		return rowcounts;
+	}
+
+	@Override
+	public OrderDetailVO shippingDetailView(Connection conn, String memid, long[] ids) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		OrderDetailVO ovo = null;
+		long id = ids[0];
+		
+		String sInfoId;
+		String mname;
+		String phonenum;
+		String shippingmsg;
+		String shippingrequest;
+		String receiveposition;
+		String entrance;
+		String orderid;
+		String receivemem;
+		String roadaddress;
+		String detailaddress;
+		
+		String sql = " SELECT m.phonenum phonenum, m.name name, c1.* "
+				+ " FROM member m JOIN( "
+				+ " SELECT "
+				+ "    sf.id sinfoid, sf.shippingmsg, sf.shippingstate,  "
+				+ "    sf.shippingrequest, sf.receiveposition, sf.entrance, sf.orderid,  "
+				+ "    spf.memid, spf.receivemem, spf.roadaddress, spf.detailaddress "
+				+ " FROM shippinginformation sf JOIN shippingplaceinformation spf ON sf.shippingplaceid = spf.id) c1 "
+				+ " ON m.id = c1.memid "
+				+ " WHERE c1.orderid = ?"
+				+ " AND m.id = ? ";
+		
+		System.out.println("memid는 ??" + memid);
+		System.out.println("id는?? " + id);
+		System.out.println(sql);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setLong(1, id);
+			pstmt.setString(2, memid);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) {
+				sInfoId = rs.getString("sInfoId");
+				mname = rs.getString("name");
+				phonenum = rs.getString("phonenum");
+				shippingmsg = rs.getString("shippingmsg");
+				shippingrequest = rs.getString("shippingrequest");
+				receiveposition = rs.getString("receiveposition");
+				if( (entrance = rs.getString("entrance")) == null ) {
+					entrance = "";
+				}	
+				orderid = rs.getString("orderid");
+				receivemem = rs.getString("receivemem");
+				roadaddress = rs.getString("roadaddress");
+				detailaddress = rs.getString("detailaddress");
+				
+				
+				
+				ovo = new OrderDetailVO().builder()
+						.sInfoId(sInfoId)
+						.memid(memid)
+						.mname(mname)
+						.phonenum(phonenum)
+						.shippingmsg(shippingmsg)
+						.shippingrequest(shippingrequest)
+						.receiveposition(receiveposition)
+						.entrance(entrance)
+						.orderid(orderid)
+						.receivemem(receivemem)
+						.roadaddress(roadaddress)
+						.detailaddress(detailaddress)
+						.build();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("shippingDetailView DAO에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return ovo;
+	}
+
+	@Override
+	public ArrayList<OrderRecordVO> orderDetailList(Connection conn, String memid, long[] ids) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<OrderRecordVO> oList = null;
+		OrderRecordVO orvo = null;
+		
+		String pdname;
+		long poptionid;
+		long productid;
+		long optionprice;
+		String orderdate;
+		long payrecordid;
+		long quantity;
+		String imgurl;
+		
+		String sql = " SELECT sop.id shippingoptionid, sop.shippingoptionname, sop.defaultshippingfee, c3.productid,   "
+				+ " c3.pdname, c3.poptionid,  c3.optionprice, c3.orecordid, "
+				+ " c3.quantity, c3.memid, c3.pmethod, c3.orderamount, c3.orderdate "
+				+ " FROM shippingoption sop JOIN ( "
+				+ " SELECT pd.id productid, pd.shippingoptionid, pd.pdname, c2.poptionid, c2.memid,  c2.optionprice, c2.orecordid, c2.quantity, c2.pmethod, c2.orderamount, c2.orderdate  "
+				+ " FROM product pd JOIN ( "
+				+ " SELECT po.productid, po.id poptionid, po.optionprice, c1.orecordid, c1.memid, c1.quantity, c1.pmethod, c1.orderamount, c1.orderdate  "
+				+ " FROM productoption po JOIN ( "
+				+ " SELECT pt.id2 orecordId , pt.quantity quantity, pt.id3 poptionid, pr.memid, pr.pmethod pmethod, pr.orderamount, pr.orderdate    "
+				+ " FROM paydetail pt JOIN payrecord pr ON pt.id2 = pr.id ) c1 "
+				+ " ON po.id = c1.poptionid ) c2 "
+				+ " ON pd.id = c2.productid ) c3 "
+				+ " ON sop.id = c3.shippingoptionid  "
+				+ " WHERE c3.orecordid IN (";
+		// ( ?, ?, ? ) AND memid = ?"
+		if( ids.length == 1 ) {
+			sql += "?"+") AND memid = ?";
+		}else {
+			
+			for (int i = 0; i < ids.length; i++) {
+				if( i == ids.length-1 ) {
+					sql += " ? ";
+				}else {
+					sql += " ?, ";
+				}
+			}
+			sql += ") AND memid = ?";
+		}
+		System.out.println(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			for (int i = 0; i < ids.length; i++) {
+				pstmt.setLong(i+1, ids[i]);
+			}
+			pstmt.setString(ids.length+1, memid);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+				oList = new ArrayList<OrderRecordVO>();
+				
+				do {
+					 pdname = rs.getString("pdname");
+					 poptionid = rs.getLong("poptionid");
+					 productid = rs.getLong("productid");
+					 optionprice = rs.getLong("optionprice");
+					 orderdate = rs.getString("orderdate");
+					 payrecordid = rs.getLong("orecordid");
+					 quantity = rs.getLong("quantity");
+					 
+					 ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+					 imgurl = dao.imgurlSelect(conn, productid);
+					 
+					 orvo = new OrderRecordVO().builder()
+							 .pdname(pdname)
+							 .poptionid(poptionid)
+							 .productid(productid)
+							 .optionprice(optionprice)
+							 .orderdate(orderdate)
+							 .payrecordid(payrecordid)
+							 .quantity(quantity)
+							 .imgurl(imgurl)
+							 .build();
+					 
+					 oList.add(orvo);
+							 
+				} while (rs.next());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderDetailListDAO 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		return oList;
 	}
 	
 	

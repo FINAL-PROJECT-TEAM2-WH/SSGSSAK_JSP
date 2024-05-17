@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,12 +9,12 @@
 <body>
  <script>
 $("#cmmain_tab js_cmmain_tab clickable").on("click", function(){
-    //alert("click했다~~");
+   
     $.ajax({
        type: "POST",
        datatype : 'json',
       
-       url: contextPath + "/mainpage1.do",
+       url: contextPath + "/middleBanner2.do",
        data: datas,
        cache : false,
        contentType: "application/json; charset=utf-8",
@@ -33,4 +33,4 @@ $("#cmmain_tab js_cmmain_tab clickable").on("click", function(){
  
  </script>
 </body>
-</html>
+</html> --%>

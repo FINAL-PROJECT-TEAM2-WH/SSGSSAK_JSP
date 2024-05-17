@@ -1,6 +1,7 @@
 package shipping.command;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,18 +20,17 @@ public class OrderRecordHandler implements CommandHandler {
 		String memid = (String)hSession.getAttribute("auth");
 		String contextPath = request.getContextPath();
 		ArrayList<OrderRecordVO> olist = null;
-		ArrayList<String> dlist = null;
+		LinkedHashMap<String, String> dhm = null;
 		try {
 			ShippingPlaceInfoService service = ShippingPlaceInfoService.getInstance();
 			olist = service.orderRecordService(memid);
-			dlist = service.orderDateService(memid);
+			dhm = service.orderDateService(memid);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("OrderRecordHandler 메서드에서 오류~~");
-		}
-		
+		}	
 		request.setAttribute("olist", olist);
-		request.setAttribute("dlist", dlist);
+		request.setAttribute("dhm", dhm);
 		return "/userinfo/shipping/orderRecord.jsp";
 	}
 	

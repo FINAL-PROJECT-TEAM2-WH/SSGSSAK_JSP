@@ -5,18 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import review.domain.ReviewDTO;
+import review.domain.ReviewImgDTO;
 
 
 
-public interface ReviewDAO {
+public interface ReviewImgDAO {
 
-	List<ReviewDTO> select(long productcode) throws SQLException;
+	List<ReviewImgDTO> select(long productcode) throws SQLException;
 	
-	int insertReview(long productid,String memid,int productOptionId,String reviewContent,String reviewType,double grade ,int q1,int q2,int q3 ) throws SQLException;
 	
-	
-	int insertReviewImg(String reviewImgUrl) throws SQLException;
-//	
 //	// 1 - 2  게시글 목록 조회 + 페이징 처리 O
 //		ArrayList<ReviewDTO> select (int currentPage, int numberPerPage) throws SQLException ; 
 //	// 2. 게시글 쓰기 

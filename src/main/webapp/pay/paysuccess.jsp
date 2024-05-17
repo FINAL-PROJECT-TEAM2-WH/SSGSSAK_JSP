@@ -700,7 +700,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 												신용카드
 											
 										</div>
-										<div class="codr_payhistory_money"><em class="ssg_price">${al[0].orderamount} </em><span class="ssg_tx">원</span></div>
+										<div class="codr_payhistory_money"><em class="ssg_price">${al[0].orderamount+al[0].shipamount - al[0].usepoint}</em><span class="ssg_tx">원</span></div>
 									</div>
 									<div class="codr_payhistory_desc notranslate">
 										

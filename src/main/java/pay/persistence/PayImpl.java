@@ -1,5 +1,6 @@
 package pay.persistence;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.util.Date;
 
 import javax.naming.NamingException;
 
+import com.oreilly.servlet.MultipartRequest;
 import com.util.ConnectionProvider;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +19,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pay.domain.CartDTO;
 import pay.domain.CouponDTO;
+import pay.domain.EnrollDTO;
 import pay.domain.OrderedDTO;
 import pay.domain.ProductDTO;
 import pay.domain.ShippingDTO;
@@ -249,7 +252,6 @@ public class PayImpl implements PayDAO{
 		} finally {
 		
 			try {
-				rs.close();
 				pst.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -341,7 +343,7 @@ public class PayImpl implements PayDAO{
 		} finally {
 		
 			try {
-				rs.close();
+				
 				pst.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -738,11 +740,9 @@ public class PayImpl implements PayDAO{
 
 	@Override
 	public ArrayList<CartDTO> selectcartinfo(String id) {
-		String sql = "  select sc.id2 optionid , sc.scount , pi.imgurl ,ss.sellername, b.brandname , po.optionname , po.optionprice price, so.defaultshippingfee shipfee\r\n"
-				+ " \r\n"
-				+ " from shoppingcart sc , productimg pi , product p, brand b , sellerstore ss , productoption po , shippingoption so\r\n"
-				+ " where sc.memid = ? and sc.id2 = po.id and pi.productid = p.id and p.id = po.productid and b.id = p.brandid and ss.id = p.sellerstoreid and so.id = p.shippingoptionid  \r\n"
-				+ "	  " ;
+		String sql = " select sc.id2 optionid , sc.scount , pi.imgurl ,ss.sellername, b.brandname , po.optionname , po.optionprice price, so.defaultshippingfee shipfee	\r\n"
+				+ "     from shoppingcart sc , productimg pi , product p, brand b , sellerstore ss , productoption po , shippingoption so\r\n"
+				+ "			where sc.memid = ? and sc.id2 = po.id and pi.productid = p.id and pi.imgcontent = 'sum' and p.id = po.productid and b.id = p.brandid and ss.id = p.sellerstoreid and so.id = p.shippingoptionid " ;
 		ArrayList<CartDTO> al = new ArrayList<CartDTO>();
 		int optionid;
 		int scount ;
@@ -834,6 +834,329 @@ public class PayImpl implements PayDAO{
 		}
 		return result;
 	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectcateinfo() {
+		String sql = " select id cateid,majorcatename cate1 ,middlecatename cate2,subcatename cate3,minicatename cate4 from category ";
+		ArrayList<EnrollDTO> al = new ArrayList<>() ;
+		String cateid;
+		String cate1;
+		String cate2;
+		String cate3;
+		String cate4;
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+				cateid = rs.getString("cateid");
+				cate1 = rs.getString("cate1");
+				cate2 = rs.getString("cate2");
+				cate3 = rs.getString("cate3");
+				cate4 = rs.getString("cate4");
+				
+				EnrollDTO dto = EnrollDTO.builder().cateid(cateid).cate1(cate1).cate2(cate2).cate3(cate3).cate4(cate4).build();
+				al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectbrandinfo() {
+		String sql = " select id brandid , brandname from brand " ;
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		String brandid;
+		String brandname;
+		try {
+			pst = conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					brandid = rs.getString("brandid");
+					brandname = rs.getString("brandname");
+					
+					EnrollDTO dto = EnrollDTO.builder().brandid(brandid).brandname(brandname).build();
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectsellerinfo() {
+		String sql = " select id sellerid, sellername from sellerstore " ;
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		String sellerid;
+		String sellername;
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					sellerid = rs.getString("sellerid");
+					sellername = rs.getString("sellername");
+					EnrollDTO dto = EnrollDTO.builder().sellerid(sellerid).sellername(sellername).build();
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectspecialpinfo() {
+		String sql = " select id specialpid , spclnm ,  spclstrdt , spclprcendt ,spcldscnrt from specialprice ";
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		int specialpid;
+		String spclnm;
+		Date spclstrdt;
+		Date spclprcendt;
+		int spcldscnrt;
+		
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					specialpid = rs.getInt("specialpid");
+					spclnm = rs.getString("spclnm");
+					spclstrdt = rs.getDate("spclstrdt");
+					spclprcendt = rs.getDate("spclprcendt");
+					spcldscnrt = rs.getInt("spcldscnrt");
+					EnrollDTO dto = EnrollDTO.builder().specialpid(specialpid).spclnm(spclnm).spclstrdt(spclstrdt).spclprcendt(spclprcendt).spcldscnrt(spcldscnrt).build();
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public ArrayList<EnrollDTO> selectshipinfo() {
+		String sql = " select id shipid , shippingOptionName sname ,  defaultShippingFee dfee from shippingoption ";
+		ArrayList<EnrollDTO> al = new ArrayList<>();
+		int shipid;
+		String sname ;
+		String dfee ;
+		
+		try {
+			pst =conn.prepareStatement(sql);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				do {
+					shipid = rs.getInt("shipid");
+					sname = rs.getString("sname");
+					dfee = rs.getString("dfee");
+				
+					EnrollDTO dto = EnrollDTO.builder().shipid(shipid).sname(sname).dfee(dfee).build();
+							
+					al.add(dto);
+				} while (rs.next());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return al;
+	}
+
+	@Override
+	public int insertproducttable(String cateid, String brandid, String sellerid, int spp, int shipo, String productn,
+			String productex) {
+		String sql = " insert into product values ( product_id_seq.nextval , ? , ? , ? , ? , ? , ? , ? , sysdate ) ";
+		int result = 0 ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, cateid);
+			pst.setInt(2, spp);
+			pst.setInt(3, shipo);
+			pst.setString(4, sellerid);
+			pst.setString(5, brandid);
+			pst.setString(6, productn);
+			pst.setString(7, productex);
+			result = pst.executeUpdate();
+			
+			System.out.println(result +"성공?");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int insertproductoption(String optionname, String optiondes, int refoption, int optionprice,
+			int optionstock) {
+		String sql = " insert into productoption values ( productoption_id_seq.nextval , product_id_seq.currval , ? , ? , ?, ? ,? )  "; ;
+		int result = 0 ;
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, optionname);
+			pst.setString(2, optiondes);
+			pst.setInt(3, refoption);
+			pst.setInt(4 , optionprice);
+			pst.setInt(5, optionstock);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public int selectrefoptionid(String optionname) {
+		String sql2 = " select product_id_seq.currval seq from dual ";
+		long productseqcurrval = 0;
+		try {
+			pst = conn.prepareStatement(sql2);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				productseqcurrval = rs.getLong("seq");
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		String sql = " select id optionid from productoption where optionname = ? and productid = ? " ;
+		int optionid = 0 ;
+		try {
+			pst =conn.prepareStatement(sql);
+			pst.setString(1, optionname);
+			pst.setLong(2, productseqcurrval);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				optionid = rs.getInt("optionid");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return optionid;
+	}
+
+	@Override
+	public int insertproductimg(String realpath , String sum) {
+		String sql2 = " SELECT PRODUCT_ID_SEQ.currval seq FROM DUAL ";
+		long seqnum = 0 ;
+		try {
+			pst = conn.prepareStatement(sql2);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				seqnum = rs.getLong("seq");
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String sql = " insert into productimg values ( productimg_seq.nextval , ? , ? , ? ) ";
+		int result = 0 ;
+		realpath= realpath.split("webapps")[1];
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setLong(1, seqnum);
+			pst.setString(2, realpath);
+			pst.setString(3, sum);
+			result = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		return result;
+	}
+
+	
 
 
 
