@@ -2279,7 +2279,7 @@ $('#loginBtn_Full').on('click', function () {
 	        cache: false,
 	        success: function (data) {
 	            if (data) {
-	            	location.href=`\${contextPath}/mainPage.jsp`;             	
+	            	location.href=`\${contextPath}/main/mainPage/mainPage.jsp`;             	
 	            } else {
 	                alert('받은 데이터가 유효하지 않습니다.');
 	            }

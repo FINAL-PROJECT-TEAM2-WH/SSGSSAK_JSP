@@ -628,9 +628,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 		<div class="mylike_folder" id="mylike_folder_id">
 			<button type="button" class="mylike_folder_prev"><span class="blind">이전 폴더목록 보기</span></button>
 			<div class="mylike_folder_slider">
-				<ul class="mylike_folder_list" role="tablist" data-react-tarea-cd="00133_000000556">
-					
-					
+				<ul class="mylike_folder_list" role="tablist" data-react-tarea-cd="00133_000000556">									
 					<c:forEach var="folder" items="${folderList}" varStatus="status">
 					<c:choose>
 					<c:when test="${status.index == 0}">
@@ -649,58 +647,6 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 					</c:otherwise>
 					</c:choose>
 					</c:forEach>
-					
-					<!--
-					<li class="mylike_folder_item" role="presentation" id="list_folder_2">
-							<a href="" data-mbrAttnGrpSeq="2" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_2">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_3">
-							<a href="" data-mbrAttnGrpSeq="3" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_3">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_4">
-							<a href="" data-mbrAttnGrpSeq="4" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_4">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_5">
-							<a href="" data-mbrAttnGrpSeq="5" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_5">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_6">
-							<a href="" data-mbrAttnGrpSeq="6" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_6">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_7">
-							<a href="" data-mbrAttnGrpSeq="7" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_7">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_8">
-							<a href="" data-mbrAttnGrpSeq="8" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_8">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_9">
-							<a href="" data-mbrAttnGrpSeq="9" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_9">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_10">
-							<a href="" data-mbrAttnGrpSeq="10" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_10">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_11">
-							<a href="" data-mbrAttnGrpSeq="11" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_11">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li> -->
 						
 					<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"새폴더"}]'>
 						<a href="" data-mbrAttnGrpSeq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">
@@ -4042,6 +3988,7 @@ function addLike(productid) {
 			        cache: false,
 			        success: function (data) {
 			        	if (data) {
+			        		$.unblockUI();
 			        		  $.ajax({
 			        			url:'<%=contextPath%>/like/folder.do',
 			        			dataType:'json',
@@ -4049,9 +3996,33 @@ function addLike(productid) {
 			        			 cache:false,
 			        			 success : function (data){
 			        				 // 새로고침하는 데이터 갖고와서 뿌려줘야됨 
-			        			 } 
+			        				/*  $('.mylike_folder_list').empty(); */
+			        				
+			        				data.result.forEach(item => {
+			        				    console.log(item);
+			        				    
+			        				    <c:forEach var="folder" items="${folderList}" varStatus="status">
+			        					<c:choose>
+			        					<c:when test="${status.index == 0}">
+			        					<li class="mylike_folder_item" role="presentation" id="list_foler_all" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"전체보기"}]'>
+			        						<a href="" data-mbrAttnGrpSeq="0" class="mylike_folder_btn ty_all on clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|모아보기_클릭" role="tab" aria-selected="true" id="f_0">
+			        							<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">${folder}</em>
+			        						</a>
+			        					</li>
+			        					</c:when>
+			        					<c:otherwise>						
+			        					  <li class="mylike_folder_item" role="presentation" id="list_folder_${status.index}">
+			        							<a href="" data-mbrAttnGrpSeq="${status.index}" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_${status.index}">
+			        								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">${folder}</em>
+			        							</a>
+			        						</li>
+			        					</c:otherwise>
+			        					</c:choose>
+			        					</c:forEach>
+			        				});
+			        			}
 			        		});  
-			        	}
+			        	} 
 			        },
 			        error: function (xhr, status, error) {
 

@@ -53,8 +53,7 @@ public class LikeCancelHandler implements CommandHandler{
 				rowCount = service.cancelLike(productIdList, id);
 			} else {
 				
-			}
-			
+			}			
 			
 			if (rowCount >= 1) {
 				resultJson += "\"Success\"}";
