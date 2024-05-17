@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<%@include file="/Top.jsp" %>
 <head>
 <style>
 body {
@@ -24,7 +23,7 @@ form {
 	padding: 20px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	width: 50%;
+	width: 100%;
 	margin: auto;
 }
 

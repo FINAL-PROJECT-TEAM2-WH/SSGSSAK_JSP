@@ -98,7 +98,6 @@ public class ProductDAOImpl implements ProductDAO{
 		try {
 			JdbcUtil.close(rs); 
 			JdbcUtil.close(pstmt); 
-			JdbcUtil.close(conn);
 			
 		} catch (Exception e2) {
 			System.out.println("productDAO close error");
@@ -188,6 +187,7 @@ public class ProductDAOImpl implements ProductDAO{
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
+			JdbcUtil.close(conn);
 		}
 		
 		return null;

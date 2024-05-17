@@ -57,8 +57,7 @@ public class WriteHandler implements CommandHandler {
 
             ReviewDAOImpl dao = new ReviewDAOImpl(conn);
 
-            if (productId != null && memid != null && productOptionId != null && reviewContent != null &&
-                reviewType != null && grade != null && q1 != null && q2 != null && q3 != null) {
+
 
                 long prodId = Long.parseLong(productId);
                 int prodOptionId = Integer.parseInt(productOptionId);
@@ -80,11 +79,9 @@ public class WriteHandler implements CommandHandler {
                             part.write(realPath);
                             part.delete();
                         }
-                        dao.insertReviewImg(realPath);
+                        dao.insertReviewImg(fileName);
                     }
                 }
-            }
-
             JdbcUtil.close(conn);
             request.setAttribute("success", true);
             return "/review/review.jsp";
