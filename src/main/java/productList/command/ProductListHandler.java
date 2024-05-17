@@ -21,7 +21,7 @@ public class ProductListHandler implements CommandHandler{
 		System.out.println(request.getParameter("categoryId"));
 		String categoryId = request.getParameter("categoryId");
 		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		int numberPerPage = 4; // 페이지당 상품 수
+		int numberPerPage = 80; // 페이지당 상품 수
 
 		try {
 			ProductListService service = ProductListService.getInstance();
@@ -33,6 +33,7 @@ public class ProductListHandler implements CommandHandler{
 			request.setAttribute("productList", productList);
 			request.setAttribute("getProdCount", getProdCount);
 			request.setAttribute("selectCate", selectCate);
+			request.setAttribute("crtCateDto", selectCate.getCrtCateDto());
 			//			request.setAttribute("totalProdCount", totalProdCount);
 			//			request.setAttribute("totalPages", totalPages);
 

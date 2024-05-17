@@ -2657,80 +2657,94 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 				<!--  몰탭 광고 상품 비노출 처리 -->
 				<!-- 로케이션추가(s) -->
-				<div id="location" class="cate_location notranslate react-area">
-					<div class="lo_depth_01">
-						<a href="/" class="lo_menu clickable"
-							data-react-tarea="상품상세|카테고리 로케이션|사이트">SSG.COM</a> <span
-							class="lo_line">/</span>
-					</div>
+				
+				
+				<%@ include file="../productlist/catevar_prodVer.jsp" %>
+				
+				
+				
+				
+				
+				
+<!-- 				<div id="location" class="cate_location notranslate react-area"> -->
+<!-- 					<div class="lo_depth_01"> -->
+<!-- 						<a href="/" class="lo_menu clickable" -->
+<!-- 							data-react-tarea="상품상세|카테고리 로케이션|사이트">SSG.COM</a> <span -->
+<!-- 							class="lo_line">/</span> -->
+<!-- 					</div> -->
 
-					<div class="lo_depth_01">
-						<a href="/disp/category.ssg?ctgId=6000193712"
-							class="lo_menu lo_arr clickable"
-							data-react-tarea="상품상세|카테고리 로케이션|대카테고리">헤어케어</a>
-						<div id="lo_menu01" class="lo_depth_02 n2">
-							<ul>
-								<li><a href="/disp/category.ssg?ctgId=6000193710"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">스킨케어</a></li>
-								<li><a href="/disp/category.ssg?ctgId=6000193714"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">메이크업</a></li>
-								<li><a href="/disp/category.ssg?ctgId=6000193711"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">향수</a></li>
-								<li><a href="/disp/category.ssg?ctgId=6000193712"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리"
-									class="clickable  active">헤어케어</a></li>
-								<li><a href="/disp/category.ssg?ctgId=6000193713"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">바디케어</a></li>
-								<li><a href="/disp/category.ssg?ctgId=6000193716"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">미용기기/소품</a></li>
-								<li><a href="/disp/category.ssg?ctgId=6000086414"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">남성화장품</a></li>
-								<li><a href="/disp/category.ssg?ctgId=6000239178"
-									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">뷰티선물세트</a></li>
-							</ul>
-						</div>
-						<span class="lo_line">/</span>
-					</div>
-					<div class="lo_depth_01">
-						<a href="/disp/category.ssg?ctgId=6000194533"
-							class="lo_menu lo_arr clickable"
-							data-react-tarea="상품상세|카테고리 로케이션|중카테고리">트리트먼트/케어</a>
-						<div id="lo_menu02" class="lo_depth_02 n2">
-							<ul>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194531"
-									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">샴푸</a></li>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194532"
-									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">린스/컨디셔너</a></li>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194533"
-									data-react-tarea="상품상세|카테고리 로케이션|중카테고리"
-									class="clickable  active">트리트먼트/케어</a></li>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194534"
-									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">헤어스타일링</a></li>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194535"
-									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">헤어컬러/펌</a></li>
-							</ul>
-						</div>
-						<span class="lo_line">/</span>
-					</div>
-					<div class="lo_depth_01">
-						<a href="/disp/category.ssg?ctgId=6000194543"
-							class="lo_menu lo_arr clickable"
-							data-react-tarea="상품상세|카테고리 로케이션|소카테고리">헤어에센스/오일/세럼</a>
-						<div id="lo_menu03" class="lo_depth_02 n2">
-							<ul>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194541"
-									data-react-tarea="상품상세|카테고리 로케이션|소카테고리" class="clickable ">헤어트리트먼트</a></li>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194542"
-									data-react-tarea="상품상세|카테고리 로케이션|소카테고리" class="clickable ">헤어팩/마스크</a></li>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194543"
-									data-react-tarea="상품상세|카테고리 로케이션|소카테고리"
-									class="clickable  active">헤어에센스/오일/세럼</a></li>
-								<li><a href="/disp/category.ssg?dispCtgId=6000194544"
-									data-react-tarea="상품상세|카테고리 로케이션|소카테고리" class="clickable ">헤어퍼퓸/헤어미스트</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+<!-- 					<div class="lo_depth_01"> -->
+<!-- 						<a href="/disp/category.ssg?ctgId=6000193712" -->
+<!-- 							class="lo_menu lo_arr clickable" -->
+<!-- 							data-react-tarea="상품상세|카테고리 로케이션|대카테고리">헤어케어</a> -->
+<!-- 						<div id="lo_menu01" class="lo_depth_02 n2"> -->
+<!-- 							<ul> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000193710" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">스킨케어</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000193714" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">메이크업</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000193711" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">향수</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000193712" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" -->
+<!-- 									class="clickable  active">헤어케어</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000193713" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">바디케어</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000193716" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">미용기기/소품</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000086414" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">남성화장품</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?ctgId=6000239178" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|대카테고리" class="clickable ">뷰티선물세트</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
+<!-- 						<span class="lo_line">/</span> -->
+<!-- 					</div> -->
+<!-- 					<div class="lo_depth_01"> -->
+<!-- 						<a href="/disp/category.ssg?ctgId=6000194533" -->
+<!-- 							class="lo_menu lo_arr clickable" -->
+<!-- 							data-react-tarea="상품상세|카테고리 로케이션|중카테고리">트리트먼트/케어</a> -->
+<!-- 						<div id="lo_menu02" class="lo_depth_02 n2"> -->
+<!-- 							<ul> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194531" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">샴푸</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194532" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">린스/컨디셔너</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194533" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" -->
+<!-- 									class="clickable  active">트리트먼트/케어</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194534" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">헤어스타일링</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194535" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|중카테고리" class="clickable ">헤어컬러/펌</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
+<!-- 						<span class="lo_line">/</span> -->
+<!-- 					</div> -->
+<!-- 					<div class="lo_depth_01"> -->
+<!-- 						<a href="/disp/category.ssg?ctgId=6000194543" -->
+<!-- 							class="lo_menu lo_arr clickable" -->
+<!-- 							data-react-tarea="상품상세|카테고리 로케이션|소카테고리">헤어에센스/오일/세럼</a> -->
+<!-- 						<div id="lo_menu03" class="lo_depth_02 n2"> -->
+<!-- 							<ul> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194541" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|소카테고리" class="clickable ">헤어트리트먼트</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194542" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|소카테고리" class="clickable ">헤어팩/마스크</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194543" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|소카테고리" -->
+<!-- 									class="clickable  active">헤어에센스/오일/세럼</a></li> -->
+<!-- 								<li><a href="/disp/category.ssg?dispCtgId=6000194544" -->
+<!-- 									data-react-tarea="상품상세|카테고리 로케이션|소카테고리" class="clickable ">헤어퍼퓸/헤어미스트</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+
+
+
+
+
 				<div class="cdtl_cm_detail v3 ty_ssg ty_grocery react-area"
 					data-globalid="item_view" data-react-comm-type="item"
 					data-react-comm-id="1000026532717" data-react-salestr-no="1020"

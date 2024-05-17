@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<h	ead>
+<head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
