@@ -36,12 +36,17 @@ public class FolderHandler implements CommandHandler{
 		LikeDAO dao = new LikeDAOImpl(conn);
 		LikeService service = new LikeService(dao);
 		
-		
+		int rowCount = 0;
 		// get
+		if ( method.equalsIgnoreCase("GET")) {
+			rowCount = service.addFolder(id, folderName);
+		} else {
+			// post 
+			
+			// folder 로드하고 
+		}
 		
-		// post 
-		
-		int rowCount = service.addFolder(id, folderName);
+		 
 		
 		return null;
 	}
