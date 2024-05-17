@@ -329,7 +329,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://pay.ssg.com/myssg/orderList.ssg?gnb=orderlist" class="btn_order clickable" data-react-tarea="몰공통|GNB|주문배송조회" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
+                            <a href="<%= contextPath %>/orderRecord.do" class="btn_order clickable" data-react-tarea="몰공통|GNB|주문배송조회" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
                                 <i class="icon ty_sm icon_truck" aria-hidden="true"></i>
                                 <span class="blind">주문배송조회</span>
                             </a>
@@ -535,7 +535,7 @@ cmjump_rank_lst
 		 let format4 = year + "-" + month + "-" + day +" 기준";
 		 $("#searchDateTime").text(format4);
 	}) 
-	
+
 	/*
 	 <li class="cmjump_rank_item">
       <a href="#" class="cmjump_rank_link clickable" >

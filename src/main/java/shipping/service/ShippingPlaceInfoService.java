@@ -2,6 +2,7 @@ package shipping.service;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
@@ -201,12 +202,14 @@ public class ShippingPlaceInfoService {
 		return olist;
 	}
 	
-	public ArrayList<String> orderDateService(String memid){
-		ArrayList<String> dlist = null;
+	public LinkedHashMap<String, String> orderDateService(String memid){
+		LinkedHashMap<String, String> dhm = null;
 		Connection conn = null;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 		
 		try {
-			
+			conn = ConnectionProvider.getConnection();
+			dhm = dao.orderDateList(conn, memid);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("orderDateService 메서드에서 오류~~");
@@ -214,8 +217,24 @@ public class ShippingPlaceInfoService {
 			JdbcUtil.close(conn);
 		}
 		
-		return dlist;
+		return dhm;
 		
+	}
+	
+	public int[] orderDeleteService(String memid, long[] ids) {
+		int[] rowcounts = null;
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+			rowcounts = dao.orderRecordDelete(conn, memid, ids);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderDeleteService 이메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		return rowcounts;
 	}
 
 }
