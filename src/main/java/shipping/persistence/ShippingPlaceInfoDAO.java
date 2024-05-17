@@ -2,7 +2,7 @@ package shipping.persistence;
 
 import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.LinkedHashMap;
 
 import member.domain.PageDTO;
 import shipping.domain.OrderRecordVO;
@@ -34,5 +34,7 @@ public interface ShippingPlaceInfoDAO {
 	
 	ArrayList<OrderRecordVO> orderList(Connection conn, String memid) throws Exception;
 	 
-	ArrayList<String> orderDateList(Connection conn, String memid) throws Exception;
+	LinkedHashMap<String, String> orderDateList(Connection conn, String memid) throws Exception;
+	
+	int[] orderRecordDelete(Connection conn, String memid, long[] ids) throws Exception;
 }

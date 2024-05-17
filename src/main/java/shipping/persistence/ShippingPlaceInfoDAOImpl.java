@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.LinkedHashMap;
 
 import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
@@ -492,8 +492,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 					
 					ShippingPlaceInfoDAOImpl dao = new ShippingPlaceInfoDAOImpl().getInstance();
 					imgurl = dao.imgurlSelect(conn, productid);
-					
-					
 					ovo = new OrderRecordVO().builder()
 							.pdname(pdname)
 							.poptionid(poptionid)
@@ -507,10 +505,11 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 							.build();
 					
 					olist.add(ovo);
+					//System.out.println("imgurl : " +imgurl);
 					
 				} while (rs.next());
 			}
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("OrderRecord(주문기록 리스트) DAO에서 오류~");
@@ -551,27 +550,33 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 	}
 
 	@Override
-	public ArrayList<String> orderDateList(Connection conn, String memid) throws Exception {
+	public LinkedHashMap<String, String> orderDateList(Connection conn, String memid) throws Exception {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		ArrayList<String> dlist = null;
+		LinkedHashMap<String, String> dhm = null;
 		String orderDate = null;
-		
+		String orderIdStr = null;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 		String sql = " SELECT DISTINCT orderdate "
 				+ " FROM payrecord "
 				+ " WHERE memid = ? "
 				+ " ORDER BY orderdate DESC ";
+		// 주문날짜 + 주문번호 같이 담아야한다. 맵형태로 담을까??
+		// 주문날짜 subString 사용해서 2024-05-16 까지만 자르기
+		// 해당 주문번호에 해당하는 배송 어떤건지 ??
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memid);
 			rs = pstmt.executeQuery();
 			if( rs.next() ) {
-				dlist = new ArrayList<String>();
+				dhm = new LinkedHashMap<String, String>();
 				
 				do {					
 					orderDate = rs.getString("orderdate");
-					dlist.add(orderDate);
+					//System.out.println("orderDate : "+orderDate);
+					orderIdStr = dao.orderIdStr(conn, memid, orderDate);
+					dhm.put(orderDate, orderIdStr);
 				} while (rs.next());
 			}
 		} catch (Exception e) {
@@ -582,7 +587,89 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 			JdbcUtil.close(pstmt);
 		}
 
-		return dlist;
+		return dhm;
+	}
+	
+	public String orderIdStr(Connection conn, String memid, String orderDate) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String orderIdStr = "";
+		String sql = "SELECT py.id id, py.orderdate "
+				+ " FROM paydetail pd JOIN payrecord py ON pd.id2 = py.id "
+				+ " WHERE TO_CHAR( orderdate, 'yyyy-mm-dd hh24:mi:ss') = ? AND py.memid = ?  " ;
+		
+		//System.out.println(sql);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, orderDate);
+			pstmt.setString(2, memid);
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) {
+				
+				do {
+					orderIdStr += rs.getString("id")+"/";
+				} while (rs.next());
+			}
+			if(orderIdStr.endsWith("/")) {
+				orderIdStr = orderIdStr.substring(0, orderIdStr.length()-1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderIdStr 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return orderIdStr;
+	}
+
+	@Override
+	public int[] orderRecordDelete(Connection conn, String memid, long[] ids) throws Exception {
+		
+		PreparedStatement pstmt1 = null;
+		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
+		String sql = " DELETE FROM paydetail WHERE id2 = ?";
+		String sql2 = " DELETE FROM pointrecord WHERE id2 = ? ";
+		String sql3 = " DELETE FROM payrecord WHERE id = ? ";
+		int[] rowcounts = null;
+		
+		try {
+			pstmt1 = conn.prepareStatement(sql);
+			for (int i = 0; i < ids.length; i++) {
+				pstmt1.setLong(1, ids[i]);
+				pstmt1.addBatch();
+			}
+			
+			rowcounts = pstmt1.executeBatch();
+			
+			pstmt2 = conn.prepareStatement(sql2);
+			for (int i = 0; i < ids.length; i++) {
+				pstmt2.setLong(1, ids[i]);
+				pstmt2.addBatch();
+			}
+			
+			rowcounts = pstmt2.executeBatch();
+
+			pstmt3 = conn.prepareStatement(sql3);
+			for (int i = 0; i < ids.length; i++) {
+				pstmt3.setLong(1, ids[i]);
+				pstmt3.addBatch();
+			}
+			
+			rowcounts = pstmt3.executeBatch();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderRecordDelete 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(pstmt1);
+			JdbcUtil.close(pstmt2);
+			JdbcUtil.close(pstmt3);
+		}
+		return rowcounts;
 	}
 	
 	
