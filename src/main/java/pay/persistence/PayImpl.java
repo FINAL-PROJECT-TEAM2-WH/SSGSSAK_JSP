@@ -95,10 +95,10 @@ public class PayImpl implements PayDAO{
 	@Override
 	public ProductDTO viewproduct(int optionid,int count) {
 		
-		String sql = " select po.id optionid , pi.imgurl , b.brandname as brand , ss.sellername as seller , p.pdname  , po.optiondesc , po.optionprice as price\r\n"
-				+ ",so.defaultshippingfee as deshipfee , sp.spclDscnRt as specialp  from product p ,productimg pi , brand b ,sellerstore ss ,productoption po ,\r\n"
-				+ "shippingoption so ,specialprice sp where po.id = ? and p.id=pi.productid and p.brandid = b.id and ss.id = p.sellerstoreid and po.productid=p.id and \r\n"
-				+ "so.id = p.shippingoptionid and sp.id=p.specialpriceid   " ; 
+		String sql = " select po.id optionid , pi.imgurl , b.brandname as brand , ss.sellername as seller , p.pdname  , po.optiondesc , po.optionprice as price ,\r\n"
+				+ "				so.defaultshippingfee as deshipfee , sp.spclDscnRt as specialp  from product p ,productimg pi , brand b ,sellerstore ss ,productoption po ,\r\n"
+				+ "				shippingoption so ,specialprice sp where po.id = ?  and p.id=pi.productid and p.brandid = b.id and ss.id = p.sellerstoreid and po.productid=p.id and \r\n"
+				+ "				so.id = p.shippingoptionid and sp.id=p.specialpriceid and pi.imgcontent = 'sum'   " ; 
 		
 		String imgurl ; 
 		String brand ; 
