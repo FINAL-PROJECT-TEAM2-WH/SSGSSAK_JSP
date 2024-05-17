@@ -68,19 +68,6 @@
 	</servlet-mapping>
  
  
-<<<<<<< HEAD
-	<!-- <jsp-config>
-		<jsp-property-group>
-			<url-pattern>/</url-pattern>
-			<include-prelude>/WEB-INF/inc/include.jspf</include-prelude>
-			<include-prelude>/WEB-INF/inc/footer.jspf</include-prelude>
-		</jsp-property-group>
-	</jsp-config> -->
-=======
-
-
->>>>>>> 3917c716629589ebb248dbc6ca1c28dad2a954fe
- 
 
 	<servlet>
 		<servlet-name>jsp</servlet-name>
