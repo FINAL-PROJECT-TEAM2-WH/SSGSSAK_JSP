@@ -432,32 +432,32 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 </script>
 
 <!-- <script type="text/javascript"> -->
-//         try {
-//            (function(h,o,u,n,d) {
-//                h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
-//                d=o.createElement(u);d.async=1;d.src=n
-//                n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
-//            })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
-//            DD_RUM.onReady(function() {
-//                DD_RUM.init({
-//                    clientToken: 'pubac24b901ad56e749ee6c07bb375b8882',
-//                    applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6',
-//                    site: 'datadoghq.com',
-//                    service: 'ssg-ssgmall-webapp',
-//                    env: 'prod',
-//                    sessionSampleRate: 0.01,
-//                    sessionReplaySampleRate: 0,
-//                    trackUserInteractions: true,
-//                    trackResources: true,
-//                    trackLongTasks: true,
-//                    defaultPrivacyLevel: 'mask-user-input',
-//                    trackInteractions: true,
-//                    trackSessionAcrossSubdomains: true,
-//                    enableExperimentalFeatures: ['clickmap']
-//                });
-//                DD_RUM.startSessionReplayRecording();
-//            })
-//         } catch(e) {}
+<!-- //         try { -->
+<!-- //            (function(h,o,u,n,d) { -->
+<!-- //                h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}} -->
+<!-- //                d=o.createElement(u);d.async=1;d.src=n -->
+<!-- //                n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n) -->
+<!-- //            })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM') -->
+<!-- //            DD_RUM.onReady(function() { -->
+<!-- //                DD_RUM.init({ -->
+<!-- //                    clientToken: 'pubac24b901ad56e749ee6c07bb375b8882', -->
+<!-- //                    applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6', -->
+<!-- //                    site: 'datadoghq.com', -->
+<!-- //                    service: 'ssg-ssgmall-webapp', -->
+<!-- //                    env: 'prod', -->
+<!-- //                    sessionSampleRate: 0.01, -->
+<!-- //                    sessionReplaySampleRate: 0, -->
+<!-- //                    trackUserInteractions: true, -->
+<!-- //                    trackResources: true, -->
+<!-- //                    trackLongTasks: true, -->
+<!-- //                    defaultPrivacyLevel: 'mask-user-input', -->
+<!-- //                    trackInteractions: true, -->
+<!-- //                    trackSessionAcrossSubdomains: true, -->
+<!-- //                    enableExperimentalFeatures: ['clickmap'] -->
+<!-- //                }); -->
+<!-- //                DD_RUM.startSessionReplayRecording(); -->
+<!-- //            }) -->
+<!-- //         } catch(e) {} -->
 <!--     </script> -->
 
 
@@ -822,7 +822,7 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 							type="hidden" name="attnTgtIdnfNo1" value="6000208709"> <input
 							type="hidden" name="attnTgtIdnfNo2" value="6005"> <input
 							type="hidden" name="checked" value="N">
-							<button class="cmlike_btn _js_cmlike_btn clickable" >
+							<button class="cmlike_btn _js_cmlike_btn clickable" onclick="addLike(${productList[loop.index].id})">
 								<span class="cmlike_ico"> <i class="cmlike_primary_l"></i>
 									<span class="sr_off"><span class="blind">관심상품 취소</span></span>
 									<span class="sr_on"><span class="blind">관심상품 등록</span></span>
@@ -2996,9 +2996,13 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 </script>
 <script>
 
+// function addLike(productid) {
+// 	alert("됨?");
+// };
+
 function addLike(productid) {
  	$.ajax({
-        url: '<%=contextPath%>/memberInfo/like.do',
+        url: '<%=contextPath%>/like/like.do',
         dataType: 'json',
         type: 'GET',
         data: { "productid" : productid}, 
@@ -3009,7 +3013,7 @@ function addLike(productid) {
         			alert("ㅇㅋ 취소해줌");
         			// 취소하는 ajax 
         			$.ajax({
-        				url: '<%=contextPath%>/memberInfo/like.do',
+        				url: '<%=contextPath%>/like/like.do',
         				dataType: 'json',
         				type: 'POST',
         				data : {"productid" : productid,
@@ -3036,11 +3040,13 @@ function addLike(productid) {
 
         }
     });
-};
+} 
 
 /* $('.cmlike_btn_js_cmlike_btn_clickable').on('click', function () {
 	alert('kk');
 }); */
+
+
 </script>
 
 				<div id="area_cornr_bottom" class="com_tmpl_main_cctg"></div>
