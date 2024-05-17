@@ -27,5 +27,5 @@ public class OrderRecordVO {
 	private long paydetailid;
 	private long quantity;
 	private String imgurl;
-	
+	private String pmethod;
 }

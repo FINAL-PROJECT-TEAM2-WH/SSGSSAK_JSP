@@ -65,13 +65,13 @@
 	</servlet-mapping>
  
  
-	<jsp-config>
+	<!-- <jsp-config>
 		<jsp-property-group>
 			<url-pattern>/</url-pattern>
 			<include-prelude>/WEB-INF/inc/include.jspf</include-prelude>
-			<!-- <include-prelude>/WEB-INF/inc/footer.jspf</include-prelude> -->
+			<include-prelude>/WEB-INF/inc/footer.jspf</include-prelude>
 		</jsp-property-group>
-	</jsp-config>
+	</jsp-config> -->
  
 	<servlet>
 		<servlet-name>jsp</servlet-name>

@@ -798,8 +798,7 @@
 						<span class="codr_odrdeliv_odrnum"> <em>주문번호</em>
 							${ entry.value }
 						</span>
-						<button class="codr_btn_txgray" name="btn_ordInfoDetail"
-							data-orord-no="2024041502F004">
+						<button class="codr_btn_txgray" onclick="orderDetail(this)" value="${ entry.value }">
 							상세보기<span class="codr_sp codr_ico_arr"></span>
 						</button>
 					</dt>
@@ -1065,8 +1064,13 @@
 		  }else{
 			  console.log("주문 삭제 취소");
 		  }
-		
-		
+	}
+	
+	function orderDetail(button){
+		//alert('상세보기 버튼');
+		let orderId = button.value;
+		alert(orderId);
+		location.href = `<%= request.getContextPath() %>/orderDetail.do?orderId=`+orderId;
 	}
 </script>
 		<script type="text/javascript"
