@@ -14,11 +14,22 @@
 	</welcome-file-list>
 
 
+ 
+	  <filter>
+	  <filter-name>characterEncodingFilter</filter-name>
+	  <filter-class>com.filter.CharacterEncodingFilter</filter-class>
+	  <init-param>
+	    <param-name>encoding</param-name>
+	    <param-value>UTF-8</param-value>
+	  </init-param>
+	</filter>
+
 
 	<filter>
 		<description>권한 체크 필터</description>
 		<filter-name>loginCheckFilter</filter-name>
 		<filter-class>com.filter.LoginCheckFilter</filter-class>
+
 	</filter>
 	<filter-mapping>
 		<filter-name>loginCheckFilter</filter-name>
@@ -26,14 +37,6 @@
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 
-	<filter>
-		<filter-name>characterEncodingFilter</filter-name>
-		<filter-class>com.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-	</filter>
 
 	<filter-mapping>
 	  <filter-name>characterEncodingFilter</filter-name>
@@ -54,7 +57,7 @@
 	    <load-on-startup>1</load-on-startup>
 	    <multipart-config>
          <location>C:/temp</location>
-         <max-file-size>-1</max-file-size> <!-- byte -->
+         <max-file-size>-1</max-file-size>
          <max-request-size>-1</max-request-size>
          <file-size-threshold>1024</file-size-threshold>
       </multipart-config>
@@ -65,6 +68,7 @@
 	</servlet-mapping>
  
  
+<<<<<<< HEAD
 	<!-- <jsp-config>
 		<jsp-property-group>
 			<url-pattern>/</url-pattern>
@@ -72,7 +76,12 @@
 			<include-prelude>/WEB-INF/inc/footer.jspf</include-prelude>
 		</jsp-property-group>
 	</jsp-config> -->
+=======
+
+
+>>>>>>> 3917c716629589ebb248dbc6ca1c28dad2a954fe
  
+
 	<servlet>
 		<servlet-name>jsp</servlet-name>
 		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
@@ -80,7 +89,7 @@
 			<param-name>mappedfile</param-name>
 			<param-value>false</param-value>
 		</init-param>
-	</servlet>
+	</servlet> 
 
 </web-app>
 

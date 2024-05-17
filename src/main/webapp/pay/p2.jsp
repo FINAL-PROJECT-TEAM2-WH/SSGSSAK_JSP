@@ -683,7 +683,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<label>주문정보 및 서비스 이용약관에 동의합니다</label>
 									</span>
 								</div>
-								<button type="button" class="codr_btn notranslate codr_btn_payment" data-pt-click="PC개편주문서|우측간편주문|간편주문결제하기" name="processOrderButton">
+								<button type="button" class=" notranslate codr_btn_payment" >
 									<span>
 										<em class="ssg_price" id="totalprice2"></em><span class="ssg_tx paySummaryPaySymbol notranslate">원</span>
 										<span>결제하기</span>
@@ -1291,7 +1291,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					<c:forEach begin="0" end="${al.size()}" var="items" items="${al}" varStatus="count" >
 					
 					<tr style="height: 100px;">
-						<td> <img src="${items.imgurl}" alt="" /> d</td>
+						<td> <img src="${items.imgurl}" alt="" style="width: 70px; height: auto;" /></td>
 						<td>${items.brand } <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } </td>
 						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/><f:formatNumber value="${items.price}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
 						</tr>
@@ -1524,7 +1524,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 															<tr class="codr_unit_area">
 																<td class="codr_thmb">
 																	<div class="codr_unit_thmb">
-																		<span aria-hidden="true"><img src="${items.imgurl }" style="width: 100px; height: 100px;" alt="까사미아 쿠나 액티브 4인 소파(컬러 택1)"></span>
+																		<span aria-hidden="true"><img src="${items.imgurl}" style="width: 100px; height: 100px;" alt="까사미아 쿠나 액티브 4인 소파(컬러 택1)"></span>
 																	</div>
 																</td>
 																<td class="codr_unit_cont">
@@ -1857,7 +1857,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 						<!-- 결제수단(s) -->
 						<div style="display: flex; justify-content: center;">
 							<div style="display: inline-block; width: 200px; height: 200px; text-align: center ;">토스 결제</div> <div style="display: inline-block; width: 200px; height: 200px; text-align: center ;">카카오페이 결제</div></div>
-							<button type="button" class="codr_btn_payment notranslate" data-pt-click="PC개편주문서|결제하기|바닥페이지결제하기" name="processOrderButton" id="processOrderButton">
+							<button type="button" class="codr_btn_payment notranslate" data-pt-click="PC개편주문서|결제하기|바닥페이지결제하기"  id="processOrderButton">
 								<span>
 									<em class="ssg_price" id="totalprice1"></em>
 									<span class="ssg_tx paySummaryPaySymbol">원</span>

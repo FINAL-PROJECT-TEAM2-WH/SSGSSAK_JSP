@@ -156,7 +156,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 		    } finally {
 		        JdbcUtil.close(rs);  
 		        JdbcUtil.close(pstmt);
-		        JdbcUtil.close(conn);
+		        
 		    }
 
 		

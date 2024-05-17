@@ -14,6 +14,7 @@ import product.domain.ProductOptionDTO;
 import product.domain.SpecialPriceDTO;
 import product.service.ViewService;
 import review.domain.ReviewDTO;
+import review.domain.ReviewImgDTO;
 import shipping.domain.ShippingOptionDTO;
 
 
@@ -33,14 +34,14 @@ public class ViewHandler implements CommandHandler{
 					SpecialPriceDTO specialPrice = productService.getSpecialPrice(id);
 					ShippingOptionDTO shippingOption = productService.getShippingOption(id);
 					List<ReviewDTO> reviews =productService.getReviews(id);
-					
+					List<ReviewImgDTO> reviewImg = productService.getReviewImg(id);
 					
 					request.setAttribute("ShippingOption", shippingOption);
 					request.setAttribute("specialPrice", specialPrice);
 					request.setAttribute("product", product);
 					request.setAttribute("productoption", productoption);
 					request.setAttribute("reviews", reviews);
-					
+					request.setAttribute("reviewImg", reviewImg);
 					
 
 					

@@ -40,7 +40,9 @@ public class Carthandler  implements CommandHandler{
 			al = pi.selectcartinfo(id);
 			al2 = pi.getdefaultshipinfo(id);
 			request.setAttribute("al", al);
+			
 			request.setAttribute("al2", al2);
+			
 			conn.close();
 			return "/pay/cart.jsp";
 		} else if (method.equals("POST") && delete.equals("delete")) {

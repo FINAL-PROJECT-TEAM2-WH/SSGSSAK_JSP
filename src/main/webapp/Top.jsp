@@ -335,7 +335,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:ssgGnb.fn_btnClickCart();" class="btn_cart clickable" data-react-tarea="몰공통|GNB|장바구니_클릭" onclick="javascript:setCommonGnbCookie('useGnbAdvertCk','',-1);">
+                            <a href="${pageContext.request.contextPath}/pay/cart.do" class="btn_cart clickable" data-react-tarea="몰공통|GNB|장바구니_클릭" >
                                 <i class="icon ty_sm icon_cart" aria-hidden="true"></i>
                                 <span class="cmnoti_push" id="mbrCartCntInfo" style="display:none;">
                                     <span class="blind">장바구니에 담긴 상품 수</span>

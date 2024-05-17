@@ -252,7 +252,6 @@ public class PayImpl implements PayDAO{
 		} finally {
 		
 			try {
-				rs.close();
 				pst.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -344,7 +343,7 @@ public class PayImpl implements PayDAO{
 		} finally {
 		
 			try {
-				rs.close();
+				
 				pst.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -1037,7 +1036,7 @@ public class PayImpl implements PayDAO{
 			pst.setString(7, productex);
 			result = pst.executeUpdate();
 			
-			
+			System.out.println(result +"성공?");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1118,12 +1117,27 @@ public class PayImpl implements PayDAO{
 
 	@Override
 	public int insertproductimg(String realpath , String sum) {
-		String sql = " insert into productimg values ( productimg_seq.nextval , product_id_seq.currval , ? , ? ) ";
+		String sql2 = " SELECT PRODUCT_ID_SEQ.currval seq FROM DUAL ";
+		long seqnum = 0 ;
+		try {
+			pst = conn.prepareStatement(sql2);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				seqnum = rs.getLong("seq");
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String sql = " insert into productimg values ( productimg_seq.nextval , ? , ? , ? ) ";
 		int result = 0 ;
+		realpath= realpath.split("webapps")[1];
+		
 		try {
 			pst = conn.prepareStatement(sql);
-			pst.setString(1, realpath);
-			pst.setString(2, sum);
+			pst.setLong(1, seqnum);
+			pst.setString(2, realpath);
+			pst.setString(3, sum);
 			result = pst.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

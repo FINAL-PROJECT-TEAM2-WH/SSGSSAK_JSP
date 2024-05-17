@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import pay.domain.OrderedDTO;
@@ -33,7 +34,7 @@ public class Paysuccesshandler implements CommandHandler {
 			ArrayList<OrderedDTO> al = new ArrayList<OrderedDTO>();
 			al = pi.selectorderinfo(id);
 			request.setAttribute("al", al);
-			conn.close();
+			JdbcUtil.close(conn);
 			return "/pay/paysuccess.jsp";
 		}
 		return null;
