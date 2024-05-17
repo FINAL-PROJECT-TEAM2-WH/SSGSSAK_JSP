@@ -97,9 +97,9 @@
     3-1. 참조옵션명 입력
     <input type="text" name="refoptiondes1" disabled/>
     3-1. 해당 옵션 가격 입력
-    <input type="text" name="optionprice1" />
+    <input type="text" name="optionprice1" value="0"/>
      3-1. 해당 옵션 재고 입력
-    <input type="text" name="optionstock1"/>
+    <input type="text" name="optionstock1" value="0"/>
     
    <hr />
    </div>
@@ -110,7 +110,8 @@
  <br />
  <br />
  	
-   <br />	
+   <br />
+  
     <div class="indiv" style="display: grid ; grid-template-column: repeat (2,1fr);">
     <div>
     
@@ -133,6 +134,7 @@
    <br />
    <br />
 		.
+	
 <dialog>
   <article>
     <h2>정말 상품을 등록하시겠습니까?</h2>
@@ -164,9 +166,9 @@
 				    3-\${count}. 참조옵션명 입력
 				    <input type="text" name="refoptiondes\${count}"/>
 				    3-\${count}. 해당 옵션 가격 입력
-				    <input type="text" name="optionprice\${count}" />
+				    <input type="text" name="optionprice\${count}"  value="0" />
 				     3-\${count}. 해당 옵션 재고 입력
-				    <input type="text" name="optionstock\${count}"/>
+				    <input type="text" name="optionstock\${count}"  value="0"/>
 				   <hr />
 				  
 				  </div>`)

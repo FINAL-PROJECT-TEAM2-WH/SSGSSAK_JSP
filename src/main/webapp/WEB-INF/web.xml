@@ -14,7 +14,7 @@
 	</welcome-file-list>
 
  
-	 <filter>
+	  <filter>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <filter-class>com.filter.CharacterEncodingFilter</filter-class>
 	  <init-param>
@@ -42,7 +42,7 @@
 	    <load-on-startup>1</load-on-startup>
 	    <multipart-config>
          <location>C:/temp</location>
-         <max-file-size>-1</max-file-size> <!-- byte -->
+         <max-file-size>-1</max-file-size>
          <max-request-size>-1</max-request-size>
          <file-size-threshold>1024</file-size-threshold>
       </multipart-config>
@@ -53,14 +53,6 @@
 	</servlet-mapping>
  
  
-	<jsp-config>
-		<jsp-property-group>
-			<url-pattern>/</url-pattern>
-			<include-prelude>/WEB-INF/inc/include.jspf</include-prelude>
-			<!-- <include-prelude>/WEB-INF/inc/footer.jspf</include-prelude> -->
-		</jsp-property-group>
-	</jsp-config>
- 
 	<servlet>
 		<servlet-name>jsp</servlet-name>
 		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
@@ -68,7 +60,7 @@
 			<param-name>mappedfile</param-name>
 			<param-value>false</param-value>
 		</init-param>
-	</servlet>
+	</servlet> 
 
 </web-app>
 

@@ -100,6 +100,7 @@ public class Payhandler implements CommandHandler {
 			for (int j = 0; j < ja3.size() ; j++) {
 				usecoupons[j] = ja3.getInt(j);
 			}
+			System.out.println(usecoupons[0]);
 			int lastprice = 0 ;
 			for (int j = 0; j < optionid.length; j++) {
 				lastprice += pi.resultprice(optionid[j],quantitys[j],usecoupons[j]);

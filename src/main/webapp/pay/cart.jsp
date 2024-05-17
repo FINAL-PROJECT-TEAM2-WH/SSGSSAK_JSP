@@ -1105,10 +1105,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 
 
-
-
-
-
 <div class="codr_acdo ty2 codr_toggle on addOrdTab addOrd_" id="divItemView_04">
 	<div class="codr_acdo_tit">
 		<h2 class="codr_acdo_tittx">
@@ -1139,6 +1135,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<col style="width:139px">
 						</colgroup>
 						<tbody>
+						
 						<c:forEach begin="0" end="${al.size() }" items="${al}" var="items">
 						<tr class="pay_item_area" >
 							<td class="codr_thmb">
@@ -1152,10 +1149,9 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</span>
 
 											<span class="codr_unit_img" aria-hidden="true">
-												<img src="https://sitem.ssgcdn.com/94/88/66/item/1000044668894_i1_80.jpg" srcset="https://sitem.ssgcdn.com/94/88/66/item/1000044668894_i1_160.jpg 2x" alt="코카콜라 제로 215ml X 30입(CAN)" id="img6339576986" width="90" height="90" onerror="javascript:this.src='https://sui.ssgcdn.com/ui/sd/img/common/noImg_80.gif';this.alt='상품 이미지 준비중입니다.';">
+												<img src="${items.imgurl }" srcset="${items.imgurl}" width="90" height="90"></img>
 											</span>
 										
-									
 									<div class="codr_unit_nodr cannot_order" id="cannotord_6339576986" style="display:none;">주문불가
 										<button type="button" class="codr_btn_detail" id="cannotOrdInfoBtn_6339576986" value="N" name="cannotOrdInfoBtn" data-add-ord-flag="">
 											<i class="icon ty_sm icon_questionmark_circle" aria-hidden="true"></i>
@@ -1171,7 +1167,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										
 										<!--쓱배송 0차수 새벽배송인 경우 아이콘 이마트로 표시 -->
 										
-    <span style="font-size: 15px; font-weight: bolder;"> ${items.brand }</span>
+        <span style="font-size: 15px; font-weight: bolder;"> ${items.brand }</span>
     
 									</span>
 									
