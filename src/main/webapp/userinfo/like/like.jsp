@@ -3820,7 +3820,7 @@ function addLike(productid) {
 		$.ajax({
 			type: "POST",
 			dataType:"json",
-			url: "<%=contextPath%>/like/likeCancel.do",// 경로
+			url: "<%=contextPath%>/like/likeCancel.do",  // 경로
 			data : JSON.stringify(params),
 			cache: false,
 			success: function(result){
@@ -3829,9 +3829,7 @@ function addLike(productid) {
 					window.location.reload(true);
 				} else {
 					alert('삭제가 실패했습니다.');
-				}
-				
-				
+				}			
 			},
 			error : function(){
 				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
@@ -4044,15 +4042,15 @@ function addLike(productid) {
 			        cache: false,
 			        success: function (data) {
 			        	if (data) {
-			        		<%-- $.ajax({
+			        		  $.ajax({
 			        			url:'<%=contextPath%>/like/folder.do',
 			        			dataType:'json',
 			        			 type: 'POST',
 			        			 cache:false,
 			        			 success : function (data){
-			        				 
-			        			 }
-			        		});  --%>
+			        				 // 새로고침하는 데이터 갖고와서 뿌려줘야됨 
+			        			 } 
+			        		});  
 			        	}
 			        },
 			        error: function (xhr, status, error) {
