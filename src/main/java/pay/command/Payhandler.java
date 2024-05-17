@@ -100,6 +100,7 @@ public class Payhandler implements CommandHandler {
 			for (int j = 0; j < ja3.size() ; j++) {
 				usecoupons[j] = ja3.getInt(j);
 			}
+			
 			int lastprice = 0 ;
 			for (int j = 0; j < optionid.length; j++) {
 				lastprice += pi.resultprice(optionid[j],quantitys[j],usecoupons[j]);
@@ -110,7 +111,7 @@ public class Payhandler implements CommandHandler {
 			int result6 = pi.insertpointrecord(id, (int)(lastprice*0.001));
 			int result7 = pi.updatepoint2(id, (int)(lastprice*0.001));
 			if (usepoint !=0) {
-				int result2 = pi.updatepointre(id,usepoint );
+				int result2 = pi.updatepointre(id, usepoint );
 				int result3 =pi.updatepoint(id, usepoint);
 			}
 			

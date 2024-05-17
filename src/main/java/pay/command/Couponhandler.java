@@ -43,7 +43,7 @@ public class Couponhandler implements CommandHandler{
 				jo.put("coupon", ja);
 				response.getWriter().write(jo.toString());
 			}
-			
+			conn.close();
 			return null;
 		}
 		

@@ -52,7 +52,7 @@ public class Itemenrollhandler implements CommandHandler {
 				int spp = Integer.parseInt(request.getParameter("spp"));
 				int shipo = Integer.parseInt(request.getParameter("shipo"));
 				
-				String productn = request.getParameter("productn") ; 
+				String productn = request.getParameter("productn"); 
 				String productex = request.getParameter("productex") ; 
 				
 				pi.insertproducttable(cateid,brandid,sellerid,spp,shipo,productn,productex);
@@ -74,9 +74,11 @@ public class Itemenrollhandler implements CommandHandler {
 			 Collection<Part> prs = request.getParts();
 			 
 			 for (Part part : prs) {
+				 System.out.println(part.getName());
+				 System.out.println(part.getHeader("Content-Disposition"));
 				if (part.getHeader("Content-Disposition").contains("filename=")) {
 					 if(part.getName().equals("file1")){
-						   UUID uuid = UUID.randomUUID();
+						 String uuid = UUID.randomUUID().toString();
 			               String filename = uuid+part.getSubmittedFileName();
 			               String realpath = request.getRealPath("/pay/image/" + filename);
 			               System.out.println(">>>> "  + realpath);
@@ -86,16 +88,21 @@ public class Itemenrollhandler implements CommandHandler {
 			                }
 			               pi.insertproductimg(realpath , "sum");
 
-					 }else{  
-						   UUID uuid = UUID.randomUUID();
+					 } else if (part.getName().equals("file2")){  
+						  
+						   String uuid = UUID.randomUUID().toString();
 			               String filename = uuid+part.getSubmittedFileName();
+			              
 			               String realpath = request.getRealPath("/pay/image/" + filename);
 			              
 			               if (part.getSize() > 0) {
 			            	   part.write(realpath);
+			            	   
 			                   part.delete();
+			                  
 			                }
-			               pi.insertproductimg(realpath , "others");
+			             
+			               pi.insertproductimg(realpath , "other");
 			            
 			            }
 				} 
