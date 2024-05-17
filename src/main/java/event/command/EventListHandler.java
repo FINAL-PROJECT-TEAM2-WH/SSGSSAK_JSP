@@ -18,6 +18,7 @@ public class EventListHandler implements CommandHandler{
 		String eid = null;
 		ArrayList<ApplicantDTO> alist = null;
 		PageDTO pdto = null;
+		String contextPath = request.getContextPath();
 		try {
 			if( request.getParameter("currentPage") != null) {
 				currentPage = Integer.parseInt(request.getParameter("currentPage"));

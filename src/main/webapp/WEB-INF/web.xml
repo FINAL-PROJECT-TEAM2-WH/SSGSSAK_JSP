@@ -69,9 +69,6 @@
  
  
 
-
- 
-
 	<servlet>
 		<servlet-name>jsp</servlet-name>
 		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>

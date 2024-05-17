@@ -8,6 +8,7 @@ import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
 import member.domain.PageDTO;
+import shipping.domain.OrderDetailVO;
 import shipping.domain.OrderRecordVO;
 import shipping.domain.ShippingPlaceInfoDTO;
 import shipping.persistence.ShippingPlaceInfoDAOImpl;
@@ -235,6 +236,42 @@ public class ShippingPlaceInfoService {
 			JdbcUtil.close(conn);
 		}
 		return rowcounts;
+	}
+	
+	public OrderDetailVO shippingDetailViewService(String memid, long[] ids) {
+		OrderDetailVO ovo = null;
+		Connection conn = null;
+		
+		try {
+			conn = ConnectionProvider.getConnection();
+			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+			ovo = dao.shippingDetailView(conn, memid, ids);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("shippingDetailViewService메서드에서 오류");
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		return ovo;
+	}
+	
+	public ArrayList<OrderRecordVO> orderDetailListService(String memid, long[] ids){
+		ArrayList<OrderRecordVO> olist = null;
+		Connection conn = null;
+		
+		try {
+			conn = ConnectionProvider.getConnection();
+			ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+			olist = dao.orderDetailList(conn, memid, ids);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("orderDetailListService 메서드에서 오류~~");
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		
+		
+		return olist;
 	}
 
 }
