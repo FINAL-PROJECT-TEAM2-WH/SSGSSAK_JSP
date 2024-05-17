@@ -13,6 +13,7 @@ import product.domain.ProductDTO;
 import product.domain.ProductOptionDTO;
 import product.domain.SpecialPriceDTO;
 import product.service.ViewService;
+import review.domain.ReviewDTO;
 import shipping.domain.ShippingOptionDTO;
 
 
@@ -21,10 +22,9 @@ public class ViewHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-			System.out.println("viewHandler");
-				System.out.println(request.getParameter("productcode"));
+				
 				long id =Long.parseLong( request.getParameter("productcode"));
-
+				
 				try {
 					
 					ViewService productService = ViewService.getInstance();
@@ -32,11 +32,17 @@ public class ViewHandler implements CommandHandler{
 					List<ProductOptionDTO> productoption = productService.getProductOption(id);
 					SpecialPriceDTO specialPrice = productService.getSpecialPrice(id);
 					ShippingOptionDTO shippingOption = productService.getShippingOption(id);
+					List<ReviewDTO> reviews =productService.getReviews(id);
+					
 					
 					request.setAttribute("ShippingOption", shippingOption);
 					request.setAttribute("specialPrice", specialPrice);
 					request.setAttribute("product", product);
 					request.setAttribute("productoption", productoption);
+					request.setAttribute("reviews", reviews);
+					
+					
+
 					
 				} catch (Exception e) {
 					System.out.println("상품정보불러오기실패");

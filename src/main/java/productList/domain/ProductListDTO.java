@@ -22,6 +22,7 @@ public class ProductListDTO {
     private String upDateDay;
     private long optionPrice;
     private long sprice;
+    private long discount;
     
 
 }

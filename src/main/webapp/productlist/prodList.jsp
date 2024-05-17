@@ -755,10 +755,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         </h2>
 
         <div class="aside_txt notranslate" id="item_count">
-            <span class="tx_ko"><em>js처리해서 가져올지? 그냥 이정도는 서버에서 처리해도될듯</em> 개의 상품이 있습니다.</span>
-            <span class="tx_en">Total <em>23,071</em> items</span>
-            <span class="tx_zh">有 <em>23,071</em> 款商品</span>
-
+            <span class="tx_ko"><em>${getProdCount}</em> 개의 상품이 있습니다.</span>
             <div class="alg_right">
     <div class="cm_clip">
         <!-- [D] 클립시 .cmlike .on 추가 -->
@@ -799,25 +796,13 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <div class="cmflt_filbox_cts">
             <ul class="cmflt_ctlist notranslate">
                 <li class=" none_child">
-                        <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
-                        </li>
-				<li class=" none_child">
-                        <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
-                        </li>
-				<li class=" none_child">
-                        <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
-                        </li>
-				<li class=" none_child">
-                        <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
-                        </li>
-				<li class=" none_child">
-                        <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
-                        </li>
-				<li class=" none_child">
-                        <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
-                        </li>
-				
-                </ul>
+                 <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
+                </li>
+                <li class=" none_child">
+                 <a href="javascript:void(0);" data-ilparam-type="dispCtgId" data-ilparam-value="6000208938" class="clickable" >소카테</a>
+                </li>
+                
+			</ul>
         </div>
     </div>
 <div class="cmflt_filbox cmflt_filbox_v2" id="brand_filter">
@@ -2468,7 +2453,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
             <img srcset="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg" src="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=232&h=232&t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'" class="i1" width="232" height="232" alt="마우스 올리기 전의 이미지"  loading="lazy">
             <img srcset="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg" src="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=232&h=232&t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'" class="i2" width="232" height="232" alt="마우스 올린 후의 이미지" aria-hidden="true" loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
-        <span class="di_coupon"><span class="blind">쿠폰포함</span>100<em class="per">%</em></span>
+        <span class="di_coupon"><span class="blind">쿠폰포함</span>${productList[loop.index].discount}<em class="per">%</em></span>
             </div>
 		</a>
 		

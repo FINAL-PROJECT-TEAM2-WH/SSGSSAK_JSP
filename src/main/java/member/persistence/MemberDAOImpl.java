@@ -274,9 +274,9 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int getPersonalPoints(String id) throws SQLException{
 
-		String sql = "SELECT sum(pr.points) memberPoint "
-				+ " FROM pointrecord pr LEFT JOIN points p ON pr.cardnumber = p.id"
-				+ " WHERE pr.memid = ? ";
+		String sql = " SELECT SUM(pr.points) memberPoint "
+				+ " FROM pointrecord pr LEFT JOIN points p ON pr.cardNumber = p.id "
+				+ " WHERE p.id2 = ? ";
 
 		int point = 0;
 		pstmt = conn.prepareStatement(sql);
@@ -366,11 +366,11 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt.setString(1, pwd);
 			pstmt.setString(2, id);
 			rowCount = pstmt.executeUpdate();	
-			
+
 		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			e.printStackTrace();
-			
+
 		} finally {
 			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
@@ -396,7 +396,7 @@ public class MemberDAOImpl implements MemberDAO{
 		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			e.printStackTrace();
-			
+
 		} finally {
 			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
@@ -517,24 +517,24 @@ public class MemberDAOImpl implements MemberDAO{
 		String postPhoneNum = phoneNum.substring(phoneNum.length()-4);
 
 		String name = getName(id);
-		
+
 		// 마케팅 id 22번 23번 24번 ssgInfoRcvAgree=10
 		ArrayList <String> conList = getAgreement(id, conditionName);
-		
-		
+
+
 
 		Map <String,String> infoMap = new HashMap<String, String>();
-		
+
 		if ( conList != null) {
 			for (int i = 0; i < conList.size(); i++) {
 				infoMap.put(conList.get(i), "true");
 			}
 		} else {
-			
+
 			// 동의를 안했을 경우. 
 			infoMap.put(conditionName, "false");
 		}
-			
+
 		infoMap.put("email", preEmail + star + postEmail);
 		infoMap.put("prePhoneNum", prePhoneNum);
 		infoMap.put("postPhoneNum", postPhoneNum);
@@ -542,15 +542,15 @@ public class MemberDAOImpl implements MemberDAO{
 		return infoMap;
 
 	}
-	
-	
+
+
 	@Override
 	public ArrayList<String> getAgreement(String id, String conditionName) throws SQLException {
 		String sql = " SELECT t.name conName"
 				+ " FROM agreement d left join terms t on d.terms_id=t.id "
 				+ " WHERE REGEXP_LIKE(t.name, ? ) AND d.memid = ? ";
 		ArrayList<String> condiList = null;
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, conditionName);
@@ -569,9 +569,9 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
-		
-		
+
+
+
 		return condiList;
 	}
 
@@ -634,7 +634,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 			rowCount = pstmt.executeUpdate();
 
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			JdbcUtil.rollback(conn);
@@ -644,7 +644,7 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		// INSERT into shippingplaceinformation VALUES (seqshipplaceinfo.NEXTVAL,회원id,회원id,회원id,회원연락처,우편번호,'기본배송지','도로명주소','지번주소','상세주소')
 		// 배송지 insert 문 
 		sql =  " INSERT into shippingplaceinformation"
@@ -654,7 +654,7 @@ public class MemberDAOImpl implements MemberDAO{
 				+ " ) ";
 
 		try {
-		
+
 			String zipCode = address.get("zipcode");
 			String roadAddress = address.get("roadAddress");		
 			String jibunAddress = address.get("jibunAddress");
@@ -668,7 +668,7 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt.setString(6, detailAddress);
 			pstmt.setString(7, transtoPhoneNum(phonePhone));
 			pstmt.setString(8, zipCode);
-			
+
 			rowCount = pstmt.executeUpdate();		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -678,8 +678,8 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.commit(conn);
 			JdbcUtil.close(pstmt);
 		}
-		
-		
+
+
 		// 필수 약관 동의 
 		// 프로시저로 처리	
 		boolean result = false;
@@ -697,12 +697,12 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(callStatement);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		if (result) {
 			rowCount += 1; 
 		}
 
-	
+
 		// 선택 약관 동의 
 		if ( map != null) {
 			System.out.println("get in Map");
@@ -724,19 +724,19 @@ public class MemberDAOImpl implements MemberDAO{
 				}
 			}
 		}
-		
+
 		if (result) {
 			rowCount += 1; 
 		}
-		
+
 		// 기본 폴더 추가. 
 		rowCount += regiInsertFolder(id);
-		
-		
+
+
 		System.out.println(rowCount);
 		return rowCount;
 	}
-	
+
 	@Override
 	public int regiInsertFolder(String id) throws SQLException{
 		String sql = " INSERT INTO divisionfolder "
@@ -747,7 +747,7 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rowCount = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			JdbcUtil.rollback(conn);
@@ -758,8 +758,8 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 		return rowCount;
 	}
-	
-	
+
+
 	@Override
 	public String transtoPhoneNum (String phoneNum) {
 		//010
@@ -767,17 +767,17 @@ public class MemberDAOImpl implements MemberDAO{
 		String middleNum = "";
 		String postNum = "";
 		if ( phoneNum.length() == 10) {
-		// 뒷자리가 7자리일 때	
+			// 뒷자리가 7자리일 때	
 			middleNum = phoneNum.substring(3,6);
 			postNum = phoneNum.substring(6);
 		} else {
 			middleNum = phoneNum.substring(3,7);
 			postNum = phoneNum.substring(7);
 		}
-		
+
 		return String.format("%s-%s-%s", preNum,middleNum,postNum);
 	}
-	
+
 	@Override
 	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException {
 		Map<String,String> likeProduct = null;
@@ -799,7 +799,7 @@ public class MemberDAOImpl implements MemberDAO{
 				+ " WHERE row_num = 1 ";
 		String productid, name, content, price, url;
 		int grade;
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -825,61 +825,61 @@ public class MemberDAOImpl implements MemberDAO{
 					likeProduct.put("grade", String.valueOf(grade));
 					likeProductList.add(likeProduct);
 					System.out.println(productid + " " + name + " " + content + " " + price + " " + url + " " + grade );
-					
+
 				} while (rs.next());
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();			
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		return likeProductList;
 	}
-	
-	
+
+
 	@Override
 	public ArrayList<String> getFolderList(String id) throws SQLException {
 		ArrayList<String> folderList =  null;
-		
+
 		String sql = " SELECT name " 
 				+ " FROM divisionfolder "
 				+ " WHERE memid = ? "
 				+ " ORDER BY id " ; 
 		String name;
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-				
+
 			if ( rs.next() ) {
 				folderList = new ArrayList();				
 				do {
 					name = rs.getString("name");
 					folderList.add(name);
-					
+
 					System.out.println(name);
 				} while ( rs.next());
 			}
 		} catch (SQLException e) {
-				e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
 
-		
-		
-		
+
+
+
+
 		return folderList;
-		
+
 	}
-	
-	
+
+
 	@Override
 	public ArrayList<Integer> getCountList(String id) throws SQLException {
 		String sql = "SELECT COUNT(*) goodsCount "
@@ -891,9 +891,9 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);			
 			rs = pstmt.executeQuery();
-			
+
 			if (rs.next()) {
-				
+
 				do {
 					goodsCount = rs.getInt("goodsCount");					
 					countList.add(goodsCount);
@@ -906,16 +906,16 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		sql = "SELECT COUNT(*) brandsCount "
 				+ " FROM interestbrand "
 				+ " WHERE memid = ? ";
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);	
 			rs = pstmt.executeQuery();
-			
+
 			if (rs.next()) {
 				do {
 					brandsCount = rs.getInt("brandsCount");					
@@ -929,16 +929,16 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		sql = "SELECT COUNT(*) cateCount "
 				+ " FROM interestcategory "
 				+ " WHERE memid = ? ";
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);	
 			rs = pstmt.executeQuery();
-			
+
 			if (rs.next()) {
 				do {
 					cateCount = rs.getInt("cateCount");					
@@ -952,12 +952,110 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
-		
+
 		return countList;
 	}
-	
-	
-	
+
+
+	@Override
+	public int insLike(String memid, String id) throws SQLException {
+		int rowCount = 0;
+		// 이러면 id 값 가져옴 . 
+		String sql = " SELECT id seqNum"
+				+ " FROM divisionfolder "
+				+ " WHERE memid = ? AND name = '모아보기' "
+				+ " ORDER BY id ";
+		int seqNum = 0 ; 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			rs = pstmt.executeQuery();
+			if ( rs.next() ) {
+				do {
+					seqNum = rs.getInt("seqNum");
+				} while ( rs.next());		
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		sql = "INSERT INTO interestgoods "
+				+ " (id, memid, productid,folderid) "
+				+ " VALUES (interestGoods_seq.nextval,"
+				+ " ?,?,?) ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			pstmt.setString(2, id);
+			pstmt.setInt(3, seqNum);
+			rowCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JdbcUtil.rollback(conn);
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return rowCount;
+	}
+
+
+	@Override
+	public int checkLike(String memid, String id) throws SQLException {
+		String sql = "SELECT COUNT(*) countLike"
+				+ " FROM interestgoods "
+				+ " WHERE memid = ? AND productid = ? ";
+		
+		int countLike = 0 ; 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				do {
+					countLike = rs.getInt("countLike");
+				} while ( rs.next());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return countLike; 
+	}
+
+
+	@Override
+	public int cancelLike(String memid, String id) throws SQLException {
+		String sql = "DELETE FROM interestgoods "
+				+ " WHERE memid = ? AND productid = ? ";
+		int rowCount = 0; 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			pstmt.setString(2, id);
+			rowCount =  pstmt.executeUpdate();
+		} catch (SQLException e) {
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		} finally {		
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return rowCount;
+	}
+
+
+
 
 
 
