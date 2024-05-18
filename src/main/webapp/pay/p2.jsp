@@ -548,7 +548,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 												</strong>
                                                 <span class="codr_dt_tit ty_sub paySummaryOrdCstJejuIsmtarDtl" style="display: none;">(도서산간 0원 포함)</span>
 											</dt>
-											<dd class="codr_dd"><strong>+ <em class="ssg_price paySummaryTotOrdCstAmt">0</em><span class="ssg_tx">원</span></strong></dd>
+											<dd class="codr_dd"><strong>+ <em class="ssg_price"><f:formatNumber pattern="#,##0">${al[0].deshipfee}</f:formatNumber></em><span class="ssg_tx">원</span></strong></dd>
 										</dl>
 										<ul class="mnodr_paydetail_sublst paySummaryTotOrdCstDtl" style="display:none;">
 											<li class="paySummaryOrdCstArea">
@@ -578,8 +578,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 												<span class="mnodr_paydetail_money">- <em class="ssg_price"><c:set value="0" var="discount"></c:set>
 											<c:forEach begin="0" end="${al.size() }" items="${al }" var="items">
 											 <c:set value="${ discount + items.specialp * items.price / 100 }" var="discount" ></c:set>
-											 <span id="prodis5" value="">${discount.intValue()}</span>
-											</c:forEach></em><span class="ssg_tx">원</span></span>
+											
+											</c:forEach> <span id="prodis5" value="">${discount.intValue()}</span></em><span class="ssg_tx">원</span></span>
 											</li>
 											<li class="" >
 												<span class="mnodr_paydetail_tx">쿠폰할인</span>
@@ -1292,8 +1292,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 					
 					<tr style="height: 100px;">
 						<td> <img src="${items.imgurl}" alt="" style="width: 70px; height: auto;" /></td>
-						<td>${items.brand } <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } </td>
-						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price }"/><f:formatNumber value="${(items.price * (1 - items.specialp/100))*items.quantity}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" id="quantity"${count} >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
+						<td><strong>${items.brand }</strong> <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } <br /> ${items.optionname }</td>
+						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price * (1 - items.specialp/100)*items.quantity }"/><f:formatNumber value="${(items.price * (1 - items.specialp/100))*items.quantity}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" id="quantity"${count} >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
 						</tr>
 					
 					</c:forEach>
@@ -1400,7 +1400,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										 
 										</span><span class="ssg_tx">원</span>
 										<em class="codr_dc_desc">(
-											상품가 <span  id="productamounts">
+											상품가 <span id="productamounts">
 											<c:set value="0" var="totalprice"></c:set>
 										   <c:forEach begin="0" end="${al.size() }" items="${al}" var="items">
 											<c:set var="totalprice" value="${totalprice+(items.price * (1 - items.specialp/100)*items.quantity)}"></c:set>
@@ -1537,11 +1537,20 @@ function setCommonGnbCookie(name, value, expiredays) {
 																	<p class="codr_unit_tit notranslate">
 																		
 																		<strong class="codr_unit_brd">
-																			<span>${items.brand }</span>
+																			<span>${items.seller }</span>
 																		</strong>
 																		
-																		<span class="codr_unit_name">
+																		<%-- <span class="codr_unit_name">
 																			<span>${items.seller }</span>
+																		</span> --%>
+																		<span class="codr_unit_name">
+																			<span>${items.pdname }</span>
+																		</span>
+																		<span class="codr_unit_name">
+																			<span>${items.optiondesc }</span>
+																		</span>
+																		<span class="codr_unit_name">
+																			<span>${items.optionname }</span>
 																		</span>
 																	</p>
 																</td>
@@ -8575,12 +8584,13 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 	  					let totalpr = 0;
 	  					let totalprice2 = parseInt($("#productamounts").html().replace(/,/g,"")) + parseInt($("#shipfee").html().replace(/,/g,""));
 	  					$("#totalprice6").html(totalprice2.toLocaleString());
+	  					$("#totalprice4").html($("#productamounts").html());
 	  					let convertnum =Number($("#totalprice6").html().replace(/,/g,"")) - Number($("#totaldisco").html().replace(/,/g,""));;
 	  					
 	  					for (let k = 0; k < optionids.length; k++) {
 	  						   
 	  					   (function(currentindex){
-	  						    totalpr += parseFloat($("#price" + currentindex).val());
+	  						    totalpr += parseFloat($("#price" + currentindex).val() );
 	  						 
 	  					       $("#couponselect" + optionids[currentindex]).on("change", function() {
 	  					    	
@@ -8613,7 +8623,7 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 						   $("#totalprice2").html(totalpr.toLocaleString("ko-KR"));
 							
 						   $("#pretotalprice").html(totalpr.toLocaleString("ko-KR"));
-						   $("#totalprice4").html(totalpr.toLocaleString("ko-KR"));
+						  
 	  					
 						
 						let totalpoint = "${requestScope.user[0].cpoint}";
