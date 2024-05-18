@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import member.domain.AgreementDTO;
@@ -115,6 +116,7 @@ public class RegisterHandler implements CommandHandler {
 		}
 		String contextPath = request.getContextPath();
 		String path = "/member/join/formcheck.jsp";
+		JdbcUtil.close(conn);
 		request.setAttribute("resultJson", resultJson);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);

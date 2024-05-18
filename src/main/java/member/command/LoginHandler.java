@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import member.domain.MemberDTO;
@@ -77,6 +78,7 @@ public class LoginHandler implements CommandHandler {
 		 
 			 
 			 String path = "/member/login.jsp";	
+			 JdbcUtil.close(conn);
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 			dispatcher.forward(request, response);
 				

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import like.persistence.LikeDAO;
@@ -65,6 +66,7 @@ public class FolderHandler implements CommandHandler{
 	        jsonObject.put("result", json);
 	        System.out.println(json);
 		}	
+		JdbcUtil.close(conn);
 		response.setContentType("application/json; charset=UTF-8");
 		response.getWriter().write(jsonObject.toString());
 		 
