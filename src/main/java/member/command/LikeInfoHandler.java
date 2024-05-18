@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import member.persistence.MemberDAO;
@@ -57,6 +58,7 @@ public class LikeInfoHandler implements CommandHandler{
 		 * 
 		 * }
 		 */
+		JdbcUtil.close(conn);
 		request.setAttribute("countList", countList);
 		request.setAttribute("folderList", folderList);
 		request.setAttribute("productList", productList);

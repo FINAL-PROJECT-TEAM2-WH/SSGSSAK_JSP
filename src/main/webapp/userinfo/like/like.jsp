@@ -733,7 +733,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <a href="/item/itemView.ssg?itemId=1000068529577&siteNo=6004&salestrNo=6005" target="_self"  class="clickable"
              data-react-tarea="좋아요|상품|상품_클릭|어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종_1000068529577" data-info="1000068529577" data-index="0" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_290.jpg, //sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_580.jpg 2x" src="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종"  loading="lazy">
+            <img <%-- srcset="${product.url}" --%> src="${product.url}" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종"  loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
         <span class="di_coupon"><span class="blind">쿠폰포함</span>7<em class="per">%</em></span>
             </div>
@@ -753,7 +753,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
                 <input type="hidden" name="notiTitle" value="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_290.jpg">
+                <input type="hidden" name="notiImgPath" value="${product.url}">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
                 <button class="cmlike_btn _js_cmlike_btn clickable" onclick="addLike(${product.productid});" > <!-- cmlike_btn _js_cmlike_btn clickable -->
@@ -4008,22 +4008,19 @@ function addLike(productid) {
 		        							htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
 		        						htmltag += '</a>';
 		        					htmltag += '</li>';
-			        				    } else if ( index == maxLength-1 ) {
-			        				    	htmltag += '<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;새폴더&quot;}]" style="float: left; list-style: none; position: relative; width: 1280px;">';
-					    					htmltag += '<a href="" data-mbrattngrpseq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">';
-											htmltag += '<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">새폴더</em>';
-											htmltag += '</a>';
-											htmltag += '</li>';
-			        				    	
 			        				    } else {
 			        				    	htmltag += '<li class="mylike_folder_item" role="presentation" id=`list_folder_\${index}`>';
-			        						htmltag += '<a href="" data-mbrAttnGrpSeq=`\${index}` class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id=`f_\${item}`>';
+			        						htmltag += `<a href="" data-mbrAttnGrpSeq="\${index}" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_\${item}">`;
 	        								htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
-	        							htmltag += '</a>';
-	        						htmltag += '</li>';
+	        								htmltag += '</a>';
+	        						 		htmltag += '</li>';
 			        				    } 			        
 			        				});
-			        				
+			        				htmltag += '<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;새폴더&quot;}]" style="float: left; list-style: none; position: relative; width: 1280px;">';
+			    					htmltag += '<a href="" data-mbrattngrpseq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">';
+									htmltag += '<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">새폴더</em>';
+									htmltag += '</a>';
+									htmltag += '</li>';
 			        				 htmltag += '</ul>';
 			        				 htmltag += '</div>';
 			        				 htmltag += '<button type="button" class="mylike_folder_next"><span class="blind">다음 폴더목록 보기</span></button>';
