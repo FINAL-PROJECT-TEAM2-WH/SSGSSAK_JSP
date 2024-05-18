@@ -431,34 +431,34 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
     }
 </script>
 
-<script type="text/javascript">
-        try {
-           (function(h,o,u,n,d) {
-               h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
-               d=o.createElement(u);d.async=1;d.src=n
-               n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
-           })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
-           DD_RUM.onReady(function() {
-               DD_RUM.init({
-                   clientToken: 'pubac24b901ad56e749ee6c07bb375b8882',
-                   applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6',
-                   site: 'datadoghq.com',
-                   service: 'ssg-ssgmall-webapp',
-                   env: 'prod',
-                   sessionSampleRate: 0.01,
-                   sessionReplaySampleRate: 0,
-                   trackUserInteractions: true,
-                   trackResources: true,
-                   trackLongTasks: true,
-                   defaultPrivacyLevel: 'mask-user-input',
-                   trackInteractions: true,
-                   trackSessionAcrossSubdomains: true,
-                   enableExperimentalFeatures: ['clickmap']
-               });
-               DD_RUM.startSessionReplayRecording();
-           })
-        } catch(e) {}
-    </script>
+<!-- <script type="text/javascript"> -->
+<!-- //         try { -->
+<!-- //            (function(h,o,u,n,d) { -->
+<!-- //                h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}} -->
+<!-- //                d=o.createElement(u);d.async=1;d.src=n -->
+<!-- //                n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n) -->
+<!-- //            })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM') -->
+<!-- //            DD_RUM.onReady(function() { -->
+<!-- //                DD_RUM.init({ -->
+<!-- //                    clientToken: 'pubac24b901ad56e749ee6c07bb375b8882', -->
+<!-- //                    applicationId: '7fbd6977-4594-4ef2-a112-4059b74bb4e6', -->
+<!-- //                    site: 'datadoghq.com', -->
+<!-- //                    service: 'ssg-ssgmall-webapp', -->
+<!-- //                    env: 'prod', -->
+<!-- //                    sessionSampleRate: 0.01, -->
+<!-- //                    sessionReplaySampleRate: 0, -->
+<!-- //                    trackUserInteractions: true, -->
+<!-- //                    trackResources: true, -->
+<!-- //                    trackLongTasks: true, -->
+<!-- //                    defaultPrivacyLevel: 'mask-user-input', -->
+<!-- //                    trackInteractions: true, -->
+<!-- //                    trackSessionAcrossSubdomains: true, -->
+<!-- //                    enableExperimentalFeatures: ['clickmap'] -->
+<!-- //                }); -->
+<!-- //                DD_RUM.startSessionReplayRecording(); -->
+<!-- //            }) -->
+<!-- //         } catch(e) {} -->
+<!--     </script> -->
 
 
 <!--  탑 스타트 -->
@@ -822,7 +822,7 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 							type="hidden" name="attnTgtIdnfNo1" value="6000208709"> <input
 							type="hidden" name="attnTgtIdnfNo2" value="6005"> <input
 							type="hidden" name="checked" value="N">
-							<button class="cmlike_btn _js_cmlike_btn clickable">
+							<button class="cmlike_btn _js_cmlike_btn clickable" onclick="addLike(${productList[loop.index].id})">
 								<span class="cmlike_ico"> <i class="cmlike_primary_l"></i>
 									<span class="sr_off"><span class="blind">관심상품 취소</span></span>
 									<span class="sr_on"><span class="blind">관심상품 등록</span></span>
@@ -2881,8 +2881,7 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 															type="hidden" name="useForcedSsgYn" value="N">
 
 
-															<button class="cmlike_btn _js_cmlike_btn clickable"
-																data-position="clip" data-react-tarea-dtl-cd="t00003">
+															<button class="cmlike_btn _js_cmlike_btn clickable" onclick="addLike(${productList[loop.index].id})">
 																<span class="cmlike_ico"> <i
 																	class="cmlike_primary_s"></i> <span class="sr_off"><span
 																		class="blind">관심상품 취소</span></span> <span class="sr_on"><span
@@ -2998,6 +2997,61 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 
 
 </script>
+<script>
+
+// function addLike(productid) {
+// 	alert("됨?");
+// };
+
+function addLike(productid) {
+ 	$.ajax({
+        url: '<%=contextPath%>/like/like.do',
+        dataType: 'json',
+        type: 'GET',
+        data: { "productid" : productid}, 
+        cache: false,
+        success: function (data) {
+        	if (data.result == 'Invalid') {
+        		if (confirm ('이미 좋아요 누른 항목입니다. 취소하시겠습니까? ')) {
+        			alert("ㅇㅋ 취소해줌");
+        			// 취소하는 ajax 
+        			$.ajax({
+        				url: '<%=contextPath%>/like/like.do',
+        				dataType: 'json',
+        				type: 'POST',
+        				data : {"productid" : productid,
+        					"status" : "Invalid"},
+        				cache: false,
+        				success : function (data) {
+        					if (data.result =='DeleteSuccess') {
+        						location.href = "<%=contextPath%>/memberInfo/likeInfo.do";
+        					}
+        				}, error : function (xhr, status, error){
+        					
+        				}
+        			});
+        		} else {
+        			alert('그대로 냅둘게');
+        		}
+        	} else if ( data.result == 'Success') {
+        		alert('좋아요 성공임');
+        	} else if ( data.result == 'Fail') {
+        		alert('좋아요 실패임 ');
+        	}
+        },
+        error: function (xhr, status, error) {
+
+        }
+    });
+} 
+
+/* $('.cmlike_btn_js_cmlike_btn_clickable').on('click', function () {
+	alert('kk');
+}); */
+
+
+</script>
+
 				<div id="area_cornr_bottom" class="com_tmpl_main_cctg"></div>
 			</div>
 		</div>
@@ -3016,8 +3070,10 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 		src="//sui.ssgcdn.com/ui/ssg/js/common/commJs.js?v=20240424"></script>
 	<script type="text/javascript"
 		src="//sui.ssgcdn.com/ui/m_ssg/js/ui/mcom.webview.js?v=20240424"></script>
-	<script type="text/javascript"
-		src="//sui.ssgcdn.com/ui/ssg/js/common/clipJs.js?v=20240424"></script>
+		
+<!-- 	<script type="text/javascript" -->
+<!-- 		src="//sui.ssgcdn.com/ui/ssg/js/common/clipJs.js?v=20240424"></script> -->
+
 	<script type="text/javascript"
 		src="//sui.ssgcdn.com/ui/ssg/js/ui/ui.datepicker.js?v=20240424"></script>
 	<script type="text/javascript"
@@ -3776,5 +3832,8 @@ wptg_tagscript_vars.push(
     EmfV5('inflow', "723");
     //Emforce ROI V5 Conversion Tag End
 </script>
+
+
+
 </body>
 </html>
