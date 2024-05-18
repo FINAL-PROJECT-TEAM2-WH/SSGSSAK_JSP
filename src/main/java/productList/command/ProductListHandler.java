@@ -43,10 +43,10 @@ public class ProductListHandler implements CommandHandler{
 			System.out.println("리스트뿌리기실패");
 		}
 
-		String path = "/productlist/prodList.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
-		return null;
+//		String path = "/productlist/prodList.jsp";
+//		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+//		dispatcher.forward(request, response);
+		return "/productlist/prodList.jsp";
 
 	}
 }
