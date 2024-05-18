@@ -114,16 +114,15 @@ public class MemberDAOImpl implements MemberDAO{
 		} 
 		catch (SQLException e) { 
 			// TODO Auto-generated 
-
+			JdbcUtil.rollback(conn);
 			e.printStackTrace();
 		}finally {
+			JdbcUtil.commit(conn);
 			JdbcUtil.close(pstmt);
 			JdbcUtil.close(rs);
 		}
 
 		try {			
-
-
 			sql = sql.format("INSERT INTO auth (id,name,privilege) VALUES ('%s','%s','%s')", id,name,privilege);
 			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);	

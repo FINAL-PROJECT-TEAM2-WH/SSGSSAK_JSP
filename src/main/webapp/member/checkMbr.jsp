@@ -8,12 +8,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<link rel="shortcut icon" type="image/x-icon" href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
 	<title class="notranslate">
-		MY SSG > 정보관리 > 비밀번호변경</title>
-
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240424"/>
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/cs.css?v=20240424" />
+		아이디/비밀번호 찾기, 믿고 사는 즐거움 SSG.COM</title>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/scom.css?v=20240508"/>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/main.css?v=20240508"/>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240508" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240508" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/mem.css?v=20240508" />
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
 
 	<script>(function (w, d, s, l, i) {
@@ -38,7 +38,7 @@
 	</script>
 
 	</head>
-<body class="body_wide body_wide_ctn">
+<body class="body_wide">
 <noscript>
 	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWBFGRL"
 	        height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -151,26 +151,26 @@
     isThehowdy : false,
     // 회원 관련 객체
     UserInfo : {
-        isLoginYn        : 'true' == 'true' ? 'Y' : 'N',
-            mbrTypeCd        : '10',
+        isLoginYn        : 'false' == 'true' ? 'Y' : 'N',
+            mbrTypeCd        : '',
             mbrType          : 'B2C',
             mbrLoginId       : '',
             mbrLoginId2      : '',
             mbrcoId          : '000000',
-            ckWhere          : 'ssg_adpick_cps1',
+            ckWhere          : 'direct_ssg',
             dmId             : '',
             emSaleStrNo      : '2439',
             trSaleStrNo      : '2483',
             gmSaleStrNo      : '2449',
             gmSaleStrYn      : 'Y',
             emRsvtShppPsblYn : 'Y',
-            ga : '126',
+            ga : '00',
             sessionId : '',
             ip : '',
             shpplocMod : 'MY',
             shpplocModKey : '5367225',
             cartNm : '장바구니',
-            mbrspMbrDivCd : '2001',
+            mbrspMbrDivCd : '',
             mbrspJoinSiteCd : '',
             mbrspPaymtTypeCd : '',
             ssCardYn : 'N',
@@ -261,14 +261,14 @@
             400 : '/ui/ssg/img/common/img_ready_500x500.jpg',
             500 : '/ui/ssg/img/common/img_ready_500x500.jpg'
         },
-        title : 'MY SSG &gt; 정보관리 &gt; 비밀번호변경'
+        title : '아이디/비밀번호 찾기, 믿고 사는 즐거움 SSG.COM'
     });
 
     // 회원 관련 객체, 사용하지 말 것.
     var UserInfo = {
-        isLoginYn : 'true'=='true'?'Y':'N',
-        mbrTypeCd : '10',
-        ckWhere : 'ssg_adpick_cps1'
+        isLoginYn : 'false'=='true'?'Y':'N',
+        mbrTypeCd : '',
+        ckWhere : 'direct_ssg'
     };
 
     var mobile = {
@@ -328,280 +328,89 @@
     var emergencyItemIds = "";
 //]]>
 </script>
-<%@include file="../../Top.jsp" %>
+
+<%@ include file="../Top.jsp" %>
+
 <div id="category" class="category"></div>
 			<div id="container"  class="cmmyssg_wrap" >
-				<!-- SSG -->
-<input type="hidden" id="ssgDomain" value="http://www.ssg.com"/>
-<input type="hidden" id="couponWebImgPathUrl" value="https://sui.ssgcdn.com"/>
-<input type="hidden" id="openChooseBenefit" value="N"/>
-<input type="hidden" id="mbrspMbrDivCd" value="2001"/>
-<input type="hidden" id="mbrGrdCd" value="10"/>
-<div class="cmmyssg_header ty_light react-area">
-            <div class="cmmyssg_user" data-react-tarea-cd="00034_000000001">
-                <div class="cmmyssg_user_info">
-                    <h2 class="cmmyssg_user_tit" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"이름"}]'>
-                        <a href="http://www.ssg.com/myssg/main.ssg" class="cmmyssg_user_tittx clickable" data-react-tarea-dtl-cd="t00060"><span class="cmmyssg_user_titname"><%=id %></span>의 My SSG</a>
-                    </h2>
-                </div>
-            </div>
-            <div class="cmmyssg_asset" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"쿠폰"}]'>
-                <a href="http://www.ssg.com/myssg/moneyMng/memberCpnOwnList.ssg?myssg=coupon" class="cmmyssg_asset_tit clickable" data-react-tarea-dtl-cd="t00060">
-                    <span class="cmmyssg_asset_tittx">쿠폰</span>
-                </a>
-            </div>
-            <div class="cmmyssg_asset" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"SSGMONEY"}]'>
-                <a href="https://member.ssg.com/myssg/ssgmoneyMng/ssgmoneySavedList.ssg?menu=smoneySavedList" class="cmmyssg_asset_tit clickable">
-                    <span class="cmmyssg_asset_tittx">SSG MONEY</span>
-                </a>
-            </div>
-            <div class="cmmyssg_asset" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"신세계포인트"}]'>
-                <a href="https://member.ssg.com/myssg/moneyMng/spointDetailList.ssg?menu=spointDetailList" class="cmmyssg_asset_tit clickable" data-react-tarea-dtl-cd="t00060">
-                    <span class="cmmyssg_asset_tittx">신세계 포인트</span>
-                </a>
-            </div>
-            </div>
-    <!--유니버스 클럽 배너-->
+				
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_iconset.css?v=20240508"/>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/mnodr.css?v=20240508"/>
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/join.css?v=20240508"/>
 
-<div class="cmmyssg_membership_banner universe react-area" id="membership_banner_universe" data-react-tarea-cd="00040_000000233"></div>
-<!-- [D] 레이어팝업 : 우수고객 쿠폰 다운받기-->
-<div id="modal_new_mycoupon" class="modal_myssg_popup_new myssg_coupon_downloaded_modal v2 react-area"  data-react-tarea-cd="00040_000000233">
-    <a class="myssg_benefit_choose myssg_modal_close clickable" href="#" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"닫기"}]' data-react-tarea-dtl-cd="t00060"><span class="blind">레이어팝업 닫기</span></a>
-    <div class="myssg_coupon_downloaded_content myssg_modal_content">
-        <strong class="myssg_modal_title">FRIENDS 우수고객 쿠폰 다운로드가 완료되었습니다.</strong>
-        <div class="myssg_box">
-            <ul class="myssg_item_list">
-                <li class="myssg_item">
-                            <div class="myssg_item_img">
-                                <img src="//sui.ssgcdn.com/ui/ssg/img/myssg/img_7_coupon.png" srcset="//sui.ssgcdn.com/ui/ssg/img/myssg/img_7_coupon@2x.png 2x" />
-                                <span class="myssg_badge">x2</span>
-                            </div>
-                            <strong class="myssg_item_title">7% 쿠폰 2장</strong>
-                        </li>
-                        <li class="myssg_item">
-                            <div class="myssg_item_img">
-                                <img src="//sui.ssgcdn.com/ui/ssg/img/myssg/img_5_coupon.png" srcset="//sui.ssgcdn.com/ui/ssg/img/myssg/img_5_coupon@2x.png 2x" />
-                                <span class="myssg_badge">x3</span>
-                            </div>
-                            <strong class="myssg_item_title">5% 쿠폰 3장</strong>
-                        </li>
-                    </ul>
+<div id="content">
+  <div class="member_join">
+    <div class="mb_id_check">
+      <div class="join_title_wrap">
+        <div class="title_area">
+          <h2 class="top_tit">비밀번호 재설정</h2>
+          <h3 class="mb_tit"> 비밀번호를 재설정하실<br> 아이디를 입력해주세요 </h3>
         </div>
+      </div>
+      <div class="join_cts_wrap">
+        <div class="mb_cont">
+          <div class="cts_area">
+            <form id="check_mbr_form">
+              
+                
+                
+                
+                
+                  <div class="form_item form_text name">
+                    <label for="mbrNm">이름</label>
+                    <div class="inp_type_txt">
+                      <div class="inp_box">
+                        <input type="text" class="inp_txt" id="mbrNm" name="mbrNm" value="" placeholder="이름" />
+                        <button type="button" class="btn_del" aria-label="이름 입력 내용 전체">삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                
+              
 
-        <!--혜택안내 영역 -->
-        <article class="myssg_box has_bg">
-            <h4 class="myssg_box_title">
-                <span>잠깐! 놓치고 계신 혜택이 있어요!</span><br /> 신세계 유니버스 클럽에 가입하고, 어디서든 5% 할인받으세요.
-            </h4>
-            <p class="myssg_box_text">지금 가입하시면 가입비 3만원 100% 캐시백 + 쓱머니 5천원 돌려드려요!</p>
-            <div class="myssg_card myssg_card_has_bg myssg_card_preserve_benefit">
-                <div class="myssg_card_content">
-                    <span class="blind"><strong>SSG MONEY 3만원</strong>100% 캐시백 + <strong>신세계 그룹사 6곳</strong>멤버십 추가 혜택</span>
-                    <img src="//sui.ssgcdn.com/ui/ssg/img/myssg/img_membership_benefit.png" srcset="//sui.ssgcdn.com/ui/ssg/img/myssg/img_membership_benefit@2x.png 2x" />
+              <div class="form_item form_text id">
+                <label for="mbrLoginId">아이디</label>
+                <div class="inp_type_txt">
+                  <div class="inp_box">
+                    <input type="text" id="mbrLoginId" name="mbrLoginId" class="inp_txt" minlangth="6" maxlength="20" value="" placeholder="아이디" />
+                    <button type="button" class="btn_del" aria-label="아이디 입력 내용 전체">삭제</button>
+                  </div>
                 </div>
-            </div>
-        </article>
-        <div class="myssg_modal_btn_group" data-react-tarea-cd="00040_000000233">
-            <a href="https://www.ssg.com/myssg/moneyMng/memberCpnOwnList.ssg" class="myssg_modal_btn outline size_lg clickable" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"쿠폰함가기"}]' data-react-tarea-dtl-cd="t00060">
-                <span class="myssg_modal_btn_content">쿠폰함 가기</span>
-            </a>
-            <a href="https://member.ssg.com/m/mbrsp/join/agree.ssg" class="myssg_modal_btn size_lg clickable" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"가입하기"}]' data-react-tarea-dtl-cd="t00060">
-                <span class="myssg_modal_btn_content"> 멤버십 가입하기 <i class="icon_ssg_chevron_right_small"></i>
-                </span>
-            </a>
-            </div>
+              </div>
+            </form>
+          </div>
 
+          <div class="btns_area btns_fixed">
+            <div class="btn_cts">
+              <button class="btn_default" id="btn_check_valid_mbr" onclick="checkValidMbr()"><span>아이디 확인</span></button>
+            </div>
+            <div class="btn_cts">
+              <button class="btn_text btn_full" onclick="location.href='/member/findIdPw.ssg'"><span>아이디가 기억나지 않으시면, 아이디를 찾아보세요</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<!-- [D] 레이어팝업 : 유니버스 클럽 쿠폰 다운로드 완료-->
-<div id="myssg_coupon_downloaded_modal2" class="modal_myssg_popup_new myssg_coupon_downloaded_modal v2">
-    <a class="myssg_benefit_choose myssg_modal_close" href="#"><span class="blind">레이어팝업 닫기</span></a>
-    <div class="myssg_coupon_downloaded_content myssg_modal_content">
-        <strong class="myssg_modal_title">신세계 유니버스 클럽 쿠폰 다운로드가 완료되었습니다.</strong><div class="myssg_box">
-                <ul class="myssg_item_list flexible ">
-                    <li class="myssg_item">
-                        <div class="myssg_item_img">
-                            <img src="//sui.ssgcdn.com/ui/ssg/img/myssg/img_7_coupon.png" srcset="//sui.ssgcdn.com/ui/ssg/img/myssg/img_7_coupon@2x.png 2x" />
-                            <span class="myssg_badge">x2</span>
-                        </div>
-                        <strong class="myssg_item_title">7% 쿠폰 2장</strong>
-                    </li>
-                    <li class="myssg_item">
-                        <div class="myssg_item_img">
-                            <img src="//sui.ssgcdn.com/ui/ssg/img/myssg/img_5_coupon.png" srcset="//sui.ssgcdn.com/ui/ssg/img/myssg/img_5_coupon@2x.png 2x" />
-                            <span class="myssg_badge">x3</span>
-                        </div>
-                        <strong class="myssg_item_title">5% 쿠폰 3장</strong>
-                    </li>
-                </ul>
-            </div>
-            <div class="myssg_modal_btn_group">
-                <a href="/myssg/moneyMng/memberCpnOwnList.ssg" class="myssg_modal_btn outline size_lg">
-                    <span class="myssg_modal_btn_content">쿠폰함 가기</span>
-                </a>
-            </div>
-    </div>
-</div>
 
-<script type="text/javascript">
-    // 멤버십 쿠폰 다운로드
-    function issueCouponForMemberShip() {
-         $.ajax({
-            type: 'post',
-             url: '/apis/prom/coupon/mbrsp/issue',
-             async: false,
-             success: function (response) {
-                 if (response.data.resultCode === '00') {
-                     oCouponDownloadedLayerPopup.showByTarget('#myssg_coupon_downloaded_modal2');
-                 } else {
-                     if (response.data && response.data.resultMsg) {
-                         alert(response.data.resultMsg);
-                     } else {
-                         alert('혜택 받기가 실패하였습니다.');
-                     }
-                 }
-             },
-             error: function (response) {
-                 console.log("issueCouponForMemberShip error");
-             }
-         });
+<form id="find_pw_form" action="/member/login/certFindPw.ssg" method="post">
+  <input type="hidden" id="authKey" name="authKey" value="" />
+  <input type="hidden" id="otpSendMainVal" name="otpSendMainVal" value="" />
+  <input type="hidden" id="serviceMbrTypeCd" name="serviceMbrTypeCd" value="20" />
+</form>
 
-    }
-
-    //우수고객 쿠폰 다운로드
-    function issueCouponForBestCustomer(){
-        $.ajax({
-            type: 'post',
-            url: '/apis/prom/coupon/mbrsp/issue',
-            async: false,
-            success: function (response) {
-                if (response.data.resultCode === '00') {
-                    oMyCouponNewLayerPopup.showByTarget('#modal_new_mycoupon');
-                } else {
-                    if (response.data && response.data.resultMsg) {
-                        alert(response.data.resultMsg);
-                    } else {
-                        alert('혜택 받기가 실패하였습니다.');
-                    }
-                }
-            },
-            error: function (response) {
-                console.log("issueCouponForBestCustomer error");
-            }
-        });
-    }
-
-
-    </script>
-
-
-
-<script type="text/javascript">
-    function fn_myssg_grade_coupon(reactName) {
-        if (typeof ssg_react === 'undefined') {
-        } else {
-            ssg_react.directCall({tarea: reactName});
-        }
-    }
-</script>
-
-<%@ include file="../sideBanner.jsp" %>
-<script type="text/javascript" defer="defer">
-    function moveCsbot(moveUrl) {
-        window.open(moveUrl, 'SSGTALK_WEB', 'width=830, height=650, resizable=yes');
-    }
-
-    $(function(){
-        // 임직원 배우자 확인
-        if ( $('.cmmyssg_snb > li:nth-child(4) > ul').find('#b2eSpouse').length == 0 ) {
-            var callProtocal = "http://";
-            var callUrl = settings.domain.ssg;
-
-            if ( !settings.domain.isHttpFlag ) {
-                callProtocal = "https://";
-                callUrl = settings.domain.domain;
-            }
-
-            $.ajax({
-                url : callProtocal + callUrl + "/myssg/comm/ajaxCheckB2eSpouse.ssg",
-                async : false,
-                cache : false,
-                dataType : 'jsonp',
-                success : function(data) {
-                    if (data.resultCode == 'SHOW') {
-                        // 성공
-                        $('.cmmyssg_snb > li:nth-child(4) > ul').append('<li class="cmmyssg_snb_subitem" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text=\'[{"type":"text","value":"임직원가족개인정보제3자제공동의"}]\' id="b2eSpouse"><a href="https://member.ssg.com/myssg/myinfoMng/b2eSpousMbrAgree.ssg" class="clickable" data-react-tarea-dtl-cd="t00058">임직원 가족 <br/>개인정보 제3자 제공동의</a></li>')
-                    }
-                }
-            });
-        }
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="content" class="content_myssg">
-    <h2 class="stit"><span>비밀번호 변경</span></h2>
-    <form id="submitForm" method="post" action="<%= contextPath %>/memberInfo/changepwd.do">
-        <div class="password_change existing">
-
-            <fieldset class="fieldset large">
-                <legend>비밀번호 수정</legend>
-                <div class="wrap">
-                    <label for="pwd" class="label">비밀번호</label>
-                    <input type="password" id="pwd" name="pwd" title="비밀번호" value="" class="input_text small" style="width: 270px" maxlength="20">
-                    <span class="error_txt small warning" id="pwdMsg"></span>
-                </div>
-                <div class="wrap">
-                    <label for="newPwd" class="label">비밀번호 확인</label>
-                    <input type="password" id="newPwd" name="newPwd" title="비밀번호" value="" class="input_text small" style="width: 270px" maxlength="20">
-                    <span class="error_txt small warning" id="newPwdMsg"></span>
-                </div>
-            </fieldset>
-
-        </div>
-        <div class="form_btn_area password_modification">
-            <button type="button" id="submitBtn" class="cs_btn large black">확인</button>
-        </div>
-
-    </form>
-    <div class="information style">
-        <h4 class="notifications strong">주의하세요</h4>
-        <ul>
-            
-    	
-    	<li>비밀번호는 <span>영문과 숫자를 조합하여 8~20자리로 입력</span>해 주세요.</li>
-    	<li>아이디와 같은 비밀번호나 주민등록번호, 생일, 학번, 전화번호 등 개인정보와 관련된 숫자, 연속된 숫자, 동일 반복된 숫자 등 <br />다른 사람이 쉽게 알아낼 수 있는 비밀번호는 사용하지 않도록 주의하여 주시기 바랍니다.</li>
-    	
-    	
-        </ul>
-    </div>
-</div>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.pluginset.js"></script>
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.layout.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/commonUtil.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/member/js/common/ssgGnb.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/member/js/common/commJs.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240424"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.layout.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/commonUtil.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/member/js/common/ssgGnb.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/member/js/common/commJs.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/myssgGnb.js?v=20240508"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.common.component.js?v=20240508"></script>
 
 <script>
 function googleTranslateElementInit() {
@@ -613,7 +422,7 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="//translate.google.co.kr/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.translate.js?v=20240424"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.translate.js?v=20240508"></script>
 <script>
 $(function(){
     var oSsgViewTranslate = new ssg.View.translate({
@@ -714,15 +523,15 @@ $(function(){
 </script><script type="text/javascript">
     try {
         var _dl = {
-            "pcid" 				: "17129766189179881431225"
-            , "fsid" 			: "sd47wr3d3p6n4vn6vg03"
+            "pcid" 				: "17160355192210883212098"
+            , "fsid" 			: "sdos3k5m084r2an6vg04"
             , "siteno"		    : "1001" // #443767 siteno 하드코딩 요청
             , "tarea" 			: ""
             , "log_type_flag" 	: "t"
-            , "memberid" 		: "SSG.DB3722BF41D7D913318C4FC8EA8EC0BA"
-            , "ga"				: "126"
-            , "mbrgrdcd"		: "10"
-            , "ckwhere"		    : "ssg_adpick_cps1"
+            , "memberid" 		: ""
+            , "ga"				: "00"
+            , "mbrgrdcd"		: ""
+            , "ckwhere"		    : "direct_ssg"
             , "bkwhere"		    : ""
         };
 
@@ -776,106 +585,110 @@ $(function(){
     } catch (e) {}
 </script>
 
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.morph.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/lazyload.min.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/ssg-mobile.pluginset-1.0.min.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/mnodr.view.common.js"></script>
 <script type="text/javascript" src="/comm/js/memberJs.ssg"></script>
-<script type="text/javascript" defer="defer">
-   /*  $(document).ready(function () {
+<script type="text/javascript" src="/comm/js/memberJoin.ssg?v=20240508"></script>
+<script type="text/javascript">
+  function numberMaxLength(object){
+    if (object.value.length > object.maxLength){
+      object.value = object.value.slice(0, object.maxLength);
+    }
+  }
 
-        $('#submitForm').ajaxForm({
-            url: "/myssg/myinfoMng/changePwd.ssg"
-            , method: "post"
-            , beforeSerialize: function () {
+  $(function(){
+    $(".inp_type_txt input").on("propertychange change keyup paste input focusin", function() {
+      var oldVal;
+      var current = $(this);
+      var currentVal = $(this).val();
 
-                if ($('#submitBtn').hasClass('working')) {
-                    return false;
-                }
+      if(currentVal.length != 0){
+        $(current).parents('.form_item').addClass('labelOn focus');
+      }else{
+        $(current).parents('.form_item').removeClass('labelOn focus');
+      }
 
-                $('span.error_txt').each(function () {
-                    $(this).text('');
-                });
+      oldVal = currentVal;
+    }).on("focusout", function(e){
+      $(this).parents('.form_item').removeClass('focus');
+    });
 
-                if (validation() && confirm('비밀번호를 변경하시겠습니까?')) {
-                    $('#submitBtn').addClass('working');
-                    loadingIndicator.show();
-                    return true;
-                } else {
-                    return false;
-                }
-
-                return true;
-            }
-            , success: function (responseDto) {
-                if (responseDto.resultCode == 'SUCCESS') {
-                    alert(responseDto.resultMsg);
-                    //var retURL = unescape("");
-                    var retURL = document.location.href;
-                    if (retURL.indexOf("backURL=") >= 0) {
-                        retURL = retURL.substring(retURL.indexOf("backURL=") + 8);
-                    } else {
-                        retURL = "";
-                    }
-                    if (retURL != null && retURL != "")
-                        document.location.href = unescape(retURL);
-                    else
-                        document.location.replace('http://www.ssg.com');
-                } else if (responseDto.resultCode == 'FAIL') {
-                    alert(responseDto.resultMsg.replaceAll('\\n', '\n'));
-                    $('#submitBtn').removeClass('working');
-                    loadingIndicator.hide();
-
-                    $('span.error_txt').each(function () {
-                        $(this).text('');
-                    });
-                }
-            }
-            , error: function (request, status, error) {
-                $('#submitBtn').removeClass('working');
-                loadingIndicator.hide();
-
-                $('span.error_txt').each(function () {
-                    $(this).text('');
-                });
-
-                console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
-            }
-        });
-    }); */
-
-/*     // validation 체크
-    function validation() {
-	
-        var pwdStrErrorMsg = validateMbrPwd($('#pwd').val());
-        if (!isEmpty(pwdStrErrorMsg)) {
-            $('#pwdMsg').text(pwdStrErrorMsg);
-            $('#pwd').focus();
-            return false;
-        }
-
-        if ($('#newPwd').val().trim() == "") {
-            $('#newPwdMsg').text('비밀번호 확인을 입력해주세요.');
-            $('#newPwd').focus();
-            return false;
-        }
-
-        if ($('#pwd').val() != $('#newPwd').val()) {
-            $('#newPwdMsg').text('비밀번호가 일치하지 않습니다. 다시 입력해주세요.');
-            $('#newPwd').focus();
-            return false;
-        }
-
-        return true;
-    } */
-
+    $('.btn_del').on('click mousedown',  function(){
+      $(this).siblings('.inp_txt').val("").focus().parents('.form_item').removeClass('labelOn focus');
+    });
+  });
 </script>
-<script>
-	$('#submitBtn').one('click', function () {
-/* 		if (validation()){ */
-			$('#submitForm').submit();
-			// 추가용 허허허허
-			
-/* 		}	 */
-	});
-</script>
+<script type="text/javascript">
+  function validateForm() {
+    const mbrNm = $('#mbrNm').val();
+    const mbrLoginId = $('#mbrLoginId').val();
 
+    if (true) {
+      if (mbrNm == "") {
+        $('#mbrNm').focus();
+        alert('이름을 입력해주세요.');
+        return false;
+      }
+    }
+    
+    if (mbrLoginId == "") {
+      $('#mbrLoginId').focus();
+      alert('아이디를 입력해주세요.');
+      return false;
+    }
+
+    return true;
+  }
+
+  function checkValidMbr() {
+    if (!this.validateForm()) {
+      return false;
+    }
+
+    const mbrNm = $('#mbrNm').val();
+    const mbrLoginId = $('#mbrLoginId').val();
+
+    $.ajax({
+      url: "/member/login/checkValidMbrAjax.do"
+      , type: "POST"
+      , dataType: "json"
+      , data: {
+        "mbrNm": mbrNm
+        , "bizno": bizno
+        , "mbrLoginId": mbrLoginId
+      }
+      , beforeSend: function() {
+        $("#btn_check_valid_mbr").attr('disabled', true);
+      }
+      , success: function (result) {
+        if (result.resultCode == 'SUCCESS') {
+          $('#authKey').val(result.result.authKey);
+          $('#otpSendMainVal').val(result.result.otpSendMainVal);
+          $('#find_pw_form').submit();
+        } else if (result.resultCode == 'FAIL') {
+          var main_val_kind = (mbrNm == '' || mbrNm == undefined) ? '사업자번호' : '이름';
+          alert('입력하신 ' + main_val_kind + ', 아이디 정보로 가입된 정보가 없습니다. 다시 정확히 입력해주세요.');
+          $("#btn_check_valid_mbr").attr('disabled', false);
+        } else {
+          alert(result.resultMsg);
+          $("#btn_check_valid_mbr").attr('disabled', false);
+        }
+
+        return false;
+      }
+      , error: function () {
+        alert('페이지 새로고침 후 다시 시도해주세요.');
+        document.location.reload();
+        return false;
+      }
+    });
+  }
+</script>
 </div>
 		<!-- footer -->
-	<%@include file="../../footer.jsp" %>
+<%@ include file="../footer.jsp" %>

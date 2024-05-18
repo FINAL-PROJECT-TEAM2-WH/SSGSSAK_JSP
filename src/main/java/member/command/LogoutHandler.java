@@ -36,6 +36,7 @@ public class LogoutHandler implements CommandHandler{
 			session.invalidate();
 		}	
 		JdbcUtil.close(conn);
+		///mainProd.do
 		String path = request.getContextPath() + "/main/mainPage/mainPage.jsp";
 		response.sendRedirect(path);
 			
