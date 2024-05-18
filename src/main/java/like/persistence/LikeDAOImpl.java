@@ -204,7 +204,8 @@ public class LikeDAOImpl implements LikeDAO{
 	public ArrayList<String> getFolderName(String id) throws SQLException {		
 		String sql = "SELECT name  "
 				+ " FROM divisionfolder "
-				+ " WHERE memid = ? ";
+				+ " WHERE memid = ? "
+				+ " order by id ";
 		ArrayList<String> folderList = null;
 		String folderName;
 		try {

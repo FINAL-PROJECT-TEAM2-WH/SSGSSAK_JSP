@@ -3996,30 +3996,42 @@ function addLike(productid) {
 			        			 cache:false,
 			        			 success : function (data){
 			        				 // 새로고침하는 데이터 갖고와서 뿌려줘야됨 
-			        				/*  $('.mylike_folder_list').empty(); */
-			        				
-			        				data.result.forEach(item => {
+			        				 $('.mylike_folder_list').empty(); 
+			        				let maxLength = data.result.length;
+			        				 let htmltag = '';
+			        				data.result.forEach((item,index) => {
 			        				    console.log(item);
-			        				    
-			        				    <c:forEach var="folder" items="${folderList}" varStatus="status">
-			        					<c:choose>
-			        					<c:when test="${status.index == 0}">
-			        					<li class="mylike_folder_item" role="presentation" id="list_foler_all" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"전체보기"}]'>
-			        						<a href="" data-mbrAttnGrpSeq="0" class="mylike_folder_btn ty_all on clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|모아보기_클릭" role="tab" aria-selected="true" id="f_0">
-			        							<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">${folder}</em>
-			        						</a>
-			        					</li>
-			        					</c:when>
-			        					<c:otherwise>						
-			        					  <li class="mylike_folder_item" role="presentation" id="list_folder_${status.index}">
-			        							<a href="" data-mbrAttnGrpSeq="${status.index}" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_${status.index}">
-			        								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">${folder}</em>
-			        							</a>
-			        						</li>
-			        					</c:otherwise>
-			        					</c:choose>
-			        					</c:forEach>
+			        				    // 여기서부터 add 해주면 됨 .        				 	
+			        				    if (index ==  0 ){
+			        				    	htmltag += `<li class="mylike_folder_item" role="presentation" id="list_foler_all" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"전체보기"}]'>`;
+			        						htmltag += '<a href="" data-mbrAttnGrpSeq="0" class="mylike_folder_btn ty_all on clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|모아보기_클릭" role="tab" aria-selected="true" id="f_0">';
+		        							htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
+		        						htmltag += '</a>';
+		        					htmltag += '</li>';
+			        				    } else if ( index == maxLength-1 ) {
+			        				    	htmltag += '<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;새폴더&quot;}]" style="float: left; list-style: none; position: relative; width: 1280px;">';
+					    					htmltag += '<a href="" data-mbrattngrpseq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">';
+											htmltag += '<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">새폴더</em>';
+											htmltag += '</a>';
+											htmltag += '</li>';
+			        				    	
+			        				    } else {
+			        				    	htmltag += '<li class="mylike_folder_item" role="presentation" id=`list_folder_\${index}`>';
+			        						htmltag += '<a href="" data-mbrAttnGrpSeq=`\${index}` class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id=`f_\${item}`>';
+	        								htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
+	        							htmltag += '</a>';
+	        						htmltag += '</li>';
+			        				    } 			        
 			        				});
+			        				
+			        				 htmltag += '</ul>';
+			        				 htmltag += '</div>';
+			        				 htmltag += '<button type="button" class="mylike_folder_next"><span class="blind">다음 폴더목록 보기</span></button>';
+			        				 htmltag += '</div>';
+				        				   console.log(htmltag);
+				        			 $('.mylike_folder_list').append(htmltag);
+			        			}, error: function (xhr,status,error) {
+			        				
 			        			}
 			        		});  
 			        	} 

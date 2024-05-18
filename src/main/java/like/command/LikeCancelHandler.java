@@ -54,7 +54,7 @@ public class LikeCancelHandler implements CommandHandler{
 			} else {
 				
 			}			
-			
+			System.out.print(rowCount);
 			if (rowCount >= 1) {
 				resultJson += "\"Success\"}";
 			} else {
