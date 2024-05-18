@@ -1292,7 +1292,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 					
 					<tr style="height: 100px;">
 						<td> <img src="${items.imgurl}" alt="" style="width: 70px; height: auto;" /></td>
-						<td><strong>${items.brand }</strong> <br /> ${items.seller} <br />${items.pdname } <br /> ${items.optiondesc } <br /> ${items.optionname }</td>
+						<td><strong>${items.brand }</strong> <br /> ${items.seller} <br /> ${items.optionname }</td>
 						<td><div id="specialp${count}" style="display: inline-block;"><c:if test="${items.specialp} != 0 ">  ${items.specialp}</c:if> </div> <br /><em style="font-size: 20px; font-weight: bold;"> <input type="hidden" id="price${count.index }" value="${items.price * (1 - items.specialp/100)*items.quantity }"/><f:formatNumber value="${(items.price * (1 - items.specialp/100))*items.quantity}" pattern="#,##0"></f:formatNumber> </em><span class="ssg_tx">원</span> <br /> <span style="font-weight: lighter;">수량</span><span style="font-weight: bolder; font-size: 11px;" id="quantity"${count} >${items.quantity }</span><span style="font-weight: lighter;">개</span></td>
 						</tr>
 					
@@ -1543,12 +1543,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 																		<%-- <span class="codr_unit_name">
 																			<span>${items.seller }</span>
 																		</span> --%>
-																		<span class="codr_unit_name">
-																			<span>${items.pdname }</span>
-																		</span>
-																		<span class="codr_unit_name">
-																			<span>${items.optiondesc }</span>
-																		</span>
+																	
 																		<span class="codr_unit_name">
 																			<span>${items.optionname }</span>
 																		</span>
@@ -8592,17 +8587,36 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 	  					   (function(currentindex){
 	  						    totalpr += parseFloat($("#price" + currentindex).val() );
 	  						 
-	  					       $("#couponselect" + optionids[currentindex]).on("change", function() {
-	  					    	
+	  					         $("#couponselect" + optionids[currentindex]).on("change", function() {
+	  					    	   let optionvalue = $(this).val();
+	  					    	 
+	  					    		if ($("select[id^='couponselect']").not("#couponselect" + optionids[currentindex]).val() == optionvalue &&  $("select[id^='couponselect']").not("#couponselect" + optionids[currentindex]).val() != '0/0') {
+										alert("이미 선택된 쿠폰입니다.");
+										$(this).val("0/0");
+										return ;
+									}
+	  					    		
 	  					    	   let a = $("#price" + currentindex).val();
 	  					           $("#ssgpoint").val("");
 	  					           $("#spointUseAmt_bar").val("");
-	  					           let value = $("#price" + currentindex).val() * $(this).val().split('/')[1]/ 100;
-	  					           $("#coupondis").html(value);
+	  					           let totaldisc = 0 ;
+	  					           for (var i = 0; i < optionids.length; i++) {
+	  					        	 
+	  					        	 totaldisc += parseInt($("#price" + i).val()) * $("#couponselect"+optionids[i]).val().split('/')[1]/100 ;
+										
+									}
+	  					        	
+								   
+	  					           $("#coupondis").html(totaldisc);
 	  					           let dis1 = $("#specialdis").val();
-	  					           $("#totaldisco").html(dis1+value);
-	  					           let totalprice = $("#price" + currentindex).val() - (dis1+value) + parseInt($("#shipfee").html().replace(/,/g,""));
-	  					           
+	  					           $("#totaldisco").html(dis1+totaldisc);
+	  					           let totalsum =0;
+	  					           for (var i = 0; i < optionids.length ; i++) {
+	  					        	  totalsum += parseInt($("#price" + i).val());
+	  					
+								   }
+	  					           let totalprice = totalsum - (dis1+totaldisc) + parseInt($("#shipfee").html().replace(/,/g,""));
+	  					          
 	  					           convertnum =Number($("#totalprice6").html().replace(/,/g,"")) - Number($("#totaldisco").html().replace(/,/g,""));
 	  		  					
 	  					           $("#totalprice1").html(totalprice.toLocaleString("ko-KR"));
@@ -8610,8 +8624,8 @@ if(subdomain.indexOf('emart') !== -1 || subdomain.indexOf('m-emart') !== -1 ) {
 	  					           $("#totalprice2").html(totalprice.toLocaleString("ko-KR"));
 	  					           $("#totalprice2").val(totalprice.toLocaleString("ko-KR"));
 	  					           $("#pretotalprice").html(totalprice.toLocaleString("ko-KR"));
-	  					           $("#coupondis5").html((dis1+value).toLocaleString("ko-KR"));
-	  					           $("#coupondis5").val((dis1+value).toLocaleString("ko-KR"));
+	  					           $("#coupondis5").html((dis1+totaldisc).toLocaleString("ko-KR"));
+	  					           $("#coupondis5").val((dis1+totaldisc).toLocaleString("ko-KR"));
 	  					           $("#discountprice4").html($("#coupondis5").val() + $("#prodis5").val() );
 	  					           
 	  					        })
