@@ -1,5 +1,7 @@
 package product.command;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -24,7 +26,11 @@ public class ViewHandler implements CommandHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 				
-				long id =Long.parseLong( request.getParameter("productcode"));
+		        long id = Long.parseLong(request.getParameter("productcode"));
+		        String currentPageParam = request.getParameter("currentPage");
+		        int currentPage = currentPageParam != null ? Integer.parseInt(currentPageParam) : 1;
+		        int numberPerPage = 5;
+						
 				
 				try {
 					
@@ -35,6 +41,10 @@ public class ViewHandler implements CommandHandler{
 					ShippingOptionDTO shippingOption = productService.getShippingOption(id);
 					List<ReviewDTO> reviews =productService.getReviews(id);
 					List<ReviewImgDTO> reviewImg = productService.getReviewImg(id);
+		            List<ReviewDTO> pagedReviews = productService.getPagedReviews(id, currentPage, numberPerPage);
+		            int totalPages = productService.getTotalPages(numberPerPage,id);
+		            
+					
 					
 					request.setAttribute("ShippingOption", shippingOption);
 					request.setAttribute("specialPrice", specialPrice);
@@ -42,7 +52,10 @@ public class ViewHandler implements CommandHandler{
 					request.setAttribute("productoption", productoption);
 					request.setAttribute("reviews", reviews);
 					request.setAttribute("reviewImg", reviewImg);
-					
+					request.setAttribute("pagedReviews", pagedReviews);
+			        request.setAttribute("currentPage", currentPage);
+			        request.setAttribute("totalPages", totalPages);
+					request.setAttribute("numberPerPage", numberPerPage);
 
 					
 				} catch (Exception e) {
