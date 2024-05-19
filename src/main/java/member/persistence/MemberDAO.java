@@ -71,5 +71,7 @@ public interface MemberDAO {
 	
 	public ArrayList<Integer> getCountList(String id) throws SQLException;
 
+	public int quitMbr(String id, String quitReason) throws SQLException;
+
 
 }

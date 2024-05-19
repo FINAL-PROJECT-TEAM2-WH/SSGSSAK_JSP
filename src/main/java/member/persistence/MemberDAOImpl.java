@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.apache.commons.collections.map.HashedMap;
 
@@ -953,6 +954,47 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 
 		return countList;
+	}
+
+
+	@Override
+	public int quitMbr(String id, String quitReason) throws SQLException {
+		
+		
+		int rowCount = 0 ; 		
+		
+		// quitMbr 에 넣는 코드 
+		String sql = "INSERT INTO quitMember VALUES (?,SYSDATE,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, quitReason);
+			rowCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		// 값들을 delete 하는 코드 
+		sql = "UPDATE member "
+			+ "SET email='N', phoneNum='N', name='N',passwd=?,birthD='',loginnotification='',login2notification='',privilege='' "
+			+ "WHERE id = ? ";
+		UUID uuid = UUID.randomUUID();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, uuid.toString());
+			pstmt.setString(2, id);
+			rowCount += pstmt.executeUpdate();	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+	
+		return rowCount;
 	}
 
 
