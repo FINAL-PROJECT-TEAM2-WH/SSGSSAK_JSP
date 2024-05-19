@@ -47,6 +47,50 @@ public class CategoryDAOimpl implements CategoryDAO {
 		String subCateName;
 		String miniCateName;
 
+		
+
+		
+		String mjcSql = " SELECT DISTINCT majorCateName, id "
+				+ " FROM category "
+				+ " WHERE id LIKE '%000000' "
+				+ " AND majorCateName IS NOT NULL ";
+		try {
+			pstmt = conn.prepareStatement(mjcSql); 
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				mjcDtoList = new ArrayList<MajorCateDTO>();
+				MajorCateDTO dto = null;
+				do {
+					majorCateName= rs.getString(1);
+					id= rs.getString(2);   
+
+					dto = new MajorCateDTO()
+							.builder()
+							.id(id)
+							.majorCateName(majorCateName)
+							.build();
+					mjcDtoList.add(dto);
+					System.out.println("mjcDtoList에 대카테정보담아짐");
+				} while (rs.next());
+
+			} // if 
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("여기서 오류뜨면 mjcDtoList에 담기는게 안되는거임");
+		} finally {
+			try {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+			} catch (Exception e2) {
+				System.out.println(" mjcDtoList 닫기실패");
+			}
+		}
+
+		
+		
 		String mdcSql = " SELECT DISTINCT middleCateName, id "
 				+ " FROM category "
 				+ " WHERE id LIKE SUBSTR(?, 1, 2) || '%0000' "
@@ -87,7 +131,9 @@ public class CategoryDAOimpl implements CategoryDAO {
 				System.out.println(" mdcDtoList 닫기실패");
 			}
 		}
-
+		
+		
+		
 
 
 
@@ -230,6 +276,7 @@ public class CategoryDAOimpl implements CategoryDAO {
 
 		acDTO = new AllCateDTO()
 				.builder()
+				.mjcDtoList(mjcDtoList)
 				.mdcDtoList(mdcDtoList)
 				.scDtoList(scDtoList)
 				.mncDtoList(mncDtoList)
@@ -237,6 +284,13 @@ public class CategoryDAOimpl implements CategoryDAO {
 				.build();
 
 
+		System.out.println("mjcDtoList:");
+		if (mjcDtoList != null) {
+			for (MajorCateDTO dto : mjcDtoList) {
+				System.out.println(dto.getId() + " - " + dto.getMajorCateName());
+			}
+		}
+		
 		System.out.println("mdcDtoList:");
 		if (mdcDtoList != null) {
 			for (MiddleCateDTO dto : mdcDtoList) {

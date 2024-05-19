@@ -23,6 +23,9 @@ public class ProductListDTO {
     private long optionPrice;
     private long sprice;
     private long discount;
+    private long reviewCount;
+    private double avgGrade;
+    
     
 
 }

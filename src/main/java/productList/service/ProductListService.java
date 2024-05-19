@@ -57,6 +57,22 @@ public class ProductListService {
 		return (Integer) null;
 	}
 	
+	public int getTotalPages(String categoryId, int numberPerPage) {
+		try (Connection conn = ConnectionProvider.getConnection()){
+			productListDAOimpl dao = new productListDAOimpl(conn);
+			int totalPages =  dao.getTotalPages(categoryId,numberPerPage);
+			System.out.println("페이지수가져와짐");
+			
+			return totalPages;
+			
+		} catch (Exception e) {
+			System.out.println("getTotalPages 뭔가안됨");
+			e.printStackTrace();
+		}
+		
+		return (Integer) null;
+	}
+	
 	
 	public AllCateDTO selectCate(String categoryId) {
 		
