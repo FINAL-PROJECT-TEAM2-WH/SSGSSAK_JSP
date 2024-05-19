@@ -2,33 +2,30 @@ package member.service;
 
 import java.sql.Connection;
 
-import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
-import member.domain.MemberDTO;
 import member.persistence.MemberDAO;
-import member.persistence.MemberDAOImpl;
 
-public class LogoutService {
-private static LogoutService instance = null;
+public class LoginLogInfoService {
+private static LoginLogInfoService instance = null;
 	
 	private MemberDAO dao = null;
 	private Connection conn = null;
-	private LogoutService() {}
+	private LoginLogInfoService() {}
 	
-	public LogoutService(MemberDAO dao) {
+	public LoginLogInfoService(MemberDAO dao) {
 		this.dao = dao;
 	}
 
-	public static LogoutService getInstance() {
+	public static LoginLogInfoService getInstance() {
 		if ( instance == null) {
-			instance = new LogoutService();
+			instance = new LoginLogInfoService();
 		}
 		return instance;
 	}
 	
 	
-	public int logout(String id) {
+	public int loadLoginInfo(String id) {
 		
 		int rowCount = 0;
 		try {		

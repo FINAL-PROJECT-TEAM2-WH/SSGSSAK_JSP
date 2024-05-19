@@ -2,6 +2,7 @@ package member.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Map;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +53,7 @@ public class LoginService {
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(conn);
 		}
@@ -74,6 +75,23 @@ public class LoginService {
 
 	}
 	
+	  public int regiLoginLog(Map<String,String> loginLogMap, String id) {
+		Connection conn = null;
+		int rowCount = 0;
+		try {
+			conn = ConnectionProvider.getConnection();
+			rowCount = dao.regiLoginLog(loginLogMap, id);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}  finally {
+			JdbcUtil.close(conn);
+		}
+		
+		  
+		return rowCount;  
+	  }
+
 	
 	
 }

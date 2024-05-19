@@ -17,6 +17,7 @@ import member.persistence.MemberDAO;
 import member.persistence.MemberDAOImpl;
 import member.service.ChangeInfoService;
 import member.service.LoadInfoService;
+import member.service.LogoutService;
 import member.service.QuitMbrService;
 import net.sf.json.JSONObject;
 
@@ -74,6 +75,14 @@ public class QuitHandler implements CommandHandler {
 			if (rowCount >= 1) {
 				//SUCCESS 
 				resultJson += "\"Success\"}";
+				
+				LogoutService logoutService = new LogoutService(dao);
+				if ( logoutService.logout(id) >= 1) {
+					session.invalidate();
+					System.out.println("로그아웃 성공");
+				} else {
+					System.out.println("로그아웃 실패");
+				}
 				
 			} else {
 				// FAIL

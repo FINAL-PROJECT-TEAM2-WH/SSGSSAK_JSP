@@ -73,5 +73,9 @@ public interface MemberDAO {
 
 	public int quitMbr(String id, String quitReason) throws SQLException;
 
+	public boolean findlogId(String id) throws SQLException;
+
+	public int regiLoginLog(Map<String, String> loginLogMap, String id) throws SQLException;
+
 
 }

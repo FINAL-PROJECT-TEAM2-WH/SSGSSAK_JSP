@@ -28,13 +28,18 @@ public class LogoutHandler implements CommandHandler{
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("auth");
 		System.out.println(id);
-		int rowCount = service.logout(id);
-		
-		
+		int rowCount = service.logout(id);		
 		if ( rowCount == 1 ) {					
 			System.out.println(id + "로그아웃 성공");
 			session.invalidate();
 		}	
+
+		
+		if (service.findlogId(id) && request.isRequestedSessionIdValid()) {
+			System.out.println(id + "로그아웃 성공");
+			session.invalidate();
+		}
+		
 		JdbcUtil.close(conn);
 		///mainProd.do
 		String path = request.getContextPath() + "/main/mainPage/mainPage.jsp";

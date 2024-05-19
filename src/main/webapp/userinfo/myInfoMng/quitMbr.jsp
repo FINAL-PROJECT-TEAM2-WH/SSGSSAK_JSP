@@ -1319,7 +1319,7 @@ $(function(){
             	if (result.result.result == 'Success') {
                 	
                     alert('회원탈퇴가 완료되었습니다.\n그동안 서비스를 이용해주셔서 감사합니다.');
-                    location.replace("")
+                    location.replace("<%=contextPath%>/main/mainPage/mainPage.jsp")
                 } else if (result.result.result == 'Fail') {
                     document.location.reload();
                 }
