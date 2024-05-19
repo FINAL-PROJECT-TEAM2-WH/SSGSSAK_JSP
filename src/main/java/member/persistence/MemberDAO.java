@@ -77,5 +77,7 @@ public interface MemberDAO {
 
 	public int regiLoginLog(Map<String, String> loginLogMap, String id) throws SQLException;
 
+	public int getloginLog(String id) throws SQLException;
+
 
 }
