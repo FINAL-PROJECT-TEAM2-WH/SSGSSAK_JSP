@@ -90,6 +90,22 @@ public class ProductListService {
 		return null;
 	}//selectCate
 	
+	public AllCateDTO selectCate_verProd(long id) {
+		
+		try (Connection conn = ConnectionProvider.getConnection()){
+			System.out.println("selectCate_verProd");
+			
+			CategoryDAOimpl dao = new CategoryDAOimpl(conn); 
+			AllCateDTO acDTO = dao.selectCate_verProd(id);
+			System.out.println("selectCate_verProd 서비스 잘 작동됨");
+			return acDTO;
+		} catch ( NamingException | SQLException e) {
+			e.printStackTrace();
+			System.out.println("selectCate_verProd 서비스안됨ㅋㅋㅋ");
+		}
+		return null;
+	}//selectCate
+	
 	
 
 }

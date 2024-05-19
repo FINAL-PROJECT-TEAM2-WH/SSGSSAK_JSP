@@ -883,10 +883,15 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 												</c:forEach>
 											</c:when>
 											
+											<c:when test="${fn:endsWith(crtCateDto.id, '0000') and not empty selectCate.mncDtoList}">
+												<c:forEach items="${selectCate.mncDtoList}" var="mncDto">
+													<li class=""><a href="productList.do?categoryId=${mncDto.id}&currentPage=1">${mncDto.miniCateName}</a></li>
+												</c:forEach>
+											</c:when>
 											
 											<c:otherwise>
-												<c:forEach items="${selectCate.mncDtoList}" var="mnDto">
-													<li class=""><a href="productList.do?categoryId=${mnDto.id}&currentPage=1">${mnDto.miniCateName}</a></li>
+												<c:forEach items="${selectCate.scDtoList}" var="scDto">
+													<li class=""><a href="productList.do?categoryId=${scDto.id}&currentPage=1">${scDto.subCateName}</a></li>
 												</c:forEach>
 											</c:otherwise>
 										</c:choose>
@@ -1099,7 +1104,7 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 							</c:when>
 							<c:otherwise>
 							 <script>
-           					  alert("선택한 카테고리에 상품이 없습니다.");
+           					 	console.log("카테고리에 상품이 없습니다")
         					</script>
 							</c:otherwise>
 							
