@@ -12,7 +12,7 @@ import mainpage.domain.ProductmainDTO;
 import productList.domain.ProductListDTO;
 import productList.persistence.productListDAO;
 
-public class mainListDAOImpl implements productListDAO{
+public class mainListDAOImpl_old implements productListDAO{
 
 	
 	
@@ -27,7 +27,7 @@ public class mainListDAOImpl implements productListDAO{
 	public void setConn(Connection conn) {
 		this.conn = conn;
 	}
-	public mainListDAOImpl(Connection conn) {
+	public mainListDAOImpl_old(Connection conn) {
 		this.conn = conn;
 	}
 
