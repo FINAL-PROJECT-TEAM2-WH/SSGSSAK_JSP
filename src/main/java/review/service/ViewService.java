@@ -1,4 +1,4 @@
-package product.service;
+package review.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -200,30 +200,28 @@ public class ViewService {
 	        reviews = dao.select(currentPage, numberPerPage, productcode);
 	    } catch (Exception e) {
 	        e.printStackTrace();
+	        System.out.println(" getPagedReviews error");
 	    } finally {
 	        JdbcUtil.close(conn);
 	    }
 	    return reviews;
 	}
-
-	public int getTotalPages(int numberPerPage,long productcode) {
-	    int totalPages = 0;
-	    Connection conn = null;
-	    try {
-	        conn = ConnectionProvider.getConnection();
-	        ReviewDAOImpl dao = new ReviewDAOImpl(conn);
-	        totalPages = dao.getTotalPages(numberPerPage,productcode);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } finally {
-	        JdbcUtil.close(conn);
-	    }
-	    return totalPages;
-	}
-
-
-
-	
-	
-	
+    
+    
+    public int getTotalPages(int numberPerPage) {
+        int totalPages = 0;
+        Connection conn = null;
+        try {
+            conn = ConnectionProvider.getConnection();
+            ReviewDAOImpl dao = new ReviewDAOImpl(conn);
+            int totalRecords = dao.getTotalRecords();
+            totalPages = (int) Math.ceil((double) totalRecords / numberPerPage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.close(conn);
+        }
+        return totalPages;
+    }
+    
 }//class
