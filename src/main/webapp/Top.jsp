@@ -67,7 +67,7 @@
                             <div class="ssg_mall_layer_head">
                                 <h1>
                                     <a href="javascript:void(0)" class="ssg_logo_link">
-                                        <span class="ssg_logo_slogan">믿고 사는 즐거움</span>
+                                        <span class="ssg_logo_slogan">언제 어디서나 편하게</span>
                                         <i class="logo logo_ssg_com" aria-hidden="true"></i>
                                         <span class="blind">SSG.COM</span>
                                     </a>
