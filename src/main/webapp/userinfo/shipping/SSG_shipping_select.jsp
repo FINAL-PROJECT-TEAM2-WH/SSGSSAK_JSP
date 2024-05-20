@@ -15,7 +15,6 @@
 	href="https://sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240423" />
 <link rel="stylesheet" type="text/css"
 	href="https://sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240423" />
-
 <link rel="stylesheet" type="text/css"
 	href="https://sui.ssgcdn.com/ui/ssg/css/odr_v2.css?v=20240423" />
 <link rel="stylesheet" type="text/css"
@@ -455,7 +454,6 @@
 																	for="rsvtShppInfo_1_1_3_${i}"> 예약가능 </label>
 															</span></td>
 														</c:forEach>
-
 													</tr>
 													<tr class=" ">
 														<th scope="row">15:00~19:00</th>

@@ -23,10 +23,14 @@ public class OrderDetailViewHandler implements CommandHandler {
 		String[] temp = request.getParameter("orderId").split("/");
 		long[] ids = new long[temp.length];
 		int[] rowcounts = null;
-		String idsStr = null;
+		String idsStr = "";
 		for (int i = 0; i < ids.length; i++) {
 			ids[i] = Long.parseLong(temp[i]);
-			idsStr += temp[i]; 
+			if(i == ids.length-1) {
+				idsStr += temp[i];
+			}else {
+				idsStr += temp[i]+"/"; 
+			}
 		}
 		OrderDetailVO odvo = null;
 		ArrayList<OrderRecordVO> olist = null;
@@ -38,7 +42,7 @@ public class OrderDetailViewHandler implements CommandHandler {
 			e.printStackTrace();
 			System.out.println("OrderDetailViewHandler에서 오류~~");
 		}
-		System.out.println("odvo는 ?? " + odvo);
+		//System.out.println("odvo는 ?? " + odvo);
 		request.setAttribute("idsStr", idsStr);
 		request.setAttribute("odvo", odvo);
 		request.setAttribute("olist", olist);

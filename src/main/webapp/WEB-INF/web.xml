@@ -9,7 +9,7 @@
 	</welcome-file-list>
 
 
- 
+
 	  <filter>
 	  <filter-name>characterEncodingFilter</filter-name>
 	  <filter-class>com.filter.CharacterEncodingFilter</filter-class>
@@ -34,8 +34,7 @@
 		<url-pattern>/memberInfo/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
-	
- 
+
   	  <servlet>
 	    <description>MVC</description>
 	    <description>컨트롤러 역할</description>

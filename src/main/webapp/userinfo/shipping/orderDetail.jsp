@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
+<%
+	HttpSession hsession = request.getSession(false);
+	String mid = (String)hsession.getAttribute("auth");
+%>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
@@ -21,6 +25,7 @@
 	href="https://sui.ssgcdn.com/ui/ssg/css/ssg_component.css">
 <script type="text/javascript"
 	src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
 <script>
 	// regex patterns to identify known bot instances:
 	let botPattern = "(googlebot\/|bot|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)";
@@ -410,7 +415,7 @@
 						<a href="http://www.ssg.com/myssg/main.ssg"
 							class="cmmyssg_user_tittx clickable"
 							data-react-tarea-dtl-cd="t00060"><span
-							class="cmmyssg_user_titname">이동영 님</span>의 My SSG</a>
+							class="cmmyssg_user_titname"><%= mid %></span>의 My SSG</a>
 					</h2>
 				</div>
 			</div>
@@ -687,406 +692,256 @@
 		String detailaddress;
 			
 			 -->
-			 
+
 			<c:if test="${ not empty odvo }">
-				<div>여기${ odvo.sInfoId }</div>
-			</c:if>
-			<div class="codr_odrdeliv">
-				<dl class="codr_odrdeliv_head">
-					<dt>
-						<span class="codr_odrdeliv_odrdate notranslate">2024.04.15</span>
-						<span class="codr_odrdeliv_odrnum"> <em>주문번호</em>
-							20240415-02F004
-						</span>
-					</dt>
-					<dd>
-						<button type="button" class="codr_btn_odrhide codr_sticky_close"
-							name="btnDeleteOrderInfo" data-orord-no="2024041502F004"
-							data-page-name="orderInfoDetail">
-							<span>내 주문내역에서 삭제</span>
-						</button>
-						<span class="codr_bar"></span>
-						<button type="button" class="codr_btn_tx" name="btnDigitalReceipt"
-							data-orord-no="2024041502F004">
-							<span>전자영수증</span>
-						</button>
-						<span class="codr_bar"></span>
-						<button type="button" class="codr_btn_tx" name="btnSaveCart"
-							data-orord-no="2024041502F004">
-							<span>장바구니 담기</span>
-						</button>
-					</dd>
-				</dl>
-				<div class="codr_acdo_cont">
-					<div class="codr_odrdeliv_item ty_btnlst emart" name="divShppUnit">
-						<div class="codr_odrdeliv_delivinfo">
-							<span class="cm_mall_ic ty_rect_l notranslate">
-								<div class="cm_mall_ship em">
-									<span class="cm_ship_tx">쓱배송</span>
-								</div>
-							</span> <strong class="codr_odrdeliv_delivtype"> <span
-								class="notranslate"><span class="blind"></span></span>
-							</strong>
-
-
-							<div class="codr_btnarea_rgt"></div>
-						</div>
-						<div class="ssg-layer-popup codr_lypop codr_lypop_magicpickup"
-							id="codr_lypop_magicpickup" style="cursor: default;"
-							role="document"></div>
-						<div class="ssg-layer-popup codr_lypop codr_lypop_ppPickup"
-							id="codr_lypop_ppPickup" style="cursor: default;" role="document">
-						</div>
-						<div class="ssg-layer-popup codr_lypop codr_lypop_gift"
-							id="codr_lypop_gift" style="cursor: default;" role="document">
-						</div>
-						<div class="ssg-layer-popup codr_lypop codr_lypop_ssgcon"
-							id="codr_lypop_ssgcon" style="cursor: default;" role="document">
-						</div>
-						<div class="ssg-layer-popup codr_lypop codr_lypop_strpickup"
-							id="codr_lypop_strpickup" role="dialog" style="cursor: default;">
-						</div>
-						<div class="ssg-layer-popup codr_lypop codr_lypop_strpickup"
-							id="codr_lypop_mnclserviceinfo" role="dialog"
-							style="cursor: default;"></div>
-						<div class="codr_dvstate">
-							<div class="codr_dvstate_bg">
-								<span class="ico_arr"></span>
-								<div class="tx_area">
-									<div class="tx_state">
-
-										배송완료
-										<div class="tx_detail">
-											<span>04.16(화) 16:09</span>에 문 앞에 놓아두었습니다.
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="codr_dvstate_lstwrap">
-								<ul class="codr_dvstate_lst ty_nopd ty_nobg ty_step6"
-									role="presentation">
-									<li class="start">
-										<div class="codr_dvstate_item">
-											<span>결제완료</span>
-										</div>
-										<div class="ico_dvstate"></div>
-									</li>
-									<li class="car">
-										<div class="codr_dvstate_item">
-											<span>상품준비중</span>
-										</div>
-										<div class="ico_dvstate"></div>
-									</li>
-									<li class="car">
-										<div class="codr_dvstate_item">
-											<span>점포출발</span>
-										</div>
-										<div class="ico_dvstate"></div>
-									</li>
-									<li class="car">
-										<div class="codr_dvstate_item">
-											<span>배송중</span>
-										</div>
-										<div class="ico_dvstate"></div>
-									</li>
-									<li class="car">
-										<div class="codr_dvstate_item">
-											<span>도착예정</span>
-										</div>
-										<div class="ico_dvstate"></div>
-									</li>
-									<li class="finish on"><span class="blind">현재 배송 상태</span>
-										<div class="codr_dvstate_item">
-											<span>배송완료</span>
-										</div>
-										<div class="ico_dvstate"></div></li>
-								</ul>
-							</div>
-						</div>
-						<div class="ssg-layer-popup codr_lypop codr_lypop_shopinfo"
-							id="codr_lypop_shopinfo"></div>
-						<!-- 알비백 Notice -->
-						<dl class="codr_ip" role="presentation">
-							<dt>주문자 정보</dt>
-							<dd>
-								<span class="codr_ip_tx notranslate"> <span class="blind">주문자
-										성함</span><em class="notranslate">동스</em> <span class="blind">주문자
-										전화번호</span> 010-9110-1878
-								</span>
-							</dd>
-						</dl>
-						<dl class="codr_ip" role="presentation">
-							<dt>받으시는 분</dt>
-							<dd>
-								<span class="codr_ip_tx"> <span class="blind">받으시는
-										분 성함</span><em>이동영</em> <span class="blind">받으시는 분 전화번호</span>
-									010-9110-1878<span class="tx_gray notranslate"> (안심번호
-										사용안함) </span>
-								</span>
-							</dd>
-						</dl>
-						<dl class="codr_ip" role="presentation">
-							<dt class="notranslate">받으시는 주소</dt>
-							<dd>
-								<span class="codr_ip_tx"> <span class="blind">주문자
-										주소</span> <span class="notranslate"> [이동영] [06131] 서울특별시 강남구
-										강남대로94길83, 역삼생활 307호 (역삼동)</span>
-								</span>
-							</dd>
-						</dl>
-						<dl class="codr_ip" role="presentation">
-							<dt>배송메시지</dt>
-							<dd>
-								<span class="codr_ip_tx"> <span class="notranslate">
-										없음</span>
-								</span>
-							</dd>
-						</dl>
-						<dl class="codr_ip" role="presentation">
-							<dt>수령방법</dt>
-							<dd>
-								<span class="codr_ip_tx"> <span class="blind">수령방법</span>
-									<span class="notranslate"> 문 앞</span>
-								</span> <span class="codr_ip_tx"> <span class="notranslate">공동현관
-										출입방법 </span><span> (2024-04-16까지 조회가능)</span><br>
-								</span>
-							</dd>
-						</dl>
-
-						<div class="codr_unit">
-							<table>
-								<caption>
-									<span class="blind">상품유닛 목록형</span>
-								</caption>
-								<colgroup>
-									<col style="width: 80px">
-									<col>
-									<col style="width: 180px">
-									<col style="width: 140px">
-								</colgroup>
-								<tbody>
-
-									<c:if test="${ !empty olist }">
+				<div class="codr_odrdeliv">
+					<dl class="codr_odrdeliv_head">
+						<dt>
+							<span class="codr_odrdeliv_odrdate notranslate">${ odvo.orderDate }</span>
+							<c:if test="${ not empty idsStr }">
+							<c:forEach items="${ idsStr }" var="ids">
+							<span class="codr_odrdeliv_odrnum">주문번호 ${ ids }<em></em>
+							</c:forEach>
+							</c:if>
+							</span>
+						</dt>
+						<dd>
+							<button type="button" class="codr_btn_odrhide codr_sticky_close"
+								name="btnDeleteOrderInfo" data-orord-no="2024041502F004"
+								data-page-name="orderInfoDetail">
+								<span>내 주문내역에서 삭제</span>
+							</button>
+							<span class="codr_bar"></span>
+							<button type="button" class="codr_btn_tx"
+								name="btnDigitalReceipt" data-orord-no="2024041502F004">
+								<span>전자영수증</span>
+							</button>
+							<span class="codr_bar"></span>
+							<button type="button" class="codr_btn_tx" name="btnSaveCart"
+								data-orord-no="2024041502F004">
+								<span>장바구니 담기</span>
+							</button>
+						</dd>
+					</dl>
+					<div class="codr_acdo_cont">
+						<div class="codr_odrdeliv_item ty_btnlst emart" name="divShppUnit">
+							<div class="codr_odrdeliv_delivinfo">
+								<span class="cm_mall_ic ty_rect_l notranslate">
+									<div class="cm_mall_ship em">
+									<c:if test="${ not empty olist }">
 										<c:forEach items="${ olist }" var="ovo">
-											<tr class="codr_unit_area" name="divItemUnit">
-												<td class="codr_thmb">
-													<div class="codr_unit_thmb">
-														<input type="hidden"
-															id="ordItemGrp__ForceShppcstBdnMainCd" value="XX" /> <a
-															href="http://www.ssg.com/item/itemView.ssg?itemId=1000017659761&siteNo=6001&salestrNo=2022"
-															target="_blank"> <span class="codr_unit_img">
-																<img
-																src="${ ovo.imgurl }"
-																srcset="${ ovo.imgurl }"
-																alt="상품이미지"
-																onerror="javascript:this.src='https://sui.ssgcdn.com/ui/sd/img/common/noImg_80.gif';this.alt='상품 이미지 준비중입니다.';" />
-														</span>
-														</a>
-													</div>
-												</td>
-												<td class="codr_unit_cont">
-													<div class="codr_unit_type ty_top"></div>
-													<p class="codr_unit_tit notranslate">
-														<a
-															href="http://www.ssg.com/item/itemView.ssg?itemId=1000017659761&siteNo=6001&salestrNo=2022"
-															target="_blank"> <span class="codr_unit_name">
-															<span>${ ovo.pdname }</span></span>
-														</a>
-													</p>
-													<div class="codr_unit_type"></div>
-												</td>
-												<td class="codr_unit_pricewrap">
-													<div class="codr_unit_newprice notranslate">
-														<span class="blind">판매가격</span> <em
-															class="ssg_price notranslate">${ ovo.optionprice }</em> <span
-															class="ssg_tx">원</span>
-													</div> <span class="codr_unit_line"></span> <span
-													class="codr_unit_count"> <strong class="blind">상품수량</strong>
-														<em class="num notranslate"> ${ ovo.quantity }</em><span
-														class="notranslate">개</span>
-												</span>
-												</td>
-												<td class="codr_unit_btnarea"><a
-													href="javascript:void(0);" class="codr_btn_unit"
-													name="btnShowItemComment" data-page-div="itemUnit"
-													data-item-cnt="4" data-item-id="1000017659761"
-													data-uitem-id="00000" data-ord-no="2024041502F004"
-													data-ord-item-seq="1" data-click-page="orderdtl"
-													data-bsell-yn="N"> 리뷰작성 </a></td>
-											</tr>
+											<span class="cm_ship_tx">${ ovo.shippingoptionname }</span>
 										</c:forEach>
 									</c:if>
+										
+									</div>
+								</span> <strong class="codr_odrdeliv_delivtype"> <span
+									class="notranslate"><span class="blind"></span></span>
+								</strong>
 
-								</tbody>
-							</table>
-						</div>
-						<div class="codr_btnarea">
-							<ul>
-								<!--  신선식품 노출 비대상 -->
-								<li>
-									<button type="button" class="codr_btn codr_btn_blk"
-										name="btnShowItemComment" data-item-cnt="4"
-										data-item-id="1000017659761" data-uitem-id="00000"
-										data-ord-no="2024041502F004" data-ord-item-seq="1"
-										data-click-page="orderdtl" data-bsell-yn="N">
-										<span>리뷰작성</span>
-									</button>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- 배송비 할인 쿠폰 금액 -->
-					<div class="codr_payinfo v4">
-						<div class="codr_payinfo_sec">
-							<div class="codr_payinfo_inner">
-								<div class="codr_contit ty_underline">
-									<h3 class="codr_contit_tx">결제정보</h3>
-								</div>
-								<div class="codr_payinfo_cont codr_total">
-									<div class="codr_payinfo_row ty_depth">
-										<div class="codr_payinfo_tx">주문금액</div>
-										<div class="codr_payinfo_money">
-											<em class="ssg_price notranslate">18,100</em><span
-												class="ssg_tx">원</span>
-										</div>
-										<div class="codr_payinfo_row">
-											<div class="codr_payinfo_tx codr_tx_point2">포인트사용</div>
-											<div class="codr_payinfo_money codr_tx_point2">
-												-<em class="ssg_price notranslate">1,000</em><span
-													class="ssg_tx">원</span>
-											</div>
-										</div>
-										<ul class="mnodr_paydetail_sublst">
-											<li><span class="mnodr_paydetail_tx">SSG MONEY</span> <span
-												class="mnodr_paydetail_money"><em class="ssg_price">1,000</em><span
-													class="ssg_tx">원</span></span></li>
-										</ul>
-									</div>
-									<div class="codr_payinfo_row ty_depth">
-										<div class="codr_payinfo_tx">배송비</div>
-										<span class="codr_payinfo_money">+<em
-											class="ssg_price notranslate">3,000</em><span class="ssg_tx">원</span></span>
-									</div>
-									<div class="codr_payinfo_sum">
-										<div class="codr_payinfo_tx">총 결제금액</div>
-										<div class="codr_payinfo_money">
-											<em class="ssg_price notranslate">20,100</em><span
-												class="ssg_tx">원</span>
-										</div>
-									</div>
-								</div>
-								<div class="codr_payinfolst">
-									<div class="codr_payinfotit">
-										<h4 class="codr_payinfotit_tx">결제내역</h4>
-									</div>
-									<div class="codr_payinfo_cont">
-										<div class="codr_payinfo_row">
-											<div class="codr_payinfo_tx">SSGPAY-신용카드</div>
-											<div class="codr_payinfo_money notranslate">
-												<em class="ssg_price">20,100</em><span class="ssg_tx">원</span>
-											</div>
-										</div>
-										<div class="codr_payinfo_contxt">
-											<p>
-												<input type="hidden" name="tgtPaymtId_0"
-													value="1835792455_1835792455"> <span
-													class="notranslate">카카오뱅크카드</span>
-												&nbsp;5365-10**-****-****&nbsp; <br /> 일시불<br />
-											</p>
 
-										</div>
-										<div class="codr_payinfo_block">
-											<div class="payinfo_title">
-												<span>SSG MONEY</span> <span>1,000 원</span></span>
-											</div>
-											<div class="payinfo_description">
-												<span class="payinfo_description_text">충전머니 (기명식
-													선불전자지급수단) 사용: <span class="payinfo_description_price">1,000
-														원</span>
-													<div class="payinfo_description_tooltip">
-														<button class="codr_btn_tooltip codr-tooltip">
-															<span class="codr_sp codr_ico_detail"><span
-																class="blind">기명식 선불전자 지급수단 안내 상세보기</span></span>
-														</button>
-														<div class="codr_tooltip_cont">
-															<div class="codr_tooltip_contents">
-																<div class="codr_tooltip_title">
-																	<p>기명식 선불전자</p>
-																	<p>지급수단 안내</p>
-																</div>
-																<div class="codr_tooltip_description">
-																	<div class="codr_tooltip_description_main">실지명의가
-																		확인된 회원이 보유한 SSG MONEY의 충전머니는 기명식 선불전자지급수단이며, SSG MONEY
-																		보유한도 (1회 사용가능금액)는 200만원입니다.</div>
-																	<div class="codr_tooltip_description_sub">
-																		<p>기명식 선불전자지급수단은 조세특례제한법 126조의 2에 따라 현금영수증 발급이
-																			불가하고 전자금융업자 (SSGPAY)가 연 1회 일괄 국세청에 제출합니다. (연말정산
-																			간소화페이지에서 확인 가능)</p>
-																		<p>단, 일부 카테고리 상품 구매 및 예치금 사용시 소득공제 자료에서 제외됩니다.</p>
-																	</div>
-																	<div class="codr_tooltip_description_important">
-																		문의: SSGPAY 고객센터 1644-1133</div>
-																</div>
-															</div>
-															<button type="button" class="codr_tooltip_delete">
-																<div class="codr_tooltip_close">
-																	<span class="blind">기명식 선불전자 지급수단 안내 닫기</span>
-																	<p>닫기</p>
-																</div>
-															</button>
-														</div>
-													</div>
-												</span>
+								<div class="codr_btnarea_rgt"></div>
+							</div>
+							<div class="ssg-layer-popup codr_lypop codr_lypop_magicpickup"
+								id="codr_lypop_magicpickup" style="cursor: default;"
+								role="document"></div>
+							<div class="ssg-layer-popup codr_lypop codr_lypop_ppPickup"
+								id="codr_lypop_ppPickup" style="cursor: default;"
+								role="document"></div>
+							<div class="ssg-layer-popup codr_lypop codr_lypop_gift"
+								id="codr_lypop_gift" style="cursor: default;" role="document">
+							</div>
+							<div class="ssg-layer-popup codr_lypop codr_lypop_ssgcon"
+								id="codr_lypop_ssgcon" style="cursor: default;" role="document">
+							</div>
+							<div class="ssg-layer-popup codr_lypop codr_lypop_strpickup"
+								id="codr_lypop_strpickup" role="dialog" style="cursor: default;">
+							</div>
+							<div class="ssg-layer-popup codr_lypop codr_lypop_strpickup"
+								id="codr_lypop_mnclserviceinfo" role="dialog"
+								style="cursor: default;"></div>
+							<div class="codr_dvstate">
+								<div class="codr_dvstate_bg">
+									<span class="ico_arr"></span>
+									<div class="tx_area">
+										<div class="tx_state">
+
+											상품 준비중
+											<div class="tx_detail">
+												<span>${ odvo.orderDate }</span>에 결제하셨습니다.
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="codr_payinfo_refer">
-									<p>품절 시 환불수단 : 주문 시 결제수단</p>
+								<div class="codr_dvstate_lstwrap">
+									<ul class="codr_dvstate_lst ty_nopd ty_nobg ty_step6"
+										role="presentation">
+										<li class="start">
+											<div class="codr_dvstate_item">
+												<span>결제완료</span>
+											</div>
+											<div class="ico_dvstate"></div>
+										</li>
+										<li class="finish on">
+											<div class="codr_dvstate_item">
+												<span>상품준비중</span>
+											</div>
+											<div class="ico_dvstate"></div>
+										</li>
+										<li class="car">
+											<div class="codr_dvstate_item">
+												<span>점포출발</span>
+											</div>
+											<div class="ico_dvstate"></div>
+										</li>
+										<li class="car">
+											<div class="codr_dvstate_item">
+												<span>배송중</span>
+											</div>
+											<div class="ico_dvstate"></div>
+										</li>
+										<li class="car">
+											<div class="codr_dvstate_item">
+												<span>도착예정</span>
+											</div>
+											<div class="ico_dvstate"></div>
+										</li>
+										<li class="car"><span class="blind">현재 배송 상태</span>
+											<div class="codr_dvstate_item">
+												<span>배송완료</span>
+											</div>
+											<div class="ico_dvstate"></div></li>
+									</ul>
 								</div>
 							</div>
-						</div>
-
-						<div class="codr_payinfo_sec">
-							<div class="codr_payinfo_inner">
-								<div class="codr_contit ty_underline">
-									<h3 class="codr_contit_tx">
-										구매혜택 <span class="ssg_price codr_tx_point2"> 21</span><span
-											class="ssg_tx codr_tx_point2">원</span><span class="blind">할인</span>
-									</h3>
-								</div>
-
-								<div class="codr_payinfo_cont codr_benefit">
-									<div class="codr_payinfo_row">
-										<div class="codr_payinfo_tx">신세계포인트</div>
-										<div class="codr_payinfo_money">
-											<strong><em>21</em><span class="ssg_point">P</span></strong>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="mnodr_tooltip_bubble" id="benefitInfoDialog"
-						role="dialog" tabindex="-1" aria-hidden="true"
-						style="display: none; transform: translate(0px, 0px);">
-						<div class="mnodr_tooltip_content">
-							<p class="mnodr_tooltip_text">스마일클럽을 위한 SSG MONEY는 배송완료 시,
-								상품당 최대 1만원, 최대 5만원 한도로 지급됩니다. (단, 스마일클럽 이벤트로 적립되는 적립금은 멤버십 적립한도와
-								별개로 운영됩니다.)</p>
-							<div class="mnodr_tooltip_append">
-								<button type="button"
-									class="mnodr_tooltip_btn_close js-btn-tooltip-close">
-									<span class="mnodr_btn_content"> <i
-										class="icon ty_xs icon_close" aria-hidden="true"></i>
+							<div class="ssg-layer-popup codr_lypop codr_lypop_shopinfo"
+								id="codr_lypop_shopinfo"></div>
+							<!-- 알비백 Notice -->
+							<dl class="codr_ip" role="presentation">
+								<dt>주문자 정보</dt>
+								<dd>
+									<span class="codr_ip_tx notranslate"> <span
+										class="blind">주문자 성함</span><em class="notranslate">${ odvo.mname }&nbsp&nbsp</em> <span
+										class="blind">주문자 전화번호</span> ${ odvo.phonenum }
 									</span>
-								</button>
-							</div>
-						</div>
-					</div>
+								</dd>
+							</dl>
+							<dl class="codr_ip" role="presentation">
+								<dt>받으시는 분</dt>
+								<dd>
+									<span class="codr_ip_tx"> <span class="blind">받으시는
+											분 성함</span><em>${ odvo.receivemem }&nbsp&nbsp</em> <span class="blind">받으시는 분 전화번호</span>
+										${ odvo.phonenum }<span class="tx_gray notranslate"> (안심번호
+											사용안함) </span>
+									</span>
+								</dd>
+							</dl>
+							<dl class="codr_ip" role="presentation">
+								<dt class="notranslate">받으시는 주소</dt>
+								<dd>
+									<span class="codr_ip_tx"> <span class="blind">주문자
+											주소</span> <span class="notranslate"> [${ odvo.mname }] [${ odvo.postnum }] 
+											${ odvo.roadaddress }, ${ odvo.detailaddress }</span>
+									</span>	
+								</dd>
+							</dl>
+							<dl class="codr_ip" role="presentation">
+								<dt>배송메시지</dt>
+								<dd>
+									<span class="codr_ip_tx"> <span class="notranslate">
+											${ odvo.shippingrequest }</span>
+									</span>
+								</dd>
+							</dl>			
+			</c:if>
 
-					<script>
+
+			<div class="codr_unit">
+				<table>
+					<caption>
+						<span class="blind">상품유닛 목록형</span>
+					</caption>
+					<colgroup>
+						<col style="width: 80px">
+						<col>
+						<col style="width: 180px">
+						<col style="width: 140px">
+					</colgroup>
+					<tbody>
+
+						<c:if test="${ !empty olist }">
+							<c:forEach items="${ olist }" var="ovo">
+								<tr class="codr_unit_area" name="divItemUnit">
+									<td class="codr_thmb">
+										<div class="codr_unit_thmb">
+											<input type="hidden" id="ordItemGrp__ForceShppcstBdnMainCd"
+												value="XX" /> <a
+												href="/SSGSSAK/product/product.do?productcode=${ ovo.productid }"
+												target="_blank"> <span class="codr_unit_img"> <img 
+													src="${ ovo.imgurl }" alt="상품이미지" style="width: 90px; height: 90px"
+													 />
+											</span>
+											</a>
+										</div>
+									</td>
+									<td class="codr_unit_cont">
+										<div class="codr_unit_type ty_top"></div>
+										<p class="codr_unit_tit notranslate">
+											<a
+												href="/SSGSSAK/product/product.do?productcode=${ ovo.productid }"> <span class="codr_unit_name"> <span>${ ovo.pdname }</span></span>
+											</a>
+										</p>
+										<div class="codr_unit_type"></div>
+									</td>
+									<td class="codr_unit_pricewrap">
+										<div class="codr_unit_newprice notranslate">
+											<span class="blind">판매가격</span> <em
+												class="ssg_price notranslate">${ ovo.optionprice }</em> <span
+												class="ssg_tx">원</span>
+										</div> <span class="codr_unit_line"></span> <span
+										class="codr_unit_count"> <strong class="blind">상품수량</strong>
+											<em class="num notranslate"> ${ ovo.quantity }</em><span
+											class="notranslate">개</span>
+									</span>
+									</td>
+									<td class="codr_unit_btnarea">
+									<button type="button" value="${ ovo.productid }" onclick="reviewDo(this)" style="border: 1px solid gray; width: 60px; height: 30px">
+									리뷰작성</button></td>
+								</tr>
+							</c:forEach>
+						</c:if>
+
+					</tbody>
+				</table>
+			</div>
+			<div class="codr_btnarea"></div>
+		</div>
+		<!-- 배송비 할인 쿠폰 금액 -->
+		<div class="mnodr_tooltip_bubble" id="benefitInfoDialog" role="dialog"
+			tabindex="-1" aria-hidden="true"
+			style="display: none; transform: translate(0px, 0px);">
+			<div class="mnodr_tooltip_content">
+				<p class="mnodr_tooltip_text">스마일클럽을 위한 SSG MONEY는 배송완료 시, 상품당
+					최대 1만원, 최대 5만원 한도로 지급됩니다. (단, 스마일클럽 이벤트로 적립되는 적립금은 멤버십 적립한도와 별개로
+					운영됩니다.)</p>
+				<div class="mnodr_tooltip_append">
+					<button type="button"
+						class="mnodr_tooltip_btn_close js-btn-tooltip-close">
+						<span class="mnodr_btn_content"> <i
+							class="icon ty_xs icon_close" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			function reviewDo(button){
+				var btnVal = button.value
+				//alert(btnVal);
+				location.href = `<%= contextPath %>/review/review.do?productcode=\${btnVal}`;
+			}
+		</script>
+		<script>
 						$(function() {
 							[].forEach
 									.call(
@@ -1106,65 +961,55 @@
 											});
 						});
 					</script>
-					<div class="codr_btnarea ty_full">
-						<ul>
-							<li><button type="button" class="codr_btn codr_btn_blk"
-									name="btnDigitalReceipt" data-orord-no="2024041502F004">
-									<span>전자영수증</span>
-								</button></li>
-							<li><button type="button" class="codr_btn codr_btn_gray"
-									name="btnCreditcardReceipt" data-orord-no="2024041502F004">
-									<span>신용카드전표</span>
-								</button></li>
-						</ul>
-						<p class="codr_btnarea_desc">
-							기명식 선불전자지급수단(SSG MONEY)을 사용한 경우, 전자금융업자(SSGPAY)가 국세청에 연 1회 일괄
-							제출하여 소득공제 처리되며, <span class="codr_btnarea_desc_highlight">별도로
-								현금영수증은 발급되지 않습니다.</span>
-						</p>
-					</div>
-				</div>
+		<div class="codr_btnarea ty_full">
+			<p class="codr_btnarea_desc">
+				기명식 선불전자지급수단(SSG MONEY)을 사용한 경우, 전자금융업자(SSGPAY)가 국세청에 연 1회 일괄 제출하여
+				소득공제 처리되며, <span class="codr_btnarea_desc_highlight">별도로
+					현금영수증은 발급되지 않습니다.</span>
+			</p>
+		</div>
+	</div>
+	</div>
+	</div>
+	<div class="ssg-layer-popup codr_lypop mnodr_lypop_tradein"
+		id="mnodr_lypop_tradein"></div>
+	<div class="ly_codr_view" id="ifr_codr_view">
+		<div class="ly_codr_in">
+			<h4 class="blind">취소/교환/반품 신청</h4>
+			<div class="ly_codr_cont">
+				<iframe id="ly_codr_ifr" class="ly_codr_ifr" title="상세내용"></iframe>
 			</div>
 		</div>
-		<div class="ssg-layer-popup codr_lypop mnodr_lypop_tradein"
-			id="mnodr_lypop_tradein"></div>
-		<div class="ly_codr_view" id="ifr_codr_view">
-			<div class="ly_codr_in">
-				<h4 class="blind">취소/교환/반품 신청</h4>
-				<div class="ly_codr_cont">
-					<iframe id="ly_codr_ifr" class="ly_codr_ifr" title="상세내용"></iframe>
-				</div>
-			</div>
+	</div>
+	<div id="sellerInfoLayer"
+		class="codr_lypop ty_line codr_sellerinfo_lypop"
+		style="width: 325px; cursor: default;" role="dialog"
+		aria-hidden="true"></div>
+
+	<div id="errorLayer" style="display: none;">
+		<div class="codr_lypop_header">
+			<h4 class="codr_lypop_tit">
+				이용에 불편을 드려 죄송합니다.<br> 다시 시도해주세요.
+			</h4>
 		</div>
-		<div id="sellerInfoLayer"
-			class="codr_lypop ty_line codr_sellerinfo_lypop"
-			style="width: 325px; cursor: default;" role="dialog"
-			aria-hidden="true"></div>
-
-		<div id="errorLayer" style="display: none;">
-			<div class="codr_lypop_header">
-				<h4 class="codr_lypop_tit">
-					이용에 불편을 드려 죄송합니다.<br> 다시 시도해주세요.
-				</h4>
-			</div>
-			<div class="codr_lypop_container">
-				<a href="#" class="codr_btn_close"> <span class="codr_sp"><span
-						class="blind">레이어 팝업 닫기</span></span>
-				</a>
-			</div>
+		<div class="codr_lypop_container">
+			<a href="#" class="codr_btn_close"> <span class="codr_sp"><span
+					class="blind">레이어 팝업 닫기</span></span>
+			</a>
 		</div>
+	</div>
 
-		<input type="hidden" id="logPageName" value="orderInfoDetail" /> <input
-			type="hidden" id="clmRcpMthdCd" value="" />
+	<input type="hidden" id="logPageName" value="orderInfoDetail" />
+	<input type="hidden" id="clmRcpMthdCd" value="" />
 
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/pay/js/tools/jquery/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/pay/js/pay/lib/kakao.min.js?dummy=20240508"></script>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/pay/js/tools/jquery/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/pay/js/pay/lib/kakao.min.js?dummy=20240508"></script>
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/ssg/js/jquery.form.js"></script>
 
-		<script>
+	<script>
 			function googleTranslateElementInit() {
 				new google.translate.TranslateElement({
 					pageLanguage : 'ko',
@@ -1174,12 +1019,12 @@
 			}
 		</script>
 
-		<script type="text/javascript"
-			src="//translate.google.co.kr/translate_a/element.js?cb=googleTranslateElementInit"></script>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.translate.js?v=202405070135"></script>
+	<script type="text/javascript"
+		src="//translate.google.co.kr/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.translate.js?v=202405070135"></script>
 
-		<script>
+	<script>
 			var useI18n = true;
 
 			$(function() {
@@ -1271,23 +1116,23 @@
 				}
 			});
 		</script>
-		<script type="text/javascript">
+	<script type="text/javascript">
 			var _OAPI_DOMAIN = "oapi.ssg.com";
 			var KAKAO_API_KEY = "927ad12793fd2d6e0ce1874f65eaf415";
 			Kakao.init(KAKAO_API_KEY);
 		</script>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240507"></script>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/pay/js/pay/common/payLogUtil.js?dummy=20240508"></script>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/pay/js/pay/myssg/CommonOrderInfo.js?v=202405070135"></script>
-		<input type="hidden" id="talkDomain" value="talk.ssg.com" />
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/pay/js/pay/common/payComm.js?v=202405070135"></script>
-		<script type="text/javascript"
-			src="https://sui.ssgcdn.com/ui/pay/js/pay/myssg/OrderInfo.js?v=202405070135"></script>
-		<script type="text/javascript">
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/ssg/js/ui/ssg.view.layerpopup.js?v=20240507"></script>
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/pay/js/pay/common/payLogUtil.js?dummy=20240508"></script>
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/pay/js/pay/myssg/CommonOrderInfo.js?v=202405070135"></script>
+	<input type="hidden" id="talkDomain" value="talk.ssg.com" />
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/pay/js/pay/common/payComm.js?v=202405070135"></script>
+	<script type="text/javascript"
+		src="https://sui.ssgcdn.com/ui/pay/js/pay/myssg/OrderInfo.js?v=202405070135"></script>
+	<script type="text/javascript">
 			$(document).ready(orderInfoPageInit);
 			$(window).load(
 					function() {
@@ -1324,7 +1169,7 @@
 								});
 					});
 		</script>
-		<script type="text/javascript">
+	<script type="text/javascript">
 			$(window)
 					.load(
 							function() {
