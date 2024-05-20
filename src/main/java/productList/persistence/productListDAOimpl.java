@@ -5,10 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.util.JdbcUtil;
 
+import product.domain.ProductImgDTO;
 import productList.domain.ProductListDTO;
+import shipping.persistence.ShippingPlaceInfoDAOImpl;
 
 public class productListDAOimpl implements productListDAO{
 
@@ -46,7 +49,7 @@ public class productListDAOimpl implements productListDAO{
 		long 		discount;          
 		long 		reviewCount;
 		double 		avgGrade; 
-		
+		String 		imgurl;
 		
 		String sql = " SELECT * "
 				   + " FROM ( "
@@ -113,6 +116,8 @@ public class productListDAOimpl implements productListDAO{
 					discount = (rs.getLong(12)==0?0:rs.getLong(12));
 					reviewCount = (rs.getLong(13)==0?0:rs.getLong(13));
 					avgGrade = (rs.getDouble(14)==0?0:rs.getDouble(14));
+					ShippingPlaceInfoDAOImpl sdao = ShippingPlaceInfoDAOImpl.getInstance();
+					imgurl = sdao.imgurlSelect(conn, id);
 					
 					dto = new ProductListDTO()
 							.builder()
@@ -129,6 +134,7 @@ public class productListDAOimpl implements productListDAO{
 							.discount(discount)
 							.reviewCount(reviewCount)
 							.avgGrade(avgGrade)
+							.imgurl(imgurl)
 							.build();
 					list.add(dto);
 					System.out.println("dto에 담아짐");
@@ -139,6 +145,9 @@ public class productListDAOimpl implements productListDAO{
 		} catch (SQLException e) { 
 			e.printStackTrace();
 			System.out.println("여기서 오류뜨면 dto에 담기는게 안되는거임");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
 			try {
 				JdbcUtil.close(rs);
