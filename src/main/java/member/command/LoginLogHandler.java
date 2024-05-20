@@ -1,6 +1,8 @@
 package member.command;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -37,11 +39,14 @@ public class LoginLogHandler implements CommandHandler{
 		Connection conn = ConnectionProvider.getConnection();
 		MemberDAO dao = new MemberDAOImpl(conn);
 		int rowCount = 0;
-		
+		ArrayList< Map<String,String> >loginInfoList = null;
 		if (method.equalsIgnoreCase("GET")) {
-			LoginLogInfoService loginfoservice = new LoginLogInfoService(dao);
-			
-			
+			 LoginLogInfoService loginfoservice = new LoginLogInfoService(dao);
+			 loginInfoList = loginfoservice.loadLoginInfo(id);
+			 request.setAttribute("loginMap", loginInfoList);
+			 path = "/userinfo/myInfoMng/loginInfo.jsp";
+			 dispatcher = request.getRequestDispatcher(path);
+			 dispatcher.forward(request, response);
 		}
 		
 		// POST 요청 시에는 로그인 2차 인증 동의 ? 세션 변경해주기 . 

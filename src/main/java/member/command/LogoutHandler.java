@@ -42,7 +42,7 @@ public class LogoutHandler implements CommandHandler{
 		
 		JdbcUtil.close(conn);
 		///mainProd.do
-		String path = request.getContextPath() + "/main/mainPage/mainPage.jsp";
+		String path = request.getContextPath() + "/mainPage.do";
 		response.sendRedirect(path);
 			
 		return null;

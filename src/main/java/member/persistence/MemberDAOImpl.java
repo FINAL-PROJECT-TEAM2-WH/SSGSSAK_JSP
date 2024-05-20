@@ -1049,6 +1049,46 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 
+	@Override
+	public ArrayList<Map<String,String>> getloginLog(String id) throws SQLException {
+		String sql = " SELECT memid, OPERATINGSYSTEM, BROWSERAPP, "
+				+ " LOGINTYPE, IPADDRESS, CONNECTIONNATION, RECENTLOGINDATE"
+				+ " FROM loginlog "
+				+ " WHERE memid = ? ";
+		String memid, operationsystem, browserApp, logintype, ipaddress, connectionnation, recentloginDate;
+		Map<String,String> loginMap = new HashedMap();
+		ArrayList<Map<String,String>> loginLogList = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();	
+			if ( rs.next()) {
+				loginLogList = new ArrayList();
+				do {
+					memid = rs.getString("memid");
+					operationsystem = rs.getString("OPERATINGSYSTEM");
+					browserApp = rs.getString("BROWSERAPP");
+					logintype = rs.getString("LOGINTYPE");
+					ipaddress = rs.getString("IPADDRESS");
+					connectionnation = rs.getString("CONNECTIONNATION");
+					recentloginDate = rs.getString("RECENTLOGINDATE");	
+					loginMap.put("memid", memid);
+					loginMap.put("OPERATINGSYSTEM", operationsystem);
+					loginMap.put("BROWSERAPP", browserApp);
+					loginMap.put("LOGINTYPE", logintype);
+					loginMap.put("IPADDRESS", ipaddress);
+					loginMap.put("CONNECTIONNATION", connectionnation);
+					loginMap.put("RECENTLOGINDATE", recentloginDate);									
+					loginLogList.add(loginMap);
+				} while(rs.next());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return loginLogList;
+	}
+
+
 	
 
 

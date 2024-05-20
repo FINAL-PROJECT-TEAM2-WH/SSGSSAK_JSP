@@ -1,6 +1,7 @@
 package member.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Map;
 
 import com.util.JdbcUtil;
@@ -26,18 +27,18 @@ private static LoginLogInfoService instance = null;
 	}
 	
 	
-	public Map<String,String> loadLoginInfo(String id) {
+	public ArrayList<Map<String,String>> loadLoginInfo(String id) {
 		
-		int rowCount = 0;
+		ArrayList<Map<String,String>> mapList = null;
 		try {		
-			rowCount = dao.getloginLog(id);		
+			mapList = dao.getloginLog(id);		
 		} catch (Exception e) {
 
 		} finally {
 			JdbcUtil.close(conn);
 		}
 		
-		return null;
+		return mapList;
 	}
 
 	public boolean findlogId(String id) {
