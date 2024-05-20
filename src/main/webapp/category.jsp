@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <div id="skip_gnb" class="ssg_navbar react-area">
     <div class="ssg_navbar_inner" data-react-tarea-cd="00042_000000090">
         <div class="cmgnb_ctg" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;카테고리&quot;}]">
@@ -12,84 +14,26 @@
                 <div class="cmctg_dimmed"></div>
                 <div class="cmctg_cont">
                     <ul class="cmctg_list" role="menubar">
+                       
+                       
+                       <c:forEach var="mjcList" items="${mjcList}" >
+                        <li class="cmctg_top_mn" >
+                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" >
+                                    <span class="cmctg_lnk_txt"> ${mjcList.majorCateName}</span>
+                                    </a>
+                                <div class="cmctg_sub_area" aria-hidden="true"></div>
+                            </li>
+                      </c:forEach>
+                      
+                      
                         <li class="cmctg_top_mn" data-ctg-code="5410000001">
                                 <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|패션의류">
                                     <span class="cmctg_lnk_txt">패션의류</span>
                                     </a>
                                 <div class="cmctg_sub_area" aria-hidden="true"></div>
                             </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015891">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|패션잡화">
-                                    <span class="cmctg_lnk_txt">패션잡화</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000016221">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|명품">
-                                    <span class="cmctg_lnk_txt">명품</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000002">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|뷰티">
-                                    <span class="cmctg_lnk_txt">뷰티</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000006">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|스포츠/레저">
-                                    <span class="cmctg_lnk_txt">스포츠/레저</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000003">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|생활/주방">
-                                    <span class="cmctg_lnk_txt">생활/주방</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015890">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|가구/인테리어">
-                                    <span class="cmctg_lnk_txt">가구/인테리어</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000004">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|유아동">
-                                    <span class="cmctg_lnk_txt">유아동</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000005">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|디지털/렌탈">
-                                    <span class="cmctg_lnk_txt">디지털/렌탈</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015889">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|여행/e쿠폰/문구/도서">
-                                    <span class="cmctg_lnk_txt">여행/e쿠폰/문구/도서</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="5410000007">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|신선식품">
-                                    <span class="cmctg_lnk_txt">신선식품</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000015925">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|가공/건강식품">
-                                    <span class="cmctg_lnk_txt">가공/건강식품</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
-                        <li class="cmctg_top_mn" data-ctg-code="1000016140">
-                                <a role="menuitem" href="#" class="cmctg_top_lnk clickable" aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|반려동물">
-                                    <span class="cmctg_lnk_txt">반려동물</span>
-                                    </a>
-                                <div class="cmctg_sub_area" aria-hidden="true"></div>
-                            </li>
+                            
+
                         </ul>
                 </div>
             </div>

@@ -9,6 +9,7 @@ import javax.naming.NamingException;
 import com.util.ConnectionProvider;
 
 import productList.domain.AllCateDTO;
+import productList.domain.MajorCateDTO;
 import productList.domain.ProductListDTO;
 import productList.persistence.CategoryDAOimpl;
 import productList.persistence.productListDAOimpl;
@@ -105,7 +106,22 @@ public class ProductListService {
 		}
 		return null;
 	}//selectCate
-	
+	public ArrayList<MajorCateDTO> selectMajorCate(){
+		
+		try (Connection conn = ConnectionProvider.getConnection()){
+			System.out.println("selectMajorCate");
+			
+			CategoryDAOimpl dao = new CategoryDAOimpl(conn); 
+			ArrayList<MajorCateDTO> list = dao.selectMajorCate();
+			
+			System.out.println("selectMajorCate 서비스 잘 작동됨");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("selectMajorCate 서비스 작동안됨ㅋㅋㅋ");
+		}
+		
+		return null;
+	}
 	
 
 }

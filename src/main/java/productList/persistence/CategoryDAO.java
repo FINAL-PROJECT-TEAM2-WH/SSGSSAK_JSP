@@ -11,7 +11,7 @@ public interface CategoryDAO {
 
 		AllCateDTO selectCate(String categoryId) throws SQLException; 
 		AllCateDTO selectCate_verProd(long pid) throws SQLException; 
-
+		ArrayList<MajorCateDTO> selectMajorCate() throws SQLException;
 		
 		
 }
