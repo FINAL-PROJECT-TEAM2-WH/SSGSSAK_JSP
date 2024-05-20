@@ -1749,6 +1749,48 @@ wptg_tagscript_vars.push(
 
     EmfV5('inflow', "723");
     //Emforce ROI V5 Conversion Tag End
+    
+    function addLike(productid) {
+ 	$.ajax({
+        url: '<%=contextPath%>/like/like.do',
+        dataType: 'json',
+        type: 'GET',
+        data: { "productid" : productid}, 
+        cache: false,
+        success: function (data) {
+        	if (data.result == 'Invalid') {
+        		if (confirm ('이미 좋아요 누른 항목입니다. 취소하시겠습니까? ')) {
+        			alert("ㅇㅋ 취소해줌");
+        			// 취소하는 ajax 
+        			$.ajax({
+        				url: '<%=contextPath%>/like/like.do',
+        				dataType: 'json',
+        				type: 'POST',
+        				data : {"productid" : productid,
+        					"status" : "Invalid"},
+        				cache: false,
+        				success : function (data) {
+        					if (data.result =='DeleteSuccess') {
+        						location.href = "<%=contextPath%>/mainPage.do";
+        					}
+        				}, error : function (xhr, status, error){
+        					
+        				}
+        			});
+        		} else {
+        			alert('그대로 냅둘게');
+        		}
+        	} else if ( data.result == 'Success') {
+        		alert('좋아요 성공임');
+        	} else if ( data.result == 'Fail') {
+        		alert('좋아요 실패임 ');
+        	}
+        },
+        error: function (xhr, status, error) {
+
+        }
+    });
+} 
 </script>
 
 

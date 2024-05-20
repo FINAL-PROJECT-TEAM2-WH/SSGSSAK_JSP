@@ -137,10 +137,7 @@ function generateProductList(products) {
 							value="//sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg">
 							<input type="hidden" name="checked" value="N"> <input
 							type="hidden" name="useForcedSsgYn" value="N">
-							<button class="cmlike_btn _js_cmlike_btn clickable"
-								data-position="clip"
-								data-react-tarea="메인매장|쓱1DAY배송|상품_좋아요|_2097001814277"
-								data-react-tarea-dtl-cd="t00003">
+							<button class="cmlike_btn _js_cmlike_btn clickable" onclick='addLike(\${product.id});' >
 								<span class="cmlike_ico"> <i class="cmlike_primary_s"></i>
 									<span class="sr_off"><span class="blind">관심상품
 											취소</span></span> <span class="sr_on"><span class="blind">관심상품
