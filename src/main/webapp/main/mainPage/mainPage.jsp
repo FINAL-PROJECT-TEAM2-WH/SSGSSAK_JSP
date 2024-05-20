@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  -->
 <!doctype html>
 <html lang="ko">
@@ -18,10 +20,10 @@
     <meta name="google-site-verification" content="riDJ-IX46HanskLx25pj6-y8ANf2qTgZNfv_UJvkHq8" />
     <meta name="facebook-domain-verification" content="ctgl43lmqq8gm4thxgg7j3b38sfqau" />
     <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424" as="style" />
-<link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" as="style" />
+<!--  <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424" as="style" />  -->
 <link rel="preload" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240424" as="style"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_global.css?v=20240424"/>
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_layout.css?v=20240424"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/logo.css"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssg_component.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/main_new.css?v=20240424"/>
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/mndmoon_ssg.css?v=20240424"/>
@@ -709,7 +711,8 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 
 
         <!-- 구현할것들 -->
-<%@include file="./WHmake.jsp" %>
+<%@include file="./mainProdWear.jsp" %>
+<%@include file="./mainProdFood.jsp" %>
 
 <%@include file="./newNews.jsp" %>
 <!--  ----------------------------- -->

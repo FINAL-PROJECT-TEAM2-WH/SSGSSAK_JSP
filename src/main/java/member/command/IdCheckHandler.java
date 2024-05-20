@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import member.persistence.MemberDAO;
@@ -50,6 +51,7 @@ public class IdCheckHandler implements CommandHandler{
 			String idCheckJson = service.idCheck(id); 			
 			request.setAttribute("idCheckJson", idCheckJson);
 			String path = "/member/join/idCheck.jsp";
+			JdbcUtil.close(conn);
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 			dispatcher.forward(request, response);
 			return null;

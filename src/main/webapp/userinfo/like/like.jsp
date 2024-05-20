@@ -24,7 +24,7 @@
 
 <link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/com_component.css?v=20240424" />
 <link rel="stylesheet" type="text/css" href="https://sui.ssgcdn.com/ui/m_ssg/css/ssg_component.css?v=20240424" />
-<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424" />
+<link rel="stylesheet" type="text/css" href="//sui.ssgcdn.com/ui/ssg/css/ssgday_2023.css?v=20240424" /> 
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -628,9 +628,12 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 		<div class="mylike_folder" id="mylike_folder_id">
 			<button type="button" class="mylike_folder_prev"><span class="blind">이전 폴더목록 보기</span></button>
 			<div class="mylike_folder_slider">
-				<ul class="mylike_folder_list" role="tablist" data-react-tarea-cd="00133_000000556">
-					
-					
+				<ul class="mylike_folder_list" role="tablist" data-react-tarea-cd="00133_000000556">	
+					<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"새폴더"}]'>
+						<a href="" data-mbrAttnGrpSeq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">
+							<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">새폴더</em>
+						</a>
+					</li> 								
 					<c:forEach var="folder" items="${folderList}" varStatus="status">
 					<c:choose>
 					<c:when test="${status.index == 0}">
@@ -649,64 +652,8 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 					</c:otherwise>
 					</c:choose>
 					</c:forEach>
-					
-					<!--
-					<li class="mylike_folder_item" role="presentation" id="list_folder_2">
-							<a href="" data-mbrAttnGrpSeq="2" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_2">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_3">
-							<a href="" data-mbrAttnGrpSeq="3" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_3">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_4">
-							<a href="" data-mbrAttnGrpSeq="4" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_4">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_5">
-							<a href="" data-mbrAttnGrpSeq="5" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_5">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_6">
-							<a href="" data-mbrAttnGrpSeq="6" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_6">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_7">
-							<a href="" data-mbrAttnGrpSeq="7" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_7">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_8">
-							<a href="" data-mbrAttnGrpSeq="8" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_8">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_9">
-							<a href="" data-mbrAttnGrpSeq="9" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_9">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_10">
-							<a href="" data-mbrAttnGrpSeq="10" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_10">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li>
-					<li class="mylike_folder_item" role="presentation" id="list_folder_11">
-							<a href="" data-mbrAttnGrpSeq="11" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_11">
-								<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">세제</em>
-							</a>
-						</li> -->
 						
-					<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"새폴더"}]'>
-						<a href="" data-mbrAttnGrpSeq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">
-							<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">새폴더</em>
-						</a>
-					</li> 
+					
 				</ul>
 			</div>
 			<button type="button" class="mylike_folder_next"><span class="blind">다음 폴더목록 보기</span></button>
@@ -734,7 +681,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 					</span>
 				</li>
 				<li class="mylike_modify_item" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"선택삭제"}]'>
-					<button type="button" class="mylike_modify_btn clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|편집|선택삭제_클릭" onclick="javascript:operateClipDatas('D');">선택삭제</button>
+					<button type="button" class="mylike_modify_btn clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|편집|선택삭제_클릭" onclick="javascript:operate('D');">선택삭제</button>
 				</li>
 				<li class="mylike_modify_item" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"폴더에 추가"}]'>
 					<button type="button" class="mylike_modify_btn _mylike_lay_open clickable"
@@ -787,7 +734,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         <a href="/item/itemView.ssg?itemId=1000068529577&siteNo=6004&salestrNo=6005" target="_self"  class="clickable"
              data-react-tarea="좋아요|상품|상품_클릭|어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종_1000068529577" data-info="1000068529577" data-index="0" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_290.jpg, //sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_580.jpg 2x" src="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_290.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종"  loading="lazy">
+            <img <%-- srcset="${product.url}" --%> src="${product.url}" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=290&h=290&t=16cbd41d848a18acbeb9f1be5644242c91461495'" class="i1" width="290" height="290" alt="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종"  loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
         <span class="di_coupon"><span class="blind">쿠폰포함</span>7<em class="per">%</em></span>
             </div>
@@ -807,7 +754,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
                 <input type="hidden" name="notiTitle" value="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_290.jpg">
+                <input type="hidden" name="notiImgPath" value="${product.url}">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
                 <button class="cmlike_btn _js_cmlike_btn clickable" onclick="addLike(${product.productid});" > <!-- cmlike_btn _js_cmlike_btn clickable -->
@@ -2881,14 +2828,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 			</div>
 		</div>
 	</div> -->
-	<button type="button" class="mylike_lay_close"><span class="blind">닫기</span></button>
+<!-- 	<button type="button" class="mylike_lay_close"><span class="blind">닫기</span></button>
 </div>
 <div class="mylike_laysec" id="mylikeModifyFolder" role="dialog" aria-modal="false">
 	<div class="mylike_lay_header">
 		<h2 class="mylike_lay_tit">폴더에 추가</h2>
 	</div>
 	<div class="mylike_lay_contents">
-		<!-- 폴더없을때 -->
+		폴더없을때
 		<div class="mylike_manage_makefolder" id="add_none_folder_id" style="display:none">
 			<p class="mylike_lay_ctext">추가할 폴더가 없어요. 새폴더를 만들어보세요.</p>
 			<div class="mylike_lay_input"><input type="text" id="mylikeModA" name="mbrAttnGrpNm" value="" placeholder="폴더명을 입력해주세요." maxlength="6" title="폴더명"><span class="mylike_lay_max">0 / 6</span></div>
@@ -2896,7 +2843,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 				<button type="button" class="mylike_lay_make" disabled="disabled" onclick="javascript:addNewFolder('mylikeModA');">만들기 및 추가</button>
 			</div>
 		</div>
-		<!-- 폴더관리할때 -->
+		폴더관리할때
 		<div class="mylike_manage_management" id="add_exists_folder_id">
 			<div class="mylike_manage_scroll">
 				<ul class="mylike_manage_list">
@@ -2987,7 +2934,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 		<h2 class="mylike_lay_tit">폴더 이동</h2>
 	</div>
 	<div class="mylike_lay_contents">
-		<!-- 폴더없을때 -->
+		폴더없을때
 		<div class="mylike_manage_makefolder" id="move_none_folder_id" style="display:none">
 			<p class="mylike_lay_ctext">추가할 폴더가 없어요. 새폴더를 만들어보세요.</p>
 			<div class="mylike_lay_input"><input type="text" id="mylikeMoveA" name="mbrAttnGrpNm" value="" placeholder="폴더명을 입력해주세요." maxlength="6" title="폴더명"><span class="mylike_lay_max">0 / 6</span></div>
@@ -2995,7 +2942,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 				<button type="button" class="mylike_lay_make" disabled="disabled" onclick="javascript:addNewFolder('mylikeMoveA');">만들기 및 추가</button>
 			</div>
 		</div>
-		<!-- 폴더관리할때 -->
+		폴더관리할때
 		<div class="mylike_manage_management" id="move_exists_folder_id">
 			<div class="mylike_manage_scroll">
 				<ul class="mylike_manage_list">
@@ -3080,7 +3027,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 		</div>
 	</div>
 	<button type="button" class="mylike_lay_close"><span class="blind">닫기</span></button>
-</div>
+</div> -->
 <a href="#store_modal_like_coupon" class="store_layer_btn_view" style="display: none" id="_layerLikeCouponBtn" data-layer-target="#_layerLikeCoupon">판매자스토어 좋아요</a>
 <div class="ssg-layer-popup store_lypop" id="store_modal_like_coupon" title="레이어팝업 열림">
   <div class="store_modal_cont">
@@ -3290,7 +3237,7 @@ $(function(){
 <script>
 function addLike(productid) {
  	$.ajax({
-        url: '<%=contextPath%>/memberInfo/like.do',
+        url: '<%=contextPath%>/like/like.do',
         dataType: 'json',
         type: 'GET',
         data: { "productid" : productid}, 
@@ -3301,7 +3248,7 @@ function addLike(productid) {
         			alert("ㅇㅋ 취소해줌");
         			// 취소하는 ajax 
         			$.ajax({
-        				url: '<%=contextPath%>/memberInfo/like.do',
+        				url: '<%=contextPath%>/like/like.do',
         				dataType: 'json',
         				type: 'POST',
         				data : {"productid" : productid,
@@ -3337,7 +3284,7 @@ function addLike(productid) {
 
 <script type="text/javascript">
 	//throttle
-	!function(n,t){"$:nomunge";var u,e=n.jQuery||n.Cowboy||(n.Cowboy={});e.throttle=u=function(n,u,o,i){function r(){function e(){c=+new Date,o.apply(f,d)}function r(){a=t}var f=this,g=+new Date-c,d=arguments;i&&!a&&e(),a&&clearTimeout(a),i===t&&g>n?e():u!==!0&&(a=setTimeout(i?r:e,i===t?n-g:n))}var a,c=0;return"boolean"!=typeof u&&(i=o,o=u,u=t),e.guid&&(r.guid=o.guid=o.guid||e.guid++),r},e.debounce=function(n,e,o){return o===t?u(n,e,!1):u(n,o,e!==!1)}}(this);
+	/* !function(n,t){"$:nomunge";var u,e=n.jQuery||n.Cowboy||(n.Cowboy={});e.throttle=u=function(n,u,o,i){function r(){function e(){c=+new Date,o.apply(f,d)}function r(){a=t}var f=this,g=+new Date-c,d=arguments;i&&!a&&e(),a&&clearTimeout(a),i===t&&g>n?e():u!==!0&&(a=setTimeout(i?r:e,i===t?n-g:n))}var a,c=0;return"boolean"!=typeof u&&(i=o,o=u,u=t),e.guid&&(r.guid=o.guid=o.guid||e.guid++),r},e.debounce=function(n,e,o){return o===t?u(n,e,!1):u(n,o,e!==!1)}}(this);
 
 
 	var oSubsCouponsModal = new ssg.View.layerPopup({
@@ -3350,10 +3297,10 @@ function addLike(productid) {
 			},
 			onOverlayClick: function() { oSubsCouponsModal.closeLayer(); }
 		}
-	});
+	}); */
 
 	// 페이징 처리
-	function goPage(page){
+	/* function goPage(page){
 		document.location.href = "/myssg/myClip/main.ssg?attnDivCd=10&mbrAttnGrpSeq=0&page="+page;
 	}
 
@@ -3419,9 +3366,9 @@ function addLike(productid) {
 				alert("새폴더 만들기 오류가 발생하였습니다. \n 관리자에게 문의해주세요.");
 			}
 		});
-	}
+	} */
 	// 폴더 수정 전
-	function beforeModifyFolder(seq) {
+	/* function beforeModifyFolder(seq) {
 		$('#mng_disp_text_' + seq).hide();
 		$('#mng_disp_btns_' + seq).hide();
 		$('#mng_mod_area_' + seq).show();
@@ -3479,9 +3426,9 @@ function addLike(productid) {
 				alert("폴더 수정 실패. 잠시 후 다시 시도해주십시오.");
 			}
 		});
-	}
+	} */
 	// 폴더 삭제
-	function deleteFolder(seq) {
+	/* function deleteFolder(seq) {
 		if(confirm("정말 삭제하시겠습니까?")){
 			var params = {
 				"mbrAttnGrpSeq" : seq
@@ -3522,9 +3469,9 @@ function addLike(productid) {
 				}
 			});
 		}
-	}
+	} */
 	// 체크박스 선택 후 동작
-	function operateClipDatas(type) {
+/* 	function operateClipDatas(type) {
 		if(type == 'D') {
 			// delete
 			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
@@ -3589,8 +3536,10 @@ function addLike(productid) {
 			}
 
 		}
-	}
-	// 선택삭제 실행
+	} */
+	
+	
+/* 	// 선택삭제 실행
 	function deleteClip(attnDtlcSeqStr) {
 		var params = {
 			'attnDivCd': '10',
@@ -3635,7 +3584,7 @@ function addLike(productid) {
 				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
 			}
 		});
-	}
+	} */
 	// 폴더에추가 실행
 	function updateMbrAttnGrpDtlc(attnDtlcSeqStr) {
 		var mbrAttnGrpSeqStr = $('#add_exists_folder_id').find('input[type=checkbox]:checked').map(function(){return $(this).val()}).get().join(",");
@@ -3730,17 +3679,150 @@ function addLike(productid) {
 			}
 		});
 	}
+	
+	function operate(type) {
+		if(type == 'D') {
+			// delete
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
+				alert('삭제할 항목을 선택해 주세요');
+				return;
+			} if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length > 100 ) {
+				alert('최대 100개 입니다.')
+				return;
+			} else {
+				if ( confirm('정말 삭제하시겠습니까?') ) {
+					var attnDtlcSeqStr = $('div.mylike_grid_container').find('input[type=checkbox]:checked').parents('li');/* .map(function(){return $(this).attr('data-attnDtlcSeq')}).get().join(",") */;
+					//deleteClip(attnDtlcSeqStr);
+					deleteContents(attnDtlcSeqStr);
+				}
+			}
+
+		} else if(type == 'C') {
+			// copy
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
+				alert('폴더에 추가할 내용을 선택해 주세요.');
+				return;
+			}
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length > 100 ) {
+				alert('폴더에 추가할 내용은 최대 100개 입니다.')
+				return;
+			}
+
+			if ( $('#add_exists_folder_id').find('input[type=checkbox]:checked').length == 0) {
+				alert('추가할 폴더를 선택해 주세요.');
+				return;
+			}
+			if ( $('#add_exists_folder_id').find('input[type=checkbox]:checked').length > 10) {
+				alert('추가할 폴더는 최대 10개입니다.');
+				return;
+			}
+
+			var attnDtlcSeqStr = $('div.mylike_grid_container').find('input[type=checkbox]:checked').parents('li').map(function(){return $(this).attr('data-attnDtlcSeq')}).get().join(",");
+			updateMbrAttnGrpDtlc(attnDtlcSeqStr);
+
+		} else if(type == 'M') {
+			// move
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length == 0 ) {
+				alert('폴더로 이동할 내용을 선택해 주세요.');
+				return;
+			}
+			if ( $('div.mylike_grid_container').find('input[type=checkbox]:checked').length > 100 ) {
+				alert('폴더로 이동할 내용은 최대 100개 입니다.')
+				return;
+			}
+
+			if ( $('#move_exists_folder_id').find('input[type=checkbox]:checked').length == 0) {
+				alert('이동할 폴더를 선택해 주세요.');
+				return;
+			}
+			if ( $('#move_exists_folder_id').find('input[type=checkbox]:checked').length > 10) {
+				alert('이동할 폴더는 최대 10개입니다.');
+				return;
+			}
+
+			if ( confirm('선택한 내용을 폴더로 이동 하시겠습니까?') ) {
+				var attnDtlcSeqStr = $('div.mylike_grid_container').find('input[type=checkbox]:checked').parents('li').map(function(){return $(this).attr('data-attnDtlcSeq')}).get().join(",");
+				moveMbrAttnGrpDtlc(attnDtlcSeqStr);
+			}
+
+		}
+	}
+	
+	
+	function deleteContents(attnDtlcSeqStr) {
+		/* var params = {
+			'attnDivCd': '10',
+			'attnDtlcSeqStr' : attnDtlcSeqStr,
+			'mbrAttnGrpSeq' : '0'
+		}; */
+		var params = {};
+		$.each(attnDtlcSeqStr, function (index,element) {			
+                 var key = "productid"+index  // 'data-' 부분 제거
+                 var value = element.getAttribute("data-tgt-idnf1");
+                 params[key] = value;             
+		}); 
+			 
+			/* element.getAttribute("data-tgt-idnf1")); */
+			
+		$.ajax({
+			type: "POST",
+			dataType:"json",
+			url: "<%=contextPath%>/like/likeCancel.do",  // 경로
+			data : JSON.stringify(params),
+			cache: false,
+			success: function(result){
+				if (result){
+					alert('삭제가 완료되었습니다.');
+					window.location.reload(true);
+				}	
+			},
+			error : function(){
+				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
+			}
+			
+		});
+		/* $.ajax({
+			type: "POST",
+			dataType: "json",
+			url: url,
+      cache: false,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      contentType: "application/josn",
+      crossDomain: true,
+      xhrFields: {
+        withCredentials: true
+      },
+      dataType: "json",
+      method: 'post',
+      cors: true,
+			data: JSON.stringify(params),
+			async: false,
+			success: function(result){
+				//alert('선택한 상품을' + result.resultMsg);
+				alert('삭제가 완료되었습니다.');
+				window.location.reload(true);
+			},
+			error : function(){
+				alert("체크삭제 실패. 잠시 후 다시 시도해주십시오.");
+			}
+		}); */
+	} 
+	
+	
 	$(function() {
-		if('11' > 0) {
+		/* if('11' > 0) {
 			$('#mng_none_folder_id').hide();
 			$('#mng_exists_folder_id').show();
 			$('#add_none_folder_id').hide();
 			$('#add_exists_folder_id').show();
 			$('#move_none_folder_id').hide();
 			$('#move_exists_folder_id').show();
-		}
+		} */
 
-		// Folder slider
+		/*  Folder slider
 		oMyLikeFolderSlider = new function() {
 			var sFolderItemSelector = '.mylike_folder_item';
 			var sFolderBtnSelector = '.mylike_folder_btn';
@@ -3749,7 +3831,7 @@ function addLike(productid) {
 			var welMyLikeFolderWrap = $('.mylike_folder');
 			var welMyLikeFolderPrevBtn = welMyLikeFolderWrap.find('.mylike_folder_prev');
 			var welMyLikeFolderNextBtn = welMyLikeFolderWrap.find('.mylike_folder_next');
-			var welMyLikeFolderList = welMyLikeFolderWrap.find('.mylike_folder_list');
+			/* var welMyLikeFolderList = welMyLikeFolderWrap.find('.mylike_folder_list');
 			var welMyLikeFolderItem = welMyLikeFolderList.find(sFolderItemSelector);
 			var oFolderSlider = null;
 			var htOption = {
@@ -3848,11 +3930,26 @@ function addLike(productid) {
 				reloadSlider: reloadSlider
 			};
 		}();
-		oMyLikeFolderSlider.init();
-
+		oMyLikeFolderSlider.init(); */
+		
+		
+		
+		
 
 		// 전체선택
-		var oClipCheckbox = (function(){
+		$('#checkAll').on('click', function () {
+			let chk = $('#checkAll').is(":checked");		
+			if ( chk ){
+				// 전체 선택 
+				$('._mylike_chk_item input:checkbox').prop('checked',true);
+			} else {
+				// 전체 선택 해제 
+				$('._mylike_chk_item input:checkbox').prop('checked',false);
+			}			
+		});
+		
+		
+		/* var oClipCheckbox = (function(){
 			var welAllSelect = $('#checkAll');
 			var sClipCheboxSelector = '._mylike_chk_item input:checkbox';
 
@@ -3899,7 +3996,7 @@ function addLike(productid) {
 				init: init
 			};
 		}());
-		oClipCheckbox.init();
+		oClipCheckbox.init(); */
 
 		// folder layer popup
 		var oSsgMyLikeLayerPopup = new ssg.View.layerPopup({
@@ -3922,7 +4019,7 @@ function addLike(productid) {
 			});
 
 			// Disable & Enable for Button Make
-			$(this._welContentLayer).on('keyup.mylikeLayer', '.mylike_lay_input input', function(e) {
+			/* $(this._welContentLayer).on('keyup.mylikeLayer', '.mylike_lay_input input', function(e) {
 				var welTarget = $(e.currentTarget);
 				var sTargetValLeng = welTarget.val().length;
 				var welCurrentAncestor = welTarget.parent().parent();
@@ -3938,8 +4035,8 @@ function addLike(productid) {
 				if(currentMax && sTargetValLeng > -1 ) {
 					currentMax.html((sTargetValLeng < 6 ? sTargetValLeng : 6) + ' / ' + parseInt(welTarget.attr('maxlength')));
 				}
-			});
-			$(this._welContentLayer).on('change.mylikeLayer', '.mylike_checkbox input', function(e) {
+			}); */
+			/* $(this._welContentLayer).on('change.mylikeLayer', '.mylike_checkbox input', function(e) {
 				var welCurrentAncestor = $(e.currentTarget).closest('.mylike_manage_management');
 				var welCurrentMyLikeLayMakeBtn = welCurrentAncestor.find('.mylike_lay_make');
 
@@ -3948,19 +4045,160 @@ function addLike(productid) {
 				} else {
 					welCurrentMyLikeLayMakeBtn.attr("disabled", "disabled");
 				}
-			});
+			}); */
 		});
 
-		oSsgMyLikeLayerPopup.on('afterOpen.openLayer', function() {
+		/* oSsgMyLikeLayerPopup.on('afterOpen.openLayer', function() {
 			$(this._welContentLayer).attr('aria-modal', 'true');
-		});
+		}); */
 
-		oSsgMyLikeLayerPopup.on('afterClose.openLayer', function(){
+		/*  oSsgMyLikeLayerPopup.on('afterClose.openLayer', function(){
 			$(this._welContentLayer).off('.mylikeLayer');
 			$(this._welContentLayer).attr('aria-modal', 'false');
-		});
-
+		});  */
+		 
 	});
+	
+	 var popupW = 450;
+	  var popupH = 400;
+	  var left = Math.ceil((window.screen.width - popupW)/2);
+	  var top = Math.ceil((window.screen.height - popupH)/2);
+	$('#list_floder_add').on('click', function () {
+		var left = Math.ceil((window.screen.width - popupW)/2);
+		  var top = Math.ceil((window.screen.height - popupH)/2);
+		$.blockUI({message:'<div class="blockUI blockOverlay" id="blockasdf" style="z-index: 3000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; cursor: pointer; background-color: rgb(0, 0, 0); opacity: 0.6; position: fixed;"></div> '
+		+ `<div class="blockUI blockMsg blockPage" style="z-index: 3011; position: fixed; background-color: rgb(255, 255, 255); top: \${top}px; left: \${left}px;"><div class="mylike_laysec" id="mylikeNewFolder" role="dialog" aria-modal="true" style="cursor: default; display: block;" tabindex="0"> `
+		+ '<div class="mylike_lay_header"> '
+		+ '<h2 class="mylike_lay_tit">새 폴더</h2> '
+	+'</div> '
+	+ '<div class="mylike_lay_contents">'
+		+'<div class="mylike_manage_makefolder">'
+			+'<p class="mylike_lay_ctext">폴더를 추가하여 좋아요를 내맘대로 관리해보세요!</p>'
+			+'<div class="mylike_lay_input"><input type="text" id="mylikeNew" name="mbrAttnGrpNm" value="" placeholder="폴더명을 입력해주세요." maxlength="6" title="폴더명" class="translated"><span class="trans_placeholder blind" data-default-txt="폴더명을 입력해주세요.">폴더명을 입력해주세요.</span><span class="mylike_lay_max">0 / 6</span></div>'
+			+'<div class="mylike_lay_btnbox">'
+				+'<button type="button" id="mylikeNew_btn" class="mylike_lay_make" disabled="disabled">만들기</button>'
+			+'</div>'
+		+'</div>'
+	+'</div>'
+	+'<button type="button" class="mylike_lay_close" id="myLikeNewClose"><span class="blind">닫기</span></button>'
++'</div></div>' });
+		
+		// 닫는 친구들 
+		$('#myLikeNewClose').on('click',function () {
+			$.unblockUI();
+		});
+		
+		$('#blockasdf').on('click',function () {
+			$.unblockUI();
+		});
+		$('#mylikeNew').on('change',function () {
+			let context = $('.mylike_lay_max').html();
+			console.log(context);
+		});
+		
+	 	$('#mylikeNew').on('keyup',function () {		
+			let context = $(this).val();
+			$('.mylike_lay_max').html(`\${context.length} / 6`);
+			if(context) {
+				$('#mylikeNew_btn').prop('disabled', false);					
+			}
+		});
+	 	
+		// 추가하는 코딩 
+		$('#mylikeNew_btn').on('click', function () {
+			$.ajax({
+				url: '<%=contextPath%>/like/folder.do',
+		        dataType: 'json',
+		        type: 'GET',
+		        data: { "folderName" : $('#mylikeNew').val()}, 
+		        cache: false,
+		        success: function (data) {
+		        	if (data) {
+		        		$.unblockUI();
+		        		  $.ajax({
+		        			url:'<%=contextPath%>/like/folder.do',
+		        			dataType:'json',
+		        			 type: 'POST',
+		        			 cache:false,
+		        			 success : function (data){
+		        				 // 새로고침하는 데이터 갖고와서 뿌려줘야됨 
+		        				 $('.mylike_folder_list').empty(); 
+		        				let maxLength = data.result.length;
+		        				let htmltag = '';
+		        				htmltag += '<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;새폴더&quot;}]" style="float: left; list-style: none; position: relative; width: 1280px;">';
+		        				htmltag += '<a href="" data-mbrattngrpseq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">';
+		        				htmltag += '<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">새폴더</em>';
+		        				htmltag += '</a>';
+		        				htmltag += '</li>';
+		        				htmltag += '</ul>';
+		        				data.result.forEach((item,index) => {
+		        				    console.log(item);
+		        				    // 여기서부터 add 해주면 됨 .        				 	
+		        				    if (index ==  0 ){
+		        				    	htmltag += `<li class="mylike_folder_item" role="presentation" id="list_foler_all" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"전체보기"}]'>`;
+		        						htmltag += '<a href="" data-mbrAttnGrpSeq="0" class="mylike_folder_btn ty_all on clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|모아보기_클릭" role="tab" aria-selected="true" id="f_0">';
+	        							htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
+	        							htmltag += '</a>';
+	        							htmltag += '</li>';
+		        				    } else {
+		        				    	htmltag += `<li class="mylike_folder_item" role="presentation" id='list_folder_\${index}'>`;
+		        						htmltag += `<a href="" data-mbrAttnGrpSeq="\${index}" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_\${item}">`;
+       								htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
+       								htmltag += '</a>';
+       						 		htmltag += '</li>';
+		        				    } 			        
+		        				});
+		        				
+		        				$('.mylike_folder_list').append(htmltag);	
+		        				$('#mylikeNew_btn').on('click', function () {
+		        					$('.mylike_folder_list').empty(); 
+			        				maxLength = data.result.length;
+			        				htmltag = '';
+			        				htmltag += '<li class="mylike_folder_item" role="presentation" id="list_floder_add" data-react-unit-type="text" data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;새폴더&quot;}]" style="float: left; list-style: none; position: relative; width: 1280px;">';
+			        				htmltag += '<a href="" data-mbrattngrpseq="none" class="mylike_folder_btn ty_create _mylike_lay_open clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|새폴더_클릭" data-layer-target="#mylikeNewFolder" role="button">';
+			        				htmltag += '<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">새폴더</em>';
+			        				htmltag += '</a>';
+			        				htmltag += '</li>';
+			        				htmltag += '</ul>';
+			        				data.result.forEach((item,index) => {
+			        				    console.log(item);
+			        				    // 여기서부터 add 해주면 됨 .        				 	
+			        				    if (index ==  0 ){
+			        				    	htmltag += `<li class="mylike_folder_item" role="presentation" id="list_foler_all" data-react-unit-type="text" data-react-unit-text='[{"type":"tarea_addt_val","value":"전체보기"}]'>`;
+			        						htmltag += '<a href="" data-mbrAttnGrpSeq="0" class="mylike_folder_btn ty_all on clickable" data-react-tarea-dtl-cd="t00060" data-react-tarea="좋아요|상단|모아보기_클릭" role="tab" aria-selected="true" id="f_0">';
+		        							htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
+		        							htmltag += '</a>';
+		        							htmltag += '</li>';
+			        				    } else {
+			        				    	htmltag += `<li class="mylike_folder_item" role="presentation" id='list_folder_\${index}'>`;
+			        						htmltag += `<a href="" data-mbrAttnGrpSeq="\${index}" class="mylike_folder_btn ty_default" role="tab" aria-selected="true" id="f_\${item}">`;
+	       								htmltag += `<span class="mylike_folder_thmb"></span><em class="mylike_folder_name">\${item}</em>`;
+	       								htmltag += '</a>';
+	       						 		htmltag += '</li>';
+			        				    } 			        
+			        				});
+		        					
+		        					
+		        				});
+		        				 /* htmltag += '</div>';
+		        				 htmltag += '<button type="button" class="mylike_folder_next"><span class="blind">다음 폴더목록 보기</span></button>';
+		        				 htmltag += '</div>'; */
+			        			console.log(htmltag);
+			        			 
+		        			}, error: function (xhr,status,error) {
+		        				
+		        			}
+		        		});  
+		        	} 
+		        },
+		        error: function (xhr, status, error) {
+
+		        }
+			});
+		}); 
+		
+	});
+	
 
 </script>
 

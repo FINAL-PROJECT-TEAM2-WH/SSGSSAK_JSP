@@ -364,7 +364,7 @@
                         <span class="cmem_chk notranslate"><input type="checkbox" id="keep_id" name="keep_id"><label for="keep_id">아이디 저장</label></span>
                         <span class="login_support_pannel notranslate">
 					<a href="/member/findIdPw.ssg" class="find_id">아이디 찾기</a>
-					<a href="/member/findIdPw.ssg?tabType=pw" class="find_password">비밀번호 찾기</a>
+					<a href="/member/login/checkValid.do" class="find_password">비밀번호 찾기</a>
 					<a href="/member/join/auth.ssg" class="find_join">회원가입</a>
 				</span>
                     </div>
@@ -2279,7 +2279,7 @@ $('#loginBtn_Full').on('click', function () {
 	        cache: false,
 	        success: function (data) {
 	            if (data) {
-	            	location.href=`\${contextPath}/mainPage.jsp`;             	
+	            	location.href=`\${contextPath}/main/mainPage/mainPage.jsp`;             	
 	            } else {
 	                alert('받은 데이터가 유효하지 않습니다.');
 	            }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import member.persistence.MemberDAO;
@@ -45,15 +46,16 @@ public class ChangeInfoHandler implements CommandHandler {
 			Connection conn = ConnectionProvider.getConnection();
 			MemberDAO dao = new MemberDAOImpl(conn);
 			ChangeInfoService service = new ChangeInfoService(dao);
-			System.out.println("1");
+		
 			infoMap = service.originInfoLoad(id);	
-			System.out.println("2");
+
 			infoMap.put("id", id);
-			System.out.println("3");
+		
 			request.setAttribute("info", infoMap);
-			System.out.println("4");
+		
 			String path = "/userinfo/myInfoMng/changeInfo.jsp";
-			System.out.println("5");
+			
+			JdbcUtil.close(conn);
 			dispatcher = request.getRequestDispatcher(path); 
 			dispatcher.forward(request, response);
 		} else {
@@ -86,6 +88,7 @@ public class ChangeInfoHandler implements CommandHandler {
 				resultJson += "\"FALSE\", \"resultMsg\":\"FALSE\"}";
 				System.out.println(resultJson);			
 			}
+			JdbcUtil.close(conn);
 			request.setAttribute("resultJson", resultJson);	
 			dispatcher = request.getRequestDispatcher(path); 
 			dispatcher.forward(request, response);

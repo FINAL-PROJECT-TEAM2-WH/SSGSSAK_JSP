@@ -1132,7 +1132,30 @@ $(function(){
 			    PHONENUM : "N",
 			    EMAIL : "N"
 			}
-		 const regex = new RegExp('^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,20}$');
+		 const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,20}$/;
+		 
+		 $('#pwd').on('keyup', function () {		 
+			 if (regex.test($('#pwd2').val())) {
+					if ($('#pwd2').val() === $(this).val()) {
+						 $('#pwd_msg')
+						 .css('color','blue')
+						 .text("사용가능한 암호");						 
+						 checkValidvalue.PASSWD = 'Y';
+
+					}else{
+						$('#pwd_msg')
+					 	.css('color','red')
+					 	.text("패스워드를 동일하게 설정해주세요."); 
+						checkValidvalue.PASSWD = 'N';
+					}
+				}else{				
+					$('#pwd_msg')
+				 	.css('color','red')
+				 	.text("비밀번호는 최소 8자에서 20자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다."); 
+					checkValidvalue.PASSWD = 'N';
+				}
+			});
+		 
 		 $('#pwd2').on('keyup', function () {		 
 			 if (regex.test($('#pwd').val())) {
 					if ($('#pwd').val() === $(this).val()) {
@@ -1155,7 +1178,7 @@ $(function(){
 				}
 			});
 			
-		const pattern = new RegExp('^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+');
+		const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+$/;
 		
 		$('#email_input').on('keyup', function () {		 
 			 if (pattern.test($(this).val())){
@@ -1170,7 +1193,7 @@ $(function(){
 			} 
 		});
 		
-		const numPattern = new RegExp('([0-9]{3,4})([0-9]{4})$');
+		const numPattern = /^([0-9]{3,4})([0-9]{4})$/;
 		
 		$('#mbrCntsELno').on('keyup', function () {		 
 			 if (numPattern.test($(this).val())){
@@ -1186,7 +1209,7 @@ $(function(){
 			} 
 		});
 		
-		const regexName = new RegExp('^[가-힣a-zA-Z\s]+$');
+		const regexName = /^[가-힣a-zA-Z\s]+$/;
 		
 		$('#mbrname').on('keyup', function () {		 
 			 if (regexName.test($(this).val())){
@@ -1404,7 +1427,6 @@ $("#checkDuplicateLoginIdBtn").on("click", function (){
     //var params = $("form").serialize();		// ?deptno=10
     var params = null;
     params = "id="+$("#mbrLoginId").val();   
-    alert(params);
 	 $.ajax({
 		 url:"<%=contextPath%>/member/join/idcheck.do" , 
 		 dataType:"json",

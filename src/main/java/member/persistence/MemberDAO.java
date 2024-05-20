@@ -71,9 +71,13 @@ public interface MemberDAO {
 	
 	public ArrayList<Integer> getCountList(String id) throws SQLException;
 
-	public int insLike(String memid, String id) throws SQLException;
+	public int quitMbr(String id, String quitReason) throws SQLException;
 
-	public int checkLike(String memid, String id) throws SQLException;
+	public boolean findlogId(String id) throws SQLException;
 
-	public int cancelLike(String memid, String id) throws SQLException;
+	public int regiLoginLog(Map<String, String> loginLogMap, String id) throws SQLException;
+
+	public ArrayList<Map<String,String>> getloginLog(String id) throws SQLException;
+
+
 }

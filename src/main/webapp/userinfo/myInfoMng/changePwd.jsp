@@ -557,7 +557,7 @@
 
 <div id="content" class="content_myssg">
     <h2 class="stit"><span>비밀번호 변경</span></h2>
-    <form id="submitForm" method="post" action="<%= contextPath %>/member/memberInfo/changepwd.do">
+    <form id="submitForm" method="post" action="<%= contextPath %>/memberInfo/changepwd.do">
         <div class="password_change existing">
 
             <fieldset class="fieldset large">
@@ -864,16 +864,83 @@ $(function(){
 
         return true;
     } */
+	 const checkValidvalue = {
+		    PASSWD :"N"
+		}
+    const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,20}$/;
+    
+    $('#pwd').on('keyup', function () {		 
+		 if (regex.test($('#newPwd').val())) {
+				if ($('#newPwd').val() === $(this).val()) {
+					 $('#newPwdMsg')
+					 .css('color','blue')
+					 .text("사용가능한 암호");						 
+					 checkValidvalue.PASSWD = 'Y';
 
+				}else{
+					$('#newPwdMsg')
+				 	.css('color','red')
+				 	.text("패스워드를 동일하게 설정해주세요."); 
+					checkValidvalue.PASSWD = 'N';
+				}
+			}else{				
+				$('#newPwdMsg')
+			 	.css('color','red')
+			 	.text("비밀번호는 최소 8자에서 20자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다."); 
+				checkValidvalue.PASSWD = 'N';
+			}
+		});
+    
+    
+    $('#newPwd').on('keyup', function () {		 
+		 if (regex.test($('#pwd').val())) {
+				if ($('#pwd').val() === $(this).val()) {
+					 $('#newPwdMsg')
+					 .css('color','blue')
+					 .text("사용가능한 암호");						 
+					 checkValidvalue.PASSWD = 'Y';
+
+				}else{
+					$('#newPwdMsg')
+				 	.css('color','red')
+				 	.text("패스워드를 동일하게 설정해주세요."); 
+					checkValidvalue.PASSWD = 'N';
+				}
+			}else{				
+				$('#newPwdMsg')
+			 	.css('color','red')
+			 	.text("비밀번호는 최소 8자에서 20자까지, 영문자, 숫자 및 특수 문자를 포함해야 합니다."); 
+				checkValidvalue.PASSWD = 'N';
+			}
+		});
+
+    function isvalidValue (checkValidvalue) {
+ 	   const keys = Object.keys(checkValidvalue);
+ 	   let result = 'Y';
+ 	   
+ 	   for (let i = 0; i < keys.length; i++) {
+ 		   const key = keys[i] // 각각의 키	  
+ 		   const value = checkValidvalue[key] // 각각의 키에 해당하는 각각의 값
+ 		   
+ 		   result = value;
+ 		   console.log(result);
+ 		 }
+ 	   return result == 'Y';
+    } 
 </script>
 <script>
 	$('#submitBtn').one('click', function () {
 /* 		if (validation()){ */
+		if (!isvalidValue(checkValidvalue)){
+			alert('다시 입력');
+			return 
+		}
+
 			$('#submitForm').submit();
 			// 추가용 허허허허
 			
 /* 		}	 */
-	})
+	});
 </script>
 
 </div>

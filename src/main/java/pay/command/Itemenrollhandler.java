@@ -74,8 +74,7 @@ public class Itemenrollhandler implements CommandHandler {
 			 Collection<Part> prs = request.getParts();
 			 
 			 for (Part part : prs) {
-				 System.out.println(part.getName());
-				 System.out.println(part.getHeader("Content-Disposition"));
+				
 				if (part.getHeader("Content-Disposition").contains("filename=")) {
 					 if(part.getName().equals("file1")){
 						 String uuid = UUID.randomUUID().toString();

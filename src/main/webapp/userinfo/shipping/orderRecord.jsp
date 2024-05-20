@@ -911,7 +911,7 @@
 											<img
 											src="${ orderDto.imgurl }"
 											alt="상품이미지"
-											style="width: 90px; height: 90px" />
+											style="width: 105px; height: 105px" />
 										</span>
 										<div class="codr_unit_type"></div>
 									</div>
