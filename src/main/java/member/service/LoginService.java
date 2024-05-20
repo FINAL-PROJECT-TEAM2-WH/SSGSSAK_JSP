@@ -38,8 +38,6 @@ public class LoginService {
 		MemberDTO dto = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-			
-			MemberDAO dao = new MemberDAOImpl(conn);
 			dto = dao.login(id, passwd);
 			int rowCount = 0;
 			
@@ -82,8 +80,8 @@ public class LoginService {
 			conn = ConnectionProvider.getConnection();
 			rowCount = dao.regiLoginLog(loginLogMap, id);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
+			
 		}  finally {
 			JdbcUtil.close(conn);
 		}

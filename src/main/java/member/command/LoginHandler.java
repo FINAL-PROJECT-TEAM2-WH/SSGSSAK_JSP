@@ -99,12 +99,13 @@ public class LoginHandler implements CommandHandler {
 	        LocalDateTime requestTime = LocalDateTime.now();
 	        loginLogMap.put("requestTime", requestTime.toString());
 	        int rowCount = 0;
-	        rowCount = service.regiLoginLog(loginLogMap, id);
-	        if ( rowCount < 1) {
-	        	String redirectPath = contextPath + request.getServletPath();
-				response.sendRedirect(redirectPath);
-	        }
 	        
+	        rowCount = service.regiLoginLog(loginLogMap, id);
+	        if ( rowCount < 1 || rowCount == 10) {
+	        	String redirectPath = contextPath + request.getServletPath();
+				return redirectPath;
+	        }
+
 	        
 			HttpSession session = request.getSession();
 		
