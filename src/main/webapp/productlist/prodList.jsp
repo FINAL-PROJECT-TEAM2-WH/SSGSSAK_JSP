@@ -958,13 +958,13 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 													target="_self" class="clickable" data-info="1000337473259"
 													data-index="1" data-position="view" data-unit="img"
 													data-react-tarea-dtl-cd="t00001"> <img
-													srcset="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
-													src="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
+													srcset="${productList[loop.index].imgurl}"
+													src="${productList[loop.index].imgurl}"
 													onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=232&h=232&t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'"
 													class="i1" width="232" height="232" alt="마우스 올리기 전의 이미지"
 													loading="lazy"> <img
-													srcset="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
-													src="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
+													srcset="${productList[loop.index].imgurl}"
+													src="${productList[loop.index].imgurl}"
 													onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=232&h=232&t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'"
 													class="i2" width="232" height="232" alt="마우스 올린 후의 이미지"
 													aria-hidden="true" loading="lazy">

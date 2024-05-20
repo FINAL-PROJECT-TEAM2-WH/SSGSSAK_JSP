@@ -45,6 +45,17 @@ public class MainProdHandler implements CommandHandler {
             StringBuilder jsonResponse = new StringBuilder();
             jsonResponse.append("[");
             for (ProductListDTO dto : productList) {
+            	
+            	String imgurl = dto.getImgurl();
+                if (imgurl == null) {
+                	imgurl = "https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg";
+//                	imgurl = imgurl.replace("\\", "\\\\");
+                } else if (imgurl.contains("\\")) {
+                	imgurl = imgurl.replace("\\", "\\\\");
+
+				}
+                System.out.println("Modified imgurl: " + imgurl);
+            	
                 jsonResponse.append("{");
                 jsonResponse.append("\"id\":").append(dto.getId()).append(",");
                 jsonResponse.append("\"shippingOptionId\":").append(dto.getShippingOptionId()).append(",");
@@ -56,7 +67,8 @@ public class MainProdHandler implements CommandHandler {
                 jsonResponse.append("\"upDateDay\":\"").append(dto.getUpDateDay()).append("\",");
                 jsonResponse.append("\"optionPrice\":").append(dto.getOptionPrice()).append(",");
                 jsonResponse.append("\"sprice\":").append(dto.getSprice()).append(",");
-                jsonResponse.append("\"discount\":").append(dto.getDiscount());
+                jsonResponse.append("\"discount\":").append(dto.getDiscount()).append(",");;
+                jsonResponse.append("\"imgurl\":\"").append(imgurl).append("\"");
                 jsonResponse.append("},");
             }
             // 마지막 쉼표 제거

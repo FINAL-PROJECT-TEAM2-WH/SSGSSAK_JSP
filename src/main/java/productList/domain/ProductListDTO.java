@@ -28,7 +28,6 @@ public class ProductListDTO {
     private long discount;
     private long reviewCount;
     private double avgGrade;
-    
-    private List<ProductImgDTO> images;
+    private String imgurl;
 
 }
