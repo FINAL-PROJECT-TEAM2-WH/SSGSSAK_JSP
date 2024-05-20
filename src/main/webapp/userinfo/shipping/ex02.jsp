@@ -98,9 +98,28 @@
         }).open();
     }
 </script>
+	<br>
+	<br>
+	<button id="selectShippingDateTime">배송 시간 날짜 선택화면</button>
+	<button id="selectOrderBtn">주문조회 버튼</button>
+	<tbody>
+													<tr>
+														<td colspan="6" class="codr_bubblebx_anytime"><span>근처
+																이웃과 같은 시간에 받고 탄소를 줄여보세요</span></td>
+													</tr>
+													<!-- 만약 이미 시간이 지났다면 예약 마감이 출력되게 한다. -->
+													<!-- 라디오 버튼을 누르고 계속하기 누르면 데이터를 어디에 담아둘지?? -->
+													<!-- 예약이 마감되면 codr_state_finished 이 클래스 먹이기  -->
+									<input type="text" />
 </div>
 
 <script>
+	$("#selectShippingDateTime").on("click", function(){
+		location.href = `<%= request.getContextPath() %>/shippingTimeSelect.do`;
+	})
+	$("#selectOrderBtn").on("click", function(){
+		location.href = `<%= request.getContextPath() %>/orderRecord.do`;
+	})
 </script>
 </body>
 </html>

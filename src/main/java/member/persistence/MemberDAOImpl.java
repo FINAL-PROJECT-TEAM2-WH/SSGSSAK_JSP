@@ -1,15 +1,20 @@
 package member.persistence;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.apache.commons.collections.map.HashedMap;
 
+import com.util.ConnectionProvider;
 import com.util.JdbcUtil;
 
 import member.domain.MemberDTO;
@@ -19,6 +24,7 @@ public class MemberDAOImpl implements MemberDAO{
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
+	private CallableStatement callStatement = null;
 
 	private Map<String, String> info = new HashedMap();
 	// 1. Setter를 통한 DI
@@ -37,12 +43,12 @@ public class MemberDAOImpl implements MemberDAO{
 		return this.conn;
 	}
 	@Override
-	public MemberDTO login(String id, String passwd) {
+	public MemberDTO login(String id, String passwd) throws SQLException {
 		ResultSet rs = null ;
 		System.out.println("get in");
 		// 로그인 성공 시 member에 관한 정보를 갖고 와서 세션에서 객체 단위로 왔다갔다 하게끔? 
 
-		String sql =  "SELECT id, email, address, phoneNum, name "
+		String sql =  "SELECT id, email, phoneNum, name "
 				+ " FROM member "
 				+ " WHERE id = ? AND passwd = ? "; 
 
@@ -59,7 +65,6 @@ public class MemberDAOImpl implements MemberDAO{
 				// 로그인 성공 
 				cid = rs.getString("id");
 				email = rs.getString("email");
-				address = rs.getString("address");
 				phoneNum = rs.getString("phoneNum");
 				name = rs.getString("name");
 
@@ -67,7 +72,6 @@ public class MemberDAOImpl implements MemberDAO{
 						.builder()
 						.id(cid)
 						.email(email)
-						.address(address)
 						.phoneNum(phoneNum)
 						.name(name)
 						.build();	
@@ -90,7 +94,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public int updateLoginYN(String id) {
+	public int updateLoginYN(String id) throws SQLException {
 		// update 하면서 insert 해줘야댐 
 
 		String sql = "SELECT name, PRIVILEGE "
@@ -111,16 +115,15 @@ public class MemberDAOImpl implements MemberDAO{
 		} 
 		catch (SQLException e) { 
 			// TODO Auto-generated 
-
+			JdbcUtil.rollback(conn);
 			e.printStackTrace();
 		}finally {
+			JdbcUtil.commit(conn);
 			JdbcUtil.close(pstmt);
 			JdbcUtil.close(rs);
 		}
 
 		try {			
-
-
 			sql = sql.format("INSERT INTO auth (id,name,privilege) VALUES ('%s','%s','%s')", id,name,privilege);
 			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);	
@@ -131,7 +134,8 @@ public class MemberDAOImpl implements MemberDAO{
 			logOut(id);
 			rowCount = updateLoginYN(id);
 		} catch (SQLException e) {
-			// TODO: handle exception
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
 		}
 		finally {
 			JdbcUtil.commit(conn);
@@ -145,7 +149,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	// 로그아웃
 	@Override
-	public int logOut(String id) {
+	public int logOut(String id) throws SQLException {
 		String sql = String.format("DELETE FROM Auth WHERE id = '%s'", id);
 		int rowCount = 0;
 		try {
@@ -153,9 +157,9 @@ public class MemberDAOImpl implements MemberDAO{
 			rowCount = pstmt.executeUpdate(sql);
 			if ( rowCount == 1) {
 				System.out.println("로그아웃 성공");
-				conn.commit();
+				JdbcUtil.commit(conn);
 			} else {
-				conn.rollback();
+				JdbcUtil.rollback(conn);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -170,7 +174,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	// info에 필요한 값 불러오기 
 	@Override
-	public Map<String, String> loadInfo(String id) { 
+	public Map<String, String> loadInfo(String id) throws SQLException { 
 		System.out.println("> userinfo get in"); 
 		// 로그인 성공 시 member에 관한 정보를 갖고 와서
 		//세션에서 객체 단위로 왔다갔다 하게끔?
@@ -270,9 +274,9 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public int getPersonalPoints(String id) throws SQLException{
 
-		String sql = "SELECT sum(pr.points) memberPoint "
-				+ " FROM pointrecord pr LEFT JOIN points p ON pr.cardnumber = p.id"
-				+ " WHERE pr.memid = ? ";
+		String sql = " SELECT SUM(pr.points) memberPoint "
+				+ " FROM pointrecord pr LEFT JOIN points p ON pr.cardNumber = p.id "
+				+ " WHERE p.id2 = ? ";
 
 		int point = 0;
 		pstmt = conn.prepareStatement(sql);
@@ -361,10 +365,14 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pwd);
 			pstmt.setString(2, id);
-			rowCount = pstmt.executeUpdate();			
+			rowCount = pstmt.executeUpdate();	
+
 		} catch (SQLException e) {
-			// TODO: handle exception
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		
 		} finally {
+			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
@@ -386,8 +394,11 @@ public class MemberDAOImpl implements MemberDAO{
 			pstmt.setString(3, id);
 			rowCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
 
 		} finally {
+			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
@@ -489,7 +500,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public Map<String, String> agreeInfoRcv(String id) throws SQLException {
+	public Map<String, String> agreeInfoRcv(String id, String conditionName) throws SQLException {
 		String email = getEmail(id);
 		String phoneNum = getPhoneNum(id);
 		String prePhoneNum = phoneNum.substring(0,3);
@@ -507,7 +518,23 @@ public class MemberDAOImpl implements MemberDAO{
 
 		String name = getName(id);
 
+		// 마케팅 id 22번 23번 24번 ssgInfoRcvAgree=10
+		ArrayList <String> conList = getAgreement(id, conditionName);
+
+
+
 		Map <String,String> infoMap = new HashMap<String, String>();
+
+		if ( conList != null) {
+			for (int i = 0; i < conList.size(); i++) {
+				infoMap.put(conList.get(i), "true");
+			}
+		} else {
+
+			// 동의를 안했을 경우. 
+			infoMap.put(conditionName, "false");
+		}
+
 		infoMap.put("email", preEmail + star + postEmail);
 		infoMap.put("prePhoneNum", prePhoneNum);
 		infoMap.put("postPhoneNum", postPhoneNum);
@@ -518,7 +545,39 @@ public class MemberDAOImpl implements MemberDAO{
 
 
 	@Override
-	public String idCheck(Connection conn, String id) {
+	public ArrayList<String> getAgreement(String id, String conditionName) throws SQLException {
+		String sql = " SELECT t.name conName"
+				+ " FROM agreement d left join terms t on d.terms_id=t.id "
+				+ " WHERE REGEXP_LIKE(t.name, ? ) AND d.memid = ? ";
+		ArrayList<String> condiList = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, conditionName);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();		
+			if ( rs.next()) {
+				condiList = new ArrayList();
+				do {
+					String conName = rs.getString("conName");		
+					condiList.add(conName);
+				} while(rs.next());
+			} 			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+
+
+		return condiList;
+	}
+
+
+	@Override
+	public String idCheck(String id) {
 		//  0(사용가능)  1(사용불가능)
 		String sql = " select count(*) cnt " 
 				+ " from member  "
@@ -546,6 +605,511 @@ public class MemberDAOImpl implements MemberDAO{
 
 		return jsonResult;
 	}
+
+
+	@Override
+	public int registerMbr(MemberDTO dto, Map<String,String> map, Map<String,String> address) throws SQLException {
+		// dto 
+		int rowCount = 0;
+		String id = dto.getId();
+		String email = dto.getEmail();
+		String name = dto.getName();
+		String passwd = dto.getPasswd();
+		String phonePhone = dto.getPhoneNum();
+
+		String sql =  " INSERT INTO MEMBER( "
+				+ " id,email,phonenum,name,passwd,birthd, "
+				+ " REGISTERDATE,UPDATEDATE,LOGINNOTIFICATION,LOGIN2NOTIFICATION ) "
+				+ " VALUES (?,?,?,?,?, "
+				+ "		?,SYSDATE,SYSDATE,'0','0') ";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, email);
+			pstmt.setString(3, phonePhone);
+			pstmt.setString(4, name);
+			pstmt.setString(5, passwd);
+			pstmt.setString(6, "1991-12-01");
+
+			rowCount = pstmt.executeUpdate();
+
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		// INSERT into shippingplaceinformation VALUES (seqshipplaceinfo.NEXTVAL,회원id,회원id,회원id,회원연락처,우편번호,'기본배송지','도로명주소','지번주소','상세주소')
+		// 배송지 insert 문 
+		sql =  " INSERT into shippingplaceinformation"
+				+ " VALUES (seqshipplaceinfo.NEXTVAL,"
+				+ "?,?,?,?,?, "
+				+ " ? , ? , ? ,'기본배송지'"
+				+ " ) ";
+
+		try {
+
+			String zipCode = address.get("zipcode");
+			String roadAddress = address.get("roadAddress");		
+			String jibunAddress = address.get("jibunAddress");
+			String detailAddress = address.get("detailAddress");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, id);
+			pstmt.setString(3, id);
+			pstmt.setString(4, roadAddress);
+			pstmt.setString(5, jibunAddress);
+			pstmt.setString(6, detailAddress);
+			pstmt.setString(7, transtoPhoneNum(phonePhone));
+			pstmt.setString(8, zipCode);
+
+			rowCount = pstmt.executeUpdate();		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		
+		sql = " insert into points values ( '1111111111111111' , 0 , '1234' , ? ) " ;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		
+
+		// 필수 약관 동의 
+		// 프로시저로 처리	
+		boolean result = false;
+		sql = "{call ins_req_terms(?)}";
+		try {
+			callStatement = conn.prepareCall(sql);
+			callStatement.setString(1, id);
+			result = callStatement.execute();
+
+		} catch (SQLException e) {
+			JdbcUtil.rollback(conn);
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(callStatement);
+			JdbcUtil.close(pstmt);
+		}
+
+		if (result) {
+			rowCount += 1; 
+		}
+
+
+		// 선택 약관 동의 
+		if ( map != null) {
+			System.out.println("get in Map");
+			List <String> agree = new ArrayList(map.keySet());
+			for (String string : agree) {	
+				sql = "{call ins_sel_terms(?,?)}";
+				try {
+					callStatement = conn.prepareCall(sql);
+					callStatement.setString(1, string);
+					callStatement.setString(2, id);	
+					result = callStatement.execute();
+				} catch (SQLException e) {
+					JdbcUtil.rollback(conn);
+					e.printStackTrace();
+				} finally {
+					JdbcUtil.commit(conn);
+					JdbcUtil.close(callStatement);
+					JdbcUtil.close(pstmt);
+				}
+			}
+		}
+
+		if (result) {
+			rowCount += 1; 
+		}
+
+		// 기본 폴더 추가. 
+		rowCount += regiInsertFolder(id);
+
+
+		System.out.println(rowCount);
+		return rowCount;
+	}
+
+	@Override
+	public int regiInsertFolder(String id) throws SQLException{
+		String sql = " INSERT INTO divisionfolder "
+				+ "(id,memid) VALUES "
+				+ "(division_seq.NEXTVAL, ? ) ";
+		int rowCount = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rowCount = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JdbcUtil.rollback(conn);
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return rowCount;
+	}
+
+
+	@Override
+	public String transtoPhoneNum (String phoneNum) {
+		//010
+		String preNum = phoneNum.substring(0,3);
+		String middleNum = "";
+		String postNum = "";
+		if ( phoneNum.length() == 10) {
+			// 뒷자리가 7자리일 때	
+			middleNum = phoneNum.substring(3,6);
+			postNum = phoneNum.substring(6);
+		} else {
+			middleNum = phoneNum.substring(3,7);
+			postNum = phoneNum.substring(7);
+		}
+
+		return String.format("%s-%s-%s", preNum,middleNum,postNum);
+	}
+
+	@Override
+	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException {
+		Map<String,String> likeProduct = null;
+		ArrayList<Map<String,String>> likeProductList = null;
+		String sql = " SELECT * "
+				+ " FROM ( "
+				+ " with temp as ( "
+				+ " SELECT productid pd "
+				+ " FROM interestgoods "
+				+ " WHERE memid = ? "
+				+ " ) "
+				+ " SELECT DISTINCT tp.pd id, pd.pdname name, pd.pcontent content, pi.imgurl url, rv.grade grade , ROW_NUMBER() OVER (PARTITION BY po.productid ORDER BY po.optionprice) as row_num , po.optionprice price "
+				+ " FROM temp tp    LEFT JOIN product pd ON tp.pd = pd.id "
+				+ "               LEFT JOIN productoption po ON tp.pd = po.productid "
+				+ "                LEFT JOIN productimg pi ON tp.pd = pi.productid "
+				+ "                LEFT JOIN review rv ON tp.pd = rv.productid "
+				+ " order by tp.pd  "
+				+ " ) b "
+				+ " WHERE row_num = 1 ";
+		String productid, name, content, price, url;
+		int grade;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			System.out.println("1");
+			if (rs.next()) {
+				likeProductList = new ArrayList();
+				System.out.println("1");
+				do {
+					System.out.println("2");
+					likeProduct = new HashMap();
+					productid =  rs.getString("id");
+					name = rs.getString("name");
+					content = rs.getString("content");
+					price = rs.getString("price");
+					url = rs.getString("url");
+					grade = rs.getInt("grade");
+					likeProduct.put("productid", productid);
+					likeProduct.put("name", name);
+					likeProduct.put("content", content);
+					likeProduct.put("price", price);
+					likeProduct.put("url", url);
+					likeProduct.put("grade", String.valueOf(grade));
+					likeProductList.add(likeProduct);
+					System.out.println(productid + " " + name + " " + content + " " + price + " " + url + " " + grade );
+
+				} while (rs.next());
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		return likeProductList;
+	}
+
+
+	@Override
+	public ArrayList<String> getFolderList(String id) throws SQLException {
+		ArrayList<String> folderList =  null;
+
+		String sql = " SELECT name " 
+				+ " FROM divisionfolder "
+				+ " WHERE memid = ? "
+				+ " ORDER BY id " ; 
+		String name;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			if ( rs.next() ) {
+				folderList = new ArrayList();				
+				do {
+					name = rs.getString("name");
+					folderList.add(name);
+
+					System.out.println(name);
+				} while ( rs.next());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+
+
+
+
+		return folderList;
+
+	}
+
+
+	@Override
+	public ArrayList<Integer> getCountList(String id) throws SQLException {
+		String sql = "SELECT COUNT(*) goodsCount "
+				+ " FROM interestgoods "
+				+ " WHERE memid = ? ";
+		ArrayList<Integer> countList = new ArrayList();
+		int goodsCount, brandsCount, cateCount;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				do {
+					goodsCount = rs.getInt("goodsCount");					
+					countList.add(goodsCount);
+					System.out.println(goodsCount);
+				} while ( rs.next());			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		sql = "SELECT COUNT(*) brandsCount "
+				+ " FROM interestbrand "
+				+ " WHERE memid = ? ";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);	
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				do {
+					brandsCount = rs.getInt("brandsCount");					
+					countList.add(brandsCount);
+					System.out.println(brandsCount);
+				} while ( rs.next());			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		sql = "SELECT COUNT(*) cateCount "
+				+ " FROM interestcategory "
+				+ " WHERE memid = ? ";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);	
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				do {
+					cateCount = rs.getInt("cateCount");					
+					countList.add(cateCount);
+					System.out.println(cateCount);
+				} while ( rs.next());			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+
+		return countList;
+	}
+
+
+	@Override
+	public int quitMbr(String id, String quitReason) throws SQLException {
+		
+		
+		int rowCount = 0 ; 		
+		
+		// quitMbr 에 넣는 코드 
+		String sql = "INSERT INTO quitMember VALUES (?,SYSDATE,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, quitReason);
+			rowCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		// 값들을 delete 하는 코드 
+		sql = "UPDATE member "
+			+ "SET email='N', phoneNum='N', name='N',passwd=?,birthD='',loginnotification='',login2notification='',privilege='' "
+			+ "WHERE id = ? ";
+		UUID uuid = UUID.randomUUID();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, uuid.toString());
+			pstmt.setString(2, id);
+			rowCount += pstmt.executeUpdate();	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+	
+		return rowCount;
+	}
+
+
+	@Override
+	public boolean findlogId(String id) throws SQLException {
+		String sql = "SELECT * FROM auth WHERE id = ? ";
+		
+		boolean loginStatus = false;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if ( !rs.next()) {
+				loginStatus = true;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		
+		return loginStatus;
+	}
+
+
+	@Override
+	public int regiLoginLog(Map<String, String> loginLogMap, String id) throws SQLException {
+		String sql = "INSERT INTO loginLog VALUES (loginLog_seq.NEXTVAL , "
+				+ " ?, ?, ?,'ID/PW로그인', ?,'대한민국', ? )";
+		int rowCount = 0 ; 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, loginLogMap.get("platform"));
+			pstmt.setString(3, loginLogMap.get("browserType"));
+			pstmt.setString(4, loginLogMap.get("au_ip"));
+			pstmt.setString(5, loginLogMap.get("requestTime"));
+			rowCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (e.getMessage().contains("ORA-02289: sequence does not exist")){
+				logOut(id);
+				rowCount = 10;
+			}			
+			JdbcUtil.rollback(conn);
+			
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		return rowCount;
+	}
+
+
+	@Override
+	public ArrayList<Map<String,String>> getloginLog(String id) throws SQLException {
+		String sql = " SELECT memid, OPERATINGSYSTEM, BROWSERAPP, "
+				+ " LOGINTYPE, IPADDRESS, CONNECTIONNATION, RECENTLOGINDATE"
+				+ " FROM loginlog "
+				+ " WHERE memid = ? ";
+		String memid, operationsystem, browserApp, logintype, ipaddress, connectionnation, recentloginDate;
+		Map<String,String> loginMap = new HashedMap();
+		ArrayList<Map<String,String>> loginLogList = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();	
+			if ( rs.next()) {
+				loginLogList = new ArrayList();
+				do {
+					memid = rs.getString("memid");
+					operationsystem = rs.getString("OPERATINGSYSTEM");
+					browserApp = rs.getString("BROWSERAPP");
+					logintype = rs.getString("LOGINTYPE");
+					ipaddress = rs.getString("IPADDRESS");
+					connectionnation = rs.getString("CONNECTIONNATION");
+					recentloginDate = rs.getString("RECENTLOGINDATE");	
+					loginMap.put("memid", memid);
+					loginMap.put("OPERATINGSYSTEM", operationsystem);
+					loginMap.put("BROWSERAPP", browserApp);
+					loginMap.put("LOGINTYPE", logintype);
+					loginMap.put("IPADDRESS", ipaddress);
+					loginMap.put("CONNECTIONNATION", connectionnation);
+					loginMap.put("RECENTLOGINDATE", recentloginDate);									
+					loginLogList.add(loginMap);
+				} while(rs.next());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return loginLogList;
+	}
+
+
+	
+
+
+
 
 
 

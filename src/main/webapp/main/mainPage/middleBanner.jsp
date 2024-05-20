@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 <body>
 <div class="cmmain_sec_brandstore" id="group-promotion" data-react-tarea-cd="00052_000000495">
     <div class="cmmain_heading">
-        <h2 class="cmmain_heading_tit">믿고 사는 즐거움</h2>
+        <h2 class="cmmain_heading_tit">SSGSSAK 즐거움</h2>
     </div>
     <div class="cmmain_tabwrap js_cmmain_tabwrap" data-tabname="brandstore">
         <ul class="cmmain_tablist ty_txtmenu js_cmmain_tablist">

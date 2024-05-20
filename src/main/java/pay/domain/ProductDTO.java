@@ -10,26 +10,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
-	String name ; 
-	String phonenum ; 
-	String roadaddress;
-	String email;
 	
+	int optionid ;
 	String imgurl ; 
 	String brand ; 
 	String seller ; 
 	String pdname ; 
+	String optionname;
 	String optiondesc;
 	int price ; 
 	int deshipfee ;
-	
-	int specialid;
+	int specialp;
 	int quantity ; 
-	int cpoint;
-	String cardnumber;
-	
-	
-	
-	
 	
 }

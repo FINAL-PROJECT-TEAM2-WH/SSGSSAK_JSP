@@ -84,12 +84,14 @@ public class DispatcherServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestURI = request.getRequestURI();
+		System.out.println( ">>> " + requestURI);
+		
 //		String contextPath = request.getContextPath();
 //		requestURI =  requestURI.replace(contextPath, "");
 		
 		int beginIdx = request.getContextPath().length();
 		requestURI = requestURI.substring(beginIdx);
-		System.out.println(requestURI);
+		
 		
 		//[M]VC
 		CommandHandler comHandler = this.commandHandlerMap.get(requestURI);

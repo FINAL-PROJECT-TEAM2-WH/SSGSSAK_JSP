@@ -41,10 +41,10 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 	@Override
 	public List<ProductImgDTO> getImg(long productId) throws SQLException {
 		List<ProductImgDTO> images = new ArrayList<ProductImgDTO>();
-		//썸네일 가져오는
+
 		String sql  = " SELECT * "
 				+ " FROM productimg "
-				+ " WHERE productid = ? AND imgcontent = 'thumbnail' ";
+				+ " WHERE productid = ?  ";
 		System.out.println("pdImgDAOimpl");
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -52,15 +52,23 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 			System.out.println(productId);
 			pstmt.setLong(1, productId);
 			rs=pstmt.executeQuery();
-			while (rs.next()) {
-				ProductImgDTO image = new ProductImgDTO().builder()
-									.id(rs.getInt("id"))
-									.productId(rs.getLong("productId"))
-									.imgUrl(rs.getString("imgUrl"))
-									.imgContent(rs.getString("imgContent"))
-									.build();
-							images.add(image);
-				}
+			if (rs.next()) {
+				do {
+					
+						ProductImgDTO image = new ProductImgDTO().builder()
+											.id(rs.getInt("id"))
+											.productId(rs.getLong("productId"))
+											.imgUrl(rs.getString("imgUrl"))
+											.imgContent(rs.getString("imgContent"))
+											.build();
+						
+									images.add(image);
+					
+				} while (rs.next());
+			}else {
+				System.out.println("없음");
+			}
+		
 		} catch (SQLException e) {	
 			e.printStackTrace();
 		}finally {
@@ -75,5 +83,8 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 		
 		return images;
 	}
-
+	
+	
+	
+	
 }

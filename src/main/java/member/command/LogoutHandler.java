@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import member.persistence.MemberDAO;
@@ -27,15 +28,21 @@ public class LogoutHandler implements CommandHandler{
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("auth");
 		System.out.println(id);
-		int rowCount = service.logout(id);
-		
-		
+		int rowCount = service.logout(id);		
 		if ( rowCount == 1 ) {					
 			System.out.println(id + "로그아웃 성공");
 			session.invalidate();
 		}	
+
 		
-		String path = request.getContextPath() + "/mainPage.jsp";
+		if (service.findlogId(id) && request.isRequestedSessionIdValid()) {
+			System.out.println(id + "로그아웃 성공");
+			session.invalidate();
+		}
+		
+		JdbcUtil.close(conn);
+		///mainProd.do
+		String path = request.getContextPath() + "/mainPage.do";
 		response.sendRedirect(path);
 			
 		return null;

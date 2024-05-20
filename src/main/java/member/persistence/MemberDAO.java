@@ -2,6 +2,7 @@ package member.persistence;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import member.domain.MemberDTO;
@@ -9,7 +10,7 @@ import member.domain.MemberDTO;
 public interface MemberDAO {
 	// idcheck 함수
 	
-	public String idCheck(Connection conn,String id) throws SQLException;
+	public String idCheck(String id) throws SQLException;
 	
 	// Member의 id passwd 갖고 오는 
 	
@@ -49,5 +50,34 @@ public interface MemberDAO {
 	
 	// 마케팅 정보 관련 함수. 
 	
-	public Map<String,String> agreeInfoRcv(String id) throws SQLException;
+	public Map<String,String> agreeInfoRcv(String id, String conditionName) throws SQLException;
+	
+	public ArrayList<String> getAgreement(String conditionName , String id) throws SQLException;
+	
+	// 회원 생성 함수 . 
+	public int registerMbr(MemberDTO dto, Map<String,String> map, Map<String,String> address) throws SQLException;
+	
+	public int regiInsertFolder(String id) throws SQLException;
+	
+
+
+	// 기타 함수. 
+	public String transtoPhoneNum (String phoneNum) ;
+	
+	// 좋아요 
+	public ArrayList<Map<String, String>> getproductList(String id) throws SQLException;
+
+	public ArrayList<String> getFolderList(String id) throws SQLException;
+	
+	public ArrayList<Integer> getCountList(String id) throws SQLException;
+
+	public int quitMbr(String id, String quitReason) throws SQLException;
+
+	public boolean findlogId(String id) throws SQLException;
+
+	public int regiLoginLog(Map<String, String> loginLogMap, String id) throws SQLException;
+
+	public ArrayList<Map<String,String>> getloginLog(String id) throws SQLException;
+
+
 }

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import controller.DispatcherServlet;
@@ -60,7 +61,7 @@ public class MemberInfoHandler implements CommandHandler {
 		
 		
 		
-		
+		JdbcUtil.close(conn);
 		String contextPath = request.getContextPath();
 		String path = "/userinfo/userinfo.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);

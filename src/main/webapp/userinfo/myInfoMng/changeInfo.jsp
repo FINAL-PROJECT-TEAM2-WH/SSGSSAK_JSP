@@ -657,6 +657,9 @@
 									value="${info.postPhoneNum}" class="input_text small" name="mbrCntsELno"
 										style="width: 136px; ime-mode: disabled;" />
 								</div>
+								 <span class="cmem_noti" aria-live="polite">
+											<em class="usable_value"><p id="mbrCntsELno_msg" style="padding-top: 13px"></p></em>
+								</span>
 							</div>
 						</div>
 						<div class="field" id="emailChg01">
@@ -667,6 +670,9 @@
 									placeholder="자주 사용하시는 이메일 주소를 입력해주세요." value="${info.email}"
 									class="input_text small" style="width: 250px" />
 							</div>
+							 <span class="cmem_noti" aria-live="polite">
+											<em class="usable_value"><p id="email_msg" style="padding-top: 13px"></p></em>
+								</span>
 						</div>
 					</fieldset>
 				</div>
@@ -896,13 +902,67 @@ $(function(){
 		initFormPage();
 	});
 	 */
+	 
+	 const checkValidvalue = {
+			    PHONENUM : "N",
+			    EMAIL : "N"
+			}
+	 const pattern = new RegExp('^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+');
 	
 	// changeInfo update 
+	$('#email').on('keyup', function () {		 
+		 if (pattern.test($(this).val())){
+			 $('#email_msg')
+				.text(' ');
+			 checkValidvalue.EMAIL = 'Y';
+		} else {
+			$('#email_msg')
+			.css('color','red')
+			.text('이메일 형식에 맞지 않습니다.');
+			checkValidvalue.EMAIL = 'N';
+		} 
+	});
+	const numPattern = /^([0-9]{3,4})([0-9]{4})$/;
+	 
+	 $('#mbrCntsELno').on('keyup', function () {		 
+		 if (numPattern.test($(this).val())){
+			 $('#mbrCntsELno_msg')
+				.text(' ');
+			 checkValidvalue.PHONENUM = 'Y';
+		} else {
+			$('#mbrCntsELno_msg')
+			.css('color','red')
+			.text('전화번호 형식에 맞지 않습니다.');
+			checkValidvalue.PHONENUM = 'N';
 
-	 $('#submitBtn_update').one('click', function () {
+		} 
+	});
+	 
+	 function isvalidValue (checkValidvalue) {
+		   const keys = Object.keys(checkValidvalue);
+		   let result = 'Y';
+		   
+		   for (let i = 0; i < keys.length; i++) {
+			   const key = keys[i] // 각각의 키	  
+			   const value = checkValidvalue[key] // 각각의 키에 해당하는 각각의 값
+			   
+			   result = value;
+			   console.log(result);
+			 }
+		   return result == 'Y' ? true : false ;
+	   } 
+	
+
+	 $('#submitBtn_update').one('click', function () {    
+		    
+		 if (!isvalidValue(checkValidvalue)){
+				alert('다시 입력');
+				return null;
+			} else {
 		    let result = $('#submitForm_update').serialize();
+		    
 		    $.ajax({
-		        url: '<%=contextPath%>/member/memberInfo/changeInfo.do',
+		        url: '<%=contextPath%>/memberInfo/changeInfo.do',
 		        dataType: 'json',
 		        type: 'POST',
 		        data:result,
@@ -910,7 +970,7 @@ $(function(){
 		        success: function (data) {
 		        	if (data.resultCode == "SUCCESS") {
 					alert(data.resultMsg);
-					document.location.href = '<%=contextPath%>/member/memberInfo.do';
+					document.location.href = '<%=contextPath%>/memberInfo/changeInfo.do';
 					} else {
 					alert(data.resultMsg);
 					document.location.reload();
@@ -920,6 +980,7 @@ $(function(){
 					alert("시스템 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
 				}
 		    });
+		}
 		    
 		    return false;
 		   /*  parent.location.reload(); */
