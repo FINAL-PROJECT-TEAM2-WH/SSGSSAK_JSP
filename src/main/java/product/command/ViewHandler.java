@@ -15,6 +15,8 @@ import product.domain.ProductDTO;
 import product.domain.ProductOptionDTO;
 import product.domain.SpecialPriceDTO;
 import product.service.ViewService;
+import productList.domain.AllCateDTO;
+import productList.service.ProductListService;
 import review.domain.ReviewDTO;
 import review.domain.ReviewImgDTO;
 import shipping.domain.ShippingOptionDTO;
@@ -33,7 +35,6 @@ public class ViewHandler implements CommandHandler{
 						
 				
 				try {
-					
 					ViewService productService = ViewService.getInstance();
 					ProductDTO product = productService.getProduct(id);
 					List<ProductOptionDTO> productoption = productService.getProductOption(id);
@@ -46,12 +47,18 @@ public class ViewHandler implements CommandHandler{
 		            
 					
 					
+					ProductListService cateService = ProductListService.getInstance();
+					AllCateDTO selectCate = cateService.selectCate_verProd(id);
+					
+					
 					request.setAttribute("ShippingOption", shippingOption);
 					request.setAttribute("specialPrice", specialPrice);
 					request.setAttribute("product", product);
 					request.setAttribute("productoption", productoption);
 					request.setAttribute("reviews", reviews);
 					request.setAttribute("reviewImg", reviewImg);
+					request.setAttribute("selectCate", selectCate);
+					request.setAttribute("crtCateDto", selectCate.getCrtCateDto());
 					request.setAttribute("pagedReviews", pagedReviews);
 			        request.setAttribute("currentPage", currentPage);
 			        request.setAttribute("totalPages", totalPages);

@@ -82,7 +82,7 @@ function generateProductList(products) {
 			data-react-mkt-info="{&quot;sell_stat_cd&quot;:true,&quot;item_id&quot;:&quot;2097001814277&quot;,&quot;shpp_type_dtl_cd&quot;:&quot;18&quot;,&quot;item_img_url&quot;:&quot;https://sitem.ssgcdn.com/77/42/81/item/2097001814277_i1_290.jpg&quot;,&quot;lwst_sellprc&quot;:48000,&quot;usabl_inv_qty&quot;:1106,&quot;brand_id&quot;:&quot;3000022153&quot;}">
 			<div class="prod_top"></div>
 			<div class="thmb">
-				<a href="/SSGSSAK/product/product.do?productcode=$$$상품아이디뿌려질곳$$$"
+				<a href="/SSGSSAK/product/product.do?productcode=\${product.id}"
 					target="_self" class="clickable"
 					data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg_2097001814277"
 					data-info="2097001814277" data-index="3" data-position="view"
