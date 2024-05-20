@@ -72,12 +72,12 @@ public class Itemenrollhandler implements CommandHandler {
 				}
 			
 			 Collection<Part> prs = request.getParts();
-			 
+			 String uuid = UUID.randomUUID().toString();
 			 for (Part part : prs) {
 				
 				if (part.getHeader("Content-Disposition").contains("filename=")) {
 					 if(part.getName().equals("file1")){
-						 String uuid = UUID.randomUUID().toString();
+						 
 			               String filename = uuid+part.getSubmittedFileName();
 			               String realpath = request.getRealPath("/pay/image/" + filename);
 			               System.out.println(">>>> "  + realpath);
@@ -89,20 +89,26 @@ public class Itemenrollhandler implements CommandHandler {
 
 					 } else if (part.getName().equals("file2")){  
 						  
-						   String uuid = UUID.randomUUID().toString();
-			               String filename = uuid+part.getSubmittedFileName();
-			              
+						   String submitedname = "";
+						   String filename ="";
+						   try {
+							   submitedname = part.getSubmittedFileName();
+							   filename = uuid+submitedname;
+						  } catch (Exception e) {
+							e.printStackTrace();
+						   }
+						  
 			               String realpath = request.getRealPath("/pay/image/" + filename);
-			              
+			               
 			               if (part.getSize() > 0) {
 			            	   part.write(realpath);
-			            	   
+			            	  
 			                   part.delete();
 			                  
 			                }
 			             
 			               pi.insertproductimg(realpath , "other");
-			            
+			              
 			            }
 				} 
 			 }
