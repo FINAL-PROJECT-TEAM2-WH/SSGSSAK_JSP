@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductmainDTO {
+public class ProductmainDT_old2 {
 	private long id;
     private long shippingOptionId;
     private String sellerstoreid;

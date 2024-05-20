@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
    <% 
     String contextPath = request.getContextPath();
-    response.sendRedirect(contextPath+"/member/login.do");
+    response.sendRedirect(contextPath+"/mainPage.do");
     %> 
 <!DOCTYPE html>
 <html>

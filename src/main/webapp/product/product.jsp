@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="review.domain.ReviewDTO"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.If"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -22,7 +25,7 @@
         background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.095 7.016"><path d="M0 0l4.095 3.508L0 7.016V0z" fill="%23333"/></svg>'); /* 드롭다운 화살표 이미지 추가 */
         background-repeat: no-repeat; /* 배경 이미지 반복 제거 */
         background-position: right 10px center; /* 배경 이미지 위치 */
-        background-size: 12px 12px; /* 배경 이미지 크기 */
+/*         background-size: 12px 12px; /* 배경 이미지 크기 */ */
     }
 
     /* 두 번째 선택 박스 스타일 */
@@ -2008,6 +2011,7 @@ if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') !
 </head>
 <body class="body_ssg body_renew body_wide body_wide_ctn">
 	<%@include file="/Top.jsp" %>
+
 		<!-- 최근 본 상품 -->
 		<aside id="history" class="drawer_menu drawer_right"
 			role="complementary" aria-label="최근 본 상품 리스트">
@@ -2082,214 +2086,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 }
 
 </script>
-		<div id="skip_gnb" class="ssg_navbar react-area">
-			<div class="ssg_navbar_inner" data-react-tarea-cd="00042_000000090">
-				<div class="cmgnb_ctg" data-react-unit-type="text"
-					data-react-unit-text="[{&quot;type&quot;:&quot;tarea_addt_val&quot;,&quot;value&quot;:&quot;카테고리&quot;}]">
-					<button type="button" class="cmgnb_ctg_open v2 clickable"
-						aria-expanded="false" data-react-tarea="SSG공통|GNB 띠메뉴|카테고리_클릭"
-						data-react-tarea-dtl-cd="t00060">
-						<span class="blind">통합 카테고리 보기</span> <span class="ico_menu">&nbsp;</span>
-					</button>
-					<div class="cmctg_text">카테고리</div>
-					<div class="cmctg_total" aria-hidden="true">
-						<div class="cmctg_dimmed"></div>
-						<div class="cmctg_cont">
-							<ul class="cmctg_list" role="menubar">
-								<li class="cmctg_top_mn" data-ctg-code="5410000001"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|패션의류"> <span
-										class="cmctg_lnk_txt">패션의류</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="1000015891"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|패션잡화"> <span
-										class="cmctg_lnk_txt">패션잡화</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="1000016221"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|명품"> <span
-										class="cmctg_lnk_txt">명품</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="5410000002"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|뷰티"> <span
-										class="cmctg_lnk_txt">뷰티</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="5410000006"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|스포츠/레저"> <span
-										class="cmctg_lnk_txt">스포츠/레저</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="5410000003"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|생활/주방"> <span
-										class="cmctg_lnk_txt">생활/주방</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="1000015890"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|가구/인테리어"> <span
-										class="cmctg_lnk_txt">가구/인테리어</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="5410000004"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|유아동"> <span
-										class="cmctg_lnk_txt">유아동</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="5410000005"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|디지털/렌탈"> <span
-										class="cmctg_lnk_txt">디지털/렌탈</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="1000015889"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|여행/e쿠폰/문구/도서"> <span
-										class="cmctg_lnk_txt">여행/e쿠폰/문구/도서</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="5410000007"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|신선식품"> <span
-										class="cmctg_lnk_txt">신선식품</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="1000015925"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|가공/건강식품"> <span
-										class="cmctg_lnk_txt">가공/건강식품</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-								<li class="cmctg_top_mn" data-ctg-code="1000016140"><a
-									role="menuitem" href="#" class="cmctg_top_lnk clickable"
-									aria-expanded="false"
-									data-react-tarea="SSG공통|GNB 띠메뉴|SSG카테고리|반려동물"> <span
-										class="cmctg_lnk_txt">반려동물</span>
-								</a>
-									<div class="cmctg_sub_area" aria-hidden="true"></div></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div id="cmgnb_ship" class="cmgnb_ship" data-react-unit-type="banr">
-					<a href="https://www.ssg.com/service/emart/dvstore.ssg"
-						class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001"
-						data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|쓱배송" style=""> <span
-						class="cmgnb_ship_ico"> <img
-							src="//sui.ssgcdn.com/cmpt/banner/202211/2022113014302993780266166126_299.png"
-							alt="쓱배송" loading="lazy"
-							srcset="//sui.ssgcdn.com/cmpt/banner/202211/2022113014303177073538664453_530.png 2x"></span>
-					</a> <a href="https://www.ssg.com/service/morning/dvstore.ssg"
-						class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001"
-						data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|새벽배송" style=""> <span
-						class="cmgnb_ship_ico"> <img
-							src="//sui.ssgcdn.com/cmpt/banner/202211/2022113014303924415595968559_325.png"
-							alt="새벽배송" loading="lazy"
-							srcset="//sui.ssgcdn.com/cmpt/banner/202211/2022113014304147582933106393_763.png 2x"></span>
-					</a> <a href="https://www.ssg.com/service/oneday/dvstore.ssg"
-						class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001"
-						data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|쓱1DAY배송" style=""> <span
-						class="cmgnb_ship_ico"> <img
-							src="//sui.ssgcdn.com/cmpt/banner/202307/2023070416215733607376373737_259.png"
-							alt="쓱1DAY배송" loading="lazy"
-							srcset="//sui.ssgcdn.com/cmpt/banner/202307/2023070416221367791932412293_612.png 2x"></span>
-					</a> <a href="https://www.ssg.com/service/traders/dvstore.ssg"
-						class="cmgnb_ship_lnk clickable" data-react-tarea-dtl-cd="t00001"
-						data-react-tarea="SSG공통|GNB 띠메뉴|배송매장|트레이더스 쓱배송" style=""> <span
-						class="cmgnb_ship_ico"> <img
-							src="//sui.ssgcdn.com/cmpt/banner/202303/2023032015590922936400201740_322.png"
-							alt="트레이더스 쓱배송" loading="lazy"
-							srcset="//sui.ssgcdn.com/cmpt/banner/202303/2023032015591306807808608780_456.png 2x"></span>
-					</a>
-				</div>
-				<div class="cmgnb_menubar">
-					<ul role="menubar">
-						<li class="Y" data-react-unit-type="banr"
-							data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;SSG.COM Biz.&quot;}]">
-							<a href="https://www.ssg.com/service/bizMain.ssg" target="_self"
-							role="menuitem" class="menu_lnk ty_open clickable"
-							aria-label="SSG.COM Biz. 서비스매장 바로가기"
-							data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|SSG.COM Biz."
-							data-react-tarea-dtl-cd="t00001"><span class="menu_ico_img"><img
-									src="//sui.ssgcdn.com/cmpt/banner/202403/2024032709555489322063224206_497.png"
-									alt="SSG.COM Biz." loading="lazy"></span> <span class="menu_txt">SSG.COM
-									Biz.</span> <span class="menu_ico_label ty_new">NEW</span> </a>
-						</li>
-						<li class="menu_gift" data-react-unit-type="banr"
-							data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;선물하기&quot;}]">
-							<a href="https://www.ssg.com/service/gift/main.ssg"
-							target="_self" role="menuitem" class="menu_lnk clickable"
-							aria-label="선물하기 서비스매장 바로가기"
-							data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|선물하기"
-							data-react-tarea-dtl-cd="t00001"><span class="menu_ico_img"><img
-									src="//sui.ssgcdn.com/cmpt/banner/202311/2023112210100688016845963684_281.png"
-									alt="" loading="lazy"
-									srcset="//sui.ssgcdn.com/cmpt/banner/202311/2023112210101635319246335924_563.png"></span>
-								<span class="menu_txt">선물하기</span> </a>
-						</li>
-						<li class="menu_event" data-react-unit-type="banr"
-							data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;이벤트&quot;}]">
-							<a href="https://www.ssg.com/event/eventMain.ssg" target="_self"
-							role="menuitem" class="menu_lnk clickable"
-							aria-label="이벤트 서비스매장 바로가기"
-							data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|이벤트"
-							data-react-tarea-dtl-cd="t00001"><span class="menu_txt">이벤트</span>
-						</a>
-						</li>
-						<li class="menu_store" data-react-unit-type="banr"
-							data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;공식스토어&quot;}]">
-							<a href="https://www.ssg.com/special/index.ssg" target="_self"
-							role="menuitem" class="menu_lnk clickable"
-							aria-label="공식스토어 서비스매장 바로가기"
-							data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|공식스토어"
-							data-react-tarea-dtl-cd="t00001"><span class="menu_txt">공식스토어</span>
-						</a>
-						</li>
-						<li class="menu_obanjang" data-react-unit-type="banr"
-							data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;특가&quot;}]">
-							<a
-							href="https://www.ssg.com/service/specialMain.ssg?tabDivCd=happy"
-							target="_self" role="menuitem" class="menu_lnk clickable"
-							aria-label="특가 서비스매장 바로가기"
-							data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|특가"
-							data-react-tarea-dtl-cd="t00001"><span class="menu_txt">특가</span>
-						</a>
-						</li>
-						<li class="menu_best" data-react-unit-type="banr"
-							data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;베스트&quot;}]">
-							<a href="https://www.ssg.com/service/bestMain.ssg" target="_self"
-							role="menuitem" class="menu_lnk clickable"
-							aria-label="베스트 서비스매장 바로가기"
-							data-react-tarea="SSG공통|GNB 띠메뉴|서비스매장|베스트"
-							data-react-tarea-dtl-cd="t00001"><span class="menu_txt">베스트</span>
-						</a>
-						</li>
-					</ul>
-				</div>
-
-			</div>
-		</div>
-
+<!-- 		카테고리자리 -->
+	<%@include file="/category.jsp" %>
 		<script id="_tmplNavigation" type="text/x-jquery-tmpl">
 {{tmpl "#_tmplNavigation-menu"}}
 {{if hasKillerCategory}}
@@ -2754,8 +2552,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<!-- 상품 이미지 -->
 							<div class="cdtl_product_representative_image">
 								<div class="cdtl_item_image">
-									<span class="cdtl_imgbox imgzoom"> <img
-										src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_1100.jpg"
+									<span class="cdtl_imgbox imgzoom"><img
+										src="${product.images[0].imgUrl}"
 										width="550" height="550" alt="상품이미지1"
 										onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1100&amp;h=1100&amp;t=ad8dc877e029679456bb1f6f8f195a727b5f7453'"
 										id="mainImg"></span>
@@ -2776,65 +2574,20 @@ function setCommonGnbCookie(name, value, expiredays) {
 													style="width: 100%; overflow: hidden; position: relative; height: 506px;">
 													<ul class="cdtl_pager_lst"
 														style="width: auto; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-<%-- 														<c:forEach var="images" items="${product.images}">
-															<c:if test="${images.imgContent==sum||images.imgContent는2번째일때}">
+														<c:forEach var="images" items="${product.images}" varStatus="status">
+															<c:if test="${status.index==1}">
 																	<li
 																		style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
 																		<a href="javascript:void(0);"
-																		onclick="getImgAssoItem(1);" class="clickable"
+																		onclick="getImgAssoItem(status.index + 1);" class="clickable"
 																		data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
-																			src="${images.imgUrl} "
-																			width="90" height="90" alt="상품이미지2"
-															
-															
-															
+																			src="${images.imgUrl}"
+																			width="90" height="90" alt="상품이미지${status.index + 1}"
 																			onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
 																			class="zoom_thumb"><span class="bd"></span></a>
 																	</li>
 															</c:if>
-														</c:forEach> --%>
-
-														
-														<li
-															style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
-															<a href="javascript:void(0);"
-															onclick="getImgAssoItem(2);" class="clickable"
-															data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
-																src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i3_500.jpg"
-																width="90" height="90" alt="상품이미지3"
-																onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
-																class="zoom_thumb"><span class="bd"></span></a>
-														</li>
-														<li
-															style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
-															<a href="javascript:void(0);"
-															onclick="getImgAssoItem(3);" class="clickable"
-															data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
-																src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i4_500.jpg"
-																width="90" height="90" alt="상품이미지4"
-																onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
-																class="zoom_thumb"><span class="bd"></span></a>
-														</li>
-														<li
-															style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
-															<a href="javascript:void(0);"
-															onclick="getImgAssoItem(4);" class="clickable"
-															data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
-																src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i5_500.jpg"
-																width="90" height="90" alt="상품이미지5"
-																onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
-																class="zoom_thumb"><span class="bd"></span></a>
-														</li>
-														<li
-															style="float: none; list-style: none; position: relative; width: 90px; margin-bottom: 14px;">
-															<a href="javascript:void(0);"
-															onclick="getImgAssoItem(5);" class="clickable"
-															data-react-tarea="상품상세|대표 이미지|이미지확대보기"><img
-																src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i6_500.jpg"
-																width="90" height="90" alt="상품이미지6"
-																onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=500&amp;h=500&amp;t=1ec79c3423d0d0bb5cfce1a84b8605496eddb340'"
-																class="zoom_thumb"><span class="bd"></span></a>
-														</li>
+														</c:forEach> 
 													</ul>
 												</div>
 												<div class="bx-controls bx-has-controls-direction">
@@ -2970,16 +2723,8 @@ function setCommonGnbCookie(name, value, expiredays) {
 										<div class="cdtl_info_link">		
 											<div class="cdtl_tit_link">
 											<!-- 브랜드번호 불러와서 링크걸고 , 브랜드 이름불러오기  -->
-											<a href="#" onclick="openReviewWindow();return false;">리뷰등록하기</a>
-											<script type="text/javascript">
-												function openReviewWindow() {
-													var url = "/SSGSSAK/review/review.do?productcode="+${product.id};
-													var windowName = "newReviewWindow";
-													var windowSize = "width=635,height=665";
-													window.open(url,windowName,windowSize+",resizable=yes");
-													
-												}
-											</script>
+
+
 												<a
 													href="/brand/brandShop.ssg?brandId=${product.brandId}"
 													class="cdtl_info_tit_link">${product.brandName}<i
@@ -3007,16 +2752,33 @@ function setCommonGnbCookie(name, value, expiredays) {
 		</c:forEach>
 		
 		
-		
+
 		
 
 		
 		
 		
-
+							<%
+							
+							List<ReviewDTO> reviews = (List<ReviewDTO>) request.getAttribute("reviews");
+							
+							double totalGrade=0;
+							int reviewCount = reviews.size();
+							for(ReviewDTO review :reviews){
+								totalGrade += review.getGrade();
+							}
+							
+							double averageGrade = 0;
+							if(reviewCount>0){
+								averageGrade = totalGrade/reviewCount;
+							}
+							request.setAttribute("averageGrade",averageGrade );
+							
+							%>
 							<!-- 리뷰 -->
 							<div class="cdtl_review_wrap"
 								data-react-tarea-cd="00006_000000005">
+								
 								<dl class="cdtl_dl cdtl_review">
 									<dt class="blind">리뷰</dt>
 									<dd>
@@ -3027,14 +2789,14 @@ function setCommonGnbCookie(name, value, expiredays) {
 												onclick="javascript:trackingForWiseLog('item_review');"
 												data-react-tarea-dtl-cd="t00060"
 												data-react-tarea="상품상세|기본정보|상품평 summary"
-												title="포토&amp;동영상 전체(1,546)">
+												title="포토&amp;동영상 전체(${fn:length(reviews)})">
 												<div class="cdtl_grade_area">
 													<span class="cdtl_grade_star"><span
-														class="cdtl_grade_per" style="width: 96.0%"><span
+														class="cdtl_grade_per" style="width: ${averageGrade*20}%"><span
 															class="blind">리뷰 평점</span></span></span> <span class="cdtl_grade_num"><span
-														class="blind">별 5개 중 <em>4.8</em>개
-													</span><em class="cdtl_grade_total" aria-hidden="true">4.8</em> (<span
-														class="num">1,546</span>건)</span>
+														class="blind">별 5개 중 <em>${averageGrade}</em>개
+													</span><em class="cdtl_grade_total" aria-hidden="true"><fmt:formatNumber value="${averageGrade}" maxFractionDigits="1" type="number"/></em> (<span
+														class="num">${fn:length(reviews)}</span>건)</span>
 												</div>
 												<div class="mndtl_mediall_summary_list">
 													<div class="mndtl_figure_thmb">
@@ -3210,6 +2972,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 												<dd>
 													<ul>
 														<li><span class="cdtl_benefit">쇼핑혜택</span>
+														
 															<div class="cdtl_benefit_info ty2">
 																<div class="txt color1">멤버십은 SSG 상품권 3% 할인</div>
 																<span class="desc">지금 보는 상품에 즉시 사용 가능</span> <a
@@ -3241,7 +3004,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</div>
 									<!-- 우르르펀딩 -->
 									<!--  정기배송 여부  -->
-									<div class="cdtl_item" id="deliveryWrap"
+									<div class="" id="deliveryWrap"
 										data-react-tarea-cd="00006_000000028">
 										<!-- 배송유형 배너 -->
 										<!-- //배송유형 배너 -->
@@ -3334,7 +3097,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										</dl>
 									</div>
 
-									<div class="cdtl_item cdtl_periodic"
+									<div class=" cdtl_periodic"
 										data-react-tarea-cd="00006_000000028"
 										data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;정기배송,정기배송 더 알아보기&quot;}]">
 										<dl class="cdtl_dl">
@@ -3352,11 +3115,11 @@ function setCommonGnbCookie(name, value, expiredays) {
 										</dl>
 									</div>
 									<!-- 유통기한, 원산지, 보관방법 -->
-									<div class="cdtl_item"></div>
+									<div class=""></div>
 									<!-- 관부가세 -->
 									<!-- 포장안내 -->
 									<!-- 백화점 쇼핑백 -->
-									<div class="cdtl_item">
+									<div class="">
 										<dl class="cdtl_dl cdtl_shopping_bag">
 											<dt>포장안내</dt>
 											<dd>
@@ -3418,7 +3181,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									    }
 									</script>
 
-									<div class="cdtl_item">
+									<div class="">
 										<div class="cdtl_noti_txtinfo">
 											<!-- 											<span class="txt">이 상품은 <em class="point notranslate">강남점</em>
 												기준의 가격 및 혜택 정보입니다.
@@ -3427,13 +3190,13 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</div>
 									<!-- 옵션/사은품/추가구성 -->
 									<!--  몰탭 광고 상품 비노출 처리 -->
-									<div class="cdtl_item" id="cmptNoti" style="display: none">
+									<div class="" id="cmptNoti" style="display: none">
 										<div class="cdtl_noti_txtinfo">
 											<span class="txt">사은품과 추가구성품은 점별로 다를 수 있습니다.</span>
 										</div>
 									</div>
 
-									<div class="cdtl_item" id="frebieSelectArea"
+									<div class="" id="frebieSelectArea"
 										style="display: none">
 										<dl class="cdtl_dl cdtl_gift">
 											<dt>사은품</dt>
@@ -3441,7 +3204,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 										</dl>
 									</div>
 
-									<div class="cdtl_item" id="cmptSelectArea"
+									<div class="" id="cmptSelectArea"
 										data-react-tarea-cd="00006_000000537" style="display: none">
 										<dl class="cdtl_dl cdtl_opt_prize">
 											<dt>추가구성상품</dt>
@@ -3574,7 +3337,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 
 
-										<select class="cdtl_item" id="first_select"
+										<select class="" id="first_select"
 											onchange="show_option();"></select>
 									</c:when>
 
@@ -3639,7 +3402,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 
 
-								<script type="text/javascript">
+		<script type="text/javascript">
         let first_select = [
             {v:"",t:""},
             <c:forEach var="option" items="${productoption}">
@@ -3766,28 +3529,35 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 								<script type="text/javascript">
     		
-    		function handlePurchase() {
-    	
-    		    let params = [];
-    		    let index = 1; 
+								function handlePurchase() {
 
-    		    document.querySelectorAll('.cdtl_opt_item').forEach(option => {
-    		        if (option.style.display !== 'none') {
-    		            let optionId = option.id.split('-')[1];
-    		          
-    		            let quantityInput = $("#quantity-"+optionId).val();
-    		            let quantity = quantityInput ;
-    		            
-   		                params.push("item"+index+"="+optionId+"/"+quantity);
-   		                index++; 
-    		            
-    		        }
-    		    });
+									
+								    fetch('/SSGSSAK/product/CheckLogin.do')
+								        .then(response => response.json())
+								        .then(data => {
+								            if (data.alreadyLogin) {
+								                let params = [];
+								                let index = 1;
 
-    		    let url = '/SSGSSAK/pay/pay.do?' + params.join('&');
+								                document.querySelectorAll('.cdtl_opt_item').forEach(option => {
+								                    if (option.style.display !== 'none') {
+								                        let optionId = option.id.split('-')[1];
+								                        let quantityInput = $("#quantity-" + optionId).val();
+								                        let quantity = quantityInput;
+								                        params.push("item" + index + "=" + optionId + "/" + quantity);
+								                        index++;
+								                    }
+								                });
 
-    		    window.location.href = url;
-    		}
+								                let url = '/SSGSSAK/pay/pay.do?' + params.join('&');
+								                window.location.href = url;
+								            } else {
+								                alert('로그인 후 이용해 주세요.');
+								                window.location.href = '/SSGSSAK/member/login.do';
+								            }
+								        })
+								        .catch(error => console.error(error));
+								}
     		function handleCart() {
 
     			
@@ -3830,7 +3600,7 @@ function setCommonGnbCookie(name, value, expiredays) {
                         if (data.data != 0) {
                            alert("상품을 장바구니에 담았습니다.");
                       } else {
-                         alert("이미 장바구니에 담겨있습니다.");
+                         alert("로그인을 해 주십시오..");
                       }
                      },
                      error : function(res){
@@ -12318,8 +12088,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 											<div class="cdtl_sec cdtl_detail_num">
 												<div class="cdtl_cont_info">
 													<div class="cdtl_cont_bx">
-														<p class="cdtl_prd_num">상품번호 : 1000026532717</p>
-														<p class="cdtl_model_num">모델번호 : E1036200</p>
+														<p class="cdtl_prd_num">상품번호 : ${product.id }</p>
 													</div>
 												</div>
 											</div>
@@ -12361,34 +12130,17 @@ function setCommonGnbCookie(name, value, expiredays) {
 												<div class="blind" id="itemNutritionGrid"></div>
 
 												<div class="cdtl_capture_img">
-													<iframe
-														src="https://itemdesc.ssg.com/item/iframePItemDtlDesc.ssg?itemId=1000026532717&amp;dispSiteNo=6005&amp;ts=20240401100647/m2x/mixed/main/image/optimize"
-														frameborder="0" title="상세내용" id="_ifr_html"
-														scrolling="yes"
-														style="overflow: auto; width: 100%; margin: 0px; padding: 0px; border: none; height: 15019px;"></iframe>
+													  <img src="${product.images[0].imgUrl}" alt="상세 이미지" style="width: 100%; height: auto; margin: 0; padding: 0;">
 												</div>
 
 												<div class="cdtl_detail_img">
-													<img
-														src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i1_1200.jpg"
-														alt="상품이미지1"
-														onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1200&amp;h=1200&amp;t=2ca8e91106bfe8f410b8440ea403e5acdc70084a'"><img
-														src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i2_1200.jpg"
-														alt="상품이미지2"
-														onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1200&amp;h=1200&amp;t=2ca8e91106bfe8f410b8440ea403e5acdc70084a'"><img
-														src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i3_1200.jpg"
-														alt="상품이미지3"
-														onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1200&amp;h=1200&amp;t=2ca8e91106bfe8f410b8440ea403e5acdc70084a'"><img
-														src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i4_1200.jpg"
-														alt="상품이미지4"
-														onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1200&amp;h=1200&amp;t=2ca8e91106bfe8f410b8440ea403e5acdc70084a'"><img
-														src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i5_1200.jpg"
-														alt="상품이미지5"
-														onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1200&amp;h=1200&amp;t=2ca8e91106bfe8f410b8440ea403e5acdc70084a'"><img
-														src="https://sitem.ssgcdn.com/17/27/53/item/1000026532717_i6_1200.jpg"
-														alt="상품이미지6"
-														onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1200&amp;h=1200&amp;t=2ca8e91106bfe8f410b8440ea403e5acdc70084a'">
+													<c:forEach var="image" items="${product.images}"
+														varStatus="status">
+														<img src="${image.imgUrl}" alt="상품이미지${status.index + 1}"
+															onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1200&amp;h=1200&amp;t=2ca8e91106bfe8f410b8440ea403e5acdc70084a'">
+													</c:forEach>
 												</div>
+
 												<div class="cdtl_capture_img">
 													<div class="cdtl_tmpl_cont ty_grocery">
 														<!-- SSG.Tip -->
@@ -12403,88 +12155,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 												</div>
 											</div>
 
-											<div class="cdtl_sec">
-												<div class="cdtl_sec_titarea ty_tbl">
-													<h4 class="cdtl_tit_info">상품필수정보</h4>
-												</div>
-												<div class="cdtl_cont_info">
-													<div class="cdtl_tbl ty2">
-														<table summary="상품 필수정보 보여주는 표">
-															<caption>상품 필수정보</caption>
-															<colgroup>
-																<col style="width: 22%">
-																<col>
-															</colgroup>
-															<tbody>
-																<tr>
-																	<th scope="row"><div class="in">내용물의 용량 또는
-																			중량</div></th>
-																	<td><div class="in">150ml</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">제품주요사양</div></th>
-																	<td><div class="in">손상 모발용</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">사용기한 또는 개봉후
-																			사용기간</div></th>
-																	<td><div class="in">배송되는 제품은 사용기한이 12개월 이상
-																			남아있는 제품부터 순차적으로 배송됩니다.</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">사용방법</div></th>
-																	<td><div class="in">타올 드라이 후, 모발에 고루 도포.
-																			드라이기 또는 매직기를 이용하여 스타일링 해줍니다. 헹구어내지 않습니다.</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">화장품제조업자,
-																			화장품책임판매업자 및 맞춤형화장품판매업자</div></th>
-																	<td><div class="in">스페인 프로덕터스 카피라레스 로레알사 /
-																			엘오케이(유)</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">전성분</div></th>
-																	<td><div class="in">정제수 사이클로펜타실록산 프로필렌글라이콜
-																			디메치콘올 트리에탄올아민 페녹시에탄올 피이지/피피지-17/18디메치콘 카보머
-																			베헨트리모늄클로라이드 폴리쿼터늄-4 변성감자전분 하이드록시프로필구아 메칠파라벤 리모넨
-																			아모디메치콘 세틸알코올 쿼터늄-87 베헨트리모늄메토설페이트 쿼터늄-33 트리데세스-6
-																			2-올레아미도-1,3-옥타데칸디올 제라니올 리날룰 글리세린 시트로넬올 시트랄 세트리모늄클로라이드
-																			트레할로스 타마린드씨폴리사카라이드 미로탐누스 플라벨리폴리아잎추출물 향료</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">기능성화장품 심사필여부
-																		</div></th>
-																	<td><div class="in">해당사항 없음</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">사용할 때 주의사항</div></th>
-																	<td><div class="in">1. 화장품을 사용하여 다음과 같이 이상이
-																			있을 경우에는 사용을 중지할 것이며, 계속 사용하면 증상을 악화시키므로 피부과 전문의 등에게
-																			상담할 것 1) 사용중 붉은 반점, 부어오름, 가려움증, 자극 등의 이상이 있을 경우 2)
-																			적용부위가 직사광선에 의해 위와 같은 이상이 있을 경우2. 상처가 있는 곳 또는 습진 및
-																			피부염등의 이상이 있는 부위에는 사용을 금할 것3. 눈에 들어갔을 때에는 즉시 씻을 것4. 보관
-																			및 취급상의 주의사항 1) 사용후에는 반드시 마개를 닫아둘 것 2) 유.소아의 손에 닿지 않는
-																			곳에 보관할 것 3) 고온 내지 저온의 장소 및 일광이 닿는 곳에는 보관하지 말 것</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">품질보증기준</div></th>
-																	<td><div class="in">관련 법 및 소비자 분쟁해결 규정에 따름</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">소비자 상담 관련
-																			전화번호</div></th>
-																	<td><div class="in">교환 환불 및 배송 문의: 신세계 몰
-																			고객센터 1577-3419 제품문의 : 로레알 고객지원 실 080-099-5000</div></td>
-																</tr>
-																<tr>
-																	<th scope="row"><div class="in">제조국</div></th>
-																	<td><div class="in">스페인</div></td>
-																</tr>
-															</tbody>
-														</table>
-													</div>
-												</div>
-											</div>
+											
 
 										</div>
 
@@ -12532,7 +12203,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 										<div class="cdtl_sec_titarea cdtl_cmt_titarea">
 											<h3 class="cdtl_sec_tit v2">
-												고객리뷰<span class="count">(<em>1,546</em><span
+												고객리뷰<span class="count">(<em>${fn:length(reviews)}</em><span
 													class="blind">건</span>)
 												</span>
 											</h3>
@@ -12547,16 +12218,18 @@ function setCommonGnbCookie(name, value, expiredays) {
 														<div class="cdtl_review_area">
 															<div class="cdtl_review_star">
 																<div class="cdtl_star_area">
-																	<span class="cdtl_star_on" style="width: 96.0%"><span
-																		class="blind">구매고객 총 평점 별 5개 중 <em>4.8</em>개
+																	<span class="cdtl_star_on" style="width: ${averageGrade*20}%"><span
+																		class="blind">구매고객 총 평점 별 5개 중 <em>${averageGrade}</em>개
 																	</span></span>
 																</div>
 																<div class="cdtl_review_score">
 																	<span class="cdtl_star_score" aria-hidden="true"><span
-																		class="cdtl_txt">4.8</span></span>
+																		class="cdtl_txt">
+
+																</span></span>
 																</div>
 																<p class="t_review">
-																	총 <em>1,546</em>건 리뷰
+																	총 <em>${fn:length(reviews)}</em>건 리뷰
 																</p>
 															</div>
 														</div>
@@ -12565,123 +12238,251 @@ function setCommonGnbCookie(name, value, expiredays) {
 
 												<!-- GPT 리뷰 -->
 												<!-- //GPT 리뷰 -->
+												<%
+												double q1TotalGrade = 0;
+											    double q2TotalGrade = 0;
+											    double q3TotalGrade = 0;
+											    
+											    // 각 값(1, 2, 3)에 대한 리뷰 수 초기화
+											    int q1ReviewCount1 = 0;
+											    int q1ReviewCount2 = 0;
+											    int q1ReviewCount3 = 0;
+											    int q2ReviewCount1 = 0;
+											    int q2ReviewCount2 = 0;
+											    int q2ReviewCount3 = 0;
+											    int q3ReviewCount1 = 0;
+											    int q3ReviewCount2 = 0;
+											    int q3ReviewCount3 = 0;
+
+											    for (review.domain.ReviewDTO review : reviews) {
+											        if (review.getQ1() == 1) {
+											            q1TotalGrade += review.getGrade();
+											            q1ReviewCount1++;
+											        } else if (review.getQ1() == 2) {
+											            q1ReviewCount2++;
+											        } else if (review.getQ1() == 3) {
+											            q1ReviewCount3++;
+											        }
+
+											        if (review.getQ2() == 1) {
+											            q2TotalGrade += review.getGrade();
+											            q2ReviewCount1++;
+											        } else if (review.getQ2() == 2) {
+											            q2ReviewCount2++;
+											        } else if (review.getQ2() == 3) {
+											            q2ReviewCount3++;
+											        }
+
+											        if (review.getQ3() == 1) {
+											            q3TotalGrade += review.getGrade();
+											            q3ReviewCount1++;
+											        } else if (review.getQ3() == 2) {
+											            q3ReviewCount2++;
+											        } else if (review.getQ3() == 3) {
+											            q3ReviewCount3++;
+											        }
+											    }
+
+											    int q1TotalReviews = q1ReviewCount1 + q1ReviewCount2 + q1ReviewCount3;
+											    int q2TotalReviews = q2ReviewCount1 + q2ReviewCount2 + q2ReviewCount3;
+											    int q3TotalReviews = q3ReviewCount1 + q3ReviewCount2 + q3ReviewCount3;
+											    
+											    double q1AverageGrade = 0;
+											    double q2AverageGrade = 0;
+											    double q3AverageGrade = 0;
+											    if (q1ReviewCount1 > 0) {
+											        q1AverageGrade = q1TotalGrade / q1ReviewCount1;
+											    }
+											    if (q2ReviewCount1 > 0) {
+											        q2AverageGrade = q2TotalGrade / q2ReviewCount1;
+											    }
+											    if (q3ReviewCount1 > 0) {
+											        q3AverageGrade = q3TotalGrade / q3ReviewCount1;
+											    }
+
+											    request.setAttribute("q1AverageGrade", q1AverageGrade);
+											    request.setAttribute("q2AverageGrade", q2AverageGrade);
+											    request.setAttribute("q3AverageGrade", q3AverageGrade);
+
+											    request.setAttribute("q1ReviewCount1", q1ReviewCount1);
+											    request.setAttribute("q1ReviewCount2", q1ReviewCount2);
+											    request.setAttribute("q1ReviewCount3", q1ReviewCount3);
+											    request.setAttribute("q2ReviewCount1", q2ReviewCount1);
+											    request.setAttribute("q2ReviewCount2", q2ReviewCount2);
+											    request.setAttribute("q2ReviewCount3", q2ReviewCount3);
+											    request.setAttribute("q3ReviewCount1", q3ReviewCount1);
+											    request.setAttribute("q3ReviewCount2", q3ReviewCount2);
+											    request.setAttribute("q3ReviewCount3", q3ReviewCount3);
+											    
+											    request.setAttribute("q1TotalReviews", q1TotalReviews);
+											    request.setAttribute("q2TotalReviews", q2TotalReviews);
+											    request.setAttribute("q3TotalReviews", q3TotalReviews);
+												%>
+
 
 												<!-- 추가평가항목 -->
-												<div class="cdtl_eval_score v2 v_ai">
-													<div class="eval_list ai_list">
-														<h4>세정력</h4>
-														<ul>
-															<li class="top_score">
-																<h5>잘 세정돼요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 67%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(982)</span> <span
-																		class="txt_per top_score">67%</span>
-																</div>
-															</li>
-															<li class="">
-																<h5>보통이에요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 32%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(463)</span> <span
-																		class="txt_per top_score">32%</span>
-																</div>
-															</li>
-															<li class="">
-																<h5>아쉬워요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 1%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(17)</span> <span
-																		class="txt_per top_score">1%</span>
-																</div>
-															</li>
-														</ul>
-													</div>
-													<div class="eval_list ai_list">
-														<h4>사용감</h4>
-														<ul>
-															<li class="top_score">
-																<h5>부드러워요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 83%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(1,212)</span> <span
-																		class="txt_per top_score">83%</span>
-																</div>
-															</li>
-															<li class="">
-																<h5>보통이에요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 16%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(237)</span> <span
-																		class="txt_per top_score">16%</span>
-																</div>
-															</li>
-															<li class="">
-																<h5>약간 뻣뻣해요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 1%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(13)</span> <span
-																		class="txt_per top_score">1%</span>
-																</div>
-															</li>
-														</ul>
-													</div>
-													<div class="eval_list ai_list">
-														<h4>향</h4>
-														<ul>
-															<li class="top_score">
-																<h5>은은해요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 77%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(1,127)</span> <span
-																		class="txt_per top_score">77%</span>
-																</div>
-															</li>
-															<li class="">
-																<h5>보통이에요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 20%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(297)</span> <span
-																		class="txt_per top_score">20%</span>
-																</div>
-															</li>
-															<li class="">
-																<h5>강해요</h5>
-																<div class="bar_full">
-																	<span class="bar_per" style="width: 3%"></span>
-																</div>
-																<div class="txt">
-																	<span class="txt_per top_num">(38)</span> <span
-																		class="txt_per top_score">3%</span>
-																</div>
-															</li>
-														</ul>
-													</div>
-												</div>
+<div class="cdtl_eval_score v2 v_ai">
+    <div class="eval_list ai_list">
+        <h4>만족도</h4>
+        <ul>
+            <li class="top_score">
+                <h5>최고에요</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q1ReviewCount1 / q1TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q1ReviewCount1})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q1ReviewCount1 / q1TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+            <li class="">
+                <h5>보통이에요</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q1ReviewCount2 / q1TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q1ReviewCount2})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q1ReviewCount2 / q1TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+            <li class="">
+                <h5>아쉬워요</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q1ReviewCount3 / q1TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q1ReviewCount3})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q1ReviewCount3 / q1TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="eval_list ai_list">
+        <h4>포장 만족도</h4>
+        <ul>
+            <li class="top_score">
+                <h5>깔끔해요</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q2ReviewCount1 / q2TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q2ReviewCount1})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q2ReviewCount1 / q2TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+            <li class="">
+                <h5>보통이에요</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q2ReviewCount2 / q2TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q2ReviewCount2})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q2ReviewCount2 / q2TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+            <li class="">
+                <h5>아쉬워요</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q2ReviewCount3 / q2TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q2ReviewCount3})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q2ReviewCount3 / q2TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="eval_list ai_list">
+        <h4>재구매 의사</h4>
+        <ul>
+            <li class="top_score">
+                <h5>있음</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q3ReviewCount1 / q3TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q3ReviewCount1})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q3ReviewCount1 / q3TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+            <li class="">
+                <h5>보통</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q3ReviewCount2 / q3TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q3ReviewCount2})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q3ReviewCount2 / q3TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+            <li class="">
+                <h5>없음</h5>
+                <div class="bar_full">
+                    <span class="bar_per" style="width: <fmt:formatNumber value="${q3ReviewCount3 / q3TotalReviews * 100}" type="number" maxFractionDigits="0"/>%"></span>
+                </div>
+                <div class="txt">
+                    <span class="txt_per top_num">(${q3ReviewCount3})</span> 
+                    <span class="txt_per top_score"><fmt:formatNumber value="${q3ReviewCount3 / q3TotalReviews * 100}" type="number" maxFractionDigits="0"/>%</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 											</div>
 											<p class="review_desc new01 v_ai">※ 리뷰 등록, 수정, 삭제 및 상세
 												내용은 [MY SSG &gt; 나의 활동관리 &gt; 상품 리뷰]에서 확인하실 수 있습니다.</p>
 
+										<c:set var="reviews" value="${requestScope.reviews}" />
+
+										<c:set var="photoReviewCount" value="0" />
+										<c:set var="videoReviewCount" value="0" />
+
+										<c:forEach var="review" items="${reviews}">
+										    <c:choose>
+										        <c:when test="${review.reviewType == '포토'}">
+										           <c:set var="photoReviewCount" value="${photoReviewCount+1 }"></c:set>
+										        </c:when>
+										        <c:when test="${review.reviewType == '동영상'}">
+										           <c:set var="videoReviewCount" value="${videoReviewCount+1 }"></c:set>										           
+										        </c:when>
+										    </c:choose>
+										</c:forEach>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 											<section class="rvw_section rvw_section_pht"
 												id="review_img_vod">
 												<div class="rvw_section_heading">
-													<span class="rvw_heading_title">포토&amp;동영상 리뷰(457)</span>
+													<span class="rvw_heading_title">포토&amp;동영상 리뷰(${photoReviewCount+videoReviewCount})</span>
+													<%
+													if (session.getAttribute("auth") != null) {
+													%>
+													<a href="#" onclick="openReviewWindow();return false;">리뷰등록하기</a>
+													<script type="text/javascript">
+													function openReviewWindow() {
+														$.ajax({
+															url: '/SSGSSAK/product/CheckLogin.do',
+															type: 'GET',
+															dataType: 'json',
+															success: function(data) {
+																if (data.alreadyLogin) {
+																	var url = `/SSGSSAK/review/review.do?productcode=${product.id}&auth=${auth}`;
+																	var windowName = "newReviewWindow";
+																	var windowSize = "width=635,height=665";
+																	window.open(url, windowName, windowSize + ",resizable=yes");
+																} else {
+																	alert("로그인 후 이용해주세요.");
+																	window.location.href = '/SSGSSAK/member/login.do';
+																}
+															},
+															error: function(xhr, status, error) {
+																console.error(error);
+															}
+														});
+													}
+												</script>
+
+													<%
+													}
+													%>
 													<div class="rvw_heading_end">
 														<button type="button" class="rvw_pht_all_popup_trigger">
 															<span>더보기</span>
@@ -12690,39 +12491,21 @@ function setCommonGnbCookie(name, value, expiredays) {
 												</div>
 												<div class="rvw_section_content">
 													<div class="rvw_item_thumb_group rvw_pht_list">
-														<a href="javascript:void(0)" role="button"
-															class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1219128179"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202405/20240508013122_1219128179_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=70dcf7921666cec257af20da9800093556c0ec36"
-															loading="lazy"></a><a href="javascript:void(0)"
-															role="button" class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1218560369"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240430091649_1218560369_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=b223a0a9fd6cbd9c034361ce89a0bda59594f0c6"
-															loading="lazy"></a><a href="javascript:void(0)"
-															role="button" class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1218435476"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240427154446_1218435476_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=7e8b66b6f796dbdd01fdfe4cbc6d586bd5ebef8e"
-															loading="lazy"></a><a href="javascript:void(0)"
-															role="button" class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1218435435"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240427154220_1218435435_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=f2c494a3b49f1b68c16edaf05197e56d3a6c69ea"
-															loading="lazy"></a><a href="javascript:void(0)"
-															role="button" class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1218358962"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240425194339_1218358962_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=4c084e895cc5f2f6fe2d730f8448158e3c73e317"
-															loading="lazy"></a><a href="javascript:void(0)"
-															role="button" class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1218131147"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240421121455_1218131147_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=27b765afe7e060c98ad2b64bdb538f9d7bdb87b4"
-															loading="lazy"></a><a href="javascript:void(0)"
-															role="button" class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1217702453"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240412214400_1217702453_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=49c85dec93fa7e3995108dfc346981db1cb9801c"
-															loading="lazy"></a><a href="javascript:void(0)"
-															role="button" class="rvw_item_thumb rvw_pht_item"
-															data-postngid="1217547408"><img
-															src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240409222842_1217547408_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=9cebba5a9ff5414527b944b8b67e2fa37f27ef00"
-															loading="lazy"></a>
+													
+													<c:forEach items="${reviews}" var="reviews" >
+														<c:forEach items="${reviewImg}" var="reviewImg" begin="1" end="8">
+															<c:if test="${reviewImg.reviewId==reviews.id}">
+																<a href="javascript:void(0)" role="button"
+																	class="rvw_item_thumb rvw_pht_item"
+																	data-postngid="1219128179"><img
+																	src="${reviewImg.reviewImgUrl}"
+																	loading="lazy"></a>
+															
+															</c:if>
+														
+														</c:forEach>
+													</c:forEach>
+
 													</div>
 												</div>
 											</section>
@@ -12741,41 +12524,29 @@ function setCommonGnbCookie(name, value, expiredays) {
 																		onclick="javascript:getPcCommentFilter(this);">
 																	<label for="rdo01" class="clickable"
 																		data-react-tarea-dtl-cd="t00013"
-																		data-react-tarea="상품상세|상품평|전체보기">전체(1,546)</label>
+																		data-react-tarea="상품상세|상품평|전체보기">전체(${fn:length(reviews)})</label>
 																</div>
 																<div class="rvw_radio rvw_section_select_option"
 																	data-react-unit-type="text"
 																	data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;포토&quot;}]">
 																	<input type="radio" name="selected" id="rdo02"
-																		class="blind" value="20"
-																		onclick="javascript:getPcCommentFilter(this);">
+																		class="blind" value="20" />
+																	<c:set var="photoReviewCount" value="0" />
+																	<c:forEach var="review" items="${reviews}">
+																		<c:if
+																			test="${review.reviewType == '포토' || review.reviewType == '동영상'}">
+																			<c:set var="photoReviewCount"
+																				value="${photoReviewCount + 1}" />
+																		</c:if>
+																	</c:forEach>
 																	<label for="rdo02" class="clickable"
 																		data-react-tarea-dtl-cd="t00013"
-																		data-react-tarea="상품상세|상품평|포토모아보기">포토(456)</label>
-																</div>
-																<div class="rvw_radio rvw_section_select_option"
-																	data-react-unit-type="text"
-																	data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;동영상&quot;}]">
-																	<input type="radio" name="selected" id="rdo03"
-																		class="blind" value="30"
-																		onclick="javascript:getPcCommentFilter(this);">
-																	<label for="rdo03" class="clickable"
-																		data-react-tarea-dtl-cd="t00013"
-																		data-react-tarea="상품상세|상품평|동영상모아보기">동영상(2)</label>
-																</div>
-																<div class="rvw_radio rvw_section_select_option"
-																	data-react-unit-type="text"
-																	data-react-unit-text="[{&quot;type&quot;:&quot;text&quot;,&quot;value&quot;:&quot;선물&quot;}]">
-																	<input type="radio" name="selected" id="rdo05"
-																		class="blind" value="60"
-																		onclick="javascript:getPcCommentFilter(this);">
-																	<label for="rdo05" class="clickable"
-																		data-react-tarea-dtl-cd="t00013"
-																		data-react-tarea="상품상세|상품평|선물모아보기">선물(63)</label>
-																</div>
-															</div>
-														</div>
-														<div class="rvw_section_flex_end">
+																		data-react-tarea="상품상세|상품평|포토모아보기">포토&동영상(${photoReviewCount})</label>
+																		
+																	</div>
+																</div>			
+																</div>			
+																<div class="rvw_section_flex_end">
 															<div class="rvw_section_select_option">
 																<div class="rvw_dropdown">
 																	<select class="blind" id="cmt_select_sort">
@@ -12814,8 +12585,12 @@ function setCommonGnbCookie(name, value, expiredays) {
 													</div>
 													<div class="rvw_expansion_panel_container">
 														<ul class="rvw_expansion_panel_list" id="item_rvw_list">
+														<c:set var="totalRecords" value="${fn:length(reviews)}" />
+												<c:set var="currentPage" value="${currentPage}" />
+												<c:set var="numberPerPage" value="${numberPerPage}" />
 														
-														<c:forEach var="reviews" items="${reviews}">
+														    <c:set value="${totalRecords - (currentPage-1) * numberPerPage}" var="startNo"/>
+														    <c:forEach var="review" items="${pagedReviews}">
 															<li class="rvw_expansion_panel"
 																data-postngid="1184443604">
 																<div class="rvw_expansion_panel_head">
@@ -12824,34 +12599,37 @@ function setCommonGnbCookie(name, value, expiredays) {
 																		<div class="rvw_item is-horizontal">
 																			<div class="rvw_item_info">
 																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
+																					<span>${review.grade }</span>
 																				</div>
-																				<div class="rvw_item_label rvw_item_type">${reviews.productOptionId}</div>
-																				<div class="rvw_item_label rvw_item_user_id">${reviews.memid}</div>
-																				<div class="rvw_item_label rvw_item_date">${reviews.reviewDate}</div>
-																				<div class="rvw_item_label rvw_item_order">No.1546</div>
+																				<div class="rvw_item_label rvw_item_type"  >${review.productOptionId}</div>
+																				<div class="rvw_item_label rvw_item_user_id">${review.memid}</div>
+																				<div class="rvw_item_label rvw_item_date">${review.reviewDate}</div>
+																				<div class="rvw_item_label rvw_item_order">${startNo}</div>
+																				<c:set value="${startNo-1}" var="startNo"/>
 																				<button type="button" class="rvw_item_btn_block"
 																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1184443604', 800, 480);">
 																					<span>신고/차단</span>
 																				</button>
 																			</div>
-																			<p class="rvw_item_text">${reviews.reviewContent}</p>
+																			<p class="rvw_item_text">${review.reviewContent}</p>
 																			<div class="rvw_panel_expand_hide_group">
-																				<div class="rvw_item_thumb_group">
+																					<div class="rvw_item_thumb_group">
+																						<c:set var="cnt" value="0" />
 																						<c:forEach var="reviewImg" items="${reviewImg}">
-																						${reviewImg.reviewImgUrl}
-																							<c:if test="${reviewImg.reviewId==reviews.id}">
-																							${reviewImg.reviewImgUrl}
-																								<div class="rvw_item_thumb">
-																									<img
-																										src="${reviewImg.reviewImgUrl}"
-																										alt="">
-																								</div>
+																							<c:if test="${reviewImg.reviewId == review.id}">
+																								<c:choose>
+																									<c:when test="${cnt < 2}">
+																										<c:set var="cnt" value="${cnt + 1}" />
+																										<div class="rvw_item_thumb">
+																											<img src="${reviewImg.reviewImgUrl}" alt="">
+																										</div>
+																									</c:when>
+																								</c:choose>
 																							</c:if>
 																						</c:forEach>
-																				</div>
+																					</div>
 
-																			</div>
+																				</div>
 																		</div>
 																	</a>
 																</div>
@@ -12860,15 +12638,14 @@ function setCommonGnbCookie(name, value, expiredays) {
 																		<div class="rvw_item_view">
 																			<div class="rvw_item_img_view">
 																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202210/20221025222532_1184443604_0_1.jpg"
-																							alt="">
-																					</div>
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202210/20221025222532_1184443604_0_2.jpg"
-																							alt="">
+																						<c:forEach var="reviewImg" items="${reviewImg}">
+																							<c:if test="${reviewImg.reviewId==review.id}">
+																								<div class="rvw_item_img">
+																									<img src="${reviewImg.reviewImgUrl}"alt="">
+																								</div>
+																							</c:if>
+																						</c:forEach>
+																	
 																					</div>
 																				</div>
 																			</div>
@@ -12899,35 +12676,22 @@ function setCommonGnbCookie(name, value, expiredays) {
 																					</colgroup>
 																					<tbody>
 																						<tr>
-																							<th scope="row">세정력</th>
+																							<th scope="row">만족도</th>
 																							<td>보통이에요</td>
 																						</tr>
 																						<tr>
-																							<th scope="row">사용감</th>
+																							<th scope="row">포장 만족도</th>
 																							<td>보통이에요</td>
 																						</tr>
 																						<tr>
-																							<th scope="row">향</th>
+																							<th scope="row">재구매 의사</th>
 																							<td>보통이에요</td>
 																						</tr>
 																					</tbody>
 																				</table>
 																			</div>
 																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">요거요. 미용실에서 디자이너쌤이 무심한듯
-																					시크하게 발라주신건데 사과향이 달달한것이 게다가 깔끔한거예요.. 제가 젤 시러하는게
-																					헤어에센스 끈적이고 유분기 있는거... 그리고 덕지덕지 떡지는거. 근데 이거 발라주신날
-																					머릿칼이 샥샥 내려가는게 희한해서 바로 주문했습니다. 심지어 이건 3번째 구매라는것..
-
-																					타사제품 아무거나 옆에 찍어놔봤어요. 쫀득한 제형이긴한데, 떡진답니다ㅠㅠ 그치만 우리의
-																					케라스타즈는 영롱하죠.ㅎㅎ 회사원이라, 머릿결 덜 마른 상태에서 대애충~ 치덕치덕 바르고
-																					드라이 슉슉 하고 출근하면 11시쯤 ~점심시간되면 최상의 머릿결로 탄생합니다.ㅋㅋ
-
-																					풀고있어도.묶어버려도 유지되는 가뿐함에 몇번을 살까? 아니다 걍 싼거쓰자.아니다 살까? 이
-																					쓸데없는 고민을 하다 결국 쓱어플을 켰네요ㅠㅠ♡ 머릿결.피부.골격 이런건 타고나는게
-																					대부분이라 커버해가면서 사는수 밖에 없네요.. 그런게 보통 시술이나 제품인데, 머리는 계속
-																					자라나잖아요? 아마 할머니될때까지 못벗어날지도 모르겠습니다..♡ㅎㅎ (ps 고민은 배송만
-																					늦출뿐...)</p>
+																				<p class="rvw_item_text">${review.reviewContent}</p>
 																			</div>
 																			<div class="rvw_chip_group">
 																				<span class="rvw_chip">#개운한느낌</span> <span
@@ -12938,30 +12702,29 @@ function setCommonGnbCookie(name, value, expiredays) {
 																	</div>
 																</div>
 															</li>
+															
 															</c:forEach>
 
 														</ul>
 													</div>
-													<div class="rvw_pagination" id="comment_navi_area">
-														<div class="rvw_paging">
-															<strong title="현재위치">1</strong> <a href="javascript:;"
-																onclick="fn_GoCommentPage('2')">2</a> <a
-																href="javascript:;" onclick="fn_GoCommentPage('3')">3</a>
-															<a href="javascript:;" onclick="fn_GoCommentPage('4')">4</a>
-															<a href="javascript:;" onclick="fn_GoCommentPage('5')">5</a>
-															<a href="javascript:;" onclick="fn_GoCommentPage('6')">6</a>
-															<a href="javascript:;" onclick="fn_GoCommentPage('7')">7</a>
-															<a href="javascript:;" onclick="fn_GoCommentPage('8')">8</a>
-															<a href="javascript:;" onclick="fn_GoCommentPage('9')">9</a>
-															<a href="javascript:;" onclick="fn_GoCommentPage('10')">10</a>
-														</div>
-														<a href="javascript:void(0)"
-															onclick="fn_GoCommentPage('11')" role="button"
-															class="rvw_btn_next" title="다음"><span class="blind">다음</span></a>
-														<a href="javascript:void(0)"
-															onclick="fn_GoCommentPage('155')" role="button"
-															class="rvw_btn_last" title="마지막"><span class="blind">끝</span></a>
-													</div>
+
+														
+														<div class="pagination">
+        <c:if test="${currentPage > 1}">
+            <a href="/SSGSSAK/product/product.do?productcode=${product.id}&currentPage=${currentPage - 1}">&laquo; 이전</a>
+        </c:if>
+        <c:forEach begin="1" end="${totalPages}" var="i">
+            <a href="/SSGSSAK/product/product.do?productcode=${product.id}&currentPage=${i}"
+               class="${i == currentPage ? 'active' : ''}">${i}</a>
+        </c:forEach>
+        <c:if test="${currentPage < totalPages}">
+            <a href="/SSGSSAK/product/product.do?productcode=${product.id}&currentPage=${currentPage + 1}">다음 &raquo;</a>
+        </c:if>
+    </div>
+    
+
+    
+													
 												</div>
 											</section>
 											<div role="dialog" class="rvw_layer rvw_layer_rcmnd"
@@ -12983,445 +12746,6 @@ function setCommonGnbCookie(name, value, expiredays) {
 																<div class="rvw_item_thumb_group"
 																	id="rvw_layer_item_thumb_list">
 																	<a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1219128179">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202405/20240508013122_1219128179_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=70dcf7921666cec257af20da9800093556c0ec36"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1218560369">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240430091649_1218560369_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=b223a0a9fd6cbd9c034361ce89a0bda59594f0c6"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1218435476">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240427154446_1218435476_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=7e8b66b6f796dbdd01fdfe4cbc6d586bd5ebef8e"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1218435435">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240427154220_1218435435_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=f2c494a3b49f1b68c16edaf05197e56d3a6c69ea"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1218358962">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240425194339_1218358962_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=4c084e895cc5f2f6fe2d730f8448158e3c73e317"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1218131147">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240421121455_1218131147_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=27b765afe7e060c98ad2b64bdb538f9d7bdb87b4"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1217702453">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240412214400_1217702453_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=49c85dec93fa7e3995108dfc346981db1cb9801c"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1217547408">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240409222842_1217547408_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=9cebba5a9ff5414527b944b8b67e2fa37f27ef00"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1217285088">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202404/20240405090209_1217285088_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=7429f79d06eccf74156aeeb78f27a3b349dbf457"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1216558635">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202403/20240325080045_1216558635_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=8543837870f3d3a4c69600ad4170c810c1ca347f"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1216558608">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202403/20240325075927_1216558608_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=6b96be007a4343e910bfee9c64beb65cb33883a1"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1216087519">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202403/20240315113639_1216087519_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=d6345b9b1efb115c1db1084a0cdcdc5ce479dde8"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1215652497">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202403/20240307132140_1215652497_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=eb4524a4ad965896f05fcb8c61fef82843c0932d"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1215452062">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202403/20240304113844_1215452062_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=8380ee4a59488c8f0975d1e36cd2d9012c805ce8"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1215439619">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202403/20240304091210_1215439619_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=535fa54bac65cc608e4f54bf47b17d3bc0f96c7b"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1215359316">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202403/20240302211221_1215359316_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=ce0f8da2003891bc6a0fcdaecafb105800748765"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1214752814">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202402/20240221220933_1214752814_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=3faa8ec7cbc1d8c1681db5fa8baa3d66d7bac661"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1214509993">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202402/20240217192102_1214509993_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=a47c65c30cb804e8401d98f93ce96bb6f98f5230"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1213837668">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202402/20240204123720_1213837668_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=49cc683a27e0c4affd1a89789786ea9a0a46514b"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1213630642">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">선물</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202402/20240201130906_1213630642_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=05d144b14b5bb493e238a961a6d93dadd9bb58f2"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1213220910">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240126053006_1213220910_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=2afd62426e5d57812a9d09055e959f8acee46bd7"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1213061105">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240123121248_1213061105_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=f1fe0c872f7ec7a4fb1eb354138868a9bb3dc5be"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1213000905">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240122112857_1213000905_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=c8bebe2abc72f9a0f457dfdb4221523575f31dc3"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1212522213">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240113221446_1212522213_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=a3a905b98d44bd085fec24719835ff97d39ca1f9"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1212027959">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240105124630_1212027959_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=86e6e1ac16c435d21aa3d7c1bc404301c6320e8d"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1211916036">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240103220237_1211916036_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=fed30a414fb7c57602f4ac535d09f053e771c576"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1211916011">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240103220143_1211916011_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=caac20b7422a490ca33fba39310c607738fd7a36"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1211682066">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202401/20240101115855_1211682066_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=4d81bd1c65b2b81d0db94a682daaa4817781f394"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1211377644">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202312/20231226224934_1211377644_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=34356b783d290f305c080c159edc5c24760bbacb"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1211146122">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202312/20231221182418_1211146122_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=4c06134cb718f971b7b253d8b325ac412db1a7ab"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1210452761">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202312/20231208163355_1210452761_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=a2fa12c7eb78742974860dc1cc527336da1af578"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1210102871">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202312/20231203130800_1210102871_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=d1c7bf597e50a134684c3791ecdf041fbe8a2413"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1210076883">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202312/20231202221527_1210076883_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=48091589943b97c91afc549c9acbfc7ef1657f6b"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1209494652">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231123145924_1209494652_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=13b46fee5bb91bfc80637366ad30ccb1dbd98c77"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1209494484">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231123145638_1209494484_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=cc3453243a038854f61b908c9bc7b8dee62ee10c"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1209098682">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231119143604_1209098682_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=8f73e72810ca1e9d3c50e2bf9e7c953c3e25312a"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1209057055">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231119015140_1209057055_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=bb036e3f55c787ec65bc84df1de3215286724b23"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1208815764">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231116230650_1208815764_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=176b8715a956869c56c3c729c03bd0702454b844"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1208783578">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231116183459_1208783578_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=d29be90e3f406152835b13ff4194b4d19904e803"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1208321544">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231112234650_1208321544_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=07891f7fefc82be1e1de0b5df65bfd6ffb5010ac"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1207511158">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231101183352_1207511158_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=b16f93fc41ef1d7687ccc3fe931221be7295a218"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1207398789">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202311/20231101000219_1207398789_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=364a2c63f400fdc5d284b766fa0a21ab8205e681"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1207344114">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231030215647_1207344114_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=53cbfd462b3a5064740c5257f81c21d1a13d9195"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1207145282">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231026154106_1207145282_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=6f5b9ba6108b569962e09e58b92d24541ddfa0cf"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1206920853">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231022005959_1206920853_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=fca4513ee2ca6dc34c01fa5ea21b2b839089927f"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1206880796">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231021001219_1206880796_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=3217017f74c7de0b5fcfb42720e29ab99f16f9c2"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1206728777">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231018093557_1206728777_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=b95c2b06d1864c96ac6e29402b1f6b38d3b4b822"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1206662697">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">선물</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231017084332_1206662697_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=186c4c9484d7b89ee6e4af2271fa971d74ee852d"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1206167509">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231008160149_1206167509_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=1424d8d22b8ecf3c2068caf0ec7373940d4495d0"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1206147079">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231008085728_1206147079_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=ecc10033a65f25e23ffc5f26730802ee375ad83a"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1205845096">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231003145000_1205845096_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=a6ebfd59c3d73d66f231d74348cc3e63361d6cc9"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1205705992">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231001111741_1205705992_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=d3221302ff4e4e6089225bfa25c152bc82d92999"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1205689120">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202310/20231001072606_1205689120_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=d15c9481d7ece5c6b8b2dddea360273da7ccf237"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1205426041">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202309/20230924183632_1205426041_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=287fbd0f2b4fddb09ad364369dd28b18d7a69c30"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1205372333">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202309/20230923121950_1205372333_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=4cc7d60573e54d1128b81dce2df63609d09b6895"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1205279736">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">선물</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202309/20230921130651_1205279736_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=cfe4a43694ae87557e06d078b75ea93f136e6329"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1205036808">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202309/20230917123904_1205036808_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=51eea2a19cf2bdce072c34896763ef90bc98e991"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1204950373">
-																		<div class="rvw_item_thumb_overlay"></div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202309/20230915154731_1204950373_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=2ea10e617e54e887c12f57775f40360b0c0e7ac6"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
-																		class="rvw_item_thumb" data-postngid="1204589498">
-																		<div class="rvw_item_thumb_overlay">
-																			<div class="rvw_item_thumb_overlay_top_start">
-																				<span class="rvw_item_badge">한달사용</span>
-																			</div>
-																		</div> <img
-																		src="https://simg.ssgcdn.com/trans.ssg?src=/uphoto/202309/20230909112838_1204589498_0_1.jpg&amp;w=500&amp;h=500&amp;autoOrient=true&amp;t=5be276c37166bd000bf07dd63a9272669a39a18d"
-																		loading="lazy">
-																	</a> <a href="javascript:void(0)" role="button"
 																		class="rvw_item_thumb" data-postngid="1204303318">
 																		<div class="rvw_item_thumb_overlay">
 																			<div class="rvw_item_thumb_overlay_top_start">
@@ -13471,4390 +12795,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 														<div class="rvw_layer_item_container">
 															<ul class="rvw_layer_item_list"
 																id="rvw_layer_item_detail_list">
-																<li class="rvw_layer_item" data-postngid="1219128179">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202405/20240508013122_1219128179_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">dhf*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.05.08</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1219128179', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">제품은 워낙오랫동안 쓰던거라 좋아요 필름지
-																					샘플하나 없는 단일 상품이라 좀 당황스러웠네요 참고하셨음 해여</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1218560369">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240430091649_1218560369_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>3</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">bab*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.30</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218560369', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">사용감이 좋아요 사용하기 편해요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1218435476">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240427154446_1218435476_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">han*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.27</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218435476', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">향도 마음에들고 사용감도 좋아서 애용하는
-																					제품입니다 가격이 조금 저렴하면 더부담없이 사용할수 있을꺼 같습니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1218435435">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240427154220_1218435435_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">han*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.27</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218435435', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">향도 마음에들고 사용감도 좋아서 만족합니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1218358962">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240425194339_1218358962_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">coz*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.25</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218358962', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">펌하고 나서 사용하려고 구매했는데 많이
-																					끈적이지 않으면서 스타일링도 잘 되고 향도 좋아요.샴푸라인도 구매해서 같이 사용해보렵니다^^</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1218131147">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240421121455_1218131147_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">ohn*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.21</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1218131147', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">원래 쓰던 상품이라 재구매해요. 가볍고
-																					좋아요.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1217702453">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240412214400_1217702453_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">ang*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.12</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1217702453', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">드라이할때 열손상이 걱정도는데 바르고 나서
-																					잠깐 뒤에 스며들고 나서 드라이하면 부시시해지는거 막아주는 기분잊들어요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#발림성좋은</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1217547408">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240409222842_1217547408_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">mh2*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.09</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1217547408', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">포장상태 좋고 샘플 감사해여~ 제품이야
-																					워낙 좋은거 아니깐 ㅎㅎ</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1217285088">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202404/20240405090209_1217285088_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">neo*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.04.05</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1217285088', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">쿠폰사용해서 잘 구매했어요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1216558635">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240325080045_1216558635_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">jhk*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.25</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1216558635', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">향은 좋구 머릿결 좋아지기를 바라봅니다.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1216558608">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240325075927_1216558608_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">jhk*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.25</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1216558608', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">바르면 바로 엄청 부드러워지기를 너무
-																					기대가 컸는지, 사실 질 모르겠는건 나만 그런건지요. 향은 좋아요. 상쾌 발랄.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1216087519">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240315113639_1216087519_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">jyk*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.15</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1216087519', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">일단 향이 고급지고 부드럽네요. 배송도
-																					빨라서 좋았고 포장도 꼼꼼해서 기분이 좋았습니다. 좀 비싸기는 하지만 다음에도 계속 쓰고
-																					싶네요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1215652497">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240307132140_1215652497_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">gar*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.07</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1215652497', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">정말 인생 최고의 아이템이에요 매일
-																					드라이기, 고데기로 머리카락에 열이 가해지다 보니 머리끝이 금방 상해서 끊어지고 난리였는데
-																					제품 사용후 머리결상하는게 덜 해져서 항상 꾸준히 사용중이에요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1215452062">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240304113844_1215452062_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">ban*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.04</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1215452062', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머리가 극손상이라 고민 중 딸아이 추천으로
-																					구입해서 쓰고 있어요 머리가 부드러워지고 향도 은은한게 좋와요 친구에게 추천 할꺼예요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#손상케어용</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1215439619">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240304091210_1215439619_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">yoo*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.04</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1215439619', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>강해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">곱슬 두꺼운 건조한 모발이라 세일할 때
-																					구입해서 몇번 해보니 좋아지네요 다른 제품도 구입하려고요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1215359316">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202403/20240302211221_1215359316_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">mon*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.03.02</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1215359316', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머리결이 곱슬이라 어떤 제품을써도 좋아지는
-																					느낌이 별로 없습니다 근데 미용실 추천도 있고해서 써봤어요 조금씩 더 좋아지는 느낌이에요 이
-																					브랜드 다른제품도 사용하고 싶어져요 앞으로 꾸준히 사용해보려구요 추천합니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1214752814">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240221220933_1214752814_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">ssi*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.02.21</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1214752814', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">일단 향이 너무 좋네요 뚜껑이 돌려서
-																					닫아야해서 이부분은 개인적으로 조금 불편했어요 하지만, 제품이 좋구 사용후 컬이 풍부해지니
-																					만족합니다 추천해요.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1214509993">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240217192102_1214509993_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">lov*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.02.17</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1214509993', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">드라이하기전 동전크기만큼 꼭 발라주고
-																					머리말리면 덜날리고 너무 좋아요 차분하고 결이 부드러워요 바리전과 후 차이가커요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#손상케어용</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1213837668">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240204123720_1213837668_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">yoo*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.02.04</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1213837668', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">곱슬 건조하고 두껍고 염색으로 머리결이
-																					최극상이라 케라 극손상 마스크팩하고 사용했는데 부드럽지 않고 뻣뻣하더라고요 드라이하고 좀
-																					나아지고 다음날 더 나아지네요 다른 제품 부시시 모발용도 주문했어요 세일에 쿠폰가에 카드dc
-																					받아서 넘 싸게 사요 샘플도 더 주네요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#발림성좋은</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1213630642">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202402/20240201130906_1213630642_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">선물</div>
-																				<div class="rvw_item_label rvw_item_user_id">ari*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.02.01</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1213630642', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">이거 진짜 무서운 에센스예요.... 한 번
-																					쓰면 안 쓸 때로 못 돌아갑니다...ㅠ드라이 전에 발라주면 가볍게 흡수가 엄청 빠르고요 정말
-																					머리가 부스스한 것 싹 잡아주면서 너무 좋아요. 에어랩 하기전에 발라주면 정말 그
-																					날은.!혜택 좋을때 꼭 쟁이시길요!</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#여친</span> <span
-																					class="rvw_chip">#생일</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1213220910">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240126053006_1213220910_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">sun*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.26</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1213220910', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">이제품 오랜만에 사용하는데 무척 맘에
-																					듷어요 드라이 전에 바르면 훨씬 컬이 살아있고 오래가요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1213061105">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240123121248_1213061105_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">viv*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.23</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1213061105', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">늘 사용하는 제품입니다 좋은가격으로
-																					구매했어요 드라이할때 쓰면 사용전후가 확실히 다릅니다 좋아요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1213000905">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240122112857_1213000905_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">acq*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.22</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1213000905', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">미용실 추천으로 반신반의로 구매해서
-																					써봤는데 아주 만족 합니다 드라이전에 꼭 바르게 되네요 열로부터 머리결 보호해준다니 재주매
-																					예정입니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1212522213">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240113221446_1212522213_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">elc*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.13</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1212522213', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">정말 마음에 쏙 드는 제품.. 드라이 사용
-																					전에 타 제품을 써왔는데 요건 끈적거리지도 않으면서 보습효과가 오래 지속되네요. 향도
-																					은은하게 좋아요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1212027959">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240105124630_1212027959_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">bat*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.05</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1212027959', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">있을땐 잘 모르는데 없으면 확 티나게
-																					머릿결 안좋아지네요 다시 주문합니다 슥이 제일 저렴한듯!</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1211916036">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240103220237_1211916036_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">pop*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.03</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1211916036', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">드라이하기전 바르고 하면 더 부드럽고 항도
-																					은은하니 좋아서 잘 쓰고 있습니다.</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#데일리용</span> <span
-																					class="rvw_chip">#손상모발용</span> <span
-																					class="rvw_chip">#발림성좋은</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1211916011">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240103220143_1211916011_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">pop*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.03</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1211916011', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머릿결이 좋지않고 매일 드라이해서
-																					구매했는데. 부드럽고 향도 은은하니 좋네요. 앞으로도 계속 데일리템으로 사용할 거 같아요!</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#데일리용</span> <span
-																					class="rvw_chip">#인생템</span> <span class="rvw_chip">#손상모발용</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1211682066">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202401/20240101115855_1211682066_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">Mel*******</div>
-																				<div class="rvw_item_label rvw_item_date">2024.01.01</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1211682066', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">꾸준하게 사용하는 다양한 헤어제품중
-																					하나입니다. 한동안 헤어오일로 모발끝 관리만 하는중 이었는데 .. 어쩌다 염색과 펌을 동시에
-																					(물론 영양제도 충분히주고) 하게되었는데 결과는 푸석해진 모발. 그래서 급히 구매한 시몽
-																					테르미크로 드라이 사용시 푸석해진 모발을 달래주는중입니다.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1211377644">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202312/20231226224934_1211377644_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">yes*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.12.26</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1211377644', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">드라이전에 바르면 손상이 덜되는 느낌적인
-																					느낌이 들고요 바르고나서 끈적임이 없고 무엇보다 향이좋아요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1211146122">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202312/20231221182418_1211146122_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">rka*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.12.21</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1211146122', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">에어냅을 매일 사용하느라 열보호제는
-																					매일사용하고 있어요 그래서 그런지 생각보다 머리결읃 많이 상하지 않네요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1210452761">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202312/20231208163355_1210452761_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">ksh*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.12.08</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1210452761', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">미용실에서 쓰는거 보고 몰에서 구입해 쓰기
-																					시작한 것이 벌써 몇년동안 사용하고 있어요. 향도 은은하고 바르고나면 부드러워서 좋아요.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1210102871">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202312/20231203130800_1210102871_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">dan*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.12.03</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1210102871', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">데일리 필수품입니다. 행사할 때 미리
-																					구매해서 사용하고 있습니다. 무겁지 않아 더 좋습니다.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1210076883">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202312/20231202221527_1210076883_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">kka*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.12.02</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1210076883', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">보통 드라이 하기 전 젖은 머리에 바르는데
-																					쓴날과 안쓴날 차이가 있어서 자주 이용합니다. 항상 만족스럽습니다.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1209494652">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231123145924_1209494652_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">swe*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.23</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1209494652', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">매달 뿌염으로 건조한 모발입니다 부드럽게
-																					모발에 흡수가 잘되요 무겁거나 가라앉지 않고 가볍게 손질 되서 좋아요 재구매 의사 있어요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1209494484">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231123145638_1209494484_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">swe*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.23</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1209494484', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">펌과 염색으로 건조한 모발이라 신경많이
-																					쓰이는데 드라이전 이 제품 바르고 말리면 한결 푸석함이 없어져요 만족 하는 제품입니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1209098682">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231119143604_1209098682_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">rka*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.19</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1209098682', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">에어랩 때문에 샀는데 왜 유명한지 알겠어요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1209057055">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231119015140_1209057055_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>1</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">bin*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.19</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1209057055', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>강해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">헤어에센스중 제일 기분좋은 프레시향이에요
 
-																					다른제품 쓰다가 다시 구매해서 쓰는데 모발에 바를때마나 힐링되요 추천합니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1208815764">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231116230650_1208815764_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">rhd*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.16</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1208815764', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">좋아요 향이 좋아요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1208783578">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231116183459_1208783578_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">jal*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.16</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1208783578', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">젖은 머리에 바르라고 알려주셔서 바를 때
-																					끈적임이 없는게 좋아여 머리결이 상하지 않게 해준다더니 좋아지는 느낌입니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1208321544">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231112234650_1208321544_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">naq*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.12</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1208321544', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머리가 많이 상해서 구입했어요.
-																					드라이기열때문에 상한거같대서 이거 바르고 드라이하려고요. 머릿결의 개선을 기대해봅니다</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1207511158">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231101183352_1207511158_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>1</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">gra*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.11.01</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1207511158', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>보통이에요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">이건 원래 쓰는 제품인데 너무 속보이게
-																					장사하시네요? 주문시에 할인받아서 42000원 정도에 구입했는데 세트로 준다던 30ml
-																					시몽을 안주고 샴푸 샘플을 보냈더라구요. 그러더니 바로 다음 날 가격을 54000원으로
-																					올려버리는 배짱~~!! 고객센터에 문의했더니 내가 산 날까지는 샴푸증정이고 30ml 시몽을
-																					원한다면 반품하고 다시 54000원 내고 사라네요? 그렇게 맘대로 줄꺼면서 왜 30ml를
-																					준다고 간판에 시몽 세트 이렇게 써놨는지요? 판매관리 안하다가 주문 들어가니 주기는 싫고
-																					바로 가격 올려버리고 여전히 샘플 준다고 써놓는 패기.가관입니다.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1207398789">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202311/20231101000219_1207398789_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">vio*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.31</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1207398789', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">샘플로 써보고 좋아서 본품구매 향은 상큼한
-																					시트러스향</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1207344114">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231030215647_1207344114_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">dkn*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.30</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1207344114', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">트리트먼트 생략하고픈 피곤한날이나 바쁜
-																					아침 시간에 진짜편해요~ 바르고 말리기만 하면 끝! 부들부들 머릿결을 느껴보세요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1207145282">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231026154106_1207145282_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">jin*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.26</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1207145282', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머릿결이 건조하고 푸석거리고 거칠고
-																					손상되고 늘 고민이였는데 에센스 쓰면서 많이 부드럽고 찰랑거려서 좋아요 염색모라서 더 좋네요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#자극없는</span> <span
-																					class="rvw_chip">#손상모발용</span> <span
-																					class="rvw_chip">#염색모발용</span> <span
-																					class="rvw_chip">#발림성좋은</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1206920853">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231022005959_1206920853_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">o0o*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.22</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1206920853', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">오일만 사용하다가 후기가 이 제품이 더
-																					좋길래 사봤는데, 케라스타즈 오일(황금색병) 보다 이게 훨씬 좋아요. 많이 발라도 떡
-																					지지않고 부드러워요.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1206880796">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231021001219_1206880796_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>4</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">ksh*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.21</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1206880796', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">구매평이 좋아서 구매했어요. 손상용
-																					헤어에센스 발림성도 좋아요. 머리결이 부드럽고 향이 은은해서 좋아요.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1206728777">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231018093557_1206728777_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">eui*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.18</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1206728777', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">헤어가 가늘고 힘이 없어서 쓰게 되었는데
-																					이제는 볼륨때문에라도 사용하던거라 계속 쓰게되네요~</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1206662697">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231017084332_1206662697_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">선물</div>
-																				<div class="rvw_item_label rvw_item_user_id">rub*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.17</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1206662697', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">정착템 몇개째 쓰는지 몰라요 ㅎㅎ</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#친구</span> <span
-																					class="rvw_chip">#생일</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1206167509">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231008160149_1206167509_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">chl*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.08</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1206167509', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머리결이 푸석해서 구입했는데 정말 좋아요
-																					아베다나 타 상품보다도 훨씬 좋은거 같습니다! 추천추천</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1206147079">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231008085728_1206147079_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">dre*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.08</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1206147079', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">파머를 해야하나할때 이 제품이 있으면
-																					스타일이 걱정되지 않아요. 재구매 제품입니다. 같ㅇㅣ 온 오일도 가끔 발라주면 모발을
-																					부드럽게 해 주어요.지인에게 소개하고 싶어요.</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#지속력좋은</span> <span
-																					class="rvw_chip">#데일리용</span> <span
-																					class="rvw_chip">#인생템</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1205845096">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231003145000_1205845096_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">mes*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.03</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1205845096', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">머리가 파마하면 푸석푸석 윤기가 없었는데
-																					우연히 이제품 좋다고 알아서 사용했어요 머리가차분해지면서 컬도 자연스러워진 느낌이에요
-																					주변에서도 좋아진거같다 소리들어 이제품 추천했어요 너무좋아요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#손상모발용</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1205705992">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231001111741_1205705992_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">jin*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.01</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1205705992', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">잦은 뿌리염색과 매일 드라이기와 고데기등
-																					사용으로 머릿결이 푸석거리는데 거칠어요 건조해서 정전기도 많이 일어나는데 머릿결이 부드럽고
-																					찰랑거려서 좋아요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1205689120">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202310/20231001072606_1205689120_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">nif*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.10.01</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1205689120', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">이 제품을 바르고 드라이 하는것과 아닌것의
-																					차이가 극명합니다. 하고나서 드라이를 하면 머리결 손상이 적어요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1205426041">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202309/20230924183632_1205426041_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">cho*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.09.24</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1205426041', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">행사하길래 사봤어요 워낙 유명한 제품이라
-																					제 손상모에도 효과있길 바래요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1205372333">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202309/20230923121950_1205372333_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">qls*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.09.23</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1205372333', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">향도 좋고 이제 이 제품 안 쓰면 안될 것
-																					같아요 드라이 하기 전 머릿결 손상을 방지하기 위해 꼭 발라줘요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1205279736">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202309/20230921130651_1205279736_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">선물</div>
-																				<div class="rvw_item_label rvw_item_user_id">iri*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.09.21</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1205279736', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">명절이라 그런지 택배상자 완전 찌그러지고
-																					테이프 벗겨질듯이 와서 내품보니 이상없네요. 다행입니다 이건 진짜 말모말모. 너무좋아요
-																					드라이 할수록 모발보호해준다니 더좋아요 지난번 샴푸랑 오일살때 미니사이즈 사은품받아서 써보고
-																					너무 반했어요</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#친구</span> <span
-																					class="rvw_chip">#취업/이직</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1205036808">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202309/20230917123904_1205036808_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">eui*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.09.17</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1205036808', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">시몽 테르미크 볼륨감이 좋아요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1204950373">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202309/20230915154731_1204950373_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">일반</div>
-																				<div class="rvw_item_label rvw_item_user_id">tet*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.09.15</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1204950373', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>보통이에요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">라임같은 상쾌한 향에 촉촉히 발리고
-																					마무리감도 산뜻해서 잘쓰고있어요. 바르고 열드라이하면 물미역머리 완성. 돌려서 여는 뚜껑만
-																					똑딱 입구나 펌프타입으로 바뀌면 대적할 제품이 없음. 사은품 오일도 만족.</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1204589498">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202309/20230909112838_1204589498_0_1.jpg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">mih*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.09.09</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1204589498', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">일단 향이 너무 좋아요. 잘림성도 좋고요.
-																					배송 포장 상태도 좋은 편입니다. 모르칸 오일은 5년 넘게 써서 다른 제품을 사용해 보고
-																					싶어서 구매하게 되었어요. 잦은 드라이 머리에 쓰기 좋다고 해서요. 뭉침 발림성 향 다
-																					좋아요. 오일에 비해 쓰는 양이 좀 많아서 빨리 쓸 것 같아요.. 지인들에게 추천 합니다!</p>
-																			</div>
-																			<div class="rvw_chip_group">
-																				<span class="rvw_chip">#지속력좋은</span> <span
-																					class="rvw_chip">#손상케어용</span>
-																			</div>
-																		</div>
-																	</div>
-																</li>
-																<li class="rvw_layer_item" data-postngid="1204303318">
-																	<div class="rvw_item">
-																		<div class="rvw_item_view">
-																			<div class="rvw_item_img_view">
-																				<div class="rvw_item_img_list">
-																					<div class="rvw_item_img">
-																						<img
-																							src="//succ.ssgcdn.com/uphoto/202309/20230904194307_1204303318_0_1.jpeg"
-																							alt="">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="rvw_item_controller">
-																				<button type="button" class="rvw_item_button_prev"
-																					disabled="disabled">
-																					<i class="icon_chevron_left_ssg"> <span
-																						class="blind">이전 STEP 보기</span>
-																					</i>
-																				</button>
-																				<div class="rvw_item_pagination">
-																					<span class="rvw_item_pagination_current">1</span><span
-																						class="rvw_item_pagination_divider">/</span><span
-																						class="rvw_item_pagination_total">1</span>
-																				</div>
-																				<button type="button" class="rvw_item_button_next">
-																					<i class="icon_chevron_right_ssg"> <span
-																						class="blind">다음 STEP 보기</span>
-																					</i>
-																				</button>
-																			</div>
-																		</div>
-																		<div class="rvw_item_desc">
-																			<div class="rvw_item_info">
-																				<div class="rvw_item_label rvw_item_rating">
-																					<span>5</span>
-																				</div>
-																				<div class="rvw_item_label rvw_item_type">한달사용</div>
-																				<div class="rvw_item_label rvw_item_user_id">seo*******</div>
-																				<div class="rvw_item_label rvw_item_date">2023.09.04</div>
-																				<button type="button" class="rvw_item_btn_block"
-																					onclick="javascript:fn_PopupItemError('/review/pReviewReportError.ssg?itemId=1000026532717&amp;siteNo=7012&amp;postngId=1204303318', 800, 480);">
-																					<span>신고/차단</span>
-																				</button>
-																			</div>
-																			<div class="rvw_item_table">
-																				<table>
-																					<colgroup>
-																						<col width="76px">
-																						<col width="*">
-																					</colgroup>
-																					<tbody>
-																						<tr>
-																							<th scope="row">세정력</th>
-																							<td>잘 세정돼요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">사용감</th>
-																							<td>부드러워요</td>
-																						</tr>
-																						<tr>
-																							<th scope="row">향</th>
-																							<td>은은해요</td>
-																						</tr>
-																					</tbody>
-																				</table>
-																			</div>
-																			<div class="rvw_item_scrollable">
-																				<p class="rvw_item_text">케라스타즈 에센스는 헤어에 필수품이
-																					되었어요 향도 좋고 드라이하기전에 꼭 사용합니다 부드러워져요</p>
-																			</div>
-																		</div>
-																	</div>
-																</li>
 															</ul>
 														</div>
 													</div>
@@ -18169,20 +13110,7 @@ function setCommonGnbCookie(name, value, expiredays) {
     });
 
 
-    function showPcCommentImgVod() {
-        $.ajax({
-            url : '/pitem/pSsgItemCommentImgVod.ssg?repItemId=&itemId=1000026532717&siteNo=7012&salestrNo=1020&rightBadgeCd=',
-            type : 'get',
-            async : false,
-            dataType : 'html',
-            success : function(response) {
-                $('#cdtl_sec_area_review').append(response);
-            },
-            error : function(e) {
-                alert('포토&동영상 ajax호출 실패');
-            }
-        });
-    }
+
 </script>
 									</div>
 

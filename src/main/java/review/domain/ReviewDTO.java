@@ -2,6 +2,7 @@ package review.domain;
 
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,4 +31,6 @@ public class ReviewDTO {
   private int q2 ;
   private int q3 ;
 
+  
+  private List<ReviewImgDTO> images ;
 }

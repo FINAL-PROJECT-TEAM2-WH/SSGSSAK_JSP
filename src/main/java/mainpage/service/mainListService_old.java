@@ -13,15 +13,15 @@ import productList.domain.ProductListDTO;
 import productList.persistence.CategoryDAOimpl;
 import productList.persistence.productListDAOimpl;
 
-public class mainListService {
+public class mainListService_old {
 
-	private static mainListService instance = null;
+	private static mainListService_old instance = null;
 	
-	private mainListService() {	}
+	private mainListService_old() {	}
 	
-	public static mainListService getInstance() {
+	public static mainListService_old getInstance() {
 		if (instance == null) {
-			instance = new mainListService();
+			instance = new mainListService_old();
 		}
 		return instance;
 	}

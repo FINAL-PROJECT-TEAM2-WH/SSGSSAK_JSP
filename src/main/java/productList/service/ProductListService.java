@@ -57,6 +57,22 @@ public class ProductListService {
 		return (Integer) null;
 	}
 	
+	public int getTotalPages(String categoryId, int numberPerPage) {
+		try (Connection conn = ConnectionProvider.getConnection()){
+			productListDAOimpl dao = new productListDAOimpl(conn);
+			int totalPages =  dao.getTotalPages(categoryId,numberPerPage);
+			System.out.println("페이지수가져와짐");
+			
+			return totalPages;
+			
+		} catch (Exception e) {
+			System.out.println("getTotalPages 뭔가안됨");
+			e.printStackTrace();
+		}
+		
+		return (Integer) null;
+	}
+	
 	
 	public AllCateDTO selectCate(String categoryId) {
 		
@@ -70,6 +86,22 @@ public class ProductListService {
 		} catch ( NamingException | SQLException e) {
 			e.printStackTrace();
 			System.out.println("selectCate 서비스안됨ㅋㅋㅋ");
+		}
+		return null;
+	}//selectCate
+	
+	public AllCateDTO selectCate_verProd(long id) {
+		
+		try (Connection conn = ConnectionProvider.getConnection()){
+			System.out.println("selectCate_verProd");
+			
+			CategoryDAOimpl dao = new CategoryDAOimpl(conn); 
+			AllCateDTO acDTO = dao.selectCate_verProd(id);
+			System.out.println("selectCate_verProd 서비스 잘 작동됨");
+			return acDTO;
+		} catch ( NamingException | SQLException e) {
+			e.printStackTrace();
+			System.out.println("selectCate_verProd 서비스안됨ㅋㅋㅋ");
 		}
 		return null;
 	}//selectCate
