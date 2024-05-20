@@ -269,8 +269,6 @@ public class ShippingPlaceInfoService {
 		} finally {
 			JdbcUtil.close(conn);
 		}
-		
-		
 		return olist;
 	}
 

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -842,11 +843,16 @@ isMsa=Y
     <!-- 검색 기술문 -->
     <div class="csrch_top v2" data-areaid="description">
         <h2 class="notranslate">
-            <span class="tx_ko"><span>‘나이키 신발</span>’ 에 대한 검색결과입니다.</span>
+       		<c:if test="${ not empty searchWord }">
+       		<span class="tx_ko"><span>' ${ searchWord }</span> '에 대한 검색결과입니다.</span>
+       		</c:if>
         </h2>
     <div class="aside_txt notranslate" id="area_itemCount">
     				<!-- 몇개의 상품인지?? -->
-                    <span class="tx_ko"><em>100,187</em> 개 상품</span>
+    				<c:if test="${ not empty count }">
+    				 	<span class="tx_ko"><em>${ count }</em> 개 상품</span>
+    				</c:if>
+                   
                     
             </div>
         <!-- 공통 파라미터(js사용) -->
@@ -1489,7 +1495,6 @@ isMsa=Y
              <span class="tx_en">Brand</span>
              <span class="tx_zh">品牌</span>
         </h4>
-
         <div class="cmflt_fbl_tabwrap">
             <ul class="cmflt_fbl_tab hide_gl" role="tablist">
                 <li class="on" role="presentation"><a href="#cmfltFblCont1" role="tab" aria-selected="true" onclick="SearchBrandFilter.changeSort(this, 'best');">인기순</a></li>
@@ -3170,6 +3175,7 @@ deferredObj.done(function() {
                     <i class="icon ty_sm icon_arrow_top" aria-hidden="true"></i>
                 </button>
             </div>
+            
         </li>
     </ul>
 </section>

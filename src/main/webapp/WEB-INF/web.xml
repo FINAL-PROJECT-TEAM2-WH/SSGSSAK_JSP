@@ -23,8 +23,12 @@
 	    <param-value>UTF-8</param-value>
 	  </init-param>
 	</filter>
-
-
+	<filter-mapping>
+	  <filter-name>characterEncodingFilter</filter-name>
+	  <url-pattern>/*</url-pattern> 
+	  <dispatcher>REQUEST</dispatcher>
+	</filter-mapping> 
+	
 	<filter>
 		<description>권한 체크 필터</description>
 		<filter-name>loginCheckFilter</filter-name>
@@ -37,13 +41,6 @@
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 
-
-	<filter-mapping>
-	  <filter-name>characterEncodingFilter</filter-name>
-	  <url-pattern>/*</url-pattern> 
-	  <dispatcher>REQUEST</dispatcher>
-	</filter-mapping> 
- 
   	  <servlet>
 	    <description>MVC</description>
 	    <description>컨트롤러 역할</description>
@@ -68,7 +65,6 @@
 	</servlet-mapping>
  
  
-
 	<servlet>
 		<servlet-name>jsp</servlet-name>
 		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>

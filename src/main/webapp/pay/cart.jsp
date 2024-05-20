@@ -1149,7 +1149,7 @@ function setCommonGnbCookie(name, value, expiredays) {
 									</span>
 
 											<span class="codr_unit_img" aria-hidden="true">
-												<img src="${items.imgurl }" srcset="${items.imgurl}" width="90" height="90"></img>
+												<img src="${items.imgurl}" srcset="${items.imgurl}" width="90" height="90"></img>
 											</span>
 										
 									<div class="codr_unit_nodr cannot_order" id="cannotord_6339576986" style="display:none;">주문불가

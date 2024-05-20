@@ -402,7 +402,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		return spiList;
 	}
-
+	
 	@Override
 	public PageDTO pageBlock(Connection conn, int currentPage, String memid) throws Exception {
 		PageDTO pdto = null;
@@ -441,6 +441,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		return totalPages;
 	}
 
+	
 	@Override
 	public ArrayList<OrderRecordVO> orderList(Connection conn, String memid) throws Exception {
 		ArrayList<OrderRecordVO> olist = null;
@@ -493,6 +494,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 					
 					ShippingPlaceInfoDAOImpl dao = new ShippingPlaceInfoDAOImpl().getInstance();
 					imgurl = dao.imgurlSelect(conn, productid);
+					System.out.println(imgurl);
 					ovo = new OrderRecordVO().builder()
 							.pdname(pdname)
 							.poptionid(poptionid)
@@ -679,24 +681,25 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		ResultSet rs = null;
 		OrderDetailVO ovo = null;
 		long id = ids[0];
-		
-		String sInfoId;
+		ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
+		long sinfoId;
 		String mname;
 		String phonenum;
 		String shippingmsg;
 		String shippingrequest;
 		String receiveposition;
 		String entrance;
-		String orderid;
+		long orderid;
 		String receivemem;
 		String roadaddress;
 		String detailaddress;
-		
+		String orderDate;
+		String postnum;
 		String sql = " SELECT m.phonenum phonenum, m.name name, c1.* "
 				+ " FROM member m JOIN( "
 				+ " SELECT "
 				+ "    sf.id sinfoid, sf.shippingmsg, sf.shippingstate,  "
-				+ "    sf.shippingrequest, sf.receiveposition, sf.entrance, sf.orderid,  "
+				+ "    sf.shippingrequest, sf.receiveposition, sf.entrance, sf.orderid, spf.postnum, "
 				+ "    spf.memid, spf.receivemem, spf.roadaddress, spf.detailaddress "
 				+ " FROM shippinginformation sf JOIN shippingplaceinformation spf ON sf.shippingplaceid = spf.id) c1 "
 				+ " ON m.id = c1.memid "
@@ -713,25 +716,28 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 			pstmt.setString(2, memid);
 			rs = pstmt.executeQuery();
 			
+			
+			
 			if( rs.next() ) {
-				sInfoId = rs.getString("sInfoId");
+				sinfoId = rs.getLong("sinfoId");
 				mname = rs.getString("name");
 				phonenum = rs.getString("phonenum");
-				shippingmsg = rs.getString("shippingmsg");
+				if( (shippingmsg = rs.getString("shippingmsg")) == null ) {
+					shippingmsg = "";
+				}
 				shippingrequest = rs.getString("shippingrequest");
 				receiveposition = rs.getString("receiveposition");
 				if( (entrance = rs.getString("entrance")) == null ) {
 					entrance = "";
 				}	
-				orderid = rs.getString("orderid");
+				orderid = rs.getLong("orderid");
 				receivemem = rs.getString("receivemem");
 				roadaddress = rs.getString("roadaddress");
 				detailaddress = rs.getString("detailaddress");
-				
-				
-				
+				orderDate = dao.orderDateSelect(conn, orderid);
+				postnum = rs.getString("postnum");
 				ovo = new OrderDetailVO().builder()
-						.sInfoId(sInfoId)
+						.sinfoId(sinfoId)
 						.memid(memid)
 						.mname(mname)
 						.phonenum(phonenum)
@@ -743,6 +749,8 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 						.receivemem(receivemem)
 						.roadaddress(roadaddress)
 						.detailaddress(detailaddress)
+						.orderDate(orderDate)
+						.postnum(postnum)
 						.build();
 			}
 			
@@ -755,6 +763,31 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		}
 		
 		return ovo;
+	}
+	
+	public String orderDateSelect(Connection conn, long id) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = " SELECT orderdate "
+				+ "	FROM payrecord "
+				+ "	WHERE id = ? ";
+		String orderDate = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setLong(1, id);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+				orderDate = rs.getString("orderdate");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return orderDate;
 	}
 
 	@Override
@@ -772,16 +805,20 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		long payrecordid;
 		long quantity;
 		String imgurl;
+		String shippingoptionname;
 		
 		String sql = " SELECT sop.id shippingoptionid, sop.shippingoptionname, sop.defaultshippingfee, c3.productid,   "
 				+ " c3.pdname, c3.poptionid,  c3.optionprice, c3.orecordid, "
 				+ " c3.quantity, c3.memid, c3.pmethod, c3.orderamount, c3.orderdate "
 				+ " FROM shippingoption sop JOIN ( "
-				+ " SELECT pd.id productid, pd.shippingoptionid, pd.pdname, c2.poptionid, c2.memid,  c2.optionprice, c2.orecordid, c2.quantity, c2.pmethod, c2.orderamount, c2.orderdate  "
+				+ " SELECT pd.id productid, pd.shippingoptionid, pd.pdname, c2.poptionid, c2.memid,  "
+				+ " c2.optionprice, c2.orecordid, c2.quantity, c2.pmethod, c2.orderamount, c2.orderdate  "
 				+ " FROM product pd JOIN ( "
-				+ " SELECT po.productid, po.id poptionid, po.optionprice, c1.orecordid, c1.memid, c1.quantity, c1.pmethod, c1.orderamount, c1.orderdate  "
+				+ " SELECT po.productid, po.id poptionid, po.optionprice, c1.orecordid, c1.memid, c1.quantity, "
+				+ " c1.pmethod, c1.orderamount, c1.orderdate  "
 				+ " FROM productoption po JOIN ( "
-				+ " SELECT pt.id2 orecordId , pt.quantity quantity, pt.id3 poptionid, pr.memid, pr.pmethod pmethod, pr.orderamount, pr.orderdate    "
+				+ " SELECT pt.id2 orecordId , pt.quantity quantity, pt.id3 poptionid, pr.memid, pr.pmethod pmethod, "
+				+ " pr.orderamount, pr.orderdate    "
 				+ " FROM paydetail pt JOIN payrecord pr ON pt.id2 = pr.id ) c1 "
 				+ " ON po.id = c1.poptionid ) c2 "
 				+ " ON pd.id = c2.productid ) c3 "
@@ -801,7 +838,6 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 			}
 			sql += ") AND memid = ?";
 		}
-		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
 			for (int i = 0; i < ids.length; i++) {
@@ -820,7 +856,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 					 orderdate = rs.getString("orderdate");
 					 payrecordid = rs.getLong("orecordid");
 					 quantity = rs.getLong("quantity");
-					 
+					 shippingoptionname = rs.getString("shippingoptionname");
 					 ShippingPlaceInfoDAOImpl dao = ShippingPlaceInfoDAOImpl.getInstance();
 					 imgurl = dao.imgurlSelect(conn, productid);
 					 
@@ -833,6 +869,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 							 .payrecordid(payrecordid)
 							 .quantity(quantity)
 							 .imgurl(imgurl)
+							 .shippingoptionname(shippingoptionname)
 							 .build();
 					 
 					 oList.add(orvo);
