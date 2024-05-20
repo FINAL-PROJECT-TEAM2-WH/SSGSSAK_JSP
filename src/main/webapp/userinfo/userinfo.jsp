@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!doctype html>
 <html lang="ko">
 <head>
@@ -966,12 +967,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
   <div class="cmmyssg_sec" data-react-tarea-cd="00034_000000009">
         <div class="cmmyssg_subject" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":전체보기"}]'>
           <h3 class="cmmyssg_subject_tit" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":좋아요"}]'><a href="https://www.ssg.com/myssg/myClip/main.ssg?myssg=myclipMenu" class="clickable" data-react-tarea-dtl-cd="t00060">좋아요</a></h3>
-          <span class="cmmyssg_subject_count">16</span>
-            <a href="https://www.ssg.com/myssg/myClip/main.ssg?myssg=myclipMenu" class="cmmyssg_subject_btnmore clickable"  data-react-tarea-dtl-cd="t00060">전체보기</a>
+          <span class="cmmyssg_subject_count">${countList[0]}</span>
+            <a href="<%=contextPath%>/memberInfo/likeInfo.do/" class="cmmyssg_subject_btnmore clickable"  data-react-tarea-dtl-cd="t00060">전체보기</a>
           </div>
         <div class="cmmyssg_cunit_lst">
           <div class="cunit_lst_v">
             <ul class="cunit_thmb_lst">
+            <c:forEach var="product" items="${likeProductList}" varStatus="status">
+            <c:if test="${status.index <= 4}">
               <li class="cunit_t180">
                   <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
 <div class="cunit_prod "
@@ -993,9 +996,9 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         </div>
     <div class="thmb">
         <a href="/item/itemView.ssg?itemId=1000068529577&siteNo=6004&salestrNo=6005" target="_self"  class="clickable"
-             data-info="1000068529577" data-index="0" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
+             data-info="${product.productid}" data-index="0" data-position="view" data-unit="img" data-react-tarea-dtl-cd="t00001">
 
-            <img srcset="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_180.jpg, //sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_360.jpg 2x" src="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_180.jpg" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종"  loading="lazy">
+            <img src="${product.url}" onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=180&h=180&t=d76c1584fe045b57a29d7ca6c88cb0c22e06be85'" class="i1" width="180" height="180" alt="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종"  loading="lazy">
                 <div class="cm_bdg_v2 notranslate" aria-label="혜택">
         <span class="di_coupon"><span class="blind">쿠폰포함</span>7<em class="per">%</em></span>
             </div>
@@ -1011,14 +1014,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 <input type="hidden" name="attnDivCd" value="10">
                 <input type="hidden" name="attnDivDtlCd" value="10">
                 <input type="hidden" name="siteNo" value="6004">
-                <input type="hidden" name="attnTgtIdnfNo1" value="1000068529577">
+                <input type="hidden" name="attnTgtIdnfNo1" value="${product.productid}">
                 <input type="hidden" name="attnTgtIdnfNo2" value="6005">
                 <input type="hidden" name="uitemId" value="00000">
                 <input type="hidden" name="notiTitle" value="어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종">
-                <input type="hidden" name="notiImgPath" value="//sitem.ssgcdn.com/77/95/52/item/1000068529577_i1_180.jpg">
+                <input type="hidden" name="notiImgPath" value="${product.url}">
                 <input type="hidden" name="checked" value="N">
                 <input type="hidden" name="useForcedSsgYn" value="N">
-                <button class="cmlike_btn _js_cmlike_btn clickable" data-position="clip" data-react-tarea-dtl-cd="t00003" >
+                <button class="cmlike_btn _js_cmlike_btn clickable" onclick="addLike(${product.productid});" > 
                     <span class="cmlike_ico">
                         <i class="cmlike_primary_s"></i>
                         <span class="sr_off"><span class="blind">관심상품 취소</span></span>
@@ -1045,18 +1048,18 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_md notranslate">
         <div class="title">
         <strong class="brd">
-                <em class="tx_ko">반스</em>
+                <em class="tx_ko">${product.name}</em>
             </strong>
         <a href="/item/itemView.ssg?itemId=1000068529577&siteNo=6004&salestrNo=6005" target="_self"  class="clickable" 
             data-info="1000068529577" data-index="0" data-position="view" data-unit="img">
-                <em class="tx_ko">어센틱 올드스쿨 체커보드슬립온 데일리 운동화 스니커즈 22종</em>
+                <em class="tx_ko">${product.content}</em>
             </a>
         </div>
     </div>
     <div class="cunit_price">
         <div class="opt_price">
                     <span class="blind">할인적용가</span>
-                    <em class="ssg_price">47,895</em>
+                    <em class="ssg_price">${product.price}</em>
                     <span class="ssg_tx">원<span class="cm_tx_opt">~</span></span>
                     <div class="ssg_price_ko show_gl hide_ko">(￦47,895)</div>
                 </div>
@@ -1087,7 +1090,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:96.0%"><span class="blind">별점 4.88점</span></span>
+                <span style="width:96.0%"><span class="blind">별점 ${product.grade}점</span></span>
             </div>
             <span class="rate_tx">(<em>106</em>개)</span>
         </div>
@@ -1102,8 +1105,11 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         </div>
     </div>
 </li>
-              <li class="cunit_t180">
-                  <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+</c:if>
+</c:forEach>
+              <!-- <li class="cunit_t180">
+              
+                  https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
@@ -1163,14 +1169,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     </div><div class="cunit_info">
     <div class="cunit_tp">
         <span class="cm_mall_ic ty_rect_s notranslate">
-    <!-- ssg 푸드마켓  -->
+    ssg 푸드마켓 
         </span>
 <div class="dp_dv">
 
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
+    선물포장
+    신선보장
+    품질보장
+    SSG설치
     </div>
 </div>
     <div class="cunit_md notranslate">
@@ -1220,7 +1226,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     </div>
 </li>
               <li class="cunit_t180">
-                  <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+                  https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
@@ -1278,14 +1284,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_tp">
         <span class="cm_mall_ic ty_rect_s notranslate">
     <i class="sd"><span class="blind">신세계백화점</span></i>
-    <!-- ssg 푸드마켓  -->
+    ssg 푸드마켓 
         </span>
 <div class="dp_dv">
 
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
+    선물포장
+    신선보장
+    품질보장
+    SSG설치
     </div>
 </div>
     <div class="cunit_md notranslate">
@@ -1320,7 +1326,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     </div>
 </li>
               <li class="cunit_t180">
-                  <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+                  https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
@@ -1384,14 +1390,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_tp">
         <span class="cm_mall_ic ty_rect_s notranslate">
     <i class="em"><span class="blind">이마트</span></i>
-    <!-- ssg 푸드마켓  -->
+    ssg 푸드마켓 
         </span>
 <div class="dp_dv">
 
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
+    선물포장
+    신선보장
+    품질보장
+    SSG설치
     </div>
 </div>
     <div class="cunit_md notranslate">
@@ -1447,7 +1453,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     </div>
 </li>
               <li class="cunit_t180">
-                  <!-- https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html -->
+                  https://markup.ssgadm.com/ssgui/01.ssg/pcweb/trunk/dist/html/pages/guide_unit.html
 <div class="cunit_prod "
      data-react-unit-type="item"
      data-observable-item = "true"
@@ -1511,14 +1517,14 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_tp">
         <span class="cm_mall_ic ty_rect_s notranslate">
     <i class="em"><span class="blind">이마트</span></i>
-    <!-- ssg 푸드마켓  -->
+    ssg 푸드마켓 
         </span>
 <div class="dp_dv">
 
-    <!-- 선물포장 -->
-    <!-- 신선보장 -->
-    <!-- 품질보장 -->
-    <!-- SSG설치 -->
+    선물포장
+    신선보장
+    품질보장
+    SSG설치
     </div>
 </div>
     <div class="cunit_md notranslate">
@@ -1572,11 +1578,11 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
         </div>
     </div>
     </div>
-</li>
+</li>-->
               </ul>
           </div>
         </div>
-      </div>
+      </div> 
     <!-- 없음 케이스 -->
       <div class="cmmyssg_sec" data-react-tarea-cd="00034_000000012">
         <div class="cmmyssg_subject" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":전체보기"}]'>
@@ -2573,6 +2579,48 @@ $(function(){
             //do nothing
         }
     };
+    
+    function addLike(productid) {
+     	$.ajax({
+            url: '<%=contextPath%>/like/like.do',
+            dataType: 'json',
+            type: 'GET',
+            data: { "productid" : productid}, 
+            cache: false,
+            success: function (data) {
+            	if (data.result == 'Invalid') {
+            		if (confirm ('이미 좋아요 누른 항목입니다. 취소하시겠습니까? ')) {
+            			alert("ㅇㅋ 취소해줌");
+            			// 취소하는 ajax 
+            			$.ajax({
+            				url: '<%=contextPath%>/like/like.do',
+            				dataType: 'json',
+            				type: 'POST',
+            				data : {"productid" : productid,
+            					"status" : "Invalid"},
+            				cache: false,
+            				success : function (data) {
+            					if (data.result =='DeleteSuccess') {
+            						location.href = "<%=contextPath%>/memberInfo/memberInfo.do";
+            					}
+            				}, error : function (xhr, status, error){
+            					
+            				}
+            			});
+            		} else {
+            			alert('그대로 냅둘게');
+            		}
+            	} else if ( data.result == 'Success') {
+            		alert('좋아요 성공임');
+            	} else if ( data.result == 'Fail') {
+            		alert('좋아요 실패임 ');
+            	}
+            },
+            error: function (xhr, status, error) {
+
+            }
+        });
+    } 
 </script>
 
 <!-- footer asdgasgd-->

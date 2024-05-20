@@ -20,6 +20,7 @@ import controller.CommandHandler;
 import controller.DispatcherServlet;
 import member.persistence.MemberDAO;
 import member.persistence.MemberDAOImpl;
+import member.service.LikeInfoService;
 import member.service.LoadInfoService;
 import pay.persistence.PayDAO;
 import pay.persistence.PayImpl;
@@ -43,10 +44,16 @@ public class MemberInfoHandler implements CommandHandler {
 		Connection conn = ConnectionProvider.getConnection();
 		MemberDAO dao = new MemberDAOImpl(conn);
 		LoadInfoService service = new LoadInfoService(dao);
+		LikeInfoService likeService = new LikeInfoService(dao);
 		Map< String, String > infoMap = service.loadInfo(id);
+		ArrayList<Map<String,String>> likeProductList = likeService.getProductList(id);
+		ArrayList<Integer> countList =  likeService.getCountList(id);
 		
 		
 		request.setAttribute("info", infoMap);
+		request.setAttribute("likeProductList", likeProductList);
+		request.setAttribute("countList", countList);
+		
 		
 		List <String> infoList = new ArrayList(infoMap.keySet());
 		

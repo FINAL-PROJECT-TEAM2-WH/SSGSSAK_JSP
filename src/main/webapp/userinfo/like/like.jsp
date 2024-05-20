@@ -829,7 +829,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
     <div class="cunit_app">
     <div class="rating">
             <div class="rate_bg">
-                <span style="width:96.0%"><span class="blind">${product.grade}</span></span>
+                <span style="width:96.0%"><span class="blind">별점 ${product.grade}점</span></span>
             </div>
             <span class="rate_tx">(<em>106</em>개)</span>
         </div>
@@ -4424,7 +4424,7 @@ function addLike(productid) {
                         talkApiClient._processingUrls.splice(index, 1);
                     }
                     if (completeFunc) {
-                        completeFunc(jqXHR, textStatus);
+                        completeFunc(jqXHR, text);
                     }
                 }
             };
