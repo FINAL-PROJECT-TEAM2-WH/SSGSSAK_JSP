@@ -2552,11 +2552,20 @@ function setCommonGnbCookie(name, value, expiredays) {
 							<!-- 상품 이미지 -->
 							<div class="cdtl_product_representative_image">
 								<div class="cdtl_item_image">
-									<span class="cdtl_imgbox imgzoom"><img
-										src="${product.images[0].imgUrl}"
+									<span class="cdtl_imgbox imgzoom">
+									<c:forEach items="${product.images}" var="pdimg">
+									
+										<c:if test="${pdimg.imgContent eq 'sum'}">
+											<c:set value="${pdimg.imgUrl}" var="sumimg"/>
+										</c:if>
+									</c:forEach>
+									
+											<img
+										src="${sumimg}"
 										width="550" height="550" alt="상품이미지1"
-										onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&amp;w=1100&amp;h=1100&amp;t=ad8dc877e029679456bb1f6f8f195a727b5f7453'"
-										id="mainImg"></span>
+										
+										id="mainImg">
+									</span>
 									<!-- 상품맵핑추가(맵핑있을시 on추가) -->
 									<div id="point_map" class="cmpt_point_wrap">
 										<!-- left수치15%- = left 4%최소수치/ left수치82%+ = right 94%최대수치 -->

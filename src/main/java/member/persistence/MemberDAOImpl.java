@@ -678,7 +678,20 @@ public class MemberDAOImpl implements MemberDAO{
 			JdbcUtil.commit(conn);
 			JdbcUtil.close(pstmt);
 		}
-
+		
+		sql = " insert into points values ( '1111111111111111' , 0 , '1234' , ? ) " ;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		
 
 		// 필수 약관 동의 
 		// 프로시저로 처리	

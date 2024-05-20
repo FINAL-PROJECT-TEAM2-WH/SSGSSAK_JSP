@@ -25,7 +25,7 @@
              data-react-unit-text=""
              
         >
-            <a href="https://event.ssg.com/eventDetail.ssg?nevntId=1000000013232" class="ssghero_imglink clickable" data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|5/6~12 아울렛 슈퍼위크" data-react-tarea-dtl-cd="t00001" tabindex="-1">
+            <a href="http://localhost/SSGSSAK/event/baner1.jsp" class="ssghero_imglink clickable" data-react-tarea-cd-old="메인매장|메인배너|배너_클릭|5/6~12 아울렛 슈퍼위크" data-react-tarea-dtl-cd="t00001" tabindex="-1">
              <img alt="" src="https://sui.ssgcdn.com/ui/common/img/promotion/2023/230109_hubdelivery_howto/img01.jpg">
              </a>
                
@@ -38,7 +38,7 @@
                  data-react-unit-id="2003589588"
                  data-react-unit-text=""
             >
-                 <a href="${pageContext.request.contextPath }/pay/coupon.do"
+                 <a href="http://localhost/SSGSSAK/event/baner1.jsp"
                    class="ssghero_titlnk clickable"
                    data-react-tarea-cd-old="이벤트 클릭"
                    data-react-tarea-dtl-cd="t00001"
@@ -56,7 +56,7 @@
              data-react-unit-text=""
              
         >
-           <a href="${pageContext.request.contextPath }/pay/coupon.do"
+           <a href="http://localhost/SSGSSAK/event/baner1.jsp"
                class="ssghero_imglink clickable"
                data-react-tarea-cd-old="이벤트 클릭2"
                data-react-tarea-dtl-cd="t00001"

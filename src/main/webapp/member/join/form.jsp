@@ -1277,7 +1277,7 @@ $(function(){
 		
 		if (!isvalidValue(checkValidvalue)){
 			alert('다시 입력');
-			return 
+			return ;
 		}
 
 		$.ajax({
@@ -1288,7 +1288,7 @@ $(function(){
             , success: function (params) {
                if(params.result == 'SUCCESS'){
             	   alert('회원가입이 완료되었습니다.');
-            	   location.href="<%= contextPath %>/mainPage.jsp";
+            	   location.href="<%= contextPath %>/mainPage.do";
                } else {
             	   alert('회원가입에 실패하였습니다.');
             	   location.reload();

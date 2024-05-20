@@ -53,15 +53,18 @@ public class ProductImgDAOimpl implements ProductImgDAO{
 			pstmt.setLong(1, productId);
 			rs=pstmt.executeQuery();
 			if (rs.next()) {
-				while (rs.next()) {
-					ProductImgDTO image = new ProductImgDTO().builder()
-										.id(rs.getInt("id"))
-										.productId(rs.getLong("productId"))
-										.imgUrl(rs.getString("imgUrl"))
-										.imgContent(rs.getString("imgContent"))
-										.build();
-								images.add(image);
-					}
+				do {
+					
+						ProductImgDTO image = new ProductImgDTO().builder()
+											.id(rs.getInt("id"))
+											.productId(rs.getLong("productId"))
+											.imgUrl(rs.getString("imgUrl"))
+											.imgContent(rs.getString("imgContent"))
+											.build();
+						
+									images.add(image);
+					
+				} while (rs.next());
 			}else {
 				System.out.println("없음");
 			}

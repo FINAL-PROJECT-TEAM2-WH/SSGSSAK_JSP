@@ -530,7 +530,7 @@ public class ShippingPlaceInfoDAOImpl implements ShippingPlaceInfoDAO {
 		
 		String sql = " SELECT DISTINCT productid, imgurl "
 				+ " FROM productimg "
-				+ " WHERE productid = ? ";
+				+ " WHERE productid = ? AND imgcontent = 'sum' ";
 		
 		try {
 			
