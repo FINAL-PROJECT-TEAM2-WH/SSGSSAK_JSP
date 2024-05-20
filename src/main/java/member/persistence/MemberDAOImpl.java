@@ -370,7 +370,7 @@ public class MemberDAOImpl implements MemberDAO{
 		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			e.printStackTrace();
-
+		
 		} finally {
 			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
@@ -1039,6 +1039,10 @@ public class MemberDAOImpl implements MemberDAO{
 			rowCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			if (e.getMessage().contains("ORA-02289: sequence does not exist")){
+				logOut(id);
+				rowCount = 10;
+			}			
 			JdbcUtil.rollback(conn);
 			
 		} finally {

@@ -29,6 +29,7 @@
 	href="https://sui.ssgcdn.com/ui/ssg/css/odr_v2.css?v=20240507" />
 <link rel="stylesheet" type="text/css"
 	href="https://sui.ssgcdn.com/ui/ssg/css/ssg_component.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
 <script>
 	// regex patterns to identify known bot instances:
 	let botPattern = "(googlebot\/|bot|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)";
@@ -902,16 +903,15 @@
 							<c:if test="${ entry.key eq orderDto.orderdate }">
 								<div class="codr_unit ty_thmb" style="display: inline-block; margin-left: 10px;">
 							<div class="codr_unit_area">
-								<a href="http://www.ssg.com/item/itemView.ssg?itemId=1000017659761&siteNo=6001&salestrNo=2022"
+								<a href="/SSGSSAK/product/product.do?productcode=${ orderDto.productid }"
 									target="_blank">
 									<div class="codr_unit_thmb">
 										<input type="hidden" id="ordItemGrp__ForceShppcstBdnMainCd"
 											value="XX" /> <span class="codr_unit_img" aria-hidden="true">
 											<img
 											src="${ orderDto.imgurl }"
-											srcset="${ orderDto.imgurl }"
 											alt="상품이미지"
-											onerror="javascript:this.src='https://sui.ssgcdn.com/ui/sd/img/common/noImg_100.gif';this.alt='상품 이미지 준비중입니다.';" />
+											style="width: 105px; height: 105px" />
 										</span>
 										<div class="codr_unit_type"></div>
 									</div>
@@ -919,7 +919,7 @@
 								<div class="codr_unit_cont">
 									<p class="codr_unit_tit notranslate">
 										<a
-											href="http://www.ssg.com/item/itemView.ssg?itemId=1000017659761&siteNo=6001&salestrNo=2022"
+											href="/SSGSSAK/product/product.do?productcode=${ orderDto.productid }"
 											target="_blank"> <span class="codr_unit_name">
 												${ orderDto.pdname }</span>
 										</a>
@@ -946,10 +946,6 @@
 				</c:forEach>
 			</c:if>
 			
-						
-						<!-- 여기부터 상품 1개 -->
-						
-						<!-- 여기까지 상품 1개 -->
 		
 			<div class="codr_cont_sec">
 				<div class="codr_contit ty_underline">
@@ -1069,7 +1065,7 @@
 	function orderDetail(button){
 		//alert('상세보기 버튼');
 		let orderId = button.value;
-		alert(orderId);
+		//alert(orderId);
 		location.href = `<%= request.getContextPath() %>/orderDetail.do?orderId=`+orderId;
 	}
 </script>

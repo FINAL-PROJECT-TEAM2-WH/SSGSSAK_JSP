@@ -9,9 +9,6 @@ public class MainPageHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-
-
 		return "/main/mainPage/mainPage.jsp";
 	}
 

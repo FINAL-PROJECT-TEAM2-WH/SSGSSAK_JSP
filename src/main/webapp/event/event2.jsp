@@ -4466,7 +4466,7 @@ function submitEventBtn10(){
     		        contentType: "application/json",  // 일반적으로 GET 요청에서는 contentType을 설정하지 않습니다.
     		        success: function(response) {
     		            //console.log("insert ajax처리 성공");
-    		            alert("ajax 처리!!")
+    		            alert("댓글 추가 완료")
     		        	$.ajax({
     		        		type: "GET",
     		        		url: contextPath + "/eventLogic.do",
