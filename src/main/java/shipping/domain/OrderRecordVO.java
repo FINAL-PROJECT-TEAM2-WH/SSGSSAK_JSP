@@ -23,6 +23,7 @@ public class OrderRecordVO {
 	private long optionprice;
 	private String orderdate;
 	private String memid;
+	private String shippingoptionname;
 	private long payrecordid;
 	private long paydetailid;
 	private long quantity;

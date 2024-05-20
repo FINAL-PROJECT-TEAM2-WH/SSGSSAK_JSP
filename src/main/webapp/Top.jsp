@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
          <% String contextPath = request.getContextPath(); %>       
+         
 <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/common/sentry.bundle.min.js" crossorigin="anonymous"></script>
 <meta property="og:url" content="https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB" />
 <meta property="og:image" content="https://sui.ssgcdn.com/ui/common/img/sns/ssg.png" />
@@ -66,7 +67,7 @@
                             <div class="ssg_mall_layer_head">
                                 <h1>
                                     <a href="javascript:void(0)" class="ssg_logo_link">
-                                        <span class="ssg_logo_slogan">믿고 사는 즐거움</span>
+                                        <span class="ssg_logo_slogan">언제 어디서나 편하게</span>
                                         <i class="logo logo_ssg_com" aria-hidden="true"></i>
                                         <span class="blind">SSG.COM</span>
                                     </a>
@@ -107,10 +108,6 @@
                             <form onsubmit="return false;">
                                 <div class="gnb_searching_inp" data-globalid="search">
                                     <input id="ssg_searchQuery" type="text" value="" class="inp_txt" style="width:px"  />
-                                    <input type="hidden" id="ssgQueryBanrUrl"    name="ssgQueryBanrUrl"    value="">
-                                    <input type="hidden" id="ssgQueryBanrTarget" name="ssgQueryBanrTarget" value="">
-                                    <input type="hidden" id="ssgQuerySub"        name="ssgQuerySub" value="">
-
                                     <button type="button" id="ssgSearchBtn" class="gnb_search_btn">
                                         <i class="icon ty_lg icon_search"></i>
                                         <span class="blind">검색</span>
@@ -156,7 +153,8 @@
                     <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/new/srch.ac.comm.v2.js?v=20240424"></script>
                     <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/lodash-2.4.1.js"></script>
                     <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/srch/new/srch.ac.ssg.ui.v2.js?v=20240424"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+                	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+                 <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    -->
                     <!-- 급상승 검색어(s) -->
                    <div id="cmjumpRank" class="cmjump_rank renew notranslate">
                             <div class="cmjump_totalrank">
@@ -461,7 +459,8 @@ cmjump_rank_lst
 		            var item = itemList[itemIndex];
 		            //alert(item.rankChange);
 		            var itemHtml = '<li class="cmjump_rank_item">';
-		            itemHtml += '<a href="#" class="cmjump_rank_link clickable" >';
+		            itemHtml += `<a href=<%= request.getContextPath() %>/searchQuery.do?searchWord=`+item.searchWord
+		            itemHtml += ' class="cmjump_rank_link clickable">';
 		            itemHtml += '<span class="cmjump_rank_num">' + (itemIndex + 1) + '. </span>';
 		            itemHtml += '<span class="cmjump_rank_tx">' + item.searchWord + '</span>';
 		            // 바뀐 랭크가 0과 null일때
@@ -499,7 +498,8 @@ cmjump_rank_lst
 		            var item = itemList[itemIndex];
 		            //alert(item.rankChange);
 		            var itemHtml = '<li class="cmjump_rank_item">';
-		            itemHtml += '<a href="#" class="cmjump_rank_link clickable" >';
+		            itemHtml += `<a href=<%= request.getContextPath() %>/searchQuery.do?searchWord=`+item.searchWord
+		            itemHtml += ' class="cmjump_rank_link clickable">';
 		            itemHtml += '<span class="cmjump_rank_num">' + (itemIndex + 1) + '. </span>';
 		            itemHtml += '<span class="cmjump_rank_tx">' + item.searchWord + '</span>';
 		            // 바뀐 랭크가 0과 null일때
@@ -566,13 +566,14 @@ cmjump_rank_lst
 	
 	// 키보드 온 프레스 해서 엔터 눌렀을때도 마찬가지로 작동하도록 만들기
 	
-<%-- 	$("#ssgSearchBtn").on("click", function(){
+	$("#ssgSearchBtn").on("click", function(){
 		var searchWord = $("#ssg_searchQuery").val();
 		
 		// 검색작업이 일어나고 검색된 페이지를 뿌려야한다.
+		
 		location.href = `<%= request.getContextPath() %>/searchQuery.do?searchWord=\${ searchWord }`;
 		
-	}) --%>
+	}) 
 	
 </script>
 <!-- //최근 본 상품 -->

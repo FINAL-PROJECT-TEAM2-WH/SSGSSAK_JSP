@@ -59,7 +59,7 @@ public class LoginCheckFilter implements Filter {
 			} else {
 				if (uri.indexOf("admin") != -1) {
 					System.out.println("허용되지 않습니다. ");
-					String location = contextPath + "/mainPage.jsp" + "?auth:fail";
+					String location = contextPath + "/mainPage.do" + "?auth:fail";
 					res.sendRedirect(location);
 				}else {
 					chain.doFilter(request, response);

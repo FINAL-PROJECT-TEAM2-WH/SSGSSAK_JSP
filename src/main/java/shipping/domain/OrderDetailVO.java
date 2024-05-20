@@ -15,17 +15,18 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OrderDetailVO {
 	
-	private String sInfoId;
+	private long sinfoId;
 	private String mname;
 	private String phonenum;
 	private String shippingmsg;
 	private String shippingrequest;
 	private String receiveposition;
 	private String entrance;
-	private String orderid;
+	private long orderid;
 	private String memid;
 	private String receivemem;
 	private String roadaddress;
 	private String detailaddress;
-	
+	private String postnum;
+	private String orderDate;
 }

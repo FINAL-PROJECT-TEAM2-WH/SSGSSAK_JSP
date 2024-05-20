@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import like.persistence.LikeDAO;
@@ -59,7 +60,7 @@ public class LikeHandler implements CommandHandler {
 				}			
 			}	
 		}		
-		conn.close();
+		JdbcUtil.close(conn);
 		// 중복 체크 먼저 해줘야함 . 		
 		request.setAttribute("resultJson" , resultJson);
 		String path = "/userinfo/like/likeResult.jsp";

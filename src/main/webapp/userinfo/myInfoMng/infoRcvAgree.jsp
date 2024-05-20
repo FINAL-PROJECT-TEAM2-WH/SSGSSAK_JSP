@@ -350,7 +350,7 @@
             <div class="cmmyssg_user" data-react-tarea-cd="00034_000000001">
                 <div class="cmmyssg_user_info">
                     <h2 class="cmmyssg_user_tit" data-react-unit-type="text" data-react-unit-id="" data-react-unit-text='[{"type":"tarea_addt_val","value":"이름"}]'>
-                        <a href="http://www.ssg.com/myssg/main.ssg" class="cmmyssg_user_tittx clickable" data-react-tarea-dtl-cd="t00060"><span class="cmmyssg_user_titname">원대안 님</span>의 My SSG</a>
+                        <a href="http://www.ssg.com/myssg/main.ssg" class="cmmyssg_user_tittx clickable" data-react-tarea-dtl-cd="t00060"><span class="cmmyssg_user_titname">${info.name} 님</span>의 My SSG</a>
                     </h2>
                 </div>
             </div>

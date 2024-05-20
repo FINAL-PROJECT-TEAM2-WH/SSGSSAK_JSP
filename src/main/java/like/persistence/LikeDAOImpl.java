@@ -12,9 +12,11 @@ import java.util.Map;
 import org.apache.commons.collections.map.HashedMap;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.util.JdbcUtil;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
@@ -196,5 +198,36 @@ public class LikeDAOImpl implements LikeDAO{
 			JdbcUtil.close(pstmt);
 		}		
 		return rowCount;
+	}
+
+	@Override
+	public ArrayList<String> getFolderName(String id) throws SQLException {		
+		String sql = "SELECT name  "
+				+ " FROM divisionfolder "
+				+ " WHERE memid = ? "
+				+ " order by id ";
+		ArrayList<String> folderList = null;
+		String folderName;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if ( rs.next()) {	
+				folderList = new ArrayList();
+				do {
+					folderName = rs.getString("name");
+					folderList.add(folderName);
+				} while (rs.next());				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		return folderList;
 	}
 }

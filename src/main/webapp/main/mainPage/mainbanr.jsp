@@ -38,7 +38,7 @@
                  data-react-unit-id="2003589588"
                  data-react-unit-text=""
             >
-                 <a href="http://localhost:8080/SSGSSAK/pay/coupon.jsp"
+                 <a href="${pageContext.request.contextPath }/pay/coupon.do"
                    class="ssghero_titlnk clickable"
                    data-react-tarea-cd-old="이벤트 클릭"
                    data-react-tarea-dtl-cd="t00001"
@@ -56,7 +56,7 @@
              data-react-unit-text=""
              
         >
-           <a href="http://localhost:8080/SSGSSAK/pay/coupon.jsp"
+           <a href="${pageContext.request.contextPath }/pay/coupon.do"
                class="ssghero_imglink clickable"
                data-react-tarea-cd-old="이벤트 클릭2"
                data-react-tarea-dtl-cd="t00001"
@@ -70,7 +70,7 @@
         data-react-unit-id="2003594170"
         data-react-unit-text=""
    >
-       <a href="http://localhost:8080/SSGSSAK/pay/coupon.jsp"
+       <a href="${pageContext.request.contextPath }/pay/coupon.do"
           class="ssghero_titlnk clickable"
           data-react-tarea-cd-old="가정의달 쇼핑 익스프레스"
           data-react-tarea-dtl-cd="t00001"
@@ -91,9 +91,9 @@
     data-react-unit-text=""
     
 >
-   <a href="http://localhost:8080/SSGSSAK/event/event1.jsp"
+   <a href="<%= contextPath2 %>/eventList.do?eid=1"
       class="ssghero_imglink clickable"
-      data-react-tarea-cd-old="http://localhost:8080/SSGSSAK/event/event1.jsp"
+      data-react-tarea-cd-old="<%= contextPath2 %>/eventList.do?eid=1"
       data-react-tarea-dtl-cd="t00001"
    >
       <img src="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202405/45708885615997366.jpg&amp;w=234&amp;h=167&amp;edit=c&amp;t=83b3f918016716fe489d365f0cc4aa13a811c56e" srcset="https://simg.ssgcdn.com/trans.ssg?src=/promo/event/ssg/202405/45708885615997366.jpg&amp;w=468&amp;h=334&amp;edit=c&amp;t=63abda426805363dda0f59d0dd4aadc15a470581 2x" onerror="this.onerror=null;this.src='//sui.ssgcdn.com/ui/ssg/img/common/img_evt_osmu.png'" alt="공통 배너 이미지">
@@ -104,9 +104,9 @@
         data-react-unit-id="2003594172"
         data-react-unit-text=""
    >
-       <a href="이벤트 사이트"
+       <a href="<%= contextPath2 %>/eventList.do?eid=1"
           class="ssghero_titlnk clickable"
-          data-react-tarea-cd-old="http://localhost:8080/SSGSSAK/event/event1.jsp"
+          data-react-tarea-cd-old="<%= contextPath2 %>/eventList.do?eid=1"
           data-react-tarea-dtl-cd="t00001"
        >
            <h3 class="ssghero_titmain">[체험단] 뽀숑 반려동물 탈취제 (랜덤)</h3>

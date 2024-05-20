@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.apache.commons.collections.map.HashedMap;
 
@@ -114,16 +115,15 @@ public class MemberDAOImpl implements MemberDAO{
 		} 
 		catch (SQLException e) { 
 			// TODO Auto-generated 
-
+			JdbcUtil.rollback(conn);
 			e.printStackTrace();
 		}finally {
+			JdbcUtil.commit(conn);
 			JdbcUtil.close(pstmt);
 			JdbcUtil.close(rs);
 		}
 
 		try {			
-
-
 			sql = sql.format("INSERT INTO auth (id,name,privilege) VALUES ('%s','%s','%s')", id,name,privilege);
 			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);	
@@ -370,7 +370,7 @@ public class MemberDAOImpl implements MemberDAO{
 		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			e.printStackTrace();
-
+		
 		} finally {
 			JdbcUtil.commit(conn);
 			JdbcUtil.close(rs);
@@ -954,6 +954,142 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 
 		return countList;
+	}
+
+
+	@Override
+	public int quitMbr(String id, String quitReason) throws SQLException {
+		
+		
+		int rowCount = 0 ; 		
+		
+		// quitMbr 에 넣는 코드 
+		String sql = "INSERT INTO quitMember VALUES (?,SYSDATE,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, quitReason);
+			rowCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		// 값들을 delete 하는 코드 
+		sql = "UPDATE member "
+			+ "SET email='N', phoneNum='N', name='N',passwd=?,birthD='',loginnotification='',login2notification='',privilege='' "
+			+ "WHERE id = ? ";
+		UUID uuid = UUID.randomUUID();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, uuid.toString());
+			pstmt.setString(2, id);
+			rowCount += pstmt.executeUpdate();	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+	
+		return rowCount;
+	}
+
+
+	@Override
+	public boolean findlogId(String id) throws SQLException {
+		String sql = "SELECT * FROM auth WHERE id = ? ";
+		
+		boolean loginStatus = false;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if ( !rs.next()) {
+				loginStatus = true;
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		
+		return loginStatus;
+	}
+
+
+	@Override
+	public int regiLoginLog(Map<String, String> loginLogMap, String id) throws SQLException {
+		String sql = "INSERT INTO loginLog VALUES (loginLog_seq.NEXTVAL , "
+				+ " ?, ?, ?,'ID/PW로그인', ?,'대한민국', ? )";
+		int rowCount = 0 ; 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, loginLogMap.get("platform"));
+			pstmt.setString(3, loginLogMap.get("browserType"));
+			pstmt.setString(4, loginLogMap.get("au_ip"));
+			pstmt.setString(5, loginLogMap.get("requestTime"));
+			rowCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			if (e.getMessage().contains("ORA-02289: sequence does not exist")){
+				logOut(id);
+				rowCount = 10;
+			}			
+			JdbcUtil.rollback(conn);
+			
+		} finally {
+			JdbcUtil.commit(conn);
+			JdbcUtil.close(pstmt);
+		}
+		return rowCount;
+	}
+
+
+	@Override
+	public ArrayList<Map<String,String>> getloginLog(String id) throws SQLException {
+		String sql = " SELECT memid, OPERATINGSYSTEM, BROWSERAPP, "
+				+ " LOGINTYPE, IPADDRESS, CONNECTIONNATION, RECENTLOGINDATE"
+				+ " FROM loginlog "
+				+ " WHERE memid = ? ";
+		String memid, operationsystem, browserApp, logintype, ipaddress, connectionnation, recentloginDate;
+		Map<String,String> loginMap = new HashedMap();
+		ArrayList<Map<String,String>> loginLogList = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();	
+			if ( rs.next()) {
+				loginLogList = new ArrayList();
+				do {
+					memid = rs.getString("memid");
+					operationsystem = rs.getString("OPERATINGSYSTEM");
+					browserApp = rs.getString("BROWSERAPP");
+					logintype = rs.getString("LOGINTYPE");
+					ipaddress = rs.getString("IPADDRESS");
+					connectionnation = rs.getString("CONNECTIONNATION");
+					recentloginDate = rs.getString("RECENTLOGINDATE");	
+					loginMap.put("memid", memid);
+					loginMap.put("OPERATINGSYSTEM", operationsystem);
+					loginMap.put("BROWSERAPP", browserApp);
+					loginMap.put("LOGINTYPE", logintype);
+					loginMap.put("IPADDRESS", ipaddress);
+					loginMap.put("CONNECTIONNATION", connectionnation);
+					loginMap.put("RECENTLOGINDATE", recentloginDate);									
+					loginLogList.add(loginMap);
+				} while(rs.next());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return loginLogList;
 	}
 
 

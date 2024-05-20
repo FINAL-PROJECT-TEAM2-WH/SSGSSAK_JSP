@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import member.domain.MemberDTO;
@@ -40,6 +41,7 @@ public class ChangePwdHandler implements CommandHandler{
 			if ( rowCount == 1 ) {
 				System.out.println("비밀번호 변경 성공");
 				LogoutHandler logoutHandler = new LogoutHandler();
+				JdbcUtil.close(conn);
 				logoutHandler.process(request, response);
 			} else {
 				System.out.println("비밀번호 변경 실패");

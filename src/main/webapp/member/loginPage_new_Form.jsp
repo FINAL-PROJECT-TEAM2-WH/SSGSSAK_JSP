@@ -323,7 +323,7 @@
                             <span class="cmem_chk notranslate"><input type="checkbox" id="keep_id" name="keep_id"><label for="keep_id">아이디 저장</label></span>
                             <span class="login_support_pannel notranslate">
 						<a href="javascript:void(0);" onclick="goSslCallback('https://member.ssg.com/member/findIdPw.ssg');" class="find_id">아이디 찾기</a>
-						<a href="javascript:void(0);" onclick="goSslCallback('https://member.ssg.com/member/findIdPw.ssg?tabType=pw');" class="find_password">비밀번호 찾기</a>
+						<a href="javascript:void(0);" onclick="gocallBack('<%=contextPath%>/member/login/checkValid.do')" class="find_password">비밀번호 찾기</a>
 						<a href="javascript:void(0);" onclick="goJoinPage('https://member.ssg.com/member/join/auth.ssg', 'https://www.ssg.com/?ckwhere=ssg_ggbr&_a1_kad=18e3b5163515e1&_a1_site=ssg&gad_source=1&gclid=Cj0KCQjw0MexBhD3ARIsAEI3WHJHhFOkFmGMqVmb6vW1PsX-HOsLdrzS6wEPfP0QtZj6gozPycVByZIaAlAzEALw_wcB');" class="find_join">회원가입</a>
 					</span>
                         </div>
@@ -2353,6 +2353,12 @@ $('#loginBtn').one('click', function () {
     });
    /*  parent.location.reload(); */
 });
+
+function gocallBack(url) {
+	var parent = window.opener;
+	parent.location.href = url;
+	window.close();
+}
 
 </script>
 </div>
