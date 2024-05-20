@@ -5,12 +5,7 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>SSGSSAK</display-name>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>
 
 
@@ -23,26 +18,23 @@
 	    <param-value>UTF-8</param-value>
 	  </init-param>
 	</filter>
-
+	<filter-mapping>
+	  <filter-name>characterEncodingFilter</filter-name>
+	  <url-pattern>/*</url-pattern> 
+	  <dispatcher>REQUEST</dispatcher>
+	</filter-mapping> 
 
 	<filter>
 		<description>권한 체크 필터</description>
 		<filter-name>loginCheckFilter</filter-name>
 		<filter-class>com.filter.LoginCheckFilter</filter-class>
-
 	</filter>
 	<filter-mapping>
 		<filter-name>loginCheckFilter</filter-name>
 		<url-pattern>/memberInfo/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
-
-
-	<filter-mapping>
-	  <filter-name>characterEncodingFilter</filter-name>
-	  <url-pattern>/*</url-pattern> 
-	  <dispatcher>REQUEST</dispatcher>
-	</filter-mapping> 
+	
  
   	  <servlet>
 	    <description>MVC</description>
@@ -67,11 +59,6 @@
 	<servlet-name>dispatcher</servlet-name>
 	<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
- 
- 
-
-
- 
 
 	<servlet>
 		<servlet-name>jsp</servlet-name>

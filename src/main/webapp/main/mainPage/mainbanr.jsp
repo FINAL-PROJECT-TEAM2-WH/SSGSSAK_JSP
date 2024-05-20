@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    	String contextPath2 = request.getContextPath();
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -121,10 +124,8 @@
     data-react-unit-text=""
     
 >
-   <a href="http://localhost:8080/SSGSSAK/event/event2.jsp"
+ <a href="<%= contextPath2 %>/eventList.do?eid=1"
       class="ssghero_imglink clickable"
-      data-react-tarea-cd-old="보타닉센스"
-      data-react-tarea-dtl-cd="t00001"
    >
        <img src="https://sstatic.ssgcdn.com/promo/event/ssg/202404/44245131910526589.jpg" alt="선스크린_1">         
         </a>

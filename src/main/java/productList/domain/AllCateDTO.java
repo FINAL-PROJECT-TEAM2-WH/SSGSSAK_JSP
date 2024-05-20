@@ -18,5 +18,6 @@ public class AllCateDTO {
 	private ArrayList<MiddleCateDTO> 	mdcDtoList;
 	private ArrayList<SubCateDTO>	 	scDtoList;
 	private ArrayList<MiniCateDTO> 		mncDtoList;
-
+	private CurrentCateDTO				crtCateDto;
+  
 }

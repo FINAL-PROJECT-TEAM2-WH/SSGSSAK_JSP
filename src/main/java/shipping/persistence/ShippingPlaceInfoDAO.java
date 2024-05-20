@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import member.domain.PageDTO;
+import shipping.domain.OrderDetailVO;
 import shipping.domain.OrderRecordVO;
 import shipping.domain.ShippingPlaceInfoDTO;
 
@@ -37,4 +38,8 @@ public interface ShippingPlaceInfoDAO {
 	LinkedHashMap<String, String> orderDateList(Connection conn, String memid) throws Exception;
 	
 	int[] orderRecordDelete(Connection conn, String memid, long[] ids) throws Exception;
+	
+	OrderDetailVO shippingDetailView(Connection conn, String memid, long[] ids) throws Exception;
+	
+	ArrayList<OrderRecordVO> orderDetailList(Connection conn, String memid, long[] ids) throws Exception;
 }

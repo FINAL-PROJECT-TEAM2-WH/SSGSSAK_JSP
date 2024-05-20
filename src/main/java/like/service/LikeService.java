@@ -1,21 +1,22 @@
-package member.service;
+package like.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Map;
 
 import com.util.JdbcUtil;
 
-import member.persistence.MemberDAO;
+import like.persistence.LikeDAO;
 
 public class LikeService {
 private static LikeService instance = null;
 	
-	private MemberDAO dao = null;
+	private LikeDAO dao = null;
 	private Connection conn = null;
 	
 	private LikeService() {}
 	
-	public LikeService(MemberDAO dao) {
+	public LikeService(LikeDAO dao) {
 		this.dao = dao;
 	}
 
@@ -64,5 +65,30 @@ private static LikeService instance = null;
 		}
 		return rowCount;
 		
+	}
+	
+	public int cancelLike(ArrayList<String> productIdList, String id) {
+		int rowCount = 0;
+		try {
+			rowCount = dao.cancelLike(productIdList, id) ; 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {		
+			JdbcUtil.close(conn);
+		}
+		return rowCount;
+		
+	}
+	
+	public int addFolder(String id, String folderName) {
+		int rowCount = 0;
+		try {
+			rowCount = dao.addFolder(id,folderName) ; 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {		
+			JdbcUtil.close(conn);
+		}
+		return rowCount;
 	}
 }

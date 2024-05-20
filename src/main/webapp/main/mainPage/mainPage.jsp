@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  -->
 <!doctype html>
 <html lang="ko">
 <head>
+<!-- <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.min.js"></script>  -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" type="image/x-icon" href="//sui.ssgcdn.com/ui/common/img/ssg.ico">
@@ -32,8 +37,9 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','GA4_dataLayer','GTM-PWBFGRL');</script>
 
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.min.js"></script>
+<!-- <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js"></script> -->
+
+<!-- <script type="text/javascript" src="//sui.ssgcdn.com/ui/ssg/js/lib/jquery.cookie.min.js"></script> -->
 <script type="text/javascript">
     var settings = {
         localDomain : location.hostname,
@@ -73,10 +79,8 @@
                 emartMember : 'member.sfcmall.emart.com'
             }
         },
-        cdn : {
-            
+        cdn : {  
             imgPath : 'https://sui.ssgcdn.com/ui/ssg/img',
-            
             trans : '//simg.ssgcdn.com/trans.ssg',
             noImg : {
                 50  : '/ui/ssg/img/common/img_ready_500x500.jpg',
@@ -94,6 +98,7 @@
                 400 : '/ui/ssg/img/common/img_ready_500x500.jpg',
                 500 : '/ui/ssg/img/common/img_ready_500x500.jpg'
             },
+            
             itemPath : '//sitem.ssgcdn.com',
             uccPath : '//succ.ssgcdn.com',
             uploadDefaultUrl: '/temp_up/',
@@ -624,8 +629,7 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
                 var url = '/main/ajaxMainLayerPopupPc.ssg?siteNo='+siteNoParam+'&type='+typeParam;
                 if(typeParam == 'preview') {
                     url = "/main/ajaxMainLayerPopupPcForPreview?popupId=" + "";
-                }
-            
+                }  
         $.ajax({
             type : "GET",
             url : url,
@@ -707,7 +711,8 @@ src="https://www.facebook.com/tr?id=1668002603429849&ev=PageView&noscript=1"
 
 
         <!-- 구현할것들 -->
-<%@include file="./WHmake.jsp" %>
+<%@include file="./mainProdWear.jsp" %>
+<%@include file="./mainProdFood.jsp" %>
 
 <%@include file="./newNews.jsp" %>
 <!--  ----------------------------- -->
