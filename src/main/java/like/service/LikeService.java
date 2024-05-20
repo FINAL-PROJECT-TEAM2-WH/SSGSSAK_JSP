@@ -91,4 +91,16 @@ private static LikeService instance = null;
 		}
 		return rowCount;
 	}
+	
+	public ArrayList<String> getFolderName(String id) {
+		ArrayList<String> folderList = null;
+		try {
+			folderList = dao.getFolderName(id) ; 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {		
+			JdbcUtil.close(conn);
+		}
+		return folderList;
+	}
 }

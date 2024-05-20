@@ -13,4 +13,6 @@ public interface LikeDAO {
 	public int cancelLike(ArrayList<String> productList, String id) throws SQLException;
 	
 	public int addFolder(String id, String folderName ) throws SQLException;
+
+	public ArrayList<String> getFolderName(String id) throws SQLException;
 }

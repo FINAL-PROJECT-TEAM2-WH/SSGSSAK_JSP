@@ -41,4 +41,18 @@ private static LogoutService instance = null;
 		
 		return rowCount;
 	}
+
+	public boolean findlogId(String id) {
+		boolean logStatus = false;
+		try {		
+			logStatus = dao.findlogId(id);		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);
+		}
+		
+		
+		return logStatus;
+	}
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.JsonObject;
 import com.util.ConnectionProvider;
+import com.util.JdbcUtil;
 
 import controller.CommandHandler;
 import like.persistence.LikeDAO;
@@ -53,16 +54,15 @@ public class LikeCancelHandler implements CommandHandler{
 				rowCount = service.cancelLike(productIdList, id);
 			} else {
 				
-			}
-			
-			
+			}			
+			System.out.print(rowCount);
 			if (rowCount >= 1) {
 				resultJson += "\"Success\"}";
 			} else {
 				resultJson += "\"Fail\"}";
 			}	
 		}		
-		conn.close();
+		JdbcUtil.close(conn);
 		/*
 		 * String [] productId = request.getParameterValues("productId");
 		 * System.out.println("> LikeCancelHandler GET IN...");
