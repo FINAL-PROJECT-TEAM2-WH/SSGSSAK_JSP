@@ -16,6 +16,7 @@ public class ProductDTO {
 	String brand ; 
 	String seller ; 
 	String pdname ; 
+	String optionname;
 	String optiondesc;
 	int price ; 
 	int deshipfee ;
