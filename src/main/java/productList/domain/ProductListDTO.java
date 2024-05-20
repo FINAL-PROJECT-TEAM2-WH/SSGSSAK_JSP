@@ -1,10 +1,13 @@
 package productList.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import product.domain.ProductImgDTO;
 
 @Getter
 @Setter
@@ -25,7 +28,6 @@ public class ProductListDTO {
     private long discount;
     private long reviewCount;
     private double avgGrade;
-    
-    
+    private String imgurl;
 
 }

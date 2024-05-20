@@ -30,6 +30,60 @@ public class CategoryDAOimpl implements CategoryDAO {
 	public CategoryDAOimpl(Connection conn) {
 		this.conn = conn;
 	}
+	
+	
+	
+	@Override
+	public ArrayList<MajorCateDTO> selectMajorCate() throws SQLException {
+		ArrayList<MajorCateDTO> 	mjcDtoList=null;
+		String id;            
+		String majorCateName;
+		
+		
+		String mjcSql = " SELECT DISTINCT majorCateName, id "
+				+ " FROM category "
+				+ " WHERE id LIKE '%000000' "
+				+ " AND majorCateName IS NOT NULL ";
+		
+		try {
+			pstmt = conn.prepareStatement(mjcSql); 
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				mjcDtoList = new ArrayList<MajorCateDTO>();
+				MajorCateDTO dto = null;
+				do {
+					majorCateName= rs.getString(1);
+					id= rs.getString(2);   
+
+					dto = new MajorCateDTO()
+							.builder()
+							.id(id)
+							.majorCateName(majorCateName)
+							.build();
+					mjcDtoList.add(dto);
+					System.out.println("mjcDtoList에 대카테정보담아짐");
+				} while (rs.next());
+
+			} // if 
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("여기서 오류뜨면 mjcDtoList에 담기는게 안되는거임");
+		} finally {
+			try {
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+				JdbcUtil.close(conn);
+			} catch (Exception e2) {
+				System.out.println(" mjcDtoList 닫기실패");
+			}
+		}
+		
+		return mjcDtoList;
+		
+	}
 	@Override
 	public AllCateDTO selectCate(String categoryId) throws SQLException {
 		System.out.println("selectCate 실행됨");

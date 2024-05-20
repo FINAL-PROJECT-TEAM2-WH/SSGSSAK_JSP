@@ -87,13 +87,13 @@ function generateProductList(products) {
 					data-react-tarea="메인매장|쓱1DAY배송|상품_클릭|NEW 캐츠랑 전연령 점보 업그레이드 20kg_2097001814277"
 					data-info="2097001814277" data-index="3" data-position="view"
 					data-unit="img" data-react-tarea-dtl-cd="t00001"> <img
-					srcset="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
-					src="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
+					srcset="\${product.imgurl}"
+					src="\${product.imgurl}"
 					onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=232&h=232&t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'"
 					class="i1" width="290" height="290" alt="마우스 올리기 전의 이미지"
 					loading="lazy"> <img
-					srcset="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
-					src="https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg"
+					srcset="\${product.imgurl}"
+					src="\${product.imgurl}"
 					onerror="this.onerror=null;this.src='https://simg.ssgcdn.com/trans.ssg?src=/ui/ssg/img/common/img_ready_500x500.jpg&w=232&h=232&t=9ba4c0524addb9b9ec561d5523b3baf3f90ae796'"
 					class="i2" width="290" height="290" alt="마우스 올린 후의 이미지"
 					aria-hidden="true" loading="lazy">
